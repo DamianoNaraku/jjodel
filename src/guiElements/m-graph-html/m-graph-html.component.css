@@ -1,0 +1,99 @@
+/************************************************** statici */
+
+.template, .MDefaultStyles{
+  display: none;
+}
+
+.tabContent{
+  display: flex;
+  flex-flow: nowrap;/*?*/
+  /*margin-top: calc( var(--mainBorderWidth) * 2 );*/
+}
+
+/*olds*/
+
+
+#defaultMGraphHtmlVertex, #defaultMSidebarHtmlVertex, replace{
+  display:none;
+}
+
+.HiddenStructures > *{
+  display: none;
+}
+
+#mproperty_sidebar, .sidebarShell, .editorShell, .propertyBarContainer{
+  flex-basis: 0;/* calc(var(--sidebarW));*/
+  flex-grow: 1;
+  background-color: var(--mainBackgroundColor);
+  /*border-right: var(--mainBorder);*/
+  width: calc(var(--sidebarW));
+  /*height: calc(100vh - (var(--topbarH) + var(--tabH)));*/
+  overflow: hidden;
+  /*flex-wrap: wrap;
+  margin-top: 5px;
+  border-top: var(--mainBorder);*/
+}
+.sidebarShell{ border-right: var(--mainBorder); }
+.propertyBarContainer{ border-left: var(--mainBorder); }
+.editorShell{
+  flex-grow: 3;
+}
+/*#sidebar, */#metamodel_sidebar, #model_sidebar, .property_sidebar{
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;/*si attiva solo se entra tutto in una riga e avanza pure spazio*/
+                align-items: flex-start;
+                align-content: flex-start;/*accatasta tutto verticalmente verso la cima invece di spaziarli.*/
+                padding-right:5px;
+              }
+
+#msidebar>*:first-child, #metamodel_sidebar>*:first-child, #model_sidebar>*:first-child{
+  background-color: var(--mainBorderColor);
+  width: var(--mainBorderWidth);
+  right: 0px;
+}
+#msidebar>*:not(:first-child), #metamodel_sidebar>*:not(:first-child), #model_sidebar>*:not(:first-child){
+  padding: 2px;
+  max-width: 200px;
+  min-width: 75px;
+  flex-basis: 75px;/*should === min-width per mantenere l'effetto.*/
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.sidebarVertex:hover{
+  background-color: var(--mainBorderColor);
+  border: 2px solid var(--secondaryBorderColor);
+  padding: 0px;
+}
+
+.sidebarVertex{
+  min-width: 50px;
+  min-height: 50px;
+  flex-basis:50px;
+}
+
+@media all and (min-width: 200px) {
+  .sidebarVertex {
+    flex-grow: 0; }
+}
+#metamodel_editor, #model_editor{
+  width: 100%;
+  height: 100%;
+}
+
+
+.rawContainer{
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+h2.rawTitle{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rawecore{
+  display: flex;
+  flex-grow:1;
+  flex-shrink:1;
+}

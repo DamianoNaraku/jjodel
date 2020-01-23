@@ -1,0 +1,31 @@
+<div id="damContextMenuTemplateContainer" class="contextMenuRoot">
+    <ul class="vertex contextMenu">
+      <li class="Vertex delete">Delete Vertex</li>
+      <li class="Vertex duplicate">Duplicate Vertex</li>
+      <li class="m1hide Vertex extend">Extend</li>
+      <li class="Feature delete">Delete Feature</li>
+      <li class="Feature duplicate">Duplicate Feature</li>
+      <li class="Reference reflistparent">References
+        <ul class="reflist">
+          <li class="refli template" data-index="-1"><span class="index"></span><span class="text"></span><button class="refli delete btn btn-sm btn-danger">X</button></li>
+          <li class="refli todo"><button class="firstempty btn btn-sm btn-outline-primary">Select first empty</button></li>
+          <li class="refli todo"><label><input class="byindex" type="number" value="0" min="0" max="-10" step="1"><button class="byindex btn btn-sm btn-outline-primary">Select by index</button></label></li>
+        </ul>
+      </li>
+      <li class="separator"></li>
+      <li class="Vertex up">Push vertex Up (Z-order)</li>
+      <li class="Vertex down">Push vertex Down (Z-order)</li>
+      <li class="todo Feature autofixinstances m2hide">Autofix instances</li>
+      <li class="todo Feature autofix">Autofix conformity</li>
+      <li class="Feature up">Move feature Up</li>
+      <li class="Feature down">Move feature Down</li>
+    </ul>
+    <ul class="extedge contextMenu">
+      <li class="edge delete">Delete generalization</li>
+      <li class="edge change">Edit generalization</li>
+    </ul>
+    <ul class="edge contextMenu">
+      <li class="edge delete">Delete reference</li>
+      <li class="edge change">Edit reference</li>
+    </ul>
+</div>

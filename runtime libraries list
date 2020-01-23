@@ -1,0 +1,7 @@
+**name**                **used for**        **license**         **source**
+ansi_up                 console             MIT License         https://github.com/drudru/ansi_up
+jquery                  misc
+jqueryui                .measurables
+prj_json2xml            json -> xml
+prj_xml2json            xml -> json
+detectZoom              detect chrome browser zoom bug and alert user // WTFPL and MIT license, at the recipient's choice. //  http://tombigel.github.io/detect-zoom/

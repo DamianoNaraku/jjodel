@@ -1,0 +1,92 @@
+.RatioBox{
+  position: relative;
+  width: 50%;		/* desired width */
+}
+.RatioBox:before{
+  content: "";
+  display: block;
+  padding-top: 100%; 	/* initial ratio of 1:1*/
+}
+.RatioContent{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.sidebarClassContainer{
+  padding-top: 16px;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+.sidebarNode{
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.sidebarNodeName{
+  display: flex;
+  margin: auto;
+}
+.modelTab{
+  background-color: var(--mainBackgroundColor);
+  margin-top: -11px;
+}
+.mat-tab-label{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: var(--mainBorder);
+  border-bottom: unset;
+  opacity: 1 !important;
+  width: 160px !important;
+}
+.mat-tab-label.mat-tab-label-active{
+  background-color: var(--mainBorderColor);}
+.mat-tab-label{
+  background-color: var(--mainBackgroundColor);}
+.mat-tab-label-container{
+  background-color: var(--mainBackgroundColor);
+  border-bottom: var(--mainBorder);
+}
+/* property bar raws */
+.propertyTab{
+  display: flex;
+  height: 40px;
+}
+h2.rawTitle{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rawecore{
+  display: flex;
+  flex-grow:1;
+  flex-shrink:1;
+}
+/*
+
+.tablist{
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+}
+.tabButton{
+  cursor: default;
+  display: inline-block;
+  background-color: var(--mainBackgroundColor);
+  border: var(--mainBorder);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 3px 15px;
+
+}
+.tabButton[data-tabselected="true"]{
+  background-color: var(--mainBorderColor); }
+#editorTabContainer{
+  display: inline-block;
+  width: 100vw;
+  background-color: var(--mainBackgroundColor);
+  border-bottom: var(--mainBorder);
+  top: calc(var(--topbarH));
+  height: var(--tabH);
+}*/

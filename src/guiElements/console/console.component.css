@@ -1,0 +1,66 @@
+
+.consoleRoot{
+  color: var(--mainFontColor);
+  background-color: var(--mainBackgroundColor);
+  font-family: monospace,monospace;
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: column;
+}
+.consoleContent{
+  width: 100%;
+}
+.inputLine{
+  display: flex;
+  margin-top: auto;
+}
+.inputEcho, .input, .output, .suggestion{
+  width: 100%;
+  /* padding: 16px 4px;*/
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 5em;
+  line-height: 1.5;
+}
+.input{
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: auto;
+}
+.suggestion{
+  flex-grow: 1;
+  width: auto;
+  padding-left: 0;
+}
+.inputEcho{
+  font-style: italic;
+}
+.inputEcho:before, .input:before, .output:before{
+  content: '> ';
+  color: palevioletred;
+  vertical-align: top; }
+.input:before {
+  color: #FC3565;
+}
+.output:before {
+  color: #5F8787;
+  font-weight: 600 !important;
+}
+.suggestion{
+  color: gray;
+}
+.error {
+  color: palevioletred;
+}
+
+/*
+.output-cmd:before {
+  content: '> ';
+  color: #FC3565;
+  vertical-align: top;
+}*/

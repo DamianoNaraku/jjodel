@@ -1,0 +1,95 @@
+#damContextMenuTemplateContainer{
+  display: none;
+}
+.contextMenuRoot{
+  position: absolute;
+  display: inline-block;
+  max-height: 100vh;
+  max-width: 100vw;
+  overflow: visible;
+}
+.reflist{ display: none; }
+.reflistparent:hover > .reflist { display: block; }
+.refli {
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  display: flex;
+  padding-right: 10px; }
+.refli .firstempty{
+  width: 100%;
+}
+.refli .byindex {
+  width: 35px;
+}
+.reflistparent{
+  position: relative;
+}
+.refli .index {
+  padding-left: 3px;
+  color: orange;
+}
+.refli .text{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+button.refli.delete{
+  padding: 0 4px;
+  margin-left: auto;
+  display: flex;
+}
+.reflist {
+  left: calc(100%);
+  position: absolute;
+  background: white;
+  border: 1px solid black;
+  border-left: none;
+  padding: 2px 5px;
+  padding-right: 0;
+  top: 0;
+}
+ul.contextMenu{
+  border: 1px solid black;
+  background-color: white;
+  padding: 10px;
+  padding-top: 6px;
+  padding-bottom: 8px;
+  padding-right: 0;
+}
+li:first-child{
+  padding-top: 0;
+}
+li.separator{
+  margin-top: 2px;
+  height: 1px;
+  padding: 0;
+  background-color: gray;
+}
+li:last-child{
+  border-bottom: none;
+}
+li:hover{
+  padding-left: 5px;
+  padding-right: 5px;
+  color: dodgerblue;
+}
+li{
+  display: block;
+  cursor: default;
+  font-size: 0.75rem;
+  padding-top: 2px;
+  padding-right: 10px;
+  color: #b2b2ba;
+}
+li:hover li{
+  display: flex;
+  cursor: default;
+  font-size: 0.75rem;
+  padding-top: 2px;
+  padding-right: 10px;
+  color: #b2b2ba; }
+
+li:hover li:hover{
+  padding-left: 5px;
+  padding-right: 5px;
+  color: dodgerblue;
+}

@@ -1,0 +1,198 @@
+::ng-deep :root  {/* css variables */
+  --topbarH: 40px;
+  --sidebarW: 20vw;
+  --mainFontColor: whiteSmoke;
+  --mainBackgroundColor: #1a1a1c;/*whiteSmoke;*/
+  --mainBorderWidth: 5px;
+  --mainBorderColor: #2e2f34;/*#e5e5e5;*/
+  --secondaryBorderColor: #3c3c44;/*#c5c5c5;*/
+  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);
+  --scrollbarW: 0px;
+  --tabH: 30px;
+}
+::ng-deep *{
+  box-sizing: border-box;
+  scrollbar-base-color: transparent;
+  scrollbar-3dlight-color: transparent;
+  scrollbar-highlight-color: rgba(93,95,104,0);
+  scrollbar-track-color: rgba(93,95,104,0);
+  scrollbar-arrow-color: #000;
+  scrollbar-shadow-color: rgba(93,95,104,0);
+  scrollbar-darkshadow-color: rgba(93,95,104,0);
+  /* -moz-appearance: none !important; */
+}
+/*::-webkit-scrollbar {
+    display: none;
+}*/
+*:disabled { cursor: not-allowed !important; }
+input[type=checkbox]{ -moz-appearance: checkbox !important; }
+input[type=radio]{ -moz-appearance: radio !important; }
+input:disabled{
+  opacity : .75;
+  filter  : alpha(opacity=75); /* IE<9 */
+}
+::ng-deep .styleEditorSelected{
+  outline: 3px dashed red !important;
+}
+/*olds*/
+
+/****************** attributeEditor.css */
+.attributeEditor, .styleEditor{
+  /*display:inline-box;*/
+  position: absolute;
+  width: -moz-fit-content;
+  padding:8px;
+  background-color: var(--mainBackgroundColor);
+  border: var(--mainBorder);
+  max-width: 100vw;
+  max-height:100vh;
+  overflow: auto;
+}
+.styleEditor{
+  left: var(--sidebarW);
+  top: calc(var(--topbarH) + var(--tabH));
+  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/
+  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));
+}
+button.attributeEditorConfirm, button.styleEditorConfirm{
+  margin-left: calc(50% - 50px);
+  /* width:100px;
+   height:30px;*/
+}
+table.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{
+  max-width:150px;
+  max-height:150px;
+  overflow:auto;
+}
+.styleTable{
+  margin-top:10px;
+  text-align: center;
+}
+.styleTable td{
+  max-width: 300px;
+}
+.attributeEditorTitle, .styleEditorTitle{
+  text-align: center;
+}
+.edgeRow{
+  display: flex;
+}
+.edgeRow>*{
+  display: flex;
+  margin: 0px;
+  flex-flow: column;
+  text-align: center;
+  padding: 4px;
+  flex-basis: 0px;
+  flex-grow: 0;
+  white-space: nowrap;
+}
+.isCompoundEdge{
+  display: flex;
+  margin: auto;
+}
+.styleCompoundWrapper{
+  flex-grow: 1;
+}
+.compoundEdgeStart, .compoundEdgeEnd{
+  text-align: center;
+  width: 100%;
+}
+.SidebarStyleHtml, .GraphStyleHtml{
+  display: flex;
+  justify-content: center;
+}
+/*
+table.attributeTable {
+    border:none;
+    border-collapse: collapse;
+}
+
+table.attributeTable td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+table.attributeTable td:first-child {
+    border-left: none;
+}
+
+table.attributeTable td:last-child {
+    border-right: none;
+}*/
+
+.attributeEditorTitle input[type="checkbox"], .styleEditorTitle input[type="radio"]{
+  margin: 4px;
+}
+.ReferenceSelector{
+  float: right;
+}
+
+.rowModelDetail, .vertexModelDetail{
+  float: right;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  padding-top: 2px;
+}
+.vertexModelDetail{
+  margin-left: 10px;
+  float:none;
+}
+
+
+/*//////////////////////////////////////////////////  css.css nothing of this should work*/
+/*
+.sidebarShell, .editorShell, .property_sidebar{
+  display: inline-block;/*flex;* /
+  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /
+  overflow: hidden;
+  flex-wrap: wrap;}
+.sidebarShell{
+  flex-grow: 0;
+  flex-basis: calc(var(--sidebarW));
+  background-color: var(--mainBackgroundColor);
+}
+#property_sidebar{
+  flex-grow: 0;
+  flex-basis: calc(var(--sidebarW));
+  background-color: var(--mainBackgroundColor);
+}
+.editorShell{
+  flex-basis: 0px;
+  flex-grow: 1;
+  width: calc(100vw - var(--sidebarW));
+}
+*/
+#metamodel_tab, #model_tab{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 100vw;}
+
+
+#metamodel_editor, #model_editor{
+  display: flex;
+  flex-basis: 0px;
+  flex-grow: 1;
+  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */
+  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));
+  background-color: #44444c;/*lightgoldenrodyellow;*/
+}
+#input{
+  display:none;
+  width: 100vw;
+  height: 300px;
+  overflow-y:scroll;
+}
+
+
+
+
+
+table.noBorder{
+  border: none;
+}

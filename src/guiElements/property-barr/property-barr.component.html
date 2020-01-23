@@ -1,0 +1,41 @@
+<div class="property_sidebar">
+  <div class="propertySidebarCurrentContent"></div>
+  <div class="propertySidebarTemplates template">
+    <div class="minimizer single"></div>
+    <div class="content">
+      <label class="model">URI:<input class = "uri m1disable" pattern="^[a-zA-Z_$][a-zA-Z_$0-9]*$"></label>
+      <label class="model">Namespace:<input class = "namespace m1disable" pattern="^[a-zA-Z_$][a-zA-Z_$0-9]*$"></label>
+      <label class="class m2hide">Is Root<input type="checkbox" class="isRoot"></label>
+      <label class="operation">Access modifier:<select class="specialjs visibilitySelector m1disable"></select></label>
+      <label class="literal">Ordinal:<input class="value" type="number"></label>
+      <label>Name:<input class="name m1disable" placeholder="nameless" pattern="^[a-zA-Z_$][a-zA-Z_$0-9]*$"></label>
+      <label class="literal">Literal:<input class="literal" placeholder="will inherit from name" pattern="^[a-zA-Z_$][a-zA-Z_$0-9]*$"></label>
+      <label class="parameter">Type:<select class="m1disable" data-primitive="true" data-enum="true" data-class="true"></select></label>
+      <label class="attribute">Type:<select class="m1disable" data-primitive="true" data-enum="true"></select></label>
+      <label class="reference">Target Type:<select class="m1disable" data-class="true"></select></label>
+      <label class="attribute m2hide">Value:<input type="text" class="attributeValue" placeholder="[ empty ]"></label>
+      <label class="reference">Is containment:<input type="checkbox" class="referenceContainment m1disable"></label>
+      <label class="parameter">Is ordered:<input type="checkbox" class="ordered m1disable"></label>
+      <label class="parameter">Values are unique:<input type="checkbox" class="unique m1disable"></label>
+      <label class="attribute reference parameter">LowerBound:<input type="number" step="1" min="-1" class="lowerbound m1disable" placeholder="-1"></label>
+      <label class="attribute reference parameter">UpperBound:<input type="number" step="1" min="-1" class="upperbound m1disable" placeholder="-1"></label>
+      <label class="operation">Exceptions:<input class="exceptions" placeholder="throwable exceptions, comma-separated."></label>
+      <div class="replaceVarOn model"><label>Packages: ($##childrens.length$)</label>
+        <div class="wastemplate list"><div class="minimizer"></div><div class="content list packageList"></div></div></div>
+      <div class="replaceVarOn package"><label>Classes: ($##classes.length$)</label>
+        <div class="wastemplate list"><div class="minimizer"></div><div class="content classList"></div></div></div>
+      <div class="replaceVarOn package"><label>Enumerations: ($##enums.length$)</label>
+        <div class="wastemplate list"><div class="minimizer"></div><div class="content enumList"></div></div></div>
+      <div class="replaceVarOn class"><label>Attributes: ($##attributes.length$)</label>
+        <div class="wastemplate list"><div class="minimizer"></div><div class="content attributeList"></div></div></div>
+      <div class="replaceVarOn class"><label>References: ($##references.length$)</label>
+        <div class="wastemplate list"><div class="minimizer"></div><div class="content referenceList"></div></div></div>
+      <div class="replaceVarOn class"><label>Operations: ($##operations.length$)</label>
+        <div class="wastemplate list"><div class="minimizer"></div><div class="content operationList"></div></div></div>
+      <div class="replaceVarOn operation"><label>Parameters: ($##childrens.length$ + 1)</label>
+        <div class="wastemplate list"><div class="minimizer"></div><div class="content parameterList"></div></div></div>
+      <div class="replaceVarOn enum"><label>Literals: ($##childrens.length$)</label>
+        <div class="wastemplate list"><div class="minimizer"></div><div class="content literalList"></div></div></div>
+    </div>
+  </div>
+</div>

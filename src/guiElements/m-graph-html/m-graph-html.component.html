@@ -1,0 +1,94 @@
+<div class="verticalFillingContainer">
+  <div class="verticalFiller horizontalFillingContainer">
+    <div class="sidebarShell resizableBorder" data-resizableRight="true">
+    <div id='model_sidebar'></div>
+  </div>
+    <div class="editorShell horizontalFiller">
+      <ul class ="viewpointShell">
+        <h6>Viewpoints</h6>
+        <li class="viewpointrow default">
+          <label class="name">
+            <input type="radio" checked>
+            <input class="name form-control-sm" type="text" value="Default" readonly><button class="duplicate"></button>
+          </label>
+        </li>
+        <li class="viewpointrow template">
+          <label class="checkbox"><input type="checkbox"></label>
+          <label class="name"><input class="name form-control-sm" type="text">
+            <span class="buttons">
+            <button class="duplicate"></button><button class="edit"></button><button class="remove"></button>
+          </span>
+          </label>
+        </li>
+      </ul>
+      <svg class="graph" id='model_editor'>
+        <g class="gridContainer">
+          <defs></defs>
+          <rect class="grid"></rect>
+        </g>
+      </svg>
+      <div id='model_navigatorOutlineContainer'></div>
+    </div>
+    <!-- style of propertybar must be inline for resizableBorder js -->
+    <div class="UtabContainer propertyBarContainer resizableBorder" data-resizableLeft="true" data-selectedTab="2" style="width:20%">
+    <ul class="UtabHeaderContainer">
+      <li class="UtabHeader" data-target="1">Style</li>
+      <li class="UtabHeader" data-target="2">Structured</li>
+      <li class="UtabHeader" data-target="3">Raw</li>
+    </ul>
+    <div class="UtabContentContainer">
+      <div class="UtabContent" data-target="1"><app-style-editor></app-style-editor></div>
+      <div class="UtabContent" data-target="2"><app-property-barr></app-property-barr></div>
+      <div class="UtabContent" data-target="3">
+        <div class="rawContainer">
+          <h2 class="rawTitle">Raw eCore fragment</h2>
+          <textarea class="rawecore"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="mconsole resizableBorder" data-resizableTop="true"></div>
+  <div class="MDefaultStyles customized"></div>
+  <div class="MDefaultStyles immutable">
+    <foreignobject class="template Class" x="0" y="0" width="200" height="40">
+      <div class="Class Vertex vertexShell" style="background:white; height:auto; width:100%; overflow: auto;" data-autosize="1">
+        <div class="VertexHeader" style="height:20px; width:100%; text-align:center; display:flex;">
+          <div style="text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;">($##metaParent.name$)</div>
+        </div>
+        <div class="specialjs AttributeContainer" style="display: flex; flex-direction: column;"></div>
+        <div class="specialjs ReferenceContainer" style="display: flex; flex-direction: column;"></div>
+        <div class="specialjs OperationContainer" style="display: flex; flex-direction: column;"></div>
+      </div>
+    </foreignobject>
+
+    <div class="template Reference" style="height:22px; width: 100%; display:flex; margin:auto; box-sizing:content-box;">
+      <span style="display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;">*$##metaParent.type.printablename$</span>
+      <span style="display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;">$##metaParent.name$</span>
+      <button class="LinkVertex" style="order:3; width:22px; height:22px; padding:0; margin:auto;">-></button>
+    </div>
+
+    <div class="template Attribute" style="height:22px; width:100%; display:flex; box-sizing:content-box;">
+      <span style="order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;">$##metaParent.type.printablename$</span>
+      <span style="order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;">$##metaParent.name$&nbsp;=&nbsp;</span>
+      <input type="text" placeholder="empty string" value="$##valuesStr$" style="border: none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+    </div>
+
+    <div class="template Operation" style="height: 22px; width: 100%; display:flex; box-sizing:content-box;">
+      <div class="specialjs signature" data-maxargumentchars="10" data-maxarguments="2" style="min-width:100%"></div>
+      <div class="specialjs operationDetail" style="margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;">
+        <div style="display: flex; width: 100%;">
+          <select disabled data-primitive="true" data-enum="true" data-class="true" data-void="true" style="border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
+          <input disabled type="text" placeholder="Operation Name" pattern="[A-Za-z0-9_$]+" value="$##name$" style="border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+        </div>
+        <div class="parameterList" style="display: flex; width: 100%;"></div>
+      </div>
+    </div>
+
+    <div class="template Parameter" style="height: 22px; width: 100%; display:flex; box-sizing:content-box;">
+      <select disabled data-primitive="true" data-enum="true" data-class="true" style="border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
+      <input disabled type="text" placeholder="Parameter Name" pattern="[A-Za-z0-9_$]*" value="$##name$" style="border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+    </div>
+  </div>
+</div>
+

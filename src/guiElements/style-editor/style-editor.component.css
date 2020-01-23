@@ -1,0 +1,456 @@
+
+.styleContainer{
+  /*position: relative;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+  padding: 17px;
+  padding-right: calc(17px - 10px);*/
+}
+.template{
+  display: none;
+}
+.StyleEditorDisplay .template{
+  display: unset;
+}
+.preview{
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 10px;
+  border: 1px solid red;
+  background-color: transparent;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.preview:blank{
+  background-color: gray;
+}
+.separatorShell.top{
+  margin-top: 30px;
+}
+
+div[contenteditable="true"]:focus {
+  max-height: unset;
+}
+div[contenteditable="true"], div[contenteditable="false"] {
+  overflow: auto;
+  display: flex;
+  color: black;
+  border: 1px solid black;
+  min-height: 100px;
+  max-height: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+div[contenteditable="true"] {
+  background-color: white;
+  cursor: text;
+}
+div[contenteditable="false"] {
+  background-color: gray;
+  cursor: no-drop;
+}
+label.allowEdit {
+  color: goldenrod;
+}
+button {
+  margin: 5px;
+}
+.helpButton{
+  width: 35px;
+  height: 35px;
+}
+.style.own, .style.instances{
+  display: flex;
+  flex-flow: wrap;
+}
+.detail{
+  border: 3px solid #0084ff;
+  background: #252525;
+}
+button.detail {
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  height: auto;
+  border-top-left-radius: 17px;
+  border-top-right-radius: 17px;
+  z-index: 1;
+ }
+button.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */
+  flex-flow: column;
+  margin-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+button.detail:last-child:not(:only-child){
+  margin-left: -3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+button.detail:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+div.detail{
+  padding: 5px;
+  margin-top: -3px;
+  width: calc(100%);
+}
+.saveasrow{
+  display: flex;
+  flex-wrap: wrap;
+}
+button.delete{
+  margin: auto;
+  margin-bottom: 5px;
+}
+button.saveas{
+  margin: auto;
+  margin-bottom: 5px;
+}
+input.saveas {
+  margin: auto;
+  margin-bottom: 5px;
+  flex-basis: 100px;
+  flex-grow: 0.6;
+  width: 0;
+}
+.compatibleRow > label > span{
+  height: fit-content;
+  display: inline-flex;
+  margin: auto;
+  order: 2;
+  margin-left: 0;
+}
+.saveasrow, .compatibleRow{
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+}
+.compatibleRow > label > input {
+  order: 1;
+  margin-left: 0;
+  margin-right: 5px;
+}
+.detail > label {
+  display: inline-flex;
+  margin: auto;
+  flex-wrap: nowrap;
+}
+button.detail > .opened, button.detail > .closed{
+  margin: auto;
+}
+table {
+  width: 100%;
+}
+
+td.title {
+  font-weight: bold;
+  padding-top: 10px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+select{
+  /* background: inherit;
+  border: none;
+  color: inherit;
+  font: inherit; */
+  /*flex-basis: 0;*/
+  flex-shrink: 1;
+  flex-grow: 0.9;
+  max-width: max-content;
+  min-width: 0;
+}
+
+label {display: flex; flex-grow:1;}
+label > *, h6 > * {
+  display: flex;
+  /* flex-grow: 1;*/
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+h6{
+  display: inline-flex;
+  margin: auto;
+
+}
+.separator > * {
+  text-align: center;
+}
+/*
+button {
+  background: #0084ff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  font-size: 15px;
+  color: #fff;
+}
+
+button:disabled{
+  background: gray;
+}*/
+input[type="number"] {
+  width: 40px;
+  margin-right: 5px;
+}
+.zoomX, .zoomY, .gridX, .gridY {
+  margin-left: 5px;
+  margin-right: 15px;}
+
+input[type="color"] {
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  padding: 0;
+  vertical-align: middle;
+  /*border: none;*/
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  /*il "bordo"?*/
+  padding: 2px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  /*il centro*/
+  /*border-radius: 100%;*/
+  border: none;
+}
+
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+label>input[type="checkbox"],
+label>input[type="color"] {
+  margin-bottom: 3px;
+}
+
+#primary_color {
+  border-radius: 100%;
+  height: 60px;
+  width: 60px;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  display: block;
+  /* For Firefox */
+  cursor: text;
+  vertical-align: middle;
+  color: darkgray;
+  text-align: center;
+  margin: auto;
+}
+
+.separatorShell {
+  min-height: 33px;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.roww {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.colContainer, .columnContainer {
+  display: flex;
+  flex-flow: nowrap;
+  flex-flow: row;
+}
+.colChild, .columnChild {
+  display: inline-flex;
+  flex-flow: wrap;
+  flex-grow: 1;
+  max-width: 100%;
+  min-width: 0;
+}
+.separator {
+  margin: auto;
+  display: inline-block;
+}
+.stylelabel{
+  display: inline-flex;
+  margin: auto;
+  margin-right: 5px;
+}
+select.stylename{
+  display: flex;
+  margin: auto;
+  margin-left: 0;
+}
+.HorizontalContainer{
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.HorizontalChild{
+  display: inline-flex;
+  margin: auto;
+}
+.opened{
+  display: none;
+}
+
+.helpButton {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  background: rgb(0, 62, 127);
+  border-color: rgb(0, 62, 127);
+}
+.expressionRoot {
+  flex-wrap: nowrap !important;
+  max-width: 100%;
+}
+input.fill{
+  flex-grow: 1;
+  flex-basis: 0;
+  margin-left: 7px;
+}
+.leftside{
+  flex-grow: 3;
+  flex-basis: 0;
+  min-width: 0;
+  max-width: 150px;
+}
+.rightside{
+  flex-grow: 7;
+  flex-basis: 0;
+  min-width: 0;
+}
+.arrowContainer{
+  display: flex;
+  margin-bottom: 10px;
+}
+button.arrow{
+  display: flex;
+  line-height: unset;
+  padding: 0 6px;
+}
+.tsclass{
+  margin: auto;
+  display: inline;
+  text-align: center;
+}
+/* */
+
+/*
+pre {
+  background:#EEE;
+  padding:5px;
+  width: 290px;
+}*/
+.addHeader{
+  display: flex;
+}
+.addHeader > button {
+  margin-left: 0;
+  order: 2;
+}
+select.attributetypeadd{
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 0;
+  margin-right: 10px;
+}
+.previewselector{
+  height: 23px;
+  outline: none;
+  border: 2px dashed #666666;
+}
+
+.showAsEdge{
+  margin-right: 5px !important;
+}
+.showAsEdgeText{
+  margin-left: 0 !important;
+}
+button.delete, button.saveas{
+  font-size: 0.8rem;
+}
+button.deleteRule{
+  flex-grow: 0;
+  flex-basis: auto;
+  min-width: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 5px;
+}
+.nowrap{
+  flex-wrap: nowrap;
+}
+._root {
+  margin-bottom: 5px;
+}
+div.detail.measurable > div.template {
+  display: none;
+}
+.graphColor, .showGrid{
+  margin-left: 0;
+}
+select.operator{
+  text-align-last: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 25px;
+}
+span.operatortext{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+select.operator:disabled{
+  display: none;
+  /*
+  background: inherit;
+  border: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  margin: 0;*/
+}
+
+span.nameprefix {
+  margin-left: 7px;
+  background: white;
+  border: 2px inset rgb(238, 238, 238);
+  height: 21px;
+  border-right: none;
+  color: black;
+  line-height: 16px;
+}
+input.name {
+  margin-left: 0;
+  border-left: none;
+  padding-left: 0;
+}
+
+label:focus > input.name {
+  outline: none;
+  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);
+}
+
+input.name:focus {
+  outline: none;
+  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);
+}

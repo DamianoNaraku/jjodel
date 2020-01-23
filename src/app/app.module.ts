@@ -44,7 +44,7 @@ import {
   MReference,
   IReference,
   M3Reference,
-  MAttribute, Type, LocalStorage, ViewPoint, SaveListEntry, EType, IClassifier, GraphSize, ELiteral, EEnum, IEdge
+  MAttribute, Type, LocalStorage, ViewPoint, SaveListEntry, EType, IClassifier, GraphSize, ELiteral, EEnum, IEdge, IVertex
 } from '../common/Joiner';
 import { PropertyBarrComponent }   from '../guiElements/property-barr/property-barr.component';
 import { MGraphHtmlComponent }     from '../guiElements/m-graph-html/m-graph-html.component';
@@ -282,6 +282,7 @@ function main() {
   U.resizableBorderSetup();
   ECoreRoot.initializeAllECoreEnums();
   globalevents();
+  IVertex.staticinit();
   IEdge.staticInit();
   const mmconsole: MyConsole = new MyConsole($('.mmconsole')[0]);
   const mconsole: MyConsole = new MyConsole($('.mconsole')[0]);

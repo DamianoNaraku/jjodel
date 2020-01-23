@@ -82,7 +82,7 @@ export class IEdge {
         if (!edgeClicked) { return; }
         edgeClicked.onClick(ee);
       });
-    return []; }
+    return IEdge.all; }
 
   static get(e: ClickEvent | MouseMoveEvent | MouseDownEvent | MouseUpEvent | MouseLeaveEvent | MouseEnterEvent | MouseEvent): IEdge {
     // return ModelPiece.getLogic(e.classType).edge;

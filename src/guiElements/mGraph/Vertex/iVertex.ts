@@ -50,7 +50,7 @@ export class IVertex {
   static all: Dictionary = {};
   static ID = 0;
   static selected: IVertex = null;
-  static selectedGridWasOn: GraphPoint = IVertex.staticinit();
+  static selectedGridWasOn: GraphPoint = null;
   static selectedStartPt: GraphPoint = null;
   private static oldEdgeLinkHoveringVertex: IVertex = null;
   private static minSize: GraphSize = new GraphSize(null, null, 200, 30);
@@ -75,7 +75,7 @@ export class IVertex {
     const g: GraphPoint = new GraphPoint(0, 0);
     g.x = 'prevent_doublemousedowncheck' as any;
     g.y = 'prevent_doublemousedowncheck' as any;
-    return g; }
+    return IVertex.selectedGridWasOn = g; }
 /*
   static linkVertexMouseDownButton(e: MouseDownEvent): void {
     const ref: IReference = ModelPiece.get(e) as IReference;

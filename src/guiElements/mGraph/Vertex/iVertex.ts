@@ -53,7 +53,7 @@ export class IVertex {
   static selectedGridWasOn: GraphPoint = null;
   static selectedStartPt: GraphPoint = null;
   private static oldEdgeLinkHoveringVertex: IVertex = null;
-  private static minSize: GraphSize = new GraphSize(null, null, 200, 30);
+  private static minSize: GraphSize = null;
   classe: IClassifier;
   // package: IPackage;
   owner: IGraph;
@@ -69,12 +69,14 @@ export class IVertex {
   private htmlForeign: SVGForeignObjectElement;
   private html: HTMLElement;
   private Vmarks: Dictionary<string, SVGRectElement> = {};
-  private static defaultSize: GraphSize = new GraphSize(5, 5, 201, 41);
+  private static defaultSize: GraphSize = null;
 
   static staticinit(): GraphPoint {
     const g: GraphPoint = new GraphPoint(0, 0);
     g.x = 'prevent_doublemousedowncheck' as any;
     g.y = 'prevent_doublemousedowncheck' as any;
+    IVertex.minSize = new GraphSize(null, null, 0, 0);
+    IVertex.defaultSize = new GraphSize(5, 5, 201, 41);
     return IVertex.selectedGridWasOn = g; }
 /*
   static linkVertexMouseDownButton(e: MouseDownEvent): void {

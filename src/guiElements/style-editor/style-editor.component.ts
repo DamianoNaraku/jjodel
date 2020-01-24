@@ -398,8 +398,8 @@ export class StyleEditor {
       // updatePreview();
     };
     $(obj.input).off('paste.set').on('paste.set', (e: any/*ClipboardEvent*/) => { this.onPaste(e); onStyleChange(); })
-      .off('change.set').on('change.set', onStyleChange)
-      .off('input.set').on('input.set', onStyleChange)
+      // .off('change.set').on('change.set', onStyleChange)
+      // .off('input.set').on('input.set', onStyleChange)
       .off('blur.set').on('blur.set', onStyleChange)
       .off('keydown.set').on('keydown.set', (e: KeyDownEvent) => { if (e.key === 'Esc') { this.propertyBar.refreshGUI(); } });
 

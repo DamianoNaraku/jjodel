@@ -264,6 +264,12 @@ export class IVertex {
     for (i = 0; i < refStart.length; i++) { if (refStart[i]) { refStart[i].refreshGui(); } } }
 
   private draw(): void {
+    try { this.draw0(); }
+    catch(e) {
+      U.pw(true, 'failed to draw vertex of "' + this.logic().printableNameshort() + '".', e);
+    }
+  }
+  private draw0(): void {
     /*const htmlRaw: SVGForeignObjectElement = U.newSvg('foreignObject');
     htmlRaw.appendChild(this.classe.getStyleObj().html);*/
     const style: StyleComplexEntry = this.classe.getStyle();
@@ -271,8 +277,8 @@ export class IVertex {
 
     U.pe(!this.classe || !(htmlRaw instanceof Element), 'class null?', this, htmlRaw);
     this.setHtmls(this.classe, htmlRaw);
-    if (this.classe instanceof IClass) this.drawC(this.classe, htmlRaw);
-    if (this.classe instanceof EEnum) this.drawE(this.classe, htmlRaw);
+    if (this.classe instanceof IClass) this.drawC(this.classe);
+    if (this.classe instanceof EEnum) this.drawE(this.classe);
     this.addEventListeners();
     U.fixHtmlSelected($(htmlRaw));
     this.autosize(false, false);
@@ -338,11 +344,74 @@ export class IVertex {
     this.setSize(new GraphSize(this.size.x, this.size.y, actualSize.w, actualSize.h), refreshVertex, refreshEdge);
     return this; }
 
-  private drawE_production(data: EEnum, htmlRaw: SVGForeignObjectElement): void { try{ return this.drawE0(data, htmlRaw); } catch(e) {} }
-  private drawC_production(data: IClass, htmlRaw: SVGForeignObjectElement): void { try{ return this.drawC0(data, htmlRaw); } catch(e) {} }
-  private drawE(data: EEnum, htmlRaw: SVGForeignObjectElement): void { return this.drawE0(data, htmlRaw); }
-  private drawC(data: IClass, htmlRaw: SVGForeignObjectElement): void { return this.drawC0(data, htmlRaw); }
-  private drawE0(logic: EEnum, htmlRaw: SVGForeignObjectElement): void {
+  private drawE(data: EEnum, canfail: boolean = true): void {
+    try { this.drawE0(data); }
+    catch(e) {
+      if (!canfail) { throw e; }
+      const style = data.getStyle();
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      U.pw(true, 'failed to draw ' + styletype + ' style of enum "' + data.printableNameshort() + '", his style will be resetted.', e);
+      if (style.isinstanceshtml) style.view.htmli = null;
+      if (style.isownhtml) style.view.htmlo = null;
+      this.htmlForeign = null;
+      this.drawE(data, false); }
+  }
+  private drawC(data: IClass, canfail: boolean = true): void {
+    try { this.drawC0(data); }
+    catch(e) {
+      if (!canfail) { throw e; }
+      const m: IModel = data.getModelRoot();
+      const style = data.getStyle();
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      U.pw(true, 'failed to draw ' + styletype + ' style of ' + (m.isM() ? 'm1-object' : 'class') + ' "' + data.printableNameshort() + '", his style will be resetted.', e);
+      if (style.isinstanceshtml) style.view.htmli = null;
+      if (style.isownhtml) style.view.htmlo = null;
+      this.htmlForeign = null;
+      this.drawC(data, false); }
+  }
+  drawO(data: EOperation, canfail: boolean = true): Element {
+    try { return this.drawO0(data); }
+    catch(e) {
+      if (!canfail) { throw e; }
+      const m: IModel = data.getModelRoot();
+      const style = data.getStyle();
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      U.pw(true, 'failed to draw ' + styletype + ' style of ' + m.getPrefix() + '-operation "' + data.printableNameshort() + '", his style will be resetted.', e);
+      if (style.isinstanceshtml) style.view.htmli = null;
+      if (style.isownhtml) style.view.htmlo = null;
+      return this.drawO(data, false); }
+  }
+  drawParam(data: EParameter, canfail: boolean = true): Element {
+    try { return this.drawParam0(data); }
+    catch(e) {
+      if (!canfail) { throw e; }
+      const m: IModel = data.getModelRoot();
+      const style = data.getStyle();
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      U.pw(true, 'failed to draw ' + styletype + ' style of ' + m.getPrefix() + '-parameter "' + data.printableNameshort() + '", his style will be resetted.', e);
+      if (style.isinstanceshtml) style.view.htmli = null;
+      if (style.isownhtml) style.view.htmlo = null;
+      return this.drawParam(data, false); }
+  }
+  drawEChild(data: ELiteral): Element { return this.drawTerminal(data); }
+  drawA(data: IAttribute): Element { return this.drawTerminal(data); }
+  drawR(data: IReference): Element { return this.drawTerminal(data); }
+  drawTerminal(data: Typedd, canfail: boolean = true): Element {
+    try { return this.drawTerminal0(data); }
+    catch(e) {
+      if (!canfail) { throw e; }
+      const m: IModel = data.getModelRoot();
+      const style = data.getStyle();
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      U.pw(true, 'failed to draw ' + styletype + ' style of ' + m.getPrefix() + '"' + data.printableNameshort() + '", his style will be resetted.', e);
+      if (style.isinstanceshtml) style.view.htmli = null;
+      if (style.isownhtml) style.view.htmlo = null;
+      return this.drawTerminal(data, false); }
+  }
+  private drawE0(logic: EEnum): void {
+    if (!this.htmlForeign) {
+      const style: StyleComplexEntry = this.classe.getStyle();
+      this.htmlForeign = style.html as SVGForeignObjectElement; }
     const html: SVGForeignObjectElement = this.htmlForeign;
     /// append childrens:
     const $eContainer = $(html).find('.LiteralContainer');
@@ -351,8 +420,11 @@ export class IVertex {
       const field = this.drawEChild(logic.childrens[i]);
       $eContainer.append(field); }
   }
-  private drawC0(data: IClass, htmlRaw: SVGForeignObjectElement): void {
+  private drawC0(data: IClass): void {
     // console.log('drawC()');
+    if (!this.htmlForeign) {
+      const style: StyleComplexEntry = this.classe.getStyle();
+      this.htmlForeign = style.html as SVGForeignObjectElement; }
     const html: SVGForeignObjectElement = this.htmlForeign;
     /// append childrens:
     const $attContainer = $(html).find('.AttributeContainer');
@@ -435,7 +507,7 @@ export class IVertex {
     // this.html = this.htmlForeign.firstChild as HTMLElement;
     return foreign; }
 
-  drawO(data: EOperation): Element {
+  drawO0(data: EOperation): Element {
     const html: Element =  this.drawTerminal(data);
     const $html = $(html);
     const $signature = $html.find('.specialjs.signature');
@@ -477,7 +549,7 @@ export class IVertex {
     $addParamButton.off('click.add').on('click.add', (e: Event) => { data.addParameter(); this.refreshGUI(); });
     return html; }
 
-  drawParam(data: EParameter): Element {
+  drawParam0(data: EParameter): Element {
     let i: number;
     const html: Element = this.drawTerminal(data);
     const $html = $(html);
@@ -486,11 +558,8 @@ export class IVertex {
     $nameHtml.val(data.name);
     return html; }
 
-  drawEChild(data: ELiteral): Element { return this.drawTerminal(data); }
-  drawA(data: IAttribute): Element { return this.drawTerminal(data); }
-  drawR(data: IReference): Element { return this.drawTerminal(data); }
 
-  drawTerminal(data: Typedd): Element {
+  drawTerminal0(data: Typedd): Element {
     data.replaceVarsSetup();
     const style: StyleComplexEntry = data.getStyle();
     const htmlRaw: Element = style.html;

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Model Graph</title>
+  <base href="jjodel/dist/jjodel">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- avoid caching for debug: START -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAICAAAAEAGACoDAAAFgAAACgAAAAgAAAAQAAAAAEAGAAAAAAAgAwAABMLAAATCwAAAAAAAAAAAAD/+/v/iYv/ZWX/Y2P/tbb/////////////////////////////////////////oqT/YWH/YWH/lpf/////////////////////////////////xsf/Zmf/Zmf/e3z/7+//jpD+ZWD88eP9y77/T07/xsf/////////////////////////////////sbL/VVP84dP85tj+U0//p6j/////////////////////////6+z/UFD9s6j89ez+enP/eXv9WVj95df8//b7///+j4f/dnn/////////////////////////////////Z2r9p537///8//3+2s7NPD4+QUFBQUFBQUFBQUFBQUE9QkKdLzL/nZb7///8//D8+Oj9ZWL9Z2f9qZ/7///7//v+aWT/lpn/////////////////////////////////hIb+e3X7///7///+mJHmYWOeoKCfoKCgoKCgoKCgoKCeoKDOhYb/bmv8/Ov7///9xbn+Y2P9ysr/Tk3/qqP/hH7/amv/9PT/////////////////////////////////5ub/XV7/l5H/nJX/TU7/4OD/////////////////////////////dnj/bWn/sa//Tk39srL/////29yeLC+/XV//+Pj/////////////////////////////////////////7OytP0KtPUD/5eb////////////////////////////////////ZgoSWISL/y8z+/v7///////8ePj5qiIj///////////////////////////////////////////////87W1s7W1v///////////////////////////////////////+mw8MIKCj///////////////9BQUGBgYH///////////////////////////////////////////////9aWlpaWlr///////////////////////////////////////+0tLQvLy////////////////9BQUGBgYH///////////////////////////////////////////////9aWlpaWlr///////////////////////////////////////+ztLQrLy////////////////9BQUGBgYH///////////////////////////////////////////////9aWlpaWlr///////////////////////////////////////+sxMQYJyf///////////////9BQUGBgYH///////////////////////////////////////////////9aWlpaWlr/////////////q63/a2z/f4H/6+z/////////7u7rbW/GMjP/pKb///////////9BQUGBgYH///////////////////////////////////////////////9aWlpaWlr/////////np//TUv9sKr+fHX/VVf/////////Xl//gnv/0sz/UU7+n6D///////9BQUGBgYH///////////////////////////////////////////////9aWlpaWlr/////8/P/Y2P8z8L7///7//3/ioWcV1maYGL/g378//j7///83c/9YmH///////9BQUGBgYH/////////////////8/P/i43/a2z/sbP///////////////9aWlpaWlr/////8fH/ZGT839H7//37////m5WCNTiAPT//koz8///7//387N3+Y2L///////9BQUGBgYH/////////////+Pj/bG7+cGv9o5//U1D/nZ////////////9aWlpaWlr/////////kpP+WVX8vrf+jYT/UFD/////////WFn+h4D8v7n+XVn9kJD///////9BQUGBgYH/////////////qKv+ZmL8//j7///81cj/Vlf/5+f///////9aWlpaWlr/////////////kZP/X2D/aGr/2Nn/////////29z/a23/Xl//i4z+/fz///////9BQUGBgYH/////////////mZv/dnD8///7//j86dr/V1j/3t////////9aWlpaWlr///////////////////////////////////////////////////////////////9BQUGBgYH/////////////8vL/fH3/l4/8zcT/f3v/oKH///////////9aWlpaWlr///////////////////////////////////////////////////////////////9BQUGBgYH///////////////9zUFHgUFL/goORHR65vb3///////////9aWlpaWlr///////////////////////////////////////////////////////////////9BQUGBgYH///////////+EhIQACwvv/v7///9thIQKFhb///////////9aWlpaWlr///////////////////////////////////////////////////////////////9BQUGBgYH////////s7OwAAADCwsL///////////8SERGHh4f///////9aWlpaWlr///////////////////////////////////////////////////////////////9BQUGBgYH///////8xMTFQUFD///////////////+5ubkAAAD7+/v///9ZWVlaWlr///////////////////////////////////////////////////////////////9BQUF9fX3///+lpaUAAAD///////////////////////8xMTFeXl7///9WVlZaWlr///////////////////////////////////////////////////////////////88Pz+QkZH///8AAACjo6P////////////////////////X19cAAAD6+vpxc3NWWFj///////////////////////////////////////////////////////////////8vQ0OYsLFwg4MvLi7///////////////////////////////9PT09acHBvhIVLYGD/////////////////////////////////////////////////////////////wsTRQkTSU1VMODje8vL////////////////////////////////q/v5sSEnLPkDXS03/z9D/////////////////////////////////8/P/i43/a2z/sbL////+urv/TEr/vbX/kor/Zmf/+vr/////////////////////////////////5+j/Zmb/qKD/rqX/RkX/0tP/////////////////////////////ZWb+cGv9o5//Uk/+oqP9YGD9wLX7///8////fXf/ioz/////////////////////////////////d3r/j4f7///7///+sKbdUlR+f39/f39/f39/f39/f399f3+9Zmn/fnr8//j7///82sz9YWH9W1r92cz7//37///+h4D/fH//////////////////////////////////bG/9npX7///7///+zcLRQUNOUFBQUFBQUFBQUFBQUFBMUFClPkH/k478///7//j87t/+Y2P/oKH+VFH828/9sKX/UFD/1NX/////////////////////////////////wcP/Tk39yLz80MT+R0X/urv/////////////////////////////VFX+mZD84dn+Y17/iYv////9nZ79WFf9YWH+ycr////////////////////////////////////////+trb9V1b9VVX9qar/////////////////////////////////2tr9amr9V1b9i4z++vr///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" />
+  <!-- avoid caching for debug: END -->
+  <!-- error: looks like the node managed folder is messing up with direct references.
+   probably the source (uncompiled) folder is inaccessible.
+  <link rel="icon" type="image/x-icon" href="favicon - mg.ico">
+  <link href="./app/common/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+  <link href="./app/common/jquery-ui-1.12.1/jquery-ui.structure.css" rel="stylesheet">
+  <link href="./app/common/jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.structure.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/theme.min.css" rel="stylesheet">
+</head>
+<body>
+<fakehader>
+  <!-- required because angular will always insert styles.css at the bottom of the head, but i want those after it. -->
+  <!-- cannot link them as css files hosted on this webserver
+  because the node server will always reply with the homepage as instructed by angular's routing. -->
+  <style class="theme squaredTabs">
+    /*.UtabHeader{
+      border-radius: 0;
+      border-left: none;
+      margin: 0;
+      margin-top: 10px;
+    }
+    .UtabHeader:first-of-type{ margin-left: calc( var(--mainBorderWidth) * -1); }
+    */
+
+  </style>
+  <style class="theme roundedTabs">
+    .UtabHeader{
+      border-radius: 22.5px;
+    }
+  </style>
+  <style class="theme glowingTabs">
+    .UtabHeader {
+      border: none !important;
+      margin: 2px !important;
+      margin-top: 4px !important;
+      margin-bottom: 4px !important;
+      box-shadow: 2px 2px 3px #506894, 2px -2px 3px #506894, -2px 2px 3px #506894, -2px -2px 3px #506894, 2px 0px 3px #506894, 0px 2px 3px #506894, -2px 0px 3px #506894, 0px -2px 3px #506894;
+      box-shadow: 2px 2px 3px #606373, 2px -2px 3px #606373, -2px 2px 3px #606373, -2px -2px 3px #606373, 2px 0px 3px #606373, 0px 2px 3px #606373, -2px 0px 3px #606373, 0px -2px 3px #606373;
+      box-shadow: 1px 1px 3px #606373, 1px -1px 3px #606373, -1px 1px 3px #606373, -1px -1px 3px #606373, 1px 0px 3px #606373, 0px 1px 3px #606373, -1px 0px 3px #606373, 0px -1px 3px #606373;
+    }
+    .UtabHeader[selected="true"] {
+      box-shadow: 2px 2px 3px #606373, 2px -2px 3px #606373, -2px 2px 3px #606373, -2px -2px 3px #606373, 2px 0px 3px #606373, 0px 2px 3px #606373, -2px 0px 3px #606373, 0px -2px 3px #606373;
+      box-shadow: 2px 2px 3px #506894, 2px -2px 3px #506894, -2px 2px 3px #506894, -2px -2px 3px #506894, 2px 0px 3px #506894, 0px 2px 3px #506894, -2px 0px 3px #506894, 0px -2px 3px #506894;
+      box-shadow: none;
+    }
+  </style>
+  <style class="theme topBoundTabs">
+    /*
+          .UtabHeaderContainer{
+            background-color: var(--mainBackgroundColor);
+          }
+          .UtabHeader{
+            margin-bottom: 0;
+            border-top: 10px solid var(--mainBorderColor);
+            margin-top: 0;
+          }
+          .UtabHeader[selected="true"]{
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+          }
+          .UtabHeader[selected="true"]:last-of-type{ border-bottom-right-radius:0; }
+          .UtabHeader[selected="true"]:first-of-type{ border-bottom-left-radius:0; }*/
+  </style>
+  <style class="asymmetricalTopBarContent">/*
+    don't
+      ul.dropdownContent{
+        border-bottom-left-radius: 40px;
+      }
+      li.dropdownContent:last-child,
+      li.dropdownContent:last-child>.dropdownContainer.right,
+      li.dropdownContent:last-child>.dropdownContainer.right>.dropdownTitle.right{
+        border-bottom-left-radius: 30px;
+      }*/
+  </style>
+</fakehader>
+<app-console></app-console>
+<app-top-bar></app-top-bar>
+<app-graph-tab-html></app-graph-tab-html>
+<app-root></app-root>
+<app-mminput></app-mminput>
+<app-dam-context-menu></app-dam-context-menu>
+<!--
+<script src="./app/common/jquery-ui-1.12.1/jquery-ui.js" rel="script"></script>
+<script src="./app/common/jquery-ui-1.12.1/jquery-ui.structure.js" rel="script"></script>-->
+
+<sandbox style="display:none">
+
+  <!--        "@name": "WallHeight"
+              "@name": "WallWidth"                <-- delete
+              "@name": "FoundationHeightMin"
+              "@name": "FoundationHeightMax"
+              "@name": "FoundationWidth"
+              "@name": "TerrainSpecificWeight"
+              "@name": "WallGamma"
+              "@name": "TerrainGamma"
+              "@name": "TerrainFriction"
+
+              "@name": "WallTopWidth"
+              "@name": "WallBotWidth"
+              "@name": "WallTopX"                    <-- delete and replace with " PSI? la lettera tridente greco"
+              "@name": "FoundationX_GUIONLY"
+              "@name": "WallTopY_GUIONLY"
+              "@name": "WallBotX"               -->
+  <foreignobject class="Class" height="40" width="200" x="0" y="0"><div class="Class Vertex vertexShell" data-autosize="1" style="height:auto; width:200px; background-color:skyblue; overflow: auto;"><div class="measurable ClassRules" style="display: none;"
+                                                                                                                                                                                                            _excel = "var e=new Object();var v=new Object();var i=0;function verify(){for(var key in e){if(''+e[key]==''+v[key]){continue;}if(!isNaN(+e[key])&&!isNaN(v[key])&&Math.abs(e[key]-v[key])<0.000001){console.log('autofixed rounding error under sigma5:'+e[key]+'!='+v[key]);e[key]=+v[key];v[key]=''+e[key];continue;}console.log(key+'ERROR:e !=v:'+e[key]+'!='+v[key]);}return;}function r(cellstr){return e[cellstr]==undefined?0:e[cellstr];}function letterToInt(letters){var basec='A'.charCodeAt(0);var charcount='Z'.charCodeAt(0)-basec+1;var pow=-1;var ret=0;var letterIndex=letters.length;while(--letterIndex>=0){var c=letters.charCodeAt(letterIndex);ret+=(c-basec+1)*Math.pow(charcount,++pow);}return ret;}function intToLetter(col){col--;var basec='A'.charCodeAt(0);var charcount='Z'.charCodeAt(0)-basec;var letter3=basec+(col-charcount)/(charcount*charcount)-1;var letter2=basec+col/charcount%charcount-1;var letter1=String.fromCharCode(basec+col%charcount);if(letter2<basec){letter2=col>=charcount?'Z':'';}else{letter2=String.fromCharCode(letter2);}if(letter3<basec){letter3='';}else{letter3=String.fromCharCode(letter3);}return(''+letter3+letter2+letter1).trim();}function getArray(letter1,num1,letter2,num2){var pos1=letterToInt(letter1);var pos2=letterToInt(letter2);var minA=Math.min(pos1,pos2)-1;var maxA=Math.max(pos1,pos2);var ret=[];while(++minA<=maxA){var minB=Math.min(num1,num2)-1;var maxB=Math.max(num1,num2);while(++minB<=maxB){ret.push(e[intToLetter(minA)+minB]);}}return ret;}function LOOKUP(refKey,rangeKey,rangeVal){if(!Array.isArray(rangeKey)){rangeKey=[rangeKey];}if(rangeVal==null||rangeVal==undefined){rangeVal=rangeKey;}if(!Array.isArray(rangeVal)){rangeVal=[rangeVal];}var bestindex=0;var bestdiff=refKey-rangeKey[0];for(i=0;i<rangeKey.length;i++){var diff=refKey-rangeKey[i];if(diff<0){if(diff>bestdiff){bestdiff=diff;bestindex=i;}continue;}if(diff<bestdiff){bestdiff=diff;bestindex=i;}}return rangeVal[Math.min(bestindex,rangeVal.length)];}function EXP(y){return Math.pow(Math.E,y);}function SUM(arr){return BinaryArrayOperation(arr,'+',true,0);}function MULT(arr){return BinaryArrayOperation(arr,'*',true,1);}function CONCATENATE(arr){return BinaryArrayOperation(arr,'+',false,'');}function MAX(arr){return BinaryArrayFunction(arr,Math.max,true,Number.NEGATIVE_INFINITY);}function MIN(arr){return BinaryArrayFunction(arr,Math.max,true,Number.POSITIVE_INFINITY);}var avgcount=1;function avg2(avg,elem){return avg+elem/avgcount;}function AVG(arr){avgcount=arr.length;return BinaryArrayFunction(arr,avg2,true,0);}function IF(cond,case1,case2){return cond?(case1==undefined?true:case1):(case2==undefined?false:case2);}function BinaryArrayOperation(arr,operator,mustBeNumber,tmpStart){if(!Array.isArray(arr)){arr=[arr];}var tmp=tmpStart;for(i=0;i<arr.length;i++){if(mustBeNumber&&isNaN(+arr[i])){continue;}tmp=eval(''+tmp+operator+(mustBeNumber?+arr[i]:+arr[i]));}return tmp;}function BinaryArrayFunction(arr,operator,mustBeNumber,tmpStart){if(!Array.isArray(arr)){arr=[arr];}var tmp=tmpStart;for(i=0;i<arr.length;i++){if(mustBeNumber&&isNaN(+arr[i])){continue;}tmp=operator(tmp,(mustBeNumber?+arr[i]:+arr[i]));}return tmp;}function RADIANS(degree){return degree*Math.PI/180;}function DEGREE(radians){return radians/Math.PI*180;}function PI(){return Math.PI;}e.E129=1.3;e.F129=1.5;e.E130=1;e.F130=1.3;e.E131=1;e.F131=1;e.D71=1.1;e.D72=1.1;e.D73=1.5;e.D74=1.1;e.D75=1.1;e.D76=1.5;e.D77=1.5;e.D78=1.5;e.F115=1.3;e.G115=1.5;e.G7=$##@FoundationHeightMax.values.0$;e.G6=$##@FoundationHeightMin.values.0$;e.G8=$##@FoundationWidth.values.0$;e.F116=1;e.G116=1.3;e.F117=1;e.G117=1;e.B16=$##@TerrainGamma.values.0$;e.L13=0.2;e.G12=0;e.J12=0;e.F259=0.9;e.G15=0;e.G14=0;e.G16=0;e.B39=1.25;e.B12=$##@WallGamma.values.0$;e.G9='($##@FoundationX_GUIONLY.values.0$ + $##@FoundationWidth.values.0$) - ($##@WallBotX.values.0$px + $##@WallBotWidth.values.0$px)';e.B6=$##@WallHeight.values.0$;e.B17=$##@TerrainFriction.values.0$;e.B8=$##@WallBotWidth.values.0$;e.B7=$##@WallTopWidth.values.0$;e.G17=0;e.L20=0;e.B20=0;e.G28=0.31;var topp={x:$##@WallTopX.values.0$,y:0};var bot={x:$##@WallBotX.values.0$,y:$##@WallHeight.values.0$};e.B9=90+DEGREE(Math.atan((topp.x-bot.x)/(topp.y-bot.y)));e.G26=1;e.G27=1.3685;e.G25=0.221;e.H20=2.5;e.L256=1;e.H21=800;e.G11=Math.atan((r('G7')-r('G6'))/r('G8'));e.J72=r('F259');e.J73=r('F259');e.J74=r('F259');e.H74=r('G15');e.J75=r('F259');e.B77=r('G14');e.B78=r('G16');e.O9=r('G9')/100;e.M6=r('B6')/100;e.O8=r('G8')/100;e.O6=r('G6')/100;e.B19=r('B17');e.O7=r('G7')/100;e.G10=r('G8')-r('B8')-r('G9');e.M8=r('B8')/100;e.M7=r('B7')/100;e.M21=r('G17')/100;e.M17=r('B17')*3.1416/180;e.M20=r('B20')*3.1416/180;e.B18=r('B17')*2/3;e.C38=r('B17');e.M9=r('B9')*PI()/180;e.B10=180-r('B9');e.G29=r('G26')*r('G27')*r('G25')*9.81;e.I38=r('B20');e.L21=r('H20')*100;e.E78=r('D78')*r('C78')*r('B78');e.A35=r('O9')*r('B16')*(r('M6'));e.C35=r('O9')*r('G12');e.D35=r('O9')*r('J12');e.B115=r('B19');e.O10=r('G10')/100;e.D66=(r('M6')+r('O6'))/2;e.C65=(r('O8'));e.F65=(r('O8'));e.G66=(r('M6')+r('O6'));e.M19=r('B19')*3.1416/180;e.M18=r('B18')*PI()/180;e.B129=r('B19');e.B131=r('C38');e.R6=(r('M7')+r('M8'))*r('M6')/2;e.R7=r('O6')*r('O8');e.S7=r('O8')/2;e.R8=(r('O7')-r('O6'))*r('O8')/2;e.S8=2*r('O8')/3;e.R20=IF(r('M6')/Math.tan(r('M9'))>r('O9'),Math.pow(r('O9'),2)*Math.tan(r('M9'))/2,Math.pow(r('M6'),2)/Math.tan(r('M9'))/2);e.R21=IF(r('M6')/Math.tan(r('M9'))>r('O9'),0,(r('O9')-r('M6')/Math.tan(r('M9')))*r('M6'));e.S21=IF(r('M6')/Math.tan(r('M9'))>r('O9'),0,r('O8')-(r('O9')-r('M6')/Math.tan(r('M9')))/2);e.R22=IF(r('M6')/Math.tan(r('M9'))>r('O9'),0,(Math.pow((r('O9')-r('M6')/Math.tan(r('M9'))),2)*Math.tan(r('M20')))/2);e.S22=IF(r('M6')/Math.tan(r('M9'))>r('O9'),0,r('O8')-(r('O9')-r('M6')/Math.tan(r('M9')))/3);e.D47=Math.pow((Math.tan((45+r('C38')/2)*3.14/180)),2);e.M10=r('B10')*3.1416/180;e.C39=Math.atan(Math.tan(r('M17'))/r('B39'))*(180/PI());e.G30=r('G29')*r('G28')/9.81;e.E38=r('B18');e.I39=r('I38');e.G38=r('B10');e.B35=r('O10')*r('L13')*r('B16');e.I75=r('O10')/2;e.C72=r('D66');e.C73=r('D66');e.C74=r('C65');e.C75=r('F65');e.C76=r('F65');e.C77=r('G66');e.B116=Math.atan(Math.tan(r('M19'))/r('B39'))*(180/PI());e.B117=r('B115');e.C129=(EXP((PI()*Math.tan(RADIANS(r('B129'))))))*(Math.pow(Math.tan(RADIANS(45+r('B129')/2)),2));e.C131=(EXP((PI()*Math.tan(RADIANS(r('B131'))))))*(Math.pow(Math.tan(RADIANS(45+r('B131')/2)),2));e.G65=r('O10')+r('M8')-r('M7')+r('M21');e.G59=r('B16')*r('O10')*r('L13');e.E47=r('B16')*r('O6')*r('D47');e.F47=r('B16')*r('L13')*r('D47');e.B24=(Math.pow((Math.sin(r('M10')+r('M17'))),2))/(Math.pow((Math.sin(r('M10'))),2)*Math.sin(r('M10')-r('M18'))*Math.pow((1+Math.pow(((Math.sin(r('M17')+r('M18'))*Math.sin(r('M17')-r('M20')))/(Math.sin(r('M10')-r('M18'))*Math.sin(r('M10')+r('M20')))),0.5)),2));e.R23=SUM(getArray('R',20,'R',22));e.D48=Math.pow((Math.tan((45+r('C39')/2)*3.14/180)),2);e.F38=r('E38')*PI()/180;e.R9=SUM(getArray('R',6,'R',8));e.B130=r('C39');e.S6=r('O10')+(((r('M8')+(r('M6')/Math.tan(r('M9'))-r('M7')))*r('M6')/2)*(r('M8')+(r('M6')/Math.tan(r('M9'))-r('M7')))*2/3+r('M7')*r('M6')*(r('M8')+r('M6')/Math.tan(r('M9'))-r('M7')/2)-r('M6')/Math.tan(r('M9'))*r('M6')/2*(r('M8')+r('M6')/Math.tan(r('M9'))*2/3))/(((r('M8')+(r('M6')/Math.tan(r('M9'))-r('M7')))*r('M6')/2)+r('M7')*r('M6')-r('M6')/Math.tan(r('M9'))*r('M6')/2);e.S20=IF(r('M6')/Math.tan(r('M9'))>r('O9'),r('O10')+r('M8')+2/3*r('O9'),r('O10')+r('M8')+2/3*r('M6')/Math.tan(r('M9')));e.D39=r('C39')*PI()/180;e.J39=r('I39')*PI()/180;e.E39=Math.atan(Math.tan(r('M18'))/r('B39'))*(180/PI());e.G39=r('G38');e.G31=r('G30')*0.5;e.E77=r('D77')*r('C77')*r('B77');e.I74=r('G65');e.H75=r('G59');e.G47=(r('E47')+r('F47'))/2*r('O6');e.A42=0.5*r('B16')*r('B24')*Math.pow((r('M6')+r('O6')),2);e.E42=(r('G12'))*r('B24')*(r('M6')+r('O6'));e.I42=r('J12')*r('B24')*(r('M6')+r('O6'));e.G58=r('B16')*r('R23');e.G48=0.5*r('B16')*r('D48')*Math.pow((r('O6')),2);e.G57=r('B12')*r('R9');e.D129=2*(r('C129')+1)*Math.tan(RADIANS(r('B129')));e.C130=(EXP((PI()*Math.tan(RADIANS(r('B130'))))))*(Math.pow(Math.tan(RADIANS(45+r('B130')/2)),2));e.D131=2*(r('C131')+1)*Math.tan(RADIANS(r('B131')));e.B65=(r('R6')*r('S6')+r('R7')*r('S7')+r('R8')*r('S8'))/r('R9');e.E65=IF(r('R23')!==0,(r('R20')*r('S20')+r('R21')*r('S21')+r('R22')*r('S22'))/r('R23'),0);e.D110=r('G59');e.F39=r('E39')*PI()/180;e.H39=r('G39')*PI()/180;e.B26=(r('G12')+r('J12'))*r('B24')/(Math.cos(r('M18'))*Math.sin(r('M10')+r('M20')));e.I33=r('G30')/(1-r('G31'));e.K74=r('J74')*r('I74')*r('H74');e.K75=r('J75')*r('I75')*r('H75');e.D115=r('G47');e.C110=r('G58');e.D116=r('G48');e.D117=r('G47');e.B110=r('G57');e.I72=r('B65');e.H72=r('G57');e.I73=r('E65');e.H73=r('G58');e.C42=r('A42')*Math.sin(r('M18'));e.G42=r('E42')*Math.sin(r('F38'));e.K42=r('I42')*Math.sin(r('M18'));e.D130=2*(r('C130')+1)*Math.tan(RADIANS(r('B130')));e.B42=r('A42')*Math.cos(r('M18'));e.F42=r('E42')*Math.cos(r('F38'));e.J42=r('I42')*Math.cos(r('M18'));e.K39=(Math.pow((Math.sin(r('H39')+r('D39'))),2))/(Math.pow((Math.sin(r('H39'))),2)*Math.sin(r('H39')-r('F39'))*Math.pow((1+Math.pow(((Math.sin(r('D39')+r('F39'))*Math.sin(r('D39')-r('J39')))/(Math.sin(r('H39')-r('F39'))*Math.sin(r('H39')+r('J39')))),0.5)),2));e.B57=r('G57')*r('G30');e.B27=r('L20')*(r('B26')+(r('B16')*r('H20')*r('L256'))/(Math.sin(r('M10'))*Math.cos(r('M18'))));e.E24=(Math.pow((Math.sin(r('H39')+r('D39')-r('I33'))),2))/((Math.cos(r('I33')))*Math.pow((Math.sin(r('H39'))),2)*Math.sin(r('H39')-r('F39')-r('I33'))*Math.pow((1+Math.pow(((Math.sin(r('D39')+r('F39'))*Math.sin(r('D39')-r('J39')-r('I33')))/(Math.sin(r('H39')-r('F39')-r('I33'))*Math.sin(r('H39')+r('J39')))),0.5)),2));e.K72=r('J72')*r('I72')*r('H72');e.K73=r('J73')*r('I73')*r('H73');e.D120=r('C42');e.F120=r('G42');e.H120=r('K42');e.E110=SUM(getArray('B',110,'D',110));e.C120=r('B42');e.E120=r('F42');e.G120=r('J42');e.A43=0.5*r('B16')*r('K39')*Math.pow((r('M6')+r('O6')),2);e.E43=(r('G12'))*r('K39')*(r('M6')+r('O6'));e.I43=r('J12')*r('K39')*(r('M6')+r('O7'));e.B122=r('B57');e.R29=r('L21')/3*(r('B27')+2*r('B26'))/(r('B27')+r('B26'))+(r('B6')+r('G7')-r('L21'));e.S29=(r('B26')+r('B27'))*r('L21')/2;e.D52=r('E24');e.D53=r('E24');e.B28=IF(r('L20')===0,r('B26')+(r('B16')*(r('M6')+r('O7'))*r('B24'))/(Math.sin(r('M10'))*Math.cos(r('M18'))),r('B27')+(r('H21')*(r('M6')+r('O7'))*r('B24'))/(Math.sin(r('M10'))*Math.cos(r('M18'))));e.K76=SUM(getArray('K',72,'K',75));e.B133=r('E129')*(r('D120')+r('F120')+r('B110')+r('A35')+r('B35')+r('C35'))+r('F129')*(r('H120')+r('D35'));e.C115=r('E110')*Math.tan(RADIANS(r('B115')))*Math.cos(r('G11'))+(r('A42')+r('E42')+r('I42'))*Math.sin(r('G11'));e.I120=(r('C120')-r('D120')*Math.tan(r('B115')*3.14/180)+r('E120')-r('F120')*Math.tan(r('B115')*3.14/180))*r('F115')+(r('G115')*(r('G120')-r('H120')*Math.tan(r('B115')*3.14/180)));e.C116=r('E110')*Math.tan(RADIANS(r('B116')))*Math.cos(r('G11'))+(r('A43')+r('E43')+r('I43'))*Math.sin(r('G11'));e.C43=r('A43')*Math.sin(r('F39'));e.G43=r('E43')*Math.sin(r('F39'));e.K43=r('I43')*Math.sin(r('F39'));e.B43=r('A43')*Math.cos(r('F39'));e.F43=r('E43')*Math.cos(r('F39'));e.J43=r('I43')*Math.cos(r('F39'));e.A133=r('E129')*(r('C120')+r('E120'))+r('F129')*r('G120');e.F133=-r('G120')*(r('M6')+r('O7'))/2+r('H120')*(r('O8')/2)+r('D35')*(r('O8')/2-r('O9')/2);e.E52=(1+r('G31'))*r('D52');e.E53=(1+r('G31'))*r('D53');e.R30=(r('B6')+r('G7')-r('L21'))/3*(r('B28')+2*r('B27'))/(r('B28')+r('B27'));e.S30=(r('B27')+r('B28'))*(r('B6')+r('G7')-r('L21'))/2;e.E115=r('D115')+r('C115');e.J120=r('I120')*Math.cos(r('G11'))-r('C110')*Math.sin(r('G11'));e.E116=r('D116')+r('C116');e.D121=r('C43');e.F121=r('G43');e.H121=r('K43');e.B71=r('B43');e.B72=r('F43');e.B73=r('J43');e.B74=-r('C43');e.B75=-r('G43');e.B76=-r('K43');e.C121=r('B43');e.E121=r('F43');e.G121=r('J43');e.C133=Math.pow((1-r('A133')/r('B133')),2);e.D133=Math.pow((1-r('A133')/r('B133')),3);e.F52=0.5*r('B16')*r('E52')*Math.pow((r('M6')+r('O6')),2);e.F53=r('G12')*r('E53')*(r('M6')+r('O6'));e.F54=r('J12')*r('E53')*(r('M6')+r('O6'));e.Q32=(r('R29')*r('S29')+r('R30')*r('S30'))/(r('S29')+r('S30'));e.B134=r('E130')*(r('D121')+r('F121')+r('B110')+r('A35')+r('B35')+r('C35'))+r('F130')*(r('H121')+r('D35'));e.E72=r('D72')*r('C72')*r('B72');e.E73=r('D73')*r('C73')*r('B73');e.E74=r('D74')*r('C74')*r('B74');e.E75=r('D75')*r('C75')*r('B75');e.E76=r('D76')*r('C76')*r('B76');e.I121=(r('C121')-r('D121')*Math.tan(r('B116')*3.14/180)+r('E121')-r('F121')*Math.tan(r('B116')*3.14/180))*r('F116')+(r('G116')*(r('G121')-r('H121')*Math.tan(r('B116')*3.14/180)));e.G52=r('F52')-r('A43');e.G53=r('F53')-r('E43');e.G54=r('F54')-r('I43');e.A134=r('E130')*(r('C121')+r('E121'))+r('F130')*r('G121');e.B31=IF(r('L20')===0,(r('B6')+r('G7'))/3,r('Q32'));e.F134=-r('G121')*(r('M6')+r('O7'))/2+r('H121')*(r('O8')/2)+r('D35')*(r('O8')/2-r('O9')/2);e.J121=r('I121')*Math.cos(r('G11'))-r('C110')*Math.sin(r('G11'));e.H52=r('A42')+r('G52');e.H53=r('E42')+r('G53');e.H54=r('I43')+r('G54');e.C134=Math.pow((1-r('A134')/r('B134')),2);e.D134=Math.pow((1-r('A134')/r('B134')),3);e.C66=r('B31')/100;e.C117=r('E110')*Math.tan(RADIANS(r('B117')))*Math.cos(r('G11'))+(r('H52')+r('H53')+r('H54'))*Math.sin(r('G11'));e.C71=r('C66');e.J52=r('H52')*Math.sin(r('M18'));e.J53=r('H53')*Math.sin(r('M18'));e.J54=r('H54')*Math.sin(r('M18'));e.I52=r('H52')*Math.cos(r('M18'));e.I53=r('H53')*Math.cos(r('M18'));e.I54=r('H54')*Math.cos(r('M18'));e.E117=r('D117')+r('C117');e.E71=r('D71')*r('C71')*r('B71');e.D122=r('J52');e.F122=r('J53');e.H122=r('J54');e.C122=r('I52');e.E122=r('I53');e.G122=r('I54');e.E133=-r('C120')*r('C71')+r('D120')*(r('O8')/2)-r('E120')*(r('M6')+r('O7'))/2+r('F120')*(r('O8')/2)-r('B110')*(r('I72')-r('O10'))+r('A35')*(r('O8')/2-r('O9')/2)-r('B35')*(r('O8')/2-r('O10')/2)+r('C35')*(r('O8')/2-r('O9')/2);e.E134=-r('C121')*r('C71')+r('D121')*(r('O8')/2)-r('E121')*(r('M6')+r('O7'))/2+r('F121')*(r('O8')/2)-r('B110')*(r('I72')-r('O10'))+r('A35')*(r('O8')/2-r('O9')/2)-r('B35')*(r('O8')/2-r('O10')/2)+r('C35')*(r('O8')/2-r('O9')/2);e.E79=SUM(getArray('E',71,'E',78));e.B135=r('E131')*(r('D122')+r('F122')+r('B110')+r('A35')+r('B35')+r('C35'))+r('F131')*(r('H122')+r('D35'));e.I122=(r('C122')-r('D122')*Math.tan(r('B117')*3.14/180)+r('E122')-r('F122')*Math.tan(r('B117')*3.14/180))*r('F117')+(r('G117')*(r('G122')-r('H122')*Math.tan(r('B117')*3.14/180)))+r('B122');e.G133=r('E129')*r('E133')+r('F129')*r('F133');e.G134=r('E130')*r('E134')+r('F130')*r('F134');e.A135=r('E131')*(r('C122')+r('E122'))+r('F131')*r('G122')+r('B122');e.E135=-r('C122')*r('C71')+r('D122')*(r('O8')/2)-r('E122')*(r('M6')+r('O7'))/2+r('F122')*(r('O8')/2)-r('B110')*(r('I72')-r('O10'))+r('A35')*(r('O8')/2-r('O9')/2)-r('B35')*(r('O8')/2-r('O10')/2)+r('C35')*(r('O8')/2-r('O9')/2);e.F135=-r('G122')*(r('M6')+r('O7'))/2+r('H122')*(r('O8')/2)+r('D35')*(r('O8')/2-r('O9')/2);e.C3=r('K76')-r('E79');e.J122=r('I122')*Math.cos(r('G11'))-r('C110')*Math.sin(r('G11'));e.H133=Math.abs(r('G133')/r('B133'));e.H134=Math.abs(r('G134')/r('B134'));e.C135=Math.pow((1-r('A135')/r('B135')),2);e.D135=Math.pow((1-r('A135')/r('B135')),3);e.G135=r('E131')*r('E135')+r('F131')*r('F135');e.G3=IF(r('E115')>r('J120'),(IF(r('E116')>r('J121'),IF(r('E117')>r('J122'),1,0))));e.I133=r('O8')-2*r('H133');e.I134=r('O8')-2*r('H134');e.H135=Math.abs(r('G135')/r('B135'));e.J133=r('C129')*r('C133')*r('B16')*1+r('D129')*r('D133')*r('B16')*r('I133')/2;e.J134=r('C130')*r('C134')*r('B16')*1+r('D130')*r('D134')*r('B16')*r('I134')/2;e.I135=r('O8')-2*r('H135');e.K133=r('J133')*r('I133');e.K134=r('J134')*r('I134');e.J135=r('C131')*r('C135')*r('B16')*1+r('D131')*r('D135')*r('B16')*r('I135')/2;e.K135=r('J135')*r('I135');e.K3=IF(r('B133')<r('K133'),(IF(r('B134')<r('K134'),IF(r('B135')<r('K135'),1,0))));e.C3+';'+e.G3+';'+e.K3;"
+                                                                                                                                                                                                            _exportVRib = "#$##id$_exportRib->val = a.excel.split(';')[0]"
+                                                                                                                                                                                                            _exportRib = "#$##id$_exportRib = a.excel.split(';')[0] + (a.excel.split(';')[0] > 0 ? ' (ok)' : '')"
+                                                                                                                                                                                                            _exportVSli = "#$##id$_exportSli->val = a.excel.split(';')[1]"
+                                                                                                                                                                                                            _exportSli = "#$##id$_exportSli = a.excel.split(';')[1] + (a.excel.split(';')[1] > 0 ? ' (ok)' : '')"
+                                                                                                                                                                                                            _exportVSpr = "#$##id$_exportSpr->val = a.excel.split(';')[2]"
+                                                                                                                                                                                                            _exportSpr = "#$##id$_exportSpr = a.excel.split(';')[2] + (a.excel.split(';')[2] > 0 ? ' (ok)' : '')"
+                                                                                                                                                                                                            d_axis="none"
+                                                                                                                                                                                                            r_handles="none"
+  ></div>
+    <div class="VertexHeader" style="height:20px; width:100%; text-align:center; display:flex;">
+      <div style="text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;">($##metaParent.name$)</div>
+    </div>
+
+    <div class="air filler" style="height:20px; width:100%; text-align:center; display:flex;"></div>
+    <img class="measurable terrenoBackground" style="width:100%; height:200px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1cDp8W0WOHeJLxKwhOHj-JZs0LzhP6sLhDyMhLcEGGKMqScBj&s"
+         _dstyle="'clip-path:polygon(calc($##@WallTopX.values.0$px + $##@WallTopWidth.values.0$px / 2) 0,
+         100% 0,
+         100% 100%, 0 100%,
+         0 calc($##@WallHeight.values.0$px - 12px - 20px),
+         calc($##@WallBotX.values.0$px + $##@WallBotWidth.values.0$px / 2) calc($##@WallHeight.values.0$px - 12px - 20px));'"
+         d_axis="none" comment="-20px is the air filler, removable along that element."
+         r_handles="none">
+    <div class="measurable wall shadow" style="position:absolute; top:0%; left:0%; width:100%; height:100%; background:darkgray;"
+         _dstyle="'clip-path:polygon(
+        $##@WallTopX.values.0$px $##@WallTopY_GUIONLY.values.0$px,
+        calc($##@WallTopX.values.0$px + $##@WallTopWidth.values.0$px) $##@WallTopY_GUIONLY.values.0$px,
+        calc($##@WallBotX.values.0$px + $##@WallBotWidth.values.0$px) calc($##@WallTopY_GUIONLY.values.0$px + $##@WallHeight.values.0$px),
+        calc($##@WallBotX.values.0$px) calc($##@WallTopY_GUIONLY.values.0$px + $##@WallHeight.values.0$px) );'"
+         d_axis="none"
+         r_handles="none"></div>
+    <div class="measurable muro top" style="position:absolute; border:solid gray; border-width:2px 2px 0 2px; max-height:10px; min-height:10px; background:darkgray;"
+         _dstyle="'top:$##@WallTopY_GUIONLY.values.0$px; left:$##@WallTopX.values.0$px; width:$##@WallTopWidth.values.0$px;'"
+         DISABLED_ruleY="$##@WallTopY_GUIONLY.values$ = positionAbsY"
+         _ruleX="$##@WallTopX.values$ = positionAbsX"
+         _ruleW="$##@WallTopWidth.values$ = width"
+         _chainFinal1="#$##id$ .ClassRules"
+         _chain0="#$##id$ .terrenoBackground->_dstyle"
+         _chain1="#$##id$ .wall.shadow->_dstyle"
+         d_axis="x"
+         r_handles="w, e"
+         r_autoHide="true"
+         r_containment="parent"
+         r_ghost="true"
+    ></div>
+    <div class="measurable muro bot" style="position:absolute; border:solid gray; border-width:0 2px 2px 2px; max-height:10px; min-height:10px; background:darkgray;"
+         _dstyle="'top:calc($##@WallTopY_GUIONLY.values.0$px + $##@WallHeight.values.0$px - 10px); left:$##@WallBotX.values.0$px; width:$##@WallBotWidth.values.0$px;'"
+         DISABLED_ruleY="$##@WallHeight.values$ = height - $##@WallTopY_GUIONLY.values.0$ + 10"
+         _ruleX="$##@WallBotX.values$ = positionAbsX - $##@FoundationX_GUIONLY.values.0$"
+         _ruleW="$##@WallBotWidth.values$ = width"
+         _chainFinal1="#$##id$ .ClassRules"
+         _chain0="#$##id$ .terrenoBackground->_dstyle"
+         _chain1="#$##id$ .wall.shadow->_dstyle"
+         d_axis="x"
+         r_handles="w, e"
+         r_autoHide="true"
+         r_containment="parent"
+         r_ghost="true"
+    ></div>
+    <div class="measurable base top" style="position:absolute; border:solid gray; border-width:0 4px 0 4px; background:darkgray;"
+         _dstyle="'top:calc($##@WallTopY_GUIONLY.values.0$px + $##@WallHeight.values.0$px);
+         left:$##@FoundationX_GUIONLY.values.0$px; width:$##@FoundationWidth.values.0$px;
+         height:calc($##@FoundationHeightMin.values.0$px);'"
+         DISABLED_ruleX="$##@FoundationX_GUIONLY.values$ = positionAbsX"
+         _ruleY="$##@WallHeight.values$ = positionAbsY - $##@WallTopY_GUIONLY.values.0$"
+         _ruleW="$##@FoundationWidth.values$ = width"
+         _ruleH="$##@FoundationHeightMin.values$ = height"
+         _chainFinal1="#$##id$ .ClassRules"
+         _chain0="#$##id$ .terrenoBackground->_dstyle"
+         _chain1="#$##id$ .muro.bot->_dstyle"
+         _chain2="#$##id$ .muro.top->_dstyle"
+         _chain3="#$##id$ .wall.shadow->_dstyle"
+         _chain4="#$##id$ .base.bot->_dstyle"
+         d_axis="y"
+         r_handles="s, n, e"
+         r_autoHide="true"
+         r_containment="parent"
+         r_ghost="true"
+    ></div>
+    <div class="measurable base bot" style="position:absolute; border:solid gray; border-width:0 4px 0 0; background:darkgray; clip-path:polygon(0 0, 100% 0, 100% 100%, 100% 100%);"
+         _dstyle="'top: calc($##@WallTopY_GUIONLY.values.0$px + $##@WallHeight.values.0$px + $##@FoundationHeightMin.values.0$px);
+         left: $##@FoundationX_GUIONLY.values.0$px; width: $##@FoundationWidth.values.0$px; height: calc($##@FoundationHeightMax.values.0$px - $##@FoundationHeightMin.values.0$px);'"
+         _ruleH="$##@FoundationHeightMax.values$ = $##@FoundationHeightMin.values.0$ + height"
+         _chain0="#$##id$ .terrenoBackground->_dstyle"
+         d_axis="none"
+         r_handles="s"
+         r_autoHide="true"
+         r_containment="parent"
+         r_ghost="true"
+    ></div>
+
+    <div id="$##id$_Output" style="position:absolute; left:0; top:20px; color: black; border: 3px solid red;">
+      Ribaltamento: <div id="$##id$_exportRib"></div>
+      Slittamento: <div id="$##id$_exportSli"></div>
+      Sprofondamento: <div id="$##id$_exportSpr"></div>
+    </div>
+    <style>
+      #$##id$_Output > *[val>"0"]{
+        color: green;}
+      #$##id$_Output > *[val<="0"]{
+        color: red;
+      }</style>
+  </div></foreignobject>
+
+</sandbox>
+
+<script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
+</html>

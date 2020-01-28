@@ -203,7 +203,7 @@ export enum EdgeModes {
 
   static makePathSegment(prevPt: GraphPoint, nextPt: GraphPoint, mode0: EdgeModes, angularFavDirectionIsHorizontal: boolean = null,
                                  prevVertexSize: GraphSize, nextVertexSize: GraphSize, type: string = ' L', debug = false): string {
-    // todo: devi rifare totalmente la parte di "angularFavDirection" basandoti su se cade perpendicolare sul vertice e devi usare
+    // todo old: devi rifare totalmente la parte di "angularFavDirection" basandoti su se cade perpendicolare sul vertice e devi usare
     // 2 variabili, forzando la direzione ad essere per forza perpendicolare sul lato su cui risiede il vertex.startPt o .endPt
     // poi: se le direzioni forzate coincidono, allora è un angular3, se sono vertical+horizontal, allora è un angular2.
     // nb: in prevVertexSize e nextVertexSize la favDirection viene calcolata uguale, ma l'assenamento prevVertexSize = nextVertexSize;
@@ -491,8 +491,6 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
         const edge: IEdge = IEdge.getByHtml(e.target, true);
         edge.onMouseMove(e); } );
     $shell.off('click.addEdgePoint').on('click.addEdgePoint', (e: ClickEvent) => { IEdge.get(e).onClick(e); });
-    U.cclear();
-    U.pw(true, $edgeparts);
     $edgeparts.off('mouseover.cursor').on('mouseover.cursor', (e: MouseOverEvent) => { IEdge.get(e).onMouseOver(e); });
     $edgeparts.off('mouseenter.cursor').on('mouseenter.cursor', (e: MouseEnterEvent) => { IEdge.get(e).onMouseEnter(e); });
     $edgeparts.off('mouseleave.cursor').on('mouseleave.cursor', (e: MouseLeaveEvent) => { IEdge.get(e).onMouseLeave(e); });

@@ -15449,11 +15449,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $shell.off('click.addEdgePoint').on('click.addEdgePoint', function (e) {
             IEdge.get(e).onClick(e);
           });
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, $edgeparts);
-
           $edgeparts.off('mouseover.cursor').on('mouseover.cursor', function (e) {
             IEdge.get(e).onMouseOver(e);
           });

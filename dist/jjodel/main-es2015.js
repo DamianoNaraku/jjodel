@@ -9727,8 +9727,6 @@ class IEdge {
             edge.onMouseMove(e);
         });
         $shell.off('click.addEdgePoint').on('click.addEdgePoint', (e) => { IEdge.get(e).onClick(e); });
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, $edgeparts);
         $edgeparts.off('mouseover.cursor').on('mouseover.cursor', (e) => { IEdge.get(e).onMouseOver(e); });
         $edgeparts.off('mouseenter.cursor').on('mouseenter.cursor', (e) => { IEdge.get(e).onMouseEnter(e); });
         $edgeparts.off('mouseleave.cursor').on('mouseleave.cursor', (e) => { IEdge.get(e).onMouseLeave(e); });

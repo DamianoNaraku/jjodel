@@ -39,6 +39,7 @@ import {
   EdgePointStyle, EOperation, EParameter, Typedd, Type,
 }                    from '../common/Joiner';
 import {IClassifier} from './IClassifier';
+import {EdgeHeadStyle} from '../guiElements/mGraph/Edge/edgeStyle';
 
 export abstract class IClass extends IClassifier {
   attributes: IAttribute[];
@@ -56,12 +57,15 @@ export abstract class IClass extends IClassifier {
   protected constructor(parent: IPackage, meta: IClass) {
     super(parent, meta);
     if (this.parent) { U.ArrayAdd(this.parent.classes, this); }
-    this.edgeStyleCommon = new EdgeStyle(EdgeModes.straight, 2, '#ffffff',
-      new EdgePointStyle(5, 2, '#ffffff', '#000000'));
-    this.edgeStyleHighlight = new EdgeStyle(EdgeModes.straight, 4, '#ffffff',
-      new EdgePointStyle(5, 2, '#ffffff', '#0077ff'));
-    this.edgeStyleSelected = new EdgeStyle(EdgeModes.straight, 4, '#ffbb22',
-      new EdgePointStyle(5, 2, '#ffffff', '#ff0000'));
+    this.edgeStyleCommon = new EdgeStyle(EdgeModes.straight, 2, '#7f7f7f',
+      new EdgePointStyle(5, 2, '#ffffff', '#000000'),
+      new EdgeHeadStyle(20, 20, '#7f7f7f', '#7f7f7f'));
+    this.edgeStyleHighlight = new EdgeStyle(EdgeModes.straight, 2, '#ffffff',
+      new EdgePointStyle(5, 2, '#ffffff', '#0077ff'),
+    new EdgeHeadStyle(20, 20, '#ffffff', '#ffffff'));
+    this.edgeStyleSelected = new EdgeStyle(EdgeModes.straight, 4, '#ffffff',
+      new EdgePointStyle(5, 2, '#ffffff', '#ff0000'),
+      new EdgeHeadStyle(25, 25, '#ffffff', '#ffffff'));
   }
 
   fullname(): string { return this.parent.name + '.' + this.name; }

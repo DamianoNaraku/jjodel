@@ -13,11 +13,8 @@ import * as stringsimilarity from '../common/StringSimilarity.js';
 export let StringSimilarity = stringsimilarity;
 import "jqueryui";
 // import "jquery";
-console.log('importing jqueery');
 import * as $$ from 'jquery';
 export const $ = window['' + '$'] = $$;
-
-console.log('importing jqueery');
 /*
 import * as JQueryUII        from '../../node_modules/jqueryui';
 export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/

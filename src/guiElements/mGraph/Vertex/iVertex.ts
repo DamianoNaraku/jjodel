@@ -100,7 +100,7 @@ export class IVertex {
     const logic: IClass | IReference = edge.logic;
     const classe: IClass = logic instanceof IClass ? logic : null;
     const ref: IReference = logic instanceof IReference ? logic : null;
-    U.pe( !ref, 'The .LinkVertex element must be inserted only inside a reference field.');
+    // U.pe( !ref, 'The .LinkVertex element must be inserted only inside a reference field.');
     IEdge.edgeChanging = edge;
     edge.useRealEndVertex = false;
     edge.useMidNodes = true;

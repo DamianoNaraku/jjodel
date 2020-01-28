@@ -2318,14 +2318,14 @@ export class Json {
     if (Array.isArray(ret)) { return ret; } else { return [ret]; }
   }
 
-  static read<T>(json: Json, field: string, valueIfNotFound: any = 'read<T>CanThrowError'): T {
+  static read<T>(json: Json, field: string, valueIfNotFound: any = 'read<T>()CanThrowError'): T {
     let ret: any = json ? json[field] : null;
-    if (ret !== null && field.indexOf(Status.status.XMLinlineMarker) !== -1) {
+    if (ret !== null && ret !== undefined &&  field.indexOf(Status.status.XMLinlineMarker) !== -1) {
       U.pe(U.isObject(ret, false, false, true), 'inline value |' + field + '| must be primitive.', ret);
       ret = U.multiReplaceAll('' + ret, ['&amp;', '&#38;', '&quot;'], ['&', '\'', '"']);
     }
     if ((ret === null || ret === undefined)) {
-      U.pe(valueIfNotFound === 'read<T>CanThrowError', 'Json.read<',  '> failed: field[' + field + '], json: ', json);
+      U.pe(valueIfNotFound === 'read<T>()CanThrowError', 'Json.read<',  '> failed: field[' + field + '], json: ', json);
       return valueIfNotFound; }
     return ret as T ; }
 

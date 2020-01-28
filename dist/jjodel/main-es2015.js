@@ -3996,10 +3996,8 @@ const ansiUp = new ansi_up__WEBPACK_IMPORTED_MODULE_1___default.a(); // https://
 let StringSimilarity = _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_2__;
 
 // import "jquery";
-console.log('importing jqueery');
 
 const $ = window['' + '$'] = jquery__WEBPACK_IMPORTED_MODULE_4__;
-console.log('importing jqueery');
 /*
 import * as JQueryUII        from '../../node_modules/jqueryui';
 export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/
@@ -7320,14 +7318,14 @@ class Json {
             return [ret];
         }
     }
-    static read(json, field, valueIfNotFound = 'read<T>CanThrowError') {
+    static read(json, field, valueIfNotFound = 'read<T>()CanThrowError') {
         let ret = json ? json[field] : null;
-        if (ret !== null && field.indexOf(_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker) !== -1) {
+        if (ret !== null && ret !== undefined && field.indexOf(_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker) !== -1) {
             U.pe(U.isObject(ret, false, false, true), 'inline value |' + field + '| must be primitive.', ret);
             ret = U.multiReplaceAll('' + ret, ['&amp;', '&#38;', '&quot;'], ['&', '\'', '"']);
         }
         if ((ret === null || ret === undefined)) {
-            U.pe(valueIfNotFound === 'read<T>CanThrowError', 'Json.read<', '> failed: field[' + field + '], json: ', json);
+            U.pe(valueIfNotFound === 'read<T>()CanThrowError', 'Json.read<', '> failed: field[' + field + '], json: ', json);
             return valueIfNotFound;
         }
         return ret;
@@ -9136,12 +9134,13 @@ class ExtEdge extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"] {
 /*!**************************************************!*\
   !*** ./src/guiElements/mGraph/Edge/edgeStyle.ts ***!
   \**************************************************/
-/*! exports provided: EdgePointStyle, EdgeStyle */
+/*! exports provided: EdgePointStyle, EdgeHeadStyle, EdgeStyle */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EdgePointStyle", function() { return EdgePointStyle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EdgeHeadStyle", function() { return EdgeHeadStyle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EdgeStyle", function() { return EdgeStyle; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/Joiner */ "./src/common/Joiner.ts");
@@ -9159,18 +9158,27 @@ class EdgePointStyle {
         this.fillColor = fillColor;
     }
 }
+class EdgeHeadStyle {
+    constructor(width, height, fill, stroke) {
+        this.width = width;
+        this.height = height;
+        this.fill = fill;
+        this.stroke = stroke;
+    }
+    clone() { return new EdgeHeadStyle(this.width, this.height, this.fill, this.stroke); }
+}
 class EdgeStyle {
-    constructor(style = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].angular23Auto, width = 2, color = '#ffffff', edgePointStyle) {
+    constructor(style = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].angular23Auto, width = 2, color = '#ffffff', edgePointStyle, edgeHeadStyle) {
         this.style = null;
         this.width = null;
         this.color = null;
-        this.edgePointStyle = null;
         this.edgePointStyle = edgePointStyle;
+        this.edgeHeadStyle = edgeHeadStyle;
         this.style = style;
         this.width = width;
         this.color = color;
     }
-    clone() { return new EdgeStyle(this.style, this.width, this.color, this.edgePointStyle); }
+    clone() { return new EdgeStyle(this.style, this.width, this.color, this.edgePointStyle, this.edgeHeadStyle); }
 }
 
 
@@ -9191,6 +9199,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/Joiner */ "./src/common/Joiner.ts");
 
 
+var EdgeDecoratorType;
+(function (EdgeDecoratorType) {
+    EdgeDecoratorType["containment"] = "containment";
+    EdgeDecoratorType["generalization"] = "generalization";
+    EdgeDecoratorType["simple"] = "simple";
+})(EdgeDecoratorType || (EdgeDecoratorType = {}));
 var EdgeModes;
 (function (EdgeModes) {
     EdgeModes["straight"] = "straight";
@@ -9200,6 +9214,8 @@ var EdgeModes;
 })(EdgeModes || (EdgeModes = {}));
 class IEdge {
     constructor(logic, index, startv = null, end = null) {
+        this.headtype = EdgeDecoratorType.simple;
+        this.tailtype = EdgeDecoratorType.simple;
         // private static tempMidPoint_Clicked: GraphPoint = null;
         // private static tempMidPoint_ModelPiece: ModelPiece = null;
         this.owner = null;
@@ -9212,9 +9228,11 @@ class IEdge {
         this.logic = null;
         this.isSelected = null;
         this.isHighlighted = null;
-        this.mode = null;
+        // mode: EdgeModes = null;
         this.edgeHead = null;
         this.edgeTail = null;
+        this.headShell = null;
+        this.tailShell = null;
         this.tmpEnd = null;
         this.tmpEndVertex = null;
         this.useMidNodes =  true || false;
@@ -9241,6 +9259,8 @@ class IEdge {
         this.shell = document.createElementNS('http://www.w3.org/2000/svg', 'g'); // U.newSvg<SVGGElement>('g');
         this.html = document.createElementNS('http://www.w3.org/2000/svg', 'path'); // U.newSvg<SVGPathElement>('Path');
         this.shadow = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('path');
+        this.shell.appendChild(this.html);
+        this.shell.appendChild(this.shadow);
         this.shadow.dataset.edgeid = this.shell.dataset.edgeid = this.html.dataset.edgeid = '' + this.id;
         this.start = startv;
         this.start.edgesStart.push(this);
@@ -9251,11 +9271,10 @@ class IEdge {
         this.owner = this.start.owner;
         this.isSelected = false;
         this.isHighlighted = false;
-        // this.logic.edgeStyleCommon.style = EdgeModes.angular23Auto;
-        this.mode = this.logic.edgeStyleCommon.style;
-        // this.mode = EdgeModes.angular23Auto;
         this.edgeHead = null;
         this.edgeTail = null;
+        this.headShell = null;
+        this.tailShell = null;
         this.owner.edgeContainer.append(this.shell);
         this.shell.classList.add('EdgeShell');
         this.html.classList.add('Edge');
@@ -9268,6 +9287,7 @@ class IEdge {
         this.shadow.setAttribute('stroke', 'none');
         this.shadow.setAttribute('visibility', 'hidden');
         this.shadow.setAttribute('pointer-events', 'stroke');
+        this.addEventListeners(true, false);
         if (end)
             this.refreshGui();
     }
@@ -9308,7 +9328,7 @@ class IEdge {
         // return ModelPiece.getLogic(e.classType).edge;
         return IEdge.getByHtml(e.target);
     }
-    static getByHtml(html0, debug = false) {
+    static getByHtml(html0, debug = true) {
         if (!html0) {
             return null;
         }
@@ -9317,43 +9337,57 @@ class IEdge {
             html = html.parentNode;
         }
         const ret = html ? IEdge.getByID(+html.dataset.edgeid) : null;
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(debug && !ret, 'failed to find edge. html0:', html0, 'html:', html, 'map:', IEdge.idToEdge);
+        // U.pe(debug && !ret, 'failed to find edge. html0:', html0, 'html:', html, 'map:', IEdge.idToEdge);
         return ret;
     }
     static getByID(id) { return IEdge.idToEdge[id]; }
-    static generateAggregationHead(fill = 'black', stroke = 'white', strokeWidth = 20) {
-        // https://jsfiddle.net/Naraku/3hngkrc1/
-        const svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
+    generateAggregationHead(style) { return null; }
+    generateContainmentHead(style) { return this.generateAggregationHead(style); }
+    generateContainmentTail(style) { return this.generateAggregationTail(style); }
+    generateAggregationTail(style) {
+        let svg;
+        const bugfigo = false;
+        // if (this instanceof ExtEdge) svg = this.edgeTail = this.edgeHead || U.newSvg('svg');
+        if (bugfigo || this.edgeTail && this.tailtype === EdgeDecoratorType.containment) {
+            svg = this.edgeTail;
+        }
+        else {
+            svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
+        } // don't set it here, it will be set and eventlistened later.
+        this.tailtype = EdgeDecoratorType.containment;
+        svg.setAttributeNS(null, 'width', '' + style.width);
+        svg.setAttributeNS(null, 'height', '' + style.width);
+        svg.setAttributeNS(null, 'viewBox', (-style.width) + ' ' + (-style.width) + ' ' + (200 + style.width * 2) + ' ' + (200 + style.width * 2));
         const path = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('path');
-        svg.setAttributeNS(null, 'width', '20');
-        svg.setAttributeNS(null, 'height', '20');
-        svg.setAttributeNS(null, 'viewBox', (-strokeWidth) + ' ' + (-strokeWidth) + ' ' + (200 + strokeWidth * 2) + ' ' + (200 + strokeWidth * 2));
-        path.setAttributeNS(null, 'fill', fill);
-        path.setAttributeNS(null, 'stroke', stroke);
-        path.setAttributeNS(null, 'stroke-width', '' + strokeWidth);
+        path.setAttributeNS(null, 'fill', style.fill);
+        path.setAttributeNS(null, 'stroke', style.stroke);
+        path.setAttributeNS(null, 'stroke-width', '' + style.width);
         path.setAttributeNS(null, 'd', 'M100 0 L200 100 L100 200 L0 100 Z');
         svg.appendChild(path);
         return svg;
     }
-    static generateAggregationTail(fill = 'black', stroke = 'white', strokeWidth = 20) { return null; }
-    static generateContainmentHead() { return IEdge.generateAggregationHead('white', 'white'); }
-    static generateContainmentTail() { return IEdge.generateAggregationTail('white', 'white'); }
-    static generateGeneralizationHead(fill = 'white', stroke = 'white', strokeWidth = 20) {
-        const svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
-        svg.setAttributeNS(null, 'width', '20');
-        svg.setAttributeNS(null, 'height', '20');
-        svg.setAttributeNS(null, 'viewBox', (-strokeWidth) + ' ' + (-strokeWidth) + ' ' + (200 + strokeWidth * 2) + ' ' + (200 + strokeWidth * 2));
-        svg.innerHTML = '<path fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + strokeWidth + '" d="M100 0 L200 200 L000 200 Z" />';
+    generateGeneralizationHead(style) {
+        let svg;
+        const bugfigo = false;
+        if (bugfigo || this.edgeHead && this.headtype === EdgeDecoratorType.generalization) {
+            svg = this.edgeHead;
+        }
+        else {
+            svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
+        }
+        this.headtype = EdgeDecoratorType.generalization;
+        svg.setAttributeNS(null, 'width', '' + style.width);
+        svg.setAttributeNS(null, 'height', '' + style.width);
+        svg.setAttributeNS(null, 'viewBox', (-style.width) + ' ' + (-style.width) + ' ' + (200 + style.width * 2) + ' ' + (200 + style.width * 2));
+        const path = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('path');
+        path.setAttributeNS(null, 'fill', style.fill);
+        path.setAttributeNS(null, 'stroke', style.stroke);
+        path.setAttributeNS(null, 'stroke-width', '' + style.width);
+        path.setAttributeNS(null, 'd', 'M100 0 L200 200 L000 200 Z');
+        svg.appendChild(path);
         return svg;
     }
-    static generateGeneralizationTail(fill = 'white', stroke = 'white', strokeWidth = 20) {
-        const svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
-        svg.setAttributeNS(null, 'width', '20');
-        svg.setAttributeNS(null, 'height', '20');
-        svg.setAttributeNS(null, 'viewBox', (-strokeWidth) + ' ' + (-strokeWidth) + ' ' + (200 + strokeWidth * 2) + ' ' + (200 + strokeWidth * 2));
-        svg.innerHTML = '<path fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + strokeWidth + '" d="M100 0 L200 200 L000 200 Z" />';
-        return null;
-    }
+    generateGeneralizationTail(style) { return null; }
     static makePathSegment(prevPt, nextPt, mode0, angularFavDirectionIsHorizontal = null, prevVertexSize, nextVertexSize, type = ' L', debug = false) {
         // todo: devi rifare totalmente la parte di "angularFavDirection" basandoti su se cade perpendicolare sul vertice e devi usare
         // 2 variabili, forzando la direzione ad essere per forza perpendicolare sul lato su cui risiede il vertex.startPt o .endPt
@@ -9524,6 +9558,9 @@ class IEdge {
     canBeLinkedTo(target) { return this.logic.canBeLinkedTo(target); }
     refreshGui(debug = false, useRealEndVertex = null, usemidnodes = null) {
         debug = false;
+        let debugi = window['' + 'debug'];
+        if (debugi === 1)
+            return;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.logic, 'IEdge.logic is null:', this);
         if (useRealEndVertex === null) {
             useRealEndVertex = this.useRealEndVertex;
@@ -9532,10 +9569,6 @@ class IEdge {
             usemidnodes = this.useMidNodes;
         }
         /* setup variables */
-        if (!this.logic.edgeStyleCommon.style) {
-            this.logic.edgeStyleCommon.style = EdgeModes.straight;
-        }
-        this.mode = this.logic.edgeStyleCommon.style;
         const startVertex = this.start;
         const startVertexSize = this.start.getSize();
         let endVertex = null;
@@ -9556,11 +9589,15 @@ class IEdge {
             this.startNode.moveTo(startVertex.getStartPoint(allRealPt[1].getEndPoint()), false);
             this.endNode.moveTo(endVertex ? endVertex.getEndPoint(allRealPt[allRealPt.length - 2].getStartPoint()) : this.tmpEnd, false);
         }
+        if (debugi === 2)
+            return;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'allRealPt:', allRealPt);
         let i;
         let pathStr; // 'M' + (allRealPt[0].getStartPoint().x) + ' ' + (allRealPt[0].getStartPoint().y);
         let oldpathStr;
         const graph = this.logic.getModelRoot().graph;
+        if (debugi === 3)
+            return;
         if (debug) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
             if (startVertexSize) {
@@ -9598,31 +9635,47 @@ class IEdge {
                 pathStr = 'M' + prevPt.x + ' ' + prevPt.y;
             }
             oldpathStr = pathStr;
-            pathStr += IEdge.makePathSegment(prevPt, currPt, this.mode, favdirection, prevVertexSize, nextVertexSize);
+            pathStr += IEdge.makePathSegment(prevPt, currPt, this.getEdgeMode(), favdirection, prevVertexSize, nextVertexSize);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr: RealPts:' + '[' + i + '] = ' + currPt.toString() + '; prev:' + prevPt.toString());
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr[' + (i) + '/' + allRealPt.length + ']: ' + oldpathStr + ' --> ' + pathStr);
         }
+        if (debugi === 3)
+            return;
         this.setPath(pathStr, debug);
-        this.appendTailHead(this.getEdgeHead(), true, pathStr);
-        this.appendTailHead(this.getEdgeTail(), false, pathStr);
-        this.addEventListeners();
+        if (debugi === 4)
+            return;
+        this.getEdgeHead();
+        this.getEdgeTail();
+        if (debugi === 5)
+            return;
+        this.appendTailHead(true, pathStr);
+        this.appendTailHead(false, pathStr);
+        if (debugi === 6)
+            return;
+        // this.addEventListeners(true, false);
     }
-    setPath(pathStr, debug = false) {
-        let style = null;
+    getEdgeMode() {
+        let tmp = this.logic.edgeStyleCommon.style;
+        return tmp ? tmp : this.logic.edgeStyleCommon.style = EdgeModes.straight;
+    }
+    getStyle() {
         if (this.isHighlighted) {
-            style = this.logic.edgeStyleHighlight;
+            return this.logic.edgeStyleHighlight;
         }
         else if (this.isSelected) {
-            style = this.logic.edgeStyleSelected;
+            return this.logic.edgeStyleSelected;
         }
         else {
-            style = this.logic.edgeStyleCommon;
+            return this.logic.edgeStyleCommon;
         }
+    }
+    setPath(pathStr, debug = false) {
+        let style = this.getStyle();
         /* update style */
         this.html.setAttribute('stroke', style.color);
         this.html.setAttribute('stroke-width', '' + style.width);
         this.shadow.setAttribute('stroke-width', '' + (style.width + IEdge.shadowWidthIncrease));
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].clear(this.shell);
+        // U.clear(this.shell);
         this.shell.appendChild(this.html);
         this.shell.appendChild(this.shadow);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'edgeHead:', this.edgeHead, 'tail:', this.edgeTail);
@@ -9651,28 +9704,34 @@ class IEdge {
             this.endNode.hide();
         }
     }
-    addEventListeners() {
-        const $html = $(this.shell);
-        $html.off('click.pbar').on('click.pbar', (e) => _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].ChangePropertyBarContentClick(e, this));
+    addEventListeners(foredge, forheadtail) {
+        const $edgetail = forheadtail ? $(this.headShell).add(this.tailShell) : $();
+        const $shell = foredge ? $(this.shell) : $();
+        const $edgeparts = $shell.find('.Edge').add($edgetail);
+        // U.pe(!$shell.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail);
+        //  U.pe(!$edgetail.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail, 'head-tail:', this.edgeHead, this.edgeTail);
+        $shell.off('click.pbar').on('click.pbar', (e) => _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].ChangePropertyBarContentClick(e, this));
         /*$html.off('mousedown.showStyle').on('mousedown.showStyle',
           (e: MouseDownEvent) => { Status.status.getActiveModel().graph.propertyBar.styleEditor.showE(this.logic); });*/
-        $html.off('mousedown.startSetMidPoint').on('mousedown.startSetMidPoint', (e) => {
+        $shell.off('mousedown.startSetMidPoint').on('mousedown.startSetMidPoint', (e) => {
             // const ownermp: M2Class | IReference = ModelPiece.getLogic(e.currentTarget) as M2Class | IReference;
             // U.pe( ownermp === null || ownermp === undefined, 'unable to get logic of:', e.currentTarget);
             const edge = IEdge.get(e);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!e, 'unable to get edge of:', e.currentTarget);
             edge.onMouseDown(e);
         });
-        $html.off('mousemove.startSetMidPoint').on('mousemove.startSetMidPoint', (e) => {
+        $shell.off('mousemove.startSetMidPoint').on('mousemove.startSetMidPoint', (e) => {
             // const ownermp: M2Class | IReference = ModelPiece.getLogic(e.currentTarget) as M2Class | IReference;
             // U.pe( ownermp === null || ownermp === undefined, 'unable to get logic of:', e.currentTarget);
             const edge = IEdge.getByHtml(e.target, true);
             edge.onMouseMove(e);
         });
-        $html.off('click.addEdgePoint').on('click.addEdgePoint', (e) => { IEdge.get(e).onClick(e); });
-        $html.find('.Edge').off('mouseover.cursor').on('mouseover.cursor', (e) => { IEdge.get(e).onMouseOver(e); });
-        $html.find('.Edge').off('mouseenter.cursor').on('mouseenter.cursor', (e) => { IEdge.get(e).onMouseEnter(e); });
-        $html.find('.Edge').off('mouseleave.cursor').on('mouseleave.cursor', (e) => { IEdge.get(e).onMouseLeave(e); });
+        $shell.off('click.addEdgePoint').on('click.addEdgePoint', (e) => { IEdge.get(e).onClick(e); });
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, $edgeparts);
+        $edgeparts.off('mouseover.cursor').on('mouseover.cursor', (e) => { IEdge.get(e).onMouseOver(e); });
+        $edgeparts.off('mouseenter.cursor').on('mouseenter.cursor', (e) => { IEdge.get(e).onMouseEnter(e); });
+        $edgeparts.off('mouseleave.cursor').on('mouseleave.cursor', (e) => { IEdge.get(e).onMouseLeave(e); });
     }
     onBlur() {
         this.isSelected = false;
@@ -9829,6 +9888,8 @@ class IEdge {
         return null;
     }
     onMouseLeave(e) {
+        if (e)
+            console.log('mouseleave');
         this.isHighlighted = false;
         this.startNode.refreshGUI(null, false);
         this.endNode.refreshGUI(null, false);
@@ -9840,11 +9901,13 @@ class IEdge {
     }
     onMouseEnter(e) {
         this.onMouseLeave(null);
+        console.log('enter', e.target, e.currentTarget);
         this.isHighlighted = true;
-        this.refreshGui();
+        this.refreshGui(true);
     }
     onMouseMove(e) { this.onMouseOver(e, false); }
     onMouseOver(e, canFail = false, debug = false) {
+        console.log('over');
         if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["CursorFollowerEP"].get().isAttached() || IEdge.edgeChanging) {
             return;
         }
@@ -9863,7 +9926,7 @@ class IEdge {
         this.startNode.refreshGUI(null, false);
         this.endNode.refreshGUI(null, false);
         let cursor;
-        switch (this.logic.edgeStyleCommon.style) {
+        switch (this.getEdgeMode()) {
             default:
                 cursor = 'help';
                 break;
@@ -9980,22 +10043,39 @@ class IEdge {
             v.edgesEnd.push(this);
         }
     }
+    mark(markb, key = 'errorGeneric', color = 'red') {
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'IEdge.mark() todo.');
+    }
+    // bug: https://bugzilla.mozilla.org/show_bug.cgi?id=577785#c2
     getEdgeHead() {
         const logic = this.logic;
         const logicref = this.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"] ? this.logic : null;
         const logicclass = this.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] ? this.logic : null;
         let html = null;
+        //console.trace();
+        //console.log('getEdgeHead(), ', this.getStyle().edgeHeadStyle, this.isHighlighted);
+        let debugi = window['' + 'debug'];
+        if (debugi === 4.1)
+            return this.edgeHead ? this.edgeHead : html;
         if (logicref && logicref.isContainment()) {
-            html = IEdge.generateContainmentHead();
+            html = this.generateContainmentHead(this.getStyle().edgeHeadStyle);
         }
         if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"]) {
-            html = IEdge.generateGeneralizationHead();
+            html = this.generateGeneralizationHead(this.getStyle().edgeHeadStyle);
         }
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"] && !html, 'cannot return null on extedge:', html, this);
+        if (debugi === 4.2)
+            return this.edgeHead ? this.edgeHead : html;
         if (!html) {
             return this.edgeHead = null;
         }
+        if (html === this.edgeHead)
+            return;
+        this.edgeHead = html;
         html.classList.add('Edge', 'EdgeHead');
-        return this.edgeHead = html;
+        if (this.headShell)
+            this.headShell.appendChild(this.edgeHead);
+        return this.edgeHead;
     }
     getEdgeTail() {
         const logic = this.logic;
@@ -10003,22 +10083,26 @@ class IEdge {
         const logicclass = this.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] ? this.logic : null;
         let html = null;
         if (logicref && logicref.isContainment()) {
-            html = IEdge.generateContainmentTail();
+            html = this.generateContainmentTail(this.getStyle().edgeHeadStyle);
         }
         if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"]) {
-            html = IEdge.generateGeneralizationTail();
+            html = this.generateGeneralizationTail(this.getStyle().edgeHeadStyle);
         }
         if (!html) {
             return this.edgeTail = null;
         }
+        if (html === this.edgeTail)
+            return;
+        this.edgeTail = html;
         html.classList.add('Edge', 'EdgeTail');
+        if (this.tailShell)
+            this.tailShell.appendChild(this.edgeTail);
         return this.edgeTail = html;
     }
-    mark(markb, key = 'errorGeneric', color = 'red') {
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'IEdge.mark() todo.');
-    }
-    appendTailHead(cosa, onEnd, pathStr, debug = false) {
-        if (!cosa) {
+    appendTailHead(tail, pathStr, debug = false) {
+        const svg = tail ? this.edgeTail : this.edgeHead;
+        const shell = tail ? this.tailShell : this.headShell;
+        if (!svg) {
             return;
         }
         // debug = true;
@@ -10030,7 +10114,7 @@ class IEdge {
         // filtro il pathStr estraendo solo i primi 2 o gli ultimi 2 punti. (migliora performance su edge pieni di edgepoints)
         let pt1;
         let pt2;
-        if (onEnd) {
+        if (!tail) {
             endsub = pathStr.length;
             startsub = pathStr.lastIndexOf('L');
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(startsub === -1, 'the pathString have no L (but should have at least 2 points)');
@@ -10049,10 +10133,10 @@ class IEdge {
             }
         }
         pathStr = pathStr.substring(startsub, endsub);
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr: ' + oldPathStr + ' --> ' + pathStr, 'onEnd ? ', onEnd);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr: ' + oldPathStr + ' --> ' + pathStr, 'onEnd ? ', !tail);
         const points = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].parseSvgPath(pathStr).pts;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(points.length !== 2, 'expected exactly 2 points, the pathStr got substringed for that.', points);
-        if (onEnd) {
+        if (!tail) {
             pt1 = points[1];
             pt2 = points[0];
         }
@@ -10060,22 +10144,35 @@ class IEdge {
             pt1 = points[0];
             pt2 = points[1];
         }
-        this.owner.markg(pt1, true, 'red');
-        this.owner.markg(pt2, true, 'blue');
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'size of head: ', cosa, 'pt1:', pt1, 'pt2:', pt2, ', pts:', points, pathStr, oldPathStr);
-        this.appendEdgeOrTail(cosa, pt1, pt2);
-    }
-    appendEdgeOrTail(cosa, pt1, pt2real, debug = false) {
-        const m = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"].getM(pt1, pt2real);
-        const HeadSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getSvgSize(cosa);
-        const shell = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('g');
-        shell.appendChild(cosa);
-        const firstEdgePointHtml = this.html.nextElementSibling;
-        if (firstEdgePointHtml) {
-            this.shell.insertBefore(shell, firstEdgePointHtml);
+        if (debug) {
+            this.owner.markg(pt1, true, 'red');
+            this.owner.markg(pt2, false, 'blue');
         }
-        else {
-            this.shell.appendChild(shell);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'size of head: ', svg, 'pt1:', pt1, 'pt2:', pt2, ', pts:', points, pathStr, oldPathStr);
+        this.appendTailHead2(tail, pt1, pt2);
+    }
+    appendTailHead2(tail, pt1, pt2real, debug = false) {
+        const m = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"].getM(pt1, pt2real);
+        const svg = tail ? this.edgeTail : this.edgeHead;
+        let shell = tail ? this.tailShell : this.headShell;
+        const HeadSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getSvgSize(svg);
+        const firstEdgePointHtml = this.html.nextElementSibling;
+        if (!shell) {
+            shell = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('g');
+            shell.appendChild(svg);
+            if (tail) {
+                this.tailShell = shell;
+            }
+            else {
+                this.headShell = shell;
+            }
+            if (firstEdgePointHtml) {
+                this.shell.insertBefore(shell, firstEdgePointHtml);
+            }
+            else {
+                this.shell.appendChild(shell);
+            }
+            this.addEventListeners(false, true);
         }
         // const HeadSize: GraphSize = this.owner.toGraphCoordS(U.sizeof(this.edgeHead));
         debug = false;
@@ -10086,30 +10183,32 @@ class IEdge {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'size of head: ', HeadSize, 'pt1:', pt1, 'pt2:', pt2real, 'm:', m);
         if (m === Number.POSITIVE_INFINITY) {
             // link hit on top
-            (cosa).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
-            (cosa).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h));
+            (svg).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
+            (svg).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h));
         }
         else if (m === Number.NEGATIVE_INFINITY) {
             // link hit on bot
-            (cosa).setAttributeNS(null, 'y', '' + (pt1.y));
-            (cosa).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
+            (svg).setAttributeNS(null, 'y', '' + (pt1.y));
+            (svg).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
         } /* else if (U.isPositiveZero(m)) {
           // link hit on left
-          (cosa).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
-          (cosa).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w));
+          (svg).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
+          (svg).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w));
         } else if (U.isNegativeZero(m)) {
           // link hit on right
-          (cosa).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
-          (cosa).setAttributeNS(null, 'x', '' + (pt1.x));
+          (svg).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
+          (svg).setAttributeNS(null, 'x', '' + (pt1.x));
         }*/
         else {
             const degreeRad = pt1.degreeWith(pt2real, true); // U.TanToDegree(m);
             const center = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0);
             const pt2 = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0);
-            cosa.style.zIndex = '' + 100;
-            cosa.style.position = 'absolute';
+            //todo: perchè zindex e position?
+            svg.style.zIndex = '' + 100;
+            svg.style.position = 'absolute';
             if (pt1.x < pt2.x && pt1.y < pt2.y) {
-                cosa.setAttributeNS(null, 'fill', 'blue');
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'what\'s this?? can that happen?');
+                svg.setAttributeNS(null, 'fill', 'blue');
             }
             pt2.x = pt1.x - HeadSize.w * Math.cos(degreeRad);
             pt2.y = pt1.y - HeadSize.h * Math.sin(degreeRad);
@@ -10120,8 +10219,8 @@ class IEdge {
                 this.owner.markg(pt2, false, 'blue');
             }
             shell.setAttributeNS(null, 'transform', 'rotate(' + degree + ' ' + center.x + ' ' + center.y + ')');
-            (cosa).setAttributeNS(null, 'x', '' + (center.x - HeadSize.w / 2));
-            (cosa).setAttributeNS(null, 'y', '' + (center.y - HeadSize.h / 2));
+            (svg).setAttributeNS(null, 'x', '' + (center.x - HeadSize.w / 2));
+            (svg).setAttributeNS(null, 'y', '' + (center.y - HeadSize.h / 2));
             // link hit diagonally
         }
     }
@@ -10244,7 +10343,7 @@ class IVertex {
         const logic = edge.logic;
         const classe = logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] ? logic : null;
         const ref = logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"] ? logic : null;
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!ref, 'The .LinkVertex element must be inserted only inside a reference field.');
+        // U.pe( !ref, 'The .LinkVertex element must be inserted only inside a reference field.');
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging = edge;
         edge.useRealEndVertex = false;
         edge.useMidNodes = true;
@@ -14947,12 +15046,6 @@ class M2Reference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReferenc
         this.parse(json, true);
     }
     getModelRoot() { return super.getModelRoot(); }
-    // todo:
-    loadEdgeStyles() {
-        this.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].angular23Auto, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 1, '#ffffff', '#0000ff'));
-        this.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](null, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 1, '#ffffff', '#ff0000'));
-        this.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](null, 3, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](7, 4, '#ffffff', '#ff0000'));
-    }
     parse(json, destructive) {
         /// own attributes.
         this.setName(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].namee, 'Ref_1'));
@@ -15304,6 +15397,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M3Reference", function() { return M3Reference; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../common/Joiner */ "./src/common/Joiner.ts");
+/* harmony import */ var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../guiElements/mGraph/Edge/edgeStyle */ "./src/guiElements/mGraph/Edge/edgeStyle.ts");
+
 
 
 class IReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"] {
@@ -15312,10 +15407,10 @@ class IReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]
         this.edges = [];
         if (parent)
             parent.references.push(this);
-        this.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'));
-        this.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'));
+        this.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
+        this.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
         this.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', // #ffbb22
-        new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'));
+        new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
     }
     clearTargets() {
         let i;
@@ -16009,7 +16104,7 @@ class Type {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.printablename, this);
     }
     applyTypeStr0() {
-        const debug = true;
+        const debug = false;
         let i;
         let oldClass = this.classType;
         let oldEnum = this.enumType;
@@ -16327,6 +16422,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/Joiner */ "./src/common/Joiner.ts");
 /* harmony import */ var _IClassifier__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IClassifier */ "./src/mClass/IClassifier.ts");
+/* harmony import */ var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/edgeStyle */ "./src/guiElements/mGraph/Edge/edgeStyle.ts");
+
 
 
 
@@ -16339,9 +16436,9 @@ class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
         if (this.parent) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.parent.classes, this);
         }
-        this.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'));
-        this.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'));
-        this.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffbb22', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'));
+        this.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
+        this.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
+        this.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
     }
     fullname() { return this.parent.name + '.' + this.name; }
     generateEdge() { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'IClass.generateEdge() todo.'); return null; }
@@ -16727,6 +16824,7 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         this.isAbstract = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreClass"].abstract, 'false') === 'true';
         let tmps = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreClass"].eSuperTypes, null);
         this.extendsStr = tmps ? tmps.split(' ') : [];
+        // U.pe(true, 'extendsStr:', this.extendsStr, 'tmps', tmps, 'typeof tmps:' + typeof(tmps), 'json:', json);
         /*this.name = Json.read<string>(this.json, ECoreClass.name);
         this.fullname = this.midname = this.parent.fullname + '.' + this.name;*/
         /// childrens
@@ -16907,7 +17005,7 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
             const classe = classes[i];
             for (j = 0; j < classe.extendsStr.length; j++) {
                 const target = dictionary[classe.extendsStr[j]];
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!target, 'e1, failed to find extended class:', classe.extendsStr[j], 'in classList:', classes, 'classe to extend:', classe, 'dictionary:', dictionary, 'classe.extendsStr[j]:', classe.extendsStr[j]);
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!target, 'e1, failed to find extended class.extendsStr[' + j + ']:', classe.extendsStr[j], 'in classList:', classes, 'classe to extend:', classe, 'dictionary:', dictionary);
                 classe.extendClass(null, target);
             }
             classe.extendsStr = [];

@@ -7330,9 +7330,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var StringSimilarity = _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_2__; // import "jquery";
 
-    console.log('importing jqueery');
     var $ = window['' + '$'] = jquery__WEBPACK_IMPORTED_MODULE_4__;
-    console.log('importing jqueery');
     /*
     import * as JQueryUII        from '../../node_modules/jqueryui';
     export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/
@@ -11922,16 +11920,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "read",
         value: function read(json, field) {
-          var valueIfNotFound = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'read<T>CanThrowError';
+          var valueIfNotFound = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'read<T>()CanThrowError';
           var ret = json ? json[field] : null;
 
-          if (ret !== null && field.indexOf(_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker) !== -1) {
+          if (ret !== null && ret !== undefined && field.indexOf(_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker) !== -1) {
             U.pe(U.isObject(ret, false, false, true), 'inline value |' + field + '| must be primitive.', ret);
             ret = U.multiReplaceAll('' + ret, ['&amp;', '&#38;', '&quot;'], ['&', '\'', '"']);
           }
 
           if (ret === null || ret === undefined) {
-            U.pe(valueIfNotFound === 'read<T>CanThrowError', 'Json.read<', '> failed: field[' + field + '], json: ', json);
+            U.pe(valueIfNotFound === 'read<T>()CanThrowError', 'Json.read<', '> failed: field[' + field + '], json: ', json);
             return valueIfNotFound;
           }
 
@@ -14881,7 +14879,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/guiElements/mGraph/Edge/edgeStyle.ts ***!
     \**************************************************/
 
-  /*! exports provided: EdgePointStyle, EdgeStyle */
+  /*! exports provided: EdgePointStyle, EdgeHeadStyle, EdgeStyle */
 
   /***/
   function srcGuiElementsMGraphEdgeEdgeStyleTs(module, __webpack_exports__, __webpack_require__) {
@@ -14893,6 +14891,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     __webpack_require__.d(__webpack_exports__, "EdgePointStyle", function () {
       return EdgePointStyle;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "EdgeHeadStyle", function () {
+      return EdgeHeadStyle;
     });
     /* harmony export (binding) */
 
@@ -14931,6 +14935,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       this.fillColor = fillColor;
     };
 
+    var EdgeHeadStyle =
+    /*#__PURE__*/
+    function () {
+      function EdgeHeadStyle(width, height, fill, stroke) {
+        _classCallCheck(this, EdgeHeadStyle);
+
+        this.width = width;
+        this.height = height;
+        this.fill = fill;
+        this.stroke = stroke;
+      }
+
+      _createClass(EdgeHeadStyle, [{
+        key: "clone",
+        value: function clone() {
+          return new EdgeHeadStyle(this.width, this.height, this.fill, this.stroke);
+        }
+      }]);
+
+      return EdgeHeadStyle;
+    }();
+
     var EdgeStyle =
     /*#__PURE__*/
     function () {
@@ -14939,14 +14965,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
         var color = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '#ffffff';
         var edgePointStyle = arguments.length > 3 ? arguments[3] : undefined;
+        var edgeHeadStyle = arguments.length > 4 ? arguments[4] : undefined;
 
         _classCallCheck(this, EdgeStyle);
 
         this.style = null;
         this.width = null;
         this.color = null;
-        this.edgePointStyle = null;
         this.edgePointStyle = edgePointStyle;
+        this.edgeHeadStyle = edgeHeadStyle;
         this.style = style;
         this.width = width;
         this.color = color;
@@ -14955,7 +14982,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(EdgeStyle, [{
         key: "clone",
         value: function clone() {
-          return new EdgeStyle(this.style, this.width, this.color, this.edgePointStyle);
+          return new EdgeStyle(this.style, this.width, this.color, this.edgePointStyle, this.edgeHeadStyle);
         }
       }]);
 
@@ -15003,6 +15030,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ../../../common/Joiner */
     "./src/common/Joiner.ts");
 
+    var EdgeDecoratorType;
+
+    (function (EdgeDecoratorType) {
+      EdgeDecoratorType["containment"] = "containment";
+      EdgeDecoratorType["generalization"] = "generalization";
+      EdgeDecoratorType["simple"] = "simple";
+    })(EdgeDecoratorType || (EdgeDecoratorType = {}));
+
     var EdgeModes;
 
     (function (EdgeModes) {
@@ -15021,8 +15056,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _classCallCheck(this, IEdge);
 
-        // private static tempMidPoint_Clicked: GraphPoint = null;
+        this.headtype = EdgeDecoratorType.simple;
+        this.tailtype = EdgeDecoratorType.simple; // private static tempMidPoint_Clicked: GraphPoint = null;
         // private static tempMidPoint_ModelPiece: ModelPiece = null;
+
         this.owner = null;
         this.start = null;
         this.end = null;
@@ -15032,10 +15069,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.shadow = null;
         this.logic = null;
         this.isSelected = null;
-        this.isHighlighted = null;
-        this.mode = null;
+        this.isHighlighted = null; // mode: EdgeModes = null;
+
         this.edgeHead = null;
         this.edgeTail = null;
+        this.headShell = null;
+        this.tailShell = null;
         this.tmpEnd = null;
         this.tmpEndVertex = null;
         this.useMidNodes = true || false;
@@ -15072,6 +15111,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.html = document.createElementNS('http://www.w3.org/2000/svg', 'path'); // U.newSvg<SVGPathElement>('Path');
 
         this.shadow = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('path');
+        this.shell.appendChild(this.html);
+        this.shell.appendChild(this.shadow);
         this.shadow.dataset.edgeid = this.shell.dataset.edgeid = this.html.dataset.edgeid = '' + this.id;
         this.start = startv;
         this.start.edgesStart.push(this);
@@ -15081,12 +15122,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.endNode = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePoint"](this, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0), this.end);
         this.owner = this.start.owner;
         this.isSelected = false;
-        this.isHighlighted = false; // this.logic.edgeStyleCommon.style = EdgeModes.angular23Auto;
-
-        this.mode = this.logic.edgeStyleCommon.style; // this.mode = EdgeModes.angular23Auto;
-
+        this.isHighlighted = false;
         this.edgeHead = null;
         this.edgeTail = null;
+        this.headShell = null;
+        this.tailShell = null;
         this.owner.edgeContainer.append(this.shell);
         this.shell.classList.add('EdgeShell');
         this.html.classList.add('Edge');
@@ -15099,10 +15139,84 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.shadow.setAttribute('stroke', 'none');
         this.shadow.setAttribute('visibility', 'hidden');
         this.shadow.setAttribute('pointer-events', 'stroke');
+        this.addEventListeners(true, false);
         if (end) this.refreshGui();
       }
 
       _createClass(IEdge, [{
+        key: "generateAggregationHead",
+        value: function generateAggregationHead(style) {
+          return null;
+        }
+      }, {
+        key: "generateContainmentHead",
+        value: function generateContainmentHead(style) {
+          return this.generateAggregationHead(style);
+        }
+      }, {
+        key: "generateContainmentTail",
+        value: function generateContainmentTail(style) {
+          return this.generateAggregationTail(style);
+        }
+      }, {
+        key: "generateAggregationTail",
+        value: function generateAggregationTail(style) {
+          var svg;
+          var bugfigo = false; // if (this instanceof ExtEdge) svg = this.edgeTail = this.edgeHead || U.newSvg('svg');
+
+          if (bugfigo || this.edgeTail && this.tailtype === EdgeDecoratorType.containment) {
+            svg = this.edgeTail;
+          } else {
+            svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
+          } // don't set it here, it will be set and eventlistened later.
+
+
+          this.tailtype = EdgeDecoratorType.containment;
+          svg.setAttributeNS(null, 'width', '' + style.width);
+          svg.setAttributeNS(null, 'height', '' + style.width);
+          svg.setAttributeNS(null, 'viewBox', -style.width + ' ' + -style.width + ' ' + (200 + style.width * 2) + ' ' + (200 + style.width * 2));
+
+          var path = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('path');
+
+          path.setAttributeNS(null, 'fill', style.fill);
+          path.setAttributeNS(null, 'stroke', style.stroke);
+          path.setAttributeNS(null, 'stroke-width', '' + style.width);
+          path.setAttributeNS(null, 'd', 'M100 0 L200 100 L100 200 L0 100 Z');
+          svg.appendChild(path);
+          return svg;
+        }
+      }, {
+        key: "generateGeneralizationHead",
+        value: function generateGeneralizationHead(style) {
+          var svg;
+          var bugfigo = false;
+
+          if (bugfigo || this.edgeHead && this.headtype === EdgeDecoratorType.generalization) {
+            svg = this.edgeHead;
+          } else {
+            svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
+          }
+
+          this.headtype = EdgeDecoratorType.generalization;
+          svg.setAttributeNS(null, 'width', '' + style.width);
+          svg.setAttributeNS(null, 'height', '' + style.width);
+          svg.setAttributeNS(null, 'viewBox', -style.width + ' ' + -style.width + ' ' + (200 + style.width * 2) + ' ' + (200 + style.width * 2));
+
+          var path = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('path');
+
+          path.setAttributeNS(null, 'fill', style.fill);
+          path.setAttributeNS(null, 'stroke', style.stroke);
+          path.setAttributeNS(null, 'stroke-width', '' + style.width);
+          path.setAttributeNS(null, 'd', 'M100 0 L200 200 L000 200 Z');
+          svg.appendChild(path);
+          return svg;
+        }
+      }, {
+        key: "generateGeneralizationTail",
+        value: function generateGeneralizationTail(style) {
+          return null;
+        }
+      }, {
         key: "canBeLinkedTo",
 
         /*private static midPointMouseDown(e: JQuery.MouseDownEvent) {
@@ -15125,6 +15239,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var useRealEndVertex = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
           var usemidnodes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
           debug = false;
+          var debugi = window['' + 'debug'];
+          if (debugi === 1) return;
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.logic, 'IEdge.logic is null:', this);
 
@@ -15138,11 +15254,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           /* setup variables */
 
 
-          if (!this.logic.edgeStyleCommon.style) {
-            this.logic.edgeStyleCommon.style = EdgeModes.straight;
-          }
-
-          this.mode = this.logic.edgeStyleCommon.style;
           var startVertex = this.start;
           var startVertexSize = this.start.getSize();
           var endVertex = null;
@@ -15165,6 +15276,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.endNode.moveTo(endVertex ? endVertex.getEndPoint(allRealPt[allRealPt.length - 2].getStartPoint()) : this.tmpEnd, false);
           }
 
+          if (debugi === 2) return;
+
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'allRealPt:', allRealPt);
 
           var i;
@@ -15172,6 +15285,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var oldpathStr;
           var graph = this.logic.getModelRoot().graph;
+          if (debugi === 3) return;
 
           if (debug) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
@@ -15221,39 +15335,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
 
             oldpathStr = pathStr;
-            pathStr += IEdge.makePathSegment(prevPt, currPt, this.mode, favdirection, prevVertexSize, nextVertexSize);
+            pathStr += IEdge.makePathSegment(prevPt, currPt, this.getEdgeMode(), favdirection, prevVertexSize, nextVertexSize);
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr: RealPts:' + '[' + i + '] = ' + currPt.toString() + '; prev:' + prevPt.toString());
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr[' + i + '/' + allRealPt.length + ']: ' + oldpathStr + ' --> ' + pathStr);
           }
 
+          if (debugi === 3) return;
           this.setPath(pathStr, debug);
-          this.appendTailHead(this.getEdgeHead(), true, pathStr);
-          this.appendTailHead(this.getEdgeTail(), false, pathStr);
-          this.addEventListeners();
+          if (debugi === 4) return;
+          this.getEdgeHead();
+          this.getEdgeTail();
+          if (debugi === 5) return;
+          this.appendTailHead(true, pathStr);
+          this.appendTailHead(false, pathStr);
+          if (debugi === 6) return; // this.addEventListeners(true, false);
+        }
+      }, {
+        key: "getEdgeMode",
+        value: function getEdgeMode() {
+          var tmp = this.logic.edgeStyleCommon.style;
+          return tmp ? tmp : this.logic.edgeStyleCommon.style = EdgeModes.straight;
+        }
+      }, {
+        key: "getStyle",
+        value: function getStyle() {
+          if (this.isHighlighted) {
+            return this.logic.edgeStyleHighlight;
+          } else if (this.isSelected) {
+            return this.logic.edgeStyleSelected;
+          } else {
+            return this.logic.edgeStyleCommon;
+          }
         }
       }, {
         key: "setPath",
         value: function setPath(pathStr) {
           var debug = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-          var style = null;
-
-          if (this.isHighlighted) {
-            style = this.logic.edgeStyleHighlight;
-          } else if (this.isSelected) {
-            style = this.logic.edgeStyleSelected;
-          } else {
-            style = this.logic.edgeStyleCommon;
-          }
+          var style = this.getStyle();
           /* update style */
-
 
           this.html.setAttribute('stroke', style.color);
           this.html.setAttribute('stroke-width', '' + style.width);
-          this.shadow.setAttribute('stroke-width', '' + (style.width + IEdge.shadowWidthIncrease));
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].clear(this.shell);
+          this.shadow.setAttribute('stroke-width', '' + (style.width + IEdge.shadowWidthIncrease)); // U.clear(this.shell);
 
           this.shell.appendChild(this.html);
           this.shell.appendChild(this.shadow);
@@ -15292,17 +15417,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "addEventListeners",
-        value: function addEventListeners() {
+        value: function addEventListeners(foredge, forheadtail) {
           var _this20 = this;
 
-          var $html = $(this.shell);
-          $html.off('click.pbar').on('click.pbar', function (e) {
+          var $edgetail = forheadtail ? $(this.headShell).add(this.tailShell) : $();
+          var $shell = foredge ? $(this.shell) : $();
+          var $edgeparts = $shell.find('.Edge').add($edgetail); // U.pe(!$shell.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail);
+          //  U.pe(!$edgetail.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail, 'head-tail:', this.edgeHead, this.edgeTail);
+
+          $shell.off('click.pbar').on('click.pbar', function (e) {
             return _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].ChangePropertyBarContentClick(e, _this20);
           });
           /*$html.off('mousedown.showStyle').on('mousedown.showStyle',
             (e: MouseDownEvent) => { Status.status.getActiveModel().graph.propertyBar.styleEditor.showE(this.logic); });*/
 
-          $html.off('mousedown.startSetMidPoint').on('mousedown.startSetMidPoint', function (e) {
+          $shell.off('mousedown.startSetMidPoint').on('mousedown.startSetMidPoint', function (e) {
             // const ownermp: M2Class | IReference = ModelPiece.getLogic(e.currentTarget) as M2Class | IReference;
             // U.pe( ownermp === null || ownermp === undefined, 'unable to get logic of:', e.currentTarget);
             var edge = IEdge.get(e);
@@ -15311,22 +15440,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             edge.onMouseDown(e);
           });
-          $html.off('mousemove.startSetMidPoint').on('mousemove.startSetMidPoint', function (e) {
+          $shell.off('mousemove.startSetMidPoint').on('mousemove.startSetMidPoint', function (e) {
             // const ownermp: M2Class | IReference = ModelPiece.getLogic(e.currentTarget) as M2Class | IReference;
             // U.pe( ownermp === null || ownermp === undefined, 'unable to get logic of:', e.currentTarget);
             var edge = IEdge.getByHtml(e.target, true);
             edge.onMouseMove(e);
           });
-          $html.off('click.addEdgePoint').on('click.addEdgePoint', function (e) {
+          $shell.off('click.addEdgePoint').on('click.addEdgePoint', function (e) {
             IEdge.get(e).onClick(e);
           });
-          $html.find('.Edge').off('mouseover.cursor').on('mouseover.cursor', function (e) {
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, $edgeparts);
+
+          $edgeparts.off('mouseover.cursor').on('mouseover.cursor', function (e) {
             IEdge.get(e).onMouseOver(e);
           });
-          $html.find('.Edge').off('mouseenter.cursor').on('mouseenter.cursor', function (e) {
+          $edgeparts.off('mouseenter.cursor').on('mouseenter.cursor', function (e) {
             IEdge.get(e).onMouseEnter(e);
           });
-          $html.find('.Edge').off('mouseleave.cursor').on('mouseleave.cursor', function (e) {
+          $edgeparts.off('mouseleave.cursor').on('mouseleave.cursor', function (e) {
             IEdge.get(e).onMouseLeave(e);
           });
         }
@@ -15551,6 +15685,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onMouseLeave",
         value: function onMouseLeave(e) {
+          if (e) console.log('mouseleave');
           this.isHighlighted = false;
           this.startNode.refreshGUI(null, false);
           this.endNode.refreshGUI(null, false);
@@ -15566,8 +15701,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "onMouseEnter",
         value: function onMouseEnter(e) {
           this.onMouseLeave(null);
+          console.log('enter', e.target, e.currentTarget);
           this.isHighlighted = true;
-          this.refreshGui();
+          this.refreshGui(true);
         }
       }, {
         key: "onMouseMove",
@@ -15579,6 +15715,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function onMouseOver(e) {
           var canFail = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           var debug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+          console.log('over');
 
           if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["CursorFollowerEP"].get().isAttached() || IEdge.edgeChanging) {
             return;
@@ -15605,7 +15742,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.endNode.refreshGUI(null, false);
           var cursor;
 
-          switch (this.logic.edgeStyleCommon.style) {
+          switch (this.getEdgeMode()) {
             default:
               cursor = 'help';
               break;
@@ -15769,27 +15906,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
         }
       }, {
+        key: "mark",
+        value: function mark(markb) {
+          var key = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'errorGeneric';
+          var color = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'red';
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'IEdge.mark() todo.');
+        } // bug: https://bugzilla.mozilla.org/show_bug.cgi?id=577785#c2
+
+      }, {
         key: "getEdgeHead",
         value: function getEdgeHead() {
           var logic = this.logic;
           var logicref = this.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"] ? this.logic : null;
           var logicclass = this.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] ? this.logic : null;
-          var html = null;
+          var html = null; //console.trace();
+          //console.log('getEdgeHead(), ', this.getStyle().edgeHeadStyle, this.isHighlighted);
+
+          var debugi = window['' + 'debug'];
+          if (debugi === 4.1) return this.edgeHead ? this.edgeHead : html;
 
           if (logicref && logicref.isContainment()) {
-            html = IEdge.generateContainmentHead();
+            html = this.generateContainmentHead(this.getStyle().edgeHeadStyle);
           }
 
           if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"]) {
-            html = IEdge.generateGeneralizationHead();
+            html = this.generateGeneralizationHead(this.getStyle().edgeHeadStyle);
           }
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"] && !html, 'cannot return null on extedge:', html, this);
+
+          if (debugi === 4.2) return this.edgeHead ? this.edgeHead : html;
 
           if (!html) {
             return this.edgeHead = null;
           }
 
+          if (html === this.edgeHead) return;
+          this.edgeHead = html;
           html.classList.add('Edge', 'EdgeHead');
-          return this.edgeHead = html;
+          if (this.headShell) this.headShell.appendChild(this.edgeHead);
+          return this.edgeHead;
         }
       }, {
         key: "getEdgeTail",
@@ -15800,34 +15957,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var html = null;
 
           if (logicref && logicref.isContainment()) {
-            html = IEdge.generateContainmentTail();
+            html = this.generateContainmentTail(this.getStyle().edgeHeadStyle);
           }
 
           if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"]) {
-            html = IEdge.generateGeneralizationTail();
+            html = this.generateGeneralizationTail(this.getStyle().edgeHeadStyle);
           }
 
           if (!html) {
             return this.edgeTail = null;
           }
 
+          if (html === this.edgeTail) return;
+          this.edgeTail = html;
           html.classList.add('Edge', 'EdgeTail');
+          if (this.tailShell) this.tailShell.appendChild(this.edgeTail);
           return this.edgeTail = html;
         }
       }, {
-        key: "mark",
-        value: function mark(markb) {
-          var key = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'errorGeneric';
-          var color = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'red';
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'IEdge.mark() todo.');
-        }
-      }, {
         key: "appendTailHead",
-        value: function appendTailHead(cosa, onEnd, pathStr) {
-          var debug = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+        value: function appendTailHead(tail, pathStr) {
+          var debug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+          var svg = tail ? this.edgeTail : this.edgeHead;
+          var shell = tail ? this.tailShell : this.headShell;
 
-          if (!cosa) {
+          if (!svg) {
             return;
           } // debug = true;
 
@@ -15840,7 +15994,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var pt1;
           var pt2;
 
-          if (onEnd) {
+          if (!tail) {
             endsub = pathStr.length;
             startsub = pathStr.lastIndexOf('L');
 
@@ -15866,13 +16020,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           pathStr = pathStr.substring(startsub, endsub);
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr: ' + oldPathStr + ' --> ' + pathStr, 'onEnd ? ', onEnd);
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr: ' + oldPathStr + ' --> ' + pathStr, 'onEnd ? ', !tail);
 
           var points = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].parseSvgPath(pathStr).pts;
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(points.length !== 2, 'expected exactly 2 points, the pathStr got substringed for that.', points);
 
-          if (onEnd) {
+          if (!tail) {
             pt1 = points[1];
             pt2 = points[0];
           } else {
@@ -15880,31 +16034,46 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             pt2 = points[1];
           }
 
-          this.owner.markg(pt1, true, 'red');
-          this.owner.markg(pt2, true, 'blue');
+          if (debug) {
+            this.owner.markg(pt1, true, 'red');
+            this.owner.markg(pt2, false, 'blue');
+          }
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'size of head: ', cosa, 'pt1:', pt1, 'pt2:', pt2, ', pts:', points, pathStr, oldPathStr);
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'size of head: ', svg, 'pt1:', pt1, 'pt2:', pt2, ', pts:', points, pathStr, oldPathStr);
 
-          this.appendEdgeOrTail(cosa, pt1, pt2);
+          this.appendTailHead2(tail, pt1, pt2);
         }
       }, {
-        key: "appendEdgeOrTail",
-        value: function appendEdgeOrTail(cosa, pt1, pt2real) {
+        key: "appendTailHead2",
+        value: function appendTailHead2(tail, pt1, pt2real) {
           var debug = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
 
           var m = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"].getM(pt1, pt2real);
 
-          var HeadSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getSvgSize(cosa);
+          var svg = tail ? this.edgeTail : this.edgeHead;
+          var shell = tail ? this.tailShell : this.headShell;
 
-          var shell = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('g');
+          var HeadSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getSvgSize(svg);
 
-          shell.appendChild(cosa);
           var firstEdgePointHtml = this.html.nextElementSibling;
 
-          if (firstEdgePointHtml) {
-            this.shell.insertBefore(shell, firstEdgePointHtml);
-          } else {
-            this.shell.appendChild(shell);
+          if (!shell) {
+            shell = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('g');
+            shell.appendChild(svg);
+
+            if (tail) {
+              this.tailShell = shell;
+            } else {
+              this.headShell = shell;
+            }
+
+            if (firstEdgePointHtml) {
+              this.shell.insertBefore(shell, firstEdgePointHtml);
+            } else {
+              this.shell.appendChild(shell);
+            }
+
+            this.addEventListeners(false, true);
           } // const HeadSize: GraphSize = this.owner.toGraphCoordS(U.sizeof(this.edgeHead));
 
 
@@ -15919,32 +16088,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (m === Number.POSITIVE_INFINITY) {
             // link hit on top
-            cosa.setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
-            cosa.setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h));
+            svg.setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
+            svg.setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h));
           } else if (m === Number.NEGATIVE_INFINITY) {
             // link hit on bot
-            cosa.setAttributeNS(null, 'y', '' + pt1.y);
-            cosa.setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
+            svg.setAttributeNS(null, 'y', '' + pt1.y);
+            svg.setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
           }
           /* else if (U.isPositiveZero(m)) {
           // link hit on left
-          (cosa).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
-          (cosa).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w));
+          (svg).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
+          (svg).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w));
           } else if (U.isNegativeZero(m)) {
           // link hit on right
-          (cosa).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
-          (cosa).setAttributeNS(null, 'x', '' + (pt1.x));
+          (svg).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
+          (svg).setAttributeNS(null, 'x', '' + (pt1.x));
           }*/
           else {
               var degreeRad = pt1.degreeWith(pt2real, true); // U.TanToDegree(m);
 
               var center = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0);
-              var pt2 = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0);
-              cosa.style.zIndex = '' + 100;
-              cosa.style.position = 'absolute';
+              var pt2 = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0); //todo: perchè zindex e position?
+
+              svg.style.zIndex = '' + 100;
+              svg.style.position = 'absolute';
 
               if (pt1.x < pt2.x && pt1.y < pt2.y) {
-                cosa.setAttributeNS(null, 'fill', 'blue');
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'what\'s this?? can that happen?');
+
+                svg.setAttributeNS(null, 'fill', 'blue');
               }
 
               pt2.x = pt1.x - HeadSize.w * Math.cos(degreeRad);
@@ -15958,8 +16130,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
 
               shell.setAttributeNS(null, 'transform', 'rotate(' + degree + ' ' + center.x + ' ' + center.y + ')');
-              cosa.setAttributeNS(null, 'x', '' + (center.x - HeadSize.w / 2));
-              cosa.setAttributeNS(null, 'y', '' + (center.y - HeadSize.h / 2)); // link hit diagonally
+              svg.setAttributeNS(null, 'x', '' + (center.x - HeadSize.w / 2));
+              svg.setAttributeNS(null, 'y', '' + (center.y - HeadSize.h / 2)); // link hit diagonally
             }
         }
       }, {
@@ -16025,7 +16197,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getByHtml",
         value: function getByHtml(html0) {
-          var debug = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          var debug = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
           if (!html0) {
             return null;
@@ -16037,9 +16209,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             html = html.parentNode;
           }
 
-          var ret = html ? IEdge.getByID(+html.dataset.edgeid) : null;
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(debug && !ret, 'failed to find edge. html0:', html0, 'html:', html, 'map:', IEdge.idToEdge);
+          var ret = html ? IEdge.getByID(+html.dataset.edgeid) : null; // U.pe(debug && !ret, 'failed to find edge. html0:', html0, 'html:', html, 'map:', IEdge.idToEdge);
 
           return ret;
         }
@@ -16047,76 +16217,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getByID",
         value: function getByID(id) {
           return IEdge.idToEdge[id];
-        }
-      }, {
-        key: "generateAggregationHead",
-        value: function generateAggregationHead() {
-          var fill = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'black';
-          var stroke = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'white';
-          var strokeWidth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 20;
-
-          // https://jsfiddle.net/Naraku/3hngkrc1/
-          var svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
-
-          var path = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('path');
-
-          svg.setAttributeNS(null, 'width', '20');
-          svg.setAttributeNS(null, 'height', '20');
-          svg.setAttributeNS(null, 'viewBox', -strokeWidth + ' ' + -strokeWidth + ' ' + (200 + strokeWidth * 2) + ' ' + (200 + strokeWidth * 2));
-          path.setAttributeNS(null, 'fill', fill);
-          path.setAttributeNS(null, 'stroke', stroke);
-          path.setAttributeNS(null, 'stroke-width', '' + strokeWidth);
-          path.setAttributeNS(null, 'd', 'M100 0 L200 100 L100 200 L0 100 Z');
-          svg.appendChild(path);
-          return svg;
-        }
-      }, {
-        key: "generateAggregationTail",
-        value: function generateAggregationTail() {
-          var fill = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'black';
-          var stroke = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'white';
-          var strokeWidth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 20;
-          return null;
-        }
-      }, {
-        key: "generateContainmentHead",
-        value: function generateContainmentHead() {
-          return IEdge.generateAggregationHead('white', 'white');
-        }
-      }, {
-        key: "generateContainmentTail",
-        value: function generateContainmentTail() {
-          return IEdge.generateAggregationTail('white', 'white');
-        }
-      }, {
-        key: "generateGeneralizationHead",
-        value: function generateGeneralizationHead() {
-          var fill = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'white';
-          var stroke = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'white';
-          var strokeWidth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 20;
-
-          var svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
-
-          svg.setAttributeNS(null, 'width', '20');
-          svg.setAttributeNS(null, 'height', '20');
-          svg.setAttributeNS(null, 'viewBox', -strokeWidth + ' ' + -strokeWidth + ' ' + (200 + strokeWidth * 2) + ' ' + (200 + strokeWidth * 2));
-          svg.innerHTML = '<path fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + strokeWidth + '" d="M100 0 L200 200 L000 200 Z" />';
-          return svg;
-        }
-      }, {
-        key: "generateGeneralizationTail",
-        value: function generateGeneralizationTail() {
-          var fill = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'white';
-          var stroke = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'white';
-          var strokeWidth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 20;
-
-          var svg = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('svg');
-
-          svg.setAttributeNS(null, 'width', '20');
-          svg.setAttributeNS(null, 'height', '20');
-          svg.setAttributeNS(null, 'viewBox', -strokeWidth + ' ' + -strokeWidth + ' ' + (200 + strokeWidth * 2) + ' ' + (200 + strokeWidth * 2));
-          svg.innerHTML = '<path fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + strokeWidth + '" d="M100 0 L200 200 L000 200 Z" />';
-          return null;
         }
       }, {
         key: "makePathSegment",
@@ -17776,9 +17876,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var logic = edge.logic;
           var classe = logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] ? logic : null;
-          var ref = logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"] ? logic : null;
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!ref, 'The .LinkVertex element must be inserted only inside a reference field.');
+          var ref = logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"] ? logic : null; // U.pe( !ref, 'The .LinkVertex element must be inserted only inside a reference field.');
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging = edge;
           edge.useRealEndVertex = false;
@@ -23316,14 +23414,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getModelRoot",
         value: function getModelRoot() {
           return _get(_getPrototypeOf(M2Reference.prototype), "getModelRoot", this).call(this);
-        } // todo:
-
-      }, {
-        key: "loadEdgeStyles",
-        value: function loadEdgeStyles() {
-          this.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].angular23Auto, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 1, '#ffffff', '#0000ff'));
-          this.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](null, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 1, '#ffffff', '#ff0000'));
-          this.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](null, 3, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](7, 4, '#ffffff', '#ff0000'));
         }
       }, {
         key: "parse",
@@ -23883,6 +23973,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! ../../../../common/Joiner */
     "./src/common/Joiner.ts");
+    /* harmony import */
+
+
+    var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../../guiElements/mGraph/Edge/edgeStyle */
+    "./src/guiElements/mGraph/Edge/edgeStyle.ts");
 
     var IReference =
     /*#__PURE__*/
@@ -23897,10 +23993,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _this42 = _possibleConstructorReturn(this, _getPrototypeOf(IReference).call(this, parent, meta));
         _this42.edges = [];
         if (parent) parent.references.push(_assertThisInitialized(_this42));
-        _this42.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'));
-        _this42.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'));
+        _this42.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
+        _this42.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
         _this42.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', // #ffbb22
-        new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'));
+        new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
         return _this42;
       }
 
@@ -24855,7 +24951,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "applyTypeStr0",
         value: function applyTypeStr0() {
-          var debug = true;
+          var debug = false;
           var i;
           var oldClass = this.classType;
           var oldEnum = this.enumType;
@@ -25583,6 +25679,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _IClassifier__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ./IClassifier */
     "./src/mClass/IClassifier.ts");
+    /* harmony import */
+
+
+    var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../guiElements/mGraph/Edge/edgeStyle */
+    "./src/guiElements/mGraph/Edge/edgeStyle.ts");
 
     var IClass =
     /*#__PURE__*/
@@ -25604,9 +25706,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(_this47.parent.classes, _assertThisInitialized(_this47));
         }
 
-        _this47.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'));
-        _this47.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'));
-        _this47.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffbb22', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'));
+        _this47.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
+        _this47.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
+        _this47.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
         return _this47;
       }
 
@@ -26146,7 +26248,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var tmps = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreClass"].eSuperTypes, null);
 
-          this.extendsStr = tmps ? tmps.split(' ') : [];
+          this.extendsStr = tmps ? tmps.split(' ') : []; // U.pe(true, 'extendsStr:', this.extendsStr, 'tmps', tmps, 'typeof tmps:' + typeof(tmps), 'json:', json);
+
           /*this.name = Json.read<string>(this.json, ECoreClass.name);
           this.fullname = this.midname = this.parent.fullname + '.' + this.name;*/
           /// childrens
@@ -26434,7 +26537,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             for (j = 0; j < classe.extendsStr.length; j++) {
               var target = dictionary[classe.extendsStr[j]];
 
-              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!target, 'e1, failed to find extended class:', classe.extendsStr[j], 'in classList:', classes, 'classe to extend:', classe, 'dictionary:', dictionary, 'classe.extendsStr[j]:', classe.extendsStr[j]);
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!target, 'e1, failed to find extended class.extendsStr[' + j + ']:', classe.extendsStr[j], 'in classList:', classes, 'classe to extend:', classe, 'dictionary:', dictionary);
 
               classe.extendClass(null, target);
             }

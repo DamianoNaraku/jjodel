@@ -138,6 +138,7 @@ export class M2Class extends IClass {
     this.isAbstract = Json.read<string>(json, ECoreClass.abstract, 'false') === 'true';
     let tmps: string = Json.read<string>(json, ECoreClass.eSuperTypes, null);
     this.extendsStr = tmps ? tmps.split(' ') : [];
+    // U.pe(true, 'extendsStr:', this.extendsStr, 'tmps', tmps, 'typeof tmps:' + typeof(tmps), 'json:', json);
     /*this.name = Json.read<string>(this.json, ECoreClass.name);
     this.fullname = this.midname = this.parent.fullname + '.' + this.name;*/
     /// childrens
@@ -297,8 +298,8 @@ export class M2Class extends IClass {
       const classe: M2Class = classes[i];
       for (j = 0; j < classe.extendsStr.length; j++) {
         const target: M2Class = dictionary[classe.extendsStr[j]];
-        U.pe(!target, 'e1, failed to find extended class:', classe.extendsStr[j], 'in classList:', classes,
-          'classe to extend:', classe, 'dictionary:', dictionary, 'classe.extendsStr[j]:', classe.extendsStr[j]);
+        U.pe(!target, 'e1, failed to find extended class.extendsStr[' + j + ']:', classe.extendsStr[j], 'in classList:', classes,
+          'classe to extend:', classe, 'dictionary:', dictionary);
         classe.extendClass(null, target);
       }
       classe.extendsStr = [];

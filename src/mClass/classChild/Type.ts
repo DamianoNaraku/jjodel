@@ -169,7 +169,7 @@ export class Type {
     U.pe(!this.printablename, this);
   }
   private applyTypeStr0(): void {
-    const debug = true;
+    const debug = false;
     let i: number;
     let oldClass = this.classType;
     let oldEnum = this.enumType;

@@ -45,16 +45,6 @@ export class M2Reference extends IReference {
 
   getModelRoot(): MetaModel { return super.getModelRoot() as MetaModel; }
 
-  // todo:
-  loadEdgeStyles(): void {
-    this.edgeStyleCommon = new EdgeStyle(EdgeModes.angular23Auto, 2, '#ffffff',
-      new EdgePointStyle(5, 1, '#ffffff', '#0000ff'));
-    this.edgeStyleHighlight = new EdgeStyle(null, 4, '#ffffff',
-      new EdgePointStyle(5, 1, '#ffffff', '#ff0000' ));
-    this.edgeStyleSelected = new EdgeStyle(null, 3, '#ffffff',
-      new EdgePointStyle(7, 4, '#ffffff', '#ff0000' ));
-  }
-
   parse(json: Json, destructive: boolean): void {
     /// own attributes.
     this.setName(Json.read<string>(json, ECoreReference.namee, 'Ref_1'));

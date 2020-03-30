@@ -108,8 +108,8 @@ export class MReference extends IReference {
       Info.set(info, '' + i, t); }
     return info; }
 
-  delete(linkStart: number = null, linkEnd: number = null): void {
-    super.delete(linkStart, linkEnd);
+  delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
+    super.delete(false, linkStart, linkEnd);
     // total deletion
     let i: number;
     // if (linkStart === null && linkEnd === null) { completely delete? or it is already done by super()? }
@@ -117,6 +117,7 @@ export class MReference extends IReference {
     linkEnd = Math.min(this.mtarget.length, linkEnd);
     linkStart = Math.max(0, linkStart);
     for (i = linkStart; i < linkEnd; i++) { this.setTarget(i, null); }
+    if (refreshgui) this.refreshGUI();
   }
 
   getType(): Type { return (this.metaParent ? this.metaParent.getType() : null); }
@@ -169,7 +170,12 @@ export class MReference extends IReference {
     const json: Json[] = Array.isArray(json0) ? json0 : [json0];
     const targetMM: M2Class = this.getm2Target();
     let i: number;
-    if (!this.mtarget) { this.mtarget = U.newArray(this.metaParent.upperbound); } else this.mtarget.length = this.metaParent.upperbound;
+    if (!this.mtarget) { this.mtarget = []; }
+    if (!this.edges) { this.edges = []; }
+    const upperbound: number = this.getUpperbound();
+    if (upperbound >= 0) {
+      this.mtarget.length = upperbound;
+      this.edges.length = upperbound; }
     if (destructive) { this.clearTargets(); }
 
     const pkg: MPackage = this.getClass().parent as MPackage;
@@ -194,6 +200,20 @@ export class MReference extends IReference {
 
   linkClass(classe: MClass, index: number, refreshGUI: boolean = true, debug: boolean = false): void { this.setTarget(index, classe); }
 
+  setValues(values: any[] | any = null, index: number = null, autofix: boolean = true, debug: boolean = false): void {
+    if (index < 0) index = (this.getUpperbound() - index) % this.getUpperbound();
+    if (index === null || index === undefined) {
+      values.length = this.getUpperbound();
+      let i: number;
+      for (i = 0; i < values.length; i++) {
+        if (values[i] instanceof MClass) this.setTarget(i, values[i]);
+      }
+      return;
+    }
+    if (Array.isArray(values)) { if (values.length === 1) values = values[0]; else return; }
+    if (values instanceof MClass) this.setTarget(index, values);
+  }
+
   setTarget(index: number, val: MClass): void {
     let edge: IEdge = this.edges[index];
     if (val === null) {
@@ -214,5 +234,15 @@ export class MReference extends IReference {
     U.ArrayAdd(this.mtarget[index].referencesIN, this);
     this.generateEdges();
     edge = this.edges[index];
-    U.ArrayAdd(this.mtarget[index].vertex.edgesEnd, edge);}
+    U.ArrayAdd(this.mtarget[index].vertex.edgesEnd, edge); }
+
+  clearTargets(): void {
+    let i: number;
+    for (i = 0; i < this.mtarget.length; i++) { this.setTarget(i, null); }
+    let upperbound: number = this.getUpperbound();
+    if (upperbound >= 0) {
+      this.mtarget.length = upperbound;
+      this.edges.length = upperbound;
+    }
+  }
 }

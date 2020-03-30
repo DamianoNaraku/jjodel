@@ -166,7 +166,7 @@ export abstract class IModel extends ModelPiece {
     if (this.isNameTaken(value)) { U.pw(true, 'tried to saveToDB a model with a name already in use'); return oldname; }
     super.setName(value);
     this.storage.rename(oldname, this.name, SaveListEntry.model);
-    this.graph.propertyBar.refreshGUI();
+    if (this.graph.propertyBar.selectedModelPiece === this) this.graph.propertyBar.refreshGUI();
     return this.name; }
 
   save(isAutosave: boolean, saveAs: boolean = false): void {

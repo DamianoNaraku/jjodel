@@ -214,7 +214,7 @@ export class Options {/*
     m.graph.grid = new GraphPoint(o.graph.grid.x, o.graph.grid.y);
     m.graph.zoom = new Point(o.graph.zoom.x, o.graph.zoom.y);
     m.graph.scroll = new GraphPoint(o.graph.scroll.x, o.graph.scroll.y);
-    m.graph.ShowGrid(o.graph.gridShow);
+    m.graph.setGrid0(o.graph.gridShow);
     let i = -1;
     while (++i < o.class.length) {
       Options.LoadV1Class(o.class[i], m);
@@ -494,12 +494,12 @@ export class Options {/*
     s.debug = this.status.debug;
     // graph
     s.mm.graph.grid        = this.mm.graph.grid;
-    s.mm.graph.ShowGrid(this.mm.graph.gridShow);
+    s.mm.graph.setGrid0(this.mm.graph.gridShow);
     s.mm.graph.zoom        = this.mm.graph.zoom;
     // s.mm.graph.setZoom(this.mm.graph.zoom);
     s.mm.graph.scroll      = this.mm.graph.scroll;
     s.m.graph.grid         = this.m.graph.grid;
-    s.m.graph.ShowGrid(this.m.graph.gridShow);
+    s.m.graph.setGrid0(this.m.graph.gridShow);
     s.m.graph.zoom         = this.m.graph.zoom;
     // s.m.graph.setZoom(this.m.graph.zoom);
     s.m.graph.scroll       = this.m.graph.scroll;

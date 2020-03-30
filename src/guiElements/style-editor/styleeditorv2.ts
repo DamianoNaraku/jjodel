@@ -135,7 +135,7 @@ export class StyleEditor {
     });
     $(showGrid).off('change.set').on('change.set', (e: ChangeEvent) => {
       const input: HTMLInputElement = e.currentTarget;
-      m.graph.ShowGrid(input.checked);
+      m.graph.setGrid0(input.checked);
     });
   }
 

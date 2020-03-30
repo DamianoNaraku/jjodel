@@ -14,8 +14,8 @@ import {
   MReference,
   ShortAttribETypes,
   Status, Type, IClassifier,
-  U
-}                    from '../../common/Joiner';
+  U, EEnum
+} from '../../common/Joiner';
 
 export type M1ClassChild = MAttribute | MReference;
 export type M2ClassChild = M2Attribute | M2Reference | EOperation;
@@ -123,17 +123,21 @@ export abstract class Typedd extends ModelPiece {
 
   refreshGUI_Alone(debug: boolean = true): void { this.getField().refreshGUI(true); }
 
-  delete(): void {
+  delete(refreshgui: boolean = true): void {
     const oldparent = this.parent;
-    super.delete();
+    super.delete(false);
     if (oldparent) {
       if (oldparent instanceof IClass) {
         U.arrayRemoveAll(oldparent.attributes, this as any);
         U.arrayRemoveAll(oldparent.references, this as any);
-        U.arrayRemoveAll(oldparent.getOperations(), this as any);
-      } else if (oldparent instanceof EOperation) {
-      } else { U.pe(true, 'unrecognized parent class:' + U.getTSClassName(this) + ':', this); }
+        U.arrayRemoveAll(oldparent.getOperations(), this as any); }
+      else if (oldparent instanceof EEnum) {
+        // U.arrayRemoveAll(oldparent.childrens, this as any); done in modelpiece.delete()
+      }
+      else if (oldparent instanceof EOperation) { }
+      else { U.pe(true, 'unrecognized parent class of typed modelpiece:' + U.getTSClassName(oldparent) + ':', this); }
     }
+    if (refreshgui) oldparent.refreshGUI();
   }
 
   // getClassType(): M2Class { return this.type.classType; }

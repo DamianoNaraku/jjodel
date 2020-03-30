@@ -78,8 +78,8 @@ export class ViewHtmlSettings{
   updateHtmlMetaData(): void {
     this.htmlstr = this.html.outerHTML;
     const $meta = $(this.html).find('meta');
-    const setValue = (jq: JQuery<HTMLElement | SVGElement>): string => { return jq.length === 0 ? '' : jq[0].innerHTML; };
-    const isTrue = (jq: JQuery<HTMLElement | SVGElement>): boolean => { return jq.length > 0 && jq[0].innerHTML  === '1' || jq[0].innerHTML === 'true'; };
+    const setValue = (jq: JQuery<Element>): string => { return jq.length === 0 ? '' : jq[0].innerHTML; };
+    const isTrue = (jq: JQuery<Element>): boolean => { return jq.length > 0 && jq[0].innerHTML  === '1' || jq[0].innerHTML === 'true'; };
     $meta.find('owner').text(this.userOwner);
     $meta.find('name').text(this.name);
     $meta.find('isM1').text(this.AllowedOnM1);
@@ -150,7 +150,7 @@ export class ViewHtmlSettings{
   }
 
   saveToDB() {
-    
+
   }
 }
 
@@ -172,8 +172,8 @@ export class ViewRule {
 
   static getbyID(id: number): ViewRule { return ViewRule.allByID[id]; }
   static getbyHtml(html0: Element): ViewRule {
-    let html: HTMLElement | SVGElement = html0 as HTMLElement | SVGElement;
-    while (html && html.dataset && !html.dataset.styleid) html = html.parentNode as HTMLElement | SVGElement;
+    let html: HTMLElement = html0 as HTMLElement;
+    while (html && html.dataset && !html.dataset.styleid) html = html.parentElement;
     return ViewRule.getbyID(html && html.dataset ? +html.dataset.styleid : null); }
 
   constructor(owner: ViewPoint, target: ModelPiece = null) {
@@ -225,28 +225,28 @@ export class ViewRule {
     if(json.setViewpointStr) { json.setViewpointStr(); }
     for(let key in json) {
       switch (key){
-      default: U.pe(true, 'unexpected key', key, json); break;
-      case 'id': case 'target': break;
-      case 'targetStr': this.targetStr = json[key]; break;
-      case 'htmlo':
-        if (!json.htmlo) { this.htmlo = null; break; }
-        if (!this.htmlo) { this.htmlo = new ViewHtmlSettings(); }
-        this.htmlo.clone(json.htmlo); break;
-      case 'htmli':
-        if (!json.htmli) { this.htmli = null; break; }
-        if (!this.htmli) { this.htmli = new ViewHtmlSettings(); }
-        this.htmli.clone(json.htmli); break;
-      case 'displayAsEdge': this.displayAsEdge = json.displayAsEdge; break;
-      case 'vertexSize': this.vertexSize = json.vertexSize ? new GraphSize().clone(json.vertexSize) : null; break;
-      case 'edgeViews':
-        this.edgeViews = [];
-        const arr = json.edgeViews ? json.edgeViews : [];
-        let i: number;
-        for (i = 0; i < arr.length; i++) {
-          U.ArrayAdd(this.edgeViews, new EdgeViewRule(this.viewpoint).clone(arr[i]));
-        }
-        break;
-      case 'viewpointstr': this.viewpointstr = json.viewpointstr; break; }
+        default: U.pe(true, 'unexpected key', key, json); break;
+        case 'id': case 'target': break;
+        case 'targetStr': this.targetStr = json[key]; break;
+        case 'htmlo':
+          if (!json.htmlo) { this.htmlo = null; break; }
+          if (!this.htmlo) { this.htmlo = new ViewHtmlSettings(); }
+          this.htmlo.clone(json.htmlo); break;
+        case 'htmli':
+          if (!json.htmli) { this.htmli = null; break; }
+          if (!this.htmli) { this.htmli = new ViewHtmlSettings(); }
+          this.htmli.clone(json.htmli); break;
+        case 'displayAsEdge': this.displayAsEdge = json.displayAsEdge; break;
+        case 'vertexSize': this.vertexSize = json.vertexSize ? new GraphSize().clone(json.vertexSize) : null; break;
+        case 'edgeViews':
+          this.edgeViews = [];
+          const arr = json.edgeViews ? json.edgeViews : [];
+          let i: number;
+          for (i = 0; i < arr.length; i++) {
+            U.ArrayAdd(this.edgeViews, new EdgeViewRule(this.viewpoint).clone(arr[i]));
+          }
+          break;
+        case 'viewpointstr': this.viewpointstr = json.viewpointstr; break; }
     }
     this.updateViewpoint();
     this.updateTarget();
@@ -393,46 +393,46 @@ export class ViewPoint extends ViewRule{
     let i: number;
     for(let key in json) {
       switch (key){
-      default: U.pe(true, 'unexpected key:', key, json); break;
-      case 'id': case 'target': case 'viewpoint': break;
-      case 'htmlo':
-        if (!json.htmlo) { this.htmlo = null; continue; }
-        if (!this.htmlo) this.htmlo = new ViewHtmlSettings();
-        this.htmlo.clone(json.htmlo);
-        break;
-      case 'htmli':
-        if (!json.htmli) { this.htmli = null; continue; }
-        if (!this.htmli) this.htmli = new ViewHtmlSettings();
-        this.htmli.clone(json.htmli as ViewHtmlSettings);
-        break;
-      case 'isApplied': this.isApplied = json.isApplied; break;
-      case 'name': this.setname(json.name); break;
-      case 'targetStr':
-        if (!json.targetStr) break;
-        this.targetStr = json.targetStr;
-        const m: IModel = ModelPiece.getByKeyStr(this.targetStr) as IModel;
-        U.pe(!m, 'failed to find VP.target:', this, this.targetStr, Status.status);
-        this.updateTarget(m); break;
-      case 'edgeViews':
-        this.edgeViews = [];
-        if (!json.edgeViews) continue;
-        for (i = 0; i < json.edgeViews.length; i++) {
-          const v: EdgeViewRule = new EdgeViewRule(this);
-          v.clone(json.edgeViews[i]);
-          U.ArrayAdd(this.edgeViews, v); } break;
-      case 'views':
-        this.views = [];
-        if (!json.views) continue;
-        for (i = 0; i < json.views.length; i++) {
-          const v: ViewRule = new ViewRule(this);
-          v.clone(json.views[i]);
-          U.ArrayAdd(this.views, v); } break;
-      case 'grid': this.grid = new Point(json.grid.x, json.grid.y); break;
-      case 'gridShow': this.gridShow = json.gridShow; break;
-      case 'scroll': this.scroll = new GraphPoint(json.scroll.x, json.scroll.y); break;
-      case 'zoom': this.zoom = new GraphPoint(json.zoom.x, json.zoom.y);  break;
-      case 'vertexSize': this.vertexSize = json.vertexSize ? new GraphSize(json.vertexSize.x, json.vertexSize.y) : null; break;
-      case 'displayAsEdge': this.displayAsEdge = json.displayAsEdge; break;
+        default: U.pe(true, 'unexpected key:', key, json); break;
+        case 'id': case 'target': case 'viewpoint': break;
+        case 'htmlo':
+          if (!json.htmlo) { this.htmlo = null; continue; }
+          if (!this.htmlo) this.htmlo = new ViewHtmlSettings();
+          this.htmlo.clone(json.htmlo);
+          break;
+        case 'htmli':
+          if (!json.htmli) { this.htmli = null; continue; }
+          if (!this.htmli) this.htmli = new ViewHtmlSettings();
+          this.htmli.clone(json.htmli as ViewHtmlSettings);
+          break;
+        case 'isApplied': this.isApplied = json.isApplied; break;
+        case 'name': this.setname(json.name); break;
+        case 'targetStr':
+          if (!json.targetStr) break;
+          this.targetStr = json.targetStr;
+          const m: IModel = ModelPiece.getByKeyStr(this.targetStr) as IModel;
+          U.pe(!m, 'failed to find VP.target:', this, this.targetStr, Status.status);
+          this.updateTarget(m); break;
+        case 'edgeViews':
+          this.edgeViews = [];
+          if (!json.edgeViews) continue;
+          for (i = 0; i < json.edgeViews.length; i++) {
+            const v: EdgeViewRule = new EdgeViewRule(this);
+            v.clone(json.edgeViews[i]);
+            U.ArrayAdd(this.edgeViews, v); } break;
+        case 'views':
+          this.views = [];
+          if (!json.views) continue;
+          for (i = 0; i < json.views.length; i++) {
+            const v: ViewRule = new ViewRule(this);
+            v.clone(json.views[i]);
+            U.ArrayAdd(this.views, v); } break;
+        case 'grid': this.grid = new Point(json.grid.x, json.grid.y); break;
+        case 'gridShow': this.gridShow = json.gridShow; break;
+        case 'scroll': this.scroll = new GraphPoint(json.scroll.x, json.scroll.y); break;
+        case 'zoom': this.zoom = new GraphPoint(json.zoom.x, json.zoom.y);  break;
+        case 'vertexSize': this.vertexSize = json.vertexSize ? new GraphSize(json.vertexSize.x, json.vertexSize.y) : null; break;
+        case 'displayAsEdge': this.displayAsEdge = json.displayAsEdge; break;
       }
     }
   }

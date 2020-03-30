@@ -38,20 +38,13 @@ export abstract class IReference extends IFeature {
       new EdgeHeadStyle(25, 25, '#ffffff', '#ffffff'));
   }
 
-  clearTargets(): void {
-    let i: number;
-    const thiss: MReference = this instanceof MReference ? this : null;
-    for (i = 0; thiss && i < thiss.mtarget.length; i++) { thiss.setTarget(i, null); }
-    if (thiss) thiss.mtarget = U.newArray(this.metaParent.upperbound);
-    this.edges = U.newArray(this.metaParent.upperbound); }
-
   abstract generateEdges(): IEdge[];
 
   abstract duplicate(nameAppend?: string, newParent?: IClass): IReference;
 
-  delete(linkStart: number = null, linkEnd: number = null): void {
+  delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
     if (linkStart === null && linkEnd === null) {
-      super.delete();
+      super.delete(false);
       linkStart = 0;
       linkEnd = this.edges.length; }
     const edges: IEdge[] = U.ArrayCopy(this.getEdges(), false);
@@ -59,6 +52,7 @@ export abstract class IReference extends IFeature {
     linkEnd = Math.min(edges.length, linkEnd);
     linkStart = Math.max(0, linkStart);
     for (i = linkStart; i < linkEnd; i++) { edges[i].remove(); }
+    if (refreshgui) this.refreshGUI();
   }
 
   // abstract linkClass(classe?: IClass): void;
@@ -161,6 +155,9 @@ export abstract class IReference extends IFeature {
     U.pe(true, 'unrecognized class.'); }
 
 
+  public clearTargets(): void {
+    // azioni solo su m1, non spostato direttamente su m1 per comodità d'uso nella IReference.clone();
+  }
 }
 
 export class M3Reference extends IReference {
@@ -171,6 +168,8 @@ export class M3Reference extends IReference {
   constructor(parent: M3Class, meta: M3Reference = null) {
     super(parent, meta);
     this.parse(null); }
+
+  // clearTargets(): void { }
 
   canBeLinkedTo(hoveringTarget: M3Class): boolean { U.pe(true, 'Invalid operation: m3Reference.canBeLinkedTo()'); return true; }
 

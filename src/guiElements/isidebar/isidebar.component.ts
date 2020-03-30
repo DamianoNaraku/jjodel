@@ -95,8 +95,8 @@ export class ISidebar {
 
   sidebarNodeClick0(e: ClickEvent): void {
     console.log('sidebarNodeClick()');
-    let html: HTMLElement | SVGElement = e.currentTarget;
-    while (!html.dataset.modelPieceID) { html = html.parentNode as HTMLElement | SVGElement; }
+    let html: HTMLElement = e.currentTarget;
+    while (!html.dataset.modelPieceID) { html = html.parentElement; }
     const metaParent = ModelPiece.getLogic(html);
     U.pe( !metaParent , 'the id does not match any class or package', e);
     const modelOfSidebar: IModel /*m3*/ = metaParent.getModelRoot();

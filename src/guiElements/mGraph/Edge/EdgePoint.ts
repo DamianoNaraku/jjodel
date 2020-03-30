@@ -74,7 +74,7 @@ export class EdgePoint implements IEdgePoint {
     this.moveTo(pos, false);
     this.addEventListeners(); }
 
-  static getFromHtml(html: HTMLElement | SVGElement): EdgePoint { return EdgePoint.all[html.dataset.EdgePointID]; }
+  static getFromHtml(html: Element): EdgePoint { return EdgePoint.all[(html as HTMLElement).dataset.EdgePointID]; }
 
   follow(e: MouseDownEvent = null): void {
     CursorFollowerEP.activeEP = this;
@@ -142,6 +142,7 @@ export class EdgePoint implements IEdgePoint {
     this.unfollow(); }
 
   getCenter(fitHorizontal: boolean = false, fitVertical: boolean = false): GraphPoint {
+    if (IEdge.edgeChanging) return this.pos.duplicate();
     return this.edge.owner.fitToGrid(this.pos, true, false, fitHorizontal, fitVertical); }
   getStartPoint(fitHorizontal: boolean = true, fitVertical: boolean = true): GraphPoint {
     return this.getCenter(fitHorizontal, fitVertical); }
@@ -161,7 +162,7 @@ export class EdgePoint implements IEdgePoint {
     if (refresh) { this.edge.refreshGui(); } }
 
   show(debug: boolean = false): void {
-    const oldParent: HTMLElement | SVGElement = this.html.parentNode as HTMLElement | SVGElement;
+    const oldParent: Element = this.html.parentElement;
     if (oldParent) { oldParent.removeChild(this.html); }
     this.edge.shell.appendChild(this.html);
     this.html.style.display = 'block';

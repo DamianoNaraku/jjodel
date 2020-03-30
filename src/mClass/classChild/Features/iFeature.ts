@@ -21,6 +21,9 @@ export abstract class IFeature extends Typedd {
 
   // linkToMetaParent<T extends IFeature>(feature: T) { this.metaParent = feature; }
   getClass(): IClass { return this.parent; }
+
+  // must be overriden for m1-elements
+  setValues(values: any[] | any = null, index: number = null, autofix: boolean = true, debug: boolean = false): void {}
 }
 
 export type M3Feature = M3Reference | M3Attribute;

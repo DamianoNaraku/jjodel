@@ -18,11 +18,11 @@ import {
 export class IField {
   owner: IVertex;
   logic: Typedd;
-  private html: HTMLElement | SVGElement;
+  private html: Element;
 
   constructor(logic: Typedd) { this.logic = logic; }
 
-  getHtml(): HTMLElement | SVGElement { return this.html; }
+  getHtml(): Element { return this.html; }
 
   refreshGUI(debug: boolean = true): void { }
 

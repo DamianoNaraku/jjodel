@@ -14,15 +14,18 @@
 #topbar > * {
   display: flex;
   /*margin: auto 0 auto 10px; /*T?RB?L*/
-}
+}/*
 #topbar > button{
   height: calc(var(--topbarH) - 10px);
   flex-basis: 100px;
   min-width: 100px;
   max-width: 100px;
+}*/
+#topbar button.dropdownTitle:focus{
+  outline: none;
 }
 
-.closeButton{
+::ng-deep .popupContent .closeButton{
   /* float: right; */
   position: absolute;
   right: 10px;
@@ -31,14 +34,14 @@
   width: 40px;
   border: 2px solid black;
   background-color: transparent; }
-.closeButton:hover{
+::ng-deep .popupContent .closeButton:hover{
   right: 5px;
   top: 5px;
   height: 50px;
   width: 50px;
   background-color: red; }
 
-.screenWideShadow{
+::ng-deep .screenWideShadow{
   position: absolute;
   display: none;
   top: 0;
@@ -48,7 +51,7 @@
   height: 100vh;
   width: 100vw;
 }
-.popupContent{
+::ng-deep .popupContent{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

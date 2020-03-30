@@ -58,6 +58,10 @@
   color: palevioletred;
 }
 
+.console_error, .console_input{
+  display: inline-block;
+  color: red;
+}
 /*
 .output-cmd:before {
   content: '> ';

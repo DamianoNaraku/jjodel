@@ -84,11 +84,11 @@ export class TopBar {
       const input: HTMLInputElement = popup.getInputNode()[0] as HTMLInputElement;
       popup.destroy();
       TopBar.load(input.value, prefix); };
-    const popup: InputPopup = new InputPopup('paste JSON/string data', '', '',
-      [['input', onoutput], ['change', onoutput]], 'paste data here.', '', 'textarea');
+    const popup: InputPopup = new InputPopup('paste JSON/string data', '', '', null,
+      'paste data here.', '', 'textarea', '', null);
     // $(popup).find('.closeButton');
     popup.addOkButton('Load', finish);
-    popup.show(); }
+    popup.show(false); }
 
   static download_JSON_String(e: ClickEvent, modelstr: string): void {
     const model: IModel = Status.status[modelstr];
@@ -97,8 +97,8 @@ export class TopBar {
     U.pe(!savetxt || savetxt === '', 'empty str');
     U.clipboardCopy(savetxt);
     const popup: InputPopup = new InputPopup((model.isM() ? 'Model' : 'Metamodel') + ' eCore/JSON',
-      '', '<br>Already copied to clipboard.', [], null, '' + savetxt, 'textarea');
-    popup.show(); }
+      '', '<br>Already copied to clipboard.', [], null, '' + savetxt, 'textarea', null, null);
+    popup.show(false); }
 
   static download_JSON_File(e: ClickEvent, modelstr: string): void {
     const model: IModel = Status.status[modelstr];
@@ -242,8 +242,8 @@ export class TopBar {
     const $m2 = $t.find('.metamodel');
     const $m1 = $t.find('.model');
     $t.find('.TypeMapping').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.topbar.showTypeMap(); });
-    $m2.find('.save').off('click.btn').on('click.btn', (e: ClickEvent) => { Status.status.mm.save(false, null); } );
-    $m1.find('.save').off('click.btn').on('click.btn', (e: ClickEvent) => { Status.status.m.save(false, null); } );
+    $m2.find('.save').off('click.btn').on('click.btn', (e: ClickEvent) => { Status.status.mm.save(false, true); } );
+    $m1.find('.save').off('click.btn').on('click.btn', (e: ClickEvent) => { Status.status.m.save(false, true); } );
 
     // download
     $m2.find('.download_JSON_String').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_JSON_String(e, 'mm'); } );

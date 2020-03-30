@@ -76,13 +76,14 @@ export class ELiteral extends Typedd {
   }
 
 
-  delete(): void {
-    super.delete();
+  delete(refreshgui: boolean = true): void {
+    super.delete(false);
     // todo: che fare con gli attributes che hanno questo literal come valore?
-    let i: number = 0;
+    let i: number;
     for (i = 0; i < Type.all.length; i++) {
       if (Type.all[i].enumType !== this.parent) continue;
       if (Type.all[i].owner instanceof MAttribute) (Type.all[i].owner as MAttribute).valuesAutofix();}
+    if (refreshgui) this.refreshGUI();
   }
 
   fieldChanged(e: ChangeEvent) {

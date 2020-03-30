@@ -100,16 +100,19 @@ export class EEnum extends IClassifier {
     for (i = 0; i < this.childrens.length; i++) { if (s === this.childrens[i].literal) { return true; } }
     return false; }
 
-  delete(): void {
+  delete(refreshgui: boolean = true): void {
     const oldparent = this.parent;
-    super.delete();
+    super.delete(false);
     if (oldparent) U.arrayRemoveAll(oldparent.enums, this);
     // todo: che fare con gli attributes che hanno questo enum come tipo? per ora cambio in stringa.
     let i: number = 0;
     for (i = 0; i < Type.all.length; i++) {
       if (Type.all[i].enumType !== this) continue;
       Type.all[i].changeType(null, EType.get(ShortAttribETypes.EString), null, null); }
-    Type.updateTypeSelectors(null, false, false, true); }
+    Type.updateTypeSelectors(null, false, false, true);
+    this.getVertex().remove();
+    if (refreshgui) this.refreshGUI();
+  }
 
   getDefaultValueStr(): string { return this.childrens[0].name; }
 

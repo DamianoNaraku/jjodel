@@ -27,7 +27,7 @@ import {
   ViewHtmlSettings,
   M3Reference,
   M2Attribute,
-  M3Attribute, M3Class, M2Reference, M3Package, MPackage, M2Package, Type, ELiteral, EEnum, EAnnotation
+  M3Attribute, M3Class, M2Reference, M3Package, MPackage, M2Package, Type, ELiteral, EEnum, EAnnotation, IClassifier
 } from '../common/Joiner';
 
 import ClickEvent = JQuery.ClickEvent;
@@ -35,7 +35,6 @@ import MouseMoveEvent = JQuery.MouseMoveEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
 import {ViewRule} from '../GuiStyles/viewpoint';
-import {Style}    from '@angular/cli/lib/config/schema';
 export type StyleComplexEntry = {html: Element, htmlobj:ViewHtmlSettings, view: ViewRule, ownermp: ModelPiece, isownhtml: boolean, isinstanceshtml: boolean, isGlobalhtml: boolean};
 export class Info {
   static forConsole(obj: any): any {}
@@ -75,8 +74,8 @@ export class Info {
     for (key in targetinfo) {
       if (!targetinfo.hasOwnProperty(key)) { continue; }
       if (!prefixc) { switch (key[0]) {
-      default: prefixc = ''; break;
-      case '#': case '_': case '@': prefixc = key[0]; break; } }
+        default: prefixc = ''; break;
+        case '#': case '_': case '@': prefixc = key[0]; break; } }
       // console.log('Info.set(' + info + ', ' + key + ', ' + targetinfo[key] + ', ' + prefixc);
       Info.set(info, key, targetinfo[key], prefixc); }
   }
@@ -99,24 +98,24 @@ export abstract class ModelPiece {
   annotations: EAnnotation[] = [];
   detachedViews: ViewRule[] = []; // required to delete modelpiece
 
-  static GetStyle(model: IModel, tsClass: string, checkCustomizedFirst: boolean = true): HTMLElement | SVGElement {
+  static GetStyle(model: IModel, tsClass: string, checkCustomizedFirst: boolean = true): Element {
     let rootSelector: string;
     if (model.isM()) { rootSelector = '.MDefaultStyles';
     } else if (model.isMM()) { rootSelector = '.MMDefaultStyles';
     } else { U.pe(true, 'm3 objects should not call getStyle()'); }
 
-    let $html: JQuery<HTMLElement | SVGElement>;
-    const $root: JQuery<HTMLElement | SVGElement> = $((checkCustomizedFirst ? '.customized' : '.immutable') + rootSelector);
+    let $html: JQuery<Element>;
+    const $root: JQuery<Element> = $((checkCustomizedFirst ? '.customized' : '.immutable') + rootSelector);
     if (tsClass.indexOf('m1') === 0 || tsClass.indexOf('m2') === 0) { tsClass = tsClass.substr(2); }
     switch (tsClass) {
-    default: U.pe(true, 'unrecognized TS Class: ' + tsClass); return null;
-    case 'EEnum': $html = $root.find('.template.EEnum'); break;
-    case 'ELiteral': $html = $root.find('.template.ELiteral'); break;
-    case 'Class': $html = $root.find('.template.Class'); break;
-    case 'Attribute': $html = $root.find('.template.Attribute'); break;
-    case 'Reference': $html = $root.find('.template.Reference'); break;
-    case 'EOperation': $html = $root.find('.template.Operation'); break;
-    case 'EParameter': $html = $root.find('.template.Parameter'); break; }
+      default: U.pe(true, 'unrecognized TS Class: ' + tsClass); return null;
+      case 'EEnum': $html = $root.find('.template.EEnum'); break;
+      case 'ELiteral': $html = $root.find('.template.ELiteral'); break;
+      case 'Class': $html = $root.find('.template.Class'); break;
+      case 'Attribute': $html = $root.find('.template.Attribute'); break;
+      case 'Reference': $html = $root.find('.template.Reference'); break;
+      case 'EOperation': $html = $root.find('.template.Operation'); break;
+      case 'EParameter': $html = $root.find('.template.Parameter'); break; }
     U.pw(checkCustomizedFirst && $html.length > 1,
       'found more than one match for custom global style, should there be only 0 or 1.', $html, $root, this, tsClass);
     if (checkCustomizedFirst && $html.length === 0) { return ModelPiece.GetStyle(model, tsClass, false); }
@@ -125,7 +124,7 @@ export abstract class ModelPiece {
     console.log('condition:', !customizeds, ' && ', $html.length !== -1);*/
     U.pe(!checkCustomizedFirst && $html.length !== 1,
       'expected exactly 1 match for the un-customized global style, found instead ' + $html.length + ':', $html, $root, this);
-    const ret: HTMLElement | SVGElement = U.cloneHtml($html[0], true);
+    const ret: Element = U.cloneHtml($html[0], true);
     ret.classList.remove('template');
     ret.classList.remove('Customized');
     return ret; }
@@ -145,13 +144,13 @@ export abstract class ModelPiece {
     return ModelPiece.getLogic(e.target); }
 
   public static getLogicalRootOfHtml(html0: Element): Element {
-    let html: HTMLElement | SVGElement = html0 as any;
+    let html: HTMLElement = html0 as HTMLElement;
     if (!html) { return null; }
-    while ( html && (!html.dataset || !html.dataset.modelPieceID)) { html = html.parentNode as HTMLElement | SVGElement; }
+    while ( html && (!html.dataset || !html.dataset.modelPieceID)) { html = html.parentElement; }
     return html; }
 
-  static getLogic(html: HTMLElement | SVGElement): ModelPiece {
-    html = this.getLogicalRootOfHtml(html) as any;
+  static getLogic(html0: Element): ModelPiece {
+    let html: HTMLElement = this.getLogicalRootOfHtml(html0) as HTMLElement;
     const ret: ModelPiece = html ? ModelPiece.getByID(+html.dataset.modelPieceID) : null;
     // U.pe(!(ret instanceof T), 'got logic with unexpected class type:', this);
     return ret; }
@@ -188,7 +187,8 @@ export abstract class ModelPiece {
 
   replaceVarsSetup(): void { return; }
 
-  linkToLogic<T extends HTMLElement | SVGElement>(html: T): void {
+  linkToLogic(html0: Element): void {
+    let html: HTMLElement = html0 as HTMLElement;
     if (this.id === null || this.id === undefined) { U.pw(true, 'undefined id:', this); return; }
     html.dataset.modelPieceID = '' + this.id; }
 
@@ -305,6 +305,7 @@ export abstract class ModelPiece {
   abstract duplicate(nameAppend?: string, newParent?: ModelPiece): ModelPiece;
   // abstract conformability(metaparent: ModelPiece, outObj?: any/*.refPermutation, .attrPermutation*/, debug?: boolean): number;
   setName0(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true, key: string, allowEmpty: boolean): string {
+    if (value === this.name) return this.name;
     const valueOld: string = this['' + key];
     const valueInputError = value;
     value = value !== null && value !== undefined ? '' + value.trim() : null;
@@ -418,7 +419,7 @@ export abstract class ModelPiece {
     this.instances = [];
     this.refreshGUI(); }
 
-  delete(): void {
+  delete(refreshgui: boolean = true): void {
     if (this.parent) {
       U.arrayRemoveAll(this.parent.childrens, this);
       this.parent = null; }
@@ -431,9 +432,10 @@ export abstract class ModelPiece {
     arr = U.shallowArrayCopy<ViewRule>(this.detachedViews);
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
     arr = U.shallowArrayCopy<ModelPiece>(this.childrens);
-    for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
+    for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
     arr = U.shallowArrayCopy<ModelPiece>(this.instances);
-    for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
+    for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
+    if (refreshgui) this.refreshGUI();
   }
 
   validate(): boolean {
@@ -450,8 +452,8 @@ export abstract class ModelPiece {
   /*
     setStyle_SelfLevel_1(html: Element): void { this.customStyleToErase = html; }
     setStyle_InstancesLevel_2(html: Element): void { this.styleOfInstances = html; }
-    setStyle_GlobalLevel_3(html: HTMLElement | SVGElement): void {
-      const oldCustomStyle: HTMLElement | SVGElement = this.getGlobalLevelStyle(true);
+    setStyle_GlobalLevel_3(html: Element): void {
+      const oldCustomStyle: Element = this.getGlobalLevelStyle(true);
       if (oldCustomStyle) { oldCustomStyle.parentNode.removeChild(oldCustomStyle); }
       const model: IModel = this.getModelRoot();
       let rootSelector: string;
@@ -464,13 +466,13 @@ export abstract class ModelPiece {
       } else if (this instanceof IReference) { selectorClass = ('Reference');
       } else if (this instanceof IAttribute) { selectorClass = ('Attribute'); }
 
-      let $root: JQuery<HTMLElement | SVGElement>;
+      let $root: JQuery<Element>;
       $root = $('.customized' + rootSelector);
-      const container: HTMLElement | SVGElement = $root[0];
+      const container: Element = $root[0];
       html.classList.add('Template', selectorClass, (this instanceof IClass ? 'Vertex' : ''));
       container.appendChild(html); }*/
 
-  getGlobalLevelStyle(checkCustomizedFirst: boolean = true): HTMLElement | SVGElement {
+  getGlobalLevelStyle(checkCustomizedFirst: boolean = true): Element {
     let tsClass: string = this.getClassName();/*
     if (false && false ) {
     } else if (this instanceof IClass) { tsClass = 'Class';
@@ -568,9 +570,9 @@ export abstract class ModelPiece {
     for (i = 0; this.instances && i < this.instances.length; i++) { Info.seti(instancesInfo,  '' + i, this.instances[i]); }
     return info; }
 
-  getHtmlOnGraph(): HTMLElement | SVGElement {
+  getHtmlOnGraph(): Element {
     if (this instanceof IPackage) return null;
-    let html: HTMLElement | SVGElement = this.getVertex().getHtml();
+    let html: Element = this.getVertex().getHtml();
     if (this instanceof IClass) return html;
     html = $(html).find('*[data-modelPieceID="' + this.id + '"]')[0];
     return html ? html : null; }
@@ -596,13 +598,13 @@ export abstract class ModelPiece {
     return null; }
 
   getLastView(): ViewRule { return this.views[this.views.length - 1]; }
-/*
-  addView(v: ViewRule): void {
-    // if (!v.viewpoint.viewsDictionary[this.id]) {  v.viewpoint.viewsDictionary[this.id] = []; }
-    v.viewpoint.viewsDictionary[this.id] = v;
-    U.ArrayAdd(this.views, v); }
-  resetViews(): void { this.views = []; }
-*/
+  /*
+    addView(v: ViewRule): void {
+      // if (!v.viewpoint.viewsDictionary[this.id]) {  v.viewpoint.viewsDictionary[this.id] = []; }
+      v.viewpoint.viewsDictionary[this.id] = v;
+      U.ArrayAdd(this.views, v); }
+    resetViews(): void { this.views = []; }
+  */
   getClassName(): string {
     if(this instanceof M3Class) { return 'm3Class'; }
     if(this instanceof M2Class) { return 'm2Class'; }
@@ -630,55 +632,31 @@ export abstract class ModelPiece {
     if (ret.indexOf('m1') !== -1) return null;
     return ret.replace('m2', 'm1').replace('m3', 'm2'); }
 
-  pushUp(): void {
+  pushDown(untilStartOrEnd: boolean): void { this.pushUp(untilStartOrEnd, +1); }
+  pushUp(untilStartOrEnd: boolean, offset: number = -1): void {
     if (!this.parent) { return; }
     let arr: ModelPiece[];
     let parent: any = this.parent;
     let i: number;
+    if (untilStartOrEnd) offset = offset > 0 ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
     if ((arr = parent.childrens) && (i = arr.indexOf(this)) !== -1){
       U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i - 1, this); }
+      U.arrayInsertAt(arr, i + offset, this); }
     if ((arr = parent.enums) && (i = arr.indexOf(this)) !== -1){
       U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i - 1, this); }
+      U.arrayInsertAt(arr, i + offset, this); }
     if ((arr = parent.classes) && (i = arr.indexOf(this)) !== -1){
       U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i - 1, this); }
+      U.arrayInsertAt(arr, i + offset, this); }
     if ((arr = parent.attributes) && (i = arr.indexOf(this)) !== -1){
       U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i - 1, this); }
+      U.arrayInsertAt(arr, i + offset, this); }
     if ((arr = parent.references) && (i = arr.indexOf(this)) !== -1){
       U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i - 1, this); }
+      U.arrayInsertAt(arr, i + offset, this); }
     if ((arr = parent.operations) && (i = arr.indexOf(this)) !== -1){
       U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i - 1, this); }
-    this.updateKey();
-  }
-  pushDown(): void {
-    if (!this.parent) { return; }
-    let arr: ModelPiece[];
-    let parent: any = this.parent;
-    let i: number;
-    if ((arr = parent.childrens) && (i = arr.indexOf(this)) !== -1){
-      U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i - 1, this); }
-    if ((arr = parent.enums) && (i = arr.indexOf(this)) !== -1){
-      U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i + 1, this); }
-    if ((arr = parent.classes) && (i = arr.indexOf(this)) !== -1){
-      U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i + 1, this); }
-    if ((arr = parent.attributes) && (i = arr.indexOf(this)) !== -1){
-      U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i + 1, this); }
-    if ((arr = parent.references) && (i = arr.indexOf(this)) !== -1){
-      U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i + 1, this); }
-    if ((arr = parent.operations) && (i = arr.indexOf(this)) !== -1){
-      U.arrayRemoveAll(arr, this);
-      U.arrayInsertAt(arr, i + 1, this); }
-    this.updateKey();
-  }
+      U.arrayInsertAt(arr, i + offset, this); }
+    this.updateKey(); }
 }
 export abstract class ModelNone extends ModelPiece {}

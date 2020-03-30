@@ -19,7 +19,7 @@ export class ConsoleComponent implements OnInit {
 
 }
 export class MyConsole {
-  static attribute = '_ngcontent-c4';
+  static console: MyConsole;
   container: HTMLElement = null;
   content: HTMLElement = null;
   inputLine: HTMLElement = null;
@@ -30,40 +30,17 @@ export class MyConsole {
   commandHistory: string[] = [];
   newline = '<br/>';
   tab = '&nbsp;&nbsp;&nbsp;&nbsp;';
-  constructor(root: HTMLElement) {
-    this.container = document.createElement('div');
-    this.container.classList.add('consoleRoot');
-    this.content = document.createElement('div');
-    this.content.classList.add('consoleContent');
-    this.inputLine = document.createElement('div');
-    this.inputLine.classList.add('inputLine');
-    this.input = document.createElement('span');
-    this.input.classList.add('input');
-    this.inputLine.setAttribute('tabindex', '-1');
-    this.suggestion = document.createElement('span');
-    this.suggestion.classList.add('suggestion');
-    root.appendChild(this.container);
-    this.container.appendChild(this.content);
-    this.container.appendChild(this.inputLine);
-    this.inputLine.appendChild(this.input);
-    this.inputLine.appendChild(this.suggestion);
-
-    this.container.setAttribute(MyConsole.attribute, '');
-    this.content.setAttribute(MyConsole.attribute, '');
-    this.inputLine.setAttribute(MyConsole.attribute, '');
-    this.input.setAttribute(MyConsole.attribute, '');
-    this.suggestion.setAttribute(MyConsole.attribute, '');
-    U.addCss('console', '' +
-      '.console_error{ display: inline-block; color: red; }' +
-      '.console_input{ display: inline-block; color: red; }' +
-      '' +
-      '' +
-      '');
-    this.addEventListeners();
-  }
-  addEventListeners(): void {
-    $(this.inputLine).off('keydown.input').on('keydown.input', (e: KeyDownEvent) => { this.onKeyDown(e); });
-    $(this.inputLine).off('keyup.input').on('keyup.input', (e: KeyUpEvent) => { this.onKeyUp(e); });
+  constructor() {
+    MyConsole.console = this;
+    const $consoleRoot = $('.consoleRoot');
+    const $inputLine = $consoleRoot.find('.inputLine');
+    this.container = $consoleRoot[0];
+    this.content = $consoleRoot.find('.consoleContent')[0];
+    this.inputLine = $inputLine[0];
+    this.input = $consoleRoot.find('span.input')[0];
+    this.suggestion = $consoleRoot.find('.suggestion')[0];
+    $inputLine.off('keydown.input').on('keydown.input', (e: KeyDownEvent) => { this.onKeyDown(e); });
+    $inputLine.off('keyup.input').on('keyup.input', (e: KeyUpEvent) => { this.onKeyUp(e); });
   }
   onKeyUp(e: KeyUpEvent): void {
     switch (e.key) {
@@ -72,77 +49,88 @@ export class MyConsole {
         this.scrollBottom(); break;
     }
   }
+  getText(): string { return (this.input.innerText + this.suggestion.innerText).trim(); }
+/*
+* azioni:
+* arrowUp: history--
+* arrowDown: history++
+* enter: apply suggestion, if suggestion is empty executes the user input as command
+* escape: delete suggestion, if suggestion is empty deletes user input too
+* tab: iterate through suggestion list
+* */
+suggestionArray: string[] = [];
+suggestionIndex: number = -1;
   onKeyDown(e: KeyDownEvent): void {
-    console.log('myconsole.keydown:', e.key);
     switch (e.key) {
       case 'Enter':
         this.position = 0;
         if (this.suggestion.innerText.length !== 0) {
           this.input.innerText += this.suggestion.innerText;
-          this.position = this.input.innerText.length - 1;
           this.suggestion.innerText = '';
-          return; }
-        this.command(this.input.innerText);
+          this.suggestionArray = [];
+          break; }
+        this.command(this.getText());
         return;
       case 'Backspace':
-        this.suggestion.innerText = '';
-        if (this.position === 0) { return; }
-        this.input.innerText = this.input.innerText.substr(0, --this.position);
-        // this.generateSuggestion();
-        return;
+        if (this.position === 0) { break; }
+        this.generateSuggestion();
+        break;
       case 'Escape':
-        if (this.suggestion.innerText.length > 0) { this.suggestion.innerText = ''; return; }
+        if (this.suggestion.innerText.length > 0) { this.suggestion.innerText = ''; break; }
         this.input.innerText = '';
-        return;
+        break;
       case 'Tab':
         this.inputLine.focus();
-        this.generateSuggestion();
-        return;
+        this.iterateNextSuggestion();
+        break;
       case 'ArrowUp':
+        e.preventDefault(); // avoid scroll.
+        this.suggestionIndex = -1;
+        this.suggestionArray = [];
+        this.suggestion.innerText = '';
         if (--this.commandindex === -1) { this.commandindex = this.commandHistory.length - 1; }
         this.commandindex = (this.commandindex % this.commandHistory.length);
         this.input.innerText = this.commandHistory[this.commandindex];
         this.position = this.input.innerText.length - 1;
         console.log('command[' + (this.commandindex) + '/' + this.commandHistory.length + '] = ' +
           this.commandHistory[this.commandindex], 'arr:', this.commandHistory);
-        // avoid scroll.
-        e.preventDefault();
-        return;
+        break;
       case 'ArrowDown':
+        e.preventDefault(); // avoid scroll.
+        this.suggestionIndex = -1;
+        this.suggestionArray = [];
+        this.suggestion.innerText = '';
         this.commandindex = (++this.commandindex % this.commandHistory.length);
         this.input.innerText = this.commandHistory[this.commandindex];
         this.position = this.input.innerText.length - 1;
         console.log('command[' + (this.commandindex) + '/' + this.commandHistory.length + '] = ' +
           this.commandHistory[this.commandindex], 'arr:', this.commandHistory);
-        // avoid scroll.
-        e.preventDefault();
-        return;
+        break;
       case 'ArrowRight':
-        if (this.position === this.input.innerText.length - 1 && this.suggestion.innerText.length > 0) {
-          this.position++;
-          this.input.innerText += this.suggestion.innerText.charAt(0);
-          this.suggestion.innerText = this.suggestion.innerText.substr(1);
-          return; }
-        this.position = Math.min(this.input.innerText.length - 1, this.position + 1);
-        return;
+        if (this.position !== this.input.innerText.length - 1 || this.suggestion.innerText.length === 0) break;
+        this.position++;
+        this.input.innerText += this.suggestion.innerText.charAt(0);
+        this.generateSuggestion();
+        break;
       case 'ArrowLeft':
         this.position = Math.max(0, this.position - 1);
         this.suggestion.innerText = '';
-        return;
-      case 'Shift': case 'Alt': case 'Control': return;
+        break;
       default:
-        if (e.key.length !== 1) {console.log('unexpected key:', e.key); return; }
-        this.input.innerHTML += e.key === ' ' ? '&nbsp;' : e.key;
-        this.position = (this.position + 1); // % this.input.innerText;
-        this.suggestion.innerText = '';
+        // this.input.innerHTML += e.key === ' ' ? '&nbsp;' : e.key;
+        this.generateSuggestion();
         this.scrollBottom();
+        break;
     }
   }
   scrollBottom(): void {
     console.log('scrollBottom()');
     // this.container.scrollTop = this.inputLine.offsetHeight;
     this.container.scrollTop = this.content.offsetHeight;
-  }
+  }/*
+  todo:
+    comando "setcontext" stessi parametri di getinfo, imposta l'oggetto root.
+    comando "getcontext" senza parametri, risponde con l'oggetto root, visualizzato come getinfo.*/
   command(str: string): void {
     str = U.replaceAll(str, ' ', ' ').trim(); // &nbsp; with space
     console.log('myConsole.command(' + str + ')');
@@ -152,14 +140,12 @@ export class MyConsole {
     // invece di sovrapposto al primo o all'ultimo (ho scelto di sovrapporlo al primo).
     this.commandindex = 0;
     this.input.innerText = this.suggestion.innerText = '';
-
     this.appendInput(str);
     this.appendOutput(this.execCommand(str));
     this.scrollBottom();
   }
   appendInput(str: string, compoundCommandPart: boolean = false): void {
     const input: HTMLElement = document.createElement('div');
-    input.setAttribute(MyConsole.attribute, '');
     input.setAttribute('tabindex', '-1');
     input.classList.add('inputEcho');
     if (compoundCommandPart) { input.classList.add('compoundCommandPart'); }
@@ -170,7 +156,6 @@ export class MyConsole {
     if (str === '') { return; } // CLS special rule
     U.pe(!str, 'null output');
     const output: HTMLElement = document.createElement('div');
-    output.setAttribute(MyConsole.attribute, '');
     output.setAttribute('tabindex', '-1');
     output.classList.add('output');
     if (compoundCommandPart) { output.classList.add('compoundCommandPart'); }
@@ -386,7 +371,17 @@ export class MyConsole {
     if (ret instanceof ModelPiece) { return ret.getInfo(); }
     return ret;
   }
+  private iteratePrevSuggestion(): void { this.iterateSuggestionDONOTUSEDirectly(-1); }
+  private iterateNextSuggestion(): void { this.iterateSuggestionDONOTUSEDirectly(+1); }
+  private iterateSuggestionDONOTUSEDirectly(offset: number): void {
+    if (!this.suggestionArray.length) return;
+    this.suggestionIndex = Math.abs((this.suggestionIndex + offset) % this.suggestionArray.length);
+    this.suggestion.innerText = this.suggestionArray[this.suggestionIndex];
+  }
   private generateSuggestion(): void {
+    const oldSuggestion: string = this.suggestion.innerText;
+    return;
+    // NB: after the generation, if oldSuggestion is still viable, set that index, otherwise set this.suggestionArray[0];
     this.suggestion.innerText = '//GenerateSuggestion(): to do.';
   }
 }

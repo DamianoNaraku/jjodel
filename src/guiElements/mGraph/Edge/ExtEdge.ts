@@ -3,7 +3,7 @@ import {IClass, IEdge, IReference, IVertex, M2Class} from '../../../common/Joine
 export class ExtEdge extends IEdge{
   logic: M2Class;
 
-  constructor(logic: IClass | IReference, startv: IVertex = null, end: IVertex = null) {
+  constructor(logic: M2Class, startv: IVertex = null, end: IVertex = null) {
     super(logic, null, startv, end);
   }
   canBeLinkedTo(target0: IClass): boolean {

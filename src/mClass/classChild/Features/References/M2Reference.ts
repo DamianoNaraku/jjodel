@@ -103,14 +103,15 @@ export class M2Reference extends IReference {
     while (++i < this.instances.length) {
       const mref: MReference = this.instances[i];
       if (n !== -1) { mref.mtarget.length = mref.edges.length = n; }
-      mref.delete(n, Number.POSITIVE_INFINITY); } }
+      mref.delete(true, n, Number.POSITIVE_INFINITY); } }
 
-  delete(linkStart: number = null, linkEnd: number = null): void {
-    super.delete(linkStart, linkEnd);
+  delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
+    super.delete(false, linkStart, linkEnd);
     // total deletion
     if (linkStart === null && linkEnd === null) {
-      if (this.type.classType) U.arrayRemoveAll(this.type.classType.referencesIN, this);
-      return; } }
+      if (this.type.classType) U.arrayRemoveAll(this.type.classType.referencesIN, this);}
+    if (refreshgui) this.refreshGUI();
+  }
 /*
   getStyle(debug: boolean = true): HTMLElement | SVGElement {
     const raw: HTMLElement | SVGElement = super.getStyle(debug);

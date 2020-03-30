@@ -25,16 +25,19 @@
           <div class="roww">
             <h6 class="vertexStyle separator htmllevel"></h6>
           </div>
+          <!--
           <div class="colChild">
             <span class="stylelabel">Applied view:</span>
             <select class="stylename"></select>
           </div>
+          -->
         </label>
         <button class="helpButton btn btn-info" matTooltip="todo: explain .EndPoint, .TypeSelector, .ClassSelector...">?</button>
       </div>
-      <label class="allowEdit">This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.<button class="allowEdit btn btn-secondary">Make it</button></label>
+      <label class="allowEdit"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class="allowEdit btn btn-secondary">Make it</button></label>
       <div contenteditable="true" class="html" placeholder="Html for $##name$ (m2 class)."></div>
 
+      <!--
       <div class="roww nowrap detailButtonContainer">
         <button target="div.detail.measurable" class="detail measurable btn btn-primary">
             <span class="closed">
@@ -56,7 +59,7 @@
         </button>
       </div>
       <div class="detail measurable" style="display: none">
-        <!--
+        < !--
                           left	  right	  eval
 
           r_		      str	    any	    /     <-- add dataset to name input.
@@ -69,7 +72,7 @@
           _constraint	size	  js	    bool	inequality
           _dstyle		  /	      js->css	str
           _import		  size	  js	    any
-        -->
+        -- >
         <div class="template measurable _root roww columnContainer">
           <button class="deleteRule columnChild btn btn-danger">X</button>
           <div class="columnChild">
@@ -106,7 +109,7 @@
             <a class="roww outputerror right"></a>
           </div>
         </div>
-        <!-- TEMPLATES END -->
+        < !-- TEMPLATES END -- >
         <h6 class="addHeader">
           <button class="btn btn-secondary addmeasurable">Add</button>
           <select class="attributetypeadd"><optgroup label="Attribute type">
@@ -165,13 +168,18 @@
         </div>
       </div>
 
-      <!-- <div class="separatorShell">
+      < !-- <div class="separatorShell">
         <h6 class="vertexStyle separator">
           <label><span>Preview&nbsp;of&nbsp;</span>
             <select class="previewselector"></select>
           </label></h6>
         <button class="helpButton vertex btn btn-info" matTooltip="todo: explain .EndPoint, .TypeSelector, .ClassSelector...">?</button>
       </div> -->
+      <!-- start of new measurable -->
+
+      <div class="measurablePlaceholder"></div>
+
+      <!-- end of new measurable -->
     </div>
 
     <div class="template modelpiece">

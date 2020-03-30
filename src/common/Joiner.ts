@@ -5,7 +5,7 @@
 // /*new*/export {Styles, ModelPieceStyleEntry, SortType, StyleVisibility} from '../GuiStyles/styles';
 // /*new*/export {ViewHtmlSettings, ViewPoint, ViewRule, ModelView, PackageView, ClassView, AttributeView, EdgeViewRule, ReferenceView, OperationView,
 // ParameterView} from '../GuiStyles/viewpoint';
-
+export type MyException = any;
 import { default as AnsiUp } from 'ansi_up';
 export const ansiUp = new AnsiUp(); // https://github.com/drudru/ansi_up // ansi color formatter.
 
@@ -15,6 +15,8 @@ import "jqueryui";
 // import "jquery";
 import * as $$ from 'jquery';
 export const $ = window['' + '$'] = $$;
+import * as $bb from 'bootstrap';
+export const $b = $bb;
 /*
 import * as JQueryUII        from '../../node_modules/jqueryui';
 export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/
@@ -32,8 +34,9 @@ export {ModelPiece, Info, ModelNone, StyleComplexEntry} from '../Model/modelPiec
   ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference,
   ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel} from '../Model/iModel';
 export {ShortAttribETypes, U, Json, AttribETypes,
-  InputPopup, DetectZoom, Dictionary, MeasurableArrays,
-  IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader} from './util';
+  InputPopup, DetectZoom, Dictionary,
+  IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput} from './util';
+export {MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators} from './measurable';
 export {Status} from '../../src/app/app.module';
 export {IGraph, ViewPointShell} from '../guiElements/mGraph/iGraph';
 export {IVertex} from '../guiElements/mGraph/Vertex/iVertex';
@@ -79,7 +82,15 @@ export {EAnnotationDetail} from '../Model/EAnnotationDetail';
 export {DamContextMenuComponent} from '../guiElements/dam-context-menu/dam-context-menu.component';
 export {EOperation, OperationVisibility} from '../mClass/classChild/Operations/eOperation';
 export {EParameter} from '../mClass/classChild/Operations/eParameter';
-import {IClassifier}         from '../mClass/IClassifier';
+export {MeasurableTemplateGenerator}         from '../app/measurabletemplate/measurabletemplate.component';
+
+
+
+
+
+
+
+// import {IClassifier} from '../mClass/IClassifier';
 
 /*
 // @ts-ignore

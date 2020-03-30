@@ -12,7 +12,7 @@ import {
   IGraph,
   IModel,
   Status, IReference, CursorFollowerEP, EdgePointFittizio,
-  Point, GraphPoint, Size, GraphSize, EdgeStyle, PropertyBarr, Dictionary, IClass, ExtEdge
+  Point, GraphPoint, Size, GraphSize, EdgeStyle, PropertyBarr, Dictionary, IClass, ExtEdge, MAttribute, MReference, IClassifier
 } from '../../../common/Joiner';
 import ClickEvent = JQuery.ClickEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
@@ -22,6 +22,7 @@ import MouseOverEvent = JQuery.MouseOverEvent;
 import MouseEnterEvent = JQuery.MouseEnterEvent;
 import MouseLeaveEvent = JQuery.MouseLeaveEvent;
 import {EdgeHeadStyle} from './edgeStyle';
+import KeyDownEvent = JQuery.KeyDownEvent;
 
 enum EdgeDecoratorType {
   containment = 'containment',
@@ -78,8 +79,9 @@ export enum EdgeModes {
       (ee: ClickEvent) => {
         const debug = false;
         U.pif(debug, 'body.click(): clear All Edge Selections');
-        let i = -1;
-        while (++i < IEdge.selecteds.length) { IEdge.selecteds[i].onBlur(); }
+        let i: number;
+        let arr: IEdge[] = U.shallowArrayCopy(IEdge.selecteds);
+        for (i = 0; i < arr.length; i++) { arr[i].onBlur(); }
         U.pif(debug, 'graph clicked:', ee);
         const modelPieceClicked: ModelPiece = ModelPiece.get(ee);
         const edgeClicked: IEdge = IEdge.get(ee);
@@ -93,16 +95,67 @@ export enum EdgeModes {
         if (!edgeClicked) { return; }
         edgeClicked.onClick(ee);
       });
+    $(document.body).off('keydown.deletethings').on('keydown.deletethings', (evt: KeyDownEvent) => {
+      let i: number;
+      const target: Element = document.activeElement; // evt.target;
+      if (!U.isChildrenOf(target, Status.status.getActiveModel().graph.container)) return;
+      const tag: string = target.tagName.toLowerCase();
+      const isInput: boolean = U.isInput(target, true);
+      if (isInput) return;
+      const model: IModel = Status.status.getActiveModel();
+      const mp: ModelPiece = model.graph.propertyBar.selectedModelPiece;
+      const ism2: boolean = mp && model.isM2();
+      if (mp === model) return;
+      const v: IVertex = mp.getVertex(); // IVertex.getvertexByHtml(target);
+      const e: IEdge[] = []; //U.shallowArrayCopy(IEdge.selecteds);// IEdge.getByHtml(target);
+      const ext: ExtEdge[] = [];
+      const elogic: (IClass | IReference)[] = [];
+      const extlogic: M2Class[] = [];
+      for (i = 0; i < IEdge.selecteds.length; i++) {
+        const elem: IEdge = IEdge.selecteds[i];
+        if (elem instanceof ExtEdge) { ext.push(elem); extlogic.push(elem.logic); }
+        else { e.push(elem); elogic.push(elem.logic)}
+      }
+      console.log('document.keydown.deletethings: ', evt, e, v, mp);
+      if (e && e.length) {
+        console.log('edge: evt.key.toLowerCase() = ', evt.key.toLowerCase());
+        switch(evt.key.toLowerCase()) {
+          default: break;
+          case 'delete':
+            for (i = 0; i < elogic.length; i++) { (elogic[i] as ModelPiece).delete(true); }
+            for (i = 0; i < ext.length; i++) { ext[i].remove(); }
+            break;
+        }
+        return;
+      }
+      if (v) {
+      switch(evt.key.toLowerCase()) {
+        default: break;
+        case 'd':
+          if (!evt.ctrlKey || !ism2) return;
+          if (mp === model) return;
+          mp.duplicate();
+          break;
+        case 'delete': // case 'Backspace':
+          // if (isInput) return; was only here, moved to everyone
+          if (mp === model) return;
+          if (ism2) mp.delete(true); else {
+            if (mp instanceof MAttribute) mp.setValues(null); else
+            if (mp instanceof MReference) mp.clearTargets();
+          }
+          break;
+      }}
+    });
     return IEdge.all; }
 
   static get(e: ClickEvent | MouseMoveEvent | MouseDownEvent | MouseUpEvent | MouseLeaveEvent | MouseEnterEvent | MouseEvent): IEdge {
     // return ModelPiece.getLogic(e.classType).edge;
     return IEdge.getByHtml(e.target); }
 
-  static getByHtml(html0: HTMLElement | SVGElement, debug: boolean = true): IEdge {
+  static getByHtml(html0: Element, debug: boolean = true): IEdge {
     if (!html0) { return null; }
-    let html = html0;
-    while ( html && (!html.dataset || !html.dataset.edgeid)) { html = html.parentNode as HTMLElement | SVGElement; }
+    let html: HTMLElement = html0 as HTMLElement;
+    while ( html && (!html.dataset || !html.dataset.edgeid)) { html = html.parentElement; }
     const ret = html ? IEdge.getByID(+html.dataset.edgeid) : null;
     // U.pe(debug && !ret, 'failed to find edge. html0:', html0, 'html:', html, 'map:', IEdge.idToEdge);
     return ret; }
@@ -115,6 +168,9 @@ export enum EdgeModes {
       if (logic instanceof IReference) { startv = (logic as IReference).getVertex(); } }
     U.pe(!startv, 'startVertex missing');
     U.pe(!logic || !startv, 'new Edge() invalid parameters. logic:', logic, 'start:', startv, 'end:', end);
+    if (!end) {
+      U.pe(!!IEdge.edgeChanging, 'cannot create a pending edge (without target) while there are other pending edges.');
+      IEdge.edgeChanging = this; }
     IEdge.all.push(this);
     this.id = IEdge.edgeCount++;
     IEdge.idToEdge[this.id] = this;
@@ -155,7 +211,7 @@ export enum EdgeModes {
     this.shadow.setAttribute('visibility', 'hidden');
     this.shadow.setAttribute('pointer-events', 'stroke');
     this.addEventListeners(true, false);
-    if (end) this.refreshGui(); }
+    this.refreshGui(); }
 
 
   generateAggregationHead(style: EdgeHeadStyle): SVGSVGElement { return null; }
@@ -357,6 +413,11 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     debug = false;
     let debugi: number = window['' + 'debug'];
     if (debugi === 1) return;
+    // || this.start.size.isinside(this.end.size) ||  this.end.size.isinside(this.start.size
+    // quando startpoint o endpoint sono dentro un vertice size
+    if (!this.midNodes.length && (this.start === this.end)) { //this.start.size.intersection(this.end.size))) {
+      $(this.shell).hide();
+      return; } else $(this.shell).show();
     U.pe(!this.logic, 'IEdge.logic is null:', this);
     if (useRealEndVertex === null) { useRealEndVertex = this.useRealEndVertex; }
     if (usemidnodes === null) { usemidnodes = this.useMidNodes; }
@@ -397,17 +458,21 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
       const favdirection: boolean = null; // i === allRealPt.length - 1 ? lastdirectionIsHorizontal : null;
       const prevVertexSize: GraphSize = i === 1 ? startVertexSize : null;
       const nextVertexSize: GraphSize = i === allRealPt.length - 1 ? endVertexSize : null;
-      /* const prevFitGridVertical: boolean = false; // prevVertexSize ? U.isOnHorizontalEdges(prev.getStartPoint(), prevVertexSize) : true;
-      const prevFitGridHorizontal: boolean = false; // prevVertexSize ? U.isOnHorizon todo;
-      const nextFitToGridHorizontal: boolean = false;
-      const nextFitToGridVertical: boolean = false;*/
       const prevPt: GraphPoint = prev.getStartPoint(!prevVertexSize, !prevVertexSize);
       const currPt: GraphPoint = curr.getEndPoint(!nextVertexSize, !nextVertexSize);
+      // console.log(prevVertexSize, new GraphSize());
+      const intersection = nextVertexSize && prevVertexSize ? nextVertexSize.intersection(prevVertexSize) : null;
+      if (intersection) console.log('midenodes.length:', !this.midNodes.length , '&&', prevPt , currPt, ' contained in ', intersection,
+        intersection.contains(prevPt), intersection.contains(currPt));
       if (debug) {
-        graph.markg(prevPt, false, 'green');
-        graph.markg(currPt, false, 'green');
+        if (intersection) this.owner.markgS(intersection, true, 'black');
+        this.owner.markg(prevPt, true, 'orange');
+        this.owner.markg(currPt, false,'yellow');
         if (prevVertexSize) { graph.markgS(prevVertexSize, false, 'blue'); }
         if (nextVertexSize) { graph.markgS(nextVertexSize, false); } }
+      if (!this.midNodes.length && intersection && ( intersection.contains(prevPt) || intersection.contains(currPt)) ){
+        $(this.shell).hide();
+        return; }
       // if (i === 1) { pt1.moveOnNearestBorder(startVertexSize, false); }
       // if (i === allRealPt.length - 1) { pt2.moveOnNearestBorder(endVertexSize, false); }
       if (i === 1) { pathStr = 'M' + prevPt.x + ' ' + prevPt.y; }
@@ -434,10 +499,10 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     return tmp ? tmp : this.logic.edgeStyleCommon.style = EdgeModes.straight; }
 
   private getStyle(): EdgeStyle {
-    if (this.isHighlighted) {
-      return this.logic.edgeStyleHighlight;
-    } else if (this.isSelected) {
+   if (this.isSelected) {
       return this.logic.edgeStyleSelected;
+    } if (this.isHighlighted) {
+      return this.logic.edgeStyleHighlight;
     } else { return this.logic.edgeStyleCommon; } }
 
   private setPath(pathStr: string, debug: boolean = false): void {
@@ -528,7 +593,6 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
       let target: EdgePoint = null;
       U.pif(debug, 'getAllFakePoints() d:', d, 'pt', pt, 'realMidPoints:', realMidPoints, 'index:', realNodeIndex, 'match?',
         realNodeIndex >= realMidPoints.length ? 'overflow' : realMidPoints[realNodeIndex].pos.equals(pt));
-      const fitToGrid: boolean = i !== 0 || i !== parsedpts.pts.length - 1;
       let fitHorizontal: boolean;
       let fitVertical: boolean;
       if (i !== 0 && i !== parsedpts.pts.length - 1) { fitHorizontal = fitVertical = true; }
@@ -629,7 +693,6 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     return null; }
 
   onMouseLeave(e: MouseLeaveEvent): void {
-    if(e) console.log('mouseleave');
     this.isHighlighted = false;
     this.startNode.refreshGUI(null, false);
     this.endNode.refreshGUI(null, false);
@@ -639,7 +702,6 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
 
   onMouseEnter(e: MouseEnterEvent): void {
     this.onMouseLeave(null);
-    console.log('enter', e.target, e.currentTarget);
     this.isHighlighted = true;
     this.refreshGui(true);
   }
@@ -647,7 +709,6 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
   onMouseMove(e: MouseMoveEvent): void { this.onMouseOver(e as any, false); }
 
   onMouseOver(e: MouseOverEvent | MouseMoveEvent, canFail: boolean = false, debug: boolean = false): void {
-    console.log('over');
     if (CursorFollowerEP.get().isAttached() || IEdge.edgeChanging) { return; }
     const fakePoints: EdgePointFittizio[] = this.getAllFakePoints();
     const tmp: EdgePointFittizio[] = this.getBoundingMidPointsFake(e, null, canFail, fakePoints);
@@ -719,15 +780,17 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     this.refreshGui(); }
 
   remove() {
+    console.log('edge.remove()');
+    this['' + 'removedtwice'] = 1 + (+this['' + 'removedtwice'] || 0);
+    if (this['' + 'removedtwice'] > 1) { U.pw(true, 'edge removed ' + this['' + 'removedtwice'] + ' times.', this); return; }
     U.arrayRemoveAll(this.start.edgesStart, this);
     U.arrayRemoveAll(this.end.edgesEnd, this);
     U.arrayRemoveAll(IEdge.all, this);
-    if (!(this instanceof ExtEdge)) {
-      const index = this.getIndex();
-      U.pe(this.logic.edges[index] !== this, 'deleting wrong edge.');
-      this.logic.edges[index] = null; }
-    U.arrayRemoveAll(this.owner.edges, this);
-    let shell = '.EdgeShell';
+    U.arrayRemoveAll(IEdge.selecteds, this);
+    const index = this.getIndex();
+    this.logic.edges[index] = null;
+    if (this.logic instanceof MReference) this.logic.mtarget[index] = null;
+    if (this instanceof ExtEdge) U.arrayRemoveAll((this.logic as M2Class).extends, this.end.logic() as M2Class);
     this.shell.parentNode.removeChild(this.shell);
     // gc helper
     this.end = null;
@@ -841,47 +904,24 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
       else { this.shell.appendChild(shell); }
       this.addEventListeners(false, true);
     }
-    // const HeadSize: GraphSize = this.owner.toGraphCoordS(U.sizeof(this.edgeHead));
-    debug = false;
-    if (debug) { this.owner.markg(pt1, true, 'white'); this.owner.markg(pt2real, false, 'green'); }
+    if (debug) { this.owner.markg(pt1, true, 'red'); this.owner.markg(pt2real, false, 'green'); }
     U.pif(debug, 'size of head: ', HeadSize, 'pt1:', pt1, 'pt2:', pt2real, 'm:', m);
-    if (m === Number.POSITIVE_INFINITY) {
-      // link hit on top
-      (svg).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
-      (svg).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h));
-    } else if (m === Number.NEGATIVE_INFINITY) {
-      // link hit on bot
-      (svg).setAttributeNS(null, 'y', '' + (pt1.y));
-      (svg).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w / 2));
-    }/* else if (U.isPositiveZero(m)) {
-      // link hit on left
-      (svg).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
-      (svg).setAttributeNS(null, 'x', '' + (pt1.x - HeadSize.w));
-    } else if (U.isNegativeZero(m)) {
-      // link hit on right
-      (svg).setAttributeNS(null, 'y', '' + (pt1.y - HeadSize.h / 2));
-      (svg).setAttributeNS(null, 'x', '' + (pt1.x));
-    }*/ else {
-      const degreeRad: number = pt1.degreeWith(pt2real, true); // U.TanToDegree(m);
-      const center: GraphPoint = new GraphPoint(0, 0);
-      const pt2: GraphPoint = new GraphPoint(0, 0);
-      //todo: perchè zindex e position?
-      svg.style.zIndex = '' + 100;
-      svg.style.position = 'absolute';
-      if (pt1.x < pt2.x && pt1.y < pt2.y) {
-        U.pe(true, 'what\'s this?? can that happen?');
-        svg.setAttributeNS(null, 'fill', 'blue'); }
-      pt2.x = pt1.x - HeadSize.w * Math.cos(degreeRad);
-      pt2.y = pt1.y - HeadSize.h * Math.sin(degreeRad);
-      center.x = (pt1.x + pt2.x) / 2;
-      center.y = (pt1.y + pt2.y) / 2;
-      const degree = U.RadToDegree(degreeRad) + 90; // don't know why +90.
-      if (debug) { this.owner.markg(pt2, false, 'blue'); }
-      shell.setAttributeNS(null, 'transform', 'rotate(' + degree + ' ' + center.x + ' ' + center.y + ')');
-      (svg).setAttributeNS(null, 'x', '' + (center.x - HeadSize.w / 2));
-      (svg).setAttributeNS(null, 'y', '' + (center.y - HeadSize.h / 2));
-      // link hit diagonally
-    }
+
+    const degreeRad :number = pt1.degreeWith(pt2real, true); // U.TanToDegree(m);
+    const center: GraphPoint = new GraphPoint(0, 0);
+    const pt2: GraphPoint = new GraphPoint(0, 0);
+    //todo: perchè zindex e position?
+    // svg.style.zIndex = '' + 100;
+    // svg.style.position = 'absolute';
+    pt2.x = pt1.x - HeadSize.w * Math.cos(degreeRad);
+    pt2.y = pt1.y - HeadSize.h * Math.sin(degreeRad);
+    center.x = (pt1.x + pt2.x) / 2;
+    center.y = (pt1.y + pt2.y) / 2;
+    const degree = U.RadToDegree(degreeRad) + 90; // uso riferimento con 0 = top invece di 0 = right
+    if (debug) { this.owner.markg(pt2, false, 'blue'); }
+    shell.setAttributeNS(null, 'transform', 'rotate(' + degree + ' ' + center.x + ' ' + center.y + ')');
+    (svg).setAttributeNS(null, 'x', '' + (center.x - HeadSize.w / 2));
+    (svg).setAttributeNS(null, 'y', '' + (center.y - HeadSize.h / 2));
   }
 
   getIndex(): number { return this.logic.edges.indexOf(this); }

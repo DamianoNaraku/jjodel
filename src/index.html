@@ -17,10 +17,20 @@
   <link href="./app/common/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
   <link href="./app/common/jquery-ui-1.12.1/jquery-ui.structure.css" rel="stylesheet">
   <link href="./app/common/jquery-ui-1.12.1/jquery-ui.theme.css" rel="stylesheet"> -->
+  <!--
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.structure.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/theme.min.css" rel="stylesheet">
+
+
+  <!-- required but loaded directly from js code to help IDE figuring out types.
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  -->
+
+  <!-- end of static header -->
 </head>
 <body>
 <fakehader>
@@ -88,12 +98,13 @@
       }*/
   </style>
 </fakehader>
-<app-console></app-console>
 <app-top-bar></app-top-bar>
 <app-graph-tab-html></app-graph-tab-html>
+<app-console></app-console>
 <app-root></app-root>
 <app-mminput></app-mminput>
 <app-dam-context-menu></app-dam-context-menu>
+<app-measurabletemplate></app-measurabletemplate>
 <!--
 <script src="./app/common/jquery-ui-1.12.1/jquery-ui.js" rel="script"></script>
 <script src="./app/common/jquery-ui-1.12.1/jquery-ui.structure.js" rel="script"></script>-->

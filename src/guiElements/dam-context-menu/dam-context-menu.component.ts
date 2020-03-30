@@ -15,6 +15,8 @@ import {
 } from '../../common/Joiner';
 import ClickEvent = JQuery.ClickEvent;
 import ContextMenuEvent = JQuery.ContextMenuEvent;
+import MouseDownEvent = JQuery.MouseDownEvent;
+import MouseEventBase = JQuery.MouseEventBase;
 
 @Component({
   selector: 'app-dam-context-menu',
@@ -27,7 +29,7 @@ export class DamContextMenuComponent implements OnInit {
   private html: HTMLElement = null;
   private $html: JQuery<HTMLElement> = null;
   // private currentlyOpened: HTMLElement = null;
-  private clickTarget: HTMLElement | SVGElement;
+  private clickTarget: Element;
   private $vertexcontext: JQuery<HTMLUListElement>;
   private $edgecontext: JQuery<HTMLUListElement>;
   private $extedgecontext: JQuery<HTMLUListElement>;
@@ -40,7 +42,7 @@ export class DamContextMenuComponent implements OnInit {
   constructor() {
     this.$html = $('#damContextMenuTemplateContainer');
     this.html = this.$html[0];
-    $(document).off('click.hideContextMenu').on('click.hideContextMenu', (e: ClickEvent) => this.checkIfHide(e));
+    $(document).off('mousedown.hideContextMenu').on('mousedown.hideContextMenu', (e: MouseDownEvent) => this.checkIfHide(e));
     this.$vertexcontext = this.$html.find('ul.vertex') as JQuery<HTMLUListElement>;
     this.$edgecontext = this.$html.find('ul.edge') as JQuery<HTMLUListElement>;
     this.$extedgecontext = this.$html.find('ul.extedge') as JQuery<HTMLUListElement>;
@@ -52,7 +54,7 @@ export class DamContextMenuComponent implements OnInit {
 
   ngOnInit() { }
 
-  show(location: Point, classSelector: string, target: HTMLElement | SVGElement) {
+  show(location: Point, classSelector: string, target: SVGElement) {
     U.pe(!target, 'target is null.');
     this.clickTarget = target;
     this.html.style.display = 'none'; // if was already displaying, start the scrollDown animation without doing the scrollUp()
@@ -174,13 +176,16 @@ export class DamContextMenuComponent implements OnInit {
     $html.find('.Vertex.duplicate').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { m.duplicate('_Copy', m.parent); });
     $html.find('.Vertex.delete').off('click.ctxMenu').on('click.ctxMenu',
-      (e: ClickEvent) => { m.delete(); });
+      (e: ClickEvent) => { m.delete(true); });
     $html.find('.Vertex.minimize').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { v.minimize(); });
+    $html.find('.Vertex.extend').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => {
+      new ExtEdge(m as M2Class, m.getVertex(), null);
+    });
     $html.find('.Vertex.up').off('click.ctxMenu').on('click.ctxMenu',
-      (e: ClickEvent) => { m.pushDown(); v.pushUp(); }); // must be opposites
+      (e: ClickEvent) => { m.pushDown(true); m.getModelRoot().refreshGUI_Alone(); }); // must be the opposite of the text
     $html.find('.Vertex.down').off('click.ctxMenu').on('click.ctxMenu',
-      (e: ClickEvent) => { m.pushUp(); v.pushDown(); }); // must be opposites
+      (e: ClickEvent) => { m.pushUp(true); m.getModelRoot().refreshGUI_Alone(); }); // must be the opposite of the text
     $html.find('.Vertex.editStyle').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { U.pw(true, 'deprecato'); /*StyleEditor.editor.show(m);*/ });
 
@@ -189,15 +194,15 @@ export class DamContextMenuComponent implements OnInit {
     $html.find('.Feature.autofixinstances').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { alert('autofix instances: todo.'); });
     $html.find('.Feature.duplicate').off('click.ctxMenu').on('click.ctxMenu',
-      (e: ClickEvent) => { m.duplicate('_Copy', m.parent); });
+      (e: ClickEvent) => { m.duplicate('_Copy', m.parent); v.refreshGUI(); });
     $html.find('.Feature.delete').off('click.ctxMenu').on('click.ctxMenu',
-      (e: ClickEvent) => { m.delete(); });
+      (e: ClickEvent) => { m.delete(true); });
     $html.find('.Feature.minimize').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { v.minimize(); });
     $html.find('.Feature.up').off('click.ctxMenu').on('click.ctxMenu',
-      (e: ClickEvent) => { m.pushUp(); v.refreshGUI(); });
+      (e: ClickEvent) => { m.pushUp(false); v.refreshGUI(); });
     $html.find('.Feature.down').off('click.ctxMenu').on('click.ctxMenu',
-      (e: ClickEvent) => { m.pushDown(); v.refreshGUI(); });
+      (e: ClickEvent) => { m.pushDown(false); v.refreshGUI(); });
     $html.find('.Feature.link').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => {
       let index: number = e.currentTarget.dataset.edgeindex;
       let r: IReference | IClass = m as IReference | IClass;
@@ -206,8 +211,8 @@ export class DamContextMenuComponent implements OnInit {
       IVertex.linkVertexMouseDown(null, edge, graphLocation); /*StyleEditor.editor.show(m); */});
 
   }
-  private checkIfHide(e: ClickEvent) {
-    const originalTarget: HTMLElement = e.target;
+  private checkIfHide(e: MouseEventBase) {
+    // const originalTarget: Node = e.target;
     const cond: boolean = true; // !U.isParentOf(this.html, originalTarget);
     if (cond) { this.hide(); }
   }

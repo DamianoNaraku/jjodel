@@ -66,9 +66,9 @@ export class MAttribute extends IAttribute {
 
   parse(json: Json, destructive: boolean): void {
     // if (!json) { json = }
-    this.setValue(json as any[]);
+    this.setValues(json as any[]);
     if (!this.validate()) {
-      this.setValue(null);
+      this.setValues(null);
       U.pw(true, 'marked attribute (' + this.metaParent.name + ') with type ', this.getType(), 'values:', this.values, 'this:', this);
       this.mark(true, 'errorValue');
     } else { this.mark(false, 'errorValue'); }
@@ -173,23 +173,27 @@ export class MAttribute extends IAttribute {
 
   setValueStr(valStr: string) {
     if (this.metaParent.upperbound === 1) {
-      // this.setValue(JSON.parse( '"' + U.replaceAll(valStr, '"', '\\"') + '"'));
-      this.setValue([ valStr ]);
+      // this.setValues(JSON.parse( '"' + U.replaceAll(valStr, '"', '\\"') + '"'));
+      this.setValues([ valStr ]);
       return; }
-    try { this.setValue(JSON.parse(valStr)); } catch (e) {
+    try { this.setValues(JSON.parse(valStr)); } catch (e) {
       U.pw(true, 'This attribute have upperbound > 1 and the input is not a valid JSON string: ' + valStr);
       return; } finally {}
   }
-  setValue(values: any[] = null, debug: boolean = false, autofix: boolean = true): void {
+  // setValues: applicabile alle M1-Feature, se index < 1  index = upperbound - index, se index = null values deve essere array.
+  setValues(values: any[] | any = null, index: number = null, autofix: boolean = true, debug: boolean = false): void {
+    if (index < 0) index = (this.getUpperbound() - index) % this.getUpperbound();
+    if (index !== null && index !== undefined) { this.values[index] = values; }
     const values0 = values;
     if (U.isEmptyObject(values, true, true)
-     || (Array.isArray(values) && (values.length === 0 || (values.length === 1 && U.isEmptyObject(values[0]))))) {
-      values = this.getType().defaultValue(); } // redundancy, i'm double fixing it. should check if autofix fixes nulls.
+     || (Array.isArray(values) && (values.length === 0 || (values.length === 1 && U.isEmptyObject(values[0])))))
+       { values = this.getType().defaultValue(); } // redundancy, i'm double fixing it. should check if autofix fixes nulls.
     if (!Array.isArray(values)) { values = [values]; }
     // U.pe(values0 === null && values.length === 1 && values[0] === [0], 'wtf?', values0, values, this);
     if (debug) console.trace();
     U.pif(debug, this.metaParent.fullname() +  '.setvalue: |', values0, '| --> ', values, 'defaultv:', this.getType().defaultValue(), 'type:', this.getType());
     this.values = values;
+    if (this.getUpperbound() >= 0) { this.values.length = this.getUpperbound(); }
     U.pe('' + values === '' + undefined || '' + values === '' + null, 'undef:', values, this);
     U.pif(debug, 'end value:', values);
     if (autofix) { this.valuesAutofix(debug); }
@@ -203,7 +207,10 @@ export class MAttribute extends IAttribute {
     if (type.enumType) {
       // conversionType = null; // EType.get(ShortAttribETypes.EString);
       const defaultValue: string = type.enumType.getDefaultValueStr();
-      if (!defaultValue) { this.values = []; return; }
+      if (!defaultValue) {
+        this.values = [];
+        if (this.getUpperbound() >= 0) { this.values.length = this.getUpperbound(); }
+        return; }
       const admittedValues: string[] = type.enumType.getAllowedValuesStr();
       let j: number;
       for (j = 0; j < this.values.length; j++) {
@@ -228,7 +235,7 @@ export class MAttribute extends IAttribute {
       retStr = Array.isArray(ret) ? JSON.stringify(ret) : (ret === null || ret === undefined ? null : '' + ret); }
     U.pif(debug, 'stage2', ret, retStr);
     if (retStr === null) {
-      this.setValue(null);
+      this.setValues(null);
       U.pe(!this.values.length || this.values[0] === null, 'failed to set default val.', this.getType().defaultValue(), this.values );
       retStr = (this.values.length ? '' + this.values[0] : null); }
 

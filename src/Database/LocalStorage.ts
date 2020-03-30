@@ -172,10 +172,18 @@ export class LocalStorage {
     if (isAutosave) { return; }
     // saveas without a name.
     if (saveAs) {
+      const onSuccess = (value: string, input: HTMLElement) => { model.setName(value); };
+      const validator = (value: string, input: HTMLElement) => {
+        const oldVal = model.name;
+        const ret = model.setName(value) === value;
+        if (oldVal) model.setName(oldVal);
+        return ret; };
       popup = new InputPopup('Choose a name for the ' + model.friendlyClassName(),
-        '', '', [['change', onchange], ['keydown', onkeydown], ['blur', onblur]],
-        'Viewpoint', model.friendlyClassName() + ' name', '');
-      popup.show(); return; }
+        '', '', null,
+        model.friendlyClassName() + ' name', '', 'input', 'text', [onSuccess]);
+      popup.setValidation(validator, U.getTSClassName(model) + ' name is already used or contains invalid pattern.');
+      (popup.getInputNode()[0] as HTMLInputElement).pattern = '^[a-zA-Z_$][a-zA-Z_$0-9]*$';
+      popup.show(true); return; }
     // user clicked save without a name
   }
 

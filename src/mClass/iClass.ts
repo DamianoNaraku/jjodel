@@ -78,9 +78,9 @@ export abstract class IClass extends IClassifier {
 
   getEdges(): IEdge[] { return this.edges; }
 
-  delete(): void {
+  delete(refreshgui: boolean = true): void {
     const oldparent = this.parent;
-    super.delete();
+    super.delete(false);
     if (oldparent) U.arrayRemoveAll(oldparent.classes, this);
     // todo: che fare con le reference a quella classe? per ora cancello i campi.
     const pointers: IReference[] = this.getReferencePointingHere();
@@ -90,7 +90,9 @@ export abstract class IClass extends IClassifier {
       const edges: IEdge[] = U.ArrayCopy(this.getEdges(), false);
       for (i = 0; i < edges.length; i++) { edges[i].remove(); }
     } else { this.getVertex().remove(); }
-    Type.updateTypeSelectors(null, false, false, true); }
+    Type.updateTypeSelectors(null, false, false, true);
+    if (refreshgui) this.refreshGUI();
+  }
 
   refreshGUI_Alone(debug?: boolean): void {
     if (!Status.status.loadedLogic) { return; }

@@ -44,13 +44,27 @@ import {
   MReference,
   IReference,
   M3Reference,
-  MAttribute, Type, LocalStorage, ViewPoint, SaveListEntry, EType, IClassifier, GraphSize, ELiteral, EEnum, IEdge, IVertex
+  MAttribute,
+  Type,
+  LocalStorage,
+  ViewPoint,
+  SaveListEntry,
+  EType,
+  IClassifier,
+  GraphSize,
+  ELiteral,
+  EEnum,
+  IEdge,
+  IVertex,
+  ExtEdge,
+  EdgePoint, ViewRule, MeasurableRuleParts
 } from '../common/Joiner';
 import { PropertyBarrComponent }   from '../guiElements/property-barr/property-barr.component';
 import { MGraphHtmlComponent }     from '../guiElements/m-graph-html/m-graph-html.component';
 import { DamContextMenuComponent } from '../guiElements/dam-context-menu/dam-context-menu.component';
 import { StyleEditorComponent }    from '../guiElements/style-editor/style-editor.component';
 import { ConsoleComponent }        from '../guiElements/console/console.component';
+import { MeasurabletemplateComponent } from './measurabletemplate/measurabletemplate.component';
 import KeyDownEvent = JQuery.KeyDownEvent;
 
 // @ts-ignore
@@ -70,6 +84,7 @@ import KeyDownEvent = JQuery.KeyDownEvent;
     StyleEditorComponent,
     TopBarComponent,
     ConsoleComponent,
+    MeasurabletemplateComponent,
     /*BrowserAnimationsModule*/
   ],
   imports: [
@@ -83,7 +98,8 @@ import KeyDownEvent = JQuery.KeyDownEvent;
     DamContextMenuComponent,
     TopBarComponent,
     ConsoleComponent,
-    GraphTabHtmlComponent], // todo: devi aggiungere qua ogni componente html (vengono caricati prima dei ts?)
+    GraphTabHtmlComponent,
+    MeasurabletemplateComponent], // todo: devi aggiungere qua ogni componente html (vengono caricati prima dei ts?)
   // aggiunto da me
   schemas: [
     NO_ERRORS_SCHEMA
@@ -200,6 +216,13 @@ function globalevents(): void {
     if (e.key === 'Escape') { Status.status.getActiveModel().graph.edgeChangingAbort(e); }
   });
   window['' + 'U'] = U;
+  window['' + 'IGraph'] = IGraph;
+  window['' + 'IVertex'] = IVertex;
+  window['' + 'IEdge'] = IEdge;
+  window['' + 'ExtEdge'] = ExtEdge;
+  window['' + 'EdgePoint'] = EdgePoint;
+  window['' + 'ViewPoint'] = ViewPoint;
+  window['' + 'ViewRule'] = ViewRule;
   window['' + 'ModelPiece'] = ModelPiece;
   window['' + 'IModel'] = IModel;
   window['' + 'Status'] = Status;
@@ -262,10 +285,20 @@ function globalevents(): void {
   window['' + 'setBackupMM'] = () => { localStorage.setItem('backupMM', localStorage.getItem('LastOpenedMM')); };
   window['' + 'setBackupM'] = () => { localStorage.setItem('backupM', localStorage.getItem('LastOpenedM')); };
 }
+function setBootstrapOnLowestPriority() {
+  let $s = $('style');
+  for(let i = 0; i < $s.length; i++) {
+    if ($s[i].innerText.substring(0, 220).indexOf('https://getbootstrap.com/') === -1) continue;
+    document.head.prepend($s[i]);
+    return;
+  }
 
+}
 function main() {
+  setBootstrapOnLowestPriority();
   (window as any).U = U;
   (window as any).status = Status.status;
+  U.focusHistorySetup();
   U.tabSetup();
   $('app-mm-graph-html .propertyBarContainer .UtabHeader').on('click', (e) =>  {
     if (e.currentTarget.innerText === 'Style') { Status.status.mm.graph.propertyBar.styleEditor.onShow(); } else
@@ -282,11 +315,10 @@ function main() {
   U.resizableBorderSetup();
   ECoreRoot.initializeAllECoreEnums();
   globalevents();
+  MeasurableRuleParts.staticinit();
   IVertex.staticinit();
   IEdge.staticInit();
-  const mmconsole: MyConsole = new MyConsole($('.mmconsole')[0]);
-  const mconsole: MyConsole = new MyConsole($('.mconsole')[0]);
-
+  new MyConsole();
   let tmp: any;
   let useless: any;
   let i: number;
@@ -326,7 +358,7 @@ function main() {
   /*let MetaMetaModelStr = MetaMetaModel.emptyMetaMetaModel;
   let MetaModelinputStr = MetaModel.emptyModel;
   let ModelinputStr = Model.emptyModel;*/
-  const validate = (thing: string, defaultvalue: string): string => { return tmp && tmp !== '' && tmp !== 'null' && tmp !== 'undefined' ? thing : defaultvalue};
+  const validate = (thing: string, defaultvalue: string): string => { return thing && thing !== '' && thing !== 'null' && thing !== 'undefined' ? thing : defaultvalue; };
   savem2.model = validate(savem2.model, MetaModel.emptyModel);
   savem1.model = validate(savem1.model, Model.emptyModel);
 
@@ -339,7 +371,7 @@ function main() {
     Status.status.mm = new MetaModel(JSON.parse(savem2.model), Status.status.mmm);
   } catch(e) {
     U.pw(true, 'Failed to load the metamodel.');
-    console.log(e);
+    console.log(e, savem2.model);
     Status.status.mm = new MetaModel(JSON.parse(MetaModel.emptyModel), Status.status.mmm);
   }
   // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m); return;
@@ -422,7 +454,9 @@ function main() {
     m.graph.viewPointShell.refreshApplied(); // STEP 3: qui vedo che non è stato applicato, ma è stato ordinato dalla gui di applicarlo -> lo applico.
   }
 
-  setTimeout( () => { Status.status.mm.graph.ShowGrid(); Status.status.m.graph.ShowGrid(); }, 1);
+  IEdge.all.forEach((e: IEdge) => { e.refreshGui(); });
+
+  // setTimeout( () => { Status.status.mm.graph.setGrid0(); Status.status.m.graph.setGrid0(); }, 1);
   // Imposto un autosave raramente (minuti) giusto nel caso di crash improvvisi o disconnessioni
   // per evitare di perdere oltre X minuti di lavoro.
   // In condizioni normali non è necessario perchè il salvataggio è effettuato al cambio di pagina asincronamente

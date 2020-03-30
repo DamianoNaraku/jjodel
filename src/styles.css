@@ -5,6 +5,61 @@
   width: 10px;  /* Remove scrollbar space */
   /* background: transparent;  /* Optional: just make scrollbar invisible */
 }
+*{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  -o-user-select: none; /*?*/
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+input, textarea, *[contenteditable=""], *[contenteditable="true"]{
+  -webkit-touch-callout:default;
+  -webkit-user-select:text;
+  -khtml-user-select:default;
+  -khtml-user-select:text;
+  -o-user-select:default;
+  -o-user-select:text; /*not sure wich works on -khtml and -o*/
+  -moz-user-select:text;
+  -ms-user-select:text;
+  user-select:text;
+}
+input, textarea /*.contenteditable?*/
+*::selection,
+*::-moz-selection,
+*::-webkit-selection {
+  /*to change selection color*/
+}
+
+
+input[type="color"] {
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  padding: 0;
+  vertical-align: middle;
+  /*border: none;*/
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  /*il "bordo"?*/
+  padding: 2px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  /*il centro*/
+  /*border-radius: 100%;*/
+  border: none;
+}
+
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  margin-right: 5px;
+  vertical-align: middle;
+}
 /* Optional: show position indicator in red */
 /* resizable border */
 /* example-specific */
@@ -78,7 +133,12 @@ app-graph-tab-html{
 #MM_INPUT{
   display: none;
 }
-
+input:invalid:not([step]), input[invalid]:not([invalid="false"]):not([invalid="0"]), input[invalidDataList]:not([invalidDataList="false"]):not([invalidDataList="0"]) {
+  /*NB: segna come invalido ogni cosa fuori dallo step*/
+  border: 2px solid #FF2020 !important;
+  outline: 2px solid #ff2020 !important;
+  outline-offset: 2px !important;
+}
 /* horizontal & vertical filler */
 .verticalFiller, .horizontalFiller, .horizontalChild, .verticalChild{
   min-width: 0;

@@ -1,7 +1,28 @@
 import {Component, OnInit} from '@angular/core';
 import {
-  IAttribute, M2Class, IEdge, IModel, IPackage, IReference, ModelPiece, PropertyBarr, Status, U, IClass,
-  EdgeModes, EOperation, EParameter, Database, Size, AttribETypes, ViewRule, ViewHtmlSettings, StyleComplexEntry, ViewPoint, Type
+  IAttribute,
+  M2Class,
+  IEdge,
+  IModel,
+  IPackage,
+  IReference,
+  ModelPiece,
+  PropertyBarr,
+  Status,
+  U,
+  IClass,
+  EdgeModes,
+  EOperation,
+  EParameter,
+  Database,
+  Size,
+  AttribETypes,
+  ViewRule,
+  ViewHtmlSettings,
+  StyleComplexEntry,
+  ViewPoint,
+  Type, MeasurableTemplateGenerator,
+  MeasurableRuleParts, MeasurableRuleLists, Measurable, measurableRules
 } from '../../common/Joiner';
 import ChangeEvent = JQuery.ChangeEvent;
 import BlurEvent = JQuery.BlurEvent;
@@ -10,6 +31,14 @@ import KeyboardEventBase = JQuery.KeyboardEventBase;
 import KeyUpEvent = JQuery.KeyUpEvent;
 import ClickEvent = JQuery.ClickEvent;
 import SelectEvent = JQuery.SelectEvent;
+import MouseDownEvent = JQuery.MouseDownEvent;
+import MouseUpEvent = JQuery.MouseUpEvent;
+import {
+  DraggableOptions, DraggableOptionsPH,
+  Resizableoptions,
+  ResizableoptionsPH,
+  Rotatableoptions, RotatableoptionsPH
+} from '../../app/measurabletemplate/measurabletemplate.component';
 
 @Component({
   selector: 'app-style-editor',
@@ -24,6 +53,7 @@ export class StyleEditorComponent implements OnInit {
   }
 
 }
+class editorcontext {templateLevel: Element; graphLevel: Element; applyNodeChangesToInput: () => void;}
 export class StyleEditor {
   private propertyBar: PropertyBarr = null;
   private $root: JQuery<HTMLElement> = null;
@@ -132,13 +162,13 @@ export class StyleEditor {
     });
     $(showGrid).off('change.set').on('change.set', (e: ChangeEvent) => {
       const input: HTMLInputElement = e.currentTarget;
-      m.graph.ShowGrid(input.checked);
+      m.graph.setGrid0(input.checked);
     });
   }
 
   showP(m: IPackage) { U.pe(true, 'styles of Package(', m, '): unexpected.'); }
 
-  setStyleEditor($styleown: JQuery<HTMLElement>, model: IModel, mp: ModelPiece, style: StyleComplexEntry, templateLevel: Element, indexedPath: number[] = null): number[] {
+  setStyleEditor($styleown: JQuery<HTMLElement>, model: IModel, mp: ModelPiece, style: StyleComplexEntry, context: editorcontext, indexedPath: number[] = null): number[] {
     /// getting the template to fill.
     const debug: boolean = false;
     let i: number;
@@ -159,7 +189,7 @@ export class StyleEditor {
     const obj: {
       editLabel: HTMLLabelElement;
       editAllowed: HTMLButtonElement;
-      selectstyle: HTMLSelectElement,
+      // selectstyle: HTMLSelectElement,
       previewselect: HTMLSelectElement,
       preview: HTMLElement,
       input: HTMLDivElement | HTMLTextAreaElement,
@@ -179,7 +209,7 @@ export class StyleEditor {
     } = {
       editLabel: null,
       editAllowed: null,
-      selectstyle: null,
+      // selectstyle: null,
       previewselect: null,
       preview: null,
       input: null,
@@ -200,7 +230,7 @@ export class StyleEditor {
     //// setting up labelAllowEdit (checking if the (own, inherited or inheritable) style exist or a modelpiece local copy is needed.)
     obj.editAllowed = $styleown.find('button.allowEdit')[0] as HTMLButtonElement;
     obj.editLabel = $styleown.find('label.allowEdit')[0] as HTMLLabelElement;
-    obj.selectstyle = $styleown.find('select.stylename')[0] as HTMLSelectElement;
+    // obj.selectstyle = $styleown.find('select.stylename')[0] as HTMLSelectElement;
     obj.detailButton = $styleown.find('button.detail')[0] as HTMLButtonElement;
     obj.detailPanel = $styleown.find('div.detail')[0] as HTMLElement;
     obj.input = $styleown.find('.html[contenteditable="true"]')[0] as HTMLTextAreaElement | HTMLDivElement;
@@ -225,35 +255,34 @@ export class StyleEditor {
     if (!!style && !(isOwn && !style.isownhtml || isInherited && !style.html || isInheritable && !style.html)) {
       $(obj.editLabel).hide();
     } else {
-      obj.selectstyle.disabled = obj.detailButton.disabled = true;
       obj.input.setAttribute('disabled', 'true');
       obj.input.contentEditable = 'false';
       if (!lastvp) {
         obj.editLabel.innerText = 'Is required to have at least one non-default viewpoint applied to customize styles.';
         obj.editAllowed.style.display = 'none';
       } else
-      $(obj.editAllowed).on('click', (e: ClickEvent) => {
-        const mptarget: ModelPiece = isInherited ? mp.metaParent : mp;
-        let v: ViewRule = lastvp.viewsDictionary[mptarget.id];
-        if (!v) v = new ViewRule(lastvp);
-        if (isOwn) {
-          U.pe(!!v.htmlo, 'htmlo should be undefined at this point.');
-          v.htmlo = new ViewHtmlSettings();
-          v.htmlo.setHtmlStr( (style ? style.html : mptarget.getStyle().html).outerHTML ); }
-        if (isInheritable) {
-          U.pe(!!v.htmli, 'htmli should be undefined at this point.');
-          v.htmli = new ViewHtmlSettings();
-          const instanceCurrentStyle: Element = ModelPiece.GetStyle(Status.status.m, mp.getInstanceClassName());
-          v.htmli.setHtmlStr( instanceCurrentStyle.outerHTML ); }
-        if (isInherited) {
-          U.pe(!!v.htmli, 'htmli should be undefined at this point.');
-          v.htmli = new ViewHtmlSettings();
-          v.htmli.setHtmlStr( (style ? style.html : mp.getStyle().html).outerHTML );
-        }
-        v.apply(mptarget);
-        this.showMP(mp);
-        // todo: se stylecomplexEntry è null mostra un altro button.editAllowed per inserire lo stile ereditabile che generi htmli.
-      });
+        $(obj.editAllowed).on('click', (e: ClickEvent) => {
+          const mptarget: ModelPiece = isInherited ? mp.metaParent : mp;
+          let v: ViewRule = lastvp.viewsDictionary[mptarget.id];
+          if (!v) v = new ViewRule(lastvp);
+          if (isOwn) {
+            U.pe(!!v.htmlo, 'htmlo should be undefined at this point.');
+            v.htmlo = new ViewHtmlSettings();
+            v.htmlo.setHtmlStr( (style ? style.html : mptarget.getStyle().html).outerHTML ); }
+          if (isInheritable) {
+            U.pe(!!v.htmli, 'htmli should be undefined at this point.');
+            v.htmli = new ViewHtmlSettings();
+            const instanceCurrentStyle: Element = ModelPiece.GetStyle(Status.status.m, mp.getInstanceClassName());
+            v.htmli.setHtmlStr( instanceCurrentStyle.outerHTML ); }
+          if (isInherited) {
+            U.pe(!!v.htmli, 'htmli should be undefined at this point.');
+            v.htmli = new ViewHtmlSettings();
+            v.htmli.setHtmlStr( (style ? style.html : mp.getStyle().html).outerHTML );
+          }
+          v.apply(mptarget);
+          this.showMP(mp);
+          // todo: se stylecomplexEntry è null mostra un altro button.editAllowed per inserire lo stile ereditabile che generi htmli.
+        });
 
       if (!style) {
         if (isInheritable) { obj.editLabel.innerHTML = 'This element does not have a inheritable style.'; }
@@ -264,132 +293,39 @@ export class StyleEditor {
         return null; }
     }
     /// start!
-
-    // obj.is...
-    if (model.isM1()) { obj.isM1.disabled = obj.isM1.checked = true; }
-    if (model.isM2()) { obj.isM2.disabled = obj.isM2.checked = true; }
-    if (mp instanceof IClass) { obj.isClass.disabled = obj.isClass.checked = true; }
-    if (mp instanceof IReference) { obj.isReference.disabled = obj.isReference.checked = true; }
-    if (mp instanceof IAttribute) { obj.isAttribute.disabled = obj.isAttribute.checked = true; }
-    if (mp instanceof EOperation) { obj.isOperation.disabled = obj.isOperation.checked = true; }
-    if (mp instanceof EParameter) { obj.isParameter.disabled = obj.isParameter.checked = true; }
-    let styleown: ViewHtmlSettings = style.htmlobj;
-    if (styleown) {
-      obj.isM1.checked = styleown.AllowedOnM1;
-      obj.isM2.checked = styleown.AllowedOnM2;
-      obj.isClass.checked = styleown.allowedOnClass;
-      obj.isReference.checked = styleown.allowedOnReference;
-      obj.isAttribute.checked = styleown.allowedOnAttribute;
-      obj.isOperation.checked = styleown.allowedOnOperation;
-      obj.isParameter.checked = styleown.allowedOnParameter;
-      $(obj.isM1).on('change', (e: ChangeEvent) => {
-        styleown.AllowedOnM1 = obj.isM1.checked;
-        styleown.saveToDB();
-      });
-      $(obj.isM2).on('change', (e: ChangeEvent) => {
-        styleown.AllowedOnM2 = obj.isM2.checked;
-        styleown.saveToDB();
-      });
-      $(obj.isClass).on('change', (e: ChangeEvent) => {
-        styleown.allowedOnClass = obj.isClass.checked;
-        styleown.saveToDB();
-      });
-      $(obj.isAttribute).on('change', (e: ChangeEvent) => {
-        styleown.allowedOnAttribute = obj.isAttribute.checked;
-        styleown.saveToDB();
-      });
-      $(obj.isReference).on('change', (e: ChangeEvent) => {
-        styleown.allowedOnReference = obj.isReference.checked;
-        styleown.saveToDB();
-      });
-      $(obj.isOperation).on('change', (e: ChangeEvent) => {
-        styleown.allowedOnOperation = obj.isOperation.checked;
-        styleown.saveToDB();
-      });
-      $(obj.isParameter).on('change', (e: ChangeEvent) => {
-        styleown.allowedOnParameter = obj.isParameter.checked;
-        styleown.saveToDB();
-      });
-    } else {
-      obj.isM1.disabled =
-        obj.isM2.disabled =
-          obj.isClass.disabled =
-            obj.isReference.disabled =
-              obj.isAttribute.disabled =
-                obj.isOperation.disabled =
-                  obj.isParameter.disabled = true; }
-    // main input (html); setup input
     obj.input.setAttribute('placeholder', U.replaceVarsString(mp, obj.input.getAttribute('placeholder')));
-    obj.input.innerText = templateLevel.outerHTML;
+    obj.input.innerText = context.templateLevel.outerHTML;
 
     $styleown.find('.htmllevel').html((isInherited ? 'Instances Html' : 'Own html')
       + ' (' + (indexedPath && indexedPath.length ? 'Level&nbsp;' + indexedPath.length : 'Root&nbsp;level') + ')');
-    let optgroup: HTMLOptGroupElement;
-    /*
-    preview removed.
-    const updatePreview = () => { obj.preview.innerHTML = obj.input.innerText; };
-    optgroup = U.toHtml('<optgroup label="' + U.getTSClassName(mp) + '"></optgroup>');
-    obj.previewselect.appendChild(optgroup);
-    for (i = 0; i < mp.metaParent.instances.length; i++) {
-      const peer: ModelPiece = mp.metaParent.instances[i];
-      const opt: HTMLOptionElement = document.createElement('option');
-      optgroup.appendChild(opt);
-      opt.value = '' + peer.id;
-      opt.innerText = peer.printableName();
-    }*/
-
-    optgroup = U.toHtml('<optgroup label="Compatible Styles"></optgroup>');
-    let o: HTMLOptionElement = document.createElement('option');
-    o.value = 'default';
-    o.text = 'default';
-    if (style.isGlobalhtml) o.selected = true;
-    optgroup.append(o);
-    // console.log('viewpointSelect: ', mp.views);
-    for (i = 0; i < mp.views.length; i++) {
-      const v: ViewRule = mp.views[i];
-      o = document.createElement('option');
-      o.value = '' + v.id;
-      o.text = v.getViewPoint().name + ' (own)';
-      if (v === style.view) o.selected = true;
-      optgroup.append(o); }
-    for (i = 0; mp.metaParent && i < mp.metaParent.views.length; i++) {
-      const v: ViewRule = mp.metaParent.views[i];
-      o = document.createElement('option');
-      o.value = '' + v.id;
-      o.text = v.getViewPoint().name + ' (inherited)';
-      if (v === style.view) o.selected = true;
-      optgroup.append(o); }
-
-    obj.selectstyle.appendChild(optgroup);
-    /*    const styles: ModelPieceStyleEntry[] = Styles.getAllowed(m);
-        for (i = 0; i < styles.length; i++) {
-          const style: ModelPieceStyleEntry = styles[i];
-          const opt: HTMLOptionElement = document.createElement('option');
-          optgroup.appendChild(opt);
-          opt.innerText = style.name;
-          opt.value = style.getKey();
-        }
-
-    */
-    const onStyleChange = () => {
+    let graphRoot: Element = mp.getHtmlOnGraph();
+    context.graphLevel = U.followIndexesPath(graphRoot, indexedPath);
+    context.applyNodeChangesToInput = (): void => {
+      // console.log(templateLevel.outerHTML);
+      obj.input.innerText = context.templateLevel.outerHTML;
+      onStyleChange();
+    };
+    const onStyleChange = (): void => {
       const inputHtml: Element = U.toHtml(obj.input.innerText);
       // console.log('PRE: ', inputHtml, 'outer:', inputHtml.outerHTML, 'innertext:', obj.input.innerText);
-      U.pif(debug, '*** setting inheritable PRE. style.htmlobj:', style.htmlobj, ', style:', style, ', templateLevel:', templateLevel,
-        'templatelvl.parent:', templateLevel.parentElement, ', inputHtml:', inputHtml);
-      if (templateLevel.parentElement) {
-        templateLevel.parentElement.insertBefore(inputHtml, templateLevel);
-        templateLevel.parentElement.removeChild(templateLevel);
-        templateLevel = inputHtml;
+      U.pif(debug, '*** setting inheritable PRE. style.htmlobj:', style.htmlobj, ', style:', style, ', context:', context,
+        'templatelvl.parent:', context.templateLevel.parentElement, ', inputHtml:', inputHtml);
+      if (context.templateLevel.parentElement) {
+        context.templateLevel.parentElement.insertBefore(inputHtml, context.templateLevel);
+        context.templateLevel.parentElement.removeChild(context.templateLevel);
+        context.templateLevel = inputHtml;
       } else {
         U.pe(!style.view || style.isGlobalhtml, 'default html cannot be modified.', style, 'todo: automatically make new ClassVieww');
         // ??old message?: se tutto va bene qui deve dare errore, crea una nuova ClassVieww e applicalo al modelpiece ed edita quello.
-        style.htmlobj.setHtml(templateLevel = inputHtml);
+        style.htmlobj.setHtml(context.templateLevel = inputHtml);
         U.pif(debug,'*** setting inheritable POST. style.htmlobj', style.htmlobj, 'style:', style);
       }
       if (isOwn) { mp.refreshGUI(); }
       if (isInheritable) { mp.refreshInstancesGUI(); }
       if (isInherited) { mp.metaParent.refreshInstancesGUI(); }
       if (!isInheritable && indexedPath) this.clickedLevel = U.followIndexesPath(mp.getHtmlOnGraph(), indexedPath);
+      graphRoot = mp.getHtmlOnGraph();
+      context.graphLevel = U.followIndexesPath(graphRoot, indexedPath);
       this.updateClickedGUIHighlight();
       // obj.input.innerText = inputHtml.outerHTML;
       // DANGER: se lo fai con l'evento onchange() ti sposta il cursore all'inizio e finisci per scrivere rawtext prima dell'html invalidandolo.
@@ -398,33 +334,79 @@ export class StyleEditor {
       // updatePreview();
     };
     $(obj.input).off('paste.set').on('paste.set', (e: any/*ClipboardEvent*/) => { this.onPaste(e); onStyleChange(); })
-      // .off('change.set').on('change.set', onStyleChange)
-      // .off('input.set').on('input.set', onStyleChange)
+    // .off('change.set').on('change.set', onStyleChange)
+    // .off('input.set').on('input.set', onStyleChange)
       .off('blur.set').on('blur.set', onStyleChange)
-      .off('keydown.set').on('keydown.set', (e: KeyDownEvent) => { if (e.key === 'Esc') { this.propertyBar.refreshGUI(); } });
+    .off('keydown.set').on('keydown.set', (e: KeyDownEvent) => { if (e.key === 'Esc') { this.propertyBar.refreshGUI(); } });
 
-    obj.selectstyle.disabled = indexedPath && indexedPath.length > 0;
-    /*$(obj.selectstyle).on('change', (e: ChangeEvent) => {
-      const style: ModelPieceStyleEntry = Styles.getStyleFromKey(obj.selectstyle.value);
-      obj.input.innerText = style.htmlstr;
-      $(obj.input).trigger('input');
-    });*/
 
     // setup measurable options.
+    const measurableRoot: HTMLElement = MeasurableTemplateGenerator.generateMeasurableTemplate();
+    tmp = $styleown.find('.measurablePlaceholder')[0];
+    U.swap(measurableRoot, tmp);
+    // .log('swap End:', measurableRoot.childNodes.length, tmp.childNodes.length);
+    //U.pe(true,'swapend');
+    const $measurableRoot = $(measurableRoot);
+    // obj.input is same const ownhtmlinput: HTMLDivElement | HTMLTextAreaElement = $measurableRoot.find('.html[contenteditable="true"]')[0] as HTMLDivElement | HTMLTextAreaElement;
+    const $measurableCheckbox: JQuery<HTMLInputElement> = $measurableRoot.find('input.ismeasurable') as JQuery<HTMLInputElement>;
+    const measurableCheckbox: HTMLInputElement = $measurableCheckbox[0];
+    measurableCheckbox.disabled = obj.input.getAttribute('disabled') === 'true';
+    measurableCheckbox.checked = (context.templateLevel.classList.contains('measurable') || context.graphLevel.classList.contains('measurable'));
+    const $measurableTitle = $measurableRoot.find('.meas_acc0 > .ruletitle');
+    $measurableTitle.on('click', (e: ClickEvent) => {
+      const $innerroot = $measurableRoot.find('.measurableSettingRoot ');
+      const innerroot = $innerroot[0];
+      if (innerroot.classList.contains('show')) {
+        innerroot.setAttribute('style', '');
+        innerroot.classList.add('collapsing');
+        // todo: elimina slideup e usa la transizione css su collapsing, come?
+        $innerroot.slideUp(400, () => {
+          innerroot.classList.remove('show', 'collapsing');
+          innerroot.classList.remove('collapse');
+          innerroot.classList.add('collapse');
+          $measurableTitle[0].classList.add('collapsed');
+        });
+        return;
+      }
 
-    const ownhtmlinput: HTMLDivElement | HTMLTextAreaElement = $styleown.find('.html[contenteditable="true"]')[0] as HTMLDivElement | HTMLTextAreaElement;
-    const measurableSelect: HTMLSelectElement = $styleown.find('select.attributetypeadd')[0] as HTMLSelectElement;
-    $styleown.find('button.addmeasurable').on('click', () => {
-      this.addmeasurableAttributeButton(measurableSelect, $styleown, mp, style, templateLevel as HTMLElement | SVGElement, ownhtmlinput, indexedPath);
+      innerroot.classList.remove('collapse');
+      innerroot.classList.add('collapse');
+      innerroot.classList.add('show');
+      $measurableTitle[0].classList.remove('collapsed');
+      $innerroot.slideDown();
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
     });
+    $measurableCheckbox.on('click', (e: ClickEvent) => { e.stopPropagation(); });
+    $measurableCheckbox.on('mousedown', (e: MouseDownEvent) => {e.stopPropagation(); });
+    $measurableCheckbox.on('mouseup', (e: MouseUpEvent) => { e.stopPropagation(); });
+    $measurableCheckbox.off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e: ChangeEvent) => {
+      context.templateLevel.classList.remove('measurable');
+
+      if (measurableCheckbox.checked) {
+        context.templateLevel.classList.add('measurable');
+        $measurableTitle.slideDown();
+        if (!measurableRoot.classList.contains('show')) { $measurableTitle.trigger('click'); }
+      }
+      else {
+        if (measurableRoot.classList.contains('show')) { $measurableTitle.trigger('click'); }
+        $measurableTitle.slideUp(); }
+      context.applyNodeChangesToInput();
+    }).trigger('change');
+    this.makeMeasurableOptions(measurableRoot, obj.input, style, context, indexedPath);
+    // const measurableSelect: HTMLSelectElement = $measurableRoot.find('select.attributetypeadd')[0] as HTMLSelectElement;
+    /*$measurableRoot.find('button.addmeasurable').on('click', () => {
+      this.addmeasurableAttributeButton(measurableSelect, $measurableRoot, mp, style, templateLevel as Element, ownhtmlinput, indexedPath);
+    });* /
     for (i = 0; i < templateLevel.attributes.length; i++) {
       const a: Attr = templateLevel.attributes[i];
       if (a.name[0] === '_' || a.name.indexOf('r_') == 0 || a.name.indexOf('r_') == 0) {
         const val: Attr = this.clickedLevel.attributes.getNamedItem(a.name.substr(1));
         const style = null;
-        this.addmeasurableAttributeButton(measurableSelect, $styleown, mp, style, templateLevel as HTMLElement | SVGElement, ownhtmlinput, indexedPath, a, val)
+        this.addmeasurableAttributeButton(measurableSelect, $measurableRoot, mp, style, templateLevel as Element, ownhtmlinput, indexedPath, a, val)
       }
-    }
+    }*/
     return indexedPath; }
 
   showMP(m: ModelPiece, clickedLevel: Element = null, asMeasurable: boolean = false, asEdge: IEdge = null) {
@@ -437,12 +419,13 @@ export class StyleEditor {
     const styleinherited: StyleComplexEntry = m.getInheritedStyle();
     const clickedRoot: Element = ModelPiece.getLogicalRootOfHtml(clickedLevel);
     const templateRoot: Element = style.html;// m.styleobj.html;// m.getStyle();
-    // let templateLevel: HTMLElement | SVGElement = templateRoot;
+    // let templateLevel: Element = templateRoot;
     let indexedPath: number[] = U.getIndexesPath(clickedLevel, 'parentNode', 'childNodes', clickedRoot);
     // console.log('clickedRoot', clickedRoot, 'clickedLevel', clickedLevel, 'path:', indexedPath);
     U.pe(U.followIndexesPath(clickedRoot, indexedPath, 'childNodes') !== clickedLevel, 'mismatch.', indexedPath);
     const realindexfollowed: {indexFollowed: string[] | number[], debugArr: {index: string | number, elem: any}[]} = {indexFollowed: [], debugArr:[]};
-    let templateLevel: Element = U.followIndexesPath(templateRoot, indexedPath, 'childNodes', realindexfollowed);
+    let context: editorcontext = new editorcontext();
+    context.templateLevel = U.followIndexesPath(templateRoot, indexedPath, 'childNodes', realindexfollowed);
     // console.log('clickedRoot:',clickedRoot, 'clikedLevel:', clickedLevel, 'indexedPath:', indexedPath, 'followed:', realindexfollowed,
     // 'templateRoot:', templateRoot, 'templateLevel:', templateLevel);
     if (realindexfollowed.indexFollowed.length !== indexedPath.length) {
@@ -460,23 +443,23 @@ export class StyleEditor {
     const $styleInherited = $html.find('.style.inherited');
     const $styleInheritable = $html.find('.style.inheritable');
     //const ownhtml = m.getStyle();
-    const htmlPath: number[] = this.setStyleEditor($styleown, model, m, style, templateLevel, indexedPath);
+    const htmlPath: number[] = this.setStyleEditor($styleown, model, m, style, context, indexedPath);
     // U.pe(!style.html, $styleown, m, clickedLevel, model, style, instanceshtml);
-    // const clickedonStyle: HTMLElement | SVGElement = U.followIndexesPath(style.html, htmlPath) as HTMLElement | SVGElement;
+    // const clickedonStyle: Element = U.followIndexesPath(style.html, htmlPath) as Element;
     $html.find('.tsclass').html('' + m.printableName()); // + (htmlDepth === 0 ? ' (root level)' : ' (level&nbsp;' + htmlDepth + ')') );
     // console.log('setStyleEditor inherited, ', styleinherited);
-    let inheritedTemplateLevel: Element = null;
+    let inheritedcontext: editorcontext = new editorcontext();
     if (styleinherited) {
       const inheritedTemplateRoot: Element = styleinherited.html;
-      inheritedTemplateLevel = U.followIndexesPath(inheritedTemplateRoot, indexedPath, 'childNodes', realindexfollowed);
+      inheritedcontext.templateLevel = U.followIndexesPath(inheritedTemplateRoot, indexedPath, 'childNodes', realindexfollowed);
       // se ho cliccato su un non-radice non-ereditato, non posso prendere un frammento dell'ereditato, sarebbe un frammento diverso.
-      if (inheritedTemplateLevel !== templateLevel) { inheritedTemplateLevel = inheritedTemplateRoot; }
-
+      if (inheritedcontext.templateLevel !== context.templateLevel) { inheritedcontext.templateLevel = inheritedTemplateRoot; }
     }
-    this.setStyleEditor($styleInherited, model, m, styleinherited, inheritedTemplateLevel);
+    this.setStyleEditor($styleInherited, model, m, styleinherited, inheritedcontext);
     // console.log('setStyleEditor inheritable, ', styleinheritable);
-    const styleInheritableRoot: Element = styleinheritable ? styleinheritable.html : null;
-    if (!model.isM1()) { this.setStyleEditor($styleInheritable, model, m, styleinheritable, styleInheritableRoot); }
+    let inheritablecontext: editorcontext = new editorcontext();
+    inheritablecontext.templateLevel = styleinheritable ? styleinheritable.html : null;
+    if (!model.isM1()) { this.setStyleEditor($styleInheritable, model, m, styleinheritable, inheritablecontext); }
     else {$styleInheritable[0].innerHTML = '<h5 class="text-danger">M1 elements cannot give inheritance.</h5>'}
     U.detailButtonSetup($html);
     // <meta>
@@ -503,281 +486,6 @@ export class StyleEditor {
     }
 
   }
-
-  addmeasurableAttributeButton(measurableSelect: HTMLSelectElement, $styleeditor: JQuery<HTMLElement | SVGElement>, m: ModelPiece,
-                               style: StyleComplexEntry,
-                               clickedStyle: HTMLElement | SVGElement,
-                               ownhtmlinput: HTMLDivElement | HTMLTextAreaElement,
-                               htmlPath: number[], attr: Attr = null, valAttr: Attr = null): void {
-    let val: string;
-    let i: number;
-    const template: HTMLElement = this.getCopyOfTemplate(m, '.measurable._root', null, false);
-    const $template = $(template);
-    const nameinputprefix: HTMLElement = $template.find('.nameprefix')[0] as HTMLElement;
-    const nameinput: HTMLInputElement = $template.find('input.name')[0] as HTMLInputElement;
-    const operator: HTMLSelectElement = $template.find('select.operator')[0] as HTMLSelectElement;
-    const left: HTMLInputElement = $template.find('input.leftside')[0] as HTMLInputElement;
-    const right: HTMLInputElement = $template.find('input.rightside')[0] as HTMLInputElement;
-    const evaluation: HTMLInputElement = $template.find('input.evaluation')[0] as HTMLInputElement;
-    const outputErrorLeft: HTMLAnchorElement = $template.find('.outputerror.left')[0] as HTMLAnchorElement;
-    const outputErrorRight: HTMLAnchorElement = $template.find('.outputerror.right')[0] as HTMLAnchorElement;
-    operator.disabled = true;
-    operator.selectedIndex = 1;
-    right.pattern = '[.]*';
-    const setnameinput = (name: string) => {
-      template.dataset.printablename = name;
-      nameinput.value = name.substr(nameinput.dataset.prefix.length); };
-
-    if (attr) {
-      let pos: number = attr.value.indexOf('=');
-      let oplen: number = 1;
-      let operatorstr: string;
-      if (attr.value[pos] === '>') { operatorstr = '>='; pos--; oplen++; } else
-      if (attr.value[pos] === '<') { operatorstr = '<='; pos--; oplen++; } else { operatorstr = '='; }
-      for (i = 0; i < operator.options.length; i++) {
-        if (operator.options[i].value === operatorstr) { operator.selectedIndex = i; operatorstr = null; } }
-      U.pe(!!operatorstr, 'option not found in select.', attr.value, operator);
-      left.value = attr.value.substr(0, pos);
-      right.value = attr.value.substr(pos + oplen);
-      evaluation.value = valAttr ? valAttr.value : '';
-      if (attr.name.indexOf('d_') === 0) { val = 'd_'; } else
-      if (attr.name.indexOf('r_') === 0) { val = 'r_'; } else
-      if (attr.name.indexOf('_chainFinal') === 0) { val = '_chainFinal'; } else
-      if (attr.name.indexOf('_chain') === 0) { val = '_chain'; } else
-      if (attr.name.indexOf('_rule') === 0) { val = '_rule'; } else
-      if (attr.name.indexOf('_export') === 0) { val = '_export'; } else
-      if (attr.name.indexOf('_import') === 0) { val = '_import'; } else
-      if (attr.name.indexOf('_constraint') === 0) { val = '_constraint'; } else
-      if (attr.name.indexOf('_dstyle') === 0) { val = '_dstyle'; } else
-      if (attr.name.indexOf('_') === 0) { val = '_'; }
-      nameinputprefix.innerText = nameinput.dataset.prefix = val;
-      setnameinput(attr.name); }
-    else {
-      val = measurableSelect.value;
-      // if (measurableSelect.value[0] === '_') {
-      let name: string = measurableSelect.value + 0;
-      name = U.increaseEndingNumber(name, false, false, (x: string) => { return !!clickedStyle.attributes.getNamedItem(x); });
-      nameinputprefix.innerText = nameinput.dataset.prefix = measurableSelect.value;
-      setnameinput(name);
-      // } else { template.dataset.name = measurableSelect.value + left.value; }
-    }
-    /*const errormsgleft: {r_:string, d_:string, rule:string, constraint:string, dstyle:string, import:string, export:string, chain:string,
-     chainfinal:string}
-    = {r_:null, d_:null, rule:null, constraint:null, dstyle:null, import:null, export:null, chain:null, chainfinal:null};
-    const errormsgright: {r_:string, d_:string, rule:string, constraint:string, dstyle:string, import:string, export:string, chain:string, chainfinal:string}
-    = {r_:null, d_:null, rule:null, constraint:null, dstyle:null, import:null, export:null, chain:null, chainfinal:null};
-    errormsgleft.rule = */
-    const $input = $(ownhtmlinput);
-    const changenamewhile = (x: string) => { return !!clickedStyle.attributes.getNamedItem(x); };
-    const namechanged = () => {
-      const oldname: string = template.dataset.name;
-      const oldvalue: string = clickedStyle.getAttribute(oldname);
-      let name: string = nameinput.dataset.prefix + nameinput.value;
-      if (changenamewhile(name)) { name = U.increaseEndingNumber(name, false, false, changenamewhile); }
-      setnameinput(name);
-      clickedStyle.removeAttribute(oldname);
-      clickedStyle.setAttribute(name, oldvalue);
-      style.htmlobj.saveToDB(); };
-    const leftIsValid = () => { return new RegExp(left.pattern).test(left.value); };
-    // todo: set template.dataset.name nb: nel caso di d_ e d_ possono cambiare nome dinamicamente
-    // todo: rimuovi modelpiece.ownhtml e modelpiece.instancesHtml e sostituiscili con oggetti ModelPieceStyleEntry.
-    const attrchanged = (isr_: boolean = false) => {
-      const is_ = left.value === '';
-      const attrStr: string = (isr_ || is_ ? '' : left.value + ' ' + operator.value + ' ') + right.value;
-      const templateList: string[] = U.removeDuplicates(U.findTemplateList(attrStr));
-      const featuredependency: {template: string, namesArray: string, typesArray: string}[] = [];
-      let i: number;
-      for (i = 0; i < templateList.length; i++) {
-        const template: string = templateList[i];
-        const optionsSharp: string = template[1] + template[2];
-        if (optionsSharp !== '##') {
-          U.pw(true, 'gui debugging of template options different from the default "##" is not currently supported: ' + template);
-          continue; }
-        const replacedArr = U.replaceSingleVarRaw(m, template); // last is the final output
-        let j: number;
-        let namesArr: string = '';
-        let typesArr: string = '';
-        for (j = 0; j < replacedArr.length; j++) {
-          namesArr += replacedArr[j].token + '.';
-          const typeDetail: Type = replacedArr[j].value.typeDetail;
-          typesArr += typeDetail.toEcoreString() + '.'; }
-        namesArr = namesArr.substr(0, namesArr.length - 2);
-        typesArr = typesArr.substr(0, typesArr.length - 2);
-        featuredependency.push({template: template, namesArray: namesArr, typesArray: typesArr});
-      }
-
-      style.htmlobj.setDependencyArray(featuredependency);
-      if (isr_) {
-        clickedStyle.removeAttribute(template.dataset.name);
-        template.dataset.printablename = left.value.trim();
-        clickedStyle.setAttribute(template.dataset.name, right.value);
-      } else { clickedStyle.setAttribute(template.dataset.name, attrStr); }
-      $input[0].innerText = clickedStyle.outerHTML;
-      $input.trigger('input'); // triggers saveToDB and refreshgui.  style.saveToDB();
-    };
-    const importleft = () => {
-      outputErrorLeft.innerText = '';
-      if (leftIsValid()) return;
-      outputErrorLeft.href = 'https://github.com/DamianoNaraku/ModelGraph/wiki/measurable-elements#_import';
-      outputErrorLeft.innerText = 'Left side must be one of: width, height, positionRelX, positionRelY, positionAbsX, positionAbsY';
-    };
-    const ruleleft = () => {
-      outputErrorLeft.innerText = '';
-      if (leftIsValid()) return;
-      outputErrorLeft.href = 'https://github.com/DamianoNaraku/ModelGraph/wiki/measurable-elements#_rule';
-      outputErrorLeft.innerText = 'Left side must be a $##template$';
-    };
-    const exportleft = () => {
-      outputErrorLeft.innerText = '';
-      const selector = left.value;
-      let valid: boolean = false;
-      try {
-        const matches = m.getVertex() ? $(m.getVertex().getHtml()).find(selector) : [];
-        console.log('_export matches: ', matches);
-        valid = matches.length > 0;
-      } catch (e) {
-        outputErrorLeft.innerText = ' Exception: ' + JSON.stringify(e);
-        console.log('_export or _chain invalid selector: ', e);
-        valid = false;
-      }
-      if (valid) return;
-      outputErrorLeft.innerText = 'Left side is not matching any element, it must be a jQuery selector.' + outputErrorLeft.innerText;
-    };
-    const _right = () => {
-      const htmldrew: HTMLElement | SVGElement = m.getHtmlOnGraph();
-      const sameElementInGraph: HTMLElement | SVGElement = U.followIndexesPath(htmldrew, htmlPath) as HTMLElement | SVGElement;
-      let result: string;
-      outputErrorRight.innerText = '';
-      // todo: pre-validazione dei $##template$ con suggerimenti per similarity e display di tutti i nomi ammissibili se ne trova invalidi.
-      try { result = U.computeMeasurableAttributeRightPart(right.value, sameElementInGraph.getAttributeNode(template.dataset.name), m, sameElementInGraph); }
-      catch (e) {
-        console.log('Exception on right part:', e);
-        outputErrorRight.innerText = 'Exception on right part: ' + e; }
-      evaluation.value = '' + result;
-      return result; };
-    const constraintRight = () => {
-      const result: string = _right();
-      const sameElementInGraph: HTMLElement | SVGElement = U.followIndexesPath(m.getHtmlOnGraph(), htmlPath) as HTMLElement | SVGElement;
-      // todo: valuta anche left part e outputta: "true: leftpartcalcolata < rightpartcacolata. eventuali exceptions.";
-      // todo: NB: è really incasinato e dovrei cambiare il modo di calcolare il risultato, che non calcola left e right, ma calcola size
-      //  required e attuale e vede se sono soddisfacibili con l'operatore.
-      return; };
-    /*
-          r_		      str	    any	    /     <-- add dataset to name input.
-          d_		      str	    any	    /
-          _		        /	      js	    any
-          _rule		    $##a$  	js	    any
-          _export		  jq	    js	    any
-          _chainFinal	export
-          _chain		  export
-          _constraint	size	  js	    bool	inequality
-          _dstyle		  /	      js->css	str
-          _import		  size	  js	    any*/
-    switch (val) {
-    default:
-      U.pe(true, 'unexpected select.attributetypeadd value:' + val);
-      break;
-    case 'r_':
-    case 'd_':
-      left.placeholder = 'parameter name';
-      right.placeholder = 'value';
-      right.pattern = '[.]+';
-      $(left).on('input', () => { attrchanged(); });
-      $(right).on('input', () => { attrchanged(); });
-      break;
-    case '_rule':
-      outputErrorLeft.href = 'https://github.com/DamianoNaraku/ModelGraph/wiki/measurable-elements#_rule';
-      left.placeholder = '$##template$';
-      left.pattern = '^\$[10#]{2}[.]*\$$'; //semplificato: questo consente anche $ singoli interni al template, normalmente vietati.
-      $(left).on('input', () => {
-        attrchanged();
-        setTimeout(ruleleft, 1);
-      });
-      $(right).on('input', () => {
-        attrchanged();
-        setTimeout(_right, 1);
-      });
-      break;
-    case '_import':
-      outputErrorLeft.href = 'https://github.com/DamianoNaraku/ModelGraph/wiki/measurable-elements#_import';
-      left.placeholder = 'width | height | positionRelX | positionRelY | positionAbsX | positionAbsY';
-      left.pattern = '$width$|^height$|^positionRelX$|^positionRelY$|^positionAbsX$|^positionAbsY$';
-      $(left).on('input', () => {
-        attrchanged();
-        setTimeout(importleft, 1);
-      });
-      $(right).on('input', () => {
-        attrchanged();
-        setTimeout(_right, 1);
-      });
-      break;
-    case '_chain':
-    case '_chainFinal':
-      outputErrorLeft.href = 'https://github.com/DamianoNaraku/ModelGraph/wiki/measurable-elements#_chainfinal-and-_chain';
-      left.placeholder = 'jQuery selector';
-      left.pattern = '[.]*';
-      $(left).on('input', () => {
-        attrchanged();
-        setTimeout(exportleft, 1);
-      });
-      break;
-    case '_export':
-      left.placeholder = 'jQuery selector';
-      left.pattern = '[.]*';
-      outputErrorLeft.href = 'https://github.com/DamianoNaraku/ModelGraph/wiki/measurable-elements#_export';
-      $(left).on('input', () => {
-        attrchanged();
-        setTimeout(exportleft, 1);
-      });
-      $(right).on('input', () => {
-        attrchanged();
-        setTimeout(_right, 1);
-      });
-      break;
-    case '_dstyle':
-      $(right).on('input', () => {
-        attrchanged();
-        setTimeout(_right, 1);
-      });
-      break;
-    case '_':
-      $(right).on('input', () => {
-        attrchanged();
-        setTimeout(_right, 1);
-      });
-      break;
-    case '_constraint':
-      left.placeholder = 'width | height | positionRelX | positionRelY | positionAbsX | positionAbsY';
-      left.pattern = '$width$|^height$|^positionRelX$|^positionRelY$|^positionAbsX$|^positionAbsY$';
-      operator.disabled = false;
-      $(left).on('input', () => {
-        attrchanged();
-        setTimeout(importleft, 1);
-        setTimeout(constraintRight, 1);
-      });
-      $(operator).on('change', () => {
-        attrchanged();
-        setTimeout(constraintRight, 1);
-      });
-      $(right).on('input', () => {
-        attrchanged();
-        setTimeout(constraintRight, 1);
-      });
-      break;
-
-    }
-    $(nameinput).on('input', namechanged);
-    const parent = $styleeditor.find('.' + val + 'Container');
-    U.pe(!parent.length, 'parent not found:', val, ', editor:', $styleeditor);
-    $template.find('.hideOn.' + val).hide();
-    parent[0].appendChild(template);
-
-    $template.find('button.delete').on('click', () => {
-      clickedStyle.removeAttribute(name);
-      parent[0].removeChild(template);
-    });
-  }
-
   public showE(m: IClass | IReference, edge: IEdge) {
     const index = edge.getIndex();
     console.log('styleShowE(', m, ')');
@@ -806,21 +514,21 @@ export class StyleEditor {
 
     let styleName = '';
     switch (m.edgeStyleCommon.style) {
-    default:
-      U.pe(true, 'unrecognized EdgeStyle:', m.edgeStyleCommon.style);
-      break;
-    case EdgeModes.angular23Auto:
-      styleName = 'angular23Auto';
-      break;
-    case EdgeModes.angular2:
-      styleName = 'angular2';
-      break;
-    case EdgeModes.angular3:
-      styleName = 'angular3';
-      break;
-    case EdgeModes.straight:
-      styleName = 'straight';
-      break;
+      default:
+        U.pe(true, 'unrecognized EdgeStyle:', m.edgeStyleCommon.style);
+        break;
+      case EdgeModes.angular23Auto:
+        styleName = 'angular23Auto';
+        break;
+      case EdgeModes.angular2:
+        styleName = 'angular2';
+        break;
+      case EdgeModes.angular3:
+        styleName = 'angular3';
+        break;
+      case EdgeModes.straight:
+        styleName = 'straight';
+        break;
     }
     U.selectHtml(edgeStyle, styleName, false);
     eWidthCommon.value = '' + m.edgeStyleCommon.width;
@@ -849,25 +557,25 @@ export class StyleEditor {
     $(edgeStyle).off('change.set').on('change.set', (e: ChangeEvent) => {
       let mode: EdgeModes;
       switch (edgeStyle.value) {
-      default:
-        U.pe(true, 'unrecognized edgeMode(', edgeStyle.value, ') among: ', EdgeModes);
-        break;
-      case EdgeModes.straight:
-      case 'straight':
-        mode = EdgeModes.straight;
-        break;
-      case EdgeModes.angular23Auto:
-      case 'angular23Auto':
-        mode = EdgeModes.angular23Auto;
-        break;
-      case EdgeModes.angular2:
-      case 'angular2':
-        mode = EdgeModes.angular2;
-        break;
-      case EdgeModes.angular3:
-      case 'angular3':
-        mode = EdgeModes.angular3;
-        break;
+        default:
+          U.pe(true, 'unrecognized edgeMode(', edgeStyle.value, ') among: ', EdgeModes);
+          break;
+        case EdgeModes.straight:
+        case 'straight':
+          mode = EdgeModes.straight;
+          break;
+        case EdgeModes.angular23Auto:
+        case 'angular23Auto':
+          mode = EdgeModes.angular23Auto;
+          break;
+        case EdgeModes.angular2:
+        case 'angular2':
+          mode = EdgeModes.angular2;
+          break;
+        case EdgeModes.angular3:
+        case 'angular3':
+          mode = EdgeModes.angular3;
+          break;
       }
       m.edgeStyleCommon.style = mode;
       m.edgeStyleHighlight.style = mode;
@@ -956,5 +664,274 @@ export class StyleEditor {
       edge.refreshGui();
     });
   }
+  private makeMeasurableOptions(measurableShell: Element, inputuseless: HTMLDivElement|HTMLTextAreaElement,
+                                style: StyleComplexEntry, context: editorcontext, indexedPath: number[]): void{
+    const $measurableShell = $(measurableShell);
+    let i: number;
+    const resizearrows: {tl, tla, t, ta, tr, tra, ml, mla, mr, mra, bl, bla, b, ba, br, bra} = {} as any;
+    const dragarrows: {x, y} = {} as any;
+    const $arrowroot = $measurableShell.find('.rectangledrawing.outer');
+    const $innerroot = $arrowroot.find('.rectangledrawing');
+    // todo: sposta la fase di setattribute direttamente nella generazione html.
+    resizearrows.tl = $innerroot.find('.top.left').attr('direction', 'tl');
+    resizearrows.t = $innerroot.find('.side.top').attr('direction', 't');
+    resizearrows.tr = $innerroot.find('.top.right').attr('direction', 'tr');
+    resizearrows.ml = $innerroot.find('.side.left').attr('direction', 'l');
+    resizearrows.mr = $innerroot.find('.side.right').attr('direction', 'r');
+    resizearrows.bl = $innerroot.find('.bot.left').attr('direction', 'bl');
+    resizearrows.b = $innerroot.find('.side.bot').attr('direction', 'b');
+    resizearrows.br = $innerroot.find('.bot.right').attr('direction', 'br');
+    resizearrows.tla = $arrowroot.find('.top.left.arrow').attr('direction', 'tl');
+    resizearrows.ta = $arrowroot.find('.side.top.arrow').attr('direction', 't');
+    resizearrows.tra = $arrowroot.find('.top.right.arrow').attr('direction', 'tr');
+    resizearrows.mla = $arrowroot.find('.side.left.arrow').attr('direction', 'l');
+    resizearrows.mra = $arrowroot.find('.side.right.arrow').attr('direction', 'r');
+    resizearrows.bla = $arrowroot.find('.bot.left.arrow').attr('direction', 'bl');
+    resizearrows.ba = $arrowroot.find('.side.bot.arrow').attr('direction', 'b');
+    resizearrows.bra = $arrowroot.find('.bot.right.arrow').attr('direction', 'br');
+    dragarrows.x = $measurableShell.find('.arrowh').attr('direction', 'x');
+    dragarrows.y = $measurableShell.find('.arrowv').attr('direction', 'y');
 
+    const arrowchange = (e: ChangeEvent) => {
+      let tmp: any;
+      const arrow: HTMLInputElement = e.currentTarget;
+      const direction = arrow.getAttribute('direction');
+      const innerbox: HTMLElement = $innerroot.find('*[direction = "' + direction + '"]')[0] as HTMLElement;
+      const checked = arrow.checked;
+      const isrotatable = arrow.classList.contains('rot');
+      const isdraggable = arrow.classList.contains('drag');
+      const isresizable = !isdraggable && !isrotatable;
+      if (innerbox) {
+        innerbox.classList.remove('selected');
+        if (checked) innerbox.classList.add('selected'); }
+      if (isdraggable) { tmp = context.templateLevel.getAttribute('_daxis'); }
+      if (isresizable) { tmp = context.templateLevel.getAttribute('_rhandles'); }
+      let currentHandles: string[] = U.replaceAll(tmp || '', ' ', '').split(',');
+      U.arrayRemoveAll(currentHandles, direction);
+      if (checked) { U.ArrayAdd(currentHandles, direction); }
+      U.arrayRemoveAll(currentHandles, '');
+      if (isdraggable && currentHandles.length) { context.templateLevel.setAttribute('_daxis', currentHandles.join(', ')); }
+      else context.templateLevel.removeAttribute('_daxis');
+      if (isresizable && currentHandles.length) { context.templateLevel.setAttribute('_rhandles', currentHandles.join(', ')); }
+      else context.templateLevel.removeAttribute('_rhandles');
+      console.log('resizable:', isresizable, 'draggable:', isdraggable, currentHandles, 'tmp:', tmp, context);
+      context.applyNodeChangesToInput(); };
+    const rulelist: MeasurableRuleLists = Measurable.getRuleList(context.templateLevel);
+    /*
+    for (let key in measurableRules) {
+      key = measurableRules[key];
+      const counterselector: string = '[data-target=".meas_acc > .panel > .' + key + '"] .rulecounter';
+      const counter: HTMLElement = $measurableShell.find(counterselector)[0] as any;
+       U.pe(!counter, 'counter not found for rule: ' + key);
+      counter.innerText = rulelist[key].length;
+    }*/
+    for (i = 0; i < rulelist.all.length; i++) {
+      const rule: MeasurableRuleParts = rulelist.all[i];
+      U.pe(!rule.prefix, 'astdh', rule, rulelist, context.templateLevel);
+      if (rule.prefix === measurableRules._jquiDra && rule.name === 'axis') {
+        const value = rulelist._jquiDra[i].right;
+        const handles: string[] = (value.indexOf('all') !== -1 ? 'x,y' : U.replaceAll(value, ' ', '')).split(',');
+        let map: {x,y} = {} as any;
+        for (i = 0; i < handles.length; i++) {
+          switch(handles[i]) {
+            default: break;
+            case 'x': map.x = true; break;
+            case 'y': map.y = true; break; }
+        }
+        dragarrows.x.checked = map.x;
+        dragarrows.y.checked = map.y;
+        continue; }
+      if (rule.prefix === measurableRules._jquiRes && rule.name === 'handles') {
+        const handles: string[] = (rule.right.indexOf('all') !== -1 ? 'n,e,s,w,ne,se,sw,nw' : U.replaceAll(rule.right, ' ', '')).split(',');
+        let map: {tl, t, tr, l, r, bl, b, br} = {} as any;
+        for (i = 0; i < handles.length; i++) {
+          switch(handles[i]) {
+            default: break;
+            case 'n': map.t = true; break;
+            case 'ne': map.tr = true; break;
+            case 'nw': map.tl = true; break;
+            case 'e': map.r = true; break;
+            case 'w': map.l = true; break;
+            case 's': map.b = true; break;
+            case 'se': map.br = true; break;
+            case 'sw': map.bl = true; break; }
+        }
+        resizearrows.tl.checked = map.tl;
+        resizearrows.t.checked = map.t;
+        resizearrows.tr.checked = map.tr;
+        resizearrows.ml.checked = map.l;
+        resizearrows.mr.checked = map.r;
+        resizearrows.bl.checked = map.bl;
+        resizearrows.b.checked = map.b;
+        resizearrows.br.checked = map.br;
+        continue; }
+      const fakeevt: any = {};
+      fakeevt.currentTarget = $measurableShell.find(
+        '.ruletitle[data-target=".meas_acc > .panel > .' + rule.prefix + '" > button.addrule')[0];
+      fakeevt.currentTarget = fakeevt.currentTarget.parentElement;
+      this.addRule(fakeevt, context, rule);
+    }
+    $measurableShell.find('.arrow').on('change', arrowchange).trigger('change');
+    $measurableShell.find('button.addrule').off('click.addrule').on('click.addrule',
+      (e: ClickEvent) => { e.stopPropagation(); this.addRule(e, context); });
+  }
+/*
+  ruletypeenum: {
+    _: "_",
+    r: "_rule",
+    e: "_export",
+    co: "_constraint",
+    ds: "_dstyle",
+    ch: "_chain",
+    chf: "_chainFinal",
+    i: "_import",
+    dd: "_d",
+    rr: "_r",
+    z: "_z"} = {
+    _: "_",
+    r: "_rule",
+    e: "_export",
+    co: "_constraint",
+    ds: "_dstyle",
+    ch: "_chain",
+    chf: "_chainFinal",
+    i: "_import",
+    dd: "_d",
+    rr: "_r",
+    z: "_z"};*/
+  getruleShellRoot(node: Element): HTMLDivElement {
+    while (node.parentElement && !node.classList.contains('panel')) node = node.parentElement;
+    return node as HTMLDivElement; }
+
+  addRule(e: ClickEvent, context: editorcontext, ruleparts: MeasurableRuleParts = null): void {
+    let i: number;
+    const title = (e.currentTarget as HTMLElement).parentElement;
+    const $title = $(title);
+    const ruletype: string = U.trimStart(title.dataset.target.substr(title.dataset.target.lastIndexOf('>') + 1), ['.', ' ']);
+    const prefix: string = ruletype;
+    const counter: HTMLElement = $title.find('.rulecounter')[0];
+    counter.innerHTML = '' + (+counter.innerHTML + 1);
+    // const targetsectionselector: string = title.dataset.target;
+    // const $targetsection: JQuery<HTMLElement> = $measurableShell.find(targetsectionselector) as  JQuery<HTMLElement>;
+    const appendparent = title.parentElement;
+    const newtemplate = U.cloneHtml($(appendparent).find('.template')[0], true);
+    newtemplate.classList.remove('template');
+    appendparent.appendChild(newtemplate);
+
+    const $newtemplate = $(newtemplate);
+    const nameinput: HTMLInputElement = $newtemplate.find('input.attrname')[0] as HTMLInputElement;
+    const left: HTMLInputElement = $newtemplate.find('input.leftside')[0] as HTMLInputElement;
+    const operator: HTMLSelectElement = $newtemplate.find('.operatorcontainer > select.operator')[0] as HTMLSelectElement;
+    const right: HTMLInputElement = $newtemplate.find('input.rightside')[0] as HTMLInputElement;
+    const target: HTMLInputElement = $newtemplate.find('input.target')[0] as HTMLInputElement;
+
+
+    const dynamicjquiplaceholder = (valueinput: HTMLInputElement, phinput: HTMLInputElement, phdictionary: object) => {
+      $(valueinput).on('change', () => {
+        let valid: boolean = U.validateDatalist(valueinput);
+        if (!phdictionary) return;
+        console.log(' key:', valueinput.value, 'map:', phdictionary);
+        phinput.placeholder = valid ? phdictionary[valueinput.value] : 'invalid jQueryUi parameter';
+      });};
+
+    if (left && left.list || nameinput.list) switch (nameinput.dataset['target'] || left && left.dataset['target']) {
+      default: U.pe(true, 'unexpected datalist generator:', target, nameinput, left); break;
+      case measurableRules._jquiRes: dynamicjquiplaceholder(nameinput, right, ResizableoptionsPH); break;
+      case measurableRules._jquiDra: dynamicjquiplaceholder(nameinput, right, DraggableOptionsPH); break;
+      case measurableRules._jquiRot: dynamicjquiplaceholder(nameinput, right, RotatableoptionsPH); break;
+      case measurableRules.constraint: dynamicjquiplaceholder(left, right, MeasurableTemplateGenerator.constraintPlaceholderMap); break;
+    }
+
+    if (ruleparts) { // if existing rule
+      nameinput.value = ruleparts.name;
+      if (left) left.value = ruleparts.left;
+      if (operator) U.selectHtml(operator, ruleparts.operator);
+      right.value = ruleparts.right;
+    }
+    const rulespanelshell = this.getruleShellRoot(nameinput);
+    const $rulespanelshell = $(rulespanelshell);
+
+    if (e.type === "click") { // if not triggered.
+      $rulespanelshell.find('.collapse').addClass('show'); }
+    U.pe(rulespanelshell === nameinput, 'a');
+    let oldrulename = nameinput.value;
+    let leftdataset: Element = left ? $('datalist#' + left.getAttribute('list'))[0] as any : null;
+    let lefthashmap = null;
+    const mp: ModelPiece = this.propertyBar.selectedModelPiece;
+
+
+    const generateRuleValue = (): string => {
+      let ret: string =  (left ? left.value : '');
+      if (!operator) return ret + Measurable.separator + right.value;
+      switch (operator.value) {
+        default: break; // describing separators (arrows, do, then...) are ignored.
+        case '<=': case '<': case '>': case '>=': case '!=': case '==': case '===': case '!==': ret += Measurable.separator + operator.value; break; }
+      return ret + Measurable.separator + right.value; };
+    const generateOldRuleName = (): string => { return ruletype + oldrulename; };
+    const generateRuleName = (): string => { return ruletype + nameinput.value; };
+    const updateRule = () => {
+      if (left && (left.getAttribute('invalid') === '1' || right.getAttribute('invalid') === '1')) return;
+      const name: string = generateRuleName();
+      const value: string = generateRuleValue();
+      console.log('setattribute: name:', name, ' generated by:', ruletype + ' + ' + nameinput.value);
+      context.templateLevel.setAttribute(name, value);
+      context.applyNodeChangesToInput();
+    };
+    const isRuleNameTaken = (name: string): boolean => {
+      const $allrules = $rulespanelshell.find('input.attrname');
+      console.log('other names:', rulespanelshell, $allrules);
+      for (i = 0; i < $allrules.length; i++){
+        const ruleinput = $allrules[i] as HTMLInputElement;
+        if (ruleinput === nameinput) continue;
+        if (ruleinput.value === name) return true;
+      }
+      return false;
+    };
+    nameinput.pattern = '[^ "\']*';
+    const setRuleTarget = (str: string): void => {
+      context.templateLevel.setAttribute('relativeSelectorOf' + generateRuleName(), str);
+      U.pif(true, 'changetarget of: |' + ruletype + oldrulename + '|  |' + generateRuleName() + '|');
+      context.applyNodeChangesToInput();
+    };
+    const targetChanged = (e: ChangeEvent): void => { setRuleTarget(target.value); };
+    const setRuleName = (name: string): void => {
+      if (!U.followsPattern(nameinput, name)) return;
+      console.log('setRuleName pt0 ', nameinput, 'istaken?', isRuleNameTaken(name));
+      if (oldrulename === name) return; // errore qui? durante l'add buttopn insert event questo è sempre true, e quando addo una rule sono tutte named "1". non penso più sia questo
+      console.log('setRuleName pt2 ', nameinput, 'istaken?', isRuleNameTaken(name));
+      const oldtarget = context.templateLevel.getAttribute('relativeSelectorOf' + ruletype + oldrulename);
+      while (isRuleNameTaken(name)) { name = U.increaseEndingNumber(name); }
+      context.templateLevel.removeAttribute(ruletype + oldrulename);
+      if (oldtarget) {
+        // non printa? ma funziona U.pif(true, 'rename) delete: |' + ruletype + oldrulename + '|; insert: |' + ruletype + name + '|');
+        context.templateLevel.removeAttribute('relativeSelectorOf' + ruletype + oldrulename);
+        context.templateLevel.setAttribute('relativeSelectorOf' + ruletype + name, oldtarget);
+      }
+      console.log('setRuleName pt3 ', nameinput, 'istaken?', isRuleNameTaken(name));
+      oldrulename = nameinput.value = name;
+      updateRule(); };
+    const leftChanged = () => {
+      updateRule();
+    };
+
+    const operatorChanged = () => {
+      updateRule();
+    };
+    const rightChanged = () => {
+      updateRule();
+    };
+    const nameChanged = () => { setRuleName(nameinput.value); };
+    $(nameinput).off('change.name').on('change.name', nameChanged);
+    $(left).off('change.leftside').on('change.leftside', leftChanged);
+    $(operator).off('change.operator').on('change.operator', operatorChanged);
+    $(right).off('change.rightside').on('change.rightside', rightChanged);
+    $(target).off('change.target').on('change.target', targetChanged);
+    $newtemplate.find('button.ruledelete').off('click.delete').on('click.delete', () => {
+      newtemplate.parentNode.removeChild(newtemplate);
+      context.templateLevel.removeAttribute(generateOldRuleName());
+      context.templateLevel.removeAttribute(generateRuleName()); //todo: potrebbe fare casini se qualcuno swappa nomi e cancella una regola?
+      context.applyNodeChangesToInput();
+    });
+    if (!ruleparts) setRuleName(nameinput.getAttribute('defaultvalue'));
+  }
 }

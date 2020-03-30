@@ -1,6 +1,6 @@
 ::ng-deep :root  {/* css variables */
   --topbarH: 40px;
-  --sidebarW: 20vw;
+  --sidebarW: 283px;
   --mainFontColor: whiteSmoke;
   --mainBackgroundColor: #1a1a1c;/*whiteSmoke;*/
   --mainBorderWidth: 5px;

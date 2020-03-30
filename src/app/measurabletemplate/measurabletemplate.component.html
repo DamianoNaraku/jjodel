@@ -1,0 +1,136 @@
+<div id="measurableTemplateGeneratorShell" class="template">
+  <label><input class="ismeasurable" type="checkbox"><span>is measurable</span></label>
+  <div class="meas_acc0">
+    <h7 class="ruletitle btn btn-link collapsed" type="button" data-parent=".meas_acc0" data-toggle="collapse" data-target=".meas_acc0 > .measurableSettingRoot">Measurable settings</h7>
+    <div class="measurableSettingRoot collapse">
+      <div class="boxesroot">
+        <div class="resizable boxroot">
+          <h6 class="boxtitle">Resizable handles</h6>
+          <div class="rectangledrawing outer">
+            <div class="top row">
+              <input type="checkbox" class="arrow corner top left">
+              <input type="checkbox" class="arrow side top">
+              <input type="checkbox" class="arrow corner top right">
+            </div>
+            <div class="mid row">
+              <input type="checkbox" class="arrow side left">
+              <div class="middle">
+                <div class="rectangledrawing inner">
+                  <div class="top row">
+                    <div class="corner top left"></div>
+                    <div class="side top"></div>
+                    <div class="corner top right"></div>
+                  </div>
+                  <div class="mid row">
+                    <div class="side left"></div>
+                    <div class="middle">
+                    </div>
+                    <div class="side right"></div>
+                  </div>
+                  <div class="bot row">
+                    <div class="corner bot left"></div>
+                    <div class="side bot"></div>
+                    <div class="corner bot right"></div>
+                  </div>
+                </div>
+              </div>
+              <input type="checkbox" class="arrow side right">
+            </div>
+            <div class="bot row">
+              <input type="checkbox" class="arrow corner bot left">
+              <input type="checkbox" class="arrow side bot">
+              <input type="checkbox" class="arrow corner bot right">
+            </div>
+          </div>
+        </div>
+        <div class="draggable boxroot">
+          <h6 class="boxtitle">Draggable directions</h6>
+          <div class="rectangledrawing directions">
+            <input type="checkbox" class="arrow arrowh drag">
+            <input type="checkbox" class="arrow arrowv drag">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="meas_acc">
+      </div>
+
+      <div class="rule template">
+        <h7 class="ruletitle btn btn-link collapsed" type="button" data-parent=".meas_acc" data-toggle="collapse" data-target="DYNAMICALLYFILLED">###</h7>
+        <div class="rulecontainer columncontainer collapse template">
+
+          <div class="leftx column"><button class="ruledelete btn btn-danger">X</button>
+          </div>
+          <div class="rightx column rowcontainer fill break mb-3">
+            <div class="row break">
+              <label class="compoundInputprefix nobreak input-group-prepend form-control">
+                <span class="prefix form-control">_</span>
+                <input type="text" class="form-control attrname" placeholder="DYNAMICALLYFILLED" pattern="^[\S]*$">
+                <select class="operator trigger">
+                  <optgroup label="When">
+                    <option>Start</option>
+                    <option>ing</option>
+                    <option selected>End</option>
+                  </optgroup>
+                </select>
+              </label>
+              <span class="botmarg"><span class="postName">holds rule:</span></span>
+            </div>
+            <div class="row break">
+              <span class="botmarg"><span class="preleft prefix form-control">####</span></span>
+              <input type="text" class="form-control leftside" placeholder="DYNAMICALLYFILLED">
+              <span class="eventsplitpoint operatorcontainer">
+                <span class="operator">=</span>
+                <select class="operator relational">
+                  <optgroup label="Operator">
+                    <option>&lt;=</option>
+                    <option selected>=</option>
+                    <option>&gt;=</option>
+                  </optgroup>
+                </select></span>
+              <input type="text" class="form-control rightside" placeholder="#######">
+            </div><input type="text" class="form-control target" placeholder="Rel. target selector">
+            <div class="measurabledebug rowcontainer">
+              <button class="btn btn-primary">Test it!</button>
+              <span class="measurableoutputtext" tabindex="-1"><span>Output: </span><span class="text"></span></span>
+              <span class="measurablewarningtext" tabindex="-1"><span>Warnings: </span><span class="text"></span></span>
+              <span class="measurableerrortext" tabindex="-1"><span>Errors: </span><span class="text"></span></span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+
+
+  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.
+  esempio: come inserire un nodo equidistante tra due nodi bersaglio.
+  _target1="positionX"
+  relativetargetof_target1="#leftside"
+  _target2="positionX"
+  relativetargetof_target2="#rightside"
+  _import="positionX = (a.target1 + a.target2) / 2"
+
+  angle:false,
+  class Rotatableoptions {
+  degrees: string = 'false | number';
+  radians: string = 'false | number';
+handle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading
+  handleOffsetX: string = 'width / 2';
+  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }
+  rotationCenterOffsetX: string = 'width / 2';
+  rotationCenterOffsetY: string = 'height / 2';
+  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element
+  step: string = 'degree', // internamente ha "snap = boolean" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.
+  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.
+  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.
+  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.
+  onRotationStart: string = same as above // in realtà è "start"
+  onRotationEnd: string = same as above // in realtà è "stop"
+  }
+
+--->

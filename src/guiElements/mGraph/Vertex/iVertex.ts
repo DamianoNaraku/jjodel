@@ -28,7 +28,18 @@ import {
   M2Reference,
   EOperation,
   EParameter,
-  MAttribute, MeasurableArrays, IPoint, GraphSize, GraphPoint, StyleComplexEntry, Type, EEnum, ELiteral, ExtEdge, IClassifier
+  MAttribute,
+  IPoint,
+  GraphSize,
+  GraphPoint,
+  StyleComplexEntry,
+  Type,
+  EEnum,
+  ELiteral,
+  ExtEdge,
+  IClassifier,
+  Measurable,
+  measurableRules, MeasurableRuleParts
 } from '../../../common/Joiner';
 import MouseMoveEvent = JQuery.MouseMoveEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
@@ -45,6 +56,7 @@ import ResizableOptions = JQueryUI.ResizableOptions;
 import DraggableOptions = JQueryUI.DraggableOptions;
 import ResizableUIParams = JQueryUI.ResizableUIParams;
 import DraggableEventUIParams = JQueryUI.DraggableEventUIParams;
+import {FocusHistoryEntry} from '../../../common/util';
 
 export class IVertex {
   static all: Dictionary = {};
@@ -70,6 +82,7 @@ export class IVertex {
   private html: HTMLElement;
   private Vmarks: Dictionary<string, SVGRectElement> = {};
   private static defaultSize: GraphSize = null;
+  private static tolleranzaRightClickMove: number = 5;
 
   static staticinit(): GraphPoint {
     const g: GraphPoint = new GraphPoint(0, 0);
@@ -78,19 +91,19 @@ export class IVertex {
     IVertex.minSize = new GraphSize(null, null, 0, 0);
     IVertex.defaultSize = new GraphSize(5, 5, 201, 41);
     return IVertex.selectedGridWasOn = g; }
-/*
-  static linkVertexMouseDownButton(e: MouseDownEvent): void {
-    const ref: IReference = ModelPiece.get(e) as IReference;
-    U.pe(!(ref instanceof IReference), 'linkVertexButtons are currently only allowed on IReferences.');
-    const edges: IEdge[] = ref.getEdges();
-    U.pe(!edges, 'ref.edges === null', ref);
-    let edge: IEdge;
-    let index: number;
-    if (ref.getModelRoot().isMM()) { edge = edges[index = 0]; } else
-    if (ref.upperbound > 0 && edges.length >= ref.upperbound) { edge = edges[index = ref.upperbound - 1]; }
-    else { edge = new IEdge(ref); index = edges.length - 1; }
-    if (!edge) edge = new IEdge(ref);
-    IVertex.linkVertexMouseDown(e, edge); }*/
+  /*
+    static linkVertexMouseDownButton(e: MouseDownEvent): void {
+      const ref: IReference = ModelPiece.get(e) as IReference;
+      U.pe(!(ref instanceof IReference), 'linkVertexButtons are currently only allowed on IReferences.');
+      const edges: IEdge[] = ref.getEdges();
+      U.pe(!edges, 'ref.edges === null', ref);
+      let edge: IEdge;
+      let index: number;
+      if (ref.getModelRoot().isMM()) { edge = edges[index = 0]; } else
+      if (ref.upperbound > 0 && edges.length >= ref.upperbound) { edge = edges[index = ref.upperbound - 1]; }
+      else { edge = new IEdge(ref); index = edges.length - 1; }
+      if (!edge) edge = new IEdge(ref);
+      IVertex.linkVertexMouseDown(e, edge); }*/
 
   static linkVertexMouseDown(e: MouseDownEvent, edge: IEdge = null, location: GraphPoint = null): void {
     if (e) { e.stopPropagation(); }
@@ -112,18 +125,19 @@ export class IVertex {
 
   static getvertex(e: Event | MouseEvent | MouseDownEvent | MouseUpEvent | MouseMoveEvent | MouseEnterEvent | MouseLeaveEvent | ClickEvent
     | KeyDownEvent | KeyUpEvent | KeyPressEvent | ChangeEvent): IVertex {
-    return IVertex.getvertexByHtml(e.currentTarget as HTMLElement | SVGElement); }
+    return IVertex.getvertexByHtml(e.currentTarget as Element); }
 
-  static getvertexByHtml(node: HTMLElement | SVGElement): IVertex {
-    U.pe(!node || !(node instanceof Element), 'getVertexByHtml: parameter is not a DOM node:', node);
-    while (!node.dataset.vertexID) { node = node.parentNode as HTMLElement | SVGElement; }
+  static getvertexByHtml(node0: Element): IVertex {
+    let node: HTMLElement = node0 as HTMLElement
+    U.pe(!node, 'getVertexByHtml: parameter is not a DOM node:', node);
+    while (node && node.dataset && !node.dataset.vertexID) { node = node.parentElement; }
     // console.log('getVertex by id:' + node.dataset.vertexID, 'all:', IVertex.all);
-    return IVertex.getByID(+(node.dataset.vertexID)); }
+    return node && node.dataset ? IVertex.getByID(+(node.dataset.vertexID)) : null; }
 
   static getByID(id: number): IVertex { return IVertex.all[id]; }
 
   static FieldNameChanged(e: ChangeEvent) {
-    const html: HTMLElement | SVGElement = e.currentTarget;
+    const html: Element = e.currentTarget;
     const modelPiece: ModelPiece = ModelPiece.getLogic(html);
     modelPiece.fieldChanged(e);
     modelPiece.getModelRoot().graph.propertyBar.show(null, html, null, true);
@@ -133,8 +147,8 @@ export class IVertex {
     const m: IModel = Status.status.m;
     setTimeout( () => { mm.refreshGUI(); m.refreshGUI(); }, 1); }
 
-  static ChangePropertyBarContentClick(e: ClickEvent, isEdge: IEdge = null): ModelPiece {
-    const html: HTMLElement | SVGElement = e.target; // todo: approfondisci i vari tipi di classType (current, orginal...)
+  static ChangePropertyBarContentClick(e: ClickEvent | MouseDownEvent, isEdge: IEdge = null): ModelPiece {
+    const html: Element = e.target; // todo: approfondisci i vari tipi di classType (current, orginal...)
     const modelPiece: ModelPiece = ModelPiece.getLogic(html);
     const model: IModel = modelPiece.getModelRoot();
     U.pe(!modelPiece, 'failed to get modelPiece from html:', html);
@@ -249,7 +263,10 @@ export class IVertex {
 
   setSize(size: GraphSize, refreshVertex: boolean = true, refreshEdge: boolean = true): void {
     if (!size) return;
-    this.size = size;
+    this.size.x = (U.isNumerizable(size.x)) ? +size.x : this.size.x;
+    this.size.y = (U.isNumerizable(size.y)) ? +size.y : this.size.y;
+    this.size.w = (U.isNumerizable(size.w)) ? +size.w : this.size.w;
+    this.size.h = (U.isNumerizable(size.h)) ? +size.h : this.size.h;
     const htmlForeign: SVGForeignObjectElement = this.getHtmlRawForeign();
     U.setSvgSize(htmlForeign, this.size, IVertex.defaultSize);
     // todo: cerca tutti gli as string, non è un vero cast ma solo un cambiotipo senza trasformazione, crea errori.
@@ -273,10 +290,10 @@ export class IVertex {
     /*const htmlRaw: SVGForeignObjectElement = U.newSvg('foreignObject');
     htmlRaw.appendChild(this.classe.getStyleObj().html);*/
     const style: StyleComplexEntry = this.classe.getStyle();
-    const htmlRaw: SVGForeignObjectElement = style.html as SVGForeignObjectElement;
+    const htmlRaw0: SVGForeignObjectElement = style.html as SVGForeignObjectElement;
 
-    U.pe(!this.classe || !(htmlRaw instanceof Element), 'class null?', this, htmlRaw);
-    this.setHtmls(this.classe, htmlRaw);
+    U.pe(!this.classe || !(htmlRaw0 instanceof Element), 'class null?', this, htmlRaw0);
+    const htmlRaw: SVGForeignObjectElement = this.setHtmls(this.classe, htmlRaw0);
     if (this.classe instanceof IClass) this.drawC(this.classe);
     if (this.classe instanceof EEnum) this.drawE(this.classe);
     this.addEventListeners();
@@ -459,20 +476,20 @@ export class IVertex {
       field.id = 'ID' + operations[i].id;
       $opContainer.append(field); }
   }
-  getStartPointHtml(): HTMLElement | SVGElement {
+  getStartPointHtml(): Element {
     const html: HTMLElement = this.getHtml();
     const $start = $(html).find('.StartPoint');
     if ($start.length > 0) { return $start[0]; } else { return html; } }
-  getEndPointHtml(): HTMLElement | SVGElement {
-    const html: HTMLElement | SVGElement = this.getHtml();
+  getEndPointHtml(): Element {
+    const html: Element = this.getHtml();
     const $start = $(html).find('.EndPoint');
     if ($start.length > 0) { return $start[0]; }
-    return (html.tagName.toLowerCase() === 'foreignobject') ? html.firstChild as HTMLElement | SVGElement : html; }
+    return (html.tagName.toLowerCase() === 'foreignobject') ? html.firstChild as Element : html; }
 
   private setHtmls(data: IClassifier, htmlRaw: SVGForeignObjectElement): SVGForeignObjectElement {
     // console.log('drawCV()');
-    const graphHtml: HTMLElement | SVGElement = this.owner.vertexContainer;
-    const $graphHtml: JQuery<HTMLElement | SVGElement> = $(graphHtml);
+    const graphHtml: Element = this.owner.vertexContainer;
+    const $graphHtml: JQuery<Element> = $(graphHtml);
     if (graphHtml.contains(this.htmlForeign)) { graphHtml.removeChild<SVGElement>(this.htmlForeign); }
     // console.log('drawing Vertex[' + data.name + '] with style:', htmlRaw, 'logic:', data);
     // console.log('drawVertex: template:', htmlRaw);
@@ -493,7 +510,7 @@ export class IVertex {
     foreign.dataset.vertexID = '' + this.id;
     // graphHtml.innerHTML += foreign.outerHTML;
     // unica soluzione: chiedi a stack e crea manualmente il foreignobject copiando tutti gli attributi.
-    // graphHtml.appendChild<HTMLElement | SVGElement>(foreign); problema: non renderizza gli svg che non sono stati creati con document.createElementNS()
+    // graphHtml.appendChild<Element>(foreign); problema: non renderizza gli svg che non sono stati creati con document.createElementNS()
     // $(graphHtml).append(foreign.outerHTML); doesn't work either
     // console.log('this.style:', this.style);
     // console.log('this.size? (' + (!!this.size) + ': setSize() : ', U.getSvgSize(this.style));
@@ -517,7 +534,7 @@ export class IVertex {
       data.setSignatureHtml(htmldataset, ', ', +htmldataset.dataset.maxargumentchars, +htmldataset.dataset.maxarguments); }
     const $detailHtml: JQuery<HTMLElement> = $html.find('.operationDetail') as JQuery<HTMLElement> ;
     $signature.off('click.show').on('click.show', (e: Event) => {
-      const target: HTMLElement | SVGElement = e.target as HTMLElement | SVGElement;
+      const target: Element = e.target as Element;
       let avoidToggle: boolean;
       switch (target.tagName.toLowerCase()) {
         case 'input':
@@ -579,8 +596,8 @@ export class IVertex {
     // quindi viene eseguito N +1 volte per ogni vertice dove N sono i suoi (attributes + references)
     // console.log(html.tagName, html.dataset.modelPieceID);
     // if (html.tagName.toLowerCase() === 'foreignobject' && html.dataset.modelPieceID )
-    //   { html = html.firstChild as HTMLElement | SVGElement; }
-    // while (!(html.classList.contains('Vertex'))) { console.log(html); html = html.parentNode as HTMLElement | SVGElement; }
+    //   { html = html.firstChild as Element; }
+    // while (!(html.classList.contains('Vertex'))) { console.log(html); html = html.parentNode as Element; }
     const $html = $(this.getHtmlRawForeign());
     $html.off('mousedown.vertex').on('mousedown.vertex', (e: MouseDownEvent) => { this.onMouseDown(e); });
     $html.off('mouseup.vertex').on('mouseup.vertex', (e: MouseUpEvent) => { this.onMouseUp(e); });
@@ -596,51 +613,64 @@ export class IVertex {
     // NB: deve essere solo un off, oppure metti selettore .NOT(class) nel selettore dei 'select' di sopra
     // if (!IVertex.contextMenu) { IVertex.contextMenu = new MyContextMenuClass(new ContextMenuService()); }
     $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.vertexContextMenu(e); });
-    $html.find('.Attribute, .Reference').off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.featureContextMenu(e); });
+    $html.find('.Attribute, .Reference, .ELiteral, .Operation, .Parameter').off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.featureContextMenu(e); });
     // $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDownButton);
     const defaultResizeConfig: ResizableOptions = {};
     const defaultDragConfig: DraggableOptions = {};
     // NB: do not delete the apparantly useless dynamic functions.
     // jqueryui is binding this to e.currentTarget and e.currentTarget to document.body, the dynamic function makes this instanceof iVertex again.
-    defaultResizeConfig.create = (e: Event, ui: ResizableUIParams) => this.measuringInit(ui, e);
-    defaultDragConfig.create = (e: Event, ui: DraggableEventUIParams) => this.measuringInit(ui, e);
-    defaultResizeConfig.resize = (e: Event, ui: ResizableUIParams) => this.measuringChanging(ui, e);
-    defaultDragConfig.drag = (e: Event, ui: DraggableEventUIParams) => this.measuringChanging(ui, e);
-    defaultResizeConfig.stop = (e: Event, ui: ResizableUIParams) => this.measuringChanged(ui, e);
-    defaultDragConfig.stop = (e: Event, ui: DraggableEventUIParams) => this.measuringChanged(ui, e);
+    defaultResizeConfig.create = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
+    defaultResizeConfig.start = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.onResizeStart);
+    defaultResizeConfig.resize = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.whileResizing);
+    defaultResizeConfig.stop = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.onResizeEnd);
+    // defaultDragConfig.create = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
+    defaultDragConfig.start = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.onDragStart);
+    defaultDragConfig.drag = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.whileDragging);
+    defaultDragConfig.stop = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.onDragEnd);
 //     console.log('measurableElementSetup:', defaultResizeConfig, defaultDragConfig);
-    U.measurableElementSetup($html, defaultResizeConfig, defaultDragConfig); }
+    Measurable.measurableElementSetup($html, defaultResizeConfig, defaultDragConfig); }
 
-  measuringInit(ui: ResizableUIParams | DraggableEventUIParams, e: Event): void {
-    const m = U.measurableGetArrays(null, e);
-    console.log('measuringInit:', ui, e, m);
+  measuringTrigger(ui: ResizableUIParams | DraggableEventUIParams, e: Event, prefix: string): void {
+    const html: Element = e.currentTarget as Element;
+    if (!html.attributes) return;
     let i: number;
-    const size: Size = U.sizeof(m.html);
-    const absTargetSize: Size = this.owner.getSize();
-    const logic: IClassifier = this.logic();
-    for (i = 0; i < m.variables.length; i++) { U.processMeasurableVariable(m.variables[i], logic, m.html, size, absTargetSize); }
-    for (i = 0; i < m.dstyle.length; i++) { U.processMeasurableDstyle(m.dstyle[i], logic, m.html, null, absTargetSize); }
-    for (i = 0; i < m.imports.length; i++) { U.processMeasurableImport(m.imports[i], logic, m.html, null, absTargetSize); }
+    for (i = 0; i < html.attributes.length; i++) {
+      if (html.attributes[i].name.indexOf('prefix') !== 0) continue;
+      new MeasurableRuleParts(html.attributes[i], prefix.length).process(false, this, this.owner);
+    }
   }
 
-  measuringChanging(ui: ResizableUIParams | DraggableEventUIParams, e: Event, measurHtml: HTMLElement | SVGElement = null): void {
-    const m: MeasurableArrays = U.measurableGetArrays(measurHtml, e);
-    console.log('Changing.measurableHtml parsed special attributes:', m);
-    m.imports = [];
-    m.chainFinal = [];
-    // m.dstyle = [];
-    // m.rules = [];
-    // m.variables = [];
-    U.processMeasuring(this.logic(), m, ui);
-  }
-
-  measuringChanged(ui: ResizableUIParams | DraggableEventUIParams, e: Event, measurHtml: HTMLElement | SVGElement = null): void {
-    const m = U.measurableGetArrays(measurHtml, e);
-    console.log('Changed.measurableHtml parsed special attributes:', m);
-    m.chain = [];
-    m.imports = [];
-    U.processMeasuring(this.logic(), m, ui);
-  }
+  /*
+    measuringInit(ui: ResizableUIParams | DraggableEventUIParams, e: Event): void {
+      const m = U.measurableGetArrays(null, e);
+      console.log('measuringInit:', ui, e, m);
+      let i: number;
+      const size: Size = U.sizeof(m.html);
+      const absTargetSize: Size = this.owner.getSize();
+      const logic: IClassifier = this.logic();
+      for (i = 0; i < m.variables.length; i++) { U.processMeasurableVariable(m.variables[i], logic, m.html, size, absTargetSize); }
+      for (i = 0; i < m.dstyle.length; i++) { U.processMeasurableDstyle(m.dstyle[i], logic, m.html, null, absTargetSize); }
+      for (i = 0; i < m.imports.length; i++) { U.processMeasurableImport(m.imports[i], logic, m.html, null, absTargetSize); }
+    }
+  
+    measuringChanging(ui: ResizableUIParams | DraggableEventUIParams, e: Event, measurHtml: Element = null): void {
+      const m: MeasurableArrays = U.measurableGetArrays(measurHtml, e);
+      console.log('Changing.measurableHtml parsed special attributes:', m);
+      m.imports = [];
+      m.chainFinal = [];
+      // m.dstyle = [];
+      // m.rules = [];
+      // m.variables = [];
+      U.processMeasuring(this.logic(), m, ui);
+    }
+  
+    measuringChanged(ui: ResizableUIParams | DraggableEventUIParams, e: Event, measurHtml: Element = null): void {
+      const m = U.measurableGetArrays(measurHtml, e);
+      console.log('Changed.measurableHtml parsed special attributes:', m);
+      m.chain = [];
+      m.imports = [];
+      U.processMeasuring(this.logic(), m, ui);
+    }*/
 
 
   clickSetReference(e: ClickEvent | MouseUpEvent | MouseDownEvent, debug: boolean = true): void {
@@ -656,7 +686,7 @@ export class IVertex {
     if (edge.logic instanceof MReference) edge.logic.linkClass(vertexLogic as MClass, edge.getIndex(), true);
     if (edge.logic instanceof M2Reference) edge.logic.setType((vertexLogic as M2Class).getEcoreTypeName());
     if (edge instanceof ExtEdge) {
-      U.arrayRemoveAll(edge.logic.extends, edge.end.logic() as M2Class);
+      if (edge.end) U.arrayRemoveAll(edge.logic.extends,edge.end.logic() as M2Class);
       U.ArrayAdd(edge.logic.extends, this.logic() as M2Class);
     } else {
       U.pe(edge.logic instanceof MClass, 'cst: class edges are currently not supported');
@@ -675,25 +705,45 @@ export class IVertex {
   onClick(e: ClickEvent): void {
     IVertex.ChangePropertyBarContentClick(e); }
 
-
-  featureContextMenu(evt: ContextMenuEvent): boolean {
-    DamContextMenuComponent.contextMenu.show(new Point(evt.pageX, evt.pageY), '.Feature', evt.currentTarget);
-    evt.preventDefault();
-    evt.stopPropagation();
+  vertexContextMenu(evt: ContextMenuEvent): boolean {
+    DamContextMenuComponent.contextMenu.hide();
+    // only if is focused input
+    const lastSelected: FocusHistoryEntry = U.focusHistoryEntries[U.focusHistoryElements.length - 1];
+    const gotSelectedNow: boolean = lastSelected && U.isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
+    const isInput = U.isInput(evt.target, true, false) && !gotSelectedNow;const gotMoved = this.size.tl().subtract(U.vertexOldPos, false).absolute() > IVertex.tolleranzaRightClickMove;
+    const ret: boolean = isInput && !gotMoved;
+    if (ret) return true; else { evt.preventDefault(); evt.stopPropagation(); }
+    if (gotMoved) return ret;
+    // only if: !input && !gotMoved
+    DamContextMenuComponent.contextMenu.show(new Point(evt.pageX, evt.pageY), '.Vertex', evt.currentTarget);
     return false; }
 
-  vertexContextMenu(evt: ContextMenuEvent): boolean {
-    DamContextMenuComponent.contextMenu.show(new Point(evt.pageX, evt.pageY), '.Vertex', evt.currentTarget);
-    evt.preventDefault();
-    evt.stopPropagation();
+  featureContextMenu(evt: ContextMenuEvent): boolean {
+    DamContextMenuComponent.contextMenu.hide();
+    // only if is focused input
+    const lastSelected: FocusHistoryEntry = U.focusHistoryEntries[U.focusHistoryElements.length - 1];
+    const gotSelectedNow: boolean = lastSelected && U.isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
+    const isInput = U.isInput(evt.target, true, false) && !gotSelectedNow;
+    const gotMoved = this.size.tl().subtract(U.vertexOldPos, false).absolute() > IVertex.tolleranzaRightClickMove;
+    const ret: boolean = isInput && !gotMoved;
+    if (ret) return true; else { evt.preventDefault(); evt.stopPropagation(); }
+    if (gotMoved) return ret;
+
+    DamContextMenuComponent.contextMenu.show(new Point(evt.pageX, evt.pageY), '.Feature', evt.currentTarget);
     return false; }
 
   onMouseDown(e: MouseDownEvent): void {
     if (IEdge.edgeChanging) { this.clickSetReference(e); return; }
     let tmp: HTMLElement = e.target as HTMLElement;
+    console.log(e.button, e.buttons, e);
+    if (e.button === U.mouseLeftButton && U.isInput(tmp, true)) return;
+    if (e.button === U.mouseWheelButton) return this.owner.onMouseDown(e, true);
+    if (e.button === U.mouseRightButton) U.vertexOldPos = this.size.tl();
     const thisHtml = this.getHtml();
     // i will not move the vertex while moving a measurable children.
-    while (tmp && tmp !== thisHtml) { if (tmp.classList.contains('measurable')) { return; } tmp = tmp.parentElement; }
+    while (tmp && tmp !== thisHtml) {
+      // if (tmp.classList.contains('measurable')) { return; }
+      tmp = tmp.parentElement; }
     IVertex.selected = this;
     if (IVertex.selectedGridWasOn.x as any === 'prevent_doublemousedowncheck') {
       IVertex.selectedGridWasOn.x = IVertex.selected.owner.grid.x; }
@@ -728,8 +778,8 @@ export class IVertex {
     U.pe(!edges, 'ref.edges === null', ref);
     let edge: IEdge;
     if (ref.upperbound > 0 && edges.length - 1 >= ref.upperbound) { edge = edges[edges.length - 1]; } else { edge = new IEdge(ref); }*/
-    const html2: HTMLElement | SVGElement = e.currentTarget as HTMLElement | SVGGElement;
-    // while (html2 && html2.classList && !html2.classList.contains('vertexShell')) { html2 = html2.parentNode as HTMLElement | SVGElement;}
+    const html2: Element = e.currentTarget as HTMLElement | SVGGElement;
+    // while (html2 && html2.classList && !html2.classList.contains('vertexShell')) { html2 = html2.parentNode as Element;}
     let hoveringTarget: IClassifier = html2 ? ModelPiece.getLogic(html2) as IClassifier : null;
     U.pe(!hoveringTarget || !(hoveringTarget instanceof IClassifier),
       'the currentTarget should point to the vertex root, only classifier should be retrieved.', hoveringTarget, e, html2);
@@ -780,17 +830,17 @@ export class IVertex {
       case 'operation': U.pe(!classe, '"Operation" as .AddFieldSelect value is only allowed on M2-classes'); classe.addOperation(); break;
       case 'literal': U.pe(!enumm, '"Literal" as .AddFieldSelect value is only allowed on Enumerations'); enumm.addLiteral(); break; }
   }
-/*
-  setAddButtonContainer(container: HTMLElement): void {
-    U.toHtml('<span style="display:flex; margin:auto;">Add&nbsp;</span>' +
-      '<select class="AddFieldSelect" style="display:flex; margin:auto;"><optgroup label="FeatureType">' +
-      '<option value="Attribute" selected="">Attribute</option>' +
-      '<option value="Reference">Reference</option>' +
-      '<option value="Operation">Operation</option>' +
-      '</optgroup></select>' +
-      '<span style="display:flex; margin:auto;">&nbsp;field</span>\n' +
-      '<button>Go</button>', container); }
-*/
+  /*
+    setAddButtonContainer(container: HTMLElement): void {
+      U.toHtml('<span style="display:flex; margin:auto;">Add&nbsp;</span>' +
+        '<select class="AddFieldSelect" style="display:flex; margin:auto;"><optgroup label="FeatureType">' +
+        '<option value="Attribute" selected="">Attribute</option>' +
+        '<option value="Reference">Reference</option>' +
+        '<option value="Operation">Operation</option>' +
+        '</optgroup></select>' +
+        '<span style="display:flex; margin:auto;">&nbsp;field</span>\n' +
+        '<button>Go</button>', container); }
+  */
   setFields(f: IField[]) {
     this.fields = f;
   }
@@ -810,7 +860,7 @@ export class IVertex {
   logic(set: IClassifier = null): IClassifier {
     if (set) { return this.classe = set; }
     return this.classe; }
-    // todo: elimina differenze html e htmlforeign o almeno controlla e riorganizza
+  // todo: elimina differenze html e htmlforeign o almeno controlla e riorganizza
   getHtmlRawForeign(): SVGForeignObjectElement { return this.htmlForeign; }
   getHtml(): HTMLElement { return this.htmlForeign.firstChild as HTMLElement; }
   minimize(): void {
@@ -819,7 +869,7 @@ export class IVertex {
 
   isDrawn(): boolean { return !!(this.htmlForeign && this.htmlForeign.parentNode); }
 
-  pushDown(): void {
+  /*pushDown(): void {
     if (!this.isDrawn()) { return; }
     const html = this.htmlForeign;
     const parent = html.parentNode;
@@ -831,7 +881,7 @@ export class IVertex {
     const html = this.htmlForeign;
     const parent = html.parentNode;
     parent.removeChild(html);
-    parent.prepend(html); }
+    parent.prepend(html); }*/
 
   remove() {
     console.log('IVertex.delete();');

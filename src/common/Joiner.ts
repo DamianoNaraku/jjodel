@@ -5,6 +5,7 @@
 // /*new*/export {Styles, ModelPieceStyleEntry, SortType, StyleVisibility} from '../GuiStyles/styles';
 // /*new*/export {ViewHtmlSettings, ViewPoint, ViewRule, ModelView, PackageView, ClassView, AttributeView, EdgeViewRule, ReferenceView, OperationView,
 // ParameterView} from '../GuiStyles/viewpoint';
+
 export type MyException = any;
 import { default as AnsiUp } from 'ansi_up';
 export const ansiUp = new AnsiUp(); // https://github.com/drudru/ansi_up // ansi color formatter.
@@ -17,6 +18,9 @@ import * as $$ from 'jquery';
 export const $ = window['' + '$'] = $$;
 import * as $bb from 'bootstrap';
 export const $b = $bb;
+// import Moveable from 'moveable/declaration/Moveable';
+// import Moveable from "moveable";
+
 /*
 import * as JQueryUII        from '../../node_modules/jqueryui';
 export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/

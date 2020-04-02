@@ -8,6 +8,8 @@ import DraggableEventUIParams = JQueryUI.DraggableEventUIParams;
 import DraggableOptions = JQueryUI.DraggableOptions;
 import {createTokenForExternalReference} from '@angular/compiler/src/identifiers';
 import {Draggableoptions, Resizableoptions, Rotatableoptions} from '../app/measurabletemplate/measurabletemplate.component';
+import Moveable from 'moveable';
+import Scene from 'scenejs/declaration/Scene';
 /*
 export class MeasurableArrays {rules: Attr[]; imports: Attr[]; exports: Attr[]; variables: Attr[];
   constraints: Attr[]; chain: Attr[]; chainFinal: Attr[]; dstyle: Attr[]; html: Element; e: Event; }*/
@@ -476,9 +478,7 @@ export class MeasurableRuleLists {
   // check when updating measurable rules: 2
   all: MeasurableRuleParts[] = [];
   _: MeasurableRuleParts[] = [];
-  _jquiDra: MeasurableRuleParts[] = [];
-  _jquiRes: MeasurableRuleParts[] = [];
-  _jquiRot: MeasurableRuleParts[] = [];
+  _mov: MeasurableRuleParts[] = [];
   _console: MeasurableRuleParts[] = [];
   _bind: MeasurableRuleParts[] = [];
   _export: MeasurableRuleParts[] = [];
@@ -520,19 +520,94 @@ export class Measurable {
 
   // ################ oldies but good
 
-  static measurableElementSetup($root: JQuery<Element>, resizeConfig: ResizableOptions = null, dragConfig: DraggableOptions = null): void {
-    $root.find('.measurable').addBack('.measurable').each(
-      (i: number, h: Element) => Measurable.measurableElementSetupSingle(h as Element,  resizeConfig, dragConfig)); }
-// todo: devo importare rotatableOptions, ResizableOptions è la vra classe dichiarata dalla libreria jqui, non la mia. devo fare lo stesso con rotatable.
-  static measurableElementSetupSingle(elem0: Element, resConfig: ResizableOptions = null, rotConfig: RotatableOptions = null, draConfig: DraggableOptions = null): void {
+  static measurableElementSetup($vroot: JQuery<Element>, v: IVertex) {
+    const html: Element = v.getHtml();
+    html.classList.remove('measurable');
+    $vroot.find('.measurable').addBack('.measurable').each((i: number, h: Element) => Measurable.measurableElementSetupSingle([h as Element]));
+    html.classList.add('measurable');
+    this.measurableElementSetupSingle([v.getHtmlRawForeign()], v); }
+
+  static measurableElementSetupSingle(html: Element[], v: IVertex = null): void {
+    // U.pe(html.classList.contains('measurable'), 'html is not measurable:', html, v);
+    // const rl: MeasurableRuleLists = this.getRuleList(html);
+    /*
+    window['Moveable' + ''] = Moveable;
+    const m: Moveable = new Moveable(v.owner.container);
+    m.target = html as HTMLElement[];
+    let i: number;
+    if (v) v.moveable = m;
+    m.draggable = true;
+    m.resizable = true;*/
+
+
+    //////
+    const target: HTMLElement = html[0] as any;
+    console.log(target, target.parentElement);
+    let param: {container: HTMLElement; scalable: boolean; throttleDrag: number; rotatable: boolean; pinchable: boolean; resizable: boolean; origin: boolean; warpable: boolean; target: any; keepRatio: boolean; throttleResize: number; edge: boolean; draggable: boolean; throttleRotate: number; throttleScale: number} = null;
+    const moveable = new Moveable(document.body, param = {
+      target: target,
+      // If the container is null, the position is fixed. (default: parentElement(document.body))
+      container: target.parentElement,
+      draggable: true,
+      resizable: true,
+      scalable: true,
+      rotatable: true,
+      warpable: true,
+      // Enabling pinchable lets you use events that
+      // can be used in draggable, resizable, scalable, and rotateable.
+      pinchable: true, // ["resizable", "scalable", "rotatable"]
+      origin: true,
+      keepRatio: true,
+      // Resize, Scale Events at edges.
+      edge: false,
+      throttleDrag: 0,
+      throttleResize: 0,
+      throttleScale: 0,
+      throttleRotate: 0,
+    });
+    /* draggable */
+    if (target.dataset['eventset'] === 'true') return;
+    target.dataset['eventset'] = 'true';
+    moveable.on("dragStart", ({ target, clientX, clientY }) => {
+      console.log("onDragStart", target);
+    }).on("drag", ({
+                     target, transform,
+                     left, top, right, bottom,
+                     beforeDelta, beforeDist, delta, dist,
+                     clientX, clientY,
+                   }) => {
+      console.log("onDrag left, top", left, top);
+      target!.style.left = `${left}px`;
+      target!.style.top = `${top}px`;
+      const foreign: SVGForeignObjectElement = target.firstChild as any;
+      foreign.setAttributeNS(null, 'x', '' + (left / v.owner.zoom.x));
+      foreign.setAttributeNS(null, 'y', '' + (top / v.owner.zoom.y));
+      // console.log("onDrag translate", dist);
+      // target!.style.transform = transform;
+    }).on("dragEnd", ({ target, isDrag, clientX, clientY }) => {
+      console.log("onDragEnd", target, isDrag);
+    });
+
+    /*for (i = 0; i < rl._mov.length; i++) {
+      const rule: MeasurableRuleParts = rl._mov[i];
+      switch (rule.name) {
+        default: break;
+        // todo: insert moveable options
+      }
+    }*/
+
+
+
+/*
+
     const elem: HTMLElement = elem0 as HTMLElement;
     // apply resizableborder AND jquery.resize
     if (!elem.classList || !elem.classList.contains('measurable') || elem as any === document) {
       U.pw(true, 'invalid measurable:', elem, !elem.classList, '||', !elem.classList.contains('measurable')); return; }
     U.resizableBorderSetup(elem);
-    if (!resConfig) { resConfig = {}; }
-    if (!rotConfig) { rotConfig = {}; }
-    if (!draConfig) { draConfig = {}; }
+    const moveable: Moveable = new Moveable(document.body);
+
+    if (!movConfig) { movConfig = {}; }
     let func = null;
     let attrval: string = null;
     let i: number;

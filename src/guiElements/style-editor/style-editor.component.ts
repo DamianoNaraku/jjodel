@@ -34,7 +34,7 @@ import SelectEvent = JQuery.SelectEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
 import {
-  DraggableOptions, DraggableOptionsPH,
+  DraggableOptionsPH,
   Resizableoptions,
   ResizableoptionsPH,
   Rotatableoptions, RotatableoptionsPH
@@ -727,7 +727,7 @@ export class StyleEditor {
     }*/
     for (i = 0; i < rulelist.all.length; i++) {
       const rule: MeasurableRuleParts = rulelist.all[i];
-      U.pe(!rule.prefix, 'astdh', rule, rulelist, context.templateLevel);
+      U.pe(!rule.prefix, 'astdh', rule, rulelist, context.templateLevel);/*
       if (rule.prefix === measurableRules._jquiDra && rule.name === 'axis') {
         const value = rulelist._jquiDra[i].right;
         const handles: string[] = (value.indexOf('all') !== -1 ? 'x,y' : U.replaceAll(value, ' ', '')).split(',');
@@ -764,7 +764,7 @@ export class StyleEditor {
         resizearrows.bl.checked = map.bl;
         resizearrows.b.checked = map.b;
         resizearrows.br.checked = map.br;
-        continue; }
+        continue; }*/
       const fakeevt: any = {};
       fakeevt.currentTarget = $measurableShell.find(
         '.ruletitle[data-target=".meas_acc > .panel > .' + rule.prefix + '" > button.addrule')[0];

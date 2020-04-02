@@ -57,6 +57,7 @@ import DraggableOptions = JQueryUI.DraggableOptions;
 import ResizableUIParams = JQueryUI.ResizableUIParams;
 import DraggableEventUIParams = JQueryUI.DraggableEventUIParams;
 import {FocusHistoryEntry} from '../../../common/util';
+import Moveable from 'moveable';
 
 export class IVertex {
   static all: Dictionary = {};
@@ -78,6 +79,7 @@ export class IVertex {
   size: GraphSize;
   contains: IVertex[];
   id: number;
+  moveable: Moveable;
   private htmlForeign: SVGForeignObjectElement;
   private html: HTMLElement;
   private Vmarks: Dictionary<string, SVGRectElement> = {};
@@ -343,11 +345,11 @@ export class IVertex {
 
   private autosize(refreshVertex: boolean = true, refreshEdge: boolean = true, debug: boolean = false): IVertex {
     const html: HTMLElement = this.getHtml();
-    const autosize: string = html.dataset.autosize;
+    const autosize: string = html.dataset.autosize;/*
     // console.log('autosize() ? ', modelPiece.html, ' dataset.autosize:', autosize);
     U.pe(autosize !== '1' && autosize !== 't' && autosize !== 'true',
       'foreignObject:first-child must have data-autosize="true", and style {height: 100%;} required for now.' +
-      ' html:', html, 'foreign:', this.htmlForeign);
+      ' html:', html, 'foreign:', this.htmlForeign);*/
     if (autosize !== '1' && autosize !== 't' && autosize !== 'true') { return this; }
     // console.log('autosize() started');
     if (html.style.height !== 'auto') {
@@ -493,7 +495,13 @@ export class IVertex {
     if (graphHtml.contains(this.htmlForeign)) { graphHtml.removeChild<SVGElement>(this.htmlForeign); }
     // console.log('drawing Vertex[' + data.name + '] with style:', htmlRaw, 'logic:', data);
     // console.log('drawVertex: template:', htmlRaw);
-    const foreign: SVGForeignObjectElement = this.htmlForeign = U.textToSvg(U.replaceVars<SVGForeignObjectElement>(data, htmlRaw, true).outerHTML);
+    if (!this.htmlForeign) this.htmlForeign = U.newSvg('g');
+    U.clear(this.htmlForeign);
+    const foreign: SVGForeignObjectElement = this.htmlForeign;
+    const inner = U.textToSvg(U.replaceVars<SVGForeignObjectElement>(data, htmlRaw, true).outerHTML);
+    console.log('inner: ', inner);
+    this.htmlForeign.appendChild(inner);
+    // const foreign: SVGForeignObjectElement = this.htmlForeign = U.textToSvg(U.replaceVars<SVGForeignObjectElement>(data, htmlRaw, true).outerHTML);
     const $foreign = $(foreign);
     data.linkToLogic(foreign);
     const $elementWithID = $foreign.find('[id]');
@@ -516,11 +524,11 @@ export class IVertex {
     // console.log('this.size? (' + (!!this.size) + ': setSize() : ', U.getSvgSize(this.style));
     // console.log('drawC_Vertex. size:', this.size, data.html, this.size = U.getSvgSize(data.html as SVGForeignObjectElement));
     if (!this.size) { this.size = this.getSize(); } else { this.setSize(this.size, false, false); }
-
+/*
     U.pe(this.htmlForeign.tagName.toLowerCase() !== 'foreignobject', 'The custom style root must be a foreignObject node.', this.htmlForeign);
     U.pe(this.htmlForeign.childNodes.length !== 1, 'The custom style must have a single child node,' +
       ' without spaces between <foreignObject> and the next tag. found ' + this.htmlForeign.childNodes.length + ' childrens.',
-      this.htmlForeign, this.htmlForeign.childNodes);
+      this.htmlForeign, this.htmlForeign.childNodes);*/
     // this.html = this.htmlForeign.firstChild as HTMLElement;
     return foreign; }
 
@@ -619,16 +627,8 @@ export class IVertex {
     const defaultDragConfig: DraggableOptions = {};
     // NB: do not delete the apparantly useless dynamic functions.
     // jqueryui is binding this to e.currentTarget and e.currentTarget to document.body, the dynamic function makes this instanceof iVertex again.
-    defaultResizeConfig.create = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
-    defaultResizeConfig.start = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.onResizeStart);
-    defaultResizeConfig.resize = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.whileResizing);
-    defaultResizeConfig.stop = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.onResizeEnd);
-    // defaultDragConfig.create = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
-    defaultDragConfig.start = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.onDragStart);
-    defaultDragConfig.drag = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.whileDragging);
-    defaultDragConfig.stop = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.onDragEnd);
 //     console.log('measurableElementSetup:', defaultResizeConfig, defaultDragConfig);
-    Measurable.measurableElementSetup($html, defaultResizeConfig, defaultDragConfig); }
+    Measurable.measurableElementSetup($html, this); }
 
   measuringTrigger(ui: ResizableUIParams | DraggableEventUIParams, e: Event, prefix: string): void {
     const html: Element = e.currentTarget as Element;
@@ -639,38 +639,6 @@ export class IVertex {
       new MeasurableRuleParts(html.attributes[i], prefix.length).process(false, this, this.owner);
     }
   }
-
-  /*
-    measuringInit(ui: ResizableUIParams | DraggableEventUIParams, e: Event): void {
-      const m = U.measurableGetArrays(null, e);
-      console.log('measuringInit:', ui, e, m);
-      let i: number;
-      const size: Size = U.sizeof(m.html);
-      const absTargetSize: Size = this.owner.getSize();
-      const logic: IClassifier = this.logic();
-      for (i = 0; i < m.variables.length; i++) { U.processMeasurableVariable(m.variables[i], logic, m.html, size, absTargetSize); }
-      for (i = 0; i < m.dstyle.length; i++) { U.processMeasurableDstyle(m.dstyle[i], logic, m.html, null, absTargetSize); }
-      for (i = 0; i < m.imports.length; i++) { U.processMeasurableImport(m.imports[i], logic, m.html, null, absTargetSize); }
-    }
-  
-    measuringChanging(ui: ResizableUIParams | DraggableEventUIParams, e: Event, measurHtml: Element = null): void {
-      const m: MeasurableArrays = U.measurableGetArrays(measurHtml, e);
-      console.log('Changing.measurableHtml parsed special attributes:', m);
-      m.imports = [];
-      m.chainFinal = [];
-      // m.dstyle = [];
-      // m.rules = [];
-      // m.variables = [];
-      U.processMeasuring(this.logic(), m, ui);
-    }
-  
-    measuringChanged(ui: ResizableUIParams | DraggableEventUIParams, e: Event, measurHtml: Element = null): void {
-      const m = U.measurableGetArrays(measurHtml, e);
-      console.log('Changed.measurableHtml parsed special attributes:', m);
-      m.chain = [];
-      m.imports = [];
-      U.processMeasuring(this.logic(), m, ui);
-    }*/
 
 
   clickSetReference(e: ClickEvent | MouseUpEvent | MouseDownEvent, debug: boolean = true): void {
@@ -734,6 +702,7 @@ export class IVertex {
 
   onMouseDown(e: MouseDownEvent): void {
     if (IEdge.edgeChanging) { this.clickSetReference(e); return; }
+    /*
     let tmp: HTMLElement = e.target as HTMLElement;
     console.log(e.button, e.buttons, e);
     if (e.button === U.mouseLeftButton && U.isInput(tmp, true)) return;
@@ -752,10 +721,12 @@ export class IVertex {
     IVertex.selected.owner.grid.x = null;
     IVertex.selected.owner.grid.y = null;
     IVertex.selectedStartPt = this.owner.toGraphCoord(new Point(e.pageX, e.pageY));
-    IVertex.selectedStartPt.subtract(this.size.tl(), false); }
+    IVertex.selectedStartPt.subtract(this.size.tl(), false); */
+  }
 
   onMouseUp(e: MouseUpEvent): void {
     if (IEdge.edgeChanging) { this.clickSetReference(e); return; }
+    /*
     const v: IVertex = IVertex.selected;
     if (!v) return;
     v.owner.grid.x = IVertex.selectedGridWasOn.x;
@@ -764,7 +735,7 @@ export class IVertex {
     IVertex.selectedGridWasOn.y = 'prevent_doublemousedowncheck' as any;
     this.owner.fitToGridS(v.size, false);
     this.setSize(this.size, false, true);
-    IVertex.selected = null; }
+    IVertex.selected = null; */}
 
   onMouseMove(e: MouseMoveEvent): void { }
   onMouseEnter(e: MouseEnterEvent): void { this.mouseEnterLinkPreview(e); }

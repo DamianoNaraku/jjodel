@@ -34,7 +34,8 @@ import SelectEvent = JQuery.SelectEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
 import {
-  DraggableOptions, DraggableOptionsPH,
+  Draggableoptions,
+  DraggableOptionsPH,
   Resizableoptions,
   ResizableoptionsPH,
   Rotatableoptions, RotatableoptionsPH
@@ -91,11 +92,13 @@ export class StyleEditor {
 
   isVisible(): boolean { return this.$root.is(':visible'); }
   show(m: ModelPiece, clickedLevel: Element) {
-    this.clickedLevel = clickedLevel;
+    m = m || this.propertyBar.selectedModelPiece;
+    if (!m) m = Status.status.getActiveModel();
     // console.log('styleShow(', m, ')');
     if (m instanceof IModel) { this.showM(m); return; }
     if (m instanceof IPackage) { this.showM(m.parent); return; }
     // if (m instanceof IPackage) { this.showP(m); return; }
+    this.clickedLevel = clickedLevel = clickedLevel || m.getHtmlOnGraph();
     this.showMP(m, null, false, null);
     return;/*
     if (m instanceof IClass) { this.showC(m); }
@@ -113,7 +116,7 @@ export class StyleEditor {
     let $html: JQuery<HTMLElement> = this.$templates.find('.template' + s);
     const html: HTMLElement = U.cloneHtml<HTMLElement>($html[0]);
     html.classList.remove('template');
-    html.dataset.modelPieceID = '' + m.id;
+    html.dataset.modelpieceid = '' + m.id;
     html.style.display = 'block';
     if (appendTo) {
       if (clear) U.clear(appendTo);
@@ -206,6 +209,7 @@ export class StyleEditor {
       forkButton: HTMLButtonElement,
       delete: HTMLButtonElement,
       saveasName: HTMLInputElement,
+      styledelete: HTMLButtonElement
     } = {
       editLabel: null,
       editAllowed: null,
@@ -225,7 +229,8 @@ export class StyleEditor {
       stylename: null,
       forkButton: null,
       delete: null,
-      saveasName: null
+      saveasName: null,
+      styledelete: null
     };
     //// setting up labelAllowEdit (checking if the (own, inherited or inheritable) style exist or a modelpiece local copy is needed.)
     obj.editAllowed = $styleown.find('button.allowEdit')[0] as HTMLButtonElement;
@@ -236,6 +241,7 @@ export class StyleEditor {
     obj.input = $styleown.find('.html[contenteditable="true"]')[0] as HTMLTextAreaElement | HTMLDivElement;
     obj.preview = $styleown.find('.preview')[0] as HTMLElement;
     obj.previewselect = $styleown.find('select.previewselector')[0] as HTMLSelectElement;
+    obj.styledelete = $styleown.find('button.styledelete')[0] as HTMLButtonElement;
     const $detail = $styleown.find('div.detail');
     obj.isM1 = $detail.find('.model')[0] as HTMLInputElement;
     obj.isM2 = $detail.find('.metamodel')[0] as HTMLInputElement;
@@ -256,6 +262,7 @@ export class StyleEditor {
       $(obj.editLabel).hide();
     } else {
       obj.input.setAttribute('disabled', 'true');
+      U.remove(obj.styledelete);
       obj.input.contentEditable = 'false';
       if (!lastvp) {
         obj.editLabel.innerText = 'Is required to have at least one non-default viewpoint applied to customize styles.';
@@ -299,7 +306,9 @@ export class StyleEditor {
     $styleown.find('.htmllevel').html((isInherited ? 'Instances Html' : 'Own html')
       + ' (' + (indexedPath && indexedPath.length ? 'Level&nbsp;' + indexedPath.length : 'Root&nbsp;level') + ')');
     let graphRoot: Element = mp.getHtmlOnGraph();
-    context.graphLevel = U.followIndexesPath(graphRoot, indexedPath);
+    context.graphLevel = U.followIndexesPath(graphRoot, indexedPath, 'childNodes');
+    U.pe(!graphRoot, 'failed to get graphroot', graphRoot, indexedPath, mp);
+    U.pe(!context.graphLevel, 'failed to get graphlv', graphRoot, indexedPath, mp);
     context.applyNodeChangesToInput = (): void => {
       // console.log(templateLevel.outerHTML);
       obj.input.innerText = context.templateLevel.outerHTML;
@@ -307,6 +316,7 @@ export class StyleEditor {
     };
     const onStyleChange = (): void => {
       const inputHtml: Element = U.toHtml(obj.input.innerText);
+      if (inputHtml.getAttribute('disabled') !== 'false') return;
       // console.log('PRE: ', inputHtml, 'outer:', inputHtml.outerHTML, 'innertext:', obj.input.innerText);
       U.pif(debug, '*** setting inheritable PRE. style.htmlobj:', style.htmlobj, ', style:', style, ', context:', context,
         'templatelvl.parent:', context.templateLevel.parentElement, ', inputHtml:', inputHtml);
@@ -323,9 +333,9 @@ export class StyleEditor {
       if (isOwn) { mp.refreshGUI(); }
       if (isInheritable) { mp.refreshInstancesGUI(); }
       if (isInherited) { mp.metaParent.refreshInstancesGUI(); }
-      if (!isInheritable && indexedPath) this.clickedLevel = U.followIndexesPath(mp.getHtmlOnGraph(), indexedPath);
+      if (!isInheritable && indexedPath) this.clickedLevel = U.followIndexesPath(mp.getHtmlOnGraph(), indexedPath, 'childNodes');
       graphRoot = mp.getHtmlOnGraph();
-      context.graphLevel = U.followIndexesPath(graphRoot, indexedPath);
+      context.graphLevel = U.followIndexesPath(graphRoot, indexedPath, 'childNodes');
       this.updateClickedGUIHighlight();
       // obj.input.innerText = inputHtml.outerHTML;
       // DANGER: se lo fai con l'evento onchange() ti sposta il cursore all'inizio e finisci per scrivere rawtext prima dell'html invalidandolo.
@@ -378,12 +388,12 @@ export class StyleEditor {
       e.stopPropagation();
       e.stopImmediatePropagation();
     });
+    $(obj.styledelete).on('click', () => { style.view.delete(); mp.refreshGUI(); this.show(mp, mp.getHtmlOnGraph()); });
     $measurableCheckbox.on('click', (e: ClickEvent) => { e.stopPropagation(); });
     $measurableCheckbox.on('mousedown', (e: MouseDownEvent) => {e.stopPropagation(); });
     $measurableCheckbox.on('mouseup', (e: MouseUpEvent) => { e.stopPropagation(); });
     $measurableCheckbox.off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e: ChangeEvent) => {
       context.templateLevel.classList.remove('measurable');
-
       if (measurableCheckbox.checked) {
         context.templateLevel.classList.add('measurable');
         $measurableTitle.slideDown();
@@ -392,6 +402,7 @@ export class StyleEditor {
       else {
         if (measurableRoot.classList.contains('show')) { $measurableTitle.trigger('click'); }
         $measurableTitle.slideUp(); }
+      if (U.isTriggered(e)) return;
       context.applyNodeChangesToInput();
     }).trigger('change');
     this.makeMeasurableOptions(measurableRoot, obj.input, style, context, indexedPath);
@@ -430,7 +441,7 @@ export class StyleEditor {
     // 'templateRoot:', templateRoot, 'templateLevel:', templateLevel);
     if (realindexfollowed.indexFollowed.length !== indexedPath.length) {
       indexedPath = realindexfollowed.indexFollowed as number[];
-      this.clickedLevel = clickedLevel = U.followIndexesPath(clickedRoot, indexedPath);}
+      this.clickedLevel = clickedLevel = U.followIndexesPath(clickedRoot, indexedPath,  'childNodes'); }
     this.updateClickedGUIHighlight();
     // html set END.
     const model: IModel = m.getModelRoot();
@@ -470,7 +481,9 @@ export class StyleEditor {
     // pulsanti per settare preview: "takesnapshotOf / set as example... + select vertex with that style"
 
     const $arrowup: JQuery<HTMLButtonElement> = ($html.find('button.arrow.up') as JQuery<HTMLButtonElement>).on('click', (e: ClickEvent) => {
-      $(clickedLevel.parentNode).trigger('click');
+      // $(clickedLevel.parentNode).trigger('click');
+      this.propertyBar.show(null, clickedLevel.parentElement, null, false);
+      // this.show(this.propertyBar.selectedModelPiece, clickedLevel.parentElement); this will not update clickedHtml
     });
     $arrowup[0].disabled = htmlPath.length === 0 && m instanceof IClass;
     ($html.find('button.arrow.down') as JQuery<HTMLButtonElement>)[0].disabled = true;
@@ -704,16 +717,16 @@ export class StyleEditor {
       if (innerbox) {
         innerbox.classList.remove('selected');
         if (checked) innerbox.classList.add('selected'); }
-      if (isdraggable) { tmp = context.templateLevel.getAttribute('_daxis'); }
-      if (isresizable) { tmp = context.templateLevel.getAttribute('_rhandles'); }
+      if (isdraggable) { tmp = context.templateLevel.getAttribute(measurableRules._jquiDra + Draggableoptions.axis); }
+      if (isresizable) { tmp = context.templateLevel.getAttribute(measurableRules._jquiRes + Resizableoptions.handles); }
       let currentHandles: string[] = U.replaceAll(tmp || '', ' ', '').split(',');
       U.arrayRemoveAll(currentHandles, direction);
       if (checked) { U.ArrayAdd(currentHandles, direction); }
       U.arrayRemoveAll(currentHandles, '');
-      if (isdraggable && currentHandles.length) { context.templateLevel.setAttribute('_daxis', currentHandles.join(', ')); }
-      else context.templateLevel.removeAttribute('_daxis');
-      if (isresizable && currentHandles.length) { context.templateLevel.setAttribute('_rhandles', currentHandles.join(', ')); }
-      else context.templateLevel.removeAttribute('_rhandles');
+      if (isdraggable && currentHandles.length) { context.templateLevel.setAttribute(measurableRules._jquiDra + Draggableoptions.axis, currentHandles.join(', ')); }
+      else context.templateLevel.removeAttribute(measurableRules._jquiDra + Draggableoptions.axis);
+      if (isresizable && currentHandles.length) { context.templateLevel.setAttribute(measurableRules._jquiRes + Resizableoptions.handles, currentHandles.join(', ')); }
+      else context.templateLevel.removeAttribute(measurableRules._jquiRes + Resizableoptions.handles);
       console.log('resizable:', isresizable, 'draggable:', isdraggable, currentHandles, 'tmp:', tmp, context);
       context.applyNodeChangesToInput(); };
     const rulelist: MeasurableRuleLists = Measurable.getRuleList(context.templateLevel);
@@ -728,7 +741,7 @@ export class StyleEditor {
     for (i = 0; i < rulelist.all.length; i++) {
       const rule: MeasurableRuleParts = rulelist.all[i];
       U.pe(!rule.prefix, 'astdh', rule, rulelist, context.templateLevel);
-      if (rule.prefix === measurableRules._jquiDra && rule.name === 'axis') {
+      if (rule.prefix === measurableRules._jquiDra && rule.name === Draggableoptions.axis) {
         const value = rulelist._jquiDra[i].right;
         const handles: string[] = (value.indexOf('all') !== -1 ? 'x,y' : U.replaceAll(value, ' ', '')).split(',');
         let map: {x,y} = {} as any;
@@ -741,7 +754,7 @@ export class StyleEditor {
         dragarrows.x.checked = map.x;
         dragarrows.y.checked = map.y;
         continue; }
-      if (rule.prefix === measurableRules._jquiRes && rule.name === 'handles') {
+      if (rule.prefix === measurableRules._jquiRes && rule.name === Resizableoptions.handles) {
         const handles: string[] = (rule.right.indexOf('all') !== -1 ? 'n,e,s,w,ne,se,sw,nw' : U.replaceAll(rule.right, ' ', '')).split(',');
         let map: {tl, t, tr, l, r, bl, b, br} = {} as any;
         for (i = 0; i < handles.length; i++) {
@@ -775,30 +788,7 @@ export class StyleEditor {
     $measurableShell.find('button.addrule').off('click.addrule').on('click.addrule',
       (e: ClickEvent) => { e.stopPropagation(); this.addRule(e, context); });
   }
-/*
-  ruletypeenum: {
-    _: "_",
-    r: "_rule",
-    e: "_export",
-    co: "_constraint",
-    ds: "_dstyle",
-    ch: "_chain",
-    chf: "_chainFinal",
-    i: "_import",
-    dd: "_d",
-    rr: "_r",
-    z: "_z"} = {
-    _: "_",
-    r: "_rule",
-    e: "_export",
-    co: "_constraint",
-    ds: "_dstyle",
-    ch: "_chain",
-    chf: "_chainFinal",
-    i: "_import",
-    dd: "_d",
-    rr: "_r",
-    z: "_z"};*/
+
   getruleShellRoot(node: Element): HTMLDivElement {
     while (node.parentElement && !node.classList.contains('panel')) node = node.parentElement;
     return node as HTMLDivElement; }

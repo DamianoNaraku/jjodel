@@ -384,7 +384,7 @@ export class MeasurableTemplateGenerator {
 }
 export class Rotatableoptions {
   static degrees: string = 'degrees';
-  static radians: string = 'radians';
+  // static radians: string = 'radians';
   static handle: string = 'handle'; //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading
   static handleOffsetX: string = 'handleOffsetX';
   static handleOffsetY: string = 'handleOffsetY'; // internamente è: handleOffset: { top: 0, left: 0 }

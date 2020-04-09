@@ -25,11 +25,13 @@ input, textarea, *[contenteditable=""], *[contenteditable="true"]{
   -ms-user-select:text;
   user-select:text;
 }
-input, textarea /*.contenteditable?*/
-*::selection,
-*::-moz-selection,
-*::-webkit-selection {
-  /*to change selection color*/
+/* *::-moz-selection, *::-webkit-selection  to change selection color*/
+input::selection,
+textarea::selection,
+*[contenteditable=""]::selection,
+*[contenteditable="true"]::selection {
+  background: #0078d7; /* default color for firefox */
+  color: white;
 }
 
 
@@ -52,8 +54,7 @@ input[type="color"]::-webkit-color-swatch {
   /*border-radius: 100%;*/
   border: none;
 }
-
-input[type="checkbox"] {
+input[type="checkbox"], input[type="radio"] {
   width: 24px;
   height: 24px;
   margin: 0;

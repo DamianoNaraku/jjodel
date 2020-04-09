@@ -279,6 +279,10 @@ export class ViewRule {
   getViewPoint(): ViewPoint { return this.viewpoint; }
 
   delete(): void {
+    this.detach();
+    U.arrayRemoveAll(this.viewpoint.views, this);
+
+    U.arrayRemoveAll(this.target.detachedViews, this);
     console.log('modelview.delete() todo.' +
       'non posso invece di implementarla lasciarla "orfana" senza target e la faccio ignorare dal loader.' +
       'altrimenti non potrei cancellare la view senza cancellare il modelpiece, o forse basta settare tutto a null e mollarla lì?');

@@ -49,6 +49,7 @@
   width: 17px;
   min-width: 17px;
   height: 17px;
+  margin: 0;
 }
 ::ng-deep .viewpointrow button{ margin: auto; background-color: transparent }
 ::ng-deep .viewpointrow input[readonly]{ background-color: transparent; border: none; }

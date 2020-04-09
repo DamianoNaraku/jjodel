@@ -261,7 +261,7 @@ export class CursorFollowerEP extends EdgePoint {
     if (index === null || index === Number.POSITIVE_INFINITY) { index = this.edge.midNodes.length; }
     // console.log('CursorFollower.Attach()');
     this.edge = edge;
-    this.html.dataset.modelPieceID = '' + this.edge.logic.id;
+    this.html.dataset.modelpieceid = '' + this.edge.logic.id;
     U.insertAt(this.edge.midNodes, index + 1, this);
     if (position) { this.moveTo(position, false); }
     this.graph.container.appendChild(this.html);

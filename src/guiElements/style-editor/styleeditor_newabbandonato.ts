@@ -80,7 +80,7 @@ export class StyleEditor {
   private getCopyOfTemplate(m: ModelPiece, s: string): HTMLElement {
     const $html: JQuery<HTMLElement> = this.$templates.find('.Template' + s);
     const html: HTMLElement = U.cloneHtml<HTMLElement>($html[0]);
-    html.dataset.modelPieceID = '' + m.id;
+    html.dataset.modelpieceid = '' + m.id;
     U.clear(this.display);
     this.display.appendChild(html);
     html.style.display = 'block';

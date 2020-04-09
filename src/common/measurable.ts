@@ -235,6 +235,7 @@ export class MeasurableRuleParts {
     let tmp: any;
     let i: number;
     let j: number;
+    const isRoot = (this.attr.ownerElement === vertex.htmlg);
     const evalContext: MeasurableEvalContext = new MeasurableEvalContext();
     if (validatefirst) {
       const validoperators: string[] = Object.keys(MeasurableRuleParts.operatormap[this.prefix]);
@@ -266,7 +267,7 @@ export class MeasurableRuleParts {
     let attrSelector: string;
     let $targetsHtml: JQuery<Element>;
     switch (this.prefix) {
-      case measurableRules._jquiRes: case measurableRules._jquiDra: case measurableRules._jquiRot: default: out.prefix = 'invalid prefix'; return out;
+      case measurableRules._jquiRes: case measurableRules._jquiDra: case measurableRules._jquiRot: default: out.prefix = 'invalid prefix or wrong execution time. jqui rules are executed at refresh time.'; return out;
       // cancellata in favore di generic attribute che setta una variabile values[] nel contesto.
       // case measurableRules.rule: break;
       case measurableRules.console:
@@ -355,9 +356,11 @@ export class MeasurableRuleParts {
     evalContext.graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y);
     // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
     const isVertex = (evalContext.vertex.getHtmlRawForeign() === evalContext.node);
-    if (isVertex) {
+    if (true || isVertex) { // allow vertex modify outside the root rules?
       // evalContext.vertex.setSize(new GraphSize(outcontext.absoluteGPos.x, outcontext.absoluteGPos.y, outcontext.width, outcontext.height));
-      evalContext.vertex.setSize(evalContext.vertexSize);
+      U.pe(true, 'meastest');
+      const dorefresh: boolean = this.prefix !== measurableRules.onRefresh;
+      evalContext.vertex.setSize(evalContext.vertexSize, dorefresh, dorefresh);
     } else {
       const html: HTMLElement = evalContext instanceof HTMLElement || evalContext instanceof SVGSVGElement ? evalContext as any : null;
       const svg = evalContext instanceof SVGElement ? evalContext : null;
@@ -462,15 +465,10 @@ export enum measurableRules {
 
 
   */
-  // rule = '_rule',
-  // chain = '_chain',
-  // chainFinal = '_chainFinal',
   // onMouseEnter = '_onMouseEnter',
   // onMouseLeave = '_onMouseLeave',
   // onFocus = '_onBlur',
-  // onBlur = '_onBlur', it's ok to apply css changes here but not change in data, this should be handled by css only.
-  // onRefreshStart = '_onRefreshStart',
-  // whileRefreshing = '_whileRefreshing',
+  // onBlur = '_onBlur', it's ok to apply css changes here but not change in data, this should be handled by css only.ù
 }
 export class MeasurableRuleLists {
   // check when updating measurable rules: 2
@@ -496,11 +494,25 @@ export class MeasurableRuleLists {
   _whileRotating: MeasurableRuleParts[] = [];
   _onRotationEnd: MeasurableRuleParts[] = [];
 }
+export class RotatableOptions {
+  degrees: number = 0;
+  handle: JQuery<HTMLImageElement> = undefined;
+  handleOffset:  {top: number, left: number} =  { top: 0, left: 0 };
+  rotationCenterOffset:  {top: number, left: number} =  { top: 0, left: 0 };
+  snap: boolean = false;
+  step: number = undefined;
+  transforms: { translate: string | '(50%, 50%)', scale: string | '(2)', unknownothers: unknown } = undefined; // non chiaro neanche negli esempi demo. googla.
+  wheelRotate: boolean = undefined; // NB: non previene lo scroll della pagina come azione default.
+  rotate: (event: Event, ui: DraggableEventUIParams) => unknown = undefined; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.
+  start: (event: Event, ui: DraggableEventUIParams) => unknown = undefined; // in realtà è "start"
+  stop: (event: Event, ui: DraggableEventUIParams) => unknown = undefined; // in realtà è "stop"
+}
 export class Measurable {
   static readonly separator: string = '≔';
-  static getRuleList(elem: Element): MeasurableRuleLists {
+  static getRuleList(elem: Element, rulefilter: string[] = null): MeasurableRuleLists {
     let i: number;
     let j: number;
+    const rulefilterobj = rulefilter ? U.toDictionary(rulefilter) : {};
     let ret: MeasurableRuleLists = new MeasurableRuleLists();
     let prefix: string;
     for (i = 0; i < elem.attributes.length; i++) {
@@ -508,6 +520,7 @@ export class Measurable {
       for (let key in measurableRules) {
         // for (j = 0; j < Measurable.rulesListParsingOrder.length; j++) {
         prefix = measurableRules['' + key];
+        if (!rulefilterobj[prefix]) continue;
         if (attr.name.indexOf(prefix) === 0) {
           if (prefix === '_' && attr.name.indexOf('_ng') === 0) continue;
           ret.all.push(new MeasurableRuleParts(attr, prefix.length));
@@ -515,23 +528,28 @@ export class Measurable {
           break; }
       }
     }
-    return ret;
-  }
+    return ret; }
 
   // ################ oldies but good
 
-  static measurableElementSetup($root: JQuery<Element>, resizeConfig: ResizableOptions = null, dragConfig: DraggableOptions = null): void {
-    $root.find('.measurable').addBack('.measurable').each(
-      (i: number, h: Element) => Measurable.measurableElementSetupSingle(h as Element,  resizeConfig, dragConfig)); }
+  static measurableElementSetup($root: JQuery<Element>, resizeConfig: ResizableOptions = null, rotConfig: RotatableOptions = null, dragConfig: DraggableOptions = null, v: IVertex = null): void {
+    let arr = $root.find('.measurable').addBack('.measurable');
+    const vroot: Element = v ? v.getMeasurableNode() : null;
+    for (let i = 0; i < arr.length; i++) {
+      let h = arr[i];
+      if (arr[i] === vroot) { Measurable.measurableElementSetupSingle(h as Element, resizeConfig, rotConfig, dragConfig, v); }
+      else Measurable.measurableElementSetupSingle(h as Element,  resizeConfig, rotConfig, dragConfig);
+    }
+  }
 // todo: devo importare rotatableOptions, ResizableOptions è la vra classe dichiarata dalla libreria jqui, non la mia. devo fare lo stesso con rotatable.
-  static measurableElementSetupSingle(elem0: Element, resConfig: ResizableOptions = null, rotConfig: RotatableOptions = null, draConfig: DraggableOptions = null): void {
+  static measurableElementSetupSingle(elem0: Element, resConfig: ResizableOptions = null, rotConfig: RotatableOptions = null, draConfig: DraggableOptions = null, isvroot: IVertex = null): void {
     const elem: HTMLElement = elem0 as HTMLElement;
     // apply resizableborder AND jquery.resize
     if (!elem.classList || !elem.classList.contains('measurable') || elem as any === document) {
       U.pw(true, 'invalid measurable:', elem, !elem.classList, '||', !elem.classList.contains('measurable')); return; }
     U.resizableBorderSetup(elem);
     if (!resConfig) { resConfig = {}; }
-    if (!rotConfig) { rotConfig = {}; }
+    if (!rotConfig) { rotConfig = new RotatableOptions(); }
     if (!draConfig) { draConfig = {}; }
     let func = null;
     let attrval: string = null;
@@ -556,18 +574,25 @@ export class Measurable {
 
     for (i = 0; i < arr.length; i++) {
       attrval = elem.getAttribute(arr[i].config.prefix + arr[i].friendlyname).trim();
-      if (!attrval) func = null; else try { eval(attrval); } catch(e) { U.pw(true, 'invalid function as argument of resize create'); func = null; }
+      if (!attrval) func = null;
+      else try {
+        func = eval(attrval); func = (e, ui) => { try{func(e, ui);} catch(e) {U.pw(true, 'error evaluating' + arr[i].friendlyname + ':', e);}}
+      } catch(e) { U.pw(true, 'invalid function as argument of resize create'); func = null; }
+      // se resConfig[triggername] non è settato, lo setto a func.
       arr[i].config[arr[i].jquiname] = arr[i].config[arr[i].jquiname] || func;
     }
 
+    if (isvroot) {
+      const oldconfig: ResizableOptions = U.cloneObj(resConfig);
+      resConfig.resize = (e, ui) => { isvroot.autosizeNew(true, true, measurableRules.whileResizing); oldconfig.resize(e, ui); };
+      resConfig.start = (e, ui) => { isvroot.autosizeNew(true, true, measurableRules.onResizeStart); oldconfig.start(e, ui); };
+      resConfig.stop = (e, ui) => { isvroot.autosizeNew(true, true, measurableRules.onResizeEnd); oldconfig.stop(e, ui); };
+    }
+
+    resConfig.resize = () => { resConfig.resize; };
     delete (resConfig as any).prefix;
     delete (rotConfig as any).prefix;
     delete (draConfig as any).prefix;
-    attrval = elem.getAttribute(measurableRules._jquiRes + Resizableoptions.create).trim();
-    if (!attrval) func = null; else try { eval(attrval); } catch(e) { U.pw(true, 'invalid function as argument of resize create'); func = null; }
-    resizeConfig.create = resizeConfig.create || func;
-    attrval = elem.getAttribute(measurableRules._jquiRes + Resizableoptions.resizing).trim();
-    if (!attrval) func = null; else try { eval(attrval); } catch(e) { U.pw(true, 'invalid function as argument of resizing'); func = null; }
 
     for (const jquikey in resConfig) {
       let friendlykey: string;
@@ -592,7 +617,8 @@ export class Measurable {
           rotConfig[jquikey] = customparameterval;
           break;
         // case U.varname2(resConfig.disabled, resConfig): break;
-        case U.varname2(rotConfig, rotConfig.create): case U.varname2(rotConfig, rotConfig.start): case U.varname2(rotConfig, rotConfig.stop): case U.varname2(rotConfig, rotConfig.rotate): break;
+        // case U.varname2(rotConfig, rotConfig.create):
+        case U.varname2(rotConfig, rotConfig.start): case U.varname2(rotConfig, rotConfig.stop): case U.varname2(rotConfig, rotConfig.rotate): break;
       }
     }
     for (const jquikey in draConfig) {
@@ -604,14 +630,15 @@ export class Measurable {
           if (draConfig[jquikey] || !customparameterval) { continue; }
           draConfig[jquikey] = customparameterval;
           break;
-        case 'axis': if (U.replaceAll(draConfig[jquikey] + '', ' ', '') === 'x,y') draConfig[jquikey] = null; break;
+        case Draggableoptions.axis: if (U.replaceAll(draConfig[jquikey] + '', ' ', '') === 'x,y') draConfig[jquikey] = null; break;
         // case U.varname2(resConfig.disabled, resConfig): break;
         case U.varname2(draConfig, draConfig.create): case U.varname2(draConfig, draConfig.start): case U.varname2(draConfig, draConfig.stop): case U.varname2(draConfig, draConfig.drag): break;
       }
     }
 
     const $elem = $(elem);
-    $elem.resizable(resConfig).draggable(draConfig).rotatable(rotConfig);
+    $elem.resizable(resConfig).draggable(draConfig);// .rotatable(rotConfig);
+    U.pe(true, 'rotatable:', ($elem as any).rotatable);
     /*
     if (resConfig.disabled) $elem.resizable('disable');
     if (rotConfig.disabled) $elem.rotatable('disable');

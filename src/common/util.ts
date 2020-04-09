@@ -26,6 +26,8 @@ import MouseLeaveEvent = JQuery.MouseLeaveEvent;
 import ChangeEvent = JQuery.ChangeEvent;
 import FocusInEvent = JQuery.FocusInEvent;
 import BlurEvent = JQuery.BlurEvent;
+import TriggeredEvent = JQuery.TriggeredEvent;
+import EventBase = JQuery.EventBase;
 
   export class myFileReader {
   private static input: HTMLInputElement;
@@ -302,7 +304,7 @@ export class U {
   private static EC_ret: any;
   private static EC_exception: MyException;
 
-  public static remove(x: Node): void { if (x.parentElement) x.parentElement.removeChild(x); }
+  public static remove(x: Node): void { if (x && x.parentElement) x.parentElement.removeChild(x); }
 
   private static EvalContext(context: object, str: string, allowContextEvalEdit: boolean): void {
     U.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
@@ -459,16 +461,16 @@ export class U {
     const $container = U.$alertcontainer;
     const $div = $(div);
     container.appendChild(div);
-    div.classList.add('alertshell');
-    document.body.appendChild(container);
+    div.classList.add('alertshell', 'alert_' + color);
     div.setAttribute('role', 'alert');
     const alertMargin: HTMLElement = document.createElement('div');
     alertMargin.innerHTML = innerhtmlstr;
-    alertMargin.classList.add('alert');
-    alertMargin.classList.add('alert-' + color);
+    alertMargin.classList.add('alert', 'alert-' + color);
     div.appendChild(alertMargin);
-    const end = () => { $div.slideUp(400, () => { container.removeChild(div); }); };
-    $div.hide().slideDown(200, () => setTimeout(end, timer)); }
+    const end = () => { $div.slideUp(400, () => { div.parentElement && container.removeChild(div); }); }; // div.parentElement: nel caso non sia stato manualmente rimosso.
+    $div.on('click', () => $('.alert_' + color).remove());
+    $div.hide().slideDown(200, () => setTimeout(end, timer));
+  }
 
   static cloneHtml<T extends Element>(html: T, deep = true, defaultIDNum = 1): T {
     const clone: T = html.cloneNode(deep) as T;
@@ -1879,28 +1881,31 @@ export class U {
     }
     return ret.reverse(); }
 
-  static followIndexesPath(root: any, indexedPath: (number | string)[], childKey: string = null,
+  static followIndexesPath(root: any, indexedPath: (number | string)[], childKey: string,
                            outArr: {indexFollowed: (number | string)[], debugArr: {index: string | number, elem: any}[]} = {indexFollowed: [],
                              debugArr: [{index: 'Start', elem: root}]}, debug: boolean = false): any
   {
     let j: number;
     let ret: any = root;
     let oldret: any = ret;
+    U.pe(!childKey, 'must define a childkey', childKey);
     if (outArr) outArr.debugArr.push({index: 'start', elem: root, childKey: childKey} as any);
+    debug = +window['debugi'] === 1;
     U.pe(childKey && childKey !== '' + childKey, 'U.followIndexesPath() childkey must be a string or a null:', childKey, 'root:', root);
     for (j = 0; j < indexedPath.length; j++) {
       let key: number | string = indexedPath[j];
       let childArr = childKey ? ret[childKey] : ret;
       U.pif(debug, 'path ' + j + ') = elem.' + childKey + ' = ', childArr);
-      if (!childArr) { return oldret; }
+      if (!childArr) { U.pif(debug, 'U.followIndexEnd 1:', outArr); return oldret; }
       ret = childArr[key];
       if (key >= childArr.length) { key = 'Key out of boundary: ' + key + '/' + childArr.length + '.'; }
       U.pif(debug, 'path ' + j + ') = elem.' + childKey + '[ ' + key + '] = ', ret);
       if (outArr) outArr.debugArr.push({index: key, elem: ret});
-      if (!ret) { return oldret; }
+      if (!ret) { U.pif(debug, 'U.followIndexEnd 2:', outArr); return oldret; }
       if (outArr) outArr.indexFollowed.push(key);
       oldret = ret;
     }
+    U.pif(debug, 'U.followIndexEnd 3:', outArr);
     return ret; }
 
   static followIndexesPathOld(templateRoot: Element, indexedPath: number[], allNodes: boolean = true,
@@ -2152,6 +2157,21 @@ export class U {
   static varname2(parentObject: object, variable: object): string {
     for (let key in parentObject) { if (parentObject[key] === variable) return key; }
     U.pe(true, 'not a valid parent:', parentObject, variable); }
+
+  static isTriggered(e: Event | TriggeredEvent | EventBase): boolean {
+    // nb: actually JQ.ClickEvent implements JQ.EventBase extends JQ.TriggeredEvent that extends Event (native)
+    // but for some reason the IDE is telling me clickEVent is a TriggeredEVent but not not an Event.
+    let ist = !!e['isTrigger'];
+    let orig = !!e['originalEvent'];
+    U.pe(ist === orig, 'assertion failed (istrigger):', ist, orig);
+    return ist; }
+
+  static ArrayToMap(arr: (string | number | boolean)[], useLastIndexAsValue: boolean = false): Dictionary<string, boolean | number> { return U.toMap(arr, useLastIndexAsValue); }
+  static toDictionary(arr: (string | number | boolean)[], useLastIndexAsValue: boolean = false): Dictionary<string, boolean | number> { return U.toMap(arr, useLastIndexAsValue); }
+  static toMap(arr: (string | number | boolean)[], useLastIndexAsValue: boolean = false): Dictionary<string, boolean | number> {
+    const ret: Dictionary<string, boolean | number> = {};
+    for (let i = 0; i < arr.length; i++) { ret['' + arr[i]] = useLastIndexAsValue ? i : true; }
+    return ret; }
 }
 
 export enum AttribETypes {

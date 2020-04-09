@@ -27,7 +27,7 @@ import {
   ViewHtmlSettings,
   M3Reference,
   M2Attribute,
-  M3Attribute, M3Class, M2Reference, M3Package, MPackage, M2Package, Type, ELiteral, EEnum, EAnnotation, IClassifier
+  M3Attribute, M3Class, M2Reference, M3Package, MPackage, M2Package, Type, ELiteral, EEnum, EAnnotation, IClassifier, IGraph
 } from '../common/Joiner';
 
 import ClickEvent = JQuery.ClickEvent;
@@ -146,12 +146,12 @@ export abstract class ModelPiece {
   public static getLogicalRootOfHtml(html0: Element): Element {
     let html: HTMLElement = html0 as HTMLElement;
     if (!html) { return null; }
-    while ( html && (!html.dataset || !html.dataset.modelPieceID)) { html = html.parentElement; }
+    while ( html && (!html.dataset || !html.dataset.modelpieceid)) { html = html.parentElement; }
     return html; }
 
   static getLogic(html0: Element): ModelPiece {
     let html: HTMLElement = this.getLogicalRootOfHtml(html0) as HTMLElement;
-    const ret: ModelPiece = html ? ModelPiece.getByID(+html.dataset.modelPieceID) : null;
+    const ret: ModelPiece = html ? ModelPiece.getByID(+html.dataset.modelpieceid) : null;
     // U.pe(!(ret instanceof T), 'got logic with unexpected class type:', this);
     return ret; }
 
@@ -190,7 +190,7 @@ export abstract class ModelPiece {
   linkToLogic(html0: Element): void {
     let html: HTMLElement = html0 as HTMLElement;
     if (this.id === null || this.id === undefined) { U.pw(true, 'undefined id:', this); return; }
-    html.dataset.modelPieceID = '' + this.id; }
+    html.dataset.modelpieceid = '' + this.id; }
 
   getm2(): MetaModel {
     const root: IModel = this.getModelRoot();
@@ -572,9 +572,10 @@ export abstract class ModelPiece {
 
   getHtmlOnGraph(): Element {
     if (this instanceof IPackage) return null;
-    let html: Element = this.getVertex().getHtml();
+    if (this instanceof IGraph) return null;
+    let html: Element = this.getVertex().getHtmlRawForeign();
     if (this instanceof IClass) return html;
-    html = $(html).find('*[data-modelPieceID="' + this.id + '"]')[0];
+    html = $(html).find('*[data-modelpieceid="' + this.id + '"]')[0];
     return html ? html : null; }
 
   getLastViewWith(fieldname: string): ViewRule {

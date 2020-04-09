@@ -202,9 +202,9 @@ export enum EdgeModes {
     this.shell.classList.add('EdgeShell');
     this.html.classList.add('Edge');
     this.shadow.classList.add('Edge', 'Shadow');
-    this.shell.dataset.modelPieceID = '' + this.logic.id;
-    this.html.dataset.modelPieceID = '' + this.logic.id;
-    this.shadow.dataset.modelPieceID = '' + this.logic.id;
+    this.shell.dataset.modelpieceid = '' + this.logic.id;
+    this.html.dataset.modelpieceid = '' + this.logic.id;
+    this.shadow.dataset.modelpieceid = '' + this.logic.id;
     this.html.setAttribute('fill', 'none');
     this.shadow.setAttribute('fill', 'none');
     this.shadow.setAttribute('stroke', 'none');
@@ -220,39 +220,49 @@ export enum EdgeModes {
 
   generateAggregationTail(style: EdgeHeadStyle): SVGSVGElement { // https://jsfiddle.net/Naraku/3hngkrc1/
     let svg: SVGSVGElement;
+    let path: SVGPathElement;
     const bugfigo = false;
     // if (this instanceof ExtEdge) svg = this.edgeTail = this.edgeHead || U.newSvg('svg');
-    if (bugfigo || this.edgeTail && this.tailtype === EdgeDecoratorType.containment) { svg = this.edgeTail; }
-    else { svg = U.newSvg<SVGSVGElement>('svg'); } // don't set it here, it will be set and eventlistened later.
+    if (bugfigo || this.edgeTail && this.tailtype === EdgeDecoratorType.containment) {
+      svg = this.edgeTail;
+      // U.clear(svg);
+      path = svg.firstChild as SVGPathElement; }
+    else {
+      svg = U.newSvg<SVGSVGElement>('svg');
+      path = U.newSvg<SVGPathElement>('path');
+      svg.appendChild(path);
+      path.setAttributeNS(null, 'd', 'M100 0 L200 100 L100 200 L0 100 Z'); }
     this.tailtype = EdgeDecoratorType.containment;
     svg.setAttributeNS(null, 'width', '' + style.width);
     svg.setAttributeNS(null, 'height', '' + style.width);
     svg.setAttributeNS(null, 'viewBox',
       (-style.width) + ' ' + (-style.width) + ' ' + (200 + style.width * 2) + ' ' +  (200 + style.width * 2));
-    const path: SVGPathElement = U.newSvg<SVGPathElement>('path');
     path.setAttributeNS(null, 'fill', style.fill);
     path.setAttributeNS(null, 'stroke', style.stroke);
     path.setAttributeNS(null, 'stroke-width', '' + style.width);
-    path.setAttributeNS(null, 'd', 'M100 0 L200 100 L100 200 L0 100 Z');
-    svg.appendChild(path);
     return svg; }
 
   generateGeneralizationHead(style: EdgeHeadStyle): SVGSVGElement {
     let svg: SVGSVGElement;
+    let path: SVGPathElement;
     const bugfigo = false;
-    if (bugfigo || this.edgeHead && this.headtype === EdgeDecoratorType.generalization) { svg = this.edgeHead; }
-    else { svg = U.newSvg<SVGSVGElement>('svg'); }
+    if (bugfigo || this.edgeHead && this.headtype === EdgeDecoratorType.generalization) {
+      svg = this.edgeHead;
+      // U.clear(svg);
+      path = svg.firstChild as SVGPathElement; }
+    else {
+      svg = U.newSvg<SVGSVGElement>('svg');
+      path = U.newSvg<SVGPathElement>('path');
+      svg.appendChild(path);
+      path.setAttributeNS(null, 'd', 'M100 0 L200 200 L000 200 Z'); }
     this.headtype = EdgeDecoratorType.generalization;
     svg.setAttributeNS(null, 'width', '' + style.width);
     svg.setAttributeNS(null, 'height', '' + style.width);
     svg.setAttributeNS(null, 'viewBox',
       (-style.width) + ' ' + (-style.width) + ' ' + (200 + style.width * 2) + ' ' +  (200 + style.width * 2));
-    const path: SVGPathElement = U.newSvg<SVGPathElement>('path');
     path.setAttributeNS(null, 'fill', style.fill);
     path.setAttributeNS(null, 'stroke', style.stroke);
     path.setAttributeNS(null, 'stroke-width', '' + style.width);
-    path.setAttributeNS(null, 'd', 'M100 0 L200 200 L000 200 Z');
-    svg.appendChild(path);
     return svg; }
 
   generateGeneralizationTail(style: EdgeHeadStyle): SVGSVGElement { return null; }
@@ -539,7 +549,7 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     const $edgeparts = $shell.find('.Edge').add($edgetail as any as JQuery<HTMLElement>);
     // U.pe(!$shell.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail);
     //  U.pe(!$edgetail.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail, 'head-tail:', this.edgeHead, this.edgeTail);
-    $shell.off('click.pbar').on('click.pbar', (e: ClickEvent) => IVertex.ChangePropertyBarContentClick(e, this) );
+    // $shell.off('click.pbar').on('click.pbar', (e: ClickEvent) => IVertex.ChangePropertyBarContentClick(e, this) );
     /*$html.off('mousedown.showStyle').on('mousedown.showStyle',
       (e: MouseDownEvent) => { Status.status.getActiveModel().graph.propertyBar.styleEditor.showE(this.logic); });*/
     $shell.off('mousedown.startSetMidPoint').on('mousedown.startSetMidPoint',
@@ -819,40 +829,50 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     U.pe(true, 'IEdge.mark() todo.');
   }
 
-// bug: https://bugzilla.mozilla.org/show_bug.cgi?id=577785#c2
-    private getEdgeHead(): SVGSVGElement {
-      const logic: IReference | IClass = this.logic;
-      const logicref: IReference = this.logic instanceof IReference ? this.logic : null;
-      const logicclass: IClass = this.logic instanceof IClass ? this.logic : null;
-      let html: SVGSVGElement = null;
-      //console.trace();
-      //console.log('getEdgeHead(), ', this.getStyle().edgeHeadStyle, this.isHighlighted);
-      let debugi: number = window['' + 'debug'];
-      if (debugi === 4.1) return this.edgeHead ? this.edgeHead : html;
-      if (logicref && logicref.isContainment()) { html = this.generateContainmentHead(this.getStyle().edgeHeadStyle); }
-      if (this instanceof ExtEdge) { html = this.generateGeneralizationHead(this.getStyle().edgeHeadStyle); }
-      U.pe(this instanceof ExtEdge && !html, 'cannot return null on extedge:', html, this);
-      if (debugi === 4.2) return this.edgeHead ? this.edgeHead : html;
-      if (!html) { return this.edgeHead = null; }
-      if (html === this.edgeHead) return;
-      this.edgeHead = html;
-      html.classList.add('Edge', 'EdgeHead');
-      if (this.headShell) this.headShell.appendChild(this.edgeHead);
-      return this.edgeHead; }
 
-    private getEdgeTail(): SVGSVGElement {
+    private getEdgeHead(): SVGSVGElement { return this.getEdgeHeadTail(true); }
+    private getEdgeTail(): SVGSVGElement { return this.getEdgeHeadTail(false); }
+// bug: https://bugzilla.mozilla.org/show_bug.cgi?id=577785#c2
+    private getEdgeHeadTail(isHead: boolean, debug: boolean = false): SVGSVGElement {
       const logic: IReference | IClass = this.logic;
-      const logicref: IReference = this.logic instanceof IReference ? this.logic : null;
-      const logicclass: IClass = this.logic instanceof IClass ? this.logic : null;
+      const logicref: IReference = logic instanceof IReference ? logic : null;
+      const logicclass: IClass = logic instanceof IClass ? logic : null;
       let html: SVGSVGElement = null;
-      if (logicref && logicref.isContainment()) { html = this.generateContainmentTail(this.getStyle().edgeHeadStyle); }
-      if (this instanceof ExtEdge) { html = this.generateGeneralizationTail(this.getStyle().edgeHeadStyle); }
-      if (!html) { return this.edgeTail = null; }
-      if (html === this.edgeTail) return;
-      this.edgeTail = html;
-      html.classList.add('Edge', 'EdgeTail');
-      if (this.tailShell) this.tailShell.appendChild(this.edgeTail);
-      return this.edgeTail = html; }
+      let debugi: number;
+      let edgeTailHeadSVG = isHead ? this.edgeHead : this.edgeTail;
+      if (debug) {
+        console.trace();
+        console.log('getEdge' + (isHead ? 'Head' : 'Tail') + '(), ', this.getStyle().edgeHeadStyle, this.isHighlighted);
+        debugi = window['' + 'debug'];
+        if (debugi === 4.1) return  (edgeTailHeadSVG ? edgeTailHeadSVG : html) ; }
+      if (isHead) {
+        if (logicref && logicref.isContainment()) { html = this.generateContainmentHead(this.getStyle().edgeHeadStyle); }
+        if (this instanceof ExtEdge) { html = this.generateGeneralizationHead(this.getStyle().edgeHeadStyle); }
+      } else {
+        if (logicref && logicref.isContainment()) { html = this.generateContainmentTail(this.getStyle().edgeHeadStyle); }
+        if (this instanceof ExtEdge) { html = this.generateGeneralizationTail(this.getStyle().edgeHeadStyle); }
+      }
+      U.pe(this instanceof ExtEdge && !html, 'cannot return null on extedge:', html, this);
+      if (debug && debugi === 4.2) return edgeTailHeadSVG ? edgeTailHeadSVG : html;
+      if (!html) {
+        if (isHead) this.edgeHead = null; else this.edgeTail = null;
+        return null; }
+      if (isHead) {
+        if (html === this.edgeHead) return html;
+        if (!html) return this.edgeHead = null;
+        this.edgeHead = html;
+        html.classList.add('Edge', 'EdgeHead');
+        if (this.headShell) this.headShell.appendChild(html);
+      }
+      else {
+        if (html === this.edgeTail) return html;
+        if (!html) return this.edgeTail = null;
+        this.edgeTail = html;
+        html.classList.add('Edge', 'EdgeTail');
+        if (this.tailShell) this.tailShell.appendChild(html);
+      }
+      return html; }
+
 
   private appendTailHead(tail: boolean, pathStr: string, debug: boolean = false) {
     const svg: SVGSVGElement = tail ? this.edgeTail : this.edgeHead;

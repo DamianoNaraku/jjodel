@@ -14,7 +14,7 @@ import {
   Status,
   Size,
   IReference, GraphPoint, GraphSize,
-  PropertyBarr, Dictionary, IClass, ViewPoint, EOperation, EParameter, Point, EEnum
+  PropertyBarr, Dictionary, IClass, ViewPoint, EOperation, EParameter, Point, EEnum, ExtEdge
 } from '../../common/Joiner';
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
@@ -379,7 +379,9 @@ export class IGraph {
       default: U.pe(true, 'unexpected cursorAction:', this.cursorAction); break;
       case CursorAction.drag:
       case CursorAction.select:
-        const mp: ModelPiece = isTrigger ? null : IVertex.ChangePropertyBarContentClick(evt);
+        let e: IEdge = IEdge.get(evt);
+        if (e instanceof ExtEdge) e = null;
+        const mp: ModelPiece = isTrigger ? null : IVertex.ChangePropertyBarContentClick(evt, e);
         // console.log('graphONMouseDown', isTrigger, mp instanceof IModel);
         if (!(isTrigger || (mp instanceof IModel))) return;
         this.isMoving = Point.fromEvent(evt);
@@ -390,6 +392,7 @@ export class IGraph {
 
   onMouseUp(evt: MouseUpEvent): void {
     if (this.isMoving) { this.isMoving = this.clickedScroll = null; }
+    IVertex.selected = null;
   }
 
   onMouseMoveSetReference(evt: MouseMoveEvent, edge: IEdge): void {
@@ -404,11 +407,13 @@ export class IGraph {
   onMouseMoveVertexMove(evt: MouseMoveEvent, v: IVertex): void {
     if (!v) { return; }
     // if (U.vertexOldPos === 1) U.vertexOldPos = 2;
-    console.log('onMouseMoveVertexMove:', evt, v);
+    console.log('onMouseMoveVertexMove:', v.logic().name, evt, v);
     const currentMousePos: Point = new Point(evt.pageX, evt.pageY);
     // console.log('evt:', evt);
     let currentGraphCoord: GraphPoint = this.toGraphCoord(currentMousePos);
     currentGraphCoord = currentGraphCoord.subtract(IVertex.selectedStartPt, false);
+    if (!v.dragaxis.x) currentGraphCoord.x = null;
+    if (!v.dragaxis.y) currentGraphCoord.y = null;
     v.moveTo(currentGraphCoord); }
 
   onMouseMoveDrag(e: MouseMoveEvent): void {

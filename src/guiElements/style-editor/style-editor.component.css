@@ -57,10 +57,6 @@ label.allowEdit {
 button {
   margin: 5px;
 }
-.helpButton{
-  width: 35px;
-  height: 35px;
-}
 .style.own, .style.instances{
   display: flex;
   flex-flow: wrap;
@@ -286,12 +282,23 @@ select.stylename{
   display: none;
 }
 
-.helpButton {
-  margin-top: auto;
-  margin-bottom: auto;
+.helpButton, .styledelete {
   display: flex;
+  width: 35px;
+  height: 35px;
+  margin: auto;
+  margin-right: 0;
+}
+.styledelete {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.helpButton {
   background: rgb(0, 62, 127);
-  border-color: rgb(0, 62, 127);
+  border-color: rgb(0, 62, 127); }
+
+.htmlstyle > .top {
+  display: flex;
 }
 .expressionRoot {
   flex-wrap: nowrap !important;
@@ -431,7 +438,12 @@ label.allowEdit > span {
   margin-left:0;
 }
 label > input[type="checkbox"] ~ * { margin-left: 0; }
-
+.html[contenteditable] {
+  /*IDE gives error but they all actually exist, at least on mozilla.*/
+  overflow-wrap: anywhere;
+  word-wrap: anywhere;
+  white-space: break-spaces;
+}
 
 
 /* they fix outer css influence on measurable section. */

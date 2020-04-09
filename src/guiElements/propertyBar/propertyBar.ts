@@ -141,17 +141,19 @@ export class PropertyBarr {
     textArea.value = o.generateModelString(); }
 
   public show(o: ModelPiece = null, clickedLevel: Element, isEdge: IEdge, forceRefresh: boolean = true): void {
-    if (!forceRefresh && this.selectedModelPiece === o && this.selectedModelPieceIsEdge === isEdge) {
-      if (clickedLevel === this.clickedLevel) { return; }
-      this.clickedLevel = clickedLevel = clickedLevel || this.clickedLevel;
-      if (isEdge) { this.styleEditor.showE(o as IClass | IReference, isEdge); } else { this.styleEditor.show(o, clickedLevel); }
-      return; }
+    const oldClickedLevel: Element = this.clickedLevel;
+    const oldMP: ModelPiece = this.selectedModelPiece;
+    const oldisEdge: IEdge = this.selectedModelPieceIsEdge;
     this.selectedModelPiece = o = (o || this.selectedModelPiece);
     this.clickedLevel = clickedLevel = (clickedLevel || this.clickedLevel);
+    this.selectedModelPieceIsEdge = isEdge; // = (isEdge || this.selectedModelPieceIsEdge);
+    if (!forceRefresh && oldMP === this.selectedModelPiece && oldisEdge === this.selectedModelPieceIsEdge) {
+      if (oldClickedLevel === this.clickedLevel) { return; }
+      if (isEdge) { this.styleEditor.showE(o as IClass | IReference, isEdge); } else { this.styleEditor.show(o, clickedLevel); }
+      return; }
     if (isEdge) { this.styleEditor.showE(o as IClass | IReference, isEdge); } else { this.styleEditor.show(o, clickedLevel); }
 
     U.pe(!(o instanceof ModelPiece), 'invalid parameter type:', U.getTSClassName(o), o);
-    this.selectedModelPieceIsEdge = isEdge;
     if (!o) { return; }
     // console.log('PropertyBar.show: ', o);
     U.clear(this.container);

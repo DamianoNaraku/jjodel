@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"measurableTemplateGeneratorShell\" class=\"template\">\n  <label><input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span></label>\n  <div class=\"meas_acc0\">\n    <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">Measurable settings</h7>\n    <div class=\"measurableSettingRoot collapse\">\n      <div class=\"boxesroot\">\n        <div class=\"resizable boxroot\">\n          <h6 class=\"boxtitle\">Resizable handles</h6>\n          <div class=\"rectangledrawing outer\">\n            <div class=\"top row\">\n              <input type=\"checkbox\" class=\"arrow corner top left\">\n              <input type=\"checkbox\" class=\"arrow side top\">\n              <input type=\"checkbox\" class=\"arrow corner top right\">\n            </div>\n            <div class=\"mid row\">\n              <input type=\"checkbox\" class=\"arrow side left\">\n              <div class=\"middle\">\n                <div class=\"rectangledrawing inner\">\n                  <div class=\"top row\">\n                    <div class=\"corner top left\"></div>\n                    <div class=\"side top\"></div>\n                    <div class=\"corner top right\"></div>\n                  </div>\n                  <div class=\"mid row\">\n                    <div class=\"side left\"></div>\n                    <div class=\"middle\">\n                    </div>\n                    <div class=\"side right\"></div>\n                  </div>\n                  <div class=\"bot row\">\n                    <div class=\"corner bot left\"></div>\n                    <div class=\"side bot\"></div>\n                    <div class=\"corner bot right\"></div>\n                  </div>\n                </div>\n              </div>\n              <input type=\"checkbox\" class=\"arrow side right\">\n            </div>\n            <div class=\"bot row\">\n              <input type=\"checkbox\" class=\"arrow corner bot left\">\n              <input type=\"checkbox\" class=\"arrow side bot\">\n              <input type=\"checkbox\" class=\"arrow corner bot right\">\n            </div>\n          </div>\n        </div>\n        <div class=\"draggable boxroot\">\n          <h6 class=\"boxtitle\">Draggable directions</h6>\n          <div class=\"rectangledrawing directions\">\n            <input type=\"checkbox\" class=\"arrow arrowh drag\">\n            <input type=\"checkbox\" class=\"arrow arrowv drag\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"meas_acc\">\n      </div>\n\n      <div class=\"rule template\">\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\n        <div class=\"rulecontainer columncontainer collapse template\">\n\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\n          </div>\n          <div class=\"rightx column rowcontainer fill break mb-3\">\n            <div class=\"row break\">\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\n                <span class=\"prefix form-control\">_</span>\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\n                <select class=\"operator trigger\">\n                  <optgroup label=\"When\">\n                    <option>Start</option>\n                    <option>ing</option>\n                    <option selected>End</option>\n                  </optgroup>\n                </select>\n              </label>\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\n            </div>\n            <div class=\"row break\">\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\n              <span class=\"eventsplitpoint operatorcontainer\">\n                <span class=\"operator\">=</span>\n                <select class=\"operator relational\">\n                  <optgroup label=\"Operator\">\n                    <option>&lt;=</option>\n                    <option selected>=</option>\n                    <option>&gt;=</option>\n                  </optgroup>\n                </select></span>\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\n            <div class=\"measurabledebug rowcontainer\">\n              <button class=\"btn btn-primary\">Test it!</button>\n              <span class=\"measurableoutputtext\" tabindex=\"-1\"><span>Output: </span><span class=\"text\"></span></span>\n              <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\n              <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\n            </div>\n\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--\n\n\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\n  _target1=\"positionX\"\n  relativetargetof_target1=\"#leftside\"\n  _target2=\"positionX\"\n  relativetargetof_target2=\"#rightside\"\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\n\n  angle:false,\n  class Rotatableoptions {\n  degrees: string = 'false | number';\n  radians: string = 'false | number';\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\n  handleOffsetX: string = 'width / 2';\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\n  rotationCenterOffsetX: string = 'width / 2';\n  rotationCenterOffsetY: string = 'height / 2';\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\n  onRotationStart: string = same as above // in realtà è \"start\"\n  onRotationEnd: string = same as above // in realtà è \"stop\"\n  }\n\n--->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"measurableTemplateGeneratorShell\" class=\"template\">\n  <label><input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span></label>\n  <div class=\"meas_acc0\">\n    <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">Measurable settings</h7>\n    <div class=\"measurableSettingRoot collapse\">\n      <div class=\"boxesroot\">\n        <div class=\"resizable boxroot\">\n          <h6 class=\"boxtitle\">Resizable handles</h6>\n          <div class=\"rectangledrawing outer\">\n            <div class=\"top row\">\n              <input type=\"checkbox\" class=\"arrow corner top left\" direction=\"nw\">\n              <input type=\"checkbox\" class=\"arrow side top\" direction=\"n\">\n              <input type=\"checkbox\" class=\"arrow corner top right\" direction=\"ne\">\n            </div>\n            <div class=\"mid row\">\n              <input type=\"checkbox\" class=\"arrow side left\" direction=\"w\">\n              <div class=\"middle\">\n                <div class=\"rectangledrawing inner\">\n                  <div class=\"top row\">\n                    <div class=\"corner top left\" direction=\"nw\"></div>\n                    <div class=\"side top\" direction=\"n\"></div>\n                    <div class=\"corner top right\" direction=\"ne\"></div>\n                  </div>\n                  <div class=\"mid row\">\n                    <div class=\"side left\" direction=\"w\"></div>\n                    <div class=\"middle\">\n                    </div>\n                    <div class=\"side right\" direction=\"e\"></div>\n                  </div>\n                  <div class=\"bot row\">\n                    <div class=\"corner bot left\" direction=\"sw\"></div>\n                    <div class=\"side bot\" direction=\"s\"></div>\n                    <div class=\"corner bot right\" direction=\"se\"></div>\n                  </div>\n                </div>\n              </div>\n              <input type=\"checkbox\" class=\"arrow side right\" direction=\"e\">\n            </div>\n            <div class=\"bot row\">\n              <input type=\"checkbox\" class=\"arrow corner bot left\" direction=\"sw\">\n              <input type=\"checkbox\" class=\"arrow side bot\" direction=\"s\">\n              <input type=\"checkbox\" class=\"arrow corner bot right\" direction=\"se\">\n            </div>\n          </div>\n        </div>\n        <div class=\"draggable boxroot\">\n          <h6 class=\"boxtitle\">Draggable directions</h6>\n          <div class=\"rectangledrawing directions\">\n            <input type=\"checkbox\" class=\"arrow arrowh drag\" direction=\"x\">\n            <input type=\"checkbox\" class=\"arrow arrowv drag\" direction=\"y\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"meas_acc\">\n      </div>\n\n      <div class=\"rule template\">\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\n        <div class=\"rulecontainer columncontainer collapse template\">\n\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\n          </div>\n          <div class=\"rightx column rowcontainer fill break mb-3\">\n            <div class=\"row break\">\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\n                <span class=\"prefix form-control\">_</span>\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\n                <select class=\"operator trigger\">\n                  <optgroup label=\"When\">\n                    <option>Start</option>\n                    <option>ing</option>\n                    <option selected>End</option>\n                  </optgroup>\n                </select>\n              </label>\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\n            </div>\n            <div class=\"row break\">\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\n              <span class=\"eventsplitpoint operatorcontainer\">\n                <span class=\"operator\">=</span>\n                <select class=\"operator relational\">\n                  <optgroup label=\"Operator\">\n                    <option>&lt;=</option>\n                    <option selected>=</option>\n                    <option>&gt;=</option>\n                  </optgroup>\n                </select></span>\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\n            <div class=\"measurabledebug rowcontainer\">\n              <button class=\"btn btn-primary executedebug\">Test it!</button>\n              <span class=\"debugrows\" tabindex=\"-1\">\n                <span class=\"measurableoktext\"><span>Debug output: </span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Left: </span><span class=\"measurableoutputtext debugleft\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Operator: </span><span class=\"measurableoutputtext debugoperator\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Right: </span><span class=\"measurableoutputtext debugright\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Triggers: </span><span class=\"measurableoutputtext debugtriggers\"></span></span>\n                <!--\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\n                <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\n                -->\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--\n\n\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\n  _target1=\"positionX\"\n  relativetargetof_target1=\"#leftside\"\n  _target2=\"positionX\"\n  relativetargetof_target2=\"#rightside\"\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\n\n  angle:false,\n  class Rotatableoptions {\n  degrees: string = 'false | number';\n  radians: string = 'false | number';\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\n  handleOffsetX: string = 'width / 2';\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\n  rotationCenterOffsetX: string = 'width / 2';\n  rotationCenterOffsetY: string = 'height / 2';\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\n  onRotationStart: string = same as above // in realtà è \"start\"\n  onRotationEnd: string = same as above // in realtà è \"stop\"\n  }\n\n--->\n");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n    <div id='model_sidebar'></div>\r\n  </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n    <ul class=\"UtabHeaderContainer\">\r\n      <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n      <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n      <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n    </ul>\r\n    <div class=\"UtabContentContainer\">\r\n      <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n      <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n      <div class=\"UtabContent\" data-target=\"3\">\r\n        <div class=\"rawContainer\">\r\n          <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n          <textarea class=\"rawecore\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n  <div class=\"mconsole resizableBorder\" data-resizableTop=\"true\" style=\"position: absolute; bottom: 0;\"></div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; min-width:200px; height:auto; width:100%; overflow: auto;\" data-autosize=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"height:22px; padding-left: 5px; display:flex; margin:auto; box-sizing:content-box;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Attribute\" style=\"height:22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"border: none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"height: 22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"height: 22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" pattern=\"[A-Za-z0-9_$]*\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n    <div id='model_sidebar'></div>\r\n  </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n    <ul class=\"UtabHeaderContainer\">\r\n      <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n      <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n      <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n    </ul>\r\n    <div class=\"UtabContentContainer\">\r\n      <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n      <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n      <div class=\"UtabContent\" data-target=\"3\">\r\n        <div class=\"rawContainer\">\r\n          <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n          <textarea class=\"rawecore\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"height:22px; padding-left: 5px; display:flex; margin:auto; box-sizing:content-box;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Attribute\" style=\"height:22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"border: none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"height: 22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"height: 22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" pattern=\"[A-Za-z0-9_$]*\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n");
 
 /***/ }),
 
@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n    <div id='metamodel_sidebar'></div>\r\n  </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n    <ul class=\"UtabHeaderContainer\">\r\n      <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n      <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n      <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n    </ul>\r\n    <div class=\"UtabContentContainer\">\r\n      <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n      <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n      <div class=\"UtabContent\" data-target=\"3\">\r\n        <div class=\"rawContainer\">\r\n          <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n          <textarea class=\"rawecore\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n  <div class=\"mmconsole resizableBorder\" data-resizableTop=\"true\"  style=\"position: absolute; bottom: 0; width: 100vw; height: 20px;\"></div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; min-width:200px; height:auto; width:100%; overflow: auto;\" data-autosize=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[A-Za-z0-9_$]+\" style=\"border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:black; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">(Class)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\">\r\n      <div class=\"Class Vertex vertexShell EEnum\" style=\"background:white; height:auto; min-width:200px; width:100%; overflow: auto;\" data-autosize=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[A-Za-z0-9_$]+\" style=\"border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:black; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"height: 22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <select data-class=\"true\" style=\"border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Attribute EString EInteger\" style=\"height:22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template ELiteral\" style=\"height:22px; display:flex; box-sizing:content-box; padding-left: 5px; padding-right: 10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[A-Za-z0-9_$]+\" style=\"border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"display:flex; box-sizing:content-box; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:21px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" pattern=\"[A-Za-z0-9_$]+\" value=\"Return type\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm btn-success\" style=\"width: 100%; height: 22px; padding:0; text-align: center\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"height: 22px; border-bottom: 1px solid lightgray; display:flex; box-sizing:content-box;\">\r\n       <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n       <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[A-Za-z0-9_$]*\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n       <button style=\"order: 3; padding:0 5px;\">X</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n    <div id='metamodel_sidebar'></div>\r\n  </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n    <ul class=\"UtabHeaderContainer\">\r\n      <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n      <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n      <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n    </ul>\r\n    <div class=\"UtabContentContainer\">\r\n      <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n      <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n      <div class=\"UtabContent\" data-target=\"3\">\r\n        <div class=\"rawContainer\">\r\n          <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n          <textarea class=\"rawecore\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[A-Za-z0-9_$]+\" style=\"border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:black; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">(Class)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\">\r\n      <div class=\"Class Vertex vertexShell EEnum\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[A-Za-z0-9_$]+\" style=\"border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:black; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"height: 22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <select data-class=\"true\" style=\"border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Attribute EString EInteger\" style=\"height:22px; padding-left: 5px; display:flex; box-sizing:content-box;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template ELiteral\" style=\"height:22px; display:flex; box-sizing:content-box; padding-left: 5px; padding-right: 10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[A-Za-z0-9_$]+\" style=\"border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"display:flex; box-sizing:content-box; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:21px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" pattern=\"[A-Za-z0-9_$]+\" value=\"Return type\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm btn-success\" style=\"width: 100%; height: 22px; padding:0; text-align: center\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"height: 22px; border-bottom: 1px solid lightgray; display:flex; box-sizing:content-box;\">\r\n       <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n       <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[A-Za-z0-9_$]*\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n       <button style=\"order: 3; padding:0 5px;\">X</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -188,7 +188,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid</td>\r\n        <td>X: <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"> Y: <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"graphColor\">Background color</label></td></tr>\r\n      </tbody></table>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n      <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n      <!-- start of new measurable -->\r\n\r\n      <div class=\"measurablePlaceholder\"></div>\r\n\r\n      <!-- end of new measurable -->\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow down btn btn-primary\">⇩</button>\r\n      </div>\r\n      <label class=\"m1 iclass\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"separatorShell\"></div>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span> <!-- Behequated -->\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid</td>\r\n        <td>X: <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"> Y: <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"graphColor\">Background color</label></td></tr>\r\n      </tbody></table>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n      <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n      <!-- start of new measurable -->\r\n\r\n      <div class=\"measurablePlaceholder\"></div>\r\n\r\n      <!-- end of new measurable -->\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"m1 iclass\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span> <!-- Behequated -->\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -201,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id='topbarShell'>\r\n  <div id='topbar'>\r\n    <div class=\"dropdownContainer\">\r\n      <button class=\"todo dropdownTitle\">User</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Logout</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Preferences</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Account</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer\">\r\n      <button class=\"dropdownTitle\">Meta-Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding TypeMapping\">Type mapping</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding VertexStyle\">Vertex Style</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding EdgeStyle\">Edge Style</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer metamodel\">\r\n      <button class=\"dropdownTitle\">Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer model\">\r\n      <button class=\"dropdownTitle\">Model</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty model</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer graph\">\r\n      <button class=\"dropdownTitle\">Graph</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"buttonGridContainer\">\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid\">Mono-Select</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid todo\">Multi-Select</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid\">Drag</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid\">Mono-Select</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid todo\">Multi-Select</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid\">Drag</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid\">Mono-Select</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid todo\">Multi-Select</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid\">Drag</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid\">Mono-Select</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid todo\">Multi-Select</div></div>\r\n          <div class=\"dropdownpadding buttonGridMinMargin\"><div class=\"buttonGrid\">Drag</div></div>\r\n\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n  <div id=\"TypeMapper\" class=\"screenWideShadow\" data-closebuttontarget=\"1\">\r\n    <div id=\"TypeMapperContent\" class=\"popupContent\">\r\n      <h1>M3 Type mapping</h1>\r\n      <button class=\"closeButton\" data-closebuttontarget=\"1\">X</button>\r\n      <br>\r\n      <div class=\"TypeList\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id='topbarShell'>\r\n  <div id='topbar'>\r\n    <div class=\"dropdownContainer user\">\r\n      <button class=\"todo dropdownTitle\">User</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Logout</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Preferences</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Account</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer metametamodel\">\r\n      <button class=\"dropdownTitle\">Meta-Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding TypeMapping\">Type mapping</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding VertexStyle\">Vertex Style</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding EdgeStyle\">Edge Style</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer metamodel\">\r\n      <button class=\"dropdownTitle\">Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer model\">\r\n      <button class=\"dropdownTitle\">Model</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty model</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer themes\">\r\n      <button class=\"dropdownTitle\">Themes</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Dark\">\r\n            <span>Dark</span>\r\n          </label>\r\n        </div></li>\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Light\" checked>\r\n            <span>Light</span>\r\n          </label>\r\n        </div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer Changelog\">\r\n      <button class=\"dropdownTitle changelogbutton\">Changelog</button>\r\n    </div>\r\n  <div id=\"TypeMapper\" class=\"screenWideShadow\" data-closebuttontarget=\"1\" style=\"display: none;\">\r\n    <div id=\"TypeMapperContent\" class=\"popupContent\">\r\n      <h1>M3 Type mapping</h1>\r\n      <button class=\"closeButton\" data-closebuttontarget=\"1\">X</button>\r\n      <br>\r\n      <div class=\"TypeList\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n  <div class=\"changelogRoot\" style=\"display: none\">\r\n\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -561,6 +561,8 @@ class LocalStorage {
     }
     rename(oldKey, newKey, saveList) {
         const oldVal = this.get(oldKey, saveList);
+        if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isUnset(oldVal))
+            return;
         this.remove(oldKey, saveList);
         this.add(newKey, oldVal, saveList);
     }
@@ -674,6 +676,51 @@ class LocalStorageM2 extends LocalStorageM {
 class LocalStorageM1 extends LocalStorageM {
 }
 class LocalStorageStyles extends LocalStorage {
+}
+
+
+/***/ }),
+
+/***/ "./src/GuiStyles/global.ts":
+/*!*********************************!*\
+  !*** ./src/GuiStyles/global.ts ***!
+  \*********************************/
+/*! exports provided: WebsiteTheme */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WebsiteTheme", function() { return WebsiteTheme; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/Joiner */ "./src/common/Joiner.ts");
+
+
+class WebsiteTheme {
+    static setTheme(checkbox = null) {
+        let s = checkbox && checkbox.value;
+        if (!s) {
+            s = localStorage.getItem(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ReservedStorageKey"].userTheme);
+        }
+        if (!s) {
+            let radio = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["TopBar"].topbar.$topbar.find('input.themename:checked')[0];
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!radio, 'a theme must be selected');
+            s = radio.value;
+        }
+        if (!checkbox) {
+            checkbox = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["TopBar"].$checkboxesTheme.filter('[value="' + s + '"]')[0];
+        }
+        localStorage.setItem(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ReservedStorageKey"].userTheme, '' + s);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["TopBar"].$checkboxesTheme.removeAttr('checked');
+        checkbox.checked = true;
+        const change = (property) => { document.documentElement.style.setProperty('--' + property, 'var(--' + s + property + ')'); };
+        change('mainFontColor');
+        change('mainBackgroundColor');
+        change('mainBorderColor');
+        change('secondaryBorderColor');
+        change('popupBackgroundColor');
+        change('altBackgroundColor');
+        change('altFontColor');
+    }
 }
 
 
@@ -2685,12 +2732,12 @@ class ModelPiece {
         return JSON.stringify(json, null, 4);
     }
     endingName(valueMaxLength = 10) { return ''; }
-    printableName(valueMaxLength = 5) {
+    printableName(valueMaxLength = 5, full = false) {
         if (this.name !== null) {
-            return this.fullname();
+            return full ? this.fullname() : this.name;
         }
         const ending = this.endingName(valueMaxLength);
-        return this.metaParent.fullname() + ':' + this.id + (ending && ending !== '' ? ':' + ending : '');
+        return (full ? this.metaParent.fullname() : this.metaParent.name) + ':' + this.id + (ending && ending !== '' ? ':' + ending : '');
     }
     printableNameshort(valueMaxLength = 5) {
         if (this.name !== null) {
@@ -3186,7 +3233,7 @@ class ModelNone extends ModelPiece {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep :root  {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainFontColor: whiteSmoke;\r\n  --mainBackgroundColor: #1a1a1c;/*whiteSmoke;*/\r\n  --mainBorderWidth: 5px;\r\n  --mainBorderColor: #2e2f34;/*#e5e5e5;*/\r\n  --secondaryBorderColor: #3c3c44;/*#c5c5c5;*/\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n}\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0);\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n/*::-webkit-scrollbar {\r\n    display: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsa0JBQWtCLGtCQUFrQjtFQUNsQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLDJCQUEyQjtFQUMzQiw4QkFBOEIsQ0FBQyxjQUFjO0VBQzdDLHNCQUFzQjtFQUN0QiwwQkFBMEIsQ0FBQyxXQUFXO0VBQ3RDLCtCQUErQixDQUFDLFdBQVc7RUFDM0MsaUVBQWlFO0VBQ2pFLGlCQUFpQjtFQUNqQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLHNCQUFzQjtFQUN0QixpQ0FBaUM7RUFDakMsb0NBQW9DO0VBQ3BDLDRDQUE0QztFQUM1Qyx3Q0FBd0M7RUFDeEMsMkJBQTJCO0VBQzNCLHlDQUF5QztFQUN6Qyw2Q0FBNkM7RUFDN0Msc0NBQXNDO0FBQ3hDO0FBQ0E7O0VBRUU7QUFDRixhQUFhLDhCQUE4QixFQUFFO0FBQzdDLHNCQUFzQixvQ0FBb0MsRUFBRTtBQUM1RCxtQkFBbUIsaUNBQWlDLEVBQUU7QUFDdEQ7RUFDRSxhQUFhO0VBQ2IsMkJBQTJCLEVBQUUsU0FBUztBQUN4QztBQUNBO0VBQ0Usa0NBQWtDO0FBQ3BDO0FBQ0EsT0FBTztBQUVQLHlDQUF5QztBQUN6QztFQUNFLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsdUJBQXVCO0VBQ3ZCLFdBQVc7RUFDWCw0Q0FBNEM7RUFDNUMseUJBQXlCO0VBQ3pCLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UscUJBQXFCO0VBQ3JCLHVDQUF1QztFQUN2Qyx5SEFBeUg7RUFDekgsNERBQTREO0FBQzlEO0FBQ0E7RUFDRSw2QkFBNkI7RUFDN0I7Z0JBQ2M7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFdBQVc7RUFDWCw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHdCQUF1QjtVQUF2Qix1QkFBdUI7QUFDekI7QUFDQTs7Ozs7Ozs7Ozs7Ozs7Ozs7RUFpQkU7QUFFRjtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBRUE7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxZQUFZO0VBQ1osZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsVUFBVTtBQUNaO0FBR0EsMEZBQTBGO0FBQzFGOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Q0FxQkM7QUFDRDtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFtQjtFQUFuQiw2QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLGVBQWU7RUFDZix5QkFBOEI7VUFBOUIsOEJBQThCO0VBQzlCLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIseUJBQXlCO0VBQ3pCLFlBQVksQ0FBQztBQUdmO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLHVHQUF1RztFQUN2Ryx3REFBd0Q7RUFDeEQseUJBQXlCLENBQUMsd0JBQXdCO0FBQ3BEO0FBQ0E7RUFDRSxZQUFZO0VBQ1osWUFBWTtFQUNaLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7QUFNQTtFQUNFLFlBQVk7QUFDZCIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIDpyb290ICB7LyogY3NzIHZhcmlhYmxlcyAqL1xyXG4gIC0tdG9wYmFySDogNDBweDtcclxuICAtLXNpZGViYXJXOiAyODNweDtcclxuICAtLW1haW5Gb250Q29sb3I6IHdoaXRlU21va2U7XHJcbiAgLS1tYWluQmFja2dyb3VuZENvbG9yOiAjMWExYTFjOy8qd2hpdGVTbW9rZTsqL1xyXG4gIC0tbWFpbkJvcmRlcldpZHRoOiA1cHg7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6ICMyZTJmMzQ7LyojZTVlNWU1OyovXHJcbiAgLS1zZWNvbmRhcnlCb3JkZXJDb2xvcjogIzNjM2M0NDsvKiNjNWM1YzU7Ki9cclxuICAtLW1haW5Cb3JkZXI6IHZhcigtLW1haW5Cb3JkZXJDb2xvcikgc29saWQgdmFyKC0tbWFpbkJvcmRlcldpZHRoKTtcclxuICAtLXNjcm9sbGJhclc6IDBweDtcclxuICAtLXRhYkg6IDMwcHg7XHJcbn1cclxuOjpuZy1kZWVwICp7XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICBzY3JvbGxiYXItYmFzZS1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgc2Nyb2xsYmFyLTNkbGlnaHQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHNjcm9sbGJhci1oaWdobGlnaHQtY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIHNjcm9sbGJhci10cmFjay1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgc2Nyb2xsYmFyLWFycm93LWNvbG9yOiAjMDAwO1xyXG4gIHNjcm9sbGJhci1zaGFkb3ctY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIHNjcm9sbGJhci1kYXJrc2hhZG93LWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICAvKiAtbW96LWFwcGVhcmFuY2U6IG5vbmUgIWltcG9ydGFudDsgKi9cclxufVxyXG4vKjo6LXdlYmtpdC1zY3JvbGxiYXIge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxufSovXHJcbio6ZGlzYWJsZWQgeyBjdXJzb3I6IG5vdC1hbGxvd2VkICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1jaGVja2JveF17IC1tb3otYXBwZWFyYW5jZTogY2hlY2tib3ggIWltcG9ydGFudDsgfVxyXG5pbnB1dFt0eXBlPXJhZGlvXXsgLW1vei1hcHBlYXJhbmNlOiByYWRpbyAhaW1wb3J0YW50OyB9XHJcbmlucHV0OmRpc2FibGVke1xyXG4gIG9wYWNpdHkgOiAuNzU7XHJcbiAgZmlsdGVyICA6IGFscGhhKG9wYWNpdHk9NzUpOyAvKiBJRTw5ICovXHJcbn1cclxuOjpuZy1kZWVwIC5zdHlsZUVkaXRvclNlbGVjdGVke1xyXG4gIG91dGxpbmU6IDNweCBkYXNoZWQgcmVkICFpbXBvcnRhbnQ7XHJcbn1cclxuLypvbGRzKi9cclxuXHJcbi8qKioqKioqKioqKioqKioqKiogYXR0cmlidXRlRWRpdG9yLmNzcyAqL1xyXG4uYXR0cmlidXRlRWRpdG9yLCAuc3R5bGVFZGl0b3J7XHJcbiAgLypkaXNwbGF5OmlubGluZS1ib3g7Ki9cclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IC1tb3otZml0LWNvbnRlbnQ7XHJcbiAgcGFkZGluZzo4cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbiAgYm9yZGVyOiB2YXIoLS1tYWluQm9yZGVyKTtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG1heC1oZWlnaHQ6MTAwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuLnN0eWxlRWRpdG9ye1xyXG4gIGxlZnQ6IHZhcigtLXNpZGViYXJXKTtcclxuICB0b3A6IGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSk7XHJcbiAgLyp2b2dsaW8gY2hlIHNpYSBkaXZlcnNhIHBlcmNow6ggZGkgc29saXRvIHBhcnRlIGNvbiBhbHRlenphIHBhcmkgYSB0b3BiYXIuaCBlIHZvZ2xpbyBjaGUgc2lhIHNjcm9sbGFiaWxlIHNlbnphIHNwb3N0YXJsYSovXHJcbiAgbWF4LWhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG59XHJcbmJ1dHRvbi5hdHRyaWJ1dGVFZGl0b3JDb25maXJtLCBidXR0b24uc3R5bGVFZGl0b3JDb25maXJte1xyXG4gIG1hcmdpbi1sZWZ0OiBjYWxjKDUwJSAtIDUwcHgpO1xyXG4gIC8qIHdpZHRoOjEwMHB4O1xyXG4gICBoZWlnaHQ6MzBweDsqL1xyXG59XHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIC5hdHRyaWJ1dGVFZGl0b3JGaWVsZE5hbWUsIHRhYmxlLnN0eWxlVGFibGUgLnN0eWxlRWRpdG9yRmllbGROYW1le1xyXG4gIG1heC13aWR0aDoxNTBweDtcclxuICBtYXgtaGVpZ2h0OjE1MHB4O1xyXG4gIG92ZXJmbG93OmF1dG87XHJcbn1cclxuLnN0eWxlVGFibGV7XHJcbiAgbWFyZ2luLXRvcDoxMHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uc3R5bGVUYWJsZSB0ZHtcclxuICBtYXgtd2lkdGg6IDMwMHB4O1xyXG59XHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSwgLnN0eWxlRWRpdG9yVGl0bGV7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5lZGdlUm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLmVkZ2VSb3c+KntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogMHB4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiA0cHg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcbi5pc0NvbXBvdW5kRWRnZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG4uc3R5bGVDb21wb3VuZFdyYXBwZXJ7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5jb21wb3VuZEVkZ2VTdGFydCwgLmNvbXBvdW5kRWRnZUVuZHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLlNpZGViYXJTdHlsZUh0bWwsIC5HcmFwaFN0eWxlSHRtbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcbi8qXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHtcclxuICAgIGJvcmRlcjpub25lO1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjMDAwO1xyXG4gICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgIzAwMDtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQ6Zmlyc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmxhc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG59Ki9cclxuXHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0sIC5zdHlsZUVkaXRvclRpdGxlIGlucHV0W3R5cGU9XCJyYWRpb1wiXXtcclxuICBtYXJnaW46IDRweDtcclxufVxyXG4uUmVmZXJlbmNlU2VsZWN0b3J7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcblxyXG4ucm93TW9kZWxEZXRhaWwsIC52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIHdpZHRoOiAzM3B4O1xyXG4gIGhlaWdodDogMzNweDtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG59XHJcbi52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBmbG9hdDpub25lO1xyXG59XHJcblxyXG5cclxuLyovLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLyAgY3NzLmNzcyBub3RoaW5nIG9mIHRoaXMgc2hvdWxkIHdvcmsqL1xyXG4vKlxyXG4uc2lkZWJhclNoZWxsLCAuZWRpdG9yU2hlbGwsIC5wcm9wZXJ0eV9zaWRlYmFye1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jazsvKmZsZXg7KiAvXHJcbiAgLyogaGVpZ2h0OiBjYWxjKDEwMHZoIC0gKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTsqIC9cclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIGZsZXgtd3JhcDogd3JhcDt9XHJcbi5zaWRlYmFyU2hlbGx7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4jcHJvcGVydHlfc2lkZWJhcntcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1iYXNpczogY2FsYyh2YXIoLS1zaWRlYmFyVykpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG59XHJcbi5lZGl0b3JTaGVsbHtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIHdpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpKTtcclxufVxyXG4qL1xyXG4jbWV0YW1vZGVsX3RhYiwgI21vZGVsX3RhYntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcclxuICBhbGlnbi1jb250ZW50OiBmbGV4LXN0YXJ0O1xyXG4gIHdpZHRoOiAxMDB2dzt9XHJcblxyXG5cclxuI21ldGFtb2RlbF9lZGl0b3IsICNtb2RlbF9lZGl0b3J7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIC8qd2lkdGg6IGNhbGMoMTAwdncgLSB2YXIoLS1zaWRlYmFyVykgLSB2YXIoLS1zY3JvbGxiYXJXKSk7LypOQjogVE8gRE86IHF1YW5kbyBuYXNjb25kaSBsJ2hpZGRlbmlucHV0ICovXHJcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gY2FsYyh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ0NDQ0YzsvKmxpZ2h0Z29sZGVucm9keWVsbG93OyovXHJcbn1cclxuI2lucHV0e1xyXG4gIGRpc3BsYXk6bm9uZTtcclxuICB3aWR0aDogMTAwdnc7XHJcbiAgaGVpZ2h0OiAzMDBweDtcclxuICBvdmVyZmxvdy15OnNjcm9sbDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuXHJcbnRhYmxlLm5vQm9yZGVye1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep :root  {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainBorderWidth: 5px;\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n  --bluebordercolor: #0084ff;\r\n\r\n  --mainFontColor: transparent;\r\n  --mainBackgroundColor: transparent;\r\n  --mainBorderColor: transparent;\r\n  --secondaryBorderColor: transparent;\r\n  --popupBackgroundColor: transparent;\r\n  --altBackgroundColor: var(--mainBorderColor);\r\n  --altFontColor: transparent;\r\n\r\n  --DarkmainFontColor: #b2b2ba;\r\n  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;*/\r\n  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;*/\r\n  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;*/\r\n  --DarkpopupBackgroundColor: #44444c;\r\n  --DarkaltBackgroundColor: var(--mainBorderColor);\r\n  --DarkaltFontColor: var(--LightmainBorderColor);\r\n\r\n\r\n  --LightmainFontColor: var(--DarksecondaryBorderColor);\r\n  --LightmainBackgroundColor: white;\r\n  --LightmainBorderColor: #f0f0f0; /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/\r\n  --LightsecondaryBorderColor: #f5f5f5; /*#c5c5c5;*/\r\n  --LightpopupBackgroundColor: var(--DarkmainBorderColor);\r\n  --LightaltBackgroundColor: var(--mainBorderColor);\r\n  --LightaltFontColor: var(--DarkmainBorderColor);\r\n}\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0);\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n/*::-webkit-scrollbar {\r\n    display: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsa0JBQWtCLGtCQUFrQjtFQUNsQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpRUFBaUU7RUFDakUsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWiwwQkFBMEI7O0VBRTFCLDRCQUE0QjtFQUM1QixrQ0FBa0M7RUFDbEMsOEJBQThCO0VBQzlCLG1DQUFtQztFQUNuQyxtQ0FBbUM7RUFDbkMsNENBQTRDO0VBQzVDLDJCQUEyQjs7RUFFM0IsNEJBQTRCO0VBQzVCLGtDQUFrQyxDQUFDLGNBQWM7RUFDakQsOEJBQThCLENBQUMsV0FBVztFQUMxQyxtQ0FBbUMsQ0FBQyxXQUFXO0VBQy9DLG1DQUFtQztFQUNuQyxnREFBZ0Q7RUFDaEQsK0NBQStDOzs7RUFHL0MscURBQXFEO0VBQ3JELGlDQUFpQztFQUNqQywrQkFBK0IsRUFBRSxtREFBbUQ7RUFDcEYsb0NBQW9DLEVBQUUsV0FBVztFQUNqRCx1REFBdUQ7RUFDdkQsaURBQWlEO0VBQ2pELCtDQUErQztBQUNqRDtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLGlDQUFpQztFQUNqQyxvQ0FBb0M7RUFDcEMsNENBQTRDO0VBQzVDLHdDQUF3QztFQUN4QywyQkFBMkI7RUFDM0IseUNBQXlDO0VBQ3pDLDZDQUE2QztFQUM3QyxzQ0FBc0M7QUFDeEM7QUFDQTs7RUFFRTtBQUNGLGFBQWEsOEJBQThCLEVBQUU7QUFDN0Msc0JBQXNCLG9DQUFvQyxFQUFFO0FBQzVELG1CQUFtQixpQ0FBaUMsRUFBRTtBQUN0RDtFQUNFLGFBQWE7RUFDYiwyQkFBMkIsRUFBRSxTQUFTO0FBQ3hDO0FBQ0E7RUFDRSxrQ0FBa0M7QUFDcEM7QUFDQSxPQUFPO0FBRVAseUNBQXlDO0FBQ3pDO0VBQ0Usc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDRDQUE0QztFQUM1Qyx5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsdUNBQXVDO0VBQ3ZDLHlIQUF5SDtFQUN6SCw0REFBNEQ7QUFDOUQ7QUFDQTtFQUNFLDZCQUE2QjtFQUM3QjtnQkFDYztBQUNoQjtBQUNBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isd0JBQXVCO1VBQXZCLHVCQUF1QjtBQUN6QjtBQUNBOzs7Ozs7Ozs7Ozs7Ozs7OztFQWlCRTtBQUVGO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFFQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixVQUFVO0FBQ1o7QUFHQSwwRkFBMEY7QUFDMUY7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztDQXFCQztBQUNEO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQW1CO0VBQW5CLDZCQUFtQjtVQUFuQixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHlCQUE4QjtVQUE5Qiw4QkFBOEI7RUFDOUIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBeUI7RUFDekIsWUFBWSxDQUFDO0FBR2Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osdUdBQXVHO0VBQ3ZHLHdEQUF3RDtFQUN4RCx5QkFBeUIsQ0FBQyx3QkFBd0I7QUFDcEQ7QUFDQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjtBQU1BO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgOnJvb3QgIHsvKiBjc3MgdmFyaWFibGVzICovXHJcbiAgLS10b3BiYXJIOiA0MHB4O1xyXG4gIC0tc2lkZWJhclc6IDI4M3B4O1xyXG4gIC0tbWFpbkJvcmRlcldpZHRoOiA1cHg7XHJcbiAgLS1tYWluQm9yZGVyOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpIHNvbGlkIHZhcigtLW1haW5Cb3JkZXJXaWR0aCk7XHJcbiAgLS1zY3JvbGxiYXJXOiAwcHg7XHJcbiAgLS10YWJIOiAzMHB4O1xyXG4gIC0tYmx1ZWJvcmRlcmNvbG9yOiAjMDA4NGZmO1xyXG5cclxuICAtLW1haW5Gb250Q29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tYWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tYWx0Rm9udENvbG9yOiB0cmFuc3BhcmVudDtcclxuXHJcbiAgLS1EYXJrbWFpbkZvbnRDb2xvcjogI2IyYjJiYTtcclxuICAtLURhcmttYWluQmFja2dyb3VuZENvbG9yOiAjMWExYTFjOy8qd2hpdGVTbW9rZTsqL1xyXG4gIC0tRGFya21haW5Cb3JkZXJDb2xvcjogIzJlMmYzNDsvKiNlNWU1ZTU7Ki9cclxuICAtLURhcmtzZWNvbmRhcnlCb3JkZXJDb2xvcjogIzNjM2M0NDsvKiNjNWM1YzU7Ki9cclxuICAtLURhcmtwb3B1cEJhY2tncm91bmRDb2xvcjogIzQ0NDQ0YztcclxuICAtLURhcmthbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7XHJcbiAgLS1EYXJrYWx0Rm9udENvbG9yOiB2YXIoLS1MaWdodG1haW5Cb3JkZXJDb2xvcik7XHJcblxyXG5cclxuICAtLUxpZ2h0bWFpbkZvbnRDb2xvcjogdmFyKC0tRGFya3NlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAtLUxpZ2h0bWFpbkJhY2tncm91bmRDb2xvcjogd2hpdGU7XHJcbiAgLS1MaWdodG1haW5Cb3JkZXJDb2xvcjogI2YwZjBmMDsgLyojOWNhN2I4OyBvbiBpbnRlbGxpSmlkZWEgZGFya2VyIHNoYWRlIC8qI2U1ZTVlNTsqL1xyXG4gIC0tTGlnaHRzZWNvbmRhcnlCb3JkZXJDb2xvcjogI2Y1ZjVmNTsgLyojYzVjNWM1OyovXHJcbiAgLS1MaWdodHBvcHVwQmFja2dyb3VuZENvbG9yOiB2YXIoLS1EYXJrbWFpbkJvcmRlckNvbG9yKTtcclxuICAtLUxpZ2h0YWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tTGlnaHRhbHRGb250Q29sb3I6IHZhcigtLURhcmttYWluQm9yZGVyQ29sb3IpO1xyXG59XHJcbjo6bmctZGVlcCAqe1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgc2Nyb2xsYmFyLWJhc2UtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHNjcm9sbGJhci0zZGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBzY3JvbGxiYXItaGlnaGxpZ2h0LWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItdHJhY2stY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIHNjcm9sbGJhci1hcnJvdy1jb2xvcjogIzAwMDtcclxuICBzY3JvbGxiYXItc2hhZG93LWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItZGFya3NoYWRvdy1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgLyogLW1vei1hcHBlYXJhbmNlOiBub25lICFpbXBvcnRhbnQ7ICovXHJcbn1cclxuLyo6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbn0qL1xyXG4qOmRpc2FibGVkIHsgY3Vyc29yOiBub3QtYWxsb3dlZCAhaW1wb3J0YW50OyB9XHJcbmlucHV0W3R5cGU9Y2hlY2tib3hdeyAtbW96LWFwcGVhcmFuY2U6IGNoZWNrYm94ICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1yYWRpb117IC1tb3otYXBwZWFyYW5jZTogcmFkaW8gIWltcG9ydGFudDsgfVxyXG5pbnB1dDpkaXNhYmxlZHtcclxuICBvcGFjaXR5IDogLjc1O1xyXG4gIGZpbHRlciAgOiBhbHBoYShvcGFjaXR5PTc1KTsgLyogSUU8OSAqL1xyXG59XHJcbjo6bmctZGVlcCAuc3R5bGVFZGl0b3JTZWxlY3RlZHtcclxuICBvdXRsaW5lOiAzcHggZGFzaGVkIHJlZCAhaW1wb3J0YW50O1xyXG59XHJcbi8qb2xkcyovXHJcblxyXG4vKioqKioqKioqKioqKioqKioqIGF0dHJpYnV0ZUVkaXRvci5jc3MgKi9cclxuLmF0dHJpYnV0ZUVkaXRvciwgLnN0eWxlRWRpdG9ye1xyXG4gIC8qZGlzcGxheTppbmxpbmUtYm94OyovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAtbW96LWZpdC1jb250ZW50O1xyXG4gIHBhZGRpbmc6OHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIGJvcmRlcjogdmFyKC0tbWFpbkJvcmRlcik7XHJcbiAgbWF4LXdpZHRoOiAxMDB2dztcclxuICBtYXgtaGVpZ2h0OjEwMHZoO1xyXG4gIG92ZXJmbG93OiBhdXRvO1xyXG59XHJcbi5zdHlsZUVkaXRvcntcclxuICBsZWZ0OiB2YXIoLS1zaWRlYmFyVyk7XHJcbiAgdG9wOiBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpO1xyXG4gIC8qdm9nbGlvIGNoZSBzaWEgZGl2ZXJzYSBwZXJjaMOoIGRpIHNvbGl0byBwYXJ0ZSBjb24gYWx0ZXp6YSBwYXJpIGEgdG9wYmFyLmggZSB2b2dsaW8gY2hlIHNpYSBzY3JvbGxhYmlsZSBzZW56YSBzcG9zdGFybGEqL1xyXG4gIG1heC1oZWlnaHQ6IGNhbGMoMTAwdmggLSBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTtcclxufVxyXG5idXR0b24uYXR0cmlidXRlRWRpdG9yQ29uZmlybSwgYnV0dG9uLnN0eWxlRWRpdG9yQ29uZmlybXtcclxuICBtYXJnaW4tbGVmdDogY2FsYyg1MCUgLSA1MHB4KTtcclxuICAvKiB3aWR0aDoxMDBweDtcclxuICAgaGVpZ2h0OjMwcHg7Ki9cclxufVxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSAuYXR0cmlidXRlRWRpdG9yRmllbGROYW1lLCB0YWJsZS5zdHlsZVRhYmxlIC5zdHlsZUVkaXRvckZpZWxkTmFtZXtcclxuICBtYXgtd2lkdGg6MTUwcHg7XHJcbiAgbWF4LWhlaWdodDoxNTBweDtcclxuICBvdmVyZmxvdzphdXRvO1xyXG59XHJcbi5zdHlsZVRhYmxle1xyXG4gIG1hcmdpbi10b3A6MTBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLnN0eWxlVGFibGUgdGR7XHJcbiAgbWF4LXdpZHRoOiAzMDBweDtcclxufVxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUsIC5zdHlsZUVkaXRvclRpdGxle1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uZWRnZVJvd3tcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5lZGdlUm93Pip7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IDBweDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogNHB4O1xyXG4gIGZsZXgtYmFzaXM6IDBweDtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxufVxyXG4uaXNDb21wb3VuZEVkZ2V7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuLnN0eWxlQ29tcG91bmRXcmFwcGVye1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG4uY29tcG91bmRFZGdlU3RhcnQsIC5jb21wb3VuZEVkZ2VFbmR7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5TaWRlYmFyU3R5bGVIdG1sLCAuR3JhcGhTdHlsZUh0bWx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG4vKlxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB7XHJcbiAgICBib3JkZXI6bm9uZTtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkIHtcclxuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgIzAwMDtcclxuICAgIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICMwMDA7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmZpcnN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1sZWZ0OiBub25lO1xyXG59XHJcblxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB0ZDpsYXN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1yaWdodDogbm9uZTtcclxufSovXHJcblxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLCAuc3R5bGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwicmFkaW9cIl17XHJcbiAgbWFyZ2luOiA0cHg7XHJcbn1cclxuLlJlZmVyZW5jZVNlbGVjdG9ye1xyXG4gIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLnJvd01vZGVsRGV0YWlsLCAudmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICB3aWR0aDogMzNweDtcclxuICBoZWlnaHQ6IDMzcHg7XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxufVxyXG4udmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbiAgZmxvYXQ6bm9uZTtcclxufVxyXG5cclxuXHJcbi8qLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8gIGNzcy5jc3Mgbm90aGluZyBvZiB0aGlzIHNob3VsZCB3b3JrKi9cclxuLypcclxuLnNpZGViYXJTaGVsbCwgLmVkaXRvclNoZWxsLCAucHJvcGVydHlfc2lkZWJhcntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7LypmbGV4OyogL1xyXG4gIC8qIGhlaWdodDogY2FsYygxMDB2aCAtICh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7KiAvXHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICBmbGV4LXdyYXA6IHdyYXA7fVxyXG4uc2lkZWJhclNoZWxse1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LWJhc2lzOiBjYWxjKHZhcigtLXNpZGViYXJXKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbn1cclxuI3Byb3BlcnR5X3NpZGViYXJ7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4uZWRpdG9yU2hlbGx7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICB3aWR0aDogY2FsYygxMDB2dyAtIHZhcigtLXNpZGViYXJXKSk7XHJcbn1cclxuKi9cclxuI21ldGFtb2RlbF90YWIsICNtb2RlbF90YWJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XHJcbiAgYWxpZ24tY29udGVudDogZmxleC1zdGFydDtcclxuICB3aWR0aDogMTAwdnc7fVxyXG5cclxuXHJcbiNtZXRhbW9kZWxfZWRpdG9yLCAjbW9kZWxfZWRpdG9ye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICAvKndpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpIC0gdmFyKC0tc2Nyb2xsYmFyVykpOy8qTkI6IFRPIERPOiBxdWFuZG8gbmFzY29uZGkgbCdoaWRkZW5pbnB1dCAqL1xyXG4gIGhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM0NDQ0NGM7LypsaWdodGdvbGRlbnJvZHllbGxvdzsqL1xyXG59XHJcbiNpbnB1dHtcclxuICBkaXNwbGF5Om5vbmU7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogMzAwcHg7XHJcbiAgb3ZlcmZsb3cteTpzY3JvbGw7XHJcbn1cclxuXHJcblxyXG5cclxuXHJcblxyXG50YWJsZS5ub0JvcmRlcntcclxuICBib3JkZXI6IG5vbmU7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -3369,22 +3416,34 @@ class Status {
 }
 Status.status = null;
 function main0(loadEvent, tentativi = 0) {
-    // EcoreLayer.test2(); return;
-    Status.status = new Status();
-    window.global = window;
-    // (window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;
-    if (document.getElementById('MM_INPUT') === null) {
-        if (tentativi++ >= 10) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pe(true, 'failed to load MM_INPUT');
+    try {
+        Status.status = new Status();
+        window.global = window;
+        // (window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;
+        if (document.getElementById('MM_INPUT') === null) {
+            if (tentativi++ >= 10) {
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pe(true, 'failed to load MM_INPUT');
+            }
+            setTimeout(() => main0(null, tentativi), 100);
+            console.log('main0 wait(100)');
+            return;
+        } // else { mainForceTabChange(0); }
+        // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.js');
+        // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.structure.js');
+        // U.loadScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js');
+        main();
+    }
+    catch (e) {
+        const errormsg = 'initialization failed, this is likely caused by a failure on connection while downloading libraries or by unsupported browser.';
+        console.log('first error:', e);
+        try {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, errormsg);
         }
-        setTimeout(() => main0(null, tentativi), 100);
-        console.log('main0 wait(100)');
-        return;
-    } // else { mainForceTabChange(0); }
-    // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.js');
-    // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.structure.js');
-    // U.loadScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js');
-    main();
+        catch (ee) {
+            console.log('second error while printing:', ee);
+            document.body.innerHTML = errormsg;
+        }
+    }
     // console.log('main(), $ loaded:', $ !== undefined, 'status: ', Status.status);
 }
 /*function mainForceTabChange(tentativi: number = 0) {
@@ -3458,6 +3517,9 @@ function globalevents() {
     window['' + 'M3Attribute'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["M3Attribute"];
     window['' + 'M2Attribute'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["M2Attribute"];
     window['' + 'MAttribute'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MAttribute"];
+    window['Rotatableoptions'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Rotatableoptions"];
+    window['Resizableoptions'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Resizableoptions"];
+    window['Draggableoptions'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Draggableoptions"];
     window['' + 'help'] = [
         'setBackup (backup <= saveToDB)',
         'backupSave (saveToDB <= backup)',
@@ -3505,6 +3567,9 @@ function setBootstrapOnLowestPriority() {
     }
 }
 function main() {
+    let tmp;
+    let useless;
+    let i;
     setBootstrapOnLowestPriority();
     window.U = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"];
     window.status = Status.status;
@@ -3539,15 +3604,17 @@ function main() {
         }
     });
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].resizableBorderSetup();
+    const $resizableBorders = $('.resizableBorder.side, .resizableBorder.corner');
+    for (i = 0; i < $resizableBorders.length; i++) {
+        $resizableBorders[i].style.borderColor = 'var(--mainBorderColor)';
+    }
+    _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ChangelogRoot"].CheckUpdates();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ECoreRoot"].initializeAllECoreEnums();
     globalevents();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MeasurableRuleParts"].staticinit();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IVertex"].staticinit();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IEdge"].staticInit();
     new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MyConsole"]();
-    let tmp;
-    let useless;
-    let i;
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw((tmp = +_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["DetectZoom"].device()) !== 1, 'Current zoom level is different from 100%.', 'The graph part of this website may be graphically misplaced due to a bug with Svg\'s <foreignObject> content.', 'current zoom:' + (+tmp * 100) + '%', 'The bug happens in: Chrome.', 'The bug does NOT happen in: Firefox.', 'Behaviour is unknown for other browsers.');
     Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].void] = 'void';
     Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EChar] = 'char';
@@ -3585,6 +3652,7 @@ function main() {
     console.log('loading M:', savem1);
     Status.status.mmm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaMetaModel"](null);
     useless = new _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"]();
+    _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["WebsiteTheme"].setTheme();
     try {
         Status.status.mm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"](JSON.parse(savem2.model), Status.status.mmm);
     }
@@ -3699,7 +3767,7 @@ document.addEventListener('DOMContentLoaded', main0);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n/* dynamically added*/\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n.meas_acc0 .measurabledebug { display: none; }\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n.meas_acc0 .countershell { float: right; }\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n.meas_acc0 .directions > * { margin: auto; }\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n.meas_acc0 .rule.template { display: none !important; }\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsY0FBYztFQUNkLFVBQVU7RUFDVixjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBQ0Esc0JBQXNCLGlCQUFpQixFQUFFO0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTtBQUN6QyxzQkFBc0Isa0JBQWtCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDekQ7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDtBQUNBLG9CQUFvQixlQUFlLEVBQUU7QUFDckMsd0JBQXdCLGtCQUFrQixFQUFFO0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTtBQUNqQyx1QkFBdUIsY0FBYyxFQUFFLGtCQUFrQixFQUFFLG1CQUFtQixFQUFFO0FBQ2hGLG1CQUFtQixvQkFB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QUNoQiw2QkFBNkIsWUFBWSxFQUFFO0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25CO0FBQ0Esa0NBQWtDLGFBQWEsRUFBRTtBQUNqRCw0QkFBNEIsd0JBQXdCLEVBQUU7QUFDdEQsdUJBQXVCLG9DQUFvQyxFQUFFIiwiZmlsZSI6InNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lYXNfYWNjMCAubWVhc3VyYWJsZVNldHRpbmdSb290e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAucHJlbGVmdCwgLm1lYXNfYWNjMCAucG9zdE5hbWUge1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBiYWNrZ3JvdW5kOiBub25lO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbiAgcGFkZGluZzogMDtcclxuICBjb2xvcjogaW5oZXJpdDtcclxuICBoZWlnaHQ6IHVuc2V0O1xyXG59XHJcbi5tZWFzX2FjYzAgLnByZWxlZnQgeyBtYXJnaW4tcmlnaHQ6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5wb3N0TmFtZSB7IG1hcmdpbi1sZWZ0OiA1cHg7IH1cclxuLm1lYXNfYWNjMCAuYm90bWFyZyB7IG1hcmdpbi1ib3R0b206IDVweDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5tb3ZlbWVudGJveHJvb3QsIC5tZWFzX2FjYzAgLnJlc2l6ZWJveHJvb3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHJvdztcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucm93Y29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAucm93IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcclxuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XHJcbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5maWxsIHsgZmxleC1ncm93OiAxOyB9XHJcbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLmxlZnQsIC5tZWFzX2FjYzAgLnNpZGUucmlnaHQgeyB3aWR0aDogMTBweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxyXG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSB7IGJhY2tncm91bmQtY29sb3I6IGdvbGRlbnJvZDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbn1cclxuLm1lYXNfYWNjMCAuYm94cm9vdCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGV7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgYnV0dG9uLnJ1bGVkZWxldGUge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICB3aWR0aDogMzBweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDI1cHggMCAwIDI1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCB7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGZsZXgtZ3JvdzogMCAhaW1wb3J0YW50O1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGZsZXgtYmFzaXM6IGF1dG8gIWltcG9ydGFudDtcclxuICBmbGV4LXNocmluazogMCAhaW1wb3J0YW50O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXIge1xyXG4gIG9yZGVyOiAyO1xyXG4gIG1hcmdpbjogYXV0byAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAtNHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6IGluaGVyaXQ7XHJcbiAgdGV4dC1hbGlnbi1sYXN0OiBsZWZ0O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbmRyYWcgLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDU2cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29ucmVzaXplIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA2NHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbnJvdGF0aW9uIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA3N3B4O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXI6Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xyXG4gIG9yZGVyOiAzO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICo6Zmlyc3QtY2hpbGQge1xyXG4gIG1hcmdpbi10b3A6IDFweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHdpZHRoOiBtaW4tY29udGVudDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcclxuICBib3JkZXItY29sb3I6ICM4MGJkZmY7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxyXG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3Ige1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIC8qbWFyZ2luLXRvcDogOHB4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3IuYXBwbHkge1xyXG4gICBtYXJnaW4tbGVmdDogMHB4O1xyXG4gfVxyXG4ubWVhc19hY2MwIC5vcGVyYXRvcmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIG1hcmdpbjogYXV0byA1cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIG1pbi13aWR0aDogMTIwcHg7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLm1lYXN1cmFibGVkZWJ1ZyB7IG1hcmdpbi10b3A6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XHJcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYWRkcnVsZSB7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIG1hcmdpbi10b3A6IC00cHg7XHJcbiAgcGFkZGluZzogNHB4IDEwcHg7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlIHtcclxuICBwYWRkaW5nLXJpZ2h0OiA0cHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuOjpuZy1kZWVwIC5tZWFzX2FjYzAgLmlubmVydGl0bGUgeyBtYXJnaW46IGF1dG87IH0gLyogZHluYW1pY2FsbHkgYWRkZWQqL1xyXG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlciB7IC13ZWJraXQtYXBwZWFyYW5jZTogYnV0dG9uOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGNvbG9yOiBkb2RnZXJibHVlOyB9XHJcbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogdW5zZXQ7XHJcbiAgLyogZGlzYWJsZSBib290c3RyYXAgcnVsZSovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW91dHB1dHRleHQ6Zm9jdXMsXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHQ6Zm9jdXMsXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dDpmb2N1c3tcclxuICAvKm91dGxpbmU6IG5vbmU7XHJcbiAgYm94LXNoYWRvdzogbm9uZTsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tZGFuZ2VyKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxld2FybmluZ3RleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0td2FybmluZyk7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW91dHB1dHRleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyeyBtYXJnaW4tYm90dG9tOiA1cHg7IH1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnIHsgZGlzcGxheTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5yaWdodHg6Zm9jdXMtd2l0aGluIC5tZWFzdXJhYmxlZGVidWd7IGRpc3BsYXk6IGZsZXg7IH1cclxuLm1lYXNfYWNjMCAuY291bnRlcnNoZWxsIHsgZmxvYXQ6IHJpZ2h0OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAqIHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gKiwgLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAubGVmdCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby90cXhYaGs0L3RsLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZ3ZweXd6L3RsbC5wbmcpO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnNpZGUudG9wIHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9NOWZDN0RQL3QucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5yaWdodCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9QenNtanhmL3RyLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9TTjJUSEx0L3RybC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvLzdqbTlCQlEvbC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9SWVpuVk41L3IucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3FyWVdkcEgvYmwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2dES0ZyeTUvYmxsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAuc2lkZS5ib3Qge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2NYYzBubVMvYi5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL0swcFZWVDcvYnIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1Fwd1JTc1QvYnJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnRvcCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xyXG4gIG1hcmdpbi10b3A6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmJvdCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogLTNweDtcclxuICBtYXJnaW4tdG9wOiAzcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmxlZnQge1xyXG4gIG1hcmdpbi1yaWdodDogM3B4O1xyXG4gIG1hcmdpbi1sZWZ0OiAtM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5yaWdodCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAtM3B4O1xyXG4gIG1hcmdpbi1sZWZ0OiAzcHg7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3doIHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZDNqdGJjL2xyLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3d2IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9qSFR0UER4L3RiLnBuZyk7IH1cclxuXHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgaGVpZ2h0OiA1MHB4O1xyXG4gIG1pbi13aWR0aDogNTBweDtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+ICoge1xyXG4gIGhlaWdodDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+ICoge1xyXG4gIGhlaWdodDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd2lkdGg6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG5cclxuLm1lYXNfYWNjMCAuYXJyb3cgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Z7XHJcbiAgd2lkdGg6IDc1cHg7XHJcbiAgaGVpZ2h0OiA3NXB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdzpmb2N1c3sgb3V0bGluZTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xyXG4gIGZpbHRlcjogc2VwaWEoODIlKSBzYXR1cmF0ZSgzOTI1JSkgaHVlLXJvdGF0ZSg1NWRlZykgYnJpZ2h0bmVzcygxMjUlKSBjb250cmFzdCgxMjAlKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luOiBhdXRvOyB9XHJcbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMgPiAqIHsgbWFyZ2luOiBhdXRvOyB9XHJcbi5tZWFzX2FjYzAgLmRyYWdnYWJsZS5ib3hyb290e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgLypoZWlnaHQ6IDIzN3B4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAuY29sbGFwc2U6bm90KC5zaG93KSB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAucnVsZS50ZW1wbGF0ZSB7IGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDsgfVxyXG4ubWVhc19hY2MwIC5zZWxlY3RlZCB7IGJhY2tncm91bmQtY29sb3I6ICMzN2ZmNjYgIWltcG9ydGFudDsgfVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n  min-width: 0;\r\n}\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n/* dynamically added*/\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n.meas_acc0 .measurableoktext{\r\n  margin-left: 5px;\r\n  color: var(--success);\r\n}\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n.meas_acc0 .measurabledebug { display: none; }\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n.meas_acc0 .measurabledebug .debugrows { display: none; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-flow: column; }\r\n.meas_acc0 .measurabledebug:focus-within .debugrows { display: -webkit-box; display: flex; }\r\n.meas_acc0 .countershell { float: right; }\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n.meas_acc0 .directions > * { margin: auto; }\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n.meas_acc0 .rule.template { display: none !important; }\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsY0FBYztFQUNkLFVBQVU7RUFDVixjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBQ0Esc0JBQXNCLGlCQUFpQixFQUFFO0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTtBQUN6QyxzQkFBc0Isa0JBQWtCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDekQ7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDtBQUNBLG9CQUFvQixlQUFlLEVBQUU7QUFDckMsd0JBQXdCLGtCQUFrQixFQUFFO0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTtBQUNqQyx1QkFBdUIsY0FBYyxFQUFFLGtCQUFrQixFQUFFLG1CQUFtQixFQUFFO0FBQ2hGLG1CQUFtQixvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNsQyxnREFBZ0QsV0FBVyxFQUFFO0FBQzdELDZDQUE2QyxZQUFZLEVBQUUsd0JBQXdCLEVBQUU7QUFDckYscUJBQXFCLG9CQUFhLEVBQWIsYUFBYSxFQUFFLFdBQVcsRUFBRSxZQUFZLEVBQUU7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2pFLDZCQUE2QixZQUFZLEVBQUUsWUFBWSxFQUFFO0FBQ3pEO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLGNBQWM7RUFDZCxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsVUFBVTtFQUNWLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QsMEJBQXFCO09BQXJCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7QUFDQSxzQ0FBc0MsWUFBWSxFQUFFO0FBQ3BEO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQiw2QkFBNkI7RUFDN0IsMEJBQWtCO0VBQWxCLHVCQUFrQjtFQUFsQixrQkFBa0I7QUFDcEI7QUFDQSxnREFBZ0QsZ0JBQWdCLEVBQUU7QUFDbEU7RUFDRSxxQkFBcUI7RUFDckIsZ0RBQWdEO0FBQ2xEO0FBRUEsMEVBQTBFLDJCQUEyQixFQUFFO0FBQ3ZHLHlDQUF5QztBQUN6QztFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLG1CQUFtQjtBQUNyQjtBQUNBO0dBQ0csZ0JBQWdCO0NBQ2xCO0FBQ0Q7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLDRCQUF1QjtPQUF2Qix1QkFBdUI7QUFDekI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtBQUNkO0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFO0FBQ2pELCtCQUErQixnQkFBZ0IsRUFBRTtBQUNqRCx3Q0FBd0MsZUFBZSxFQUFFO0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0FBQ25FO0FBQ0E7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBLG1DQUFtQyxZQUFZLEVBQUU7QUFBRSxxQkFBcUI7QUFDeEUsa0NBQWtDLDJCQUEyQixFQUFFO0FBQy9ELDhCQUE4QiwwQkFBMEIsRUFBRSxxQkFBcUIsRUFBRSxpQkFBaUIsRUFBRTtBQUNwRztFQUNFLDZCQUE2QjtFQUM3QiwwQkFBMEI7QUFDNUI7QUFDQTs7O0VBR0U7b0JBQ2tCO0FBQ3BCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsdUJBQXVCO0FBQ3pCO0FBQ0EsMkJBQTJCLGtCQUFrQixFQUFFO0FBQy9DLDhCQUE4QixhQUFhLEVBQUU7QUFDN0Msa0RBQWtELG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2pFLHlDQUF5QyxhQUFhLEVBQUUsNEJBQWlCLEVBQWpCLDZCQUFpQixFQUFqQixpQkFBaUIsRUFBRTtBQUMzRSxzREFBc0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDckUsMkJBQTJCLFlBQVksRUFBRTtBQUN6QztFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSx3QkFBd0I7RUFDeEIsNEJBQTRCO0VBQzVCLGtDQUFrQztBQUNwQztBQUNBO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RDtBQUN6RDtBQUNBO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RCxFQUFFO0FBQzNEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxtQkFBbUI7RUFDbkIsZUFBZSxFQUFFO0FBQ25CO0VBQ0UsaUJBQWlCO0VBQ2pCLGlCQUFpQixFQUFFO0FBQ3JCO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQixFQUFFO0FBQ3BCO0VBQ0Usc0RBQXNELEVBQUU7QUFDMUQ7RUFDRSxzREFBc0QsRUFBRTtBQUUxRDtFQUNFLFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxZQUFZLEVBQUU7QUFDaEI7RUFDRSxZQUFZLEVBQUU7QUFDaEI7RUFDRSxZQUFZO0VBQ1osV0FBVyxFQUFFO0FBQ2Y7RUFDRSxZQUFZO0VBQ1osV0FBVyxFQUFFO0FBRWYsb0JBQW9CLDJCQUEyQixFQUFFO0FBQ2pEO0VBQ0UsV0FBVztFQUNYLFlBQVksRUFBRTtBQUVoQix5QkFBeUIsYUFBYSxFQUFFO0FBQ3hDO0VBQ0UsNEZBQW9GO1VBQXBGLG9GQUFvRixFQUFFO0FBRXhGO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLFlBQVksRUFBRTtBQUNoQiw2QkFBNkIsWUFBWSxFQUFFO0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25CO0FBQ0Esa0NBQWtDLGFBQWEsRUFBRTtBQUNqRCw0QkFBNEIsd0JBQXdCLEVBQUU7QUFDdEQsdUJBQXVCLG9DQUFvQyxFQUFFIiwiZmlsZSI6InNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lYXNfYWNjMCAubWVhc3VyYWJsZVNldHRpbmdSb290e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAucHJlbGVmdCwgLm1lYXNfYWNjMCAucG9zdE5hbWUge1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBiYWNrZ3JvdW5kOiBub25lO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbiAgcGFkZGluZzogMDtcclxuICBjb2xvcjogaW5oZXJpdDtcclxuICBoZWlnaHQ6IHVuc2V0O1xyXG59XHJcbi5tZWFzX2FjYzAgLnByZWxlZnQgeyBtYXJnaW4tcmlnaHQ6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5wb3N0TmFtZSB7IG1hcmdpbi1sZWZ0OiA1cHg7IH1cclxuLm1lYXNfYWNjMCAuYm90bWFyZyB7IG1hcmdpbi1ib3R0b206IDVweDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5tb3ZlbWVudGJveHJvb3QsIC5tZWFzX2FjYzAgLnJlc2l6ZWJveHJvb3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHJvdztcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucm93Y29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAucm93IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcclxuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XHJcbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5maWxsIHsgZmxleC1ncm93OiAxOyB9XHJcbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLmxlZnQsIC5tZWFzX2FjYzAgLnNpZGUucmlnaHQgeyB3aWR0aDogMTBweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxyXG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSB7IGJhY2tncm91bmQtY29sb3I6IGdvbGRlbnJvZDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbn1cclxuLm1lYXNfYWNjMCAuYm94cm9vdCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGV7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgYnV0dG9uLnJ1bGVkZWxldGUge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICB3aWR0aDogMzBweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDI1cHggMCAwIDI1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCB7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGZsZXgtZ3JvdzogMCAhaW1wb3J0YW50O1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGZsZXgtYmFzaXM6IGF1dG8gIWltcG9ydGFudDtcclxuICBmbGV4LXNocmluazogMCAhaW1wb3J0YW50O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXIge1xyXG4gIG9yZGVyOiAyO1xyXG4gIG1hcmdpbjogYXV0byAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAtNHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6IGluaGVyaXQ7XHJcbiAgdGV4dC1hbGlnbi1sYXN0OiBsZWZ0O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbmRyYWcgLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDU2cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29ucmVzaXplIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA2NHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbnJvdGF0aW9uIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA3N3B4O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXI6Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xyXG4gIG9yZGVyOiAzO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XHJcbiAgbWluLXdpZHRoOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqIHsgYm9yZGVyOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcclxuICBtYXJnaW4tdG9wOiAxcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICB3aWR0aDogbWluLWNvbnRlbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0OmZvY3VzIHsgYm94LXNoYWRvdzogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4OmZvY3VzLXdpdGhpbiB7XHJcbiAgYm9yZGVyLWNvbG9yOiAjODBiZGZmO1xyXG4gIGJveC1zaGFkb3c6IDAgMCAwIDAuMnJlbSByZ2JhKDAsIDEyMywgMjU1LCAwLjI1KTtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5yaWdodHgsIC5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAubGVmdHggeyBtYXJnaW4tYm90dG9tOiAwICFpbXBvcnRhbnQ7IH1cclxuLyogLm1lYXNfYWNjMCAucmlnaHR4IHsgbWluLXdpZHRoOiAwOyB9ICovXHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yIHtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxuICAvKm1hcmdpbi10b3A6IDhweDsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yLmFwcGx5IHtcclxuICAgbWFyZ2luLWxlZnQ6IDBweDtcclxuIH1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3Jjb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgc2VsZWN0Lm9wZXJhdG9yIHtcclxuICB3aWR0aDogNDVweDtcclxuICBtYXJnaW46IGF1dG8gNXB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yaWdodHggLmNvbXBvdW5kSW5wdXRwcmVmaXgsIC5tZWFzX2FjYzAgLnJpZ2h0eCBpbnB1dC5yaWdodHNpZGUsIC5tZWFzX2FjYzAgaW5wdXQubGVmdHNpZGUsIC5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQge1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxuICBtaW4td2lkdGg6IDEyMHB4O1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgeyBtYXJnaW4tYm90dG9tOiAxcmVtOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQgeyBtYXJnaW4tYm90dG9tOiAwOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC5tZWFzdXJhYmxlZGVidWcgeyBtYXJnaW4tdG9wOiA1cHg7IH1cclxuLm1lYXNfYWNjMCAuYXR0cm5hbWUge1xyXG4gIG1heC13aWR0aDogMjAwcHggIWltcG9ydGFudDsgLyogdG9kbzogcmVtb3ZlIHdoZW4gaXMgYXV0b3NpemluZyAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmFkZHJ1bGUge1xyXG4gIGZsb2F0OiByaWdodDtcclxuICBtYXJnaW4tdG9wOiAtNHB4O1xyXG4gIHBhZGRpbmc6IDRweCAxMHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XHJcbiAgcGFkZGluZy1yaWdodDogNHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbjo6bmctZGVlcCAubWVhc19hY2MwIC5pbm5lcnRpdGxlIHsgbWFyZ2luOiBhdXRvOyB9IC8qIGR5bmFtaWNhbGx5IGFkZGVkKi9cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlLmNvbGxhcHNlZCB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGU6aG92ZXIgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGJ1dHRvbjsgdGV4dC1kZWNvcmF0aW9uOiBub25lOyBjb2xvcjogZG9kZ2VyYmx1ZTsgfVxyXG4ubWVhc19hY2MwIC5mb3JtLWNvbnRyb2wgPiAuZm9ybS1jb250cm9sOm5vdCg6Zmlyc3QtY2hpbGQpe1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IHVuc2V0O1xyXG4gIC8qIGRpc2FibGUgYm9vdHN0cmFwIHJ1bGUqL1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0OmZvY3VzLFxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZXJyb3J0ZXh0OmZvY3VzLFxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxld2FybmluZ3RleHQ6Zm9jdXN7XHJcbiAgLypvdXRsaW5lOiBub25lO1xyXG4gIGJveC1zaGFkb3c6IG5vbmU7Ki9cclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb2t0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXN1Y2Nlc3MpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tZGFuZ2VyKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxld2FybmluZ3RleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0td2FybmluZyk7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW91dHB1dHRleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyeyBtYXJnaW4tYm90dG9tOiA1cHg7IH1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnIHsgZGlzcGxheTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5yaWdodHg6Zm9jdXMtd2l0aGluIC5tZWFzdXJhYmxlZGVidWd7IGRpc3BsYXk6IGZsZXg7IH1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnIC5kZWJ1Z3Jvd3MgeyBkaXNwbGF5OiBub25lOyBmbGV4LWZsb3c6IGNvbHVtbjsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWc6Zm9jdXMtd2l0aGluIC5kZWJ1Z3Jvd3MgeyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLmNvdW50ZXJzaGVsbCB7IGZsb2F0OiByaWdodDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gKiB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+ICosIC5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2IHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLmxlZnQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vdHF4WGhrNC90bC5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmd2cHl3ei90bGwucG5nKTtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5zaWRlLnRvcCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vTTlmQzdEUC90LnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAucmlnaHQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUHpzbWp4Zi90ci5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vU04yVEhMdC90cmwucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby83am05QkJRL2wucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUllablZONS9yLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAubGVmdCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9xcllXZHBIL2JsLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9nREtGcnk1L2JsbC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnNpZGUuYm90IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9jWGMwbm1TL2IucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5yaWdodCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9LMHBWVlQ3L2JyLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9RcHdSU3NUL2JybC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS50b3Age1xyXG4gIG1hcmdpbi1ib3R0b206IDNweDtcclxuICBtYXJnaW4tdG9wOiAtM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5ib3Qge1xyXG4gIG1hcmdpbi1ib3R0b206IC0zcHg7XHJcbiAgbWFyZ2luLXRvcDogM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5sZWZ0IHtcclxuICBtYXJnaW4tcmlnaHQ6IDNweDtcclxuICBtYXJnaW4tbGVmdDogLTNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUucmlnaHQge1xyXG4gIG1hcmdpbi1yaWdodDogLTNweDtcclxuICBtYXJnaW4tbGVmdDogM3B4OyB9XHJcbi5tZWFzX2FjYzAgLmFycm93aCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmQzanRiYy9sci5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93diB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vakhUdFBEeC90Yi5wbmcpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+IC5jb3JuZXIge1xyXG4gIGhlaWdodDogNTBweDtcclxuICBtaW4td2lkdGg6IDUwcHg7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAqIHtcclxuICBoZWlnaHQ6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAqIHtcclxuICBoZWlnaHQ6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd2lkdGg6IDUwcHg7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmFycm93IHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2e1xyXG4gIHdpZHRoOiA3NXB4O1xyXG4gIGhlaWdodDogNzVweDsgfVxyXG5cclxuLm1lYXNfYWNjMCAuYXJyb3c6Zm9jdXN7IG91dGxpbmU6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3c6Y2hlY2tlZHtcclxuICBmaWx0ZXI6IHNlcGlhKDgyJSkgc2F0dXJhdGUoMzkyNSUpIGh1ZS1yb3RhdGUoNTVkZWcpIGJyaWdodG5lc3MoMTI1JSkgY29udHJhc3QoMTIwJSk7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIG1hcmdpbjogYXV0bzsgfVxyXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zID4gKiB7IG1hcmdpbjogYXV0bzsgfVxyXG4ubWVhc19hY2MwIC5kcmFnZ2FibGUuYm94cm9vdHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIC8qaGVpZ2h0OiAyMzdweDsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbGxhcHNlOm5vdCguc2hvdykgeyBkaXNwbGF5OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLnJ1bGUudGVtcGxhdGUgeyBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7IH1cclxuLm1lYXNfYWNjMCAuc2VsZWN0ZWQgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjMzdmZjY2ICFpbXBvcnRhbnQ7IH1cclxuIl19 */");
 
 /***/ }),
 
@@ -3779,7 +3847,7 @@ class MeasurableTemplateGenerator {
         havetarget = true;
         nameph = null;
         leftph = 'condition';
-        rightph = '[selector] [->] rulename';
+        rightph = '[selector] [' + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].AttributeSelectorOperator + '] rulename';
         arr.push(new Tmp(prefix, name, preleft, haveleft, haveoperator, havetarget, leftph, rightph, nameph));
         prefix = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"].onDragStart;
         name = prefix.substr(1);
@@ -4043,7 +4111,7 @@ class MeasurableTemplateGenerator {
         ret.parentElement.removeChild(ret);
         ret.removeAttribute('id');
         MeasurableTemplateGenerator.makedatasetLists();
-        return ret;
+        return this.generateMeasurableTemplate();
     }
     static makedatasetLists() {
         const constraintOptions = new _common_measurable__WEBPACK_IMPORTED_MODULE_3__["ConstraintLeftAdmitteds"]();
@@ -4107,6 +4175,7 @@ Rotatableoptions.wheelRotate = 'wheelRotate'; // NB: non previene lo scroll dell
 Rotatableoptions.onRotating = 'onRotating'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.
 Rotatableoptions.onRotationStart = 'onRotationStart'; // in realtà è "start"
 Rotatableoptions.onRotationEnd = 'onRotationEnd'; // in realtà è "stop"
+Rotatableoptions.disabled = 'disabled';
 //if the placeholder value is a choice of literals, the first literal is the default value. UPPERCASED, CamelCased and (parenthesized) words are not literals. Those values are not dynamic and are evaluated only once.
 class Resizableoptions {
 }
@@ -4120,10 +4189,10 @@ Resizableoptions.cancel = 'cancel';
 Resizableoptions.classes = 'classes';
 Resizableoptions.containment = 'containment';
 Resizableoptions.delay = 'delay';
-Resizableoptions.disabled = 'disabled';
 Resizableoptions.distance = 'distance';
 Resizableoptions.ghost = 'ghost';
 Resizableoptions.grid = 'grid';
+Resizableoptions.handles = 'handles';
 Resizableoptions.helper = 'helper';
 Resizableoptions.maxHeight = 'maxHeight';
 Resizableoptions.maxWidth = 'maxWidth';
@@ -4131,7 +4200,8 @@ Resizableoptions.minHeight = 'minHeight';
 Resizableoptions.minWidth = 'minWidth';
 // Methods
 // destroy()
-Resizableoptions.enabled = 'enabled'; // $var.resizable('disable'); or .resizable( "enable" );
+Resizableoptions.disabled = 'disabled';
+// static readonly enabled: string = 'enabled'; // $var.resizable('disable'); or .resizable( "enable" );
 // instance(); only useful as return value on javascript
 // .resizable('option',{key', 'optionname') return the current option or a key-value object with all options or .resizable('option', {key: value}) setta opzioni.
 // .resizable('widget') return $(resizable element)
@@ -4151,7 +4221,6 @@ Draggableoptions.containment = 'containment';
 Draggableoptions.cursor = 'cursor'; // todo: setta default: quadriarrow (crosshair?)
 Draggableoptions.cursorAt = 'cursorAt';
 Draggableoptions.delay = 'delay';
-Draggableoptions.disabled = 'disabled';
 Draggableoptions.distance = 'distance';
 //todo: permetti di fare cambiamenti a run-time usando: chain -> optional export (dinamically rcalculate and replace content of _jquiDrag* attributes), second chain -> point to _jquiDragRule and execute things like in the example "Get or set the grid option, after initialization: ..."
 Draggableoptions.grid = 'grid';
@@ -4173,7 +4242,8 @@ Draggableoptions.snapTolerance = 'snapTolerance';
 Draggableoptions.stack = 'stack';
 Draggableoptions.zIndex = 'zIndex';
 // Methods
-Draggableoptions.enabled = 'enabled'; // actually it is: .droppable( "enable" / "disable")
+Draggableoptions.disabled = 'disabled';
+// static readonly enabled: string = 'enabled'; //  actually it is: .droppable( "enable" / "disable")
 Draggableoptions.dragging = 'dragging';
 Draggableoptions.dragStart = 'dragStart';
 Draggableoptions.dragStop = 'dragStop';
@@ -4193,6 +4263,7 @@ RotatableoptionsPH.wheelRotate = 'false'; // NB: non previene lo scroll della pa
 RotatableoptionsPH.onRotating = 'function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.
 RotatableoptionsPH.onRotationStart = 'function(event, ui) { ... }'; // in realtà è "start"
 RotatableoptionsPH.onRotationEnd = 'function(event, ui) { ... }'; // in realtà è "stop"
+RotatableoptionsPH.disabled = 'false | true';
 //if the placeholder value is a choice of literals, the first literal is the default value. UPPERCASED, CamelCased and (parenthesized) words are not literals. Those values are not dynamic and are evaluated only once.
 class ResizableoptionsPH {
 }
@@ -4206,15 +4277,16 @@ ResizableoptionsPH.cancel = 'Selector';
 ResizableoptionsPH.classes = 'Object (see jQUI website)';
 ResizableoptionsPH.containment = 'Selector | Element | parent | document';
 ResizableoptionsPH.delay = 'Number';
-ResizableoptionsPH.disabled = 'Boolean';
 ResizableoptionsPH.distance = 'Number (tolerance)';
 ResizableoptionsPH.ghost = 'Boolean';
 ResizableoptionsPH.grid = '[x: 0, y: 0]';
+ResizableoptionsPH.handles = 'se|s|e|n|w|ne|sw|nw|all (comma separated)';
 ResizableoptionsPH.helper = 'Classname';
 ResizableoptionsPH.maxHeight = 'Number';
 ResizableoptionsPH.maxWidth = 'Number';
 ResizableoptionsPH.minHeight = 'Number';
 ResizableoptionsPH.minWidth = 'Number';
+ResizableoptionsPH.disabled = 'false | true';
 // Methods
 // destroy()
 ResizableoptionsPH.enabled = 'true | false'; // $var.resizable('disable'); or .resizable( "enable" );
@@ -4237,7 +4309,6 @@ DraggableOptionsPH.containment = 'Selector | SizeArray | parent | document | win
 DraggableOptionsPH.cursor = 'CSSCursor'; // todo: setta default: quadriarrow (crosshair?)
 DraggableOptionsPH.cursorAt = '{top, left} | {right, bottom} | {top, right} | {bottom, left}';
 DraggableOptionsPH.delay = 'Number (msec)';
-DraggableOptionsPH.disabled = 'Boolean';
 DraggableOptionsPH.distance = 'Number (pixel tolerance)';
 //todo: permetti di fare cambiamenti a run-time usando: chain -> optional export (dinamically rcalculate and replace content of _jquiDrag* attributes), second chain -> point to _jquiDragRule and execute things like in the example "Get or set the grid option, after initialization: ..."
 DraggableOptionsPH.grid = '[x: 0, y: 0]';
@@ -4259,10 +4330,10 @@ DraggableOptionsPH.snapTolerance = '20 | Number';
 DraggableOptionsPH.stack = 'Selector';
 DraggableOptionsPH.zIndex = 'Number';
 // Methods
-DraggableOptionsPH.enabled = 'true | false'; // actually it is: .droppable( "enable" / "disable")
 DraggableOptionsPH.dragging = 'function(event, ui){...}';
 DraggableOptionsPH.dragStart = 'function(event, ui){...}';
 DraggableOptionsPH.dragStop = 'function(event, ui){...}';
+DraggableOptionsPH.disabled = 'false | true';
 /*
 draggableui vertex:
   usa jqui draggable, lui ti aggiorna top, left, tu le trasformi in GraphPoint e setti:
@@ -4353,7 +4424,7 @@ Database.db = new Database();
 /*!******************************!*\
   !*** ./src/common/Joiner.ts ***!
   \******************************/
-/*! exports provided: ansiUp, StringSimilarity, $, $b, prjson2xml, prxml2json, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, OperationVisibility, EParameter, MeasurableTemplateGenerator */
+/*! exports provided: ansiUp, StringSimilarity, $, $b, prjson2xml, prxml2json, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, OperationVisibility, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4364,6 +4435,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "$b", function() { return $b; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prjson2xml", function() { return prjson2xml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prxml2json", function() { return prxml2json; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReservedClasses", function() { return ReservedClasses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReservedAttributes", function() { return ReservedAttributes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReservedDatasets", function() { return ReservedDatasets; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReservedStorageKey", function() { return ReservedStorageKey; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var ansi_up__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ansi_up */ "./node_modules/ansi_up/ansi_up.js");
 /* harmony import */ var ansi_up__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(ansi_up__WEBPACK_IMPORTED_MODULE_1__);
@@ -4457,6 +4532,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EvalOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["EvalOutput"]; });
 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectorOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["SelectorOutput"]; });
+
 /* harmony import */ var _measurable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./measurable */ "./src/common/measurable.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleParts", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableRuleParts"]; });
 
@@ -4469,6 +4546,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleLists", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableRuleLists"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableOperators", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableOperators"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["DraggableOptionsImpl"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["ResizableOptionsImpl"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableOptions", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["RotatableOptions"]; });
 
 /* harmony import */ var _src_app_app_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../src/app/app.module */ "./src/app/app.module.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return _src_app_app_module__WEBPACK_IMPORTED_MODULE_14__["Status"]; });
@@ -4615,7 +4698,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EParameter", function() { return _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_53__["EParameter"]; });
 
 /* harmony import */ var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ../app/measurabletemplate/measurabletemplate.component */ "./src/app/measurabletemplate/measurabletemplate.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Draggableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["Draggableoptions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Resizableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["Resizableoptions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Rotatableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["Rotatableoptions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["ResizableoptionsPH"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["DraggableOptionsPH"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["RotatableoptionsPH"]; });
+
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableTemplateGenerator", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["MeasurableTemplateGenerator"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurabletemplateComponent", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["MeasurabletemplateComponent"]; });
+
+/* harmony import */ var _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ../guiElements/changelog/ChangelogEntry */ "./src/guiElements/changelog/ChangelogEntry.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogRoot", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["ChangelogRoot"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogEntry", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["ChangelogEntry"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VersionUpload", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["VersionUpload"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Feature", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["Feature"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Bug", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["Bug"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BugFix", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["BugFix"]; });
+
+/* harmony import */ var _GuiStyles_global__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ../GuiStyles/global */ "./src/GuiStyles/global.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WebsiteTheme", function() { return _GuiStyles_global__WEBPACK_IMPORTED_MODULE_56__["WebsiteTheme"]; });
 
 
 
@@ -4689,6 +4802,25 @@ export {IModel, ECoreRoot, ECorePackage, ECoreClass, ECoreReference,
 
 
 
+
+
+class ReservedClasses {
+}
+// everytime i draw a vertex, i need to search in all the DOM sub-tree for all attributes starting with measurableRules.onRefresh and execute them.
+// hence i made a class tied with the presence of attributes starting with measurableRules.onRefresh for efficiency.
+ReservedClasses.onRefresh = 'onRefresh';
+ReservedClasses.template = 'template';
+ReservedClasses.vertexRoot = 'vertexRoot';
+class ReservedAttributes {
+}
+ReservedAttributes.todo = 'todo';
+class ReservedDatasets {
+}
+ReservedDatasets.todo = 'todo';
+class ReservedStorageKey {
+}
+ReservedStorageKey.userTheme = 'userTheme';
+ReservedStorageKey.versionAcknowledged = 'versionAcknowledged';
 // import {IClassifier} from '../mClass/IClassifier';
 /*
 // @ts-ignore
@@ -4829,12 +4961,13 @@ function wordLetterPairs(str) {
 /*!**********************************!*\
   !*** ./src/common/measurable.ts ***!
   \**********************************/
-/*! exports provided: ConstraintLeftAdmitteds, MeasurableEvalContext, MeasurableOperators, MeasurableRuleParts, measurableRules, MeasurableRuleLists, RotatableOptions, Measurable */
+/*! exports provided: ConstraintLeftAdmitteds, ConstraintLeftAdmittedsStatic, MeasurableEvalContext, MeasurableOperators, MeasurableRuleParts, measurableRules, MeasurableRuleLists, RotatableOptions, Measurable, ResizableOptionsImpl, DraggableOptionsImpl */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmitteds", function() { return ConstraintLeftAdmitteds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmittedsStatic", function() { return ConstraintLeftAdmittedsStatic; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeasurableEvalContext", function() { return MeasurableEvalContext; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeasurableOperators", function() { return MeasurableOperators; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleParts", function() { return MeasurableRuleParts; });
@@ -4842,11 +4975,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleLists", function() { return MeasurableRuleLists; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RotatableOptions", function() { return RotatableOptions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Measurable", function() { return Measurable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResizableOptionsImpl", function() { return ResizableOptionsImpl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsImpl", function() { return DraggableOptionsImpl; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Joiner */ "./src/common/Joiner.ts");
-/* harmony import */ var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app/measurabletemplate/measurabletemplate.component */ "./src/app/measurabletemplate/measurabletemplate.component.ts");
 // requires: U, jQuery, jQueryUI
-
 
 
 /*
@@ -4854,6 +4987,22 @@ export class MeasurableArrays {rules: Attr[]; imports: Attr[]; exports: Attr[]; 
   constraints: Attr[]; chain: Attr[]; chainFinal: Attr[]; dstyle: Attr[]; html: Element; e: Event; }*/
 class ConstraintLeftAdmitteds {
 }
+class ConstraintLeftAdmittedsStatic {
+}
+ConstraintLeftAdmittedsStatic.vertexSizeX = 'vertexSize.x';
+ConstraintLeftAdmittedsStatic.vertexSizeY = 'vertexSize.y';
+ConstraintLeftAdmittedsStatic.vertexSizeW = 'vertexSize.w';
+ConstraintLeftAdmittedsStatic.vertexSizeH = 'vertexSize.h';
+ConstraintLeftAdmittedsStatic.width = 'width';
+ConstraintLeftAdmittedsStatic.height = 'height';
+ConstraintLeftAdmittedsStatic.relativePosX = 'relativePos.x';
+ConstraintLeftAdmittedsStatic.relativePosY = 'relativePos.y';
+ConstraintLeftAdmittedsStatic.relativeVPosX = 'relativeVPos.x';
+ConstraintLeftAdmittedsStatic.relativeVPosY = 'relativeVPos.y';
+ConstraintLeftAdmittedsStatic.absoluteGPosX = 'absoluteGPos.x';
+ConstraintLeftAdmittedsStatic.absoluteGPosY = 'absoluteGPos.y';
+ConstraintLeftAdmittedsStatic.absoluteDocPosX = 'absoluteDocPos.x';
+ConstraintLeftAdmittedsStatic.absoluteDocPosY = 'absoluteDocPos.y';
 class MeasurableEvalContext extends ConstraintLeftAdmitteds {
     constructor() {
         super(...arguments);
@@ -4922,6 +5071,8 @@ class MeasurableEvalContext extends ConstraintLeftAdmitteds {
         };
         this.setVertexSize = (x = null, y = null, w = null, h = null) => {
             const isVertex = MeasurableEvalContext.isVertex(this);
+            console.log('vsize pre:', this.vertexSize.duplicate());
+            console.log('vsize pre:', this.vertexSize.duplicate());
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(w))
                 this.vertexSize.w = +w;
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(h))
@@ -4938,6 +5089,7 @@ class MeasurableEvalContext extends ConstraintLeftAdmitteds {
                 }
                 this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
             }
+            console.log('vsize post:', this.vertexSize.duplicate());
         };
         // può servire a tenere qualcosa fisso al centro del grafo anche se faccio panning
         this.setAbsoluteDocPos = (x = null, y = null) => {
@@ -4951,16 +5103,20 @@ class MeasurableEvalContext extends ConstraintLeftAdmitteds {
             }
             this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
         };
-        this.setVertexX = (x = null) => { return this.setVertexSize(x, null, null, null); };
-        this.setVertexY = (y = null) => { return this.setVertexSize(null, y, null, null); };
-        this.setVertexW = (w = null) => { return this.setVertexSize(null, null, w, null); };
-        this.setVertexH = (h = null) => { return this.setVertexSize(null, null, null, h); };
+        this.setVertexSizeX = (x = null) => { return this.setVertexSize(x, null, null, null); };
+        this.setVertexSizeY = (y = null) => { return this.setVertexSize(null, y, null, null); };
+        this.setVertexSizeW = (w = null) => { return this.setVertexSize(null, null, w, null); };
+        this.setVertexSizeH = (h = null) => { return this.setVertexSize(null, null, null, h); };
+        this.setRelativePosX = (x = null) => { return this.setRelativePos(x, null); };
+        this.setRelativePosY = (y = null) => { return this.setRelativePos(null, y); };
+        this.setRelativeVPosX = (x = null) => { return this.setRelativeVPos(x, null); };
+        this.setRelativeVPosY = (y = null) => { return this.setRelativeVPos(null, y); };
         this.setAbsoluteGPosX = (x = null) => { return this.setAbsoluteGPos(x, null); };
         this.setAbsoluteGPosY = (y = null) => { return this.setAbsoluteGPos(null, y); };
         this.setAbsoluteDocPosX = (x = null) => { return this.setAbsoluteDocPos(x, null); };
         this.setAbsoluteDocPosY = (y = null) => { return this.setAbsoluteDocPos(null, y); };
-        this.setWidth = (w = null) => { this.setSize(w, null); };
-        this.setHeight = (h = null) => { this.setSize(null, h); };
+        this.setWidth = (w = null) => { return this.setSize(w, null); };
+        this.setHeight = (h = null) => { return this.setSize(null, h); };
     }
     static isVertex(context) { return context.vertex.getHtmlRawForeign() === context.node; }
 }
@@ -5004,23 +5160,31 @@ export class ValidImportLefts {
 }*/
 // le uso direttamente dentro la libreria U... // export enum constraintConditions { insideRect = 'insideRect', insideNode = 'insideNode', insidePolygon = 'insidePolygon', insideCircle = 'insideCircle'};
 class MeasurableRuleParts {
-    constructor(a, prefixendindex = null) {
-        if (a === null)
-            return; // empty constructor used by output clone var.
+    constructor(a, prefix = null, doNotThrow = false) {
+        if (a === null) {
+            this.right = '';
+            this.left = '';
+            this.target = '';
+            return;
+        } // empty constructor used by output clone var.
         this.attr = a;
-        if (!prefixendindex) {
-            const key = a.name.toLowerCase();
-            let prefix;
-            for (let key in measurableRules) {
-                prefix = measurableRules['' + key];
-                if (a.name.indexOf(prefix) === 0) {
-                    prefixendindex = prefix.length;
-                    break;
+        if (!prefix) {
+            const attrname = a.name.toLowerCase();
+            if (a.name.indexOf('_') === 0)
+                for (let i = 0; i < Measurable.ruleParsingOrder.length; i++) {
+                    prefix = Measurable.ruleParsingOrder[i];
+                    if (attrname.indexOf(prefix.toLowerCase()) === 0) {
+                        break;
+                    }
                 }
-            }
         }
-        this.prefix = a.name.substr(0, prefixendindex);
-        this.name = a.name.substr(prefixendindex);
+        if (!prefix && doNotThrow) {
+            _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'The attribute "' + a.name + '" is not a valid measurable rule and cannot be parsed or executed.');
+            return;
+        }
+        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!prefix, 'not a rule! ', a.name, a);
+        this.prefix = prefix; //a.name.substr(0, prefixendindex); questo può avere ChaRCaSe sballati
+        this.name = a.name.substr(prefix.length);
         /*
         let gti = a.value.indexOf('>=');
         gti = gti == -1 ? Number.POSITIVE_INFINITY : gti;
@@ -5039,8 +5203,8 @@ class MeasurableRuleParts {
         this.left = parts.length > 1 ? parts[0] : '';
         this.operator = parts.length === 2 ? parts[1] : '';
         this.right = parts[parts.length - 1];
-        this.target = a.ownerElement.getAttribute('relativeSelectorOf' + a.name).trim();
-        this.target = this.target.length ? this.target : null;
+        const targetstr = a.ownerElement.getAttribute('relativeSelectorOf' + a.name);
+        this.target = targetstr ? targetstr.trim() : null;
         this.fallbackValue = null;
         let outputname = a.name.substr(1);
         this.outputAttr = this.attr.ownerElement.attributes.getNamedItem(outputname);
@@ -5100,35 +5264,48 @@ class MeasurableRuleParts {
         let i;
         evalContext.node = node;
         evalContext.modelPiece = _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(evalContext.node);
+        evalContext.modelRoot = evalContext.modelPiece.getModelRoot();
         evalContext.vertex = vertex = (vertex || evalContext.modelPiece.getVertex());
         evalContext.graph = evalContext.vertex.owner;
         const size = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].sizeof(evalContext.node);
-        evalContext.width = tmp.w;
-        evalContext.height = tmp.h;
+        evalContext.width = size.w;
+        evalContext.height = size.h;
         if (targetquery && (tmpjq = $(evalContext.graph.container).find(targetquery)).length) {
             evalContext.target = new MeasurableEvalContext();
             evalContext.target.node = tmpjq[0];
             MeasurableRuleParts.fillEvalContext(evalContext.target, evalContext.target.node, null, null);
         }
-        evalContext.graphScroll = evalContext.graph.scroll;
-        evalContext.graphZoom = evalContext.graph.zoom;
-        evalContext.graphSize = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].sizeof(evalContext.graph.container);
+        evalContext.graphScroll = evalContext.graph.scroll.duplicate();
+        evalContext.graphZoom = evalContext.graph.zoom.duplicate();
+        evalContext.vertexSize = vertex.getSize().duplicate();
+        evalContext.graphSize = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].sizeof(evalContext.graph.container).duplicate();
+        evalContext.documentSize = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["Size"](0, 0, document.documentElement.scrollWidth, document.documentElement.scrollHeight); // documentElement counts also body's margin
         evalContext.attributes = evalContext.node.attributes;
         evalContext.a = {};
+        evalContext.relativePos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"]();
+        evalContext.relativeVPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"]();
+        evalContext.absoluteGPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](); // all updated when absoluteGpos is updated.
+        evalContext.absoluteDocPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"]();
+        evalContext.setAbsoluteDocPos(size.x, size.y);
+        console.log('3xd fillcontext set vertexsize:', evalContext.vertexSize, evalContext.relativeVPos, evalContext.relativePos, evalContext);
         for (i = 0; i < evalContext.attributes.length; i++) {
             const attr = evalContext.attributes[i];
             evalContext.a[attr.name] = attr.value;
         }
-        evalContext.setAbsoluteDocPos(tmp.x, tmp.y);
     }
     ;
     process(validatefirst = false, vertex = null, graph = null) {
+        let out;
+        out = this.process0(validatefirst, vertex, graph);
+        console.log('process rule:', this.prefix, this, 'out:', out);
+        return out;
+    }
+    process0(validatefirst = false, vertex = null, graph = null) {
         const out = new MeasurableRuleParts(null);
         let tmp;
         let i;
         let j;
-        const isRoot = (this.attr.ownerElement === vertex.htmlg);
-        const evalContext = new MeasurableEvalContext();
+        let evalContext = new MeasurableEvalContext();
         if (validatefirst) {
             const validoperators = Object.keys(MeasurableRuleParts.operatormap[this.prefix]);
             if (validoperators.length > 0 && this.operator || !MeasurableRuleParts.operatormap[this.prefix][this.operator]) {
@@ -5144,119 +5321,225 @@ class MeasurableRuleParts {
             if (out.left || out.operator || tmpev.exception)
                 return out;
         }
-        MeasurableRuleParts.fillEvalContext(evalContext, this.attr.ownerElement, this.target, vertex);
-        let evalOutput;
-        if (this.prefix === measurableRules.console) {
-            evalOutput = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["EvalOutput"]();
+        const exportChanges = (outContext) => {
             try {
-                evalOutput.return = _Joiner__WEBPACK_IMPORTED_MODULE_1__["MyConsole"].console.execCommand(this.right);
+                exportChanges0(outContext);
             }
             catch (e) {
-                evalOutput.exception = e;
+                out.right += +'\n\npartially failed to export changes, likely caused by an overwrite of a predefined variable object.:' + e.toString();
+                return false;
             }
-        }
-        else {
+            return true;
+        };
+        let debug = this.prefix === measurableRules.export;
+        const exportChanges0 = (outcontext) => {
+            let oldContext = outcontext;
+            let DONOTUSE = evalContext;
+            let ermsg;
+            oldContext.graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y);
+            oldContext.graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y);
+            // U.pe(true, 'meastest');
+            // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
+            const isVertex = (oldContext.vertex.getHtmlRawForeign() === oldContext.node);
+            console.log('3xd finalize set vertexsize:', outcontext.vertexSize, outcontext.relativeVPos, outcontext.relativePos, outcontext);
+            oldContext.vertex.setSize(outcontext.vertexSize, false, true);
+            if (!isVertex) {
+                const html = oldContext.node instanceof HTMLElement || oldContext.node instanceof SVGSVGElement ? oldContext.node : null;
+                const svgSubElement = !html ? oldContext.node : null;
+                if (!outcontext.relativeVPos || !_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.relativeVPos.x) || !_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.relativeVPos.y)) {
+                    out.right += '\nAn error inside a measurable condition has happened, an invalid value has been wrote inside the variable "relativeVPos".';
+                    return;
+                }
+                if (!html) {
+                    out.right += 'inner svg\'s are currently not supported';
+                    return;
+                }
+                if (html.style.position !== 'absolute')
+                    html.style.position = 'absolute';
+                let relativeParentNode = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getRelativeParentNode(outcontext.node);
+                if (relativeParentNode === oldContext.vertex.getHtmlRawForeign()) {
+                    html.style.top = (outcontext.relativeVPos.y * oldContext.graph.zoom.y) + 'px';
+                    html.style.left = (outcontext.relativeVPos.x * oldContext.graph.zoom.x) + 'px';
+                }
+                else {
+                    const parentGpos = oldContext.graph.toGraphCoord(_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].sizeof(relativeParentNode).tl());
+                    html.style.top = ((outcontext.absoluteGPos.y - parentGpos.y) * oldContext.graph.zoom.y) + 'px';
+                    html.style.left = ((outcontext.absoluteGPos.x - parentGpos.x) * oldContext.graph.zoom.y) + 'px';
+                }
+                if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.width))
+                    html.style.width = (+outcontext.width) + 'px';
+                if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.height))
+                    html.style.height = (+outcontext.height) + 'px';
+            }
+            // outcontext.setsize o refresh vertex
+        };
+        let evalOutput = null;
+        const executeRight = () => {
+            MeasurableRuleParts.fillEvalContext(evalContext, this.attr.ownerElement, this.target, vertex);
             evalOutput = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].evalInContext(evalContext, this.right);
-        }
-        if (evalOutput.exception) {
-            out.right = '' + evalOutput.exception;
-            return out;
-        }
-        this.outputAttr.value = out.right = evalOutput.return;
-        let attributeSelectorToken = '->';
-        let pos;
-        let selector;
-        let attrSelector;
-        let $targetsHtml;
+            if (evalOutput.exception) {
+                out.right += '\n' + evalOutput.exception;
+                return false;
+            }
+            this.outputAttr.value = out.right = evalOutput.return;
+            return true;
+        };
+        // const exportChanges = () => { U.pe(true, todo); };
+        let selectorout;
         switch (this.prefix) {
             case measurableRules._jquiRes:
             case measurableRules._jquiDra:
             case measurableRules._jquiRot:
-            default:
-                out.prefix = 'invalid prefix or wrong execution time. jqui rules are executed at refresh time.';
+                out.prefix = 'invalid prefix or wrong execution time. ' + this.prefix + ' rules are parsed at refresh time.';
+                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, out.prefix);
                 return out;
-            // cancellata in favore di generic attribute che setta una variabile values[] nel contesto.
-            // case measurableRules.rule: break;
             case measurableRules.console:
-                // everything already did on exec before
-                break;
+                try {
+                    out.right = _Joiner__WEBPACK_IMPORTED_MODULE_1__["MyConsole"].console.execCommand(this.right);
+                }
+                catch (e) {
+                    out.right = 'command failed:' + e.toString();
+                }
+                return out;
+            default:
+                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected rule: ' + this.prefix);
+                out.prefix = 'unexpected rule:' + this.prefix;
+                return out;
             case measurableRules.bind:
+                if (!executeRight())
+                    return out;
+                if (!exportChanges(evalOutput.outContext))
+                    return out;
                 let newmp = evalOutput.return;
                 if (!(newmp instanceof _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"])) {
-                    out.right = 'returned value is not a ModelPiece.';
+                    out.right += 'returned value is not a ModelPiece.';
+                    return out;
                 }
                 newmp.linkToLogic(this.attr.ownerElement);
-                break;
-            case measurableRules.variable: break;
+                return out;
+            case measurableRules.variable:
+                if (!executeRight())
+                    return out;
+                if (!exportChanges(evalOutput.outContext))
+                    return out;
+                return out;
             case measurableRules.onDragStart:
-            case measurableRules.onDragEnd:
             case measurableRules.whileDragging:
+            case measurableRules.onDragEnd:
+            case measurableRules.onResizeStart:
             case measurableRules.whileResizing:
             case measurableRules.onResizeEnd:
-            case measurableRules.onResizeStart:
+            case measurableRules.onRotationStart:
+            case measurableRules.whileRotating:
+            case measurableRules.onRotationEnd:
             case measurableRules.onRefresh:
-                pos = this.left.indexOf(attributeSelectorToken);
-                const execCondition = evalOutput.return;
-                if (!execCondition)
-                    return;
-                selector = (pos === -1 ? this.left : this.left.substr(0, pos)).trim();
-                attrSelector = pos === -1 ? null : this.left.substr(pos + attributeSelectorToken.length);
-                if (!graph) {
-                    if (!vertex) {
-                        vertex = _Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].getvertexByHtml(this.attr.ownerElement);
-                    }
-                    graph = vertex.owner;
-                }
-                $targetsHtml = selector.length ? $(graph.container).find(selector) : $(this.attr.ownerElement);
-                if (attrSelector) {
-                    const regexp = new RegExp(attrSelector.trim());
-                    if (!regexp) {
-                        out.left = 'invalid attribute selector, must be a regular expression';
-                        return out;
-                    }
-                    for (i = 0; i < $targetsHtml.length; i++) {
-                        const attrs = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getAttributesByRegex($targetsHtml[i], regexp);
-                        for (j = 0; j < attrs.length; j++) {
-                            new MeasurableRuleParts(attrs[j]).process(false, null, null);
-                        }
-                    }
-                }
-                else {
-                    out.left = 'selector must contain an attribute selector starting with "->"';
+                out.triggeredResults = [];
+                ///// check precondition
+                MeasurableRuleParts.fillEvalContext(evalContext, this.attr.ownerElement, this.target, vertex);
+                vertex = evalContext.vertex;
+                evalOutput = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].evalInContext(evalContext, this.left);
+                if (evalOutput.exception) {
+                    out.left += '' + evalOutput.exception;
+                    out.right = 'not executed.';
                     return out;
-                    /*
-                    for (i = 0; i < $targetsHtml.length; i++) {
-                      const ruleparts: MeasurableRuleParts[] = Measurable.getRuleList($targetsHtml[i]).all;
-                      for (j = 0; j < ruleparts.length; j++) { ruleparts[j].process(false, null, null); }
-                    }*/
                 }
-                break;
+                out.left = evalOutput.return;
+                if (!out.left) {
+                    out.right = 'not executed.';
+                    return out;
+                }
+                if (!exportChanges(evalOutput.outContext))
+                    return out; // va messo qui, se lo metto dopo i triggers equivale ad un rollback dei loro cambiamenti.
+                ///// try execution
+                selectorout = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].processSelectorPlusPlus(this.right, false, $(vertex.owner.container), $(this.attr.ownerElement), Measurable.GlobalPrefix);
+                if (selectorout.exception) {
+                    out.right += (out.right ? '\n<br/>\n' : '') + selectorout.exception.toString();
+                    return out;
+                }
+                // last validation and execution.
+                const htmlFoundsevt = [];
+                const vertexFoundsevt = [];
+                console.log('resultset', selectorout);
+                for (i = 0; i < selectorout.resultSetAttr.length; i++) {
+                    const a = selectorout.resultSetAttr[i];
+                    let ruleprefix = Measurable.isExecutableRule(a.name, true);
+                    if (!ruleprefix)
+                        continue;
+                    let html = a.ownerElement;
+                    let vertex;
+                    let pos = htmlFoundsevt.indexOf(html);
+                    if (pos > 0) {
+                        vertex = vertexFoundsevt[pos];
+                    }
+                    else {
+                        vertex = html.classList.contains(_Joiner__WEBPACK_IMPORTED_MODULE_1__["ReservedClasses"].vertexRoot) ? _Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].getvertexByHtml(html) : null;
+                        htmlFoundsevt.push(html);
+                        vertexFoundsevt.push(vertex);
+                    }
+                    let mr = new MeasurableRuleParts(a, ruleprefix, true);
+                    try {
+                        out.triggeredResults.push(mr.process(false, vertex));
+                    }
+                    catch (e) {
+                        out.right += '\n<br/>\n' + e.toString(); /* must not stop if only 1 triggered fails. */
+                    }
+                }
+                out.right = selectorout.jqselector + ' ' + _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].AttributeSelectorOperator + ' ' + selectorout.attrselector
+                    + (out.right.length ? '\n<br/>\n' : '') + out.right;
+                return out;
             case measurableRules.export:
-                pos = this.left.indexOf(attributeSelectorToken);
-                selector = pos === -1 ? this.left : this.left.substr(0, pos);
-                attrSelector = pos === -1 ? null : this.left.substr(pos + attributeSelectorToken.length);
-                if (!graph) {
-                    if (!vertex) {
-                        vertex = _Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].getvertexByHtml(this.attr.ownerElement);
-                    }
-                    graph = vertex.owner;
+                ////////// prima trovo i bersagli, così se non ci sono mi fermo.
+                vertex = vertex || _Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].getvertexByHtml(this.attr.ownerElement);
+                this.left = this.left.trim();
+                this.left = this.left || 'this ->';
+                selectorout = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].processSelectorPlusPlus(this.left, false, $(vertex.owner.container), $(this.attr.ownerElement), null);
+                if (selectorout.exception) {
+                    out.left += (out.left ? '\n<br/>\n' : '') + selectorout.exception.toString();
+                    return out;
                 }
-                $targetsHtml = $(graph.container).find(selector);
-                if (attrSelector) {
-                    for (i = 0; i < $targetsHtml.length; i++) {
-                        const attr = $targetsHtml[i].attributes.getNamedItem(attrSelector);
-                        attr.value = evalOutput.return;
-                    }
+                out.left = 'matched ' + selectorout.resultSetElem.length + ' elements and ' + selectorout.resultSetAttr.length + ' attributes. search "xprt" on console to see them';
+                console.info('xprt', 'Matched elements:', selectorout.resultSetElem, 'Matched attributes:', selectorout.resultSetAttr);
+                if (selectorout.resultSetAttr.length + selectorout.resultSetElem.length === 0) {
+                    out.right = 'not executed.';
+                    return out;
                 }
-                else {
-                    for (i = 0; i < $targetsHtml.length; i++) {
-                        $targetsHtml[i].innerHTML = evalOutput.return;
+                ////////// can proceed to execution.
+                if (!executeRight())
+                    return out;
+                if (!exportChanges(evalOutput.outContext))
+                    return out;
+                if (evalOutput.return instanceof Object) {
+                    if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isFunction(evalOutput.return.toString)) {
+                        evalOutput.return = evalOutput.return.toString();
                     }
+                    else
+                        evalOutput.return = JSON.stringify(evalOutput.return);
                 }
-                break;
+                out.right = evalOutput.return;
+                ////////// exporting resulting value
+                for (i = 0; i < selectorout.resultSetAttr.length; i++) {
+                    selectorout.resultSetAttr[i].value = evalOutput.return;
+                }
+                for (i = 0; i < selectorout.resultSetElem.length; i++) {
+                    selectorout.resultSetElem[i].innerHTML = evalOutput.return;
+                }
+                return out;
             case measurableRules.dynamicClass:
-                if (evalOutput.return !== '' + evalOutput.return)
-                    return;
+                if (!executeRight()) {
+                    out.right += '\n If it isn\'t code, try wrapping it in quotes.';
+                    return out;
+                }
+                if (!exportChanges(evalOutput.outContext))
+                    return out;
+                if (evalOutput.return instanceof Object) {
+                    if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isFunction(evalOutput.return.toString)) {
+                        evalOutput.return = evalOutput.return.toString();
+                    }
+                    else
+                        evalOutput.return = JSON.stringify(evalOutput.return);
+                }
+                out.right = evalOutput.return;
+                // start setting classes
                 const classes = (evalOutput.return + '').split(' ');
                 for (i = 0; i < classes.length; i++) {
                     const cl = classes[i];
@@ -5273,34 +5556,106 @@ class MeasurableRuleParts {
                     out.right = 'all class tokens must start with a plus (if inserting) or minus (if removing) sign.';
                     return out;
                 }
-                break;
+                return out;
             case measurableRules.dynamicStyle:
-                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mergeStyles(this.attr.ownerElement, null, evalOutput.return);
-                break;
-            case measurableRules.constraint:
-                let operator = this.operator + '' === '=' ? '==' : this.operator;
-                let evret = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].evalInContext(evalContext, this.left + operator + ' +' + evalOutput.return, false);
-                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(evret.exception, '_constraint should never fail here: ', evret);
-                // just execute the assignment on the context
-                if (!evret.return) {
-                    _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].evalInContext(evalContext, this.left + ' = +' + evalOutput.return, false);
+                if (!executeRight()) {
+                    out.right += '\n If it isn\'t code, try wrapping it in quotes.';
+                    return out;
                 }
-                break;
+                if (!exportChanges(evalOutput.outContext))
+                    return out;
+                if (evalOutput.return instanceof Object) {
+                    if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isFunction(evalOutput.return.toString)) {
+                        evalOutput.return = evalOutput.return.toString();
+                    }
+                    else
+                        evalOutput.return = JSON.stringify(evalOutput.return);
+                }
+                out.right = evalOutput.return;
+                // start setting styles
+                console.log('mergeSTyles:', this.attr.ownerElement, evalOutput.return);
+                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mergeStyles(this.attr.ownerElement, null, evalOutput.return, true);
+                return out;
+            case measurableRules.constraint:
+                ///// left validation
+                this.left = this.left.trim();
+                if (!_Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableTemplateGenerator"].constraintMap[this.left]) {
+                    out.left = 'invalid.';
+                    out.right = 'not processed.';
+                    return out;
+                }
+                const preLeft = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]
+                MeasurableRuleParts.fillEvalContext(evalContext, this.attr.ownerElement, this.target, vertex);
+                if (!executeRight())
+                    return out;
+                if (!exportChanges(evalOutput.outContext))
+                    return out;
+                let oc = evalOutput.outContext;
+                let postLeft = null;
+                try {
+                    postLeft = eval("evalOutput.outContext." + this.left);
+                } // this one CAN fail if the user deletes the predefined variable in the context.
+                catch (e) {
+                    out.right = e.toString() + '\n; likely caused by an overwrite on a predefined variable.';
+                    return out;
+                }
+                const condition = eval(postLeft + this.operator + evalOutput.return);
+                this.operator = condition ? 'true' : 'false';
+                if (condition) {
+                    return out;
+                }
+                switch (this.left) {
+                    default:
+                        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected left part:', this.left, 'but only validated left parts should reach here.');
+                        break;
+                    case ConstraintLeftAdmittedsStatic.height:
+                        oc.setHeight(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.width:
+                        oc.setWidth(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.absoluteDocPosX:
+                        oc.setAbsoluteDocPosX(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.absoluteDocPosY:
+                        oc.setAbsoluteDocPosY(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.absoluteGPosX:
+                        oc.setAbsoluteGPosX(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.absoluteGPosY:
+                        oc.setAbsoluteGPosY(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.relativePosX:
+                        oc.setRelativePosX(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.relativePosY:
+                        oc.setRelativePosY(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.relativeVPosX:
+                        oc.setRelativeVPosX(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.relativeVPosY:
+                        oc.setRelativeVPosY(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.vertexSizeX:
+                        oc.setVertexSizeX(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.vertexSizeY:
+                        oc.setVertexSizeY(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.vertexSizeW:
+                        oc.setVertexSizeW(evalOutput.return);
+                        break;
+                    case ConstraintLeftAdmittedsStatic.vertexSizeH:
+                        oc.setVertexSizeH(evalOutput.return);
+                        break;
+                }
+                exportChanges(oc); // commit
+                return out;
         }
-        if (!evalOutput.outContext)
-            return;
-        const outcontext = evalOutput.outContext;
-        evalContext.graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y);
-        evalContext.graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y);
-        // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
-        const isVertex = (evalContext.vertex.getHtmlRawForeign() === evalContext.node);
-        if (true) { // allow vertex modify outside the root rules?
-            // evalContext.vertex.setSize(new GraphSize(outcontext.absoluteGPos.x, outcontext.absoluteGPos.y, outcontext.width, outcontext.height));
-            _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'meastest');
-            const dorefresh = this.prefix !== measurableRules.onRefresh;
-            evalContext.vertex.setSize(evalContext.vertexSize, dorefresh, dorefresh);
-        }
-        else {}
+        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'should never reach here');
+        return null;
     }
 }
 MeasurableRuleParts.operatormap = null;
@@ -5310,13 +5665,13 @@ var measurableRules;
     measurableRules["_jquiRes"] = "_jquiRes";
     measurableRules["_jquiDra"] = "_jquiDra";
     measurableRules["_jquiRot"] = "_jquiRot";
-    measurableRules["console"] = "_console";
-    measurableRules["bind"] = "_bind";
-    measurableRules["variable"] = "_";
-    measurableRules["export"] = "_export";
-    measurableRules["constraint"] = "_constraint";
-    measurableRules["dynamicClass"] = "_dclass";
-    measurableRules["dynamicStyle"] = "_dstyle";
+    measurableRules["console"] = "_Console";
+    measurableRules["bind"] = "_Bind";
+    measurableRules["variable"] = "_Var";
+    measurableRules["export"] = "_Export";
+    measurableRules["constraint"] = "_Constraint";
+    measurableRules["dynamicClass"] = "_dClass";
+    measurableRules["dynamicStyle"] = "_dStyle";
     measurableRules["onRefresh"] = "_onRefresh";
     measurableRules["onResizeStart"] = "_onResizeStart";
     measurableRules["whileResizing"] = "_whileResizing";
@@ -5353,16 +5708,16 @@ class MeasurableRuleLists {
     constructor() {
         // check when updating measurable rules: 2
         this.all = [];
-        this._ = [];
+        this._Var = [];
         this._jquiDra = [];
         this._jquiRes = [];
         this._jquiRot = [];
-        this._console = [];
-        this._bind = [];
-        this._export = [];
-        this._constraint = [];
-        this._dclass = [];
-        this._dstyle = [];
+        this._Console = [];
+        this._Bind = [];
+        this._Export = [];
+        this._Constraint = [];
+        this._dClass = [];
+        this._dStyle = [];
         this._onRefresh = [];
         this._onResizeStart = [];
         this._whileResizing = [];
@@ -5388,27 +5743,65 @@ class RotatableOptions {
         this.rotate = undefined; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.
         this.start = undefined; // in realtà è "start"
         this.stop = undefined; // in realtà è "stop"
+        this.disabled = false;
     }
 }
 class Measurable {
-    static getRuleList(elem, rulefilter = null) {
+    static staticinit() {
+        const arr = Object.values(measurableRules);
+        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(arr, measurableRules.variable);
+        arr.push(measurableRules.variable);
+        Measurable.eventTriggers = [measurableRules.onRefresh,
+            measurableRules.onDragStart, measurableRules.onDragEnd, measurableRules.whileDragging,
+            measurableRules.onResizeStart, measurableRules.onResizeEnd, measurableRules.whileResizing,
+            measurableRules.onRotationStart, measurableRules.onRotationEnd, measurableRules.whileRotating,
+        ];
+        Measurable.JQUIRules = [measurableRules._jquiDra, measurableRules._jquiRes, measurableRules._jquiRot];
+        Measurable.executableRules = [];
+        Measurable.executableRulesLowerCase = [];
+        Measurable.ruleToUppercase = {};
+        for (let key in measurableRules) {
+            let val = measurableRules[key];
+            let valLowercase = val.toLowerCase();
+            Measurable.ruleToUppercase[valLowercase] = val;
+            if (Measurable.eventTriggers.indexOf(val) !== -1)
+                continue;
+            if (Measurable.JQUIRules.indexOf(val) !== -1)
+                continue;
+            Measurable.executableRules.push(val);
+            Measurable.executableRulesLowerCase.push(valLowercase);
+        }
+        Measurable.eventTriggersLowerCase = [];
+        Measurable.eventTriggersLowerCase.length = Measurable.eventTriggers.length;
+        Measurable.JQUIRulesLowerCase = [];
+        Measurable.JQUIRulesLowerCase.length = Measurable.eventTriggers.length;
+        for (let i = 0; i < Measurable.eventTriggers.length; i++) {
+            Measurable.eventTriggersLowerCase[i] = Measurable.eventTriggers[i].toLowerCase();
+        }
+        for (let i = 0; i < Measurable.JQUIRules.length; i++) {
+            Measurable.JQUIRulesLowerCase[i] = Measurable.JQUIRules[i].toLowerCase();
+        }
+        return arr;
+    }
+    static getRuleList(elem, rulefilter = null, debug = false) {
         let i;
         let j;
-        const rulefilterobj = rulefilter ? _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toDictionary(rulefilter) : {};
+        const rulefilterobj = rulefilter && rulefilter.length ? _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toDictionary(rulefilter) : null;
         let ret = new MeasurableRuleLists();
         let prefix;
         for (i = 0; i < elem.attributes.length; i++) {
             const attr = elem.attributes[i];
-            for (let key in measurableRules) {
+            const attrname = attr.name.toLowerCase();
+            for (j = 0; j < Measurable.ruleParsingOrder.length; j++) {
                 // for (j = 0; j < Measurable.rulesListParsingOrder.length; j++) {
-                prefix = measurableRules['' + key];
-                if (!rulefilterobj[prefix])
+                prefix = Measurable.ruleParsingOrder[j];
+                if (rulefilterobj && !rulefilterobj[prefix])
                     continue;
-                if (attr.name.indexOf(prefix) === 0) {
-                    if (prefix === '_' && attr.name.indexOf('_ng') === 0)
-                        continue;
-                    ret.all.push(new MeasurableRuleParts(attr, prefix.length));
-                    ret[prefix].push(new MeasurableRuleParts(attr, prefix.length));
+                if (attrname.indexOf(prefix.toLowerCase()) === 0) {
+                    // if (prefix === '_' && attr.name.indexOf('_ng') === 0) continue;
+                    ret.all.push(new MeasurableRuleParts(attr, prefix));
+                    _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!ret[prefix], 'Incoerenza tra MeasurableRuleLists e measurableRules:', prefix, ret);
+                    ret[prefix].push(new MeasurableRuleParts(attr, prefix));
                     break;
                 }
             }
@@ -5416,16 +5809,16 @@ class Measurable {
         return ret;
     }
     // ################ oldies but good
-    static measurableElementSetup($root, resizeConfig = null, rotConfig = null, dragConfig = null, v = null) {
+    static measurableElementSetup($root, resConfig = null, rotConfig = null, dragConfig = null, v = null) {
         let arr = $root.find('.measurable').addBack('.measurable');
         const vroot = v ? v.getMeasurableNode() : null;
         for (let i = 0; i < arr.length; i++) {
             let h = arr[i];
             if (arr[i] === vroot) {
-                Measurable.measurableElementSetupSingle(h, resizeConfig, rotConfig, dragConfig, v);
+                Measurable.measurableElementSetupSingle(h, resConfig, rotConfig, dragConfig, v);
             }
             else
-                Measurable.measurableElementSetupSingle(h, resizeConfig, rotConfig, dragConfig);
+                Measurable.measurableElementSetupSingle(h, resConfig, rotConfig, dragConfig);
         }
     }
     // todo: devo importare rotatableOptions, ResizableOptions è la vra classe dichiarata dalla libreria jqui, non la mia. devo fare lo stesso con rotatable.
@@ -5438,35 +5831,36 @@ class Measurable {
         }
         _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].resizableBorderSetup(elem);
         if (!resConfig) {
-            resConfig = {};
+            resConfig = new ResizableOptionsImpl();
         }
         if (!rotConfig) {
             rotConfig = new RotatableOptions();
         }
         if (!draConfig) {
-            draConfig = {};
+            draConfig = new DraggableOptionsImpl();
         }
         let func = null;
         let attrval = null;
         let i;
         let arr = [];
-        arr.push({ config: resConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].create, jquiname: 'create' });
-        arr.push({ config: resConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].resizeStart, jquiname: 'start' });
-        arr.push({ config: resConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].resizing, jquiname: 'resize' });
-        arr.push({ config: resConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].resizeStop, jquiname: 'stop' });
-        arr.push({ config: draConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"]['create'], jquiname: 'create' });
-        arr.push({ config: draConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"].dragStart, jquiname: 'start' });
-        arr.push({ config: draConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"].dragging, jquiname: 'resize' });
-        arr.push({ config: draConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"].dragStop, jquiname: 'stop' });
-        arr.push({ config: rotConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Rotatableoptions"]['create'], jquiname: 'create' });
-        arr.push({ config: rotConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Rotatableoptions"].onRotationStart, jquiname: 'start' });
-        arr.push({ config: rotConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Rotatableoptions"].onRotating, jquiname: 'resize' });
-        arr.push({ config: rotConfig, friendlyname: _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Rotatableoptions"].onRotationEnd, jquiname: 'stop' });
+        arr.push({ config: resConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Resizableoptions"].create, jquiname: 'create' });
+        arr.push({ config: resConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Resizableoptions"].resizeStart, jquiname: 'start' });
+        arr.push({ config: resConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Resizableoptions"].resizing, jquiname: 'resize' });
+        arr.push({ config: resConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Resizableoptions"].resizeStop, jquiname: 'stop' });
+        arr.push({ config: draConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Draggableoptions"]['create'], jquiname: 'create' });
+        arr.push({ config: draConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Draggableoptions"].dragStart, jquiname: 'start' });
+        arr.push({ config: draConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Draggableoptions"].dragging, jquiname: 'resize' });
+        arr.push({ config: draConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Draggableoptions"].dragStop, jquiname: 'stop' });
+        arr.push({ config: rotConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Rotatableoptions"]['create'], jquiname: 'create' });
+        arr.push({ config: rotConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Rotatableoptions"].onRotationStart, jquiname: 'start' });
+        arr.push({ config: rotConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Rotatableoptions"].onRotating, jquiname: 'resize' });
+        arr.push({ config: rotConfig, friendlyname: _Joiner__WEBPACK_IMPORTED_MODULE_1__["Rotatableoptions"].onRotationEnd, jquiname: 'stop' });
         resConfig.prefix = measurableRules._jquiRes;
         rotConfig.prefix = measurableRules._jquiRot;
         draConfig.prefix = measurableRules._jquiDra;
         for (i = 0; i < arr.length; i++) {
-            attrval = elem.getAttribute(arr[i].config.prefix + arr[i].friendlyname).trim();
+            attrval = elem.getAttribute(arr[i].config.prefix + arr[i].friendlyname);
+            attrval = attrval && attrval.trim();
             if (!attrval)
                 func = null;
             else
@@ -5487,12 +5881,21 @@ class Measurable {
             arr[i].config[arr[i].jquiname] = arr[i].config[arr[i].jquiname] || func;
         }
         if (isvroot) {
+            isvroot.dragConfig = draConfig;
             const oldconfig = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cloneObj(resConfig);
-            resConfig.resize = (e, ui) => { isvroot.autosizeNew(true, true, measurableRules.whileResizing); oldconfig.resize(e, ui); };
-            resConfig.start = (e, ui) => { isvroot.autosizeNew(true, true, measurableRules.onResizeStart); oldconfig.start(e, ui); };
-            resConfig.stop = (e, ui) => { isvroot.autosizeNew(true, true, measurableRules.onResizeEnd); oldconfig.stop(e, ui); };
+            resConfig.resize = (e, ui) => {
+                isvroot.autosizeNew(true, true, measurableRules.whileResizing);
+                oldconfig.resize(e, ui);
+            };
+            resConfig.start = (e, ui) => {
+                isvroot.autosizeNew(true, true, measurableRules.onResizeStart);
+                oldconfig.start(e, ui);
+            };
+            resConfig.stop = (e, ui) => {
+                isvroot.autosizeNew(true, true, measurableRules.onResizeEnd);
+                oldconfig.stop(e, ui);
+            };
         }
-        resConfig.resize = () => { resConfig.resize; };
         delete resConfig.prefix;
         delete rotConfig.prefix;
         delete draConfig.prefix;
@@ -5511,59 +5914,181 @@ class Measurable {
                 case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(resConfig, resConfig.create):
                 case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(resConfig, resConfig.start):
                 case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(resConfig, resConfig.stop):
-                case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(resConfig, resConfig.resize): break;
+                case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(resConfig, resConfig.resize):
+                    break;
             }
         }
+        let isRotatableCustomized = false;
         for (const jquikey in rotConfig) {
             let friendlykey;
             switch (jquikey) {
                 default:
                     friendlykey = jquikey;
                     let customparameterval = elem.getAttribute(measurableRules._jquiRot + friendlykey);
-                    if (rotConfig[jquikey] || !customparameterval) {
+                    if (rotConfig[jquikey] || !customparameterval || rotConfig[jquikey] === customparameterval) {
                         continue;
                     }
                     rotConfig[jquikey] = customparameterval;
+                    isRotatableCustomized = true;
                     break;
                 // case U.varname2(resConfig.disabled, resConfig): break;
                 // case U.varname2(rotConfig, rotConfig.create):
                 case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(rotConfig, rotConfig.start):
                 case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(rotConfig, rotConfig.stop):
-                case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(rotConfig, rotConfig.rotate): break;
+                case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(rotConfig, rotConfig.rotate):
+                    break;
             }
         }
+        let defaultAction = (friendlykey, jquikey) => {
+            let customparameterval = elem.getAttribute(measurableRules._jquiDra + friendlykey);
+            if (draConfig[jquikey] || !customparameterval) {
+                return;
+            }
+            draConfig[jquikey] = customparameterval;
+        };
         for (const jquikey in draConfig) {
             let friendlykey;
+            let customparameterval;
             switch (jquikey) {
                 default:
                     friendlykey = jquikey;
-                    let customparameterval = elem.getAttribute(measurableRules._jquiDra + friendlykey);
-                    if (draConfig[jquikey] || !customparameterval) {
-                        continue;
-                    }
-                    draConfig[jquikey] = customparameterval;
+                    defaultAction(friendlykey, jquikey);
                     break;
-                case _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"].axis:
-                    if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceAll(draConfig[jquikey] + '', ' ', '') === 'x,y')
-                        draConfig[jquikey] = null;
+                case _Joiner__WEBPACK_IMPORTED_MODULE_1__["Draggableoptions"].axis:
+                    friendlykey = jquikey;
+                    defaultAction(friendlykey, jquikey);
+                    const val = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceAll(draConfig[jquikey] + '', ' ', '');
+                    if (val === null || val === undefined) {
+                        draConfig[jquikey] = '';
+                        break;
+                    }
+                    // else if (val === 'x,y') { draConfig[jquikey] = null; break; } null funziona come se fosse 'x,y', non so se 'x,y' funziona lo stesso. provo.
+                    else {
+                        ;
+                    }
                     break;
                 // case U.varname2(resConfig.disabled, resConfig): break;
                 case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(draConfig, draConfig.create):
                 case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(draConfig, draConfig.start):
                 case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(draConfig, draConfig.stop):
-                case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(draConfig, draConfig.drag): break;
+                case _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].varname2(draConfig, draConfig.drag):
+                    break;
             }
         }
         const $elem = $(elem);
-        $elem.resizable(resConfig).draggable(draConfig); // .rotatable(rotConfig);
-        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'rotatable:', $elem.rotatable);
-        /*
-        if (resConfig.disabled) $elem.resizable('disable');
-        if (rotConfig.disabled) $elem.rotatable('disable');
-        if (draConfig.disabled) $elem.draggable('disable');*/
+        console.log('measurableConfig:  drag:', draConfig, 'res:', resConfig, 'rot:', rotConfig, 'isVertex:', isvroot, 'axis:', draConfig.axis, 'handles:', resConfig.handles);
+        if (draConfig.axis !== undefined && draConfig.axis !== '' && !isvroot) {
+            $elem.draggable(draConfig);
+            if (draConfig.disabled)
+                $elem.draggable('disable');
+        }
+        if (resConfig.handles && resConfig.handles !== '') {
+            $elem.resizable(resConfig);
+            if (resConfig.disabled)
+                $elem.resizable('disable');
+        }
+        if (isRotatableCustomized) {
+            let $elemr = $elem;
+            if (!$elemr.rotatable)
+                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].oneTime('RotatableSupport', _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw, true, '$.rotatable is not supported yet.');
+            else
+                $elemr.rotatable(rotConfig);
+            if (rotConfig.disabled)
+                $elemr.rotatable('disable');
+        }
+    }
+    static isRuleOfKind(name, rules = null, useLowerCaseRules = null) {
+        let ret = Measurable.isRuleOfKind0(name, rules, useLowerCaseRules);
+        console.log('rulevalidation:', ret, Measurable.ruleToUppercase);
+        return ret;
+    }
+    static isRuleOfKind0(name, rules = null, useLowerCaseRules = null) {
+        name = useLowerCaseRules ? name.toLowerCase() : name;
+        let arr = useLowerCaseRules ? useLowerCaseRules : rules;
+        let i;
+        for (i = 0; i < arr.length; i++) {
+            if (name.indexOf(arr[i]) === 0)
+                return useLowerCaseRules ? Measurable.ruleToUppercase[arr[i]] : arr[i];
+        }
+        return null;
+    }
+    static isExecutableRule(name, caseInsensitive = false) {
+        return Measurable.isRuleOfKind(name, Measurable.executableRules, caseInsensitive ? Measurable.executableRulesLowerCase : null);
+    }
+    static isJQUIRule(name, caseInsensitive = false) {
+        return Measurable.isRuleOfKind(name, Measurable.JQUIRules, caseInsensitive ? Measurable.JQUIRulesLowerCase : null);
+    }
+    static isTriggerRule(name, caseInsensitive = false) {
+        return Measurable.isRuleOfKind(name, Measurable.eventTriggers, caseInsensitive ? Measurable.eventTriggersLowerCase : null);
     }
 }
 Measurable.separator = '≔';
+Measurable.GlobalPrefix = '_';
+Measurable.ruleParsingOrder = Measurable.staticinit();
+class ResizableOptionsImpl {
+    constructor() {
+        this.alsoResize = undefined;
+        this.animate = undefined;
+        this.animateDuration = undefined;
+        this.animateEasing = undefined;
+        this.aspectRatio = undefined;
+        this.autoHide = undefined;
+        this.cancel = undefined;
+        this.containment = undefined;
+        this.create = undefined;
+        this.delay = undefined;
+        this.disabled = undefined;
+        this.distance = undefined;
+        this.ghost = undefined;
+        this.grid = undefined;
+        this.handles = undefined;
+        this.helper = undefined;
+        this.maxHeight = undefined;
+        this.maxWidth = undefined;
+        this.minHeight = undefined;
+        this.minWidth = undefined;
+        this.resize = undefined;
+        this.start = undefined;
+        this.stop = undefined;
+    }
+}
+class DraggableOptionsImpl {
+    constructor() {
+        this.addClasses = undefined;
+        this.appendTo = undefined;
+        this.axis = undefined;
+        this.cancel = undefined;
+        this.classes = undefined;
+        this.connectToSortable = undefined;
+        this.containment = undefined;
+        this.create = undefined;
+        this.cursor = undefined;
+        this.cursorAt = undefined;
+        this.delay = undefined;
+        this.disabled = undefined;
+        this.distance = undefined;
+        this.drag = undefined;
+        this.grid = undefined;
+        this.handle = undefined;
+        this.helper = undefined;
+        this.iframeFix = undefined;
+        this.opacity = undefined;
+        this.refreshPositions = undefined;
+        this.revert = undefined;
+        this.revertDuration = undefined;
+        this.scope = undefined;
+        this.scroll = undefined;
+        this.scrollSensitivity = undefined;
+        this.scrollSpeed = undefined;
+        this.snap = undefined;
+        this.snapMode = undefined;
+        this.snapTolerance = undefined;
+        this.stack = undefined;
+        this.start = undefined;
+        this.stop = undefined;
+        this.zIndex = undefined;
+    }
+}
 
 
 /***/ }),
@@ -5799,7 +6324,7 @@ function xml2json(xml, tab = '    '/*XML_DOM, string*/) {
 /*!****************************!*\
   !*** ./src/common/util.ts ***!
   \****************************/
-/*! exports provided: Dictionary, myFileReader, FocusHistoryEntry, InputPopup, ShortAttribETypes, EvalOutput, U, AttribETypes, Json, DetectZoom, ISize, Size, GraphSize, IPoint, GraphPoint, Point, FileReadTypeEnum */
+/*! exports provided: Dictionary, myFileReader, FocusHistoryEntry, InputPopup, ShortAttribETypes, EvalOutput, SelectorOutput, U, AttribETypes, Json, DetectZoom, ISize, Size, GraphSize, IPoint, GraphPoint, Point, FileReadTypeEnum */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5810,6 +6335,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputPopup", function() { return InputPopup; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShortAttribETypes", function() { return ShortAttribETypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EvalOutput", function() { return EvalOutput; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectorOutput", function() { return SelectorOutput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "U", function() { return U; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttribETypes", function() { return AttribETypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Json", function() { return Json; });
@@ -6007,14 +6533,22 @@ class InputPopup {
                 }, errormsg: 'pattern violated.' });
         }
         document.body.appendChild(this.html);
-        this.html.style.display = 'block';
+        this.html.style.display = 'none';
+        $(this.html).slideDown(400);
     }
-    hide() { this.html.style.display = 'none'; }
+    hide() {
+        this.html.style.display = 'block';
+        $(this.html).slideUp(400, () => { this.html.style.display = 'none'; });
+    }
     destroy() {
-        if (this.html && this.html.parentNode) {
-            this.html.parentNode.removeChild(this.html);
-            return this.html = null;
-        }
+        this.html.style.display = 'block';
+        $(this.html).slideUp(400, () => {
+            if (this.html && this.html.parentNode) {
+                this.html.parentNode.removeChild(this.html);
+                this.html = null;
+            }
+        });
+        return null;
     }
     addOkButton(load1, finish) {
         const input = this.getInputNode()[0];
@@ -6025,9 +6559,10 @@ class InputPopup {
         input.parentNode.appendChild(button);
         $(button).on('click.btnclickpopup', finish);
     }
+    setPostHtml(node) { $(this.html).find('.textPre')[0].append(node); }
     setPostText(str) { $(this.html).find('.textPre')[0].innerHTML = str; }
     setErrText(str) {
-        U.pw(true, str);
+        U.pe(true, 'InputPopup.setErrText is deprecated:', str);
         /*
         const $err = $(this.html).find('.errors');
         if (!str) { $err.hide(); return; }
@@ -6068,7 +6603,39 @@ var ShortAttribETypes;
 })(ShortAttribETypes || (ShortAttribETypes = {}));
 class EvalOutput {
 }
+class EvalContext {
+    constructor(context, str, allowContextEvalEdit) {
+        EvalContext.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
+        EvalContext.EC_ParStr = str;
+        EvalContext.EC_TmpParContext = context;
+        EvalContext.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
+        EvalContext.EC_ret = undefined;
+        EvalContext.EC_exception = null;
+        console.log('evalincontext: this', this, 'context:', context);
+        delete this['str'];
+        delete this['context'];
+        delete this['allowContextEvalEdit'];
+        // tengo tutte le chiavi al di fuori per non sporcare "this" con variabili locali mentre faccio diventare "this" una shallowcopy di "context"
+        for (EvalContext.EC_TmpKey in EvalContext.EC_TmpParContext) {
+            this['' + EvalContext.EC_TmpKey] = EvalContext.EC_TmpParContext['' + EvalContext.EC_TmpKey];
+        }
+        try {
+            EvalContext.EC_ret = eval(EvalContext.EC_ParStr);
+        }
+        catch (e) {
+            EvalContext.EC_exception = e;
+        }
+        if (!EvalContext.EC_TmpAllowcontextEvalEdit)
+            return;
+        for (EvalContext.EC_TmpKey in this) {
+            EvalContext.EC_TmpParContext['' + EvalContext.EC_TmpKey] = this['' + EvalContext.EC_TmpKey];
+        }
+    }
+}
+class SelectorOutput {
+}
 class U {
+    // static vertexOldPos: GraphPoint = null;
     // todo: move @ start
     static checkDblClick() {
         const now = new Date().getTime();
@@ -6079,39 +6646,6 @@ class U {
     }
     static remove(x) { if (x && x.parentElement)
         x.parentElement.removeChild(x); }
-    static EvalContext(context, str, allowContextEvalEdit) {
-        U.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
-        U.EC_ParStr = str;
-        U.EC_TmpParContext = context;
-        U.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
-        U.EC_ret = undefined;
-        U.EC_exception = null;
-        delete this['str'];
-        delete this['context'];
-        delete this['allowContextEvalEdit'];
-        for (U.EC_TmpKey in U.EC_TmpParContext) {
-            this['' + U.EC_TmpKey] = U.EC_TmpParContext['' + U.EC_TmpKey];
-        }
-        try {
-            U.EC_ret = eval(U.EC_ParStr);
-        }
-        catch (e) {
-            U.EC_exception = e;
-        }
-        if (!U.EC_TmpAllowcontextEvalEdit)
-            return;
-        for (U.EC_TmpKey in this) {
-            U.EC_TmpParContext['' + U.EC_TmpKey] = this['' + U.EC_TmpKey];
-        }
-    }
-    static evalInContext(context, str, allowcontextEvalEdit = true) {
-        const out = new U.EvalContext(context, str, allowcontextEvalEdit);
-        const ret = {};
-        ret.outContext = allowcontextEvalEdit ? context : out;
-        ret.return = U.EC_ret;
-        ret.exception = U.EC_exception;
-        return ret;
-    }
     static firstToUpper(s) {
         if (!s || s === '')
             return s;
@@ -6215,6 +6749,37 @@ class U {
         // s = (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash'];
         return str;
     }
+    // todo: un U.genID() che generi unico a seconda del n° linea di codice da cui viene invocato, o sempre diverso se senza linea (console, eval)
+    static getStackTrace(sliceThisCall = true) {
+        const ret = Error().stack;
+        // try { var a = {}; a.debug(); } catch(ex) { ret = ex.stack; }
+        // if (Array.isArray(ret)) return ret;
+        if (!ret)
+            return ['UnknownStackTrace'];
+        const arr = ret.split('\n');
+        // first 2 entries are "Erorr" and "getStackTrace()"
+        return sliceThisCall ? arr.slice(2) : arr;
+    }
+    static genID() { return '#tìmèdkéy_' + new Date().valueOf(); }
+    static getCaller(stacksToSkip = 1) {
+        const stack = this.getStackTrace(false);
+        return stack[stacksToSkip + 3]; // erase getStackTrace() and isFirstTimeCalled() + Error() first stack + n° of layer the caller wants.
+    }
+    static isFirstTimeCalledByThisLine(stacksToSkip = 1) {
+        const caller = this.getCaller(stacksToSkip);
+        if (U.gotcalledby[caller])
+            return false;
+        return U.gotcalledby[caller] = true;
+    }
+    static lineKey() { return this.getCaller(1); }
+    static oneTime(key = null, printFunction, condition, s, ...restArgs) {
+        if (key === null)
+            key = s;
+        if (condition || U.oneTimeMap[key])
+            return null;
+        U.oneTimeMap[key] = true;
+        return printFunction(condition, s, restArgs);
+    }
     static ps(b, s, ...restArgs) {
         if (!b) {
             return null;
@@ -6283,7 +6848,7 @@ class U {
         alertMargin.classList.add('alert', 'alert-' + color);
         div.appendChild(alertMargin);
         const end = () => { $div.slideUp(400, () => { div.parentElement && container.removeChild(div); }); }; // div.parentElement: nel caso non sia stato manualmente rimosso.
-        $div.on('click', () => $('.alert_' + color).remove());
+        $div.on('click', (e) => { $('.alert_' + color).remove(); U.clipboardCopy(innerhtmlstr); });
         $div.hide().slideDown(200, () => setTimeout(end, timer));
     }
     static cloneHtml(html, deep = true, defaultIDNum = 1) {
@@ -6679,6 +7244,18 @@ class U {
         // https://github.com/tsayen/dom-to-image
         return 'HtmlToImage todo: check https://github.com/tsayen/dom-to-image';
     }
+    static getParentLine(node, parentLimit = null, bottomToTopOrder = true, includeparentlimit = false, includenode = false) {
+        const arr = [];
+        if (includenode)
+            arr.push(node);
+        U.pe(!node, 'U.getParentLine() node argument cannot be null.');
+        while (node.parentElement && node.parentElement !== parentLimit) {
+            arr.push(node = node.parentElement);
+        }
+        if (includeparentlimit && node.parentElement === parentLimit)
+            arr.push(parentLimit);
+        return bottomToTopOrder ? arr : arr.reverse();
+    }
     /**
      * checks if nodes have a vertical line relationship in the tree (parent, grandparent, ...);
      * @ return {boolean}
@@ -6856,6 +7433,8 @@ class U {
             U.pif(debug, 'ArrayRemoveAll RemovedOne:', arr);
         }
     }
+    static arraySubstr(arr, start, length = null) { return arr ? arr.slice(start, start + length) : arr; }
+    static arraySubstringSlice(arr, start, end = null) { return arr ? arr.slice(start, end) : arr; }
     static eventiDaAggiungereAlBody(selecteds) {
         // todo: guarda gli invocatori
     }
@@ -6894,6 +7473,14 @@ class U {
     }
     // usage: var scope1 = makeEvalContext("variable declariation list"); scope1("another eval like: x *=3;");
     // remarks: variable can be declared only on the first call, further calls on a created context can only modify the context without expanding it.
+    static evalInContext(context, str, allowcontextEvalEdit = true) {
+        const out = new EvalContext(context, str, allowcontextEvalEdit); // becomes a copy of T
+        const ret = new EvalOutput();
+        ret.outContext = allowcontextEvalEdit ? context : out; // context contiene l'oggetto originario, out contiene la shallowcopy modificata dall'eval.
+        ret.return = EvalContext.EC_ret;
+        ret.exception = EvalContext.EC_exception;
+        return ret;
+    }
     // same as above, but with dynamic context, although it's only extensible manually and not by the eval code itself.
     static evalInContextOld(context, js) {
         let value;
@@ -7591,7 +8178,7 @@ class U {
     // returns true only if parameter is already a number by type. U.isNumber('3') will return false
     static isNumber(o) { return +o === o && o !== NaN; }
     // returns true only if parameter is a number or a stringified number. U.isNumber('3') will return true
-    static isNumerizable(o) { return o !== null && o !== undefined && !isNaN(+0); }
+    static isNumerizable(o) { return o !== null && o !== undefined && o !== '' && !isNaN(+o); }
     static isNumberArray(o, minn = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_INFINITY, ifItIsEmptyArrReturn = true) {
         const validation = (val) => U.isNumber(val) && val >= minn && val <= max;
         return U.isArrayOf(o, validation, ifItIsEmptyArrReturn);
@@ -7933,12 +8520,12 @@ class U {
         const classes2 = elem2.getAttribute('class').split(' ');
         elem1.setAttribute('class', U.mergeArray(classes1, classes2, true, true).join(' '));
     }
-    static mergeStyles(html, fake, styleString = null) {
+    static mergeStyles(html, fake = null, styleString = null, prioritizeFake = false) {
         let i;
         const styles1 = html.getAttribute('style').split(';');
-        const styles2 = (styleString ? styleString : fake.getAttribute('style')).split(';');
+        const styles2 = (styleString = (styleString ? styleString : fake.getAttribute('style'))).split(';');
         let stylesKv1 = {};
-        const stylesKv2 = {};
+        let stylesKv2 = {};
         let key;
         let val;
         let pos;
@@ -7958,11 +8545,17 @@ class U {
                 continue;
             stylesKv2[key] = val;
         }
+        if (prioritizeFake) {
+            let tmp = stylesKv1;
+            stylesKv1 = stylesKv2;
+            stylesKv2 = tmp;
+        }
         stylesKv1 = U.join(stylesKv1, stylesKv2, true, false);
         let style = '';
         for (key in stylesKv1) {
             style += key + ':' + stylesKv1[key] + '; ';
         }
+        console.log('final Style:', style, stylesKv1, stylesKv2, styles2);
         html.setAttribute('style', style);
     }
     static merge(a, b, overwriteNull = true, clone = true) { return U.join(a, b, overwriteNull, clone); }
@@ -8300,12 +8893,22 @@ class U {
         }
         return ret;
     }
-    static getRelativeParentNode(node) {
-        while (node && node instanceof Element) {
-            if (window.getComputedStyle(node.parentElement).position === 'relative') {
-                return node;
+    static getAttributes(elem, validator) {
+        const ret = [];
+        let i;
+        for (i = 0; i < elem.attributes.length; i++) {
+            const attr = elem.attributes[i];
+            if (validator(attr))
+                ret.push(attr);
+        }
+        return ret;
+    }
+    static getRelativeParentNode(elem) {
+        U.pe(!elem || !(elem instanceof Element), 'U.getRelativeParentNode argument must be an Element, found instead:', elem);
+        while ((elem = elem.parentElement)) {
+            if (window.getComputedStyle(elem).position === 'relative') {
+                return elem;
             }
-            node = node.parentElement;
         }
         return document.body;
     }
@@ -8393,8 +8996,172 @@ class U {
         }
         return ret;
     }
+    static isUnset(val, ignorespaces = true, parseStrings = true, ifemptystr = false, ifnull = true, ifundef = true, ifzero = false) {
+        if (val === '' + val) {
+            if (ignorespaces)
+                val = val.trim();
+            if (val === '')
+                return ifemptystr;
+            if (!parseStrings)
+                return true;
+            if (val === 'null')
+                return ifnull;
+            if (val === 'undefined')
+                return ifundef;
+            if (val === '0')
+                return ifzero;
+        }
+        if (val)
+            return true;
+        if (val === null)
+            return ifnull;
+        if (val === undefined)
+            return ifundef;
+        if (val === 0)
+            return ifzero;
+        U.pe(true, 'isUnset() should not reach here', val);
+        return true;
+    }
+    // usage: flags should be used only if delimiters are not used.
+    // delimiters can only be single characters
+    static parseRegexString(s, onlyIfDelimitedByOneOf = ['\\', '/'], flags = null, canThrow = true) {
+        const firstchar = s.charAt(0);
+        let lastindex = -1;
+        let i;
+        let ret;
+        if (s !== '' + s) {
+            U.pe(canThrow, 'U.parseRegexString() "s" argument must be a string.', s);
+            return null;
+        }
+        if (onlyIfDelimitedByOneOf) {
+            let found = false;
+            for (i = 0; i < onlyIfDelimitedByOneOf.length; i++) {
+                if (firstchar === onlyIfDelimitedByOneOf[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+                return null;
+            lastindex = s.lastIndexOf(firstchar);
+            if (lastindex === 0)
+                return null;
+            flags = s.substring(lastindex + 1).trim();
+            s = s.substring(1, lastindex).trim();
+            try {
+                ret = new RegExp(s, flags);
+            }
+            catch (e) {
+                U.pe(canThrow, 'evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
+                console.log('evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
+                return null;
+            }
+            return ret;
+        }
+        if (flags !== '' + flags) {
+            U.pe(canThrow, 'U.parseRegexString() "flags" argument must be a string.', flags);
+            return null;
+        }
+        try {
+            ret = new RegExp(s, flags);
+        }
+        catch (e) {
+            U.pe(canThrow, 'evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
+            console.log('evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
+            return null;
+        }
+        return ret;
+    }
+    static processSelectorPlusPlus(fullselector, prioritizeLeftPart, $searchRoots = null, $defaultNode = null, defaultAttributeSelector = null, debug = true) {
+        fullselector = fullselector.trim();
+        defaultAttributeSelector = defaultAttributeSelector && defaultAttributeSelector.trim().toLowerCase();
+        if (!$searchRoots)
+            $searchRoots = $(document);
+        U.pe(fullselector !== '' + fullselector, 'Measurable.processSelectorPlusPlus() parameter exception: ', fullselector);
+        ///// try execution
+        let ret = new SelectorOutput();
+        ret.resultSetAttr = [];
+        ret.resultSetElem = $([]);
+        if (!$searchRoots.length)
+            return ret;
+        let attributeSelectorIndex = fullselector.lastIndexOf(U.AttributeSelectorOperator);
+        if (attributeSelectorIndex === -1) {
+            attributeSelectorIndex = prioritizeLeftPart ? 0 : fullselector.length;
+            fullselector = prioritizeLeftPart ? fullselector + U.AttributeSelectorOperator : U.AttributeSelectorOperator + fullselector;
+        }
+        let getAttributes = (html, selector, regexp) => {
+            let ret;
+            if (regexp) {
+                ret = U.getAttributesByRegex(html, regexp);
+            }
+            else
+                ret = U.getAttributes(html, (a) => { return a.name.indexOf(selector) === 0; });
+            return ret;
+        };
+        // is mono-right (only attribute)
+        if (attributeSelectorIndex === 0) {
+            ret.jqselector = null;
+            ret.attrselector = fullselector.substr(U.AttributeSelectorOperator.length).trim().toLowerCase();
+            ret.attrRegex = U.parseRegexString(ret.attrselector, ['/', '\\'], null, false);
+        }
+        U.pif(debug, 'part1:  index:', attributeSelectorIndex, ' data:', ret);
+        // is mono-left (only jqselector), becomes both.
+        if (attributeSelectorIndex + U.AttributeSelectorOperator.length === fullselector.length) {
+            ret.jqselector = fullselector.substr(0, attributeSelectorIndex).trim();
+            ret.attrselector = defaultAttributeSelector ? defaultAttributeSelector : null;
+            ret.attrRegex = null;
+        }
+        U.pif(debug, 'part2:  index:', attributeSelectorIndex, ' data:', ret);
+        // check if ambiguous mono-part (left or right?), becomes both
+        /*
+        if (attributeSelectorIndex === -1) {
+          // first try to see if is attribute only.
+          ret.jqselector = null;
+          ret.attrselector = fullselector.toLowerCase();
+          ret.attrRegex = U.parseRegexString(ret.attrselector, ['/', '\\'], null, false);
+          // first try to check if is mono-right (only attribute)
+          ret.resultSetAttr = getAttributes(defaultNode, ret.attrselector, ret.attrRegex);
+          if (ret.resultSetAttr.length) { return ret; }
+          // if not, it is JQ_selector only
+          ret.jqselector = fullselector;
+          ret.attrselector = Measurable.GlobalPrefix;
+          ret.attrRegex = null; }*/
+        if (ret.attrselector === '*')
+            ret.attrRegex = /.*/;
+        // is both: left and right
+        // U.pe(!ret.attrselector, 'attrselector should be always set at this point, at "-> ' + Measurable.GlobalPrefix + '" on worst case if it was empty.');
+        // search for external triggers
+        try {
+            ret.resultSetElem = ret.jqselector && ret.jqselector !== 'this' ? $searchRoots.find(ret.jqselector) : ($defaultNode instanceof $ ? $defaultNode : $([]));
+        }
+        catch (e) {
+            ret.exception = e;
+            return ret;
+        }
+        U.pif(debug, 'part3:  index:', attributeSelectorIndex, ' data:', ret, '$serachRoots', $searchRoots, ' $defaultNode:', $defaultNode, 'jqinstance?', $defaultNode instanceof jQuery);
+        let i;
+        let j;
+        if (!ret.attrRegex && !ret.attrselector)
+            return ret;
+        const attrSelectorArr = !ret.attrRegex ? ret.attrselector.split(' ') : null;
+        for (i = 0; i < ret.resultSetElem.length; i++) {
+            if (ret.attrRegex) {
+                U.ArrayMerge(ret.resultSetAttr, getAttributes(ret.resultSetElem[i], null, ret.attrRegex));
+                continue;
+            }
+            for (j = 0; j < attrSelectorArr.length; j++) {
+                let attrname = attrSelectorArr[j].trim();
+                if (attrname === '')
+                    continue;
+                U.ArrayMerge(ret.resultSetAttr, getAttributes(ret.resultSetElem[i], attrname, null));
+            }
+        }
+        U.pif(debug, 'part4 ret:  index:', attributeSelectorIndex, ' data:', ret);
+        return ret;
+    }
 }
 U.loopcounter = 0;
+U.AttributeSelectorOperator = '->';
 U.prefix = 'ULibrary_';
 U.sizeofvar = null;
 U.$sizeofvar = null;
@@ -8419,7 +9186,8 @@ U.mouseRightButtons = 2;
 U.mouseWheelButtons = 4;
 U.mouseBackButtons = 8;
 U.mouseForwardButtons = 16;
-U.vertexOldPos = null;
+U.oneTimeMap = {};
+U.gotcalledby = {};
 U.$alertcontainer = null;
 U.alertcontainer = null;
 U.startSeparatorKeys = {};
@@ -8542,22 +9310,34 @@ class DetectZoom {
 }
 class ISize {
     constructor(x = 0, y = 0, w = 0, h = 0) {
-        if (isNaN(+x)) {
-            x = 0;
+        if (x === null)
+            this.x = null;
+        else if (isNaN(+x)) {
+            this.x = 0;
         }
-        if (isNaN(+y)) {
-            y = 0;
+        else
+            this.x = +x;
+        if (y === null)
+            this.y = null;
+        else if (isNaN(+y)) {
+            this.y = 0;
         }
-        if (isNaN(+w)) {
-            w = 0;
+        else
+            this.y = +y;
+        if (w === null)
+            this.w = null;
+        else if (isNaN(+w)) {
+            this.w = 0;
         }
-        if (isNaN(+h)) {
-            h = 0;
+        else
+            this.w = +w;
+        if (h === null)
+            this.h = null;
+        else if (isNaN(+h)) {
+            this.h = 0;
         }
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
+        else
+            this.h = +h;
     }
     tl() { return this.makePoint(this.x, this.y); }
     tr() { return this.makePoint(this.x + this.w, this.y); }
@@ -8811,15 +9591,21 @@ class GraphSize extends ISize {
 class IPoint {
     static getM(firstPt, secondPt) { return (firstPt.y - secondPt.y) / (firstPt.x - secondPt.x); }
     static getQ(firstPt, secondPt) { return firstPt.y - IPoint.getM(firstPt, secondPt) * firstPt.x; }
-    constructor(x, y) {
-        if (isNaN(+x)) {
-            x = 0;
+    constructor(x = 0, y = 0) {
+        if (x === null)
+            this.x = null;
+        else if (isNaN(+x)) {
+            this.x = 0;
         }
-        if (isNaN(+y)) {
-            y = 0;
+        else
+            this.x = +x;
+        if (y === null)
+            this.y = null;
+        else if (isNaN(+y)) {
+            this.y = 0;
         }
-        this.x = +x;
-        this.y = +y;
+        else
+            this.y = +y;
     }
     toString() { return '(' + this.x + ', ' + this.y + ')'; }
     subtract(p2, newInstance) {
@@ -9054,6 +9840,168 @@ const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+
+/***/ }),
+
+/***/ "./src/guiElements/changelog/ChangelogEntry.ts":
+/*!*****************************************************!*\
+  !*** ./src/guiElements/changelog/ChangelogEntry.ts ***!
+  \*****************************************************/
+/*! exports provided: ChangelogEntry, Feature, BugFix, Bug, VersionUpload, ChangelogRoot */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangelogEntry", function() { return ChangelogEntry; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Feature", function() { return Feature; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BugFix", function() { return BugFix; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Bug", function() { return Bug; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VersionUpload", function() { return VersionUpload; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangelogRoot", function() { return ChangelogRoot; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _common_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/util */ "./src/common/util.ts");
+/* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
+
+
+
+class ChangelogEntry {
+    constructor(title, description, subPoints = null, allowHTML = false) {
+        this.title = (title ? '' + title : '').trim();
+        this.description = (description ? '' + description : '').trim();
+        if (this.description)
+            this.title += ' ';
+        this.subPoints = subPoints || [];
+        this.allowHtml = allowHTML;
+    }
+    generateHtml() {
+        console.log('4xd generate html:', this, this.subPoints);
+        const li = document.createElement('li');
+        const title = document.createElement('span');
+        const description = document.createElement('span');
+        const subPoints = document.createElement('ul');
+        title.classList.add('title');
+        description.classList.add('description');
+        // const date: HTMLElement = document.createElement('span');
+        // li.appendChild(date);
+        li.appendChild(title);
+        li.appendChild(description);
+        li.appendChild(subPoints);
+        const isFeature = this instanceof Feature;
+        const isBug = this instanceof Bug;
+        const isBugfix = this instanceof BugFix;
+        const isVersion = this instanceof VersionUpload;
+        const isRoot = this instanceof ChangelogRoot;
+        if (isRoot) {
+            subPoints.classList.add('versionPoints', 'changelog');
+        }
+        else if (isVersion) {
+            subPoints.classList.add('versionSubPoints');
+        }
+        else {
+            subPoints.classList.add('subPoint');
+        }
+        if (isVersion)
+            li.classList.add('version');
+        if (isFeature)
+            li.classList.add('feature');
+        if (isBug)
+            li.classList.add('bug');
+        if (isBugfix)
+            li.classList.add('bugfix');
+        if (this.date) {
+            let datestr = this.date.getDate() + ' ' + this.date.toLocaleString('default', { month: 'long' });
+            if (new Date().getFullYear() !== this.date.getFullYear())
+                datestr += ' ' + this.date.getFullYear();
+            this.title = datestr + (this.title ? ' - ' + this.title : '');
+        }
+        if (this.allowHtml) {
+            title.innerHTML = this.title || '';
+            description.innerHTML = this.description || '';
+        }
+        else {
+            title.innerText = this.title || '';
+            description.innerText = this.description || '';
+        }
+        let i;
+        for (i = 0; i < this.subPoints.length; i++) {
+            subPoints.appendChild(this.subPoints[i].generateHtml());
+        }
+        console.log('4xd generate html ret:', li);
+        return li;
+    }
+    addb(title, description, subPoints = null, asHtml = false) {
+        this.subPoints.push(new Bug(title, description, subPoints, asHtml));
+    }
+    addbf(title, description, subPoints = null, asHtml = false) {
+        this.subPoints.push(new BugFix(title, description, subPoints, asHtml));
+    }
+    addf(title, description, subPoints = null, asHtml = false) {
+        this.subPoints.push(new Feature(title, description, subPoints, asHtml));
+    }
+}
+class Feature extends ChangelogEntry {
+}
+class BugFix extends ChangelogEntry {
+}
+class Bug extends ChangelogEntry {
+}
+class VersionUpload extends ChangelogEntry {
+    constructor(date, title, description, subPoints = []) {
+        super(title, description, subPoints);
+        this.date = date;
+        VersionUpload.all.push(this);
+    }
+}
+VersionUpload.all = [];
+class ChangelogRoot extends ChangelogEntry {
+    static generateHtml() {
+        ChangelogRoot.versionBlockNoteWriteHere();
+        let root = new ChangelogRoot(null, null, VersionUpload.all.reverse());
+        const html = root.generateHtml();
+        return $(html).find('.versionPoints')[0];
+    }
+    static versionBlockNoteWriteHere() {
+        let v;
+        v = new VersionUpload(new Date('2020/4/21'), 'Measurable reworking:', 'Measurable system got rewritten from scratch to expand functionality and making the syntax more user friendly, the old documentation became obsolete and will be rewritten.', null);
+        v.addf('GUI: ', 'Demo of light theme inserted (in the topbar).');
+        v.addf('GUI: ', 'for inserting measurable rules without editing directly the HTML with some suggestion while typing and minor autocorrections on input mistakes.');
+        v.addf('debugger: ', 'built-in simple debugger to see the output or execution errors of the rules executed and manually trigger measurable events. ("Test it!" button)');
+        v.addf('Popup improvement 1: ', 'now a single click on a popup will close all of them and copy the content of the clicked alert in the clipboard.\n' +
+            'useful to dismiss them faster or as an help to read long messages without rush.');
+        v.addf('Popup improvement 2: ', 'Some popup will now be displayed just once for each page visit.' +
+            'Such as warning the user about improper usage of some feature or warning about partially invalid inputs that are being auto-corrected.');
+        v.addbf('Measurable: ', 'inserted 3 class of rules:<ul><li>Event triggers</li><li>Executable rules</li><li>JqueryUI config (measurable relies on jqueryUI)</li></ul>', null, true);
+        v.addbf('Many minor bugfixed', '');
+        v.addbf('Vertex', 'Support for manually set vertex size and position through coordinates and possibility to set a vertex in autosize mode, losing the ability to manually resize it but ensuring it will always fit to his contents.');
+        v.addbf('Other:', 'Implemented this self-referential changelog system, that will automatically pop-up every time there are new updates not yet acknowledged.');
+        // v = new VersionUpload(new Date(2020,4, 20), 'fakevers', 'fakedescr.');
+        // v.addf('fakegfeat', 'kkk');
+        // v = new VersionUpload('v3'...);
+    }
+    static show() {
+        if (!ChangelogRoot.popup) {
+            ChangelogRoot.popup = new _common_util__WEBPACK_IMPORTED_MODULE_1__["InputPopup"]('Changelog', ' ', ' ', null, null, null, 'input', null, null);
+            ChangelogRoot.popup.getInputNode().hide();
+            const html = this.generateHtml();
+            console.log('4xd', html);
+            ChangelogRoot.popup.setPostHtml(html);
+            $(ChangelogRoot.popup.html).find('button.closeButton').on('click.acknowledgeOnClose', ChangelogRoot.acknowledgeOnClose);
+        }
+        ChangelogRoot.popup.show();
+    }
+    static acknowledgeOnClose() {
+        console.log('5xd', ChangelogRoot.latestVersion);
+        localStorage.setItem(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ReservedStorageKey"].versionAcknowledged, ChangelogRoot.latestVersion);
+    }
+    static CheckUpdates() {
+        let acknowledgedVersion = localStorage.getItem(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ReservedStorageKey"].versionAcknowledged);
+        console.log('5xd', acknowledgedVersion, ChangelogRoot.latestVersion);
+        if (acknowledgedVersion !== ChangelogRoot.latestVersion)
+            ChangelogRoot.show();
+    }
+}
+ChangelogRoot.latestVersion = '1';
 
 
 /***/ }),
@@ -9546,7 +10494,7 @@ class MyConsole {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#damContextMenuTemplateContainer{\r\n  display: none;\r\n}\r\n.contextMenuRoot{\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n}\r\n.reflist{ display: none; }\r\n.reflistparent:hover > .reflist { display: block; }\r\n.refli {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli .byindex {\r\n  width: 35px;\r\n}\r\n.reflistparent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.reflist {\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli:hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: #b2b2ba;\r\n}\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: #b2b2ba; }\r\nli:hover li:hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBLFVBQVUsYUFBYSxFQUFFO0FBQ3pCLGtDQUFrQyxjQUFjLEVBQUU7QUFDbEQ7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQixFQUFFO0FBQ3ZCO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7QUFDZjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixpQkFBaUI7RUFDakIsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLE1BQU07QUFDUjtBQUNBO0VBQ0UsdUJBQXVCO0VBQ3ZCLHVCQUF1QjtFQUN2QixhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixXQUFXO0VBQ1gsVUFBVTtFQUNWLHNCQUFzQjtBQUN4QjtBQUNBO0VBQ0UsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsY0FBYyxFQUFFO0FBRWxCO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL2RhbS1jb250ZXh0LW1lbnUvZGFtLWNvbnRleHQtbWVudS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2RhbUNvbnRleHRNZW51VGVtcGxhdGVDb250YWluZXJ7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uY29udGV4dE1lbnVSb290e1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgbWF4LWhlaWdodDogMTAwdmg7XHJcbiAgbWF4LXdpZHRoOiAxMDB2dztcclxuICBvdmVyZmxvdzogdmlzaWJsZTtcclxufVxyXG4ucmVmbGlzdHsgZGlzcGxheTogbm9uZTsgfVxyXG4ucmVmbGlzdHBhcmVudDpob3ZlciA+IC5yZWZsaXN0IHsgZGlzcGxheTogYmxvY2s7IH1cclxuLnJlZmxpIHtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDsgfVxyXG4ucmVmbGkgLmZpcnN0ZW1wdHl7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLnJlZmxpIC5ieWluZGV4IHtcclxuICB3aWR0aDogMzVweDtcclxufVxyXG4ucmVmbGlzdHBhcmVudHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbn1cclxuLnJlZmxpIC5pbmRleCB7XHJcbiAgcGFkZGluZy1sZWZ0OiAzcHg7XHJcbiAgY29sb3I6IG9yYW5nZTtcclxufVxyXG4ucmVmbGkgLnRleHR7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG59XHJcbmJ1dHRvbi5yZWZsaS5kZWxldGV7XHJcbiAgcGFkZGluZzogMCA0cHg7XHJcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4ucmVmbGlzdCB7XHJcbiAgbGVmdDogY2FsYygxMDAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgcGFkZGluZzogMnB4IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIHRvcDogMDtcclxufVxyXG51bC5jb250ZXh0TWVudXtcclxuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIHBhZGRpbmctdG9wOiA2cHg7XHJcbiAgcGFkZGluZy1ib3R0b206IDhweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG59XHJcbmxpOmZpcnN0LWNoaWxke1xyXG4gIHBhZGRpbmctdG9wOiAwO1xyXG59XHJcbmxpLnNlcGFyYXRvcntcclxuICBtYXJnaW4tdG9wOiAycHg7XHJcbiAgaGVpZ2h0OiAxcHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xyXG59XHJcbmxpOmxhc3QtY2hpbGR7XHJcbiAgYm9yZGVyLWJvdHRvbTogbm9uZTtcclxufVxyXG5saTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgY29sb3I6IGRvZGdlcmJsdWU7XHJcbn1cclxubGl7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG4gIGZvbnQtc2l6ZTogMC43NXJlbTtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgY29sb3I6ICNiMmIyYmE7XHJcbn1cclxubGk6aG92ZXIgbGl7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBjdXJzb3I6IGRlZmF1bHQ7XHJcbiAgZm9udC1zaXplOiAwLjc1cmVtO1xyXG4gIHBhZGRpbmctdG9wOiAycHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDtcclxuICBjb2xvcjogI2IyYjJiYTsgfVxyXG5cclxubGk6aG92ZXIgbGk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiBkb2RnZXJibHVlO1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("#damContextMenuTemplateContainer{\r\n  display: none;\r\n}\r\n.contextMenuRoot{\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n}\r\n.reflist{ display: none; }\r\n.reflistparent:hover > .reflist { display: block; }\r\n.refli {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli .byindex {\r\n  width: 35px;\r\n}\r\n.reflistparent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.reflist {\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli:hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:hover li:hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBLFVBQVUsYUFBYSxFQUFFO0FBQ3pCLGtDQUFrQyxjQUFjLEVBQUU7QUFDbEQ7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQixFQUFFO0FBQ3ZCO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7QUFDZjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixpQkFBaUI7RUFDakIsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLE1BQU07QUFDUjtBQUNBO0VBQ0UsdUJBQXVCO0VBQ3ZCLHVCQUF1QjtFQUN2QixhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixXQUFXO0VBQ1gsVUFBVTtFQUNWLHNCQUFzQjtFQUN0QixZQUFZO0FBQ2Q7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCO0FBQzdCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCLEVBQUU7QUFFL0I7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtBQUNuQiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvZGFtLWNvbnRleHQtbWVudS9kYW0tY29udGV4dC1tZW51LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjZGFtQ29udGV4dE1lbnVUZW1wbGF0ZUNvbnRhaW5lcntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi5jb250ZXh0TWVudVJvb3R7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXgtaGVpZ2h0OiAxMDB2aDtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG92ZXJmbG93OiB2aXNpYmxlO1xyXG59XHJcbi5yZWZsaXN0eyBkaXNwbGF5OiBub25lOyB9XHJcbi5yZWZsaXN0cGFyZW50OmhvdmVyID4gLnJlZmxpc3QgeyBkaXNwbGF5OiBibG9jazsgfVxyXG4ucmVmbGkge1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4OyB9XHJcbi5yZWZsaSAuZmlyc3RlbXB0eXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ucmVmbGkgLmJ5aW5kZXgge1xyXG4gIHdpZHRoOiAzNXB4O1xyXG59XHJcbi5yZWZsaXN0cGFyZW50e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4ucmVmbGkgLmluZGV4IHtcclxuICBwYWRkaW5nLWxlZnQ6IDNweDtcclxuICBjb2xvcjogb3JhbmdlO1xyXG59XHJcbi5yZWZsaSAudGV4dHtcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbn1cclxuYnV0dG9uLnJlZmxpLmRlbGV0ZXtcclxuICBwYWRkaW5nOiAwIDRweDtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5yZWZsaXN0IHtcclxuICBsZWZ0OiBjYWxjKDEwMCUpO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICBib3JkZXItbGVmdDogbm9uZTtcclxuICBwYWRkaW5nOiAycHggNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDA7XHJcbiAgdG9wOiAwO1xyXG59XHJcbnVsLmNvbnRleHRNZW51e1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gIHBhZGRpbmc6IDEwcHg7XHJcbiAgcGFkZGluZy10b3A6IDZweDtcclxuICBwYWRkaW5nLWJvdHRvbTogOHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDA7XHJcbn1cclxubGk6Zmlyc3QtY2hpbGR7XHJcbiAgcGFkZGluZy10b3A6IDA7XHJcbn1cclxubGkuc2VwYXJhdG9ye1xyXG4gIG1hcmdpbi10b3A6IDJweDtcclxuICBoZWlnaHQ6IDFweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XHJcbiAgb3BhY2l0eTogMC40O1xyXG59XHJcbmxpOmxhc3QtY2hpbGR7XHJcbiAgYm9yZGVyLWJvdHRvbTogbm9uZTtcclxufVxyXG5saTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgY29sb3I6IGRvZGdlcmJsdWU7XHJcbn1cclxubGl7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG4gIGZvbnQtc2l6ZTogMC43NXJlbTtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpO1xyXG59XHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG4gIGZvbnQtc2l6ZTogMC43NXJlbTtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpOyB9XHJcblxyXG5saTpob3ZlciBsaTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgY29sb3I6IGRvZGdlcmJsdWU7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -11575,27 +12523,34 @@ class IField {
 /*!**************************************************!*\
   !*** ./src/guiElements/mGraph/Vertex/iVertex.ts ***!
   \**************************************************/
-/*! exports provided: IVertex */
+/*! exports provided: StartDragContext, IVertex */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StartDragContext", function() { return StartDragContext; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IVertex", function() { return IVertex; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/Joiner */ "./src/common/Joiner.ts");
 /* harmony import */ var _common_measurable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../common/measurable */ "./src/common/measurable.ts");
-/* harmony import */ var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../app/measurabletemplate/measurabletemplate.component */ "./src/app/measurabletemplate/measurabletemplate.component.ts");
 
 
 
-
+class StartDragContext {
+    // time: Date;
+    // grid: GraphPoint;
+    constructor(v) {
+        this.size = v.size.duplicate();
+        // this.time = new Date();
+        // this.grid = v.owner.grid.duplicate();
+    }
+}
 class IVertex {
     constructor(logical, size = null) {
+        this.tolleranzaRightClickMove = 5;
         this.fields = [];
         this.edgesStart = [];
         this.edgesEnd = [];
-        this.dragaxis = { x: true, y: true };
-        this.reshandles = { n: false, s: false, e: false, w: false, ne: false, nw: false, sw: false, se: false };
         this.Vmarks = {};
         this.id = IVertex.ID++;
         IVertex.all[this.id] = this;
@@ -11790,7 +12745,7 @@ class IVertex {
     getEndPoint(nextPt = null) { return this.getMidPoint(nextPt); }
     getMidPoint(prevPt = null) {
         // NB: MAI fare sizeof() di un SVGForeignObjectElement, ridà valori sballati. fallo ai suoi childs.
-        const html = this.getHtml();
+        const html = this.getHtmlFirstChild();
         const $htmlEP = $(html).find('.EndPoint');
         let htmlEP;
         let endPointSize;
@@ -11816,43 +12771,40 @@ class IVertex {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
         return pt;
     }
-    setSize(size, refreshVertex = true, refreshEdge = true, trigger = null && false) {
-        if (!size)
+    setSize(size, refreshVertex = false, refreshEdge = true, trigger = null && false) {
+        const htmlForeign = this.getHtmlRawForeign();
+        if (!size || this.getSize().equals(size)) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].setSvgSize(htmlForeign, this.size, IVertex.defaultSize);
             return;
-        if (this.getSize().equals(size))
-            return;
+        }
         /*
         if(window['debug'] === 1) for (let key in IVertex.all) {
           let v2 = (IVertex.all[key] as IVertex);
           U.pe(v2 !== this && v2.size.equals(size), 'err:', this.getSize(), '->', size);
         }*/
+        const oldsize = this.size.duplicate();
         this.size.x = (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(size.x)) ? +size.x : this.size.x;
         this.size.y = (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(size.y)) ? +size.y : this.size.y;
         this.size.w = (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(size.w)) ? +size.w : this.size.w;
         this.size.h = (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(size.h)) ? +size.h : this.size.h;
-        const htmlForeign = this.getHtmlRawForeign();
+        // console.log('oldSize:', oldsize, 'new size candidate:', size, 'result:', this.size);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].setSvgSize(htmlForeign, this.size, IVertex.defaultSize);
+        const pbar = this.owner.propertyBar;
+        if (pbar && pbar.selectedModelPiece === this.logic() && pbar.styleEditor.isLoaded() && pbar.styleEditor.sizeInputx) {
+            const se = pbar.styleEditor;
+            se.sizeInputx.value = '' + this.size.x;
+            se.sizeInputy.value = '' + this.size.y;
+            se.sizeInputw.value = '' + this.size.w;
+            se.sizeInputh.value = '' + this.size.h;
+        }
         // todo: cerca tutti gli as string, non è un vero cast ma solo un cambiotipo senza trasformazione, crea errori.
         // const spostamento: GraphPoint = this.size.tl().subtract(oldSize.tl(), true);
         // todo: cambia struttura interna size in tl+br, controlla tutti i riferimenti a tl(newinstnce = false) e considera di cambiarli a true.
         if (refreshVertex) {
             this.refreshGUI();
         }
-        if (!refreshEdge) {
-            return;
-        }
-        const refEnd = this.edgesEnd; // this.getReferencesEnd();
-        const refStart = this.edgesStart; // this.getReferencesStart();
-        let i;
-        for (i = 0; i < refEnd.length; i++) {
-            if (refEnd[i]) {
-                refEnd[i].refreshGui();
-            }
-        }
-        for (i = 0; i < refStart.length; i++) {
-            if (refStart[i]) {
-                refStart[i].refreshGui();
-            }
+        if (refreshEdge) {
+            this.refreshEdgesGUI();
         }
         if (trigger) {
             let measnode = this.getMeasurableNode();
@@ -11869,6 +12821,36 @@ class IVertex {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'failed to draw vertex of "' + this.logic().printableNameshort() + '".', e);
         }
     }
+    isAutosize() {
+        const html = this.getHtmlFirstChild();
+        const autosizey = html.dataset.autosizey;
+        const autosizex = html.dataset.autosizex;
+        const ret = { x: true, y: true, atLeastOne: null };
+        const admittedStyles = ['auto', 'min-content', 'max-content'];
+        const admittedDisplays = ['inline', 'inline-block', 'inline-flex'];
+        if (autosizey !== '1' && autosizey !== 't' && autosizey !== 'true') {
+            ret.y = false;
+        }
+        else if (admittedStyles.indexOf(html.style.height) === -1) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].oneTime('autosize1key' + this.id, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw, true, 'To use autosize the root node must have "height: ' + admittedStyles.join('|') + ';", this has been automatically solved with "auto". was:' + html.style.height);
+            html.style.height = 'auto';
+        }
+        if (autosizex !== '1' && autosizex !== 't' && autosizex !== 'true') {
+            ret.x = false;
+        }
+        else {
+            if (admittedStyles.indexOf(html.style.width) === -1) {
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].oneTime('autosize1key' + this.id, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw, true, 'To use autosize the root node must have "width: ' + admittedStyles.join('|') + ';", this has been automatically solved with "auto". was:' + html.style.width);
+                html.style.width = 'auto';
+            }
+            if (admittedDisplays.indexOf(html.style.display) === -1) {
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].oneTime('autosize2key' + this.id, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw, true, 'To use autosizeWidth the root node must have "display: ' + admittedDisplays.join('|') + ';", this has been automatically solved with "inline-block". was:' + html.style.display);
+                html.style.display = 'inline-block';
+            }
+        }
+        ret.atLeastOne = ret.x || ret.y;
+        return ret;
+    }
     draw0() {
         /*const htmlRaw: SVGForeignObjectElement = U.newSvg('foreignObject');
         htmlRaw.appendChild(this.classe.getStyleObj().html);*/
@@ -11882,9 +12864,8 @@ class IVertex {
             this.drawE(this.classe);
         this.addEventListeners();
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fixHtmlSelected($(htmlRaw));
-        this.autosizeNew(false, false);
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors($(this.getHtml()));
-        let onrefresh = this.htmlForeign.getAttribute('onrefreshgui');
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors($(this.getHtmlFirstChild()));
+        // let onrefresh: string = this.htmlForeign.getAttribute('onrefreshgui');
         const $htmlraw = $(htmlRaw);
         let i;
         const parenttmp = htmlRaw.parentNode;
@@ -11932,44 +12913,26 @@ class IVertex {
             else
                 parenttmp.appendChild(htmlRaw);
         }
-        // console.log('onrefresh:', onrefresh, 'window.onrefresh:', window[onrefresh]);
-        if (onrefresh) {
-            window[onrefresh](this, this.logic(), htmlRaw);
-        }
+        if (this.isAutosize().atLeastOne)
+            this.autosizeNew(false, false);
     }
-    autosizeNew(refreshVertex = true, refreshEdge = true, trigger = null) {
+    autosizeNew(refreshVertex = false, refreshEdge = true, trigger = null, autosizeobj = null) {
+        if (!autosizeobj)
+            autosizeobj = this.isAutosize();
+        if (!autosizeobj.atLeastOne)
+            return this;
         let html = this.getMeasurableNode();
         if (html.tagName.toLowerCase() === 'foreignobject')
             html = html.children[0];
         const actualSize = this.owner.toGraphCoordS(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].sizeof(html));
-        actualSize.x = this.size.x;
-        actualSize.y = this.size.y;
+        actualSize.x = null;
+        actualSize.y = null;
+        if (!autosizeobj.x)
+            actualSize.w = null;
+        if (!autosizeobj.y)
+            actualSize.h = null;
+        // console.log('setSize:', actualSize, this.size, autosizeobj, html, U.sizeof(html));
         this.setSize(actualSize, refreshVertex, refreshEdge, trigger);
-        return this;
-    }
-    autosize(refreshVertex = true, refreshEdge = true, debug = false) {
-        const html = this.getHtml();
-        const autosize = html.dataset.autosize;
-        // NB: se dataset non è settato a true crea casini con jqui che cambia la size come html (css-width) e devo riportarlo in svg tramite autosize.
-        // console.log('autosize() ? ', modelPiece.html, ' dataset.autosize:', autosize);
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(autosize !== '1' && autosize !== 't' && autosize !== 'true', 'foreignObject:first-child must have data-autosize="true", and style {height: 100%;} required for now.' +
-            ' html:', html, 'foreign:', this.htmlForeign);
-        if (autosize !== '1' && autosize !== 't' && autosize !== 'true') {
-            return this;
-        }
-        // console.log('autosize() started');
-        if (html.style.height !== 'auto') {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'To use autosize the root node must have "height: auto;", this has been automatically solved. was:' + html.style.height);
-            html.style.height = 'auto';
-        }
-        // const zoomLevel: number = DetectZoom.device();
-        const actualSize = this.owner.toGraphCoordS(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].sizeof(html));
-        // const minSize: GraphSize = new GraphSize(null, null, 200, 30);
-        actualSize.min(IVertex.minSize, false);
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(actualSize.h === 100, '', IVertex.minSize, actualSize, html);
-        actualSize.x = this.size.x;
-        actualSize.y = this.size.y;
-        this.setSize(actualSize, refreshVertex, refreshEdge);
         return this;
     }
     drawE(data, canfail = true) {
@@ -12123,7 +13086,7 @@ class IVertex {
         }
     }
     getStartPointHtml() {
-        const html = this.getHtml();
+        const html = this.getHtmlFirstChild();
         const $start = $(html).find('.StartPoint');
         if ($start.length > 0) {
             return $start[0];
@@ -12133,7 +13096,7 @@ class IVertex {
         }
     }
     getEndPointHtml() {
-        const html = this.getHtml();
+        const html = this.getHtmlFirstChild();
         const $start = $(html).find('.EndPoint');
         if ($start.length > 0) {
             return $start[0];
@@ -12156,10 +13119,10 @@ class IVertex {
         // console.log('drawing Vertex[' + data.name + '] with style:', htmlRaw, 'logic:', data);
         // console.log('drawVertex: template:', htmlRaw);
         const foreign = this.htmlForeign = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].textToSvg(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceVars(data, htmlRaw, true).outerHTML);
+        this.htmlForeign.classList.add(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ReservedClasses"].vertexRoot);
         const $foreign = $(foreign);
         data.linkToLogic(foreign);
         const $elementWithID = $foreign.find('[id]');
-        this.prepareVertexMeasurable();
         // duplicate prevention.
         for (i = 0; i < $elementWithID.length; i++) {
             const elem = $elementWithID[i];
@@ -12183,25 +13146,6 @@ class IVertex {
             ' without spaces between <foreignObject> and the next tag. found ' + this.htmlForeign.childNodes.length + ' childrens.', this.htmlForeign, this.htmlForeign.childNodes);
         // this.html = this.htmlForeign.firstChild as HTMLElement;
         return foreign;
-    }
-    prepareVertexMeasurable() {
-        let i;
-        const measurableNode = this.getMeasurableNode();
-        this.dragaxis.x = true;
-        this.dragaxis.y = true;
-        for (let key in this.reshandles) {
-            this.reshandles[key] = false;
-        }
-        this.reshandles.se = true;
-        if (measurableNode.classList.contains('measurable')) {
-            let astr;
-            if (astr = measurableNode.getAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"]._jquiDra + _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["Draggableoptions"].axis)) {
-                if (!astr.indexOf('x'))
-                    this.dragaxis.x = false;
-                if (!astr.indexOf('y'))
-                    this.dragaxis.y = false;
-            }
-        }
     }
     drawO0(data) {
         const html = this.drawTerminal(data);
@@ -12304,8 +13248,8 @@ class IVertex {
         //   { html = html.firstChild as Element; }
         // while (!(html.classList.contains('Vertex'))) { console.log(html); html = html.parentNode as Element; }
         // $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDownButton);
-        const defaultResizeConfig = {};
-        const defaultDragConfig = {};
+        const defaultResizeConfig = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ResizableOptionsImpl"]();
+        const defaultDragConfig = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DraggableOptionsImpl"]();
         const defaultRotConfig = new _common_measurable__WEBPACK_IMPORTED_MODULE_2__["RotatableOptions"]();
         // NB: do not delete the apparantly useless dynamic functions.
         // jqueryui is binding this to e.currentTarget and e.currentTarget to document.body, the dynamic function makes this instanceof iVertex again.
@@ -12320,9 +13264,11 @@ class IVertex {
         defaultRotConfig.start = (e, ui) => this.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationStart);
         defaultRotConfig.rotate = (e, ui) => this.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileRotating);
         defaultRotConfig.stop = (e, ui) => this.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationEnd);
+        this.dragConfig = null;
         //     console.log('measurableElementSetup:', defaultResizeConfig, defaultDragConfig);
+        // todo: sta cosa potrei eliminarla se uso jqui.create oppure li cerco mentre creo il $(node).resizable(resConfig);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Measurable"].measurableElementSetup($html, defaultResizeConfig, defaultRotConfig, defaultDragConfig, this);
-        const $elementsWithRefreshTrigger = $html.find('[' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRefresh + ']');
+        const $elementsWithRefreshTrigger = $html.find('.' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ReservedClasses"].onRefresh);
         for (i = 0; i < $elementsWithRefreshTrigger.length; i++) {
             const elem = $elementsWithRefreshTrigger[i];
             this.measuringEventTrigger({ currentTarget: elem }, null, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRefresh);
@@ -12330,21 +13276,16 @@ class IVertex {
     }
     measuringEventTrigger(uiseless = null, e = null, prefix, html = null) {
         if (!html)
-            html = e.currentTarget;
+            html = e.target;
+        console.log('measuringEventTrigger:', prefix); // , html, e);
         if (!html.attributes)
             return;
         let i;
-        if (prefix === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRefresh) {
-            let a = html.attributes.getNamedItem(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRefresh);
-            if (a)
-                new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableRuleParts"](a, prefix.length).process(false, this, this.owner);
-            return;
-        }
         for (i = 0; i < html.attributes.length; i++) {
             const a = html.attributes[i];
-            if (a.name.indexOf('prefix') !== 0)
+            if (a.name.indexOf(prefix.toLowerCase()) !== 0)
                 continue;
-            new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableRuleParts"](a, prefix.length).process(false, this, this.owner);
+            new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableRuleParts"](a, prefix).process(false, this, this.owner);
         }
     }
     /*
@@ -12421,13 +13362,16 @@ class IVertex {
     onClick(e) {
         // IVertex.ChangePropertyBarContentClick(e);
     }
-    vertexContextMenu(evt) {
+    vertexContextMenu(evt) { return this.onContextMenuInner(evt, '.Vertex'); }
+    featureContextMenu(evt) { return this.onContextMenuInner(evt, '.Feature'); }
+    onContextMenuInner(evt, classSelector) {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DamContextMenuComponent"].contextMenu.hide();
         // only if is focused input
         const lastSelected = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].focusHistoryEntries[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].focusHistoryElements.length - 1];
         const gotSelectedNow = lastSelected && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
         const isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isInput(evt.target, true, false) && !gotSelectedNow;
-        const gotMoved = this.size.tl().subtract(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].vertexOldPos, false).absolute() > IVertex.tolleranzaRightClickMove;
+        const pixelMoved = this.size.tl().subtract(IVertex.startDragContext.size.tl(), false).absolute();
+        const gotMoved = pixelMoved >= this.tolleranzaRightClickMove;
         const ret = isInput && !gotMoved;
         if (ret)
             return true;
@@ -12437,27 +13381,7 @@ class IVertex {
         }
         if (gotMoved)
             return ret;
-        // only if: !input && !gotMoved
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DamContextMenuComponent"].contextMenu.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](evt.pageX, evt.pageY), '.Vertex', evt.currentTarget);
-        return false;
-    }
-    featureContextMenu(evt) {
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DamContextMenuComponent"].contextMenu.hide();
-        // only if is focused input
-        const lastSelected = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].focusHistoryEntries[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].focusHistoryElements.length - 1];
-        const gotSelectedNow = lastSelected && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
-        const isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isInput(evt.target, true, false) && !gotSelectedNow;
-        const gotMoved = this.size.tl().subtract(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].vertexOldPos, false).absolute() > IVertex.tolleranzaRightClickMove;
-        const ret = isInput && !gotMoved;
-        if (ret)
-            return true;
-        else {
-            evt.preventDefault();
-            evt.stopPropagation();
-        }
-        if (gotMoved)
-            return ret;
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DamContextMenuComponent"].contextMenu.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](evt.pageX, evt.pageY), '.Feature', evt.currentTarget);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DamContextMenuComponent"].contextMenu.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](evt.pageX, evt.pageY), classSelector, evt.currentTarget);
         return false;
     }
     onMouseDown(e) {
@@ -12465,21 +13389,25 @@ class IVertex {
             this.clickSetReference(e);
             return;
         }
-        let tmp = e.target;
-        console.log(e.button, e.buttons, e);
-        if (e.button === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mouseLeftButton && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isInput(tmp, true))
+        let target = e.target;
+        if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isChildrenOf(target, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.container))
             return;
-        if (e.button === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mouseWheelButton)
-            return this.owner.onMouseDown(e, true);
-        if (e.button === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mouseRightButton)
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].vertexOldPos = this.size.tl();
-        const thisHtml = this.getHtml();
-        // i will not move the vertex while moving a measurable children.
-        while (tmp && tmp !== thisHtml) {
-            // if (tmp.classList.contains('measurable')) { return; }
-            tmp = tmp.parentElement;
+        // console.log(e.button, e.buttons, e);
+        const parentLine = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getParentLine(target, this.getMeasurableNode(), true, false, true);
+        const measurables = $(parentLine).filter('.measurable');
+        const clickedOnMeasurableChildren = !!measurables.length;
+        if (e.button !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mouseLeftButton && clickedOnMeasurableChildren) {
+            e.stopPropagation();
+        }
+        if (e.button === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mouseLeftButton && (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isInput(target, true) || clickedOnMeasurableChildren)) {
+            return;
+        }
+        if (e.button === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mouseWheelButton) {
+            this.owner.onMouseDown(e, true);
+            return;
         }
         IVertex.selected = this;
+        IVertex.startDragContext = new StartDragContext(this);
         if (IVertex.selectedGridWasOn.x === 'prevent_doublemousedowncheck') {
             IVertex.selectedGridWasOn.x = IVertex.selected.owner.grid.x;
         }
@@ -12496,15 +13424,6 @@ class IVertex {
             this.clickSetReference(e);
             return;
         }
-        const v = IVertex.selected;
-        if (!v)
-            return;
-        v.owner.grid.x = IVertex.selectedGridWasOn.x;
-        v.owner.grid.y = IVertex.selectedGridWasOn.y;
-        IVertex.selectedGridWasOn.x = 'prevent_doublemousedowncheck';
-        IVertex.selectedGridWasOn.y = 'prevent_doublemousedowncheck';
-        this.owner.fitToGridS(v.size, false);
-        this.setSize(this.size);
     }
     onMouseMove(e) { }
     onMouseEnter(e) { this.mouseEnterLinkPreview(e); }
@@ -12559,7 +13478,7 @@ class IVertex {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!enumm && !classe, 'AddFieldClick should only be allowed on M2-Classes or enumerations.');
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.classe, 'called addFieldClick on a package');
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.debug = true;
-        const html = this.getHtml();
+        const html = this.getHtmlFirstChild();
         let select;
         // const debugOldJson = U.cloneObj(modelPiece.generateModel());
         select = $(html).find('.AddFieldSelect')[0];
@@ -12604,6 +13523,21 @@ class IVertex {
         this.owner = graph;
     }
     refreshGUI() { this.draw(); }
+    refreshEdgesGUI() {
+        const refEnd = this.edgesEnd; // this.getReferencesEnd();
+        const refStart = this.edgesStart; // this.getReferencesStart();
+        let i;
+        for (i = 0; i < refEnd.length; i++) {
+            if (refEnd[i]) {
+                refEnd[i].refreshGui();
+            }
+        }
+        for (i = 0; i < refStart.length; i++) {
+            if (refStart[i]) {
+                refStart[i].refreshGui();
+            }
+        }
+    }
     moveTo(graphPoint, gridIgnore = false) {
         // console.log('moveTo(', graphPoint, '), gridIgnore:', gridIgnore, ', grid:');
         // const oldsize: GraphSize = this.size; // U.getSvgSize(this.logic().html as SVGForeignObjectElement);
@@ -12620,7 +13554,7 @@ class IVertex {
     }
     // todo: elimina differenze html e htmlforeign o almeno controlla e riorganizza
     getHtmlRawForeign() { return this.htmlForeign; }
-    getHtml() { return this.htmlForeign.firstChild; }
+    getHtmlFirstChild() { return this.htmlForeign.firstChild; }
     minimize() {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'minimize() to do.');
     }
@@ -12705,10 +13639,8 @@ IVertex.ID = 0;
 IVertex.selected = null;
 IVertex.selectedGridWasOn = null;
 IVertex.selectedStartPt = null;
-IVertex.oldEdgeLinkHoveringVertex = null;
 IVertex.minSize = null;
 IVertex.defaultSize = null;
-IVertex.tolleranzaRightClickMove = 5;
 
 
 /***/ }),
@@ -13126,7 +14058,21 @@ class IGraph {
         if (this.isMoving) {
             this.isMoving = this.clickedScroll = null;
         }
+        const v = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selected;
+        const vcontext = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].startDragContext;
+        if (!v)
+            return;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selected = null;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].startDragContext = null;
+        v.owner.grid.x = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selectedGridWasOn.x;
+        v.owner.grid.y = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selectedGridWasOn.y;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selectedGridWasOn.x = 'prevent_doublemousedowncheck';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selectedGridWasOn.y = 'prevent_doublemousedowncheck';
+        const gotMoved = !vcontext.size.tl().equals(v.size.tl(), 0);
+        if (!gotMoved)
+            return;
+        v.owner.fitToGridS(v.size, false);
+        v.setSize(v.size, false, true, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
     }
     onMouseMoveSetReference(evt, edge) {
         // console.log('graph.movereference()', edge, edge ? edge.tmpEndVertex : null);
@@ -13149,10 +14095,15 @@ class IGraph {
         // console.log('evt:', evt);
         let currentGraphCoord = this.toGraphCoord(currentMousePos);
         currentGraphCoord = currentGraphCoord.subtract(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selectedStartPt, false);
-        if (!v.dragaxis.x)
-            currentGraphCoord.x = null;
-        if (!v.dragaxis.y)
-            currentGraphCoord.y = null;
+        const axis = v.dragConfig && v.dragConfig.axis;
+        const isMeasurable = v.dragConfig;
+        //NB: axis null = both. axis undefined or empty string = no-one.
+        if (isMeasurable) {
+            if (axis === undefined || axis !== null && axis.indexOf('x') === -1)
+                currentGraphCoord.x = null;
+            if (axis === undefined || axis !== null && axis.indexOf('y') === -1)
+                currentGraphCoord.y = null;
+        }
         v.moveTo(currentGraphCoord);
     }
     onMouseMoveDrag(e) {
@@ -13404,7 +14355,7 @@ IGraph.defaultZoom = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](1,
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep foreignObject.Class *{\r\n  cursor: default;\r\n}\r\n::ng-deep foreignObject.Class input, foreignObject.Class *[contenteditable=\"true\"], foreignObject.Class textarea{\r\n  cursor: text;\r\n}\r\n::ng-deep foreignObject.Class select{\r\n  cursor: pointer;\r\n}\r\n/* viewpoint */\r\n::ng-deep .viewpointShell{\r\n  max-width: 107px;\r\n  overflow: visible;\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px; }\r\n::ng-deep .viewpointrow.template { display: none; }\r\n::ng-deep .viewpointrow button {\r\n  display: none;\r\n  height: 21px;\r\n  width: 21px;\r\n  min-width: 21px;\r\n  float: right;\r\n  margin-left: 5px; }\r\n::ng-deep .viewpointrow:hover button { display: inline-block; }\r\n::ng-deep .viewpointrow{ background-color: transparent; display: -webkit-box; display: flex; position: relative; }\r\n/*::ng-deep .viewpointrow .buttons{ display: none }*/\r\n::ng-deep .viewpointrow:hover .buttons{\r\n  z-index: 1;\r\n  position: absolute;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  top: 100%;\r\n  right: 0; }\r\n::ng-deep .viewpointrow > label{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  margin-left: 0; }\r\n::ng-deep .viewpointrow > label.checkbox{ }\r\n::ng-deep .viewpointrow > label.name{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n  min-width: 0;\r\n}\r\n::ng-deep .viewpointrow input[type=\"text\"]{ min-width: 0; height: 21px; background: transparent; border: none; }\r\n/* ::ng-deep .viewpointrow:hover input[type=\"text\"]{ box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); }*/\r\n::ng-deep .viewpointrow input[type='checkbox'], ::ng-deep .viewpointrow input[type='radio']{\r\n  width: 17px;\r\n  min-width: 17px;\r\n  height: 17px;\r\n  margin: 0;\r\n}\r\n::ng-deep .viewpointrow button{ margin: auto; background-color: transparent }\r\n::ng-deep .viewpointrow input[readonly]{ background-color: transparent; border: none; }\r\n::ng-deep .viewpointrow input.name{ opacity: 0.75; }\r\n::ng-deep .viewpointrow[islastvp='true'] input.name{ opacity: 1; }\r\n/************************************************** statici */\r\n.template, .MMDefaultStyles{\r\n  display: none;\r\n}\r\n.tabContent{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: nowrap;/*?*/\r\n  /*margin-top: calc( var(--mainBorderWidth) * 2 );*/\r\n}\r\n/*olds*/\r\n.HiddenStructures > *{\r\n  display: none;\r\n}\r\n.property_sidebar, .editorShell, .propertyBarContainer{/*.sidebarShell,*/\r\n  flex-basis: 0;/* calc(var(--sidebarW));*/\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-right: var(--mainBorder);*/\r\n  width: calc(var(--sidebarW));\r\n  /*height: calc(100vh - (var(--topbarH) + var(--tabH)));*/\r\n  overflow: hidden;\r\n  /*flex-wrap: wrap;\r\n  margin-top: 5px;\r\n  border-top: var(--mainBorder);*/\r\n}\r\n.sidebarShell{ border-right: var(--mainBorder); }\r\n.propertyBarContainer{ border-left: var(--mainBorder); }\r\n.editorShell{\r\n  -webkit-box-flex: 3;\r\n          flex-grow: 3;\r\n}\r\n/*#sidebar, */\r\n#metamodel_sidebar, #model_sidebar, .property_sidebar{\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;/*si attiva solo se entra tutto in una riga e avanza pure spazio*/\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;/*accatasta tutto verticalmente verso la cima invece di spaziarli.*/\r\n  padding-right:5px;\r\n}\r\n/*\r\n#sidebarResizer, .sidebarResizer{\r\n    margin: 0px;\r\n    padding: 0px;\r\n    width: var(--mainBorderWidth);\r\n    cursor: ew-resize;\r\n    background-color: var(--mainBorderColor);\r\n    user-drag: none;\r\n    user-select: none;\r\n    -moz-user-select: none;\r\n    -webkit-user-drag: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select: none;\r\n}*/\r\n#sidebar>*:first-child, #metamodel_sidebar>*:first-child, #model_sidebar>*:first-child{\r\n  background-color: var(--mainBorderColor);\r\n  width: var(--mainBorderWidth);\r\n  right: 0px;\r\n}\r\n#sidebar>*:not(:first-child), #metamodel_sidebar>*:not(:first-child), #model_sidebar>*:not(:first-child){\r\n  padding: 2px;\r\n  max-width: 200px;\r\n  min-width: 75px;\r\n  flex-basis: 75px;/*should === min-width per mantenere l'effetto.*/\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-shrink: 1;\r\n}\r\n.sidebarVertex:hover{\r\n  background-color: var(--mainBorderColor);\r\n  border: 2px solid var(--secondaryBorderColor);\r\n  padding: 0px;\r\n}\r\n.sidebarVertex{\r\n  min-width: 50px;\r\n  min-height: 50px;\r\n  flex-basis:50px;\r\n}\r\n@media all and (min-width: 200px) {\r\n  .sidebarVertex {\r\n    -webkit-box-flex: 0;\r\n            flex-grow: 0; }\r\n}\r\n#metamodel_editor, #model_editor{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n/* property bar raws */\r\n::ng-deep .propertyBarContainer .mat-tab-label{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  height: 20px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n  min-width: 0 !important;\r\n  /*width: auto !important;*/\r\n  max-width: 50% !important\r\n}\r\n::ng-deep .propertyBarContainer .mat-tab-header-pagination{\r\n  display: none !important;\r\n}\r\n.rawContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  height: 100%;\r\n}\r\nh2.rawTitle{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n.rawecore{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex:1;\r\n          flex-grow:1;\r\n  flex-shrink:1;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9tbS1ncmFwaC1odG1sL21tLWdyYXBoLWh0bWwuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUVBLGNBQWM7QUFDZDtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTLEVBQUU7QUFDYixtQ0FBbUMsYUFBYSxFQUFFO0FBQ2xEO0VBQ0UsYUFBYTtFQUNiLFlBQVk7RUFDWixXQUFXO0VBQ1gsZUFBZTtFQUNmLFlBQVk7RUFDWixnQkFBZ0IsRUFBRTtBQUNwQix1Q0FBdUMscUJBQXFCLEVBQUU7QUFDOUQseUJBQXlCLDZCQUE2QixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFLGtCQUFrQixFQUFFO0FBQzNGLG9EQUFvRDtBQUNwRDtFQUNFLFVBQVU7RUFDVixrQkFBa0I7RUFDbEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsU0FBUztFQUNULFFBQVEsRUFBRTtBQUVaO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0VBQ1osY0FBYyxFQUFFO0FBQ2xCLDBDQUEwQztBQUMxQztFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGFBQWE7RUFDYixZQUFZO0FBQ2Q7QUFDQSw0Q0FBNEMsWUFBWSxFQUFFLFlBQVksRUFBRSx1QkFBdUIsRUFBRSxZQUFZLEVBQUU7QUFDL0cscUdBQXFHO0FBQ3JHO0VBQ0UsV0FBVztFQUNYLGVBQWU7RUFDZixZQUFZO0VBQ1osU0FBUztBQUNYO0FBQ0EsZ0NBQWdDLFlBQVksRUFBRSw4QkFBOEI7QUFDNUUseUNBQXlDLDZCQUE2QixFQUFFLFlBQVksRUFBRTtBQUN0RixvQ0FBb0MsYUFBYSxFQUFFO0FBQ25ELHFEQUFxRCxVQUFVLEVBQUU7QUFFakUsNkRBQTZEO0FBQzdEO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUIsQ0FBQyxJQUFJO0VBQ3RCLGtEQUFrRDtBQUNwRDtBQUVBLE9BQU87QUFJUDtFQUNFLGFBQWE7QUFDZjtBQUVBLHVEQUF1RCxpQkFBaUI7RUFDdEUsYUFBYSxDQUFDLDBCQUEwQjtFQUN4QyxtQkFBWTtVQUFaLFlBQVk7RUFDWiw0Q0FBNEM7RUFDNUMsbUNBQW1DO0VBQ25DLDRCQUE0QjtFQUM1Qix3REFBd0Q7RUFDeEQsZ0JBQWdCO0VBQ2hCOztpQ0FFK0I7QUFDakM7QUFDQSxlQUFlLCtCQUErQixFQUFFO0FBQ2hELHVCQUF1Qiw4QkFBOEIsRUFBRTtBQUN2RDtFQUNFLG1CQUFZO1VBQVosWUFBWTtBQUNkO0FBQ0EsYUFBYTtBQUFDO0VBQ1osOEJBQW1CO0VBQW5CLDZCQUFtQjtVQUFuQixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHlCQUE4QjtVQUE5Qiw4QkFBOEIsQ0FBQyxpRUFBaUU7RUFDaEcsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBeUIsQ0FBQyxtRUFBbUU7RUFDN0YsaUJBQWlCO0FBQ25CO0FBRUE7Ozs7Ozs7Ozs7Ozs7RUFhRTtBQUVGO0VBQ0Usd0NBQXdDO0VBQ3hDLDZCQUE2QjtFQUM3QixVQUFVO0FBQ1o7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGdCQUFnQixDQUFDLGdEQUFnRDtFQUNqRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsNkNBQTZDO0VBQzdDLFlBQVk7QUFDZDtBQUVBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixlQUFlO0FBQ2pCO0FBRUE7RUFDRTtJQUNFLG1CQUFZO1lBQVosWUFBWSxFQUFFO0FBQ2xCO0FBQ0E7RUFDRSxXQUFXO0VBQ1gsWUFBWTtBQUNkO0FBR0Esc0JBQXNCO0FBQ3RCO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLG1CQUFZO1VBQVosWUFBWTtFQUNaLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsMEJBQTBCO0VBQzFCO0FBQ0Y7QUFDQTtFQUNFLHdCQUF3QjtBQUMxQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBVztVQUFYLFdBQVc7RUFDWCxhQUFhO0FBQ2YiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL21tLWdyYXBoLWh0bWwvbW0tZ3JhcGgtaHRtbC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIGZvcmVpZ25PYmplY3QuQ2xhc3MgKntcclxuICBjdXJzb3I6IGRlZmF1bHQ7XHJcbn1cclxuOjpuZy1kZWVwIGZvcmVpZ25PYmplY3QuQ2xhc3MgaW5wdXQsIGZvcmVpZ25PYmplY3QuQ2xhc3MgKltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdLCBmb3JlaWduT2JqZWN0LkNsYXNzIHRleHRhcmVhe1xyXG4gIGN1cnNvcjogdGV4dDtcclxufVxyXG46Om5nLWRlZXAgZm9yZWlnbk9iamVjdC5DbGFzcyBzZWxlY3R7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4vKiB2aWV3cG9pbnQgKi9cclxuOjpuZy1kZWVwIC52aWV3cG9pbnRTaGVsbHtcclxuICBtYXgtd2lkdGg6IDEwN3B4O1xyXG4gIG92ZXJmbG93OiB2aXNpYmxlO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICByaWdodDogMTBweDtcclxuICB0b3A6IDEwcHg7IH1cclxuOjpuZy1kZWVwIC52aWV3cG9pbnRyb3cudGVtcGxhdGUgeyBkaXNwbGF5OiBub25lOyB9XHJcbjo6bmctZGVlcCAudmlld3BvaW50cm93IGJ1dHRvbiB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBoZWlnaHQ6IDIxcHg7XHJcbiAgd2lkdGg6IDIxcHg7XHJcbiAgbWluLXdpZHRoOiAyMXB4O1xyXG4gIGZsb2F0OiByaWdodDtcclxuICBtYXJnaW4tbGVmdDogNXB4OyB9XHJcbjo6bmctZGVlcCAudmlld3BvaW50cm93OmhvdmVyIGJ1dHRvbiB7IGRpc3BsYXk6IGlubGluZS1ibG9jazsgfVxyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvd3sgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7IGRpc3BsYXk6IGZsZXg7IHBvc2l0aW9uOiByZWxhdGl2ZTsgfVxyXG4vKjo6bmctZGVlcCAudmlld3BvaW50cm93IC5idXR0b25zeyBkaXNwbGF5OiBub25lIH0qL1xyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvdzpob3ZlciAuYnV0dG9uc3tcclxuICB6LWluZGV4OiAxO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHRvcDogMTAwJTtcclxuICByaWdodDogMDsgfVxyXG5cclxuOjpuZy1kZWVwIC52aWV3cG9pbnRyb3cgPiBsYWJlbHtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWxlZnQ6IDA7IH1cclxuOjpuZy1kZWVwIC52aWV3cG9pbnRyb3cgPiBsYWJlbC5jaGVja2JveHsgfVxyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvdyA+IGxhYmVsLm5hbWV7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgbWluLXdpZHRoOiAwO1xyXG59XHJcbjo6bmctZGVlcCAudmlld3BvaW50cm93IGlucHV0W3R5cGU9XCJ0ZXh0XCJdeyBtaW4td2lkdGg6IDA7IGhlaWdodDogMjFweDsgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IGJvcmRlcjogbm9uZTsgfVxyXG4vKiA6Om5nLWRlZXAgLnZpZXdwb2ludHJvdzpob3ZlciBpbnB1dFt0eXBlPVwidGV4dFwiXXsgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwxMjMsMjU1LC4yNSk7IH0qL1xyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvdyBpbnB1dFt0eXBlPSdjaGVja2JveCddLCA6Om5nLWRlZXAgLnZpZXdwb2ludHJvdyBpbnB1dFt0eXBlPSdyYWRpbydde1xyXG4gIHdpZHRoOiAxN3B4O1xyXG4gIG1pbi13aWR0aDogMTdweDtcclxuICBoZWlnaHQ6IDE3cHg7XHJcbiAgbWFyZ2luOiAwO1xyXG59XHJcbjo6bmctZGVlcCAudmlld3BvaW50cm93IGJ1dHRvbnsgbWFyZ2luOiBhdXRvOyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCB9XHJcbjo6bmctZGVlcCAudmlld3BvaW50cm93IGlucHV0W3JlYWRvbmx5XXsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7IGJvcmRlcjogbm9uZTsgfVxyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvdyBpbnB1dC5uYW1leyBvcGFjaXR5OiAwLjc1OyB9XHJcbjo6bmctZGVlcCAudmlld3BvaW50cm93W2lzbGFzdHZwPSd0cnVlJ10gaW5wdXQubmFtZXsgb3BhY2l0eTogMTsgfVxyXG5cclxuLyoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqIHN0YXRpY2kgKi9cclxuLnRlbXBsYXRlLCAuTU1EZWZhdWx0U3R5bGVze1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuLnRhYkNvbnRlbnR7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IG5vd3JhcDsvKj8qL1xyXG4gIC8qbWFyZ2luLXRvcDogY2FsYyggdmFyKC0tbWFpbkJvcmRlcldpZHRoKSAqIDIgKTsqL1xyXG59XHJcblxyXG4vKm9sZHMqL1xyXG5cclxuXHJcblxyXG4uSGlkZGVuU3RydWN0dXJlcyA+ICp7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG5cclxuLnByb3BlcnR5X3NpZGViYXIsIC5lZGl0b3JTaGVsbCwgLnByb3BlcnR5QmFyQ29udGFpbmVyey8qLnNpZGViYXJTaGVsbCwqL1xyXG4gIGZsZXgtYmFzaXM6IDA7LyogY2FsYyh2YXIoLS1zaWRlYmFyVykpOyovXHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIC8qYm9yZGVyLXJpZ2h0OiB2YXIoLS1tYWluQm9yZGVyKTsqL1xyXG4gIHdpZHRoOiBjYWxjKHZhcigtLXNpZGViYXJXKSk7XHJcbiAgLypoZWlnaHQ6IGNhbGMoMTAwdmggLSAodmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpOyovXHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAvKmZsZXgtd3JhcDogd3JhcDtcclxuICBtYXJnaW4tdG9wOiA1cHg7XHJcbiAgYm9yZGVyLXRvcDogdmFyKC0tbWFpbkJvcmRlcik7Ki9cclxufVxyXG4uc2lkZWJhclNoZWxseyBib3JkZXItcmlnaHQ6IHZhcigtLW1haW5Cb3JkZXIpOyB9XHJcbi5wcm9wZXJ0eUJhckNvbnRhaW5lcnsgYm9yZGVyLWxlZnQ6IHZhcigtLW1haW5Cb3JkZXIpOyB9XHJcbi5lZGl0b3JTaGVsbHtcclxuICBmbGV4LWdyb3c6IDM7XHJcbn1cclxuLyojc2lkZWJhciwgKi8jbWV0YW1vZGVsX3NpZGViYXIsICNtb2RlbF9zaWRlYmFyLCAucHJvcGVydHlfc2lkZWJhcntcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47LypzaSBhdHRpdmEgc29sbyBzZSBlbnRyYSB0dXR0byBpbiB1bmEgcmlnYSBlIGF2YW56YSBwdXJlIHNwYXppbyovXHJcbiAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XHJcbiAgYWxpZ24tY29udGVudDogZmxleC1zdGFydDsvKmFjY2F0YXN0YSB0dXR0byB2ZXJ0aWNhbG1lbnRlIHZlcnNvIGxhIGNpbWEgaW52ZWNlIGRpIHNwYXppYXJsaS4qL1xyXG4gIHBhZGRpbmctcmlnaHQ6NXB4O1xyXG59XHJcblxyXG4vKlxyXG4jc2lkZWJhclJlc2l6ZXIsIC5zaWRlYmFyUmVzaXplcntcclxuICAgIG1hcmdpbjogMHB4O1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgd2lkdGg6IHZhcigtLW1haW5Cb3JkZXJXaWR0aCk7XHJcbiAgICBjdXJzb3I6IGV3LXJlc2l6ZTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7XHJcbiAgICB1c2VyLWRyYWc6IG5vbmU7XHJcbiAgICB1c2VyLXNlbGVjdDogbm9uZTtcclxuICAgIC1tb3otdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgICAtd2Via2l0LXVzZXItZHJhZzogbm9uZTtcclxuICAgIC13ZWJraXQtdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgICAtbXMtdXNlci1zZWxlY3Q6IG5vbmU7XHJcbn0qL1xyXG5cclxuI3NpZGViYXI+KjpmaXJzdC1jaGlsZCwgI21ldGFtb2RlbF9zaWRlYmFyPio6Zmlyc3QtY2hpbGQsICNtb2RlbF9zaWRlYmFyPio6Zmlyc3QtY2hpbGR7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKTtcclxuICB3aWR0aDogdmFyKC0tbWFpbkJvcmRlcldpZHRoKTtcclxuICByaWdodDogMHB4O1xyXG59XHJcbiNzaWRlYmFyPio6bm90KDpmaXJzdC1jaGlsZCksICNtZXRhbW9kZWxfc2lkZWJhcj4qOm5vdCg6Zmlyc3QtY2hpbGQpLCAjbW9kZWxfc2lkZWJhcj4qOm5vdCg6Zmlyc3QtY2hpbGQpe1xyXG4gIHBhZGRpbmc6IDJweDtcclxuICBtYXgtd2lkdGg6IDIwMHB4O1xyXG4gIG1pbi13aWR0aDogNzVweDtcclxuICBmbGV4LWJhc2lzOiA3NXB4Oy8qc2hvdWxkID09PSBtaW4td2lkdGggcGVyIG1hbnRlbmVyZSBsJ2VmZmV0dG8uKi9cclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1zaHJpbms6IDE7XHJcbn1cclxuLnNpZGViYXJWZXJ0ZXg6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKTtcclxuICBib3JkZXI6IDJweCBzb2xpZCB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgcGFkZGluZzogMHB4O1xyXG59XHJcblxyXG4uc2lkZWJhclZlcnRleHtcclxuICBtaW4td2lkdGg6IDUwcHg7XHJcbiAgbWluLWhlaWdodDogNTBweDtcclxuICBmbGV4LWJhc2lzOjUwcHg7XHJcbn1cclxuXHJcbkBtZWRpYSBhbGwgYW5kIChtaW4td2lkdGg6IDIwMHB4KSB7XHJcbiAgLnNpZGViYXJWZXJ0ZXgge1xyXG4gICAgZmxleC1ncm93OiAwOyB9XHJcbn1cclxuI21ldGFtb2RlbF9lZGl0b3IsICNtb2RlbF9lZGl0b3J7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG5cclxuLyogcHJvcGVydHkgYmFyIHJhd3MgKi9cclxuOjpuZy1kZWVwIC5wcm9wZXJ0eUJhckNvbnRhaW5lciAubWF0LXRhYi1sYWJlbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGhlaWdodDogMjBweDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBtaW4td2lkdGg6IDAgIWltcG9ydGFudDtcclxuICAvKndpZHRoOiBhdXRvICFpbXBvcnRhbnQ7Ki9cclxuICBtYXgtd2lkdGg6IDUwJSAhaW1wb3J0YW50XHJcbn1cclxuOjpuZy1kZWVwIC5wcm9wZXJ0eUJhckNvbnRhaW5lciAubWF0LXRhYi1oZWFkZXItcGFnaW5hdGlvbntcclxuICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7XHJcbn1cclxuLnJhd0NvbnRhaW5lcntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG5oMi5yYXdUaXRsZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIG1hcmdpbi1yaWdodDogYXV0bztcclxufVxyXG4ucmF3ZWNvcmV7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6MTtcclxuICBmbGV4LXNocmluazoxO1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n/*::ng-deep foreignObject.Class *{\r\n  cursor: default;\r\n}\r\n::ng-deep foreignObject.Class input, foreignObject.Class *[contenteditable=\"true\"], foreignObject.Class textarea{\r\n  cursor: text;\r\n} ::ng-deep foreignObject.Class select{ cursor: pointer; }*/\r\n\r\n/* viewpoint */\r\n\r\n::ng-deep .viewpointShell{\r\n  max-width: 107px;\r\n  overflow: visible;\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px; }\r\n\r\n::ng-deep .viewpointrow.template { display: none; }\r\n\r\n::ng-deep .viewpointrow button {\r\n  display: none;\r\n  height: 21px;\r\n  width: 21px;\r\n  min-width: 21px;\r\n  float: right;\r\n  margin-left: 5px; }\r\n\r\n::ng-deep .viewpointrow:hover button { display: inline-block; }\r\n\r\n::ng-deep .viewpointrow{ background-color: transparent; display: -webkit-box; display: flex; position: relative; }\r\n\r\n/*::ng-deep .viewpointrow .buttons{ display: none }*/\r\n\r\n::ng-deep .viewpointrow:hover .buttons{\r\n  z-index: 1;\r\n  position: absolute;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  top: 100%;\r\n  right: 0; }\r\n\r\n::ng-deep .viewpointrow > label{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  margin-left: 0; }\r\n\r\n::ng-deep .viewpointrow > label.checkbox{ }\r\n\r\n::ng-deep .viewpointrow > label.name{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n  min-width: 0;\r\n}\r\n\r\n::ng-deep .viewpointrow input[type=\"text\"]{ min-width: 0; height: 21px; background: transparent; border: none; }\r\n\r\n/* ::ng-deep .viewpointrow:hover input[type=\"text\"]{ box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); }*/\r\n\r\n::ng-deep .viewpointrow input[type='checkbox'], ::ng-deep .viewpointrow input[type='radio']{\r\n  width: 17px;\r\n  min-width: 17px;\r\n  height: 17px;\r\n  margin: 0;\r\n}\r\n\r\n::ng-deep .viewpointrow button{ margin: auto; background-color: transparent }\r\n\r\n::ng-deep .viewpointrow input[readonly]{ background-color: transparent; border: none; }\r\n\r\n::ng-deep .viewpointrow input.name{ opacity: 0.75; }\r\n\r\n::ng-deep .viewpointrow[islastvp='true'] input.name{ opacity: 1; }\r\n\r\n/************************************************** statici */\r\n\r\n.template, .MMDefaultStyles{\r\n  display: none;\r\n}\r\n\r\n.tabContent{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: nowrap;/*?*/\r\n  /*margin-top: calc( var(--mainBorderWidth) * 2 );*/\r\n}\r\n\r\n/*olds*/\r\n\r\n.HiddenStructures > *{\r\n  display: none;\r\n}\r\n\r\n.property_sidebar, .editorShell, .propertyBarContainer{/*.sidebarShell,*/\r\n  flex-basis: 0;/* calc(var(--sidebarW));*/\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-right: var(--mainBorder);*/\r\n  width: calc(var(--sidebarW));\r\n  /*height: calc(100vh - (var(--topbarH) + var(--tabH)));*/\r\n  overflow: hidden;\r\n  /*flex-wrap: wrap;\r\n  margin-top: 5px;\r\n  border-top: var(--mainBorder);*/\r\n}\r\n\r\n.sidebarShell{ border-right: var(--mainBorder); }\r\n\r\n.propertyBarContainer{ border-left: var(--mainBorder); }\r\n\r\n.editorShell{\r\n  -webkit-box-flex: 3;\r\n          flex-grow: 3;\r\n}\r\n\r\n/*#sidebar, */\r\n\r\n#metamodel_sidebar, #model_sidebar, .property_sidebar{\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;/*si attiva solo se entra tutto in una riga e avanza pure spazio*/\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;/*accatasta tutto verticalmente verso la cima invece di spaziarli.*/\r\n  padding-right:5px;\r\n}\r\n\r\n/*\r\n#sidebarResizer, .sidebarResizer{\r\n    margin: 0px;\r\n    padding: 0px;\r\n    width: var(--mainBorderWidth);\r\n    cursor: ew-resize;\r\n    background-color: var(--mainBorderColor);\r\n    user-drag: none;\r\n    user-select: none;\r\n    -moz-user-select: none;\r\n    -webkit-user-drag: none;\r\n    -webkit-user-select: none;\r\n    -ms-user-select: none;\r\n}*/\r\n\r\n#sidebar>*:first-child, #metamodel_sidebar>*:first-child, #model_sidebar>*:first-child{\r\n  background-color: var(--mainBorderColor);\r\n  width: var(--mainBorderWidth);\r\n  right: 0px;\r\n}\r\n\r\n#sidebar>*:not(:first-child), #metamodel_sidebar>*:not(:first-child), #model_sidebar>*:not(:first-child){\r\n  padding: 2px;\r\n  max-width: 200px;\r\n  min-width: 75px;\r\n  flex-basis: 75px;/*should === min-width per mantenere l'effetto.*/\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-shrink: 1;\r\n}\r\n\r\n.sidebarVertex:hover{\r\n  background-color: var(--mainBorderColor);\r\n  border: 2px solid var(--secondaryBorderColor);\r\n  padding: 0px;\r\n}\r\n\r\n.sidebarVertex{\r\n  min-width: 50px;\r\n  min-height: 50px;\r\n  flex-basis:50px;\r\n}\r\n\r\n@media all and (min-width: 200px) {\r\n  .sidebarVertex {\r\n    -webkit-box-flex: 0;\r\n            flex-grow: 0; }\r\n}\r\n\r\n#metamodel_editor, #model_editor{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n/* property bar raws */\r\n\r\n::ng-deep .propertyBarContainer .mat-tab-label{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  height: 20px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n  min-width: 0 !important;\r\n  /*width: auto !important;*/\r\n  max-width: 50% !important\r\n}\r\n\r\n::ng-deep .propertyBarContainer .mat-tab-header-pagination{\r\n  display: none !important;\r\n}\r\n\r\n.rawContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  height: 100%;\r\n}\r\n\r\nh2.rawTitle{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n\r\n.rawecore{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex:1;\r\n          flex-grow:1;\r\n  flex-shrink:1;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9tbS1ncmFwaC1odG1sL21tLWdyYXBoLWh0bWwuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7Ozs7OzJEQUsyRDs7QUFFM0QsY0FBYzs7QUFDZDtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTLEVBQUU7O0FBQ2IsbUNBQW1DLGFBQWEsRUFBRTs7QUFDbEQ7RUFDRSxhQUFhO0VBQ2IsWUFBWTtFQUNaLFdBQVc7RUFDWCxlQUFlO0VBQ2YsWUFBWTtFQUNaLGdCQUFnQixFQUFFOztBQUNwQix1Q0FBdUMscUJBQXFCLEVBQUU7O0FBQzlELHlCQUF5Qiw2QkFBNkIsRUFBRSxvQkFBYSxFQUFiLGFBQWEsRUFBRSxrQkFBa0IsRUFBRTs7QUFDM0Ysb0RBQW9EOztBQUNwRDtFQUNFLFVBQVU7RUFDVixrQkFBa0I7RUFDbEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsU0FBUztFQUNULFFBQVEsRUFBRTs7QUFFWjtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLGNBQWMsRUFBRTs7QUFDbEIsMENBQTBDOztBQUMxQztFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGFBQWE7RUFDYixZQUFZO0FBQ2Q7O0FBQ0EsNENBQTRDLFlBQVksRUFBRSxZQUFZLEVBQUUsdUJBQXVCLEVBQUUsWUFBWSxFQUFFOztBQUMvRyxxR0FBcUc7O0FBQ3JHO0VBQ0UsV0FBVztFQUNYLGVBQWU7RUFDZixZQUFZO0VBQ1osU0FBUztBQUNYOztBQUNBLGdDQUFnQyxZQUFZLEVBQUUsOEJBQThCOztBQUM1RSx5Q0FBeUMsNkJBQTZCLEVBQUUsWUFBWSxFQUFFOztBQUN0RixvQ0FBb0MsYUFBYSxFQUFFOztBQUNuRCxxREFBcUQsVUFBVSxFQUFFOztBQUVqRSw2REFBNkQ7O0FBQzdEO0VBQ0UsYUFBYTtBQUNmOztBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCLENBQUMsSUFBSTtFQUN0QixrREFBa0Q7QUFDcEQ7O0FBRUEsT0FBTzs7QUFJUDtFQUNFLGFBQWE7QUFDZjs7QUFFQSx1REFBdUQsaUJBQWlCO0VBQ3RFLGFBQWEsQ0FBQywwQkFBMEI7RUFDeEMsbUJBQVk7VUFBWixZQUFZO0VBQ1osNENBQTRDO0VBQzVDLG1DQUFtQztFQUNuQyw0QkFBNEI7RUFDNUIsd0RBQXdEO0VBQ3hELGdCQUFnQjtFQUNoQjs7aUNBRStCO0FBQ2pDOztBQUNBLGVBQWUsK0JBQStCLEVBQUU7O0FBQ2hELHVCQUF1Qiw4QkFBOEIsRUFBRTs7QUFDdkQ7RUFDRSxtQkFBWTtVQUFaLFlBQVk7QUFDZDs7QUFDQSxhQUFhOztBQUFDO0VBQ1osOEJBQW1CO0VBQW5CLDZCQUFtQjtVQUFuQixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHlCQUE4QjtVQUE5Qiw4QkFBOEIsQ0FBQyxpRUFBaUU7RUFDaEcsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBeUIsQ0FBQyxtRUFBbUU7RUFDN0YsaUJBQWlCO0FBQ25COztBQUVBOzs7Ozs7Ozs7Ozs7O0VBYUU7O0FBRUY7RUFDRSx3Q0FBd0M7RUFDeEMsNkJBQTZCO0VBQzdCLFVBQVU7QUFDWjs7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGdCQUFnQixDQUFDLGdEQUFnRDtFQUNqRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixjQUFjO0FBQ2hCOztBQUNBO0VBQ0Usd0NBQXdDO0VBQ3hDLDZDQUE2QztFQUM3QyxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGVBQWU7QUFDakI7O0FBRUE7RUFDRTtJQUNFLG1CQUFZO1lBQVosWUFBWSxFQUFFO0FBQ2xCOztBQUNBO0VBQ0UsV0FBVztFQUNYLFlBQVk7QUFDZDs7QUFHQSxzQkFBc0I7O0FBQ3RCO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLG1CQUFZO1VBQVosWUFBWTtFQUNaLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsMEJBQTBCO0VBQzFCO0FBQ0Y7O0FBQ0E7RUFDRSx3QkFBd0I7QUFDMUI7O0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixZQUFZO0FBQ2Q7O0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCOztBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQVc7VUFBWCxXQUFXO0VBQ1gsYUFBYTtBQUNmIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy9tbS1ncmFwaC1odG1sL21tLWdyYXBoLWh0bWwuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4vKjo6bmctZGVlcCBmb3JlaWduT2JqZWN0LkNsYXNzICp7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG59XHJcbjo6bmctZGVlcCBmb3JlaWduT2JqZWN0LkNsYXNzIGlucHV0LCBmb3JlaWduT2JqZWN0LkNsYXNzICpbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSwgZm9yZWlnbk9iamVjdC5DbGFzcyB0ZXh0YXJlYXtcclxuICBjdXJzb3I6IHRleHQ7XHJcbn0gOjpuZy1kZWVwIGZvcmVpZ25PYmplY3QuQ2xhc3Mgc2VsZWN0eyBjdXJzb3I6IHBvaW50ZXI7IH0qL1xyXG5cclxuLyogdmlld3BvaW50ICovXHJcbjo6bmctZGVlcCAudmlld3BvaW50U2hlbGx7XHJcbiAgbWF4LXdpZHRoOiAxMDdweDtcclxuICBvdmVyZmxvdzogdmlzaWJsZTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDEwcHg7XHJcbiAgdG9wOiAxMHB4OyB9XHJcbjo6bmctZGVlcCAudmlld3BvaW50cm93LnRlbXBsYXRlIHsgZGlzcGxheTogbm9uZTsgfVxyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvdyBidXR0b24ge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgaGVpZ2h0OiAyMXB4O1xyXG4gIHdpZHRoOiAyMXB4O1xyXG4gIG1pbi13aWR0aDogMjFweDtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDsgfVxyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvdzpob3ZlciBidXR0b24geyBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7IH1cclxuOjpuZy1kZWVwIC52aWV3cG9pbnRyb3d7IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyBkaXNwbGF5OiBmbGV4OyBwb3NpdGlvbjogcmVsYXRpdmU7IH1cclxuLyo6Om5nLWRlZXAgLnZpZXdwb2ludHJvdyAuYnV0dG9uc3sgZGlzcGxheTogbm9uZSB9Ki9cclxuOjpuZy1kZWVwIC52aWV3cG9pbnRyb3c6aG92ZXIgLmJ1dHRvbnN7XHJcbiAgei1pbmRleDogMTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICB0b3A6IDEwMCU7XHJcbiAgcmlnaHQ6IDA7IH1cclxuXHJcbjo6bmctZGVlcCAudmlld3BvaW50cm93ID4gbGFiZWx7XHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi1sZWZ0OiAwOyB9XHJcbjo6bmctZGVlcCAudmlld3BvaW50cm93ID4gbGFiZWwuY2hlY2tib3h7IH1cclxuOjpuZy1kZWVwIC52aWV3cG9pbnRyb3cgPiBsYWJlbC5uYW1le1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG4gIG1pbi13aWR0aDogMDtcclxufVxyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvdyBpbnB1dFt0eXBlPVwidGV4dFwiXXsgbWluLXdpZHRoOiAwOyBoZWlnaHQ6IDIxcHg7IGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyBib3JkZXI6IG5vbmU7IH1cclxuLyogOjpuZy1kZWVwIC52aWV3cG9pbnRyb3c6aG92ZXIgaW5wdXRbdHlwZT1cInRleHRcIl17IGJveC1zaGFkb3c6IDAgMCAwIDAuMnJlbSByZ2JhKDAsMTIzLDI1NSwuMjUpOyB9Ki9cclxuOjpuZy1kZWVwIC52aWV3cG9pbnRyb3cgaW5wdXRbdHlwZT0nY2hlY2tib3gnXSwgOjpuZy1kZWVwIC52aWV3cG9pbnRyb3cgaW5wdXRbdHlwZT0ncmFkaW8nXXtcclxuICB3aWR0aDogMTdweDtcclxuICBtaW4td2lkdGg6IDE3cHg7XHJcbiAgaGVpZ2h0OiAxN3B4O1xyXG4gIG1hcmdpbjogMDtcclxufVxyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvdyBidXR0b257IG1hcmdpbjogYXV0bzsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQgfVxyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvdyBpbnB1dFtyZWFkb25seV17IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyBib3JkZXI6IG5vbmU7IH1cclxuOjpuZy1kZWVwIC52aWV3cG9pbnRyb3cgaW5wdXQubmFtZXsgb3BhY2l0eTogMC43NTsgfVxyXG46Om5nLWRlZXAgLnZpZXdwb2ludHJvd1tpc2xhc3R2cD0ndHJ1ZSddIGlucHV0Lm5hbWV7IG9wYWNpdHk6IDE7IH1cclxuXHJcbi8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiBzdGF0aWNpICovXHJcbi50ZW1wbGF0ZSwgLk1NRGVmYXVsdFN0eWxlc3tcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi50YWJDb250ZW50e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBub3dyYXA7Lyo/Ki9cclxuICAvKm1hcmdpbi10b3A6IGNhbGMoIHZhcigtLW1haW5Cb3JkZXJXaWR0aCkgKiAyICk7Ki9cclxufVxyXG5cclxuLypvbGRzKi9cclxuXHJcblxyXG5cclxuLkhpZGRlblN0cnVjdHVyZXMgPiAqe1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuXHJcbi5wcm9wZXJ0eV9zaWRlYmFyLCAuZWRpdG9yU2hlbGwsIC5wcm9wZXJ0eUJhckNvbnRhaW5lcnsvKi5zaWRlYmFyU2hlbGwsKi9cclxuICBmbGV4LWJhc2lzOiAwOy8qIGNhbGModmFyKC0tc2lkZWJhclcpKTsqL1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICAvKmJvcmRlci1yaWdodDogdmFyKC0tbWFpbkJvcmRlcik7Ki9cclxuICB3aWR0aDogY2FsYyh2YXIoLS1zaWRlYmFyVykpO1xyXG4gIC8qaGVpZ2h0OiBjYWxjKDEwMHZoIC0gKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTsqL1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgLypmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luLXRvcDogNXB4O1xyXG4gIGJvcmRlci10b3A6IHZhcigtLW1haW5Cb3JkZXIpOyovXHJcbn1cclxuLnNpZGViYXJTaGVsbHsgYm9yZGVyLXJpZ2h0OiB2YXIoLS1tYWluQm9yZGVyKTsgfVxyXG4ucHJvcGVydHlCYXJDb250YWluZXJ7IGJvcmRlci1sZWZ0OiB2YXIoLS1tYWluQm9yZGVyKTsgfVxyXG4uZWRpdG9yU2hlbGx7XHJcbiAgZmxleC1ncm93OiAzO1xyXG59XHJcbi8qI3NpZGViYXIsICovI21ldGFtb2RlbF9zaWRlYmFyLCAjbW9kZWxfc2lkZWJhciwgLnByb3BlcnR5X3NpZGViYXJ7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOy8qc2kgYXR0aXZhIHNvbG8gc2UgZW50cmEgdHV0dG8gaW4gdW5hIHJpZ2EgZSBhdmFuemEgcHVyZSBzcGF6aW8qL1xyXG4gIGFsaWduLWl0ZW1zOiBmbGV4LXN0YXJ0O1xyXG4gIGFsaWduLWNvbnRlbnQ6IGZsZXgtc3RhcnQ7LyphY2NhdGFzdGEgdHV0dG8gdmVydGljYWxtZW50ZSB2ZXJzbyBsYSBjaW1hIGludmVjZSBkaSBzcGF6aWFybGkuKi9cclxuICBwYWRkaW5nLXJpZ2h0OjVweDtcclxufVxyXG5cclxuLypcclxuI3NpZGViYXJSZXNpemVyLCAuc2lkZWJhclJlc2l6ZXJ7XHJcbiAgICBtYXJnaW46IDBweDtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIHdpZHRoOiB2YXIoLS1tYWluQm9yZGVyV2lkdGgpO1xyXG4gICAgY3Vyc29yOiBldy1yZXNpemU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gICAgdXNlci1kcmFnOiBub25lO1xyXG4gICAgdXNlci1zZWxlY3Q6IG5vbmU7XHJcbiAgICAtbW96LXVzZXItc2VsZWN0OiBub25lO1xyXG4gICAgLXdlYmtpdC11c2VyLWRyYWc6IG5vbmU7XHJcbiAgICAtd2Via2l0LXVzZXItc2VsZWN0OiBub25lO1xyXG4gICAgLW1zLXVzZXItc2VsZWN0OiBub25lO1xyXG59Ki9cclxuXHJcbiNzaWRlYmFyPio6Zmlyc3QtY2hpbGQsICNtZXRhbW9kZWxfc2lkZWJhcj4qOmZpcnN0LWNoaWxkLCAjbW9kZWxfc2lkZWJhcj4qOmZpcnN0LWNoaWxke1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7XHJcbiAgd2lkdGg6IHZhcigtLW1haW5Cb3JkZXJXaWR0aCk7XHJcbiAgcmlnaHQ6IDBweDtcclxufVxyXG4jc2lkZWJhcj4qOm5vdCg6Zmlyc3QtY2hpbGQpLCAjbWV0YW1vZGVsX3NpZGViYXI+Kjpub3QoOmZpcnN0LWNoaWxkKSwgI21vZGVsX3NpZGViYXI+Kjpub3QoOmZpcnN0LWNoaWxkKXtcclxuICBwYWRkaW5nOiAycHg7XHJcbiAgbWF4LXdpZHRoOiAyMDBweDtcclxuICBtaW4td2lkdGg6IDc1cHg7XHJcbiAgZmxleC1iYXNpczogNzVweDsvKnNob3VsZCA9PT0gbWluLXdpZHRoIHBlciBtYW50ZW5lcmUgbCdlZmZldHRvLiovXHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtc2hyaW5rOiAxO1xyXG59XHJcbi5zaWRlYmFyVmVydGV4OmhvdmVye1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG4gIHBhZGRpbmc6IDBweDtcclxufVxyXG5cclxuLnNpZGViYXJWZXJ0ZXh7XHJcbiAgbWluLXdpZHRoOiA1MHB4O1xyXG4gIG1pbi1oZWlnaHQ6IDUwcHg7XHJcbiAgZmxleC1iYXNpczo1MHB4O1xyXG59XHJcblxyXG5AbWVkaWEgYWxsIGFuZCAobWluLXdpZHRoOiAyMDBweCkge1xyXG4gIC5zaWRlYmFyVmVydGV4IHtcclxuICAgIGZsZXgtZ3JvdzogMDsgfVxyXG59XHJcbiNtZXRhbW9kZWxfZWRpdG9yLCAjbW9kZWxfZWRpdG9ye1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuXHJcbi8qIHByb3BlcnR5IGJhciByYXdzICovXHJcbjo6bmctZGVlcCAucHJvcGVydHlCYXJDb250YWluZXIgLm1hdC10YWItbGFiZWx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgbWluLXdpZHRoOiAwICFpbXBvcnRhbnQ7XHJcbiAgLyp3aWR0aDogYXV0byAhaW1wb3J0YW50OyovXHJcbiAgbWF4LXdpZHRoOiA1MCUgIWltcG9ydGFudFxyXG59XHJcbjo6bmctZGVlcCAucHJvcGVydHlCYXJDb250YWluZXIgLm1hdC10YWItaGVhZGVyLXBhZ2luYXRpb257XHJcbiAgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O1xyXG59XHJcbi5yYXdDb250YWluZXJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuaDIucmF3VGl0bGV7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBtYXJnaW4tcmlnaHQ6IGF1dG87XHJcbn1cclxuLnJhd2Vjb3Jle1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OjE7XHJcbiAgZmxleC1zaHJpbms6MTtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -14099,7 +15050,7 @@ class PropertyBarr {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n.styleContainer{\n  /*position: relative;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: auto;\n  padding: 17px;\n  padding-right: calc(17px - 10px);*/\n}\n.template{\n  display: none;\n}\n.StyleEditorDisplay .template{\n  display: unset;\n}\n.preview{\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 10px;\n  border: 1px solid red;\n  background-color: transparent;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.preview:blank{\n  background-color: gray;\n}\n.separatorShell.top{\n  margin-top: 30px;\n}\ndiv[contenteditable=\"true\"]:focus {\n  max-height: unset;\n}\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\n  overflow: auto;\n  display: -webkit-box;\n  display: flex;\n  color: black;\n  border: 1px solid black;\n  min-height: 100px;\n  max-height: 100px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\ndiv[contenteditable=\"true\"] {\n  background-color: white;\n  cursor: text;\n}\ndiv[contenteditable=\"false\"] {\n  background-color: gray;\n  cursor: no-drop;\n}\nlabel.allowEdit {\n  color: goldenrod;\n}\nbutton {\n  margin: 5px;\n}\n.style.own, .style.instances{\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.detail{\n  border: 3px solid #0084ff;\n  background: #252525;\n}\nbutton.detail {\n  margin: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  display: -webkit-box;\n  display: flex;\n  height: auto;\n  border-top-left-radius: 17px;\n  border-top-right-radius: 17px;\n  z-index: 1;\n }\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  margin-right: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\nbutton.detail:last-child:not(:only-child){\n  margin-left: -3px;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\nbutton.detail:focus {\n  box-shadow: none !important;\n  outline: none !important;\n}\ndiv.detail{\n  padding: 5px;\n  margin-top: -3px;\n  width: calc(100%);\n}\n.saveasrow{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n}\nbutton.delete{\n  margin: auto;\n  margin-bottom: 5px;\n}\nbutton.saveas{\n  margin: auto;\n  margin-bottom: 5px;\n}\ninput.saveas {\n  margin: auto;\n  margin-bottom: 5px;\n  flex-basis: 100px;\n  -webkit-box-flex: 0.6;\n          flex-grow: 0.6;\n  width: 0;\n}\n.compatibleRow > label > span{\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n  margin-left: 0;\n}\n.saveasrow, .compatibleRow{\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.compatibleRow > label > input {\n  -webkit-box-ordinal-group: 2;\n          order: 1;\n  margin-left: 0;\n  margin-right: 5px;\n}\n.detail > label {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  flex-wrap: nowrap;\n}\nbutton.detail > .opened, button.detail > .closed{\n  margin: auto;\n}\ntable {\n  width: 100%;\n}\ntd.title {\n  font-weight: bold;\n  padding-top: 10px;\n  text-align: center;\n}\nh1 {\n  text-align: center;\n}\nselect{\n  /* background: inherit;\n  border: none;\n  color: inherit;\n  font: inherit; */\n  /*flex-basis: 0;*/\n  flex-shrink: 1;\n  -webkit-box-flex: 0.9;\n          flex-grow: 0.9;\n  max-width: -webkit-max-content;\n  max-width: -moz-max-content;\n  max-width: max-content;\n  min-width: 0;\n}\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\nlabel > *, h6 > * {\n  display: -webkit-box;\n  display: flex;\n  /* flex-grow: 1;*/\n  margin: auto;\n  flex-wrap: wrap;\n}\nh6{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n\n}\n.separator > * {\n  text-align: center;\n}\n/*\nbutton {\n  background: #0084ff;\n  border: none;\n  border-radius: 5px;\n  padding: 8px 14px;\n  font-size: 15px;\n  color: #fff;\n}\n\nbutton:disabled{\n  background: gray;\n}*/\ninput[type=\"number\"] {\n  width: 40px;\n  margin-right: 5px;\n}\n.zoomX, .zoomY, .gridX, .gridY {\n  margin-left: 5px;\n  margin-right: 15px;}\nlabel>input[type=\"checkbox\"],\nlabel>input[type=\"color\"] {\n  margin-bottom: 3px;\n}\n#primary_color {\n  border-radius: 100%;\n  height: 60px;\n  width: 60px;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n}\n[contenteditable=true]:empty:before {\n  content: attr(placeholder);\n  display: block;\n  /* For Firefox */\n  cursor: text;\n  vertical-align: middle;\n  color: darkgray;\n  text-align: center;\n  margin: auto;\n}\n.separatorShell {\n  min-height: 33px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n  margin: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100%;\n}\n.roww {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.colContainer, .columnContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-flow: nowrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n}\n.colChild, .columnChild {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-flow: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  max-width: 100%;\n  min-width: 0;\n}\n.separator {\n  margin: auto;\n  display: inline-block;\n}\n.stylelabel{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  margin-right: 5px;\n}\nselect.stylename{\n  display: -webkit-box;\n  display: flex;\n  margin: auto;\n  margin-left: 0;\n}\n.HorizontalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.HorizontalChild{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n}\n.opened{\n  display: none;\n}\n.helpButton, .styledelete {\n  display: -webkit-box;\n  display: flex;\n  width: 35px;\n  height: 35px;\n  margin: auto;\n  margin-right: 0;\n}\n.styledelete {\n  margin-right: 5px;\n  margin-left: 5px;\n}\n.helpButton {\n  background: rgb(0, 62, 127);\n  border-color: rgb(0, 62, 127); }\n.htmlstyle > .top {\n  display: -webkit-box;\n  display: flex;\n}\n.expressionRoot {\n  flex-wrap: nowrap !important;\n  max-width: 100%;\n}\ninput.fill{\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n  margin-left: 7px;\n}\n.leftside{\n  -webkit-box-flex: 3;\n          flex-grow: 3;\n  flex-basis: 0;\n  min-width: 0;\n  max-width: 150px;\n}\n.rightside{\n  -webkit-box-flex: 7;\n          flex-grow: 7;\n  flex-basis: 0;\n  min-width: 0;\n}\n.arrowContainer{\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 10px;\n}\nbutton.arrow{\n  display: -webkit-box;\n  display: flex;\n  line-height: unset;\n  padding: 0 6px;\n}\n.tsclass{\n  margin: auto;\n  display: inline;\n  text-align: center;\n}\n/* */\n/*\npre {\n  background:#EEE;\n  padding:5px;\n  width: 290px;\n}*/\n.addHeader{\n  display: -webkit-box;\n  display: flex;\n}\n.addHeader > button {\n  margin-left: 0;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n}\nselect.attributetypeadd{\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  min-width: 0;\n  margin-right: 10px;\n}\n.previewselector{\n  height: 23px;\n  outline: none;\n  border: 2px dashed #666666;\n}\n.showAsEdge{\n  margin-right: 5px !important;\n}\nbutton.delete, button.saveas{\n  font-size: 0.8rem;\n}\nbutton.deleteRule{\n  -webkit-box-flex: 0;\n          flex-grow: 0;\n  flex-basis: auto;\n  min-width: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  padding: 5px;\n}\n.nowrap{\n  flex-wrap: nowrap;\n}\n._root {\n  margin-bottom: 5px;\n}\ndiv.detail.measurable > div.template {\n  display: none;\n}\n.graphColor, .showGrid{\n  margin-left: 0;\n}\nselect.operator{\n  -moz-text-align-last: center;\n       text-align-last: center;\n  margin-left: 5px;\n  margin-right: 5px;\n  width: 25px;\n}\nspan.operatortext{\n  margin-left: 5px;\n  margin-right: 5px;\n}\nselect.operator:disabled{\n  display: none;\n  /*\n  background: inherit;\n  border: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  margin: 0;*/\n}\nspan.nameprefix {\n  margin-left: 7px;\n  background: white;\n  border: 2px inset rgb(238, 238, 238);\n  height: 21px;\n  border-right: none;\n  color: black;\n  line-height: 16px;\n}\ninput.name {\n  margin-left: 0;\n  border-left: none;\n  padding-left: 0;\n}\nlabel:focus > input.name {\n  outline: none;\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\n}\ninput.name:focus {\n  outline: none;\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\n}\n.htmlstyle {\n  width: 100%;\n}\nlabel.allowEdit > span {\n  margin-left:0;\n}\nlabel > input[type=\"checkbox\"] ~ * { margin-left: 0; }\n.html[contenteditable] {\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\n  overflow-wrap: anywhere;\n  word-wrap: anywhere;\n  white-space: break-spaces;\n}\n/* they fix outer css influence on measurable section. */\ninput[type=\"checkbox\"].arrow {\n  margin: 0; }\n.meas_acc0 button { margin: 0; }\n/***********              Measurable editor v2 start                 ********/\n.meas_acc0 .measurableSettingRoot{\n  width: 100%;\n  display: block;\n}\n.meas_acc0 .boxesroot {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n}\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n}\n.meas_acc0 .columncontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .rowcontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .column, .meas_acc0 .row{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .row {\n  max-width: 100%;\n  margin-right: unset;\n  margin-left: unset; /* dumb _grid.scss fixer */\n}\n.meas_acc0 .break { flex-wrap: wrap; }\n.meas_acc0 .autobreak { flex-wrap: initial; }\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\n.meas_acc0 .side { display: -webkit-box; display: flex; }\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\n  background-color: dimgray;\n}\n.meas_acc0 .boxroot {\n  display: block;\n  margin: auto;\n  flex-wrap: wrap;\n}\n.meas_acc0 .ruletitle{\n  display: block;\n  text-align: center;\n}\n.meas_acc0 button.ruledelete {\n  height: 100%;\n  width: 30px;\n  padding: 0;\n  margin-right: 5px;\n  border-radius: 25px 0 0 25px;\n}\n.meas_acc0 .compoundInputprefix {\n  max-width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 0;\n  padding: 0;\n  -webkit-box-flex: 0 !important;\n          flex-grow: 0 !important;\n  width: auto;\n  flex-basis: auto !important;\n  flex-shrink: 0 !important;\n}\n.meas_acc0 .compoundInputprefix > input.attrname {\n  border-left: none;\n  padding-left: 0;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.meas_acc0 .compoundInputprefix > * { border: none; }\n.meas_acc0 .compoundInputprefix > *:first-child {\n  margin-top: 1px;\n  padding-right: 0;\n  background-color: transparent;\n}\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\n.meas_acc0 .compoundInputprefix:focus-within {\n  border-color: #80bdff;\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\n/* .meas_acc0 .rightx { min-width: 0; } */\n.meas_acc0 .rightx span.operator {\n  margin: auto;\n  margin-left: 5px;\n  margin-right: 5px;\n  margin-top: 8px;\n}\n.meas_acc0 .operatorcontainer {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 5px;\n}\n.meas_acc0 select.operator {\n  width: 45px;\n  margin: auto 5px;\n  text-align: center;\n  -moz-text-align-last: center;\n       text-align-last: center;\n}\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\n  margin-bottom: 5px;\n  min-width: 120px;\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\n.meas_acc0 .attrname {\n  max-width: 200px !important; /* todo: remove when is autosizing */\n}\n.meas_acc0 .addrule {\n  float: right;\n  margin-top: -4px;\n  padding: 4px 10px;\n}\n.meas_acc0 .ruletitle {\n  padding-right: 4px;\n  margin-bottom: 5px;\n}\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\n.meas_acc0 .form-control > .form-control:not(:first-child){\n  border-top-left-radius: unset;\n  /* disable bootstrap rule*/\n}\n.meas_acc0 .measurableerrortext{\n  margin-left: 5px;\n  color: var(--danger);\n}\n.meas_acc0 .measurablewarningtext{\n  margin-left: 5px;\n  color: var(--warning);\n}\n.meas_acc0 .measurableoutputtext{\n  margin-left: 5px;\n  color: var(--secondary);\n}\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\n.meas_acc0 .measurabledebug { display: none; }\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\n.meas_acc0 .countershell { float: right; }\n.meas_acc0 .rectangledrawing.outer > * {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .top > .left {\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\n}\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\n.meas_acc0 .rectangledrawing.outer > .top > .right {\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\n.meas_acc0 input.side.top {\n  margin-bottom: 3px;\n  margin-top: -3px; }\n.meas_acc0 input.side.bot {\n  margin-bottom: -3px;\n  margin-top: 3px; }\n.meas_acc0 input.side.left {\n  margin-right: 3px;\n  margin-left: -3px; }\n.meas_acc0 input.side.right {\n  margin-right: -3px;\n  margin-left: 3px; }\n.meas_acc0 .arrowh {\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\n.meas_acc0 .arrowv {\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\n  height: 50px;\n  min-width: 50px;\n}\n.meas_acc0 .rectangledrawing.outer > .top > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .bot > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .arrow { -webkit-appearance: initial; }\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\n  width: 75px;\n  height: 75px; }\n.meas_acc0 .arrow:focus{ outline: none; }\n.meas_acc0 .arrow:checked{\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\n.meas_acc0 .directions {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto; }\n.meas_acc0 .directions > * { margin: auto; }\n.meas_acc0 .draggable.boxroot{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  /*height: 237px;*/\n}\n.meas_acc0 .collapse:not(.show) { display: none; }\n.meas_acc0 .selected { background-color: #37ff66 !important; }\n/***********              Measurable editor v2 end                   ********/\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0U7Ozs7O29DQUtrQztBQUNwQztBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLDZCQUE2QjtFQUM3QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxzQkFBc0I7QUFDeEI7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUVBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxjQUFjO0VBQ2Qsb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLHVCQUF1QjtFQUN2QixZQUFZO0FBQ2Q7QUFDQTtFQUNFLHNCQUFzQjtFQUN0QixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtBQUNqQjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLDRCQUE0QjtFQUM1Qiw2QkFBNkI7RUFDN0IsVUFBVTtDQUNYO0FBQ0QsNENBQTRDLGlEQUFpRDtFQUMzRiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsMEJBQTBCO0VBQzFCLDZCQUE2QjtBQUMvQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLHlCQUF5QjtFQUN6Qiw0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QTZCLFlBQVksRUFBRTtBQUMzQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjtBQUNBLGtDQUFrQyxhQUFhLEVBQUU7QUFDakQsdUJBQXVCLG9DQUFvQyxFQUFFO0FBQzdELDZFQUE2RSIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvc3R5bGUtZWRpdG9yL3N0eWxlLWVkaXRvci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG4uc3R5bGVDb250YWluZXJ7XG4gIC8qcG9zaXRpb246IHJlbGF0aXZlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG92ZXJmbG93LXk6IGF1dG87XG4gIG92ZXJmbG93LXg6IGF1dG87XG4gIHBhZGRpbmc6IDE3cHg7XG4gIHBhZGRpbmctcmlnaHQ6IGNhbGMoMTdweCAtIDEwcHgpOyovXG59XG4udGVtcGxhdGV7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4uU3R5bGVFZGl0b3JEaXNwbGF5IC50ZW1wbGF0ZXtcbiAgZGlzcGxheTogdW5zZXQ7XG59XG4ucHJldmlld3tcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIG1pbi1oZWlnaHQ6IDEwcHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHJlZDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG4ucHJldmlldzpibGFua3tcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcbn1cbi5zZXBhcmF0b3JTaGVsbC50b3B7XG4gIG1hcmdpbi10b3A6IDMwcHg7XG59XG5cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdOmZvY3VzIHtcbiAgbWF4LWhlaWdodDogdW5zZXQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSwgZGl2W2NvbnRlbnRlZGl0YWJsZT1cImZhbHNlXCJdIHtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGNvbG9yOiBibGFjaztcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xuICBtYXgtaGVpZ2h0OiAxMDBweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBjdXJzb3I6IHRleHQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwiZmFsc2VcIl0ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xuICBjdXJzb3I6IG5vLWRyb3A7XG59XG5sYWJlbC5hbGxvd0VkaXQge1xuICBjb2xvcjogZ29sZGVucm9kO1xufVxuYnV0dG9uIHtcbiAgbWFyZ2luOiA1cHg7XG59XG4uc3R5bGUub3duLCAuc3R5bGUuaW5zdGFuY2Vze1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IHdyYXA7XG59XG4uZGV0YWlse1xuICBib3JkZXI6IDNweCBzb2xpZCAjMDA4NGZmO1xuICBiYWNrZ3JvdW5kOiAjMjUyNTI1O1xufVxuYnV0dG9uLmRldGFpbCB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgZGlzcGxheTogZmxleDtcbiAgaGVpZ2h0OiBhdXRvO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxN3B4O1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMTdweDtcbiAgei1pbmRleDogMTtcbiB9XG5idXR0b24uZGV0YWlsOmZpcnN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7IC8qIGZpcnN0IHZpc2libGUgY2hpbGQgbm90IHBvc3NpYmxlIGljIHB1cmUgY3NzICovXG4gIGZsZXgtZmxvdzogY29sdW1uO1xuICBtYXJnaW4tcmlnaHQ6IDA7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6bGFzdC1jaGlsZDpub3QoOm9ubHktY2hpbGQpe1xuICBtYXJnaW4tbGVmdDogLTNweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6Zm9jdXMge1xuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcbn1cbmRpdi5kZXRhaWx7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXRvcDogLTNweDtcbiAgd2lkdGg6IGNhbGMoMTAwJSk7XG59XG4uc2F2ZWFzcm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG5idXR0b24uZGVsZXRle1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbmJ1dHRvbi5zYXZlYXN7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuaW5wdXQuc2F2ZWFzIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xuICBmbGV4LWdyb3c6IDAuNjtcbiAgd2lkdGg6IDA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gc3BhbntcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgb3JkZXI6IDI7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLnNhdmVhc3JvdywgLmNvbXBhdGlibGVSb3d7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IHdyYXA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gaW5wdXQge1xuICBvcmRlcjogMTtcbiAgbWFyZ2luLWxlZnQ6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLmRldGFpbCA+IGxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG5idXR0b24uZGV0YWlsID4gLm9wZW5lZCwgYnV0dG9uLmRldGFpbCA+IC5jbG9zZWR7XG4gIG1hcmdpbjogYXV0bztcbn1cbnRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbnRkLnRpdGxlIHtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbmgxIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuc2VsZWN0e1xuICAvKiBiYWNrZ3JvdW5kOiBpbmhlcml0O1xuICBib3JkZXI6IG5vbmU7XG4gIGNvbG9yOiBpbmhlcml0O1xuICBmb250OiBpbmhlcml0OyAqL1xuICAvKmZsZXgtYmFzaXM6IDA7Ki9cbiAgZmxleC1zaHJpbms6IDE7XG4gIGZsZXgtZ3JvdzogMC45O1xuICBtYXgtd2lkdGg6IG1heC1jb250ZW50O1xuICBtaW4td2lkdGg6IDA7XG59XG5cbmxhYmVsIHtkaXNwbGF5OiBmbGV4OyBmbGV4LWdyb3c6MTt9XG5sYWJlbCA+ICosIGg2ID4gKiB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIC8qIGZsZXgtZ3JvdzogMTsqL1xuICBtYXJnaW46IGF1dG87XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cblxuaDZ7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBtYXJnaW46IGF1dG87XG5cbn1cbi5zZXBhcmF0b3IgPiAqIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLypcbmJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6ICMwMDg0ZmY7XG4gIGJvcmRlcjogbm9uZTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBwYWRkaW5nOiA4cHggMTRweDtcbiAgZm9udC1zaXplOiAxNXB4O1xuICBjb2xvcjogI2ZmZjtcbn1cblxuYnV0dG9uOmRpc2FibGVke1xuICBiYWNrZ3JvdW5kOiBncmF5O1xufSovXG5pbnB1dFt0eXBlPVwibnVtYmVyXCJdIHtcbiAgd2lkdGg6IDQwcHg7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLnpvb21YLCAuem9vbVksIC5ncmlkWCwgLmdyaWRZIHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O31cblxuXG5sYWJlbD5pbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0sXG5sYWJlbD5pbnB1dFt0eXBlPVwiY29sb3JcIl0ge1xuICBtYXJnaW4tYm90dG9tOiAzcHg7XG59XG5cbiNwcmltYXJ5X2NvbG9yIHtcbiAgYm9yZGVyLXJhZGl1czogMTAwJTtcbiAgaGVpZ2h0OiA2MHB4O1xuICB3aWR0aDogNjBweDtcbiAgYm9yZGVyOiBub25lO1xuICBvdXRsaW5lOiBub25lO1xuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG59XG5cbltjb250ZW50ZWRpdGFibGU9dHJ1ZV06ZW1wdHk6YmVmb3JlIHtcbiAgY29udGVudDogYXR0cihwbGFjZWhvbGRlcik7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICAvKiBGb3IgRmlyZWZveCAqL1xuICBjdXJzb3I6IHRleHQ7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIGNvbG9yOiBkYXJrZ3JheTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW46IGF1dG87XG59XG5cbi5zZXBhcmF0b3JTaGVsbCB7XG4gIG1pbi1oZWlnaHQ6IDMzcHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogcm93O1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tdG9wOiAxMHB4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xuICB3aWR0aDogMTAwJTtcbn1cbi5yb3d3IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICB3aWR0aDogMTAwJTtcbn1cbi5jb2xDb250YWluZXIsIC5jb2x1bW5Db250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IG5vd3JhcDtcbiAgZmxleC1mbG93OiByb3c7XG59XG4uY29sQ2hpbGQsIC5jb2x1bW5DaGlsZCB7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBmbGV4LWZsb3c6IHdyYXA7XG4gIGZsZXgtZ3JvdzogMTtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBtaW4td2lkdGg6IDA7XG59XG4uc2VwYXJhdG9yIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uc3R5bGVsYWJlbHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Quc3R5bGVuYW1le1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLkhvcml6b250YWxDb250YWluZXJ7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogcm93O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuLkhvcml6b250YWxDaGlsZHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbn1cbi5vcGVuZWR7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5oZWxwQnV0dG9uLCAuc3R5bGVkZWxldGUge1xuICBkaXNwbGF5OiBmbGV4O1xuICB3aWR0aDogMzVweDtcbiAgaGVpZ2h0OiAzNXB4O1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1yaWdodDogMDtcbn1cbi5zdHlsZWRlbGV0ZSB7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xuICBtYXJnaW4tbGVmdDogNXB4O1xufVxuLmhlbHBCdXR0b24ge1xuICBiYWNrZ3JvdW5kOiByZ2IoMCwgNjIsIDEyNyk7XG4gIGJvcmRlci1jb2xvcjogcmdiKDAsIDYyLCAxMjcpOyB9XG5cbi5odG1sc3R5bGUgPiAudG9wIHtcbiAgZGlzcGxheTogZmxleDtcbn1cbi5leHByZXNzaW9uUm9vdCB7XG4gIGZsZXgtd3JhcDogbm93cmFwICFpbXBvcnRhbnQ7XG4gIG1heC13aWR0aDogMTAwJTtcbn1cbmlucHV0LmZpbGx7XG4gIGZsZXgtZ3JvdzogMTtcbiAgZmxleC1iYXNpczogMDtcbiAgbWFyZ2luLWxlZnQ6IDdweDtcbn1cbi5sZWZ0c2lkZXtcbiAgZmxleC1ncm93OiAzO1xuICBmbGV4LWJhc2lzOiAwO1xuICBtaW4td2lkdGg6IDA7XG4gIG1heC13aWR0aDogMTUwcHg7XG59XG4ucmlnaHRzaWRle1xuICBmbGV4LWdyb3c6IDc7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIG1pbi13aWR0aDogMDtcbn1cbi5hcnJvd0NvbnRhaW5lcntcbiAgZGlzcGxheTogZmxleDtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbn1cbmJ1dHRvbi5hcnJvd3tcbiAgZGlzcGxheTogZmxleDtcbiAgbGluZS1oZWlnaHQ6IHVuc2V0O1xuICBwYWRkaW5nOiAwIDZweDtcbn1cbi50c2NsYXNze1xuICBtYXJnaW46IGF1dG87XG4gIGRpc3BsYXk6IGlubGluZTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLyogKi9cblxuLypcbnByZSB7XG4gIGJhY2tncm91bmQ6I0VFRTtcbiAgcGFkZGluZzo1cHg7XG4gIHdpZHRoOiAyOTBweDtcbn0qL1xuLmFkZEhlYWRlcntcbiAgZGlzcGxheTogZmxleDtcbn1cbi5hZGRIZWFkZXIgPiBidXR0b24ge1xuICBtYXJnaW4tbGVmdDogMDtcbiAgb3JkZXI6IDI7XG59XG5zZWxlY3QuYXR0cmlidXRldHlwZWFkZHtcbiAgZmxleC1iYXNpczogMDtcbiAgZmxleC1ncm93OiAxO1xuICBtaW4td2lkdGg6IDA7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbn1cbi5wcmV2aWV3c2VsZWN0b3J7XG4gIGhlaWdodDogMjNweDtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm9yZGVyOiAycHggZGFzaGVkICM2NjY2NjY7XG59XG5cbi5zaG93QXNFZGdle1xuICBtYXJnaW4tcmlnaHQ6IDVweCAhaW1wb3J0YW50O1xufVxuYnV0dG9uLmRlbGV0ZSwgYnV0dG9uLnNhdmVhc3tcbiAgZm9udC1zaXplOiAwLjhyZW07XG59XG5idXR0b24uZGVsZXRlUnVsZXtcbiAgZmxleC1ncm93OiAwO1xuICBmbGV4LWJhc2lzOiBhdXRvO1xuICBtaW4td2lkdGg6IGF1dG87XG4gIG1hcmdpbi10b3A6IDA7XG4gIG1hcmdpbi1ib3R0b206IDA7XG4gIHBhZGRpbmc6IDVweDtcbn1cbi5ub3dyYXB7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuLl9yb290IHtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuZGl2LmRldGFpbC5tZWFzdXJhYmxlID4gZGl2LnRlbXBsYXRlIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cbi5ncmFwaENvbG9yLCAuc2hvd0dyaWR7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuc2VsZWN0Lm9wZXJhdG9ye1xuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIHdpZHRoOiAyNXB4O1xufVxuc3Bhbi5vcGVyYXRvcnRleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuc2VsZWN0Lm9wZXJhdG9yOmRpc2FibGVke1xuICBkaXNwbGF5OiBub25lO1xuICAvKlxuICBiYWNrZ3JvdW5kOiBpbmhlcml0O1xuICBib3JkZXI6IG5vbmU7XG4gIC1tb3otYXBwZWFyYW5jZTogbm9uZTtcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiBub25lO1xuICBtYXJnaW46IDA7Ki9cbn1cblxuc3Bhbi5uYW1lcHJlZml4IHtcbiAgbWFyZ2luLWxlZnQ6IDdweDtcbiAgYmFja2dyb3VuZDogd2hpdGU7XG4gIGJvcmRlcjogMnB4IGluc2V0IHJnYigyMzgsIDIzOCwgMjM4KTtcbiAgaGVpZ2h0OiAyMXB4O1xuICBib3JkZXItcmlnaHQ6IG5vbmU7XG4gIGNvbG9yOiBibGFjaztcbiAgbGluZS1oZWlnaHQ6IDE2cHg7XG59XG5pbnB1dC5uYW1lIHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG4gIGJvcmRlci1sZWZ0OiBub25lO1xuICBwYWRkaW5nLWxlZnQ6IDA7XG59XG5cbmxhYmVsOmZvY3VzID4gaW5wdXQubmFtZSB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IDAgMnB4IDJweCAycHggcmdiKDc3LCAxNDQsIDI1NCk7XG59XG5cbmlucHV0Lm5hbWU6Zm9jdXMge1xuICBvdXRsaW5lOiBub25lO1xuICBib3gtc2hhZG93OiAycHggMnB4IDBweCAwcHggcmdiKDc3LCAxNDQsIDI1NCksIDJweCAtMnB4IDBweCAwcHggcmdiKDc3LCAxNDQsIDI1NCk7XG59XG4uaHRtbHN0eWxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5sYWJlbC5hbGxvd0VkaXQgPiBzcGFuIHtcbiAgbWFyZ2luLWxlZnQ6MDtcbn1cbmxhYmVsID4gaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdIH4gKiB7IG1hcmdpbi1sZWZ0OiAwOyB9XG4uaHRtbFtjb250ZW50ZWRpdGFibGVdIHtcbiAgLypJREUgZ2l2ZXMgZXJyb3IgYnV0IHRoZXkgYWxsIGFjdHVhbGx5IGV4aXN0LCBhdCBsZWFzdCBvbiBtb3ppbGxhLiovXG4gIG92ZXJmbG93LXdyYXA6IGFueXdoZXJlO1xuICB3b3JkLXdyYXA6IGFueXdoZXJlO1xuICB3aGl0ZS1zcGFjZTogYnJlYWstc3BhY2VzO1xufVxuXG5cbi8qIHRoZXkgZml4IG91dGVyIGNzcyBpbmZsdWVuY2Ugb24gbWVhc3VyYWJsZSBzZWN0aW9uLiAqL1xuXG5pbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0uYXJyb3cge1xuICBtYXJnaW46IDA7IH1cblxuLm1lYXNfYWNjMCBidXR0b24geyBtYXJnaW46IDA7IH1cblxuXG5cblxuLyoqKioqKioqKioqICAgICAgICAgICAgICBNZWFzdXJhYmxlIGVkaXRvciB2MiBzdGFydCAgICAgICAgICAgICAgICAgKioqKioqKiovXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlU2V0dGluZ1Jvb3R7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbn1cbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xufVxuLm1lYXNfYWNjMCAubW92ZW1lbnRib3hyb290LCAubWVhc19hY2MwIC5yZXNpemVib3hyb290IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbn1cbi5tZWFzX2FjYzAgLmNvbHVtbmNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogcm93O1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbn1cblxuLm1lYXNfYWNjMCAucm93Y29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuLm1lYXNfYWNjMCAuY29sdW1uLCAubWVhc19hY2MwIC5yb3d7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuLm1lYXNfYWNjMCAucm93IHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBtYXJnaW4tcmlnaHQ6IHVuc2V0O1xuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xufVxuLm1lYXNfYWNjMCAuYnJlYWsgeyBmbGV4LXdyYXA6IHdyYXA7IH1cbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxuLm1lYXNfYWNjMCAuZmlsbCB7IGZsZXgtZ3JvdzogMTsgfVxuLm1lYXNfYWNjMCAuYm94dGl0bGUgeyBkaXNwbGF5OiBibG9jazsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9XG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAuc2lkZS5sZWZ0LCAubWVhc19hY2MwIC5zaWRlLnJpZ2h0IHsgd2lkdGg6IDEwcHg7IH1cbi5tZWFzX2FjYzAgLnNpZGUudG9wLCAubWVhc19hY2MwIC5zaWRlLmJvdCB7IGhlaWdodDogMTBweDsgd2lkdGg6IGNhbGMoMTAwJSAtIDIwcHgpOyB9XG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XG4ubWVhc19hY2MwIC5taWRkbGUgeyBiYWNrZ3JvdW5kLWNvbG9yOiBnb2xkZW5yb2Q7IGRpc3BsYXk6IGZsZXg7IH1cbi5tZWFzX2FjYzAgLm1pZGRsZSAubWlkZGxlIHsgd2lkdGg6IDEyMHB4OyBoZWlnaHQ6IDkwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XG4gIGJhY2tncm91bmQtY29sb3I6IGRpbWdyYXk7XG59XG4ubWVhc19hY2MwIC5ib3hyb290IHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxle1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDMwcHg7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xuICBib3JkZXItcmFkaXVzOiAyNXB4IDAgMCAyNXB4O1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCB7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogMDtcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XG4gIHdpZHRoOiBhdXRvO1xuICBmbGV4LWJhc2lzOiBhdXRvICFpbXBvcnRhbnQ7XG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xuICBib3JkZXItbGVmdDogbm9uZTtcbiAgcGFkZGluZy1sZWZ0OiAwO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcbiAgbWFyZ2luLXRvcDogMXB4O1xuICBwYWRkaW5nLXJpZ2h0OiAwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dDpmb2N1cyB7IGJveC1zaGFkb3c6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcbiAgYm9yZGVyLWNvbG9yOiAjODBiZGZmO1xuICBib3gtc2hhZG93OiAwIDAgMCAwLjJyZW0gcmdiYSgwLCAxMjMsIDI1NSwgMC4yNSk7XG59XG5cbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAucmlnaHR4LCAubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLmxlZnR4IHsgbWFyZ2luLWJvdHRvbTogMCAhaW1wb3J0YW50OyB9XG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgbWFyZ2luLXRvcDogOHB4O1xufVxuLm1lYXNfYWNjMCAub3BlcmF0b3Jjb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG4ubWVhc19hY2MwIHNlbGVjdC5vcGVyYXRvciB7XG4gIHdpZHRoOiA0NXB4O1xuICBtYXJnaW46IGF1dG8gNXB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xufVxuLm1lYXNfYWNjMCAucmlnaHR4IC5jb21wb3VuZElucHV0cHJlZml4LCAubWVhc19hY2MwIC5yaWdodHggaW5wdXQucmlnaHRzaWRlLCAubWVhc19hY2MwIGlucHV0LmxlZnRzaWRlLCAubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xuICBtaW4td2lkdGg6IDEyMHB4O1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG59XG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyIHsgbWFyZ2luLWJvdHRvbTogMXJlbTsgfVxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC5tZWFzdXJhYmxlZGVidWcgeyBtYXJnaW4tdG9wOiA1cHg7IH1cbi5tZWFzX2FjYzAgLmF0dHJuYW1lIHtcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXG59XG4ubWVhc19hY2MwIC5hZGRydWxlIHtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBtYXJnaW4tdG9wOiAtNHB4O1xuICBwYWRkaW5nOiA0cHggMTBweDtcbn1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XG4gIHBhZGRpbmctcmlnaHQ6IDRweDtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlLmNvbGxhcHNlZCB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVyIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBidXR0b247IH1cbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IHVuc2V0O1xuICAvKiBkaXNhYmxlIGJvb3RzdHJhcCBydWxlKi9cbn1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIGNvbG9yOiB2YXIoLS1kYW5nZXIpO1xufVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0e1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBjb2xvcjogdmFyKC0td2FybmluZyk7XG59XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG59XG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyeyBtYXJnaW4tYm90dG9tOiA1cHg7IH1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyB7IGRpc3BsYXk6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eDpmb2N1cy13aXRoaW4gLm1lYXN1cmFibGVkZWJ1Z3sgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAuY291bnRlcnNoZWxsIHsgZmxvYXQ6IHJpZ2h0OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gKiB7XG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gKiwgLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Yge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby90cXhYaGs0L3RsLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmd2cHl3ei90bGwucG5nKTtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnNpZGUudG9wIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vTTlmQzdEUC90LnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9QenNtanhmL3RyLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vU04yVEhMdC90cmwucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvLzdqbTlCQlEvbC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5sZWZ0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9xcllXZHBIL2JsLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAuc2lkZS5ib3Qge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9jWGMwbm1TL2IucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL0swcFZWVDcvYnIucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9RcHdSU3NUL2JybC5wbmcpOyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xuICBtYXJnaW4tdG9wOiAtM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcbiAgbWFyZ2luLWJvdHRvbTogLTNweDtcbiAgbWFyZ2luLXRvcDogM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XG4gIG1hcmdpbi1yaWdodDogM3B4O1xuICBtYXJnaW4tbGVmdDogLTNweDsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcbiAgbWFyZ2luLXJpZ2h0OiAtM3B4O1xuICBtYXJnaW4tbGVmdDogM3B4OyB9XG4ubWVhc19hY2MwIC5hcnJvd2gge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZDNqdGJjL2xyLnBuZyk7IH1cbi5tZWFzX2FjYzAgLmFycm93diB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxuXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+IC5jb3JuZXIge1xuICBoZWlnaHQ6IDUwcHg7XG4gIG1pbi13aWR0aDogNTBweDtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XG4gIGhlaWdodDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAqIHtcbiAgaGVpZ2h0OiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcbiAgaGVpZ2h0OiBhdXRvO1xuICB3aWR0aDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xuICBoZWlnaHQ6IGF1dG87XG4gIHdpZHRoOiA1MHB4OyB9XG5cbi5tZWFzX2FjYzAgLmFycm93IHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XG5cbi5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2e1xuICB3aWR0aDogNzVweDtcbiAgaGVpZ2h0OiA3NXB4OyB9XG5cbi5tZWFzX2FjYzAgLmFycm93OmZvY3VzeyBvdXRsaW5lOiBub25lOyB9XG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xuICBmaWx0ZXI6IHNlcGlhKDgyJSkgc2F0dXJhdGUoMzkyNSUpIGh1ZS1yb3RhdGUoNTVkZWcpIGJyaWdodG5lc3MoMTI1JSkgY29udHJhc3QoMTIwJSk7IH1cblxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgbWFyZ2luOiBhdXRvOyB9XG5cbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMgPiAqIHsgbWFyZ2luOiBhdXRvOyB9XG4ubWVhc19hY2MwIC5kcmFnZ2FibGUuYm94cm9vdHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIC8qaGVpZ2h0OiAyMzdweDsqL1xufVxuLm1lYXNfYWNjMCAuY29sbGFwc2U6bm90KC5zaG93KSB7IGRpc3BsYXk6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XG4vKioqKioqKioqKiogICAgICAgICAgICAgIE1lYXN1cmFibGUgZWRpdG9yIHYyIGVuZCAgICAgICAgICAgICAgICAgICAqKioqKioqKi9cbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n.styleContainer{\n  /*position: relative;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: auto;\n  padding: 17px;\n  padding-right: calc(17px - 10px);*/\n}\n.template{\n  display: none;\n}\n.StyleEditorDisplay .template{\n  display: unset;\n}\n.preview{\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 10px;\n  border: 1px solid red;\n  background-color: transparent;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.preview:blank{\n  background-color: gray;\n  opacity: 0.4;\n}\n.separatorShell.top{\n  margin-top: 30px;\n}\ndiv[contenteditable=\"true\"]:focus {\n  max-height: unset;\n}\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\n  overflow: auto;\n  display: -webkit-box;\n  display: flex;\n  color: black;\n  border: 1px solid black;\n  min-height: 100px;\n  max-height: 100px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\ndiv[contenteditable=\"true\"] {\n  background-color: white;\n  cursor: text;\n}\ndiv[contenteditable=\"false\"] {\n  background-color: gray;\n  cursor: no-drop;\n  opacity: 0.4;\n}\nlabel.allowEdit {\n  color: goldenrod;\n}\nbutton {\n  margin: 5px;\n}\n.style.own, .style.instances{\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.detail{\n  border: 3px solid var(--bluebordercolor);\n  background: var(--);\n  color: var(--altFontColor);\n}\nbutton.detail {\n  margin: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  display: -webkit-box;\n  display: flex;\n  height: auto;\n  border-top-left-radius: 17px;\n  border-top-right-radius: 17px;\n  z-index: 1;\n }\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  margin-right: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\nbutton.detail:last-child:not(:only-child){\n  margin-left: -3px;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\nbutton.detail:focus {\n  box-shadow: none !important;\n  outline: none !important;\n}\ndiv.detail{\n  padding: 5px;\n  margin-top: -3px;\n  width: calc(100%);\n}\n.saveasrow{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n}\nbutton.delete{\n  margin: auto;\n  margin-bottom: 5px;\n}\nbutton.saveas{\n  margin: auto;\n  margin-bottom: 5px;\n}\ninput.saveas {\n  margin: auto;\n  margin-bottom: 5px;\n  flex-basis: 100px;\n  -webkit-box-flex: 0.6;\n          flex-grow: 0.6;\n  width: 0;\n}\n.compatibleRow > label > span{\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n  margin-left: 0;\n}\n.saveasrow, .compatibleRow{\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.compatibleRow > label > input {\n  -webkit-box-ordinal-group: 2;\n          order: 1;\n  margin-left: 0;\n  margin-right: 5px;\n}\n.detail > label {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  flex-wrap: nowrap;\n}\nbutton.detail > .opened, button.detail > .closed{\n  margin: auto;\n}\ntable {\n  width: 100%;\n}\ntd.title {\n  font-weight: bold;\n  padding-top: 10px;\n  text-align: center;\n}\nh1 {\n  text-align: center;\n}\nselect{\n  /* background: inherit;\n  border: none;\n  color: inherit;\n  font: inherit; */\n  /*flex-basis: 0;*/\n  flex-shrink: 1;\n  -webkit-box-flex: 0.9;\n          flex-grow: 0.9;\n  max-width: -webkit-max-content;\n  max-width: -moz-max-content;\n  max-width: max-content;\n  min-width: 0;\n}\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\nlabel > *, h6 > * {\n  display: -webkit-box;\n  display: flex;\n  /* flex-grow: 1;*/\n  margin: auto;\n  flex-wrap: wrap;\n}\nh6{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n\n}\n.separator > * {\n  text-align: center;\n}\n/*\nbutton {\n  background: #0084ff;\n  border: none;\n  border-radius: 5px;\n  padding: 8px 14px;\n  font-size: 15px;\n  color: #fff;\n}\n\nbutton:disabled{\n  background: gray;\n}*/\ninput[type=\"number\"] {\n  width: 40px;\n  margin-right: 5px;\n}\n.zoomX, .zoomY, .gridX, .gridY {\n  margin-left: 5px;\n  margin-right: 15px;}\nlabel>input[type=\"checkbox\"],\nlabel>input[type=\"color\"] {\n  margin-bottom: 3px;\n}\n#primary_color {\n  border-radius: 100%;\n  height: 60px;\n  width: 60px;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n}\n[contenteditable=true]:empty:before {\n  content: attr(placeholder);\n  display: block;\n  /* For Firefox */\n  cursor: text;\n  vertical-align: middle;\n  color: darkgray;\n  text-align: center;\n  margin: auto;\n}\n.separatorShell {\n  min-height: 33px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n  margin: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100%;\n}\n.roww {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.colContainer, .columnContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-flow: nowrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n}\n.colChild, .columnChild {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-flow: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  max-width: 100%;\n  min-width: 0;\n}\n.separator {\n  margin: auto;\n  display: inline-block;\n}\n.stylelabel{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  margin-right: 5px;\n}\nselect.stylename{\n  display: -webkit-box;\n  display: flex;\n  margin: auto;\n  margin-left: 0;\n}\n.HorizontalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.HorizontalChild{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n}\n.opened{\n  display: none;\n}\n.helpButton, .styledelete {\n  display: -webkit-box;\n  display: flex;\n  width: 35px;\n  height: 35px;\n  margin: auto;\n  margin-right: 0;\n}\n.styledelete {\n  margin-right: 5px;\n  margin-left: 5px;\n}\n.helpButton {\n  background: rgb(0, 62, 127);\n  border-color: rgb(0, 62, 127); }\n.htmlstyle > .top {\n  display: -webkit-box;\n  display: flex;\n}\n.expressionRoot {\n  flex-wrap: nowrap !important;\n  max-width: 100%;\n}\ninput.fill{\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n  margin-left: 7px;\n}\n.leftside{\n  -webkit-box-flex: 3;\n          flex-grow: 3;\n  flex-basis: 0;\n  min-width: 0;\n  max-width: 150px;\n}\n.rightside{\n  -webkit-box-flex: 7;\n          flex-grow: 7;\n  flex-basis: 0;\n  min-width: 0;\n}\n.arrowContainer{\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 10px;\n}\nbutton.arrow{\n  display: -webkit-box;\n  display: flex;\n  line-height: unset;\n  padding: 0 6px;\n}\n.tsclass{\n  margin: auto;\n  display: inline;\n  text-align: center;\n}\n/* */\n/*\npre {\n  background:#EEE;\n  padding:5px;\n  width: 290px;\n}*/\n.addHeader{\n  display: -webkit-box;\n  display: flex;\n}\n.addHeader > button {\n  margin-left: 0;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n}\nselect.attributetypeadd{\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  min-width: 0;\n  margin-right: 10px;\n}\n.previewselector{\n  height: 23px;\n  outline: none;\n  border: 2px dashed #666666;\n}\n.showAsEdge{\n  margin-right: 5px !important;\n}\nbutton.delete, button.saveas{\n  font-size: 0.8rem;\n}\nbutton.deleteRule{\n  -webkit-box-flex: 0;\n          flex-grow: 0;\n  flex-basis: auto;\n  min-width: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  padding: 5px;\n}\n.nowrap{\n  flex-wrap: nowrap;\n}\n._root {\n  margin-bottom: 5px;\n}\ndiv.detail.measurable > div.template {\n  display: none;\n}\n.graphColor, .showGrid{\n  margin-left: 0;\n}\nselect.operator{\n  -moz-text-align-last: center;\n       text-align-last: center;\n  margin-left: 5px;\n  margin-right: 5px;\n  width: 25px;\n}\nspan.operatortext{\n  margin-left: 5px;\n  margin-right: 5px;\n}\nselect.operator:disabled{\n  display: none;\n  /*\n  background: inherit;\n  border: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  margin: 0;*/\n}\nspan.nameprefix {\n  margin-left: 7px;\n  background: white;\n  border: 2px inset rgb(238, 238, 238);\n  height: 21px;\n  border-right: none;\n  color: black;\n  line-height: 16px;\n}\ninput.name {\n  margin-left: 0;\n  border-left: none;\n  padding-left: 0;\n}\nlabel:focus > input.name {\n  outline: none;\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\n}\ninput.name:focus {\n  outline: none;\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\n}\n.htmlstyle {\n  width: 100%;\n}\nlabel.allowEdit > span {\n  margin-left:0;\n}\nlabel > input[type=\"checkbox\"] ~ * { margin-left: 0; }\n.html[contenteditable] {\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\n  overflow-wrap: anywhere;\n  word-wrap: anywhere;\n  white-space: break-spaces;\n}\n.autosizecontainer{\n  display: inline-block;\n}\n.autosizecontainer > *{\n  display: inline-block;\n  margin-right: 5px;\n}\n.sizeContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap; }\n.sizeContainerHalf {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.sizelabel {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n          flex-flow: column-reverse;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 700px) {\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\n  .sizelabel{\n    display: inline-block;\n  }\n}\n.sizelabel > *{\n  display: inline;\n  margin: auto; }\n/* they fix outer css influence on measurable section. */\ninput[type=\"checkbox\"].arrow {\n  margin: 0; }\n.meas_acc0 button { margin: 0; }\n/***********              Measurable editor v2 start                 ********/\n.meas_acc0 .measurableSettingRoot{\n  width: 100%;\n  display: block;\n}\n.meas_acc0 .boxesroot {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n}\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n}\n.meas_acc0 .columncontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .rowcontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .column, .meas_acc0 .row{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .row {\n  max-width: 100%;\n  margin-right: unset;\n  margin-left: unset; /* dumb _grid.scss fixer */\n}\n.meas_acc0 .break { flex-wrap: wrap; }\n.meas_acc0 .autobreak { flex-wrap: initial; }\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\n.meas_acc0 .side { display: -webkit-box; display: flex; }\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\n  background-color: dimgray;\n}\n.meas_acc0 .boxroot {\n  display: block;\n  margin: auto;\n  flex-wrap: wrap;\n}\n.meas_acc0 .ruletitle{\n  display: block;\n  text-align: center;\n}\n.meas_acc0 button.ruledelete {\n  height: 100%;\n  width: 30px;\n  padding: 0;\n  margin-right: 5px;\n  border-radius: 25px 0 0 25px;\n}\n.meas_acc0 .compoundInputprefix {\n  max-width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 0;\n  padding: 0;\n  -webkit-box-flex: 0 !important;\n          flex-grow: 0 !important;\n  width: auto;\n  flex-basis: auto !important;\n  flex-shrink: 0 !important;\n}\n.meas_acc0 .compoundInputprefix > input.attrname {\n  border-left: none;\n  padding-left: 0;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.meas_acc0 .compoundInputprefix > * { border: none; }\n.meas_acc0 .compoundInputprefix > *:first-child {\n  margin-top: 1px;\n  padding-right: 0;\n  background-color: transparent;\n}\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\n.meas_acc0 .compoundInputprefix:focus-within {\n  border-color: #80bdff;\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\n/* .meas_acc0 .rightx { min-width: 0; } */\n.meas_acc0 .rightx span.operator {\n  margin: auto;\n  margin-left: 5px;\n  margin-right: 5px;\n  margin-top: 8px;\n}\n.meas_acc0 .operatorcontainer {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 5px;\n}\n.meas_acc0 select.operator {\n  width: 45px;\n  margin: auto 5px;\n  text-align: center;\n  -moz-text-align-last: center;\n       text-align-last: center;\n}\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\n  margin-bottom: 5px;\n  min-width: 120px;\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\n.meas_acc0 .attrname {\n  max-width: 200px !important; /* todo: remove when is autosizing */\n  min-width: 0;\n}\n.meas_acc0 .addrule {\n  float: right;\n  margin-top: -4px;\n  padding: 4px 10px;\n}\n.meas_acc0 .ruletitle {\n  padding-right: 4px;\n  margin-bottom: 5px;\n}\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\n.meas_acc0 .form-control > .form-control:not(:first-child){\n  border-top-left-radius: unset;\n  /* disable bootstrap rule*/\n}\n.meas_acc0 .measurableerrortext{\n  margin-left: 5px;\n  color: var(--danger);\n}\n.meas_acc0 .measurablewarningtext{\n  margin-left: 5px;\n  color: var(--warning);\n}\n.meas_acc0 .measurableoutputtext{\n  margin-left: 5px;\n  color: var(--secondary);\n}\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\n.meas_acc0 .measurabledebug { display: none; }\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\n.meas_acc0 .countershell { float: right; }\n.meas_acc0 .rectangledrawing.outer > * {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .top > .left {\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\n}\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\n.meas_acc0 .rectangledrawing.outer > .top > .right {\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\n.meas_acc0 input.side.top {\n  margin-bottom: 3px;\n  margin-top: -3px; }\n.meas_acc0 input.side.bot {\n  margin-bottom: -3px;\n  margin-top: 3px; }\n.meas_acc0 input.side.left {\n  margin-right: 3px;\n  margin-left: -3px; }\n.meas_acc0 input.side.right {\n  margin-right: -3px;\n  margin-left: 3px; }\n.meas_acc0 .arrowh {\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\n.meas_acc0 .arrowv {\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\n  height: 50px;\n  min-width: 50px;\n}\n.meas_acc0 .rectangledrawing.outer > .top > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .bot > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .arrow { -webkit-appearance: initial; }\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\n  width: 75px;\n  height: 75px; }\n.meas_acc0 .arrow:focus{ outline: none; }\n.meas_acc0 .arrow:checked{\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\n.meas_acc0 .directions {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto; }\n.meas_acc0 .directions > * { margin: auto; }\n.meas_acc0 .draggable.boxroot{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  /*height: 237px;*/\n}\n.meas_acc0 .collapse:not(.show) { display: none; }\n.meas_acc0 .selected { background-color: #37ff66 !important; }\n/***********              Measurable editor v2 end                   ********/\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0U7Ozs7O29DQUtrQztBQUNwQztBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLDZCQUE2QjtFQUM3QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLHdDQUF3QztFQUN4QyxtQkFBbUI7RUFDbkIsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osNEJBQTRCO0VBQzVCLDZCQUE2QjtFQUM3QixVQUFVO0NBQ1g7QUFDRCw0Q0FBNEMsaURBQWlEO0VBQzNGLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsNkJBQTZCO0FBQy9CO0FBQ0E7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QjtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTtBQUNwQjtFQUNFLHNEQUFzRCxFQUFFO0FBQzFEO0VBQ0Usc0RBQXNELEVBQUU7QUFFMUQ7RUFDRSxZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsWUFBWSxFQUFFO0FBQ2hCO0VBQ0UsWUFBWSxFQUFFO0FBQ2hCO0VBQ0UsWUFBWTtFQUNaLFdBQVcsRUFBRTtBQUNmO0VBQ0UsWUFBWTtFQUNaLFdBQVcsRUFBRTtBQUVmLG9CQUFvQiwyQkFBMkIsRUFBRTtBQUVqRDtFQUNFLFdBQVc7RUFDWCxZQUFZLEVBQUU7QUFFaEIseUJBQXlCLGFBQWEsRUFBRTtBQUN4QztFQUNFLDRGQUFvRjtVQUFwRixvRkFBb0YsRUFBRTtBQUV4RjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixZQUFZLEVBQUU7QUFFaEIsNkJBQTZCLFlBQVksRUFBRTtBQUMzQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjtBQUNBLGtDQUFrQyxhQUFhLEVBQUU7QUFDakQsdUJBQXVCLG9DQUFvQyxFQUFFO0FBQzdELDZFQUE2RSIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvc3R5bGUtZWRpdG9yL3N0eWxlLWVkaXRvci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG4uc3R5bGVDb250YWluZXJ7XG4gIC8qcG9zaXRpb246IHJlbGF0aXZlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG92ZXJmbG93LXk6IGF1dG87XG4gIG92ZXJmbG93LXg6IGF1dG87XG4gIHBhZGRpbmc6IDE3cHg7XG4gIHBhZGRpbmctcmlnaHQ6IGNhbGMoMTdweCAtIDEwcHgpOyovXG59XG4udGVtcGxhdGV7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4uU3R5bGVFZGl0b3JEaXNwbGF5IC50ZW1wbGF0ZXtcbiAgZGlzcGxheTogdW5zZXQ7XG59XG4ucHJldmlld3tcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIG1pbi1oZWlnaHQ6IDEwcHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHJlZDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG4ucHJldmlldzpibGFua3tcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcbiAgb3BhY2l0eTogMC40O1xufVxuLnNlcGFyYXRvclNoZWxsLnRvcHtcbiAgbWFyZ2luLXRvcDogMzBweDtcbn1cblxuZGl2W2NvbnRlbnRlZGl0YWJsZT1cInRydWVcIl06Zm9jdXMge1xuICBtYXgtaGVpZ2h0OiB1bnNldDtcbn1cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdLCBkaXZbY29udGVudGVkaXRhYmxlPVwiZmFsc2VcIl0ge1xuICBvdmVyZmxvdzogYXV0bztcbiAgZGlzcGxheTogZmxleDtcbiAgY29sb3I6IGJsYWNrO1xuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbiAgbWluLWhlaWdodDogMTAwcHg7XG4gIG1heC1oZWlnaHQ6IDEwMHB4O1xuICBtYXJnaW4tdG9wOiA1cHg7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG4gIGN1cnNvcjogdGV4dDtcbn1cbmRpdltjb250ZW50ZWRpdGFibGU9XCJmYWxzZVwiXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG4gIGN1cnNvcjogbm8tZHJvcDtcbiAgb3BhY2l0eTogMC40O1xufVxubGFiZWwuYWxsb3dFZGl0IHtcbiAgY29sb3I6IGdvbGRlbnJvZDtcbn1cbmJ1dHRvbiB7XG4gIG1hcmdpbjogNXB4O1xufVxuLnN0eWxlLm93biwgLnN0eWxlLmluc3RhbmNlc3tcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiB3cmFwO1xufVxuLmRldGFpbHtcbiAgYm9yZGVyOiAzcHggc29saWQgdmFyKC0tYmx1ZWJvcmRlcmNvbG9yKTtcbiAgYmFja2dyb3VuZDogdmFyKC0tKTtcbiAgY29sb3I6IHZhcigtLWFsdEZvbnRDb2xvcik7XG59XG5idXR0b24uZGV0YWlsIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tdG9wOiAwO1xuICBtYXJnaW4tYm90dG9tOiAwO1xuICBkaXNwbGF5OiBmbGV4O1xuICBoZWlnaHQ6IGF1dG87XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDE3cHg7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAxN3B4O1xuICB6LWluZGV4OiAxO1xuIH1cbmJ1dHRvbi5kZXRhaWw6Zmlyc3QtY2hpbGQ6bm90KDpvbmx5LWNoaWxkKXsgLyogZmlyc3QgdmlzaWJsZSBjaGlsZCBub3QgcG9zc2libGUgaWMgcHVyZSBjc3MgKi9cbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIG1hcmdpbi1yaWdodDogMDtcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDA7XG4gIGJvcmRlci1ib3R0b20tcmlnaHQtcmFkaXVzOiAwO1xufVxuYnV0dG9uLmRldGFpbDpsYXN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7XG4gIG1hcmdpbi1sZWZ0OiAtM3B4O1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xufVxuYnV0dG9uLmRldGFpbDpmb2N1cyB7XG4gIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcbiAgb3V0bGluZTogbm9uZSAhaW1wb3J0YW50O1xufVxuZGl2LmRldGFpbHtcbiAgcGFkZGluZzogNXB4O1xuICBtYXJnaW4tdG9wOiAtM3B4O1xuICB3aWR0aDogY2FsYygxMDAlKTtcbn1cbi5zYXZlYXNyb3d7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cbmJ1dHRvbi5kZWxldGV7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuYnV0dG9uLnNhdmVhc3tcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5pbnB1dC5zYXZlYXMge1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbiAgZmxleC1iYXNpczogMTAwcHg7XG4gIGZsZXgtZ3JvdzogMC42O1xuICB3aWR0aDogMDtcbn1cbi5jb21wYXRpYmxlUm93ID4gbGFiZWwgPiBzcGFue1xuICBoZWlnaHQ6IGZpdC1jb250ZW50O1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xuICBvcmRlcjogMjtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uc2F2ZWFzcm93LCAuY29tcGF0aWJsZVJvd3tcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbn1cbi5jb21wYXRpYmxlUm93ID4gbGFiZWwgPiBpbnB1dCB7XG4gIG9yZGVyOiAxO1xuICBtYXJnaW4tbGVmdDogMDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uZGV0YWlsID4gbGFiZWwge1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbn1cbmJ1dHRvbi5kZXRhaWwgPiAub3BlbmVkLCBidXR0b24uZGV0YWlsID4gLmNsb3NlZHtcbiAgbWFyZ2luOiBhdXRvO1xufVxudGFibGUge1xuICB3aWR0aDogMTAwJTtcbn1cblxudGQudGl0bGUge1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgcGFkZGluZy10b3A6IDEwcHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuaDEge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5zZWxlY3R7XG4gIC8qIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgY29sb3I6IGluaGVyaXQ7XG4gIGZvbnQ6IGluaGVyaXQ7ICovXG4gIC8qZmxleC1iYXNpczogMDsqL1xuICBmbGV4LXNocmluazogMTtcbiAgZmxleC1ncm93OiAwLjk7XG4gIG1heC13aWR0aDogbWF4LWNvbnRlbnQ7XG4gIG1pbi13aWR0aDogMDtcbn1cblxubGFiZWwge2Rpc3BsYXk6IGZsZXg7IGZsZXgtZ3JvdzoxO31cbmxhYmVsID4gKiwgaDYgPiAqIHtcbiAgZGlzcGxheTogZmxleDtcbiAgLyogZmxleC1ncm93OiAxOyovXG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuXG5oNntcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcblxufVxuLnNlcGFyYXRvciA+ICoge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKlxuYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDhweCAxNHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG5idXR0b246ZGlzYWJsZWR7XG4gIGJhY2tncm91bmQ6IGdyYXk7XG59Ki9cbmlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xuICB3aWR0aDogNDBweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7fVxuXG5cbmxhYmVsPmlucHV0W3R5cGU9XCJjaGVja2JveFwiXSxcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbn1cblxuI3ByaW1hcnlfY29sb3Ige1xuICBib3JkZXItcmFkaXVzOiAxMDAlO1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcbn1cblxuW2NvbnRlbnRlZGl0YWJsZT10cnVlXTplbXB0eTpiZWZvcmUge1xuICBjb250ZW50OiBhdHRyKHBsYWNlaG9sZGVyKTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIC8qIEZvciBGaXJlZm94ICovXG4gIGN1cnNvcjogdGV4dDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgY29sb3I6IGRhcmtncmF5O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbjogYXV0bztcbn1cblxuLnNlcGFyYXRvclNoZWxsIHtcbiAgbWluLWhlaWdodDogMzNweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnJvd3cge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuLmNvbENvbnRhaW5lciwgLmNvbHVtbkNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogbm93cmFwO1xuICBmbGV4LWZsb3c6IHJvdztcbn1cbi5jb2xDaGlsZCwgLmNvbHVtbkNoaWxkIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1pbi13aWR0aDogMDtcbn1cbi5zZXBhcmF0b3Ige1xuICBtYXJnaW46IGF1dG87XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5zdHlsZWxhYmVse1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbn1cbnNlbGVjdC5zdHlsZW5hbWV7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uSG9yaXpvbnRhbENvbnRhaW5lcntcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgd2lkdGg6IDEwMCU7XG59XG4uSG9yaXpvbnRhbENoaWxke1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuLm9wZW5lZHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmhlbHBCdXR0b24sIC5zdHlsZWRlbGV0ZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAzNXB4O1xuICBoZWlnaHQ6IDM1cHg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiAwO1xufVxuLnN0eWxlZGVsZXRlIHtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG4uaGVscEJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IHJnYigwLCA2MiwgMTI3KTtcbiAgYm9yZGVyLWNvbG9yOiByZ2IoMCwgNjIsIDEyNyk7IH1cblxuLmh0bWxzdHlsZSA+IC50b3Age1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmV4cHJlc3Npb25Sb290IHtcbiAgZmxleC13cmFwOiBub3dyYXAgIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuaW5wdXQuZmlsbHtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xuICBtYXJnaW4tbGVmdDogN3B4O1xufVxuLmxlZnRzaWRle1xuICBmbGV4LWdyb3c6IDM7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIG1pbi13aWR0aDogMDtcbiAgbWF4LXdpZHRoOiAxNTBweDtcbn1cbi5yaWdodHNpZGV7XG4gIGZsZXgtZ3JvdzogNztcbiAgZmxleC1iYXNpczogMDtcbiAgbWluLXdpZHRoOiAwO1xufVxuLmFycm93Q29udGFpbmVye1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuYnV0dG9uLmFycm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBsaW5lLWhlaWdodDogdW5zZXQ7XG4gIHBhZGRpbmc6IDAgNnB4O1xufVxuLnRzY2xhc3N7XG4gIG1hcmdpbjogYXV0bztcbiAgZGlzcGxheTogaW5saW5lO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKiAqL1xuXG4vKlxucHJlIHtcbiAgYmFja2dyb3VuZDojRUVFO1xuICBwYWRkaW5nOjVweDtcbiAgd2lkdGg6IDI5MHB4O1xufSovXG4uYWRkSGVhZGVye1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmFkZEhlYWRlciA+IGJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBvcmRlcjogMjtcbn1cbnNlbGVjdC5hdHRyaWJ1dGV0eXBlYWRke1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG4gIG1pbi13aWR0aDogMDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuLnByZXZpZXdzZWxlY3RvcntcbiAgaGVpZ2h0OiAyM3B4O1xuICBvdXRsaW5lOiBub25lO1xuICBib3JkZXI6IDJweCBkYXNoZWQgIzY2NjY2Njtcbn1cblxuLnNob3dBc0VkZ2V7XG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5idXR0b24uZGVsZXRlLCBidXR0b24uc2F2ZWFze1xuICBmb250LXNpemU6IDAuOHJlbTtcbn1cbmJ1dHRvbi5kZWxldGVSdWxle1xuICBmbGV4LWdyb3c6IDA7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIG1pbi13aWR0aDogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogNXB4O1xufVxuLm5vd3JhcHtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4uX3Jvb3Qge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXYuZGV0YWlsLm1lYXN1cmFibGUgPiBkaXYudGVtcGxhdGUge1xuICBkaXNwbGF5OiBub25lO1xufVxuLmdyYXBoQ29sb3IsIC5zaG93R3JpZHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG5zZWxlY3Qub3BlcmF0b3J7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgd2lkdGg6IDI1cHg7XG59XG5zcGFuLm9wZXJhdG9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Qub3BlcmF0b3I6ZGlzYWJsZWR7XG4gIGRpc3BsYXk6IG5vbmU7XG4gIC8qXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgLW1vei1hcHBlYXJhbmNlOiBub25lO1xuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG4gIG1hcmdpbjogMDsqL1xufVxuXG5zcGFuLm5hbWVwcmVmaXgge1xuICBtYXJnaW4tbGVmdDogN3B4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xuICBoZWlnaHQ6IDIxcHg7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbiAgY29sb3I6IGJsYWNrO1xuICBsaW5lLWhlaWdodDogMTZweDtcbn1cbmlucHV0Lm5hbWUge1xuICBtYXJnaW4tbGVmdDogMDtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbn1cblxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogMCAycHggMnB4IDJweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cblxuaW5wdXQubmFtZTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IDJweCAycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KSwgMnB4IC0ycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cbi5odG1sc3R5bGUge1xuICB3aWR0aDogMTAwJTtcbn1cbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xuICBtYXJnaW4tbGVmdDowO1xufVxubGFiZWwgPiBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0gfiAqIHsgbWFyZ2luLWxlZnQ6IDA7IH1cbi5odG1sW2NvbnRlbnRlZGl0YWJsZV0ge1xuICAvKklERSBnaXZlcyBlcnJvciBidXQgdGhleSBhbGwgYWN0dWFsbHkgZXhpc3QsIGF0IGxlYXN0IG9uIG1vemlsbGEuKi9cbiAgb3ZlcmZsb3ctd3JhcDogYW55d2hlcmU7XG4gIHdvcmQtd3JhcDogYW55d2hlcmU7XG4gIHdoaXRlLXNwYWNlOiBicmVhay1zcGFjZXM7XG59XG5cbi5hdXRvc2l6ZWNvbnRhaW5lcntcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuLmF1dG9zaXplY29udGFpbmVyID4gKntcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbn1cbi5zaXplQ29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwOyB9XG4uc2l6ZUNvbnRhaW5lckhhbGYge1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICBmbGV4LWdyb3c6IDE7XG59XG4uc2l6ZWxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtZmxvdzogY29sdW1uLXJldmVyc2U7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbn1cbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XG4gIC8qIHN1IHZpZXdwb3J0IHRyb3BwbyBwaWNjb2xpIGNhbWJpbyBsYSB2aXN1YWxpenphemlvbmUgZGEgbGFiZWwgc29wcmEgaWwgdGVzdG8gKGJ1b25vIHBlciBmYXJlIG1vbm8tcm93KSBhIGxhYmVsIGFmZmlhbmNhdGEgYWwgdGVzdG8gKHBlciBmYXJlIDQgcm93IGUgc2NvcnJlcmUgdmVydGljYWxtZW50ZSkqL1xuICAuc2l6ZWxhYmVse1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxufVxuLnNpemVsYWJlbCA+ICp7XG4gIGRpc3BsYXk6IGlubGluZTtcbiAgbWFyZ2luOiBhdXRvOyB9XG5cblxuXG5cblxuXG5cblxuXG5cbiAgLyogdGhleSBmaXggb3V0ZXIgY3NzIGluZmx1ZW5jZSBvbiBtZWFzdXJhYmxlIHNlY3Rpb24uICovXG5cbmlucHV0W3R5cGU9XCJjaGVja2JveFwiXS5hcnJvdyB7XG4gIG1hcmdpbjogMDsgfVxuXG4ubWVhc19hY2MwIGJ1dHRvbiB7IG1hcmdpbjogMDsgfVxuXG5cblxuXG4vKioqKioqKioqKiogICAgICAgICAgICAgIE1lYXN1cmFibGUgZWRpdG9yIHYyIHN0YXJ0ICAgICAgICAgICAgICAgICAqKioqKioqKi9cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVTZXR0aW5nUm9vdHtcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuLm1lYXNfYWNjMCAuYm94ZXNyb290IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICBmbGV4LWdyb3c6IDE7XG4gIGZsZXgtYmFzaXM6IDA7XG59XG4ubWVhc19hY2MwIC5tb3ZlbWVudGJveHJvb3QsIC5tZWFzX2FjYzAgLnJlc2l6ZWJveHJvb3Qge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWdyb3c6IDE7XG4gIGZsZXgtZmxvdzogY29sdW1uO1xufVxuLm1lYXNfYWNjMCAuY29sdW1uY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuXG4ubWVhc19hY2MwIC5yb3djb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4ubWVhc19hY2MwIC5jb2x1bW4sIC5tZWFzX2FjYzAgLnJvd3tcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4ubWVhc19hY2MwIC5yb3cge1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi1yaWdodDogdW5zZXQ7XG4gIG1hcmdpbi1sZWZ0OiB1bnNldDsgLyogZHVtYiBfZ3JpZC5zY3NzIGZpeGVyICovXG59XG4ubWVhc19hY2MwIC5icmVhayB7IGZsZXgtd3JhcDogd3JhcDsgfVxuLm1lYXNfYWNjMCAuYXV0b2JyZWFrIHsgZmxleC13cmFwOiBpbml0aWFsOyB9XG4ubWVhc19hY2MwIC5maWxsIHsgZmxleC1ncm93OiAxOyB9XG4ubWVhc19hY2MwIC5ib3h0aXRsZSB7IGRpc3BsYXk6IGJsb2NrOyB0ZXh0LWFsaWduOiBjZW50ZXI7IG1hcmdpbi1ib3R0b206IDEycHg7IH1cbi5tZWFzX2FjYzAgLnNpZGUgeyBkaXNwbGF5OiBmbGV4OyB9XG4ubWVhc19hY2MwIC5zaWRlLmxlZnQsIC5tZWFzX2FjYzAgLnNpZGUucmlnaHQgeyB3aWR0aDogMTBweDsgfVxuLm1lYXNfYWNjMCAuc2lkZS50b3AsIC5tZWFzX2FjYzAgLnNpZGUuYm90IHsgaGVpZ2h0OiAxMHB4OyB3aWR0aDogY2FsYygxMDAlIC0gMjBweCk7IH1cbi5tZWFzX2FjYzAgLmNvcm5lciB7IGRpc3BsYXk6IGZsZXg7IHdpZHRoOiAxMHB4OyBoZWlnaHQ6IDEwcHg7IH1cbi5tZWFzX2FjYzAgLm1pZGRsZSB7IGJhY2tncm91bmQtY29sb3I6IGdvbGRlbnJvZDsgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAubWlkZGxlIC5taWRkbGUgeyB3aWR0aDogMTIwcHg7IGhlaWdodDogOTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuc2lkZSwgLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuY29ybmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogZGltZ3JheTtcbn1cbi5tZWFzX2FjYzAgLmJveHJvb3Qge1xuICBkaXNwbGF5OiBibG9jaztcbiAgbWFyZ2luOiBhdXRvO1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG4ubWVhc19hY2MwIC5ydWxldGl0bGV7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4ubWVhc19hY2MwIGJ1dHRvbi5ydWxlZGVsZXRlIHtcbiAgaGVpZ2h0OiAxMDAlO1xuICB3aWR0aDogMzBweDtcbiAgcGFkZGluZzogMDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIGJvcmRlci1yYWRpdXM6IDI1cHggMCAwIDI1cHg7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4IHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IGZpdC1jb250ZW50O1xuICBtYXJnaW4tYm90dG9tOiAwO1xuICBwYWRkaW5nOiAwO1xuICBmbGV4LWdyb3c6IDAgIWltcG9ydGFudDtcbiAgd2lkdGg6IGF1dG87XG4gIGZsZXgtYmFzaXM6IGF1dG8gIWltcG9ydGFudDtcbiAgZmxleC1zaHJpbms6IDAgIWltcG9ydGFudDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dC5hdHRybmFtZSB7XG4gIGJvcmRlci1sZWZ0OiBub25lO1xuICBwYWRkaW5nLWxlZnQ6IDA7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDA7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gKiB7IGJvcmRlcjogbm9uZTsgfVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICo6Zmlyc3QtY2hpbGQge1xuICBtYXJnaW4tdG9wOiAxcHg7XG4gIHBhZGRpbmctcmlnaHQ6IDA7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0OmZvY3VzIHsgYm94LXNoYWRvdzogbm9uZTsgfVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeDpmb2N1cy13aXRoaW4ge1xuICBib3JkZXItY29sb3I6ICM4MGJkZmY7XG4gIGJveC1zaGFkb3c6IDAgMCAwIDAuMnJlbSByZ2JhKDAsIDEyMywgMjU1LCAwLjI1KTtcbn1cblxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5yaWdodHgsIC5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAubGVmdHggeyBtYXJnaW4tYm90dG9tOiAwICFpbXBvcnRhbnQ7IH1cbi8qIC5tZWFzX2FjYzAgLnJpZ2h0eCB7IG1pbi13aWR0aDogMDsgfSAqL1xuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3Ige1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xuICBtYXJnaW4tdG9wOiA4cHg7XG59XG4ubWVhc19hY2MwIC5vcGVyYXRvcmNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbi5tZWFzX2FjYzAgc2VsZWN0Lm9wZXJhdG9yIHtcbiAgd2lkdGg6IDQ1cHg7XG4gIG1hcmdpbjogYXV0byA1cHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgdGV4dC1hbGlnbi1sYXN0OiBjZW50ZXI7XG59XG4ubWVhc19hY2MwIC5yaWdodHggLmNvbXBvdW5kSW5wdXRwcmVmaXgsIC5tZWFzX2FjYzAgLnJpZ2h0eCBpbnB1dC5yaWdodHNpZGUsIC5tZWFzX2FjYzAgaW5wdXQubGVmdHNpZGUsIC5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIG1pbi13aWR0aDogMTIwcHg7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIGZsZXgtZ3JvdzogMTtcbn1cbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgeyBtYXJnaW4tYm90dG9tOiAxcmVtOyB9XG4ubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHsgbWFyZ2luLWJvdHRvbTogMDsgfVxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLm1lYXN1cmFibGVkZWJ1ZyB7IG1hcmdpbi10b3A6IDVweDsgfVxuLm1lYXNfYWNjMCAuYXR0cm5hbWUge1xuICBtYXgtd2lkdGg6IDIwMHB4ICFpbXBvcnRhbnQ7IC8qIHRvZG86IHJlbW92ZSB3aGVuIGlzIGF1dG9zaXppbmcgKi9cbiAgbWluLXdpZHRoOiAwO1xufVxuLm1lYXNfYWNjMCAuYWRkcnVsZSB7XG4gIGZsb2F0OiByaWdodDtcbiAgbWFyZ2luLXRvcDogLTRweDtcbiAgcGFkZGluZzogNHB4IDEwcHg7XG59XG4ubWVhc19hY2MwIC5ydWxldGl0bGUge1xuICBwYWRkaW5nLXJpZ2h0OiA0cHg7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZS5jb2xsYXBzZWQgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlciB7IC13ZWJraXQtYXBwZWFyYW5jZTogYnV0dG9uOyB9XG4ubWVhc19hY2MwIC5mb3JtLWNvbnRyb2wgPiAuZm9ybS1jb250cm9sOm5vdCg6Zmlyc3QtY2hpbGQpe1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiB1bnNldDtcbiAgLyogZGlzYWJsZSBib290c3RyYXAgcnVsZSovXG59XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZXJyb3J0ZXh0e1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBjb2xvcjogdmFyKC0tZGFuZ2VyKTtcbn1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgY29sb3I6IHZhcigtLXdhcm5pbmcpO1xufVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW91dHB1dHRleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIGNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xufVxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lcnsgbWFyZ2luLWJvdHRvbTogNXB4OyB9XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgeyBkaXNwbGF5OiBub25lOyB9XG4ubWVhc19hY2MwIC5yaWdodHg6Zm9jdXMtd2l0aGluIC5tZWFzdXJhYmxlZGVidWd7IGRpc3BsYXk6IGZsZXg7IH1cbi5tZWFzX2FjYzAgLmNvdW50ZXJzaGVsbCB7IGZsb2F0OiByaWdodDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+ICoge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+ICosIC5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2IHtcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAubGVmdCB7XG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vdHF4WGhrNC90bC5wbmcpOyovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pndnB5d3ovdGxsLnBuZyk7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5zaWRlLnRvcCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL005ZkM3RFAvdC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5yaWdodCB7XG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUHpzbWp4Zi90ci5wbmcpOyovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1NOMlRITHQvdHJsLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby83am05QkJRL2wucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9SWVpuVk41L3IucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAubGVmdCB7XG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vcXJZV2RwSC9ibC5wbmcpOyovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2dES0ZyeTUvYmxsLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnNpZGUuYm90IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vY1hjMG5tUy9iLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnJpZ2h0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9LMHBWVlQ3L2JyLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUXB3UlNzVC9icmwucG5nKTsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnRvcCB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbiAgbWFyZ2luLXRvcDogLTNweDsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmJvdCB7XG4gIG1hcmdpbi1ib3R0b206IC0zcHg7XG4gIG1hcmdpbi10b3A6IDNweDsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmxlZnQge1xuICBtYXJnaW4tcmlnaHQ6IDNweDtcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5yaWdodCB7XG4gIG1hcmdpbi1yaWdodDogLTNweDtcbiAgbWFyZ2luLWxlZnQ6IDNweDsgfVxuLm1lYXNfYWNjMCAuYXJyb3doIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmQzanRiYy9sci5wbmcpOyB9XG4ubWVhc19hY2MwIC5hcnJvd3Yge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9qSFR0UER4L3RiLnBuZyk7IH1cblxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAuY29ybmVyIHtcbiAgaGVpZ2h0OiA1MHB4O1xuICBtaW4td2lkdGg6IDUwcHg7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+ICoge1xuICBoZWlnaHQ6IDUwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gKiB7XG4gIGhlaWdodDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XG4gIGhlaWdodDogYXV0bztcbiAgd2lkdGg6IDUwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcbiAgaGVpZ2h0OiBhdXRvO1xuICB3aWR0aDogNTBweDsgfVxuXG4ubWVhc19hY2MwIC5hcnJvdyB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxuXG4ubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93dntcbiAgd2lkdGg6IDc1cHg7XG4gIGhlaWdodDogNzVweDsgfVxuXG4ubWVhc19hY2MwIC5hcnJvdzpmb2N1c3sgb3V0bGluZTogbm9uZTsgfVxuLm1lYXNfYWNjMCAuYXJyb3c6Y2hlY2tlZHtcbiAgZmlsdGVyOiBzZXBpYSg4MiUpIHNhdHVyYXRlKDM5MjUlKSBodWUtcm90YXRlKDU1ZGVnKSBicmlnaHRuZXNzKDEyNSUpIGNvbnRyYXN0KDEyMCUpOyB9XG5cbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIG1hcmdpbjogYXV0bzsgfVxuXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zID4gKiB7IG1hcmdpbjogYXV0bzsgfVxuLm1lYXNfYWNjMCAuZHJhZ2dhYmxlLmJveHJvb3R7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogY29sdW1uO1xuICAvKmhlaWdodDogMjM3cHg7Ki9cbn1cbi5tZWFzX2FjYzAgLmNvbGxhcHNlOm5vdCguc2hvdykgeyBkaXNwbGF5OiBub25lOyB9XG4ubWVhc19hY2MwIC5zZWxlY3RlZCB7IGJhY2tncm91bmQtY29sb3I6ICMzN2ZmNjYgIWltcG9ydGFudDsgfVxuLyoqKioqKioqKioqICAgICAgICAgICAgICBNZWFzdXJhYmxlIGVkaXRvciB2MiBlbmQgICAgICAgICAgICAgICAgICAgKioqKioqKiovXG4iXX0= */");
 
 /***/ }),
 
@@ -14117,8 +15068,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
-/* harmony import */ var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../app/measurabletemplate/measurabletemplate.component */ "./src/app/measurabletemplate/measurabletemplate.component.ts");
-
 
 
 
@@ -14258,7 +15207,7 @@ class StyleEditor {
         });
     }
     showP(m) { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'styles of Package(', m, '): unexpected.'); }
-    setStyleEditor($styleown, model, mp, style, context, indexedPath = null) {
+    setStyleEditor($styleown, model, mp, style, context, indexedPath = null, insideOwnSection = false) {
         /// getting the template to fill.
         const debug = false;
         let i;
@@ -14296,8 +15245,11 @@ class StyleEditor {
             forkButton: null,
             delete: null,
             saveasName: null,
-            styledelete: null
+            styledelete: null,
+            measurableCheckbox: null,
         };
+        if (insideOwnSection)
+            this.ownstylecontext = obj;
         //// setting up labelAllowEdit (checking if the (own, inherited or inheritable) style exist or a modelpiece local copy is needed.)
         obj.editAllowed = $styleown.find('button.allowEdit')[0];
         obj.editLabel = $styleown.find('label.allowEdit')[0];
@@ -14389,8 +15341,10 @@ class StyleEditor {
             onStyleChange();
         };
         const onStyleChange = () => {
+            console.log('onStyleChange', _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getCaller(), _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getStackTrace());
             const inputHtml = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtml(obj.input.innerText);
-            if (inputHtml.getAttribute('disabled') !== 'false')
+            const disabledAttr = obj.input.getAttribute('disabled');
+            if (disabledAttr === 'true' || disabledAttr === '')
                 return;
             // console.log('PRE: ', inputHtml, 'outer:', inputHtml.outerHTML, 'innertext:', obj.input.innerText);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pif(debug, '*** setting inheritable PRE. style.htmlobj:', style.htmlobj, ', style:', style, ', context:', context, 'templatelvl.parent:', context.templateLevel.parentElement, ', inputHtml:', inputHtml);
@@ -14439,32 +15393,22 @@ class StyleEditor {
         // .log('swap End:', measurableRoot.childNodes.length, tmp.childNodes.length);
         //U.pe(true,'swapend');
         const $measurableRoot = $(measurableRoot);
+        const $measurableBody = $measurableRoot.find('.measurableSettingRoot');
         // obj.input is same const ownhtmlinput: HTMLDivElement | HTMLTextAreaElement = $measurableRoot.find('.html[contenteditable="true"]')[0] as HTMLDivElement | HTMLTextAreaElement;
         const $measurableCheckbox = $measurableRoot.find('input.ismeasurable');
-        const measurableCheckbox = $measurableCheckbox[0];
+        const measurableCheckbox = obj.measurableCheckbox = $measurableCheckbox[0];
         measurableCheckbox.disabled = obj.input.getAttribute('disabled') === 'true';
         measurableCheckbox.checked = (context.templateLevel.classList.contains('measurable') || context.graphLevel.classList.contains('measurable'));
         const $measurableTitle = $measurableRoot.find('.meas_acc0 > .ruletitle');
         $measurableTitle.on('click', (e) => {
-            const $innerroot = $measurableRoot.find('.measurableSettingRoot ');
+            const $innerroot = $measurableBody;
             const innerroot = $innerroot[0];
             if (innerroot.classList.contains('show')) {
-                innerroot.setAttribute('style', '');
-                innerroot.classList.add('collapsing');
                 // todo: elimina slideup e usa la transizione css su collapsing, come?
-                $innerroot.slideUp(400, () => {
-                    innerroot.classList.remove('show', 'collapsing');
-                    innerroot.classList.remove('collapse');
-                    innerroot.classList.add('collapse');
-                    $measurableTitle[0].classList.add('collapsed');
-                });
+                $innerroot.slideUp(400, () => { innerroot.classList.remove('show', 'collapsing', 'collapse'); });
                 return;
             }
-            innerroot.classList.remove('collapse');
-            innerroot.classList.add('collapse');
-            innerroot.classList.add('show');
-            $measurableTitle[0].classList.remove('collapsed');
-            $innerroot.slideDown();
+            $innerroot.slideDown(400, () => { innerroot.classList.add('collapse', 'show'); });
             e.preventDefault();
             e.stopPropagation();
             e.stopImmediatePropagation();
@@ -14477,13 +15421,21 @@ class StyleEditor {
             context.templateLevel.classList.remove('measurable');
             if (measurableCheckbox.checked) {
                 context.templateLevel.classList.add('measurable');
+                if (context.templateLevel instanceof HTMLElement)
+                    context.templateLevel.style.position = 'absolute';
                 $measurableTitle.slideDown();
-                if (!measurableRoot.classList.contains('show')) {
+                if (!$measurableBody[0].classList.contains('show')) {
                     $measurableTitle.trigger('click');
+                }
+                console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', context.templateLevel.parentElement && context.templateLevel.parentElement.style.position);
+                if (context.templateLevel.parentElement && context.templateLevel.parentElement.style.position !== 'relative') {
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was:'
+                        + context.templateLevel.parentElement.style.position);
+                    context.templateLevel.parentElement.style.position = 'relative';
                 }
             }
             else {
-                if (measurableRoot.classList.contains('show')) {
+                if ($measurableBody[0].classList.contains('show')) {
                     $measurableTitle.trigger('click');
                 }
                 $measurableTitle.slideUp();
@@ -14544,7 +15496,7 @@ class StyleEditor {
         const $styleInherited = $html.find('.style.inherited');
         const $styleInheritable = $html.find('.style.inheritable');
         //const ownhtml = m.getStyle();
-        const htmlPath = this.setStyleEditor($styleown, model, m, style, context, indexedPath);
+        const htmlPath = this.setStyleEditor($styleown, model, m, style, context, indexedPath, true);
         // U.pe(!style.html, $styleown, m, clickedLevel, model, style, instanceshtml);
         // const clickedonStyle: Element = U.followIndexesPath(style.html, htmlPath) as Element;
         $html.find('.tsclass').html('' + m.printableName()); // + (htmlDepth === 0 ? ' (root level)' : ' (level&nbsp;' + htmlDepth + ')') );
@@ -14569,18 +15521,77 @@ class StyleEditor {
             $styleInheritable[0].innerHTML = '<h5 class="text-danger">M1 elements cannot give inheritance.</h5>';
         }
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].detailButtonSetup($html);
+        /// start autosize
+        const v = m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] ? m.getVertex() : null;
+        this.sizeInputx = $html.find('input.sizex')[0];
+        this.sizeInputy = $html.find('input.sizey')[0];
+        this.sizeInputw = $html.find('input.sizew')[0];
+        this.sizeInputh = $html.find('input.sizeh')[0];
+        const $autosizew = $html.find('input.autowidth');
+        const $autosizeh = $html.find('input.autoheight');
+        const autosizew = $autosizew[0];
+        const autosizeh = $autosizeh[0];
+        if (v && this.sizeInputx) {
+            autosizeh.disabled = autosizew.disabled = this.ownstylecontext.measurableCheckbox.disabled;
+            const isAutosize = v.isAutosize();
+            this.sizeInputw.disabled = autosizew.checked = isAutosize.x;
+            this.sizeInputh.disabled = autosizeh.checked = isAutosize.y;
+            const autosizeLevelTemplate = templateRoot.firstChild;
+            const setAutosize = (statusx, statusy) => {
+                const html = autosizeLevelTemplate; // this.getHtmlFirstChild();
+                if (statusx !== null) {
+                    if (statusx) {
+                        html.dataset.autosizex = 'true';
+                        html.style.width = 'auto';
+                    }
+                    else {
+                        html.dataset.autosizex = 'false';
+                        html.style.width = '100%';
+                    }
+                }
+                if (statusy !== null) {
+                    if (statusy) {
+                        html.dataset.autosizey = 'true';
+                        html.style.height = 'auto';
+                    }
+                    else {
+                        html.dataset.autosizey = 'false';
+                        html.style.height = '100%';
+                    }
+                }
+                context.applyNodeChangesToInput();
+                v.refreshGUI();
+                v.refreshEdgesGUI();
+            };
+            $autosizew.on('change', () => { setAutosize(autosizew.checked, null); this.sizeInputw.disabled = autosizew.checked; });
+            $autosizeh.on('change', () => { setAutosize(null, autosizeh.checked); this.sizeInputh.disabled = autosizeh.checked; });
+            const vSize = v.getSize();
+            this.sizeInputx.value = '' + (vSize.x);
+            this.sizeInputy.value = '' + (vSize.y);
+            this.sizeInputw.value = '' + (vSize.w);
+            this.sizeInputh.value = '' + (vSize.h);
+            $(this.sizeInputx).on('change', () => { v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](+this.sizeInputx.value, null, null, null)); });
+            $(this.sizeInputy).on('change', () => { v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, +this.sizeInputy.value, null, null)); });
+            $(this.sizeInputw).on('change', () => { v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, +this.sizeInputw.value, null)); });
+            $(this.sizeInputh).on('change', () => { v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, null, +this.sizeInputh.value)); });
+        }
+        else {
+            $html.find('.sizeContainer').remove();
+        }
+        //// end autosize
         // <meta>
         //     <dependency><attributes><type>double</ </ </
         //     <preview><img src=imgurl</img> or html diretto.</
         // </meta>
         // pulsanti per settare preview: "takesnapshotOf / set as example... + select vertex with that style"
-        const $arrowup = $html.find('button.arrow.up').on('click', (e) => {
-            // $(clickedLevel.parentNode).trigger('click');
-            this.propertyBar.show(null, clickedLevel.parentElement, null, false);
-            // this.show(this.propertyBar.selectedModelPiece, clickedLevel.parentElement); this will not update clickedHtml
+        const $arrowupp = $html.find('button.arrow.upp').on('click', (e) => {
+            this.propertyBar.show(null, clickedRoot, null, false);
         });
-        $arrowup[0].disabled = htmlPath.length === 0 && m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"];
-        $html.find('button.arrow.down')[0].disabled = true;
+        const $arrowup = $html.find('button.arrow.up').on('click', (e) => {
+            this.propertyBar.show(null, clickedLevel.parentElement, null, false);
+        });
+        $arrowup[0].disabled = $arrowupp[0].disabled = htmlPath.length === 0 && m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"];
+        // ($html.find('button.arrow.down') as JQuery<HTMLButtonElement>)[0].disabled = true;
         showAsEdge.checked = false;
         if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"]) {
             showAsEdge.disabled = m.references.length < 2;
@@ -14762,44 +15773,47 @@ class StyleEditor {
         const dragarrows = {};
         const $arrowroot = $measurableShell.find('.rectangledrawing.outer');
         const $innerroot = $arrowroot.find('.rectangledrawing');
-        // todo: sposta la fase di setattribute direttamente nella generazione html.
-        resizearrows.tl = $innerroot.find('.top.left').attr('direction', 'tl');
-        resizearrows.t = $innerroot.find('.side.top').attr('direction', 't');
-        resizearrows.tr = $innerroot.find('.top.right').attr('direction', 'tr');
-        resizearrows.ml = $innerroot.find('.side.left').attr('direction', 'l');
-        resizearrows.mr = $innerroot.find('.side.right').attr('direction', 'r');
-        resizearrows.bl = $innerroot.find('.bot.left').attr('direction', 'bl');
-        resizearrows.b = $innerroot.find('.side.bot').attr('direction', 'b');
-        resizearrows.br = $innerroot.find('.bot.right').attr('direction', 'br');
-        resizearrows.tla = $arrowroot.find('.top.left.arrow').attr('direction', 'tl');
-        resizearrows.ta = $arrowroot.find('.side.top.arrow').attr('direction', 't');
-        resizearrows.tra = $arrowroot.find('.top.right.arrow').attr('direction', 'tr');
-        resizearrows.mla = $arrowroot.find('.side.left.arrow').attr('direction', 'l');
-        resizearrows.mra = $arrowroot.find('.side.right.arrow').attr('direction', 'r');
-        resizearrows.bla = $arrowroot.find('.bot.left.arrow').attr('direction', 'bl');
-        resizearrows.ba = $arrowroot.find('.side.bot.arrow').attr('direction', 'b');
-        resizearrows.bra = $arrowroot.find('.bot.right.arrow').attr('direction', 'br');
-        dragarrows.x = $measurableShell.find('.arrowh').attr('direction', 'x');
-        dragarrows.y = $measurableShell.find('.arrowv').attr('direction', 'y');
+        resizearrows.tl = $innerroot.find('.top.left');
+        resizearrows.t = $innerroot.find('.side.top');
+        resizearrows.tr = $innerroot.find('.top.right');
+        resizearrows.ml = $innerroot.find('.side.left');
+        resizearrows.mr = $innerroot.find('.side.right');
+        resizearrows.bl = $innerroot.find('.bot.left');
+        resizearrows.b = $innerroot.find('.side.bot');
+        resizearrows.br = $innerroot.find('.bot.right');
+        resizearrows.tla = $arrowroot.find('.top.left.arrow');
+        resizearrows.ta = $arrowroot.find('.side.top.arrow');
+        resizearrows.tra = $arrowroot.find('.top.right.arrow');
+        resizearrows.mla = $arrowroot.find('.side.left.arrow');
+        resizearrows.mra = $arrowroot.find('.side.right.arrow');
+        resizearrows.bla = $arrowroot.find('.bot.left.arrow');
+        resizearrows.ba = $arrowroot.find('.side.bot.arrow');
+        resizearrows.bra = $arrowroot.find('.bot.right.arrow');
+        dragarrows.x = $measurableShell.find('.arrowh');
+        dragarrows.y = $measurableShell.find('.arrowv');
+        const updateArrowGUI = (arrow, direction = null) => {
+            direction = direction || arrow.getAttribute('direction');
+            const innerbox = $innerroot.find('*[direction = "' + direction + '"]')[0];
+            if (!innerbox)
+                return;
+            innerbox.classList.remove('selected');
+            if (arrow.checked)
+                innerbox.classList.add('selected');
+        };
         const arrowchange = (e) => {
             let tmp;
             const arrow = e.currentTarget;
             const direction = arrow.getAttribute('direction');
-            const innerbox = $innerroot.find('*[direction = "' + direction + '"]')[0];
             const checked = arrow.checked;
             const isrotatable = arrow.classList.contains('rot');
             const isdraggable = arrow.classList.contains('drag');
             const isresizable = !isdraggable && !isrotatable;
-            if (innerbox) {
-                innerbox.classList.remove('selected');
-                if (checked)
-                    innerbox.classList.add('selected');
-            }
+            updateArrowGUI(arrow, direction);
             if (isdraggable) {
-                tmp = context.templateLevel.getAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra + _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["Draggableoptions"].axis);
+                tmp = context.templateLevel.getAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"].axis);
             }
             if (isresizable) {
-                tmp = context.templateLevel.getAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes + _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["Resizableoptions"].handles);
+                tmp = context.templateLevel.getAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].handles);
             }
             let currentHandles = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(tmp || '', ' ', '').split(',');
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].arrayRemoveAll(currentHandles, direction);
@@ -14807,20 +15821,27 @@ class StyleEditor {
                 _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ArrayAdd(currentHandles, direction);
             }
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].arrayRemoveAll(currentHandles, '');
-            if (isdraggable && currentHandles.length) {
-                context.templateLevel.setAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra + _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["Draggableoptions"].axis, currentHandles.join(', '));
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].handles !== 'handles', _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].handles);
+            if (isdraggable) {
+                if (currentHandles.length) {
+                    context.templateLevel.setAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"].axis, currentHandles.join(', '));
+                }
+                else {
+                    context.templateLevel.removeAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"].axis);
+                }
             }
-            else
-                context.templateLevel.removeAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra + _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["Draggableoptions"].axis);
-            if (isresizable && currentHandles.length) {
-                context.templateLevel.setAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes + _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["Resizableoptions"].handles, currentHandles.join(', '));
+            if (isresizable) {
+                if (currentHandles.length) {
+                    context.templateLevel.setAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].handles, currentHandles.join(', '));
+                }
+                else {
+                    context.templateLevel.removeAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].handles);
+                }
             }
-            else
-                context.templateLevel.removeAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes + _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["Resizableoptions"].handles);
             console.log('resizable:', isresizable, 'draggable:', isdraggable, currentHandles, 'tmp:', tmp, context);
             context.applyNodeChangesToInput();
         };
-        const rulelist = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Measurable"].getRuleList(context.templateLevel);
+        const rulelist = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Measurable"].getRuleList(context.templateLevel, null, true);
         /*
         for (let key in measurableRules) {
           key = measurableRules[key];
@@ -14829,76 +15850,39 @@ class StyleEditor {
            U.pe(!counter, 'counter not found for rule: ' + key);
           counter.innerText = rulelist[key].length;
         }*/
+        // console.log('rules:', rulelist.all.length, rulelist, context.templateLevel);
+        // $measurableShell.find('.rulecontainer:not(.template)').remove();
         for (i = 0; i < rulelist.all.length; i++) {
             const rule = rulelist.all[i];
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!rule.prefix, 'astdh', rule, rulelist, context.templateLevel);
-            if (rule.prefix === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra && rule.name === _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["Draggableoptions"].axis) {
-                const value = rulelist._jquiDra[i].right;
-                const handles = (value.indexOf('all') !== -1 ? 'x,y' : _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(value, ' ', '')).split(',');
-                let map = {};
-                for (i = 0; i < handles.length; i++) {
-                    switch (handles[i]) {
-                        default: break;
-                        case 'x':
-                            map.x = true;
-                            break;
-                        case 'y':
-                            map.y = true;
-                            break;
-                    }
-                }
-                dragarrows.x.checked = map.x;
-                dragarrows.y.checked = map.y;
+            if (rule.prefix === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra && rule.name === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"].axis)
                 continue;
-            }
-            if (rule.prefix === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes && rule.name === _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["Resizableoptions"].handles) {
-                const handles = (rule.right.indexOf('all') !== -1 ? 'n,e,s,w,ne,se,sw,nw' : _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(rule.right, ' ', '')).split(',');
-                let map = {};
-                for (i = 0; i < handles.length; i++) {
-                    switch (handles[i]) {
-                        default: break;
-                        case 'n':
-                            map.t = true;
-                            break;
-                        case 'ne':
-                            map.tr = true;
-                            break;
-                        case 'nw':
-                            map.tl = true;
-                            break;
-                        case 'e':
-                            map.r = true;
-                            break;
-                        case 'w':
-                            map.l = true;
-                            break;
-                        case 's':
-                            map.b = true;
-                            break;
-                        case 'se':
-                            map.br = true;
-                            break;
-                        case 'sw':
-                            map.bl = true;
-                            break;
-                    }
-                }
-                resizearrows.tl.checked = map.tl;
-                resizearrows.t.checked = map.t;
-                resizearrows.tr.checked = map.tr;
-                resizearrows.ml.checked = map.l;
-                resizearrows.mr.checked = map.r;
-                resizearrows.bl.checked = map.bl;
-                resizearrows.b.checked = map.b;
-                resizearrows.br.checked = map.br;
+            if (rule.prefix === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes && rule.name === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].handles)
                 continue;
-            }
+            if (false) {}
+            if (false) {}
             const fakeevt = {};
-            fakeevt.currentTarget = $measurableShell.find('.ruletitle[data-target=".meas_acc > .panel > .' + rule.prefix + '" > button.addrule')[0];
-            fakeevt.currentTarget = fakeevt.currentTarget.parentElement;
+            fakeevt.currentTarget = $measurableShell.find('.ruletitle[data-target=".meas_acc > .panel > .' + rule.prefix + '"] > button.addrule')[0];
             this.addRule(fakeevt, context, rule);
         }
-        $measurableShell.find('.arrow').on('change', arrowchange).trigger('change');
+        // per leggere la direzione da una freccia htmlcheckbox: getAttribute('direction');
+        let tmp;
+        let j;
+        tmp = context.templateLevel.getAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Draggableoptions"].axis);
+        const dragHandles = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(tmp || '', ' ', '').split(',');
+        tmp = context.templateLevel.getAttribute(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Resizableoptions"].handles);
+        const resHandles = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(tmp || '', ' ', '').split(',');
+        const handlesarr = [dragHandles, resHandles];
+        for (j = 0; j < handlesarr.length; j++) {
+            const handles = handlesarr[j];
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].arrayRemoveAll(handles, '');
+            for (i = 0; i < handles.length; i++) {
+                const arrow = $measurableShell.find('.arrow[direction=' + handles[i] + ']')[0];
+                arrow.checked = true;
+                updateArrowGUI(arrow);
+            }
+        }
+        $measurableShell.find('.arrow').on('change', arrowchange);
         $measurableShell.find('button.addrule').off('click.addrule').on('click.addrule', (e) => { e.stopPropagation(); this.addRule(e, context); });
     }
     getruleShellRoot(node) {
@@ -14910,10 +15894,12 @@ class StyleEditor {
         let i;
         const title = e.currentTarget.parentElement;
         const $title = $(title);
+        //    console.log(title, e);
         const ruletype = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].trimStart(title.dataset.target.substr(title.dataset.target.lastIndexOf('>') + 1), ['.', ' ']);
         const prefix = ruletype;
         const counter = $title.find('.rulecounter')[0];
         counter.innerHTML = '' + (+counter.innerHTML + 1);
+        // U.pe(counter.innerHTML === '2', '2');
         // const targetsectionselector: string = title.dataset.target;
         // const $targetsection: JQuery<HTMLElement> = $measurableShell.find(targetsectionselector) as  JQuery<HTMLElement>;
         const appendparent = title.parentElement;
@@ -14926,6 +15912,7 @@ class StyleEditor {
         const operator = $newtemplate.find('.operatorcontainer > select.operator')[0];
         const right = $newtemplate.find('input.rightside')[0];
         const target = $newtemplate.find('input.target')[0];
+        const $testbutton = $newtemplate.find('button.executedebug');
         const dynamicjquiplaceholder = (valueinput, phinput, phdictionary) => {
             $(valueinput).on('change', () => {
                 let valid = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].validateDatalist(valueinput);
@@ -14941,13 +15928,13 @@ class StyleEditor {
                     _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'unexpected datalist generator:', target, nameinput, left);
                     break;
                 case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRes:
-                    dynamicjquiplaceholder(nameinput, right, _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["ResizableoptionsPH"]);
+                    dynamicjquiplaceholder(nameinput, right, _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ResizableoptionsPH"]);
                     break;
                 case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiDra:
-                    dynamicjquiplaceholder(nameinput, right, _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["DraggableOptionsPH"]);
+                    dynamicjquiplaceholder(nameinput, right, _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["DraggableOptionsPH"]);
                     break;
                 case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"]._jquiRot:
-                    dynamicjquiplaceholder(nameinput, right, _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_3__["RotatableoptionsPH"]);
+                    dynamicjquiplaceholder(nameinput, right, _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["RotatableoptionsPH"]);
                     break;
                 case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"].constraint:
                     dynamicjquiplaceholder(left, right, _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableTemplateGenerator"].constraintPlaceholderMap);
@@ -14960,6 +15947,12 @@ class StyleEditor {
             if (operator)
                 _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].selectHtml(operator, ruleparts.operator);
             right.value = ruleparts.right;
+        }
+        else {
+            if (prefix === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"].onRefresh) {
+                context.templateLevel.classList.add(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ReservedClasses"].onRefresh);
+                context.applyNodeChangesToInput();
+            }
         }
         const rulespanelshell = this.getruleShellRoot(nameinput);
         const $rulespanelshell = $(rulespanelshell);
@@ -15050,7 +16043,7 @@ class StyleEditor {
         const rightChanged = () => {
             updateRule();
         };
-        const nameChanged = () => { setRuleName(nameinput.value); };
+        const nameChanged = () => { setRuleName(nameinput.value = nameinput.value.toLowerCase()); };
         $(nameinput).off('change.name').on('change.name', nameChanged);
         $(left).off('change.leftside').on('change.leftside', leftChanged);
         $(operator).off('change.operator').on('change.operator', operatorChanged);
@@ -15060,10 +16053,53 @@ class StyleEditor {
             newtemplate.parentNode.removeChild(newtemplate);
             context.templateLevel.removeAttribute(generateOldRuleName());
             context.templateLevel.removeAttribute(generateRuleName()); //todo: potrebbe fare casini se qualcuno swappa nomi e cancella una regola?
+            if (prefix === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"].onRefresh) {
+                context.templateLevel.classList.remove(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ReservedClasses"].onRefresh);
+            }
             context.applyNodeChangesToInput();
         });
         if (!ruleparts)
             setRuleName(nameinput.getAttribute('defaultvalue'));
+        const isEventTriggerRule = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Measurable"].eventTriggers.indexOf(prefix) !== -1;
+        let debugleft = $newtemplate.find('.debugleft')[0];
+        let debugoperator = $newtemplate.find('.debugoperator')[0];
+        let debugright = $newtemplate.find('.debugright')[0];
+        let debugtriggers = $newtemplate.find('.debugtriggers')[0];
+        if (!left) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].remove(debugleft.parentElement);
+            debugleft = null;
+        }
+        if (!right) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].remove(debugright.parentElement);
+            debugright = null;
+        }
+        if (!operator) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].remove(debugoperator.parentElement);
+            debugoperator = null;
+        }
+        if (!isEventTriggerRule) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].remove(debugtriggers.parentElement);
+            debugtriggers = null;
+        }
+        let execute = () => {
+            const attr = context.graphLevel.attributes.getNamedItem(generateRuleName());
+            let parts = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](attr, null, true);
+            let output = parts.process(false);
+            console.log('execution output:', output);
+            if (debugleft)
+                debugleft.innerText = output.left;
+            if (debugoperator)
+                debugoperator.innerText = output.operator;
+            if (debugright)
+                debugright.innerText = output.right;
+            if (debugtriggers)
+                debugtriggers.innerText = 'Triggered ' + output.triggeredResults.length + ' rules.';
+        };
+        $testbutton.on('click', execute);
+    }
+    isLoaded() {
+        //todo: carica styleEditor solo quando diventa visibile.
+        return true;
     }
 }
 
@@ -15079,7 +16115,7 @@ class StyleEditor {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid black;\r\n  background-color: transparent; }\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red; }\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: #44444c;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  width: 600px;\r\n  margin-bottom: 5px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCx1QkFBdUI7RUFDdkIsNkJBQTZCLEVBQUU7QUFDakM7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCLEVBQUU7QUFFekI7RUFDRSxrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLE1BQU07RUFDTixVQUFVO0VBQ1YsaUNBQWlDO0VBQ2pDLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtBQUNkO0FBQ0E7RUFDRSxRQUFRO0VBQ1IsU0FBUztFQUNULHdDQUFnQztVQUFoQyxnQ0FBZ0M7RUFDaEMsa0JBQWtCO0VBQ2xCLGNBQWM7RUFDZCxXQUFXO0VBQ1gsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQix3Q0FBd0M7RUFDeEMseUJBQXlCO0FBQzNCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG1CQUFtQixDQUFDO0FBQ3RCO0VBQ0Usa0JBQWtCO0VBQ2xCLG1CQUFtQjtBQUNyQjtBQUNBO0FBQ0E7QUFDQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUlBLHVIQUF1SDtBQUV2SDtFQUNFLHlCQUF5QixFQUFFLDhCQUE4QjtFQUN6RCxZQUFZO0VBQ1osZUFBZTtFQUNmLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixlQUFlO0VBQ2YsV0FBVztFQUNYLGVBQWU7QUFDakI7QUFDQTtFQUNFLGVBQWU7QUFDakI7QUFDQTtFQUNFLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsNENBQTRDO0VBQzVDLGdCQUFnQjtFQUNoQiw0Q0FBNEM7RUFDNUMsVUFBVTtFQUNWLDZDQUE2QztFQUM3QyxVQUFVO0VBQ1YsU0FBUztFQUNULFNBQVM7QUFDWDtBQUNBO0VBQ0UsUUFBUTtFQUNSLE1BQU07RUFDTixVQUFVO0FBQ1o7QUFFQTtFQUNFLFVBQVU7RUFDVixxQkFBcUI7RUFDckIsY0FBYztBQUNoQjtBQUVBO0VBQ0UsK0JBQStCO0FBQ2pDO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7QUFDQSxrREFBa0QsNEJBQTRCLEVBQUU7QUFDaEYsNkdBQTZHO0FBQzdHO0VBQ0UsNkNBQTZDO0VBQzdDLHNCQUFzQjtFQUN0QixnQ0FBZ0M7RUFDaEMsK0JBQStCO0VBQy9CO2lDQUMrQjtBQUNqQztBQUNBO0VBQ0UsNEJBQTRCO0VBQzVCLDZCQUE2QixDQUFDO0FBQ2hDO0VBQ0UsNkNBQTZDO0FBQy9DO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsOEJBQThCO0VBQzlCLGlEQUFpRCxFQUFFLHlGQUF5RjtBQUM5STtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQVk7VUFBWixZQUFZO0VBQ1osY0FBYztFQUNkLFlBQVk7RUFDWixZQUFZLEVBQUU7QUFFaEI7RUFDRSxXQUFXO0VBQ1gsWUFBWTtBQUNkO0FBR0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG1CQUFZO0VBQVosWUFBWTtBQUNkO0FBQ0E7RUFDRSx3QkFBd0I7RUFDeEIsWUFBWTtFQUNaLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxvQ0FBb0M7RUFDcEMsOEJBQThCO0FBQ2hDIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4jdG9wYmFyU2hlbGx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAxMDB2dztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICAvKmJvcmRlci1ib3R0b206IHZhcigtLW1haW5Cb3JkZXIpOyovXHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbiAgbWF4LWhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbn1cclxuI3RvcGJhciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4jdG9wYmFyID4gKiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAvKm1hcmdpbjogYXV0byAwIGF1dG8gMTBweDsgLypUP1JCP0wqL1xyXG59LypcclxuI3RvcGJhciA+IGJ1dHRvbntcclxuICBoZWlnaHQ6IGNhbGModmFyKC0tdG9wYmFySCkgLSAxMHB4KTtcclxuICBmbGV4LWJhc2lzOiAxMDBweDtcclxuICBtaW4td2lkdGg6IDEwMHB4O1xyXG4gIG1heC13aWR0aDogMTAwcHg7XHJcbn0qL1xyXG4jdG9wYmFyIGJ1dHRvbi5kcm9wZG93blRpdGxlOmZvY3Vze1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbntcclxuICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAxMHB4O1xyXG4gIHRvcDogMTBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgd2lkdGg6IDQwcHg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgYmxhY2s7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7IH1cclxuOjpuZy1kZWVwIC5wb3B1cENvbnRlbnQgLmNsb3NlQnV0dG9uOmhvdmVye1xyXG4gIHJpZ2h0OiA1cHg7XHJcbiAgdG9wOiA1cHg7XHJcbiAgaGVpZ2h0OiA1MHB4O1xyXG4gIHdpZHRoOiA1MHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJlZDsgfVxyXG5cclxuOjpuZy1kZWVwIC5zY3JlZW5XaWRlU2hhZG93e1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIHRvcDogMDtcclxuICB6LWluZGV4OiAyO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwwLDAsMC41KTtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgaGVpZ2h0OiAxMDB2aDtcclxuICB3aWR0aDogMTAwdnc7XHJcbn1cclxuOjpuZy1kZWVwIC5wb3B1cENvbnRlbnR7XHJcbiAgdG9wOiA1MCU7XHJcbiAgbGVmdDogNTAlO1xyXG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB3aWR0aDogYXV0bztcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgcGFkZGluZzogMzBweCA2MHB4O1xyXG4gIGJvcmRlcjogNHB4IHNvbGlkIHZhcigtLW1haW5Cb3JkZXJDb2xvcik7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ0NDQ0YztcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3cge1xyXG4gIGhlaWdodDogMjBweDtcclxuICB3aWR0aDogNjAwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdz4qe1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgbWFyZ2luLWJvdHRvbTogYXV0bzt9XHJcbjo6bmctZGVlcCAuYWxpYXN7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93ID4gKntcclxufVxyXG46Om5nLWRlZXAgLnR5cGVOYW1le1xyXG4gIGNvbG9yOiBkYXJrb3JhbmdlO1xyXG59XHJcblxyXG5cclxuXHJcbi8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiogICAgIGRyb3Bkb3duIHN0eWxlICAgICAqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqL1xyXG5cclxuLmRyb3Bkb3duVGl0bGUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGluaGVyaXQ7IC8qdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7Ki9cclxuICBjb2xvcjogdW5zZXQ7XHJcbiAgZm9udC1zaXplOiAxNnB4O1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBwYWRkaW5nOiAxMnB4IDE2cHg7XHJcbiAgY3Vyc29yOiBpbmhlcml0O1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lciB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAvKmhlaWdodDogODAlOyovXHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lci5yaWdodCB7XHJcbiAgbWluLXdpZHRoOiAxMDAlO1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbiAgbWluLXdpZHRoOiAxNjBweDtcclxuICBib3gtc2hhZG93OiAwcHggOHB4IDE2cHggMHB4IHJnYmEoMCwwLDAsMC4yKTtcclxuICB6LWluZGV4OiAxO1xyXG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbjogMDtcclxuICB0b3A6IDEwMCU7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50LnJpZ2h0e1xyXG4gIG1hcmdpbjowO1xyXG4gIHRvcDogMDtcclxuICBsZWZ0OiAxMDAlO1xyXG59XHJcblxyXG5saS5kcm9wZG93bkNvbnRlbnQge1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcblxyXG51bC5kcm9wZG93bkNvbnRlbnQ6bm90KDplbXB0eSl7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMzNweDtcclxufVxyXG4uZHJvcGRvd25UaXRsZS5yaWdodCwgLmRyb3Bkb3ducGFkZGluZ3tcclxuICBmb250LXNpemU6IGluaGVyaXQ7XHJcbiAgcGFkZGluZzogMTJweCAxNnB4O1xyXG59XHJcblxyXG4uZHJvcGRvd25UaXRsZS5yaWdodDpob3ZlciwgLmRyb3Bkb3duQ29udGFpbmVyLnJpZ2h0OmhvdmVyLCAuZHJvcGRvd25wYWRkaW5nOmhvdmVye1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDIzcHg7XHJcbn1cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQudG9kbywgLmRyb3Bkb3ducGFkZGluZy50b2RveyBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwOyB9XHJcbi8qLmRyb3Bkb3duVGl0bGUucmlnaHQudG9kbzpsYXN0LWNoaWxkLCAuZHJvcGRvd25wYWRkaW5nLnRvZG86bGFzdC1jaGlsZHsgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMzNweDsgfSovXHJcbmxpLmRyb3Bkb3duQ29udGVudDpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG4gIC8qcGFkZGluZy1sZWZ0OiAxMnB4OyovXHJcbiAgYm9yZGVyLWxlZnQ6IDhweCBzb2xpZCAjZmYwMDAwYTA7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMzBweDtcclxuICAvKm1hcmdpbi1sZWZ0OiAtMTJweDsgYm90dG9tLXJvdW5kIGJvcmRlciwgdHJvdWJsZSBjb24gc3RpbGkgc292cmFwcG9zdGkgY2hlIGxvIHJpLXNxdWFkcmFuby5cclxuICAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMjRweDsqL1xyXG59XHJcbiN0b3BiYXI+LmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPi5kcm9wZG93blRpdGxle1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDMwcHg7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDMwcHg7fVxyXG4jdG9wYmFyPi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj4uZHJvcGRvd25UaXRsZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG59XHJcblxyXG4uYnV0dG9uR3JpZENvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgLyogd2lkdGg6IGNhbGMoNDBweCAqIDUgLSAxKTsqL1xyXG4gIHdpZHRoOiBtaW4oMjV2dywgY2FsYyg0MHB4ICogNSArIDEwcHggKiA1IC0gMXB4KSk7IC8qIGJ1dHRvbiBzaXplICsgYnV0dG9uc2hlbGwgbWFyZ2luLCA0IHBlciByaWdhIGNvbiBtYXNzaW1vIHNwYXppbyBhdmFuemF0byBwcmltYSBkZWwgNcKwKi9cclxufVxyXG5cclxuLmJ1dHRvbkdyaWRNaW5NYXJnaW4ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtc2hyaW5rOiAwO1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBwYWRkaW5nOiA1cHg7IH1cclxuXHJcbi5idXR0b25HcmlkIHtcclxuICB3aWR0aDogNDVweDtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbn1cclxuXHJcblxyXG51bC5kcm9wZG93bkNvbnRlbnR7XHJcbiAgbWluLWhlaWdodDogMTAwJTtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+dWwuZHJvcGRvd25Db250ZW50IHtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG4uZHJvcGRvd25Db250YWluZXI6aG92ZXIgPiB1bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHl7XHJcbiAgZGlzcGxheTpmbGV4O1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudDplbXB0eTpiZWZvcmV7XHJcbiAgY29udGVudDogJy4uLiBFbXB0eSAuLi4nO1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudDplbXB0eTpob3ZlcntcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBkYXJrcmVkICFpbXBvcnRhbnQ7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZCAhaW1wb3J0YW50O1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid black;\r\n  background-color: transparent; }\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red; }\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  width: 600px;\r\n  margin-bottom: 5px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCx1QkFBdUI7RUFDdkIsNkJBQTZCLEVBQUU7QUFDakM7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCLEVBQUU7QUFFekI7RUFDRSxrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLE1BQU07RUFDTixVQUFVO0VBQ1YsaUNBQWlDO0VBQ2pDLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtBQUNkO0FBQ0E7RUFDRSxRQUFRO0VBQ1IsU0FBUztFQUNULHdDQUFnQztVQUFoQyxnQ0FBZ0M7RUFDaEMsa0JBQWtCO0VBQ2xCLGNBQWM7RUFDZCxXQUFXO0VBQ1gsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQix3Q0FBd0M7RUFDeEMsNENBQTRDO0FBQzlDO0FBQ0E7RUFDRSxZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG1CQUFtQixDQUFDO0FBQ3RCO0VBQ0Usa0JBQWtCO0VBQ2xCLG1CQUFtQjtBQUNyQjtBQUNBO0FBQ0E7QUFDQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUlBLHVIQUF1SDtBQUV2SDtFQUNFLHlCQUF5QixFQUFFLDhCQUE4QjtFQUN6RCxZQUFZO0VBQ1osZUFBZTtFQUNmLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixlQUFlO0VBQ2YsV0FBVztFQUNYLGVBQWU7QUFDakI7QUFDQTtFQUNFLGVBQWU7QUFDakI7QUFDQTtFQUNFLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsNENBQTRDO0VBQzVDLGdCQUFnQjtFQUNoQiw0Q0FBNEM7RUFDNUMsVUFBVTtFQUNWLDZDQUE2QztFQUM3QyxVQUFVO0VBQ1YsU0FBUztFQUNULFNBQVM7QUFDWDtBQUNBO0VBQ0UsUUFBUTtFQUNSLE1BQU07RUFDTixVQUFVO0FBQ1o7QUFFQTtFQUNFLFVBQVU7RUFDVixxQkFBcUI7RUFDckIsY0FBYztBQUNoQjtBQUVBO0VBQ0UsK0JBQStCO0FBQ2pDO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7QUFDQSxrREFBa0QsNEJBQTRCLEVBQUU7QUFDaEYsNkdBQTZHO0FBQzdHO0VBQ0UsNkNBQTZDO0VBQzdDLHNCQUFzQjtFQUN0QixnQ0FBZ0M7RUFDaEMsK0JBQStCO0VBQy9CO2lDQUMrQjtBQUNqQztBQUNBO0VBQ0UsNEJBQTRCO0VBQzVCLDZCQUE2QixDQUFDO0FBQ2hDO0VBQ0UsNkNBQTZDO0FBQy9DO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsOEJBQThCO0VBQzlCLGlEQUFpRCxFQUFFLHlGQUF5RjtBQUM5STtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQVk7VUFBWixZQUFZO0VBQ1osY0FBYztFQUNkLFlBQVk7RUFDWixZQUFZLEVBQUU7QUFFaEI7RUFDRSxXQUFXO0VBQ1gsWUFBWTtBQUNkO0FBR0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG1CQUFZO0VBQVosWUFBWTtBQUNkO0FBQ0E7RUFDRSx3QkFBd0I7RUFDeEIsWUFBWTtFQUNaLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxvQ0FBb0M7RUFDcEMsOEJBQThCO0FBQ2hDO0FBSUEsd0NBQXdDO0FBQ3hDO0VBQ0UsZUFBZTtBQUNqQiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvdG9wLWJhci90b3AtYmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuI3RvcGJhclNoZWxse1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1iYXNpczogMTAwdnc7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbiAgLypib3JkZXItYm90dG9tOiB2YXIoLS1tYWluQm9yZGVyKTsqL1xyXG4gIHdpZHRoOiAxMDB2dztcclxuICBoZWlnaHQ6IHZhcigtLXRvcGJhckgpO1xyXG4gIG1heC1oZWlnaHQ6IHZhcigtLXRvcGJhckgpO1xyXG59XHJcbiN0b3BiYXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuI3RvcGJhciA+ICoge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLyptYXJnaW46IGF1dG8gMCBhdXRvIDEwcHg7IC8qVD9SQj9MKi9cclxufS8qXHJcbiN0b3BiYXIgPiBidXR0b257XHJcbiAgaGVpZ2h0OiBjYWxjKHZhcigtLXRvcGJhckgpIC0gMTBweCk7XHJcbiAgZmxleC1iYXNpczogMTAwcHg7XHJcbiAgbWluLXdpZHRoOiAxMDBweDtcclxuICBtYXgtd2lkdGg6IDEwMHB4O1xyXG59Ki9cclxuI3RvcGJhciBidXR0b24uZHJvcGRvd25UaXRsZTpmb2N1c3tcclxuICBvdXRsaW5lOiBub25lO1xyXG59XHJcblxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudCAuY2xvc2VCdXR0b257XHJcbiAgLyogZmxvYXQ6IHJpZ2h0OyAqL1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICByaWdodDogMTBweDtcclxuICB0b3A6IDEwcHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIHdpZHRoOiA0MHB4O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyB9XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbjpob3ZlcntcclxuICByaWdodDogNXB4O1xyXG4gIHRvcDogNXB4O1xyXG4gIGhlaWdodDogNTBweDtcclxuICB3aWR0aDogNTBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7IH1cclxuXHJcbjo6bmctZGVlcCAuc2NyZWVuV2lkZVNoYWRvd3tcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICB0b3A6IDA7XHJcbiAgei1pbmRleDogMjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNSk7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50e1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHBhZGRpbmc6IDMwcHggNjBweDtcclxuICBib3JkZXI6IDRweCBzb2xpZCB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdyB7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIHdpZHRoOiA2MDBweDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93Pip7XHJcbiAgbWFyZ2luLXRvcDogYXV0bztcclxuICBtYXJnaW4tYm90dG9tOiBhdXRvO31cclxuOjpuZy1kZWVwIC5hbGlhc3tcclxuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3cgPiAqe1xyXG59XHJcbjo6bmctZGVlcCAudHlwZU5hbWV7XHJcbiAgY29sb3I6IGRhcmtvcmFuZ2U7XHJcbn1cclxuXHJcblxyXG5cclxuLyoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiAgICAgZHJvcGRvd24gc3R5bGUgICAgICoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovXHJcblxyXG4uZHJvcGRvd25UaXRsZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogaW5oZXJpdDsgLyp2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTsqL1xyXG4gIGNvbG9yOiB1bnNldDtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIHBhZGRpbmc6IDEycHggMTZweDtcclxuICBjdXJzb3I6IGluaGVyaXQ7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyIHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIC8qaGVpZ2h0OiA4MCU7Ki9cclxuICB3aWR0aDogYXV0bztcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyLnJpZ2h0IHtcclxuICBtaW4td2lkdGg6IDEwMCU7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50IHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICBtaW4td2lkdGg6IDE2MHB4O1xyXG4gIGJveC1zaGFkb3c6IDBweCA4cHggMTZweCAwcHggcmdiYSgwLDAsMCwwLjIpO1xyXG4gIHotaW5kZXg6IDE7XHJcbiAgYm9yZGVyOiAzcHggc29saWQgdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgbWFyZ2luOiAwO1xyXG4gIHRvcDogMTAwJTtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQucmlnaHR7XHJcbiAgbWFyZ2luOjA7XHJcbiAgdG9wOiAwO1xyXG4gIGxlZnQ6IDEwMCU7XHJcbn1cclxuXHJcbmxpLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgcGFkZGluZzogMDtcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbnVsLmRyb3Bkb3duQ29udGVudDpub3QoOmVtcHR5KXtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAzM3B4O1xyXG59XHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0LCAuZHJvcGRvd25wYWRkaW5ne1xyXG4gIGZvbnQtc2l6ZTogaW5oZXJpdDtcclxuICBwYWRkaW5nOiAxMnB4IDE2cHg7XHJcbn1cclxuXHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0OmhvdmVyLCAuZHJvcGRvd25Db250YWluZXIucmlnaHQ6aG92ZXIsIC5kcm9wZG93bnBhZGRpbmc6aG92ZXJ7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMjNweDtcclxufVxyXG4uZHJvcGRvd25UaXRsZS5yaWdodC50b2RvLCAuZHJvcGRvd25wYWRkaW5nLnRvZG97IGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7IH1cclxuLyouZHJvcGRvd25UaXRsZS5yaWdodC50b2RvOmxhc3QtY2hpbGQsIC5kcm9wZG93bnBhZGRpbmcudG9kbzpsYXN0LWNoaWxkeyBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAzM3B4OyB9Ki9cclxubGkuZHJvcGRvd25Db250ZW50OmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgLypwYWRkaW5nLWxlZnQ6IDEycHg7Ki9cclxuICBib3JkZXItbGVmdDogOHB4IHNvbGlkICNmZjAwMDBhMDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAzMHB4O1xyXG4gIC8qbWFyZ2luLWxlZnQ6IC0xMnB4OyBib3R0b20tcm91bmQgYm9yZGVyLCB0cm91YmxlIGNvbiBzdGlsaSBzb3ZyYXBwb3N0aSBjaGUgbG8gcmktc3F1YWRyYW5vLlxyXG4gICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAyNHB4OyovXHJcbn1cclxuI3RvcGJhcj4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+LmRyb3Bkb3duVGl0bGV7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMzBweDtcclxuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMzBweDt9XHJcbiN0b3BiYXI+LmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPi5kcm9wZG93blRpdGxlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbn1cclxuXHJcbi5idXR0b25HcmlkQ29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICAvKiB3aWR0aDogY2FsYyg0MHB4ICogNSAtIDEpOyovXHJcbiAgd2lkdGg6IG1pbigyNXZ3LCBjYWxjKDQwcHggKiA1ICsgMTBweCAqIDUgLSAxcHgpKTsgLyogYnV0dG9uIHNpemUgKyBidXR0b25zaGVsbCBtYXJnaW4sIDQgcGVyIHJpZ2EgY29uIG1hc3NpbW8gc3BhemlvIGF2YW56YXRvIHByaW1hIGRlbCA1wrAqL1xyXG59XHJcblxyXG4uYnV0dG9uR3JpZE1pbk1hcmdpbiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1zaHJpbms6IDA7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIHBhZGRpbmc6IDVweDsgfVxyXG5cclxuLmJ1dHRvbkdyaWQge1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIGhlaWdodDogNDVweDtcclxufVxyXG5cclxuXHJcbnVsLmRyb3Bkb3duQ29udGVudHtcclxuICBtaW4taGVpZ2h0OiAxMDAlO1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj51bC5kcm9wZG93bkNvbnRlbnQge1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lcjpob3ZlciA+IHVsLmRyb3Bkb3duQ29udGVudDplbXB0eXtcclxuICBkaXNwbGF5OmZsZXg7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50OmVtcHR5OmJlZm9yZXtcclxuICBjb250ZW50OiAnLi4uIEVtcHR5IC4uLic7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50OmVtcHR5OmhvdmVye1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGRhcmtyZWQgIWltcG9ydGFudDtcclxuICBjdXJzb3I6IG5vdC1hbGxvd2VkICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcblxyXG5cclxuLyoqKioqKioqKiogICAgIGNoYW5nZWxvZyAgICAgKioqKioqKioqKi9cclxuLmNoYW5nZWxvZ1Jvb3R7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -15116,15 +16152,15 @@ TopBarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 class TopBar {
     constructor() {
-        this.$html = null;
+        this.$shell = null;
         this.$topbar = null;
         this.html = null;
         this.topbar = null;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!!TopBar.topbar, 'top bar instantiated twice, but it is a singleton.');
         TopBar.topbar = this;
-        this.$html = $('#topbarShell');
-        this.html = this.$html[0];
-        this.$topbar = this.$html.find('#topbar');
+        this.$shell = $('#topbarShell');
+        this.html = this.$shell[0];
+        this.$topbar = this.$shell.find('#topbar');
         this.topbar = this.$topbar[0];
         TopBar.topbar.updateRecents();
         this.addEventListeners();
@@ -15291,8 +16327,8 @@ class TopBar {
             tmp = JSON.stringify([]);
         }
         const mSaveList = JSON.parse(tmp);
-        const $metamodelHtml = this.$html.find('.metamodel');
-        const $modelHtml = this.$html.find('.model');
+        const $metamodelHtml = this.$shell.find('.metamodel');
+        const $modelHtml = this.$shell.find('.model');
         const recentContainerMM = $metamodelHtml.find('.recentSaveContainer')[0];
         const recentContainerM = $modelHtml.find('.recentSaveContainer')[0];
         console.log(recentContainerM, recentContainerMM);
@@ -15333,7 +16369,13 @@ class TopBar {
         const $t = this.$topbar;
         const $m2 = $t.find('.metamodel');
         const $m1 = $t.find('.model');
+        TopBar.$checkboxesTheme = $t.find('input.themename');
         $t.find('.TypeMapping').off('click.btn').on('click.btn', (e) => { TopBar.topbar.showTypeMap(); });
+        $t.find('.changelogbutton').off('click.btn').on('click.btn', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ChangelogRoot"].show(); });
+        TopBar.$checkboxesTheme.off('change.btn').on('change.btn', (e) => {
+            const checkboxTriggered = e.currentTarget;
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["WebsiteTheme"].setTheme(checkboxTriggered);
+        });
         $m2.find('.save').off('click.btn').on('click.btn', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.save(false, true); });
         $m1.find('.save').off('click.btn').on('click.btn', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.save(false, true); });
         // download
@@ -15352,7 +16394,7 @@ class TopBar {
         $m1.find('.loadTxt').off('click.btn').on('click.btn', (e) => { TopBar.load_JSON_Text(e, 'm'); });
     }
     showTypeMap() {
-        const $shell = this.$html.find('#TypeMapper');
+        const $shell = this.$shell.find('#TypeMapper');
         const $html = $shell.find('.TypeList');
         const html = $html[0];
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].clear(html);
@@ -17949,34 +18991,6 @@ class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
         this.getVertex().refreshGUI();
     }
     getReferencePointingHere() { return this.referencesIN; }
-    /*getStyle_oldhtml(): SVGForeignObjectElement {
-      const html: Element = super.getStyle().html; // U.removeemptynodes(super.getStyle(), true);
-      const container: SVGForeignObjectElement = html as SVGForeignObjectElement; //U.newSvg<SVGForeignObjectElement>('foreignObject');
-      const size: Size = new Size(0, 0, 0, 0);
-      // todo: devi specificarlo che x, y, width, height sono attributi speciali assegnabili agli HTMLElement non-svg e vengono trasmessi.
-      // todo: pondera l'uso di U.cloneAllAttributes(html, container); per trasferire gli attributi dell' userStyle-root nell'SvgForeignElem.
-  
-      const firstChild: HTMLElement = container.firstChild as HTMLElement;
-      if (!firstChild.style.height || firstChild.style.height === '') { firstChild.style.height = 'auto'; }
-      if (firstChild.style.height === 'auto') { container.dataset.autosize = 'true'; }
-      else if (container.dataset.autosize === 'true') { firstChild.style.height = 'auto'; }
-      // (html.firstChild as HTMLElement).style.height = 'auto'; // allows autosize.
-  
-  
-      container.classList.add('Class');
-      container.setAttributeNS(null, 'dinamico', 'true');
-      /*
-      size.x = +html.getAttribute('x');
-      size.y = +html.getAttribute('y');
-      size.w = +html.getAttribute('width');
-      size.h = +html.getAttribute('height');
-      container.setAttributeNS(null, 'x', isNaN(size.x) ? '0' : '' + size.x);
-      container.setAttributeNS(null, 'y', isNaN(size.y) ? '0' : '' + size.y);
-      container.setAttributeNS(null, 'width', isNaN(size.w) ? '200' : '' + size.w);
-      container.setAttributeNS(null, 'height', isNaN(size.h) ? '100' : '' + size.h);
-      container.appendChild(html);* /
-      return container; }
-  */
     getAttribute(name, caseSensitive = false) {
         let i;
         if (!caseSensitive) {

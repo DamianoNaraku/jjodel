@@ -57,14 +57,14 @@ import {
   IEdge,
   IVertex,
   ExtEdge,
-  EdgePoint, ViewRule, MeasurableRuleParts
+  EdgePoint, ViewRule, MeasurableRuleParts, Rotatableoptions, Resizableoptions, Draggableoptions, WebsiteTheme, ChangelogRoot,
 } from '../common/Joiner';
 import { PropertyBarrComponent }   from '../guiElements/property-barr/property-barr.component';
 import { MGraphHtmlComponent }     from '../guiElements/m-graph-html/m-graph-html.component';
 import { DamContextMenuComponent } from '../guiElements/dam-context-menu/dam-context-menu.component';
 import { StyleEditorComponent }    from '../guiElements/style-editor/style-editor.component';
 import { ConsoleComponent }        from '../guiElements/console/console.component';
-import { MeasurabletemplateComponent } from './measurabletemplate/measurabletemplate.component';
+import {MeasurabletemplateComponent} from './measurabletemplate/measurabletemplate.component';
 import KeyDownEvent = JQuery.KeyDownEvent;
 
 // @ts-ignore
@@ -163,21 +163,25 @@ export class Status {
 
 
 export function main0(loadEvent: Event, tentativi: number = 0) {
-  // EcoreLayer.test2(); return;
-  Status.status = new Status();
-  (window as any).global = window;
-  // (window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;
-  if (document.getElementById('MM_INPUT') === null) {
-    if (tentativi++ >= 10)  { U.pe(true, 'failed to load MM_INPUT'); }
-    setTimeout(() => main0(null, tentativi), 100);
-    console.log('main0 wait(100)');
-    return;
-  }// else { mainForceTabChange(0); }
+  try {
+    Status.status = new Status();
+    (window as any).global = window;
+    // (window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;
+    if (document.getElementById('MM_INPUT') === null) {
+      if (tentativi++ >= 10)  { U.pe(true, 'failed to load MM_INPUT'); }
+      setTimeout(() => main0(null, tentativi), 100);
+      console.log('main0 wait(100)');
+      return; }// else { mainForceTabChange(0); }
 
-  // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.js');
-  // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.structure.js');
-  // U.loadScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js');
-  main();
+    // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.js');
+    // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.structure.js');
+    // U.loadScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js');
+    main(); }
+    catch (e) {
+      const errormsg = 'initialization failed, this is likely caused by a failure on connection while downloading libraries or by unsupported browser.';
+      console.log('first error:', e);
+      try { U.pw(true, errormsg); } catch(ee) { console.log('second error while printing:', ee); document.body.innerHTML = errormsg; }
+    }
   // console.log('main(), $ loaded:', $ !== undefined, 'status: ', Status.status);
 }
 /*function mainForceTabChange(tentativi: number = 0) {
@@ -251,6 +255,9 @@ function globalevents(): void {
   window['' + 'M3Attribute'] = M3Attribute;
   window['' + 'M2Attribute'] = M2Attribute;
   window['' + 'MAttribute'] = MAttribute;
+  window['Rotatableoptions'] = Rotatableoptions;
+  window['Resizableoptions'] = Resizableoptions;
+  window['Draggableoptions'] = Draggableoptions;
   window['' + 'help'] = [
     'setBackup (backup <= saveToDB)',
     'backupSave (saveToDB <= backup)',
@@ -290,11 +297,13 @@ function setBootstrapOnLowestPriority() {
   for(let i = 0; i < $s.length; i++) {
     if ($s[i].innerText.substring(0, 220).indexOf('https://getbootstrap.com/') === -1) continue;
     document.head.prepend($s[i]);
-    return;
-  }
-
+    return; }
 }
+
 function main() {
+  let tmp: any;
+  let useless: any;
+  let i: number;
   setBootstrapOnLowestPriority();
   (window as any).U = U;
   (window as any).status = Status.status;
@@ -313,15 +322,18 @@ function main() {
     else { U.pe(true, 'unrecognized right-side tab:', e.currentTarget); }
   });
   U.resizableBorderSetup();
+
+  const $resizableBorders: JQuery<HTMLElement> = $('.resizableBorder.side, .resizableBorder.corner');
+  for (i = 0; i < $resizableBorders.length; i++) { $resizableBorders[i].style.borderColor = 'var(--mainBorderColor)'; }
+
+  ChangelogRoot.CheckUpdates();
+
   ECoreRoot.initializeAllECoreEnums();
   globalevents();
   MeasurableRuleParts.staticinit();
   IVertex.staticinit();
   IEdge.staticInit();
   new MyConsole();
-  let tmp: any;
-  let useless: any;
-  let i: number;
   U.pw((tmp = +DetectZoom.device()) !== 1, 'Current zoom level is different from 100%.',
     'The graph part of this website may be graphically misplaced due to a bug with Svg\'s <foreignObject> content.',
     'current zoom:' + (+tmp * 100) + '%',
@@ -367,6 +379,7 @@ function main() {
 
   Status.status.mmm = new MetaMetaModel(null);
   useless = new TopBar();
+  WebsiteTheme.setTheme();
   try {
     Status.status.mm = new MetaModel(JSON.parse(savem2.model), Status.status.mmm);
   } catch(e) {
@@ -455,7 +468,6 @@ function main() {
   }
 
   IEdge.all.forEach((e: IEdge) => { e.refreshGui(); });
-
   // setTimeout( () => { Status.status.mm.graph.setGrid0(); Status.status.m.graph.setGrid0(); }, 1);
   // Imposto un autosave raramente (minuti) giusto nel caso di crash improvvisi o disconnessioni
   // per evitare di perdere oltre X minuti di lavoro.

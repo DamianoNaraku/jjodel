@@ -14,7 +14,7 @@ import {
   Status,
   Size,
   IReference, GraphPoint, GraphSize,
-  PropertyBarr, Dictionary, IClass, ViewPoint, EOperation, EParameter, Point, EEnum, ExtEdge
+  PropertyBarr, Dictionary, IClass, ViewPoint, EOperation, EParameter, Point, EEnum, ExtEdge, measurableRules
 } from '../../common/Joiner';
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
@@ -23,6 +23,7 @@ import ClickEvent = JQuery.ClickEvent;
 import KeyDownEvent = JQuery.KeyDownEvent;
 import BlurEvent = JQuery.BlurEvent;
 import ChangeEvent = JQuery.ChangeEvent;
+import {StartDragContext} from './Vertex/iVertex';
 
 
 export class ViewPointShell {
@@ -392,7 +393,19 @@ export class IGraph {
 
   onMouseUp(evt: MouseUpEvent): void {
     if (this.isMoving) { this.isMoving = this.clickedScroll = null; }
+    const v: IVertex = IVertex.selected;
+    const vcontext: StartDragContext = IVertex.startDragContext;
+    if (!v) return;
     IVertex.selected = null;
+    IVertex.startDragContext = null;
+    v.owner.grid.x = IVertex.selectedGridWasOn.x;
+    v.owner.grid.y = IVertex.selectedGridWasOn.y;
+    IVertex.selectedGridWasOn.x = 'prevent_doublemousedowncheck' as any;
+    IVertex.selectedGridWasOn.y = 'prevent_doublemousedowncheck' as any;
+    const gotMoved = !vcontext.size.tl().equals(v.size.tl(), 0);
+    if (!gotMoved) return;
+    v.owner.fitToGridS(v.size, false);
+    v.setSize(v.size, false, true, measurableRules.onDragEnd);
   }
 
   onMouseMoveSetReference(evt: MouseMoveEvent, edge: IEdge): void {
@@ -412,8 +425,12 @@ export class IGraph {
     // console.log('evt:', evt);
     let currentGraphCoord: GraphPoint = this.toGraphCoord(currentMousePos);
     currentGraphCoord = currentGraphCoord.subtract(IVertex.selectedStartPt, false);
-    if (!v.dragaxis.x) currentGraphCoord.x = null;
-    if (!v.dragaxis.y) currentGraphCoord.y = null;
+    const axis: string = v.dragConfig && v.dragConfig.axis;
+    const isMeasurable = v.dragConfig;
+    //NB: axis null = both. axis undefined or empty string = no-one.
+    if (isMeasurable) {
+      if (axis === undefined || axis !== null && axis.indexOf('x') === -1) currentGraphCoord.x = null;
+      if (axis === undefined || axis !== null && axis.indexOf('y') === -1) currentGraphCoord.y = null; }
     v.moveTo(currentGraphCoord); }
 
   onMouseMoveDrag(e: MouseMoveEvent): void {

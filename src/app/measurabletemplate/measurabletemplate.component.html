@@ -8,46 +8,46 @@
           <h6 class="boxtitle">Resizable handles</h6>
           <div class="rectangledrawing outer">
             <div class="top row">
-              <input type="checkbox" class="arrow corner top left">
-              <input type="checkbox" class="arrow side top">
-              <input type="checkbox" class="arrow corner top right">
+              <input type="checkbox" class="arrow corner top left" direction="nw">
+              <input type="checkbox" class="arrow side top" direction="n">
+              <input type="checkbox" class="arrow corner top right" direction="ne">
             </div>
             <div class="mid row">
-              <input type="checkbox" class="arrow side left">
+              <input type="checkbox" class="arrow side left" direction="w">
               <div class="middle">
                 <div class="rectangledrawing inner">
                   <div class="top row">
-                    <div class="corner top left"></div>
-                    <div class="side top"></div>
-                    <div class="corner top right"></div>
+                    <div class="corner top left" direction="nw"></div>
+                    <div class="side top" direction="n"></div>
+                    <div class="corner top right" direction="ne"></div>
                   </div>
                   <div class="mid row">
-                    <div class="side left"></div>
+                    <div class="side left" direction="w"></div>
                     <div class="middle">
                     </div>
-                    <div class="side right"></div>
+                    <div class="side right" direction="e"></div>
                   </div>
                   <div class="bot row">
-                    <div class="corner bot left"></div>
-                    <div class="side bot"></div>
-                    <div class="corner bot right"></div>
+                    <div class="corner bot left" direction="sw"></div>
+                    <div class="side bot" direction="s"></div>
+                    <div class="corner bot right" direction="se"></div>
                   </div>
                 </div>
               </div>
-              <input type="checkbox" class="arrow side right">
+              <input type="checkbox" class="arrow side right" direction="e">
             </div>
             <div class="bot row">
-              <input type="checkbox" class="arrow corner bot left">
-              <input type="checkbox" class="arrow side bot">
-              <input type="checkbox" class="arrow corner bot right">
+              <input type="checkbox" class="arrow corner bot left" direction="sw">
+              <input type="checkbox" class="arrow side bot" direction="s">
+              <input type="checkbox" class="arrow corner bot right" direction="se">
             </div>
           </div>
         </div>
         <div class="draggable boxroot">
           <h6 class="boxtitle">Draggable directions</h6>
           <div class="rectangledrawing directions">
-            <input type="checkbox" class="arrow arrowh drag">
-            <input type="checkbox" class="arrow arrowv drag">
+            <input type="checkbox" class="arrow arrowh drag" direction="x">
+            <input type="checkbox" class="arrow arrowv drag" direction="y">
           </div>
         </div>
       </div>
@@ -92,12 +92,19 @@
               <input type="text" class="form-control rightside" placeholder="#######">
             </div><input type="text" class="form-control target" placeholder="Rel. target selector">
             <div class="measurabledebug rowcontainer">
-              <button class="btn btn-primary">Test it!</button>
-              <span class="measurableoutputtext" tabindex="-1"><span>Output: </span><span class="text"></span></span>
-              <span class="measurablewarningtext" tabindex="-1"><span>Warnings: </span><span class="text"></span></span>
-              <span class="measurableerrortext" tabindex="-1"><span>Errors: </span><span class="text"></span></span>
+              <button class="btn btn-primary executedebug">Test it!</button>
+              <span class="debugrows" tabindex="-1">
+                <span class="measurableoktext"><span>Debug output: </span></span>
+                <span class="measurablewarningtext" tabindex="-1"><span>Left: </span><span class="measurableoutputtext debugleft"></span></span>
+                <span class="measurablewarningtext" tabindex="-1"><span>Operator: </span><span class="measurableoutputtext debugoperator"></span></span>
+                <span class="measurablewarningtext" tabindex="-1"><span>Right: </span><span class="measurableoutputtext debugright"></span></span>
+                <span class="measurablewarningtext" tabindex="-1"><span>Triggers: </span><span class="measurableoutputtext debugtriggers"></span></span>
+                <!--
+                <span class="measurablewarningtext" tabindex="-1"><span>Warnings: </span><span class="text"></span></span>
+                <span class="measurableerrortext" tabindex="-1"><span>Errors: </span><span class="text"></span></span>
+                -->
+              </span>
             </div>
-
           </div>
         </div>
       </div>

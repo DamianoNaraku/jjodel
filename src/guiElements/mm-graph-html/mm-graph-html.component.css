@@ -1,12 +1,10 @@
-::ng-deep foreignObject.Class *{
+
+/*::ng-deep foreignObject.Class *{
   cursor: default;
 }
 ::ng-deep foreignObject.Class input, foreignObject.Class *[contenteditable="true"], foreignObject.Class textarea{
   cursor: text;
-}
-::ng-deep foreignObject.Class select{
-  cursor: pointer;
-}
+} ::ng-deep foreignObject.Class select{ cursor: pointer; }*/
 
 /* viewpoint */
 ::ng-deep .viewpointShell{

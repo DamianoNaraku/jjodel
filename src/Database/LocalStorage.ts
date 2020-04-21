@@ -103,6 +103,7 @@ export class LocalStorage {
 
   rename(oldKey: string, newKey: string, saveList: SaveListEntry): void {
     const oldVal: any = this.get(oldKey, saveList);
+    if (U.isUnset(oldVal)) return;
     this.remove(oldKey, saveList);
     this.add(newKey, oldVal, saveList); }
 

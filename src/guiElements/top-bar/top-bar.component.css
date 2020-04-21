@@ -61,7 +61,7 @@
   height: auto;
   padding: 30px 60px;
   border: 4px solid var(--mainBorderColor);
-  background-color: #44444c;
+  background-color: var(--mainBackgroundColor);
 }
 ::ng-deep .typeRow {
   height: 20px;
@@ -192,4 +192,11 @@ ul.dropdownContent:empty:before{
 ul.dropdownContent:empty:hover{
   background-color: darkred !important;
   cursor: not-allowed !important;
+}
+
+
+
+/**********     changelog     **********/
+.changelogRoot{
+  position: fixed;
 }

@@ -9,7 +9,7 @@
   ModelPiece, MetaMetaModel,
   ISidebar, XMIModel,
   IGraph, IModel, Status,
-  ECoreClass, ECorePackage, ECoreRoot, ECoreOperation, MAttribute, IClass, IClassifier, ECoreAnnotation, ECoreEnum, MyException
+  ECoreClass, ECorePackage, ECoreRoot, ECoreOperation, MAttribute, IClass, IClassifier, ECoreAnnotation, ECoreEnum, MyException, Measurable
 } from './Joiner';
 
 import ClickEvent = JQuery.ClickEvent;
@@ -193,13 +193,19 @@ export class InputPopup {
         }, errormsg: 'pattern violated.'});
     }
     document.body.appendChild(this.html);
-    this.html.style.display = 'block'; }
-  hide(): void { this.html.style.display = 'none'; }
-  destroy(): null {
-    if (this.html && this.html.parentNode) {
-      this.html.parentNode.removeChild(this.html);
-      return this.html = null; }
+    this.html.style.display = 'none';
+    $(this.html).slideDown(400);
   }
+  hide(): void {
+    this.html.style.display = 'block';
+    $(this.html).slideUp(400, () => { this.html.style.display = 'none'; }); }
+  destroy(): null {
+    this.html.style.display = 'block';
+    $(this.html).slideUp(400, () => {
+      if (this.html && this.html.parentNode) {
+        this.html.parentNode.removeChild(this.html);
+        this.html = null; }} );
+    return null; }
 
   addOkButton(load1: string, finish: () => void) {
     const input: HTMLElement = this.getInputNode()[0];
@@ -211,9 +217,10 @@ export class InputPopup {
     $(button).on('click.btnclickpopup', finish);
   }
 
+  setPostHtml(node: Element) { $(this.html).find('.textPre')[0].append(node); }
   setPostText(str: string) { $(this.html).find('.textPre')[0].innerHTML = str; }
   setErrText(str: string) {
-    U.pw(true, str);
+    U.pe(true, 'InputPopup.setErrText is deprecated:', str);
     /*
     const $err = $(this.html).find('.errors');
     if (!str) { $err.hide(); return; }
@@ -253,14 +260,50 @@ export enum ShortAttribETypes {
 
 }
 
-export class EvalOutput {
-  outContext: object;
+export class EvalOutput<T extends Object> {
+  outContext: T;
   return: any;
   exception: MyException;
 }
 
+class EvalContext {
+  private static EC_ParStr: string;
+  private static EC_TmpParContext: object;
+  private static EC_TmpAllowcontextEvalEdit: boolean;
+  private static EC_TmpKey: string;
+  static EC_ret: any;
+  static EC_exception: MyException;
+  constructor(context: object, str: string, allowContextEvalEdit: boolean) {
+    EvalContext.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
+    EvalContext.EC_ParStr = str;
+    EvalContext.EC_TmpParContext = context;
+    EvalContext.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
+    EvalContext.EC_ret = undefined;
+    EvalContext.EC_exception = null;
+    console.log('evalincontext: this', this, 'context:', context);
+    delete this['str'];
+    delete this['context'];
+    delete this['allowContextEvalEdit'];
+    // tengo tutte le chiavi al di fuori per non sporcare "this" con variabili locali mentre faccio diventare "this" una shallowcopy di "context"
+    for (EvalContext.EC_TmpKey in EvalContext.EC_TmpParContext) { this['' + EvalContext.EC_TmpKey] = EvalContext.EC_TmpParContext['' + EvalContext.EC_TmpKey]; }
+    try { EvalContext.EC_ret = eval(EvalContext.EC_ParStr); } catch (e) { EvalContext.EC_exception = e; }
+    if (!EvalContext.EC_TmpAllowcontextEvalEdit) return;
+    for (EvalContext.EC_TmpKey in this) { EvalContext.EC_TmpParContext['' + EvalContext.EC_TmpKey] = this['' + EvalContext.EC_TmpKey]; }
+  }
+}
+
+export class SelectorOutput {
+  jqselector: string;
+  attrselector: string;
+  attrRegex: RegExp;
+  exception: any;
+  resultSetAttr: Attr[];
+  resultSetElem: JQuery<Element>;
+}
+
 export class U {
   public static loopcounter = 0;
+  public static readonly AttributeSelectorOperator: '->' = '->';
   private static prefix = 'ULibrary_';
   private static sizeofvar: HTMLElement = null;
   private static $sizeofvar: JQuery<HTMLElement> = null;
@@ -287,7 +330,7 @@ export class U {
   static mouseWheelButtons: number = 4;
   static mouseBackButtons: number = 8;
   static mouseForwardButtons: number = 16;
-  static vertexOldPos: GraphPoint = null;
+  // static vertexOldPos: GraphPoint = null;
 
   // todo: move @ start
   static checkDblClick(): boolean {
@@ -297,37 +340,7 @@ export class U {
     console.log('dblclick time:', now - old, now, old);
     return (now - old <= U.dblclicktimerms); }
 
-  private static EC_ParStr: string;
-  private static EC_TmpParContext: object;
-  private static EC_TmpAllowcontextEvalEdit: boolean;
-  private static EC_TmpKey: string;
-  private static EC_ret: any;
-  private static EC_exception: MyException;
-
   public static remove(x: Node): void { if (x && x.parentElement) x.parentElement.removeChild(x); }
-
-  private static EvalContext(context: object, str: string, allowContextEvalEdit: boolean): void {
-    U.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
-    U.EC_ParStr = str;
-    U.EC_TmpParContext = context;
-    U.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
-    U.EC_ret = undefined;
-    U.EC_exception = null;
-    delete this['str'];
-    delete this['context'];
-    delete this['allowContextEvalEdit'];
-    for (U.EC_TmpKey in U.EC_TmpParContext) { this['' + U.EC_TmpKey] = U.EC_TmpParContext['' + U.EC_TmpKey]; }
-    try { U.EC_ret = eval(U.EC_ParStr); } catch (e) { U.EC_exception = e; }
-    if (!U.EC_TmpAllowcontextEvalEdit) return;
-    for (U.EC_TmpKey in this) { U.EC_TmpParContext['' + U.EC_TmpKey] = this['' + U.EC_TmpKey]; }
-  }
-  public static evalInContext(context: object, str: string, allowcontextEvalEdit: boolean = true): EvalOutput {
-    const out = new U.EvalContext(context, str, allowcontextEvalEdit);
-    const ret: {outContext: object, return: any, exception: MyException} = {} as any;
-    ret.outContext = allowcontextEvalEdit ? context : out;
-    ret.return = U.EC_ret;
-    ret.exception = U.EC_exception;
-    return ret; }
 
   static firstToUpper(s: string): string {
     if (!s || s === '') return s;
@@ -404,6 +417,35 @@ export class U {
     // s = (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash'];
     return str; }
 
+  private static oneTimeMap: Dictionary<string, boolean> = {};
+  // todo: un U.genID() che generi unico a seconda del n° linea di codice da cui viene invocato, o sempre diverso se senza linea (console, eval)
+  static getStackTrace(sliceThisCall: boolean = true): string[] {
+    const ret: string = Error().stack;
+    // try { var a = {}; a.debug(); } catch(ex) { ret = ex.stack; }
+    // if (Array.isArray(ret)) return ret;
+    if (!ret) return ['UnknownStackTrace'];
+    const arr: string[] = ret.split('\n');
+    // first 2 entries are "Erorr" and "getStackTrace()"
+    return sliceThisCall ? arr.slice(2) : arr; }
+
+  static genID(): string { return '#tìmèdkéy_' + new Date().valueOf(); }
+  static getCaller(stacksToSkip: number = 1): string {
+    const stack: string[] = this.getStackTrace(false);
+    return stack[stacksToSkip + 3]; // erase getStackTrace() and isFirstTimeCalled() + Error() first stack + n° of layer the caller wants.
+  }
+  private static gotcalledby: Dictionary<string, boolean> = {};
+  static isFirstTimeCalledByThisLine(stacksToSkip: number = 1) {
+    const caller: string = this.getCaller(stacksToSkip);
+    if (U.gotcalledby[caller]) return false;
+    return U.gotcalledby[caller] = true; }
+
+  static lineKey(): string { return this.getCaller(1); }
+  static oneTime(key: string = null, printFunction: (b: boolean, s: any, ...restArgs: any[]) => string, condition: boolean, s: any, ...restArgs: any[]): string {
+    if (key === null) key = s;
+    if (condition || U.oneTimeMap[key]) return null;
+    U.oneTimeMap[key] = true;
+    return printFunction(condition, s, restArgs); }
+
   static ps(b: boolean, s: any, ...restArgs: any[]): string {
     if (!b) { return null; }
     if (restArgs === null || restArgs === undefined) { restArgs = []; }
@@ -468,7 +510,7 @@ export class U {
     alertMargin.classList.add('alert', 'alert-' + color);
     div.appendChild(alertMargin);
     const end = () => { $div.slideUp(400, () => { div.parentElement && container.removeChild(div); }); }; // div.parentElement: nel caso non sia stato manualmente rimosso.
-    $div.on('click', () => $('.alert_' + color).remove());
+    $div.on('click', (e: ClickEvent) => { $('.alert_' + color).remove(); U.clipboardCopy(innerhtmlstr); });
     $div.hide().slideDown(200, () => setTimeout(end, timer));
   }
 
@@ -805,9 +847,16 @@ export class U {
 
   static toBase64Image(html: Element, container: Element = null, containerTag: string = 'div'): string {
     // https://github.com/tsayen/dom-to-image
-    return 'HtmlToImage todo: check https://github.com/tsayen/dom-to-image';
-  }
+    return 'HtmlToImage todo: check https://github.com/tsayen/dom-to-image'; }
 
+
+  static getParentLine(node: Node, parentLimit: Element = null, bottomToTopOrder: boolean = true, includeparentlimit: boolean = false, includenode: boolean = false): Element[] {
+    const arr: Element[] = [];
+    if (includenode) arr.push(node as any);
+    U.pe(!node, 'U.getParentLine() node argument cannot be null.');
+    while (node.parentElement && node.parentElement !== parentLimit) { arr.push(node = node.parentElement);}
+    if (includeparentlimit && node.parentElement === parentLimit) arr.push(parentLimit);
+    return bottomToTopOrder ? arr : arr.reverse(); }
 
   /**
    * checks if nodes have a vertical line relationship in the tree (parent, grandparent, ...);
@@ -945,6 +994,9 @@ export class U {
     }
   }
 
+  static arraySubstr<T>(arr: Array<T>, start: number, length: number = null): Array<T> { return arr ? arr.slice(start, start + length) : arr; }
+  static arraySubstringSlice<T>(arr: Array<T>, start: number, end: number = null): Array<T> { return arr ? arr.slice(start, end) : arr; }
+
   static eventiDaAggiungereAlBody(selecteds: string) {
     // todo: guarda gli invocatori
   }
@@ -980,6 +1032,13 @@ export class U {
   // usage: var scope1 = makeEvalContext("variable declariation list"); scope1("another eval like: x *=3;");
   // remarks: variable can be declared only on the first call, further calls on a created context can only modify the context without expanding it.
 
+  public static evalInContext<T extends object>(context: T, str: string, allowcontextEvalEdit: boolean = true): EvalOutput<T> {
+    const out: T = new EvalContext(context, str, allowcontextEvalEdit) as any; // becomes a copy of T
+    const ret: EvalOutput<T> = new EvalOutput<T>();
+    ret.outContext = allowcontextEvalEdit ? context : out; // context contiene l'oggetto originario, out contiene la shallowcopy modificata dall'eval.
+    ret.return = EvalContext.EC_ret;
+    ret.exception = EvalContext.EC_exception;
+    return ret; }
 
   // same as above, but with dynamic context, although it's only extensible manually and not by the eval code itself.
   static evalInContextOld(context, js): any {
@@ -1553,7 +1612,7 @@ export class U {
   // returns true only if parameter is already a number by type. U.isNumber('3') will return false
   static isNumber(o: any): boolean { return +o === o && o !== NaN; }
   // returns true only if parameter is a number or a stringified number. U.isNumber('3') will return true
-  static isNumerizable(o: any): boolean { return o !== null && o !== undefined && !isNaN(+0); }
+  static isNumerizable(o: any): boolean { return o !== null && o !== undefined && o !== '' && !isNaN(+o); }
   static isNumberArray(o: any, minn: number = Number.NEGATIVE_INFINITY, max: number = Number.POSITIVE_INFINITY,
                        ifItIsEmptyArrReturn: boolean = true): boolean {
     const validation = (val: number) => U.isNumber(val) && val >= minn && val <= max;
@@ -1811,12 +1870,12 @@ export class U {
     const classes2: string[] = elem2.getAttribute('class').split(' ');
     elem1.setAttribute('class', U.mergeArray(classes1, classes2, true, true).join(' ')); }
 
-  public static mergeStyles(html: Element, fake: Element, styleString: string = null): void {
+  public static mergeStyles(html: Element, fake: Element = null, styleString: string = null, prioritizeFake: boolean = false): void {
     let i: number;
     const styles1: any[] = html.getAttribute('style').split(';');
-    const styles2: any[] = (styleString ? styleString : fake.getAttribute('style')).split(';');
+    const styles2: any[] = (styleString = (styleString ? styleString : fake.getAttribute('style'))).split(';');
     let stylesKv1: Dictionary<string, string> = {};
-    const stylesKv2: Dictionary<string, string> = {};
+    let stylesKv2: Dictionary<string, string> = {};
     let key: string;
     let val: string;
     let pos: number;
@@ -1832,9 +1891,14 @@ export class U {
       val = styles2[i].substr(pos + 1).trim();
       if (key == '' || val == '') continue;
       stylesKv2[key] = val; }
+    if (prioritizeFake) {
+      let tmp = stylesKv1;
+      stylesKv1 = stylesKv2;
+      stylesKv2 = tmp; }
     stylesKv1 = U.join(stylesKv1, stylesKv2, true, false);
     let style: string = '';
     for (key in stylesKv1) { style += key + ':' + stylesKv1[key] + '; '; }
+    console.log('final Style:', style, stylesKv1, stylesKv2, styles2);
     html.setAttribute('style', style); }
 
   public static merge(a: object, b: object, overwriteNull: boolean = true, clone: boolean = true): object { return U.join(a, b, overwriteNull, clone); }
@@ -2101,7 +2165,7 @@ export class U {
     for (i = 0; i < arr2.length; i++) { U.arrayRemoveAll(ret, arr2[i]); }
     return ret; }
 
-  static getAttributesByRegex(elem: Element, regexp: RegExp){
+  static getAttributesByRegex(elem: Element, regexp: RegExp): Attr[]{
     const ret: Attr[] = [];
     let i: number;
     for (i = 0; i < elem.attributes.length; i++) {
@@ -2109,10 +2173,18 @@ export class U {
       if (regexp.test(attr.name)) ret.push(attr); }
     return ret; }
 
-  static getRelativeParentNode(node: Element): Element {
-    while (node && node instanceof Element) {
-      if (window.getComputedStyle(node.parentElement).position === 'relative') { return node; }
-      node = node.parentElement; }
+  static getAttributes(elem: Element, validator: (a: Attr) => boolean): Attr[] {
+    const ret: Attr[] = [];
+    let i: number;
+    for (i = 0; i < elem.attributes.length; i++) {
+      const attr: Attr = elem.attributes[i];
+      if (validator(attr)) ret.push(attr); }
+    return ret; }
+
+  static getRelativeParentNode(elem: Element): Element {
+    U.pe(!elem || !(elem instanceof Element), 'U.getRelativeParentNode argument must be an Element, found instead:', elem);
+    while ((elem = elem.parentElement)) {
+      if (window.getComputedStyle(elem).position === 'relative') { return elem; } }
     return document.body; }
 
   static swapChildrens(node1: Node, node2: Node): void {
@@ -2171,6 +2243,123 @@ export class U {
   static toMap(arr: (string | number | boolean)[], useLastIndexAsValue: boolean = false): Dictionary<string, boolean | number> {
     const ret: Dictionary<string, boolean | number> = {};
     for (let i = 0; i < arr.length; i++) { ret['' + arr[i]] = useLastIndexAsValue ? i : true; }
+    return ret; }
+
+  static isUnset(val: any, ignorespaces: boolean = true, parseStrings: boolean = true, ifemptystr: boolean = false, ifnull: boolean = true, ifundef: boolean = true, ifzero: boolean = false): boolean{
+    if (val === '' + val) {
+      if (ignorespaces) val = val.trim();
+      if (val === '') return ifemptystr;
+      if (!parseStrings) return true;
+      if (val === 'null') return ifnull;
+      if (val === 'undefined') return ifundef;
+      if (val === '0') return ifzero; }
+
+    if (val) return true;
+    if (val === null) return ifnull;
+    if (val === undefined) return ifundef;
+    if (val === 0) return ifzero;
+    U.pe(true, 'isUnset() should not reach here', val);
+    return true; }
+
+  // usage: flags should be used only if delimiters are not used.
+  // delimiters can only be single characters
+  static parseRegexString(s: string, onlyIfDelimitedByOneOf: string[] = ['\\', '/'], flags: string = null, canThrow: boolean = true): RegExp {
+    const firstchar = s.charAt(0);
+    let lastindex: number = -1;
+    let i: number;
+    let ret: RegExp;
+    if (s !== '' + s) { U.pe(canThrow, 'U.parseRegexString() "s" argument must be a string.', s); return null; }
+    if (onlyIfDelimitedByOneOf) {
+      let found: boolean = false;
+      for (i = 0; i < onlyIfDelimitedByOneOf.length; i++) { if (firstchar === onlyIfDelimitedByOneOf[i]) { found = true; break; } }
+      if (!found) return null;
+      lastindex = s.lastIndexOf(firstchar);
+      if (lastindex === 0) return null;
+      flags = s.substring(lastindex + 1).trim();
+      s = s.substring(1, lastindex).trim();
+      try { ret = new RegExp(s, flags); }
+      catch (e) {
+        U.pe(canThrow, 'evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
+        console.log('evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
+        return null; }
+      return ret; }
+    if (flags !== '' + flags) { U.pe(canThrow, 'U.parseRegexString() "flags" argument must be a string.', flags); return null; }
+    try { ret = new RegExp(s, flags); }
+    catch (e) {
+      U.pe(canThrow, 'evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
+      console.log('evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
+      return null; }
+    return ret; }
+
+  static processSelectorPlusPlus(fullselector: string, prioritizeLeftPart: boolean, $searchRoots: JQuery<Element> = null,
+                                 $defaultNode: JQuery<Element> = null, defaultAttributeSelector: string = null, debug: boolean = true): SelectorOutput {
+    fullselector = fullselector.trim();
+    defaultAttributeSelector = defaultAttributeSelector && defaultAttributeSelector.trim().toLowerCase();
+    if (!$searchRoots) $searchRoots = $(document) as any;
+    U.pe(fullselector !== '' + fullselector, 'Measurable.processSelectorPlusPlus() parameter exception: ', fullselector);
+    ///// try execution
+    let ret: SelectorOutput = new SelectorOutput();
+    ret.resultSetAttr = [];
+    ret.resultSetElem = $([]);
+    if (!$searchRoots.length) return ret;
+    let attributeSelectorIndex: number = fullselector.lastIndexOf(U.AttributeSelectorOperator);
+    if (attributeSelectorIndex === -1) {
+      attributeSelectorIndex = prioritizeLeftPart ? 0 : fullselector.length
+      fullselector = prioritizeLeftPart ? fullselector + U.AttributeSelectorOperator : U.AttributeSelectorOperator + fullselector; }
+    let getAttributes = (html: Element, selector: string, regexp: RegExp): Attr[] => {
+      let ret: Attr[];
+      if (regexp) { ret = U.getAttributesByRegex(html, regexp); }
+      else ret = U.getAttributes(html, (a: Attr) => { return a.name.indexOf(selector) === 0; });
+      return ret; };
+    // is mono-right (only attribute)
+    if (attributeSelectorIndex === 0) {
+      ret.jqselector = null;
+      ret.attrselector = fullselector.substr(U.AttributeSelectorOperator.length).trim().toLowerCase();
+      ret.attrRegex = U.parseRegexString(ret.attrselector, ['/', '\\'], null, false); }
+
+    U.pif(debug, 'part1:  index:', attributeSelectorIndex, ' data:', ret);
+    // is mono-left (only jqselector), becomes both.
+    if (attributeSelectorIndex + U.AttributeSelectorOperator.length === fullselector.length) {
+      ret.jqselector = fullselector.substr(0, attributeSelectorIndex).trim();
+      ret.attrselector = defaultAttributeSelector ? defaultAttributeSelector : null;
+      ret.attrRegex = null; }
+
+    U.pif(debug, 'part2:  index:', attributeSelectorIndex, ' data:', ret);
+    // check if ambiguous mono-part (left or right?), becomes both
+    /*
+    if (attributeSelectorIndex === -1) {
+      // first try to see if is attribute only.
+      ret.jqselector = null;
+      ret.attrselector = fullselector.toLowerCase();
+      ret.attrRegex = U.parseRegexString(ret.attrselector, ['/', '\\'], null, false);
+      // first try to check if is mono-right (only attribute)
+      ret.resultSetAttr = getAttributes(defaultNode, ret.attrselector, ret.attrRegex);
+      if (ret.resultSetAttr.length) { return ret; }
+      // if not, it is JQ_selector only
+      ret.jqselector = fullselector;
+      ret.attrselector = Measurable.GlobalPrefix;
+      ret.attrRegex = null; }*/
+    if (ret.attrselector === '*') ret.attrRegex = /.*/;
+    // is both: left and right
+    // U.pe(!ret.attrselector, 'attrselector should be always set at this point, at "-> ' + Measurable.GlobalPrefix + '" on worst case if it was empty.');
+    // search for external triggers
+    try { ret.resultSetElem = ret.jqselector && ret.jqselector !== 'this' ? $searchRoots.find(ret.jqselector) : ($defaultNode instanceof $ ? $defaultNode : $([])); }
+    catch (e) { ret.exception = e; return ret; }
+    U.pif(debug, 'part3:  index:', attributeSelectorIndex, ' data:', ret, '$serachRoots', $searchRoots, ' $defaultNode:', $defaultNode, 'jqinstance?' , $defaultNode instanceof jQuery);
+
+    let i: number;
+    let j: number;
+    if (!ret.attrRegex && !ret.attrselector) return ret;
+    const attrSelectorArr: string[] = !ret.attrRegex ? ret.attrselector.split(' ') : null;
+    for (i = 0; i < ret.resultSetElem.length; i++) {
+      if (ret.attrRegex) { U.ArrayMerge(ret.resultSetAttr, getAttributes(ret.resultSetElem[i], null, ret.attrRegex)); continue; }
+      for (j = 0; j < attrSelectorArr.length; j++) {
+        let attrname: string = attrSelectorArr[j].trim();
+        if (attrname === '') continue;
+        U.ArrayMerge(ret.resultSetAttr, getAttributes(ret.resultSetElem[i], attrname, null));
+      }
+    }
+    U.pif(debug, 'part4 ret:  index:', attributeSelectorIndex, ' data:', ret);
     return ret; }
 }
 
@@ -2272,14 +2461,19 @@ export abstract class ISize {
   w: number;
   h: number;
   constructor(x: number = 0, y: number = 0, w: number = 0, h: number = 0) {
-    if (isNaN(+x)) { x = 0; }
-    if (isNaN(+y)) { y = 0; }
-    if (isNaN(+w)) { w = 0; }
-    if (isNaN(+h)) { h = 0; }
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h; }
+    if (x === null) this.x = null;
+    else if (isNaN(+x)) { this.x = 0; }
+    else this.x = +x;
+    if (y === null) this.y = null;
+    else if (isNaN(+y)) { this.y = 0; }
+    else this.y = +y;
+    if (w === null) this.w = null;
+    else if (isNaN(+w)) { this.w = 0; }
+    else this.w = +w;
+    if (h === null) this.h = null;
+    else if (isNaN(+h)) { this.h = 0; }
+    else this.h = +h; }
+
   abstract makePoint(x: number, y: number): IPoint;
   abstract clone(otherJson: ISize): ISize;
   abstract duplicate(): ISize;
@@ -2476,11 +2670,14 @@ export abstract class IPoint {
 
   static getM(firstPt: IPoint, secondPt: IPoint): number { return (firstPt.y - secondPt.y) / (firstPt.x - secondPt.x); }
   static getQ(firstPt: IPoint, secondPt: IPoint): number { return firstPt.y - IPoint.getM(firstPt, secondPt) * firstPt.x; }
-  constructor(x: number | string, y: number | string) {
-    if (isNaN(+x)) { x = 0; }
-    if (isNaN(+y)) { y = 0; }
-    this.x = +x;
-    this.y = +y; }
+
+  constructor(x: number | string = 0, y: number | string = 0) {
+    if (x === null) this.x = null;
+    else if (isNaN(+x)) { this.x = 0; }
+    else this.x = +x;
+    if (y === null) this.y = null;
+    else if (isNaN(+y)) { this.y = 0; }
+    else this.y = +y;}
 
   toString(): string { return '(' + this.x + ', ' + this.y + ')'; }
   abstract clone(other: IPoint): void;

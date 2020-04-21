@@ -105,34 +105,7 @@ export abstract class IClass extends IClassifier {
     this.getVertex().refreshGUI(); }
 
   getReferencePointingHere(): IReference[] { return this.referencesIN; }
-  /*getStyle_oldhtml(): SVGForeignObjectElement {
-    const html: Element = super.getStyle().html; // U.removeemptynodes(super.getStyle(), true);
-    const container: SVGForeignObjectElement = html as SVGForeignObjectElement; //U.newSvg<SVGForeignObjectElement>('foreignObject');
-    const size: Size = new Size(0, 0, 0, 0);
-    // todo: devi specificarlo che x, y, width, height sono attributi speciali assegnabili agli HTMLElement non-svg e vengono trasmessi.
-    // todo: pondera l'uso di U.cloneAllAttributes(html, container); per trasferire gli attributi dell' userStyle-root nell'SvgForeignElem.
 
-    const firstChild: HTMLElement = container.firstChild as HTMLElement;
-    if (!firstChild.style.height || firstChild.style.height === '') { firstChild.style.height = 'auto'; }
-    if (firstChild.style.height === 'auto') { container.dataset.autosize = 'true'; }
-    else if (container.dataset.autosize === 'true') { firstChild.style.height = 'auto'; }
-    // (html.firstChild as HTMLElement).style.height = 'auto'; // allows autosize.
-
-
-    container.classList.add('Class');
-    container.setAttributeNS(null, 'dinamico', 'true');
-    /*
-    size.x = +html.getAttribute('x');
-    size.y = +html.getAttribute('y');
-    size.w = +html.getAttribute('width');
-    size.h = +html.getAttribute('height');
-    container.setAttributeNS(null, 'x', isNaN(size.x) ? '0' : '' + size.x);
-    container.setAttributeNS(null, 'y', isNaN(size.y) ? '0' : '' + size.y);
-    container.setAttributeNS(null, 'width', isNaN(size.w) ? '200' : '' + size.w);
-    container.setAttributeNS(null, 'height', isNaN(size.h) ? '100' : '' + size.h);
-    container.appendChild(html);* /
-    return container; }
-*/
   getAttribute(name: string, caseSensitive: boolean = false): IAttribute {
     let i: number;
     if (!caseSensitive) { name = name.toLowerCase(); }

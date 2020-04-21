@@ -1,6 +1,6 @@
 <div id='topbarShell'>
   <div id='topbar'>
-    <div class="dropdownContainer">
+    <div class="dropdownContainer user">
       <button class="todo dropdownTitle">User</button>
       <ul class="dropdownContent">
         <li class="dropdownContent"><div class="todo dropdownpadding">Logout</div></li>
@@ -8,7 +8,7 @@
         <li class="dropdownContent"><div class="todo dropdownpadding">Account</div></li>
       </ul>
     </div>
-    <div class="dropdownContainer">
+    <div class="dropdownContainer metametamodel">
       <button class="dropdownTitle">Meta-Metamodel</button>
       <ul class="dropdownContent">
         <li class="dropdownContent"><div class="dropdownpadding TypeMapping">Type mapping</div></li>
@@ -96,33 +96,36 @@
         </li>
       </ul>
     </div>
-    <div class="dropdownContainer graph">
-      <button class="dropdownTitle">Graph</button>
+    <div class="dropdownContainer themes">
+      <button class="dropdownTitle">Themes</button>
       <ul class="dropdownContent">
-        <li class="buttonGridContainer">
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid">Mono-Select</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid todo">Multi-Select</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid">Drag</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid">Mono-Select</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid todo">Multi-Select</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid">Drag</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid">Mono-Select</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid todo">Multi-Select</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid">Drag</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid">Mono-Select</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid todo">Multi-Select</div></div>
-          <div class="dropdownpadding buttonGridMinMargin"><div class="buttonGrid">Drag</div></div>
-
-        </li>
+        <li class="dropdownContent"><div class="dropdownpadding">
+          <label>
+            <input class="themename" type="radio" name="themename" value="Dark">
+            <span>Dark</span>
+          </label>
+        </div></li>
+        <li class="dropdownContent"><div class="dropdownpadding">
+          <label>
+            <input class="themename" type="radio" name="themename" value="Light" checked>
+            <span>Light</span>
+          </label>
+        </div></li>
       </ul>
     </div>
-  </div>
-  <div id="TypeMapper" class="screenWideShadow" data-closebuttontarget="1">
+    <div class="dropdownContainer Changelog">
+      <button class="dropdownTitle changelogbutton">Changelog</button>
+    </div>
+  <div id="TypeMapper" class="screenWideShadow" data-closebuttontarget="1" style="display: none;">
     <div id="TypeMapperContent" class="popupContent">
       <h1>M3 Type mapping</h1>
       <button class="closeButton" data-closebuttontarget="1">X</button>
       <br>
       <div class="TypeList"></div>
     </div>
+  </div>
+</div>
+  <div class="changelogRoot" style="display: none">
+
   </div>
 </div>

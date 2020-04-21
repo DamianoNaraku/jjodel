@@ -61,20 +61,37 @@ input[type="checkbox"], input[type="radio"] {
   margin-right: 5px;
   vertical-align: middle;
 }
+
+label > input[type="number"][digit="3"]{
+  min-width: 40px;
+}
+label > input[type="number"][digit="4"]{
+  min-width: 50px;
+}
+label > input[type="number"][digit="5"]{
+  min-width: 60px;
+}
+
 /* Optional: show position indicator in red */
 /* resizable border */
 /* example-specific */
+/*
 .testresizablecontent {
   background-color: blue;
 }
 .resizableBorder.left { border-left: 5px solid green; }
 .resizableBorder.right { border-right: 5px solid green; }
 .resizableBorder.top { border-top: 5px solid red; }
-.resizableBorder.bottom { border-bottom: 5px solid red; }
+.resizableBorder.bottom { border-bottom: 5px solid red; }*/
+.resizableBorder.left { border-left: 5px solid rgb(46, 47, 52); }
+.resizableBorder.right { border-right: 5px solid rgb(46, 47, 52); }
+.resizableBorder.top { border-top: 5px solid rgb(46, 47, 52); }
+.resizableBorder.bottom { border-bottom: 5px solid rgb(46, 47, 52); }
+
 .template{ display: none !important; }
 /* real css */
 .resizableBorderContainer {
-  background-color: black;
+  background-color: var(--mainBackgroundColor);
   display: flex;
   flex-flow: column;
 }
@@ -120,7 +137,7 @@ body{
   flex-flow: column;
   flex-wrap: wrap;
 
-  color: #b2b2ba;
+  color: var(--mainFontColor);
   font-family: Helvetica, OpenSans, sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -212,6 +229,7 @@ button.edit:not(.btn) { background-image: url(../img/black/edit.png); }
 .todo{
   background-color: darkred !important;
   cursor: not-allowed !important;
+  color: var(--DarkmainFontColor) !important;
 }
 .todo>*, .todo *{
   cursor: not-allowed !important;
@@ -285,7 +303,7 @@ button.edit:not(.btn) { background-image: url(../img/black/edit.png); }
   text-align: center;
 }
 .UtabHeader:last-of-type{ margin-right: 0; }
-.UtabHeader[selected="true"]{
+.UtabHeader:not([selected="true"]){
   font-weight: bold;
   background-color: var(--mainBorderColor);
 }
@@ -321,4 +339,49 @@ button.edit:not(.btn) { background-image: url(../img/black/edit.png); }
 
 
 
-/****/
+/****** changelog style *******/
+.changelog{
+  width: 60vw;
+}
+.changelog li.feature::before,
+.changelog li.bugfix::before,
+.changelog li.bug::before {
+  content: "◦";
+  margin-right: 5px;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+.changelog li.bugfix::before {
+  color: green;
+}
+.changelog li.bug::before {
+  color: red;
+}
+.changelog li.feature::before {
+  color: dodgerblue;
+}
+
+.changelog li {
+  padding-left: 1em;
+  vertical-align: middle;
+}
+.changelog.li.versionpoint{
+  text-indent: -.7em;
+}
+.changelog .description, .changelog .title {
+  /* white-space: pre; */
+  white-space: normal;
+}
+.changelog .title {
+  font-weight: bolder;
+}
+
+.changelog ul.subpoint, .changelog ul.versionSubPoints{
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+.changelog {
+  padding: 5px;
+  word-break: break-word;
+}

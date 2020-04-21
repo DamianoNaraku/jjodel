@@ -186,15 +186,41 @@
     <div class="template modelpiece">
       <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->
       <div class="arrowContainer">
-        <button class="arrow up btn btn-primary">⇪</button>
+        <button class="arrow up btn btn-primary" title="Go up a level in the html DOM">⇪</button>
         <h6 class="tsclass">TS_Class</h6>
-        <button class="arrow down btn btn-primary">⇩</button>
+        <button class="arrow upp btn btn-primary" title="Go to the root level">🢁</button>
+        <button class="arrow down btn btn-primary" style="display:none" title="Go to the previous level">⇩</button>
       </div>
       <label class="m1 iclass">
         <input type="checkbox" class="showAsEdge">
         <span class="showAsEdgeText">#####</span>
       </label>
       <div class="style own colContainer"></div>
+      <div class="sizeContainer" style="display: flex;">
+        <div class="sizeContainerHalf">
+          <label class="sizelabel">
+            <input class="sizex" digit="5" type="number">
+            <span>X</span>
+          </label>
+          <label class="sizelabel">
+            <input class="sizey" digit="5" type="number">
+            <span>Y</span>
+          </label>
+        </div>
+        <div class="sizeContainerHalf">
+          <label class="sizelabel">
+            <input class="sizew" digit="5" type="number">
+            <span>Width</span>
+          </label>
+          <label class="sizelabel">
+            <input class="sizeh" digit="5" type="number">
+            <span>Height</span>
+          </label>
+        </div>
+        <label class="autosizecontainer"><input type="checkbox" class="autoheight"><span>Adapt height to content</span></label>
+        <label class="autosizecontainer"><input type="checkbox" class="autowidth"><span>Adapt width to content</span></label>
+      </div>
+
       <div class="separatorShell"></div>
       <div class="roww nowrap detailButtonContainer">
         <button target="div.detail.style.inherited" class="detail inherited btn btn-primary">

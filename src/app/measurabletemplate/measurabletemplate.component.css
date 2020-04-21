@@ -113,6 +113,7 @@
   padding-left: 0;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  min-width: 0;
 }
 .meas_acc0 .compoundInputprefix > * { border: none; }
 .meas_acc0 .compoundInputprefix > *:first-child {
@@ -183,6 +184,10 @@
   /*outline: none;
   box-shadow: none;*/
 }
+.meas_acc0 .measurableoktext{
+  margin-left: 5px;
+  color: var(--success);
+}
 .meas_acc0 .measurableerrortext{
   margin-left: 5px;
   color: var(--danger);
@@ -198,6 +203,8 @@
 .meas_acc0 .rulecontainer{ margin-bottom: 5px; }
 .meas_acc0 .measurabledebug { display: none; }
 .meas_acc0 .rightx:focus-within .measurabledebug{ display: flex; }
+.meas_acc0 .measurabledebug .debugrows { display: none; flex-flow: column; }
+.meas_acc0 .measurabledebug:focus-within .debugrows { display: flex; }
 .meas_acc0 .countershell { float: right; }
 .meas_acc0 .rectangledrawing.outer > * {
   background-size: contain;

@@ -5,6 +5,8 @@
 // /*new*/export {Styles, ModelPieceStyleEntry, SortType, StyleVisibility} from '../GuiStyles/styles';
 // /*new*/export {ViewHtmlSettings, ViewPoint, ViewRule, ModelView, PackageView, ClassView, AttributeView, EdgeViewRule, ReferenceView, OperationView,
 // ParameterView} from '../GuiStyles/viewpoint';
+import {measurableRules} from './measurable';
+
 export type MyException = any;
 import { default as AnsiUp } from 'ansi_up';
 export const ansiUp = new AnsiUp(); // https://github.com/drudru/ansi_up // ansi color formatter.
@@ -35,8 +37,8 @@ export {ModelPiece, Info, ModelNone, StyleComplexEntry} from '../Model/modelPiec
   ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel} from '../Model/iModel';
 export {ShortAttribETypes, U, Json, AttribETypes,
   InputPopup, DetectZoom, Dictionary,
-  IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput} from './util';
-export {MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators} from './measurable';
+  IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput} from './util';
+export {MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions} from './measurable';
 export {Status} from '../../src/app/app.module';
 export {IGraph, ViewPointShell} from '../guiElements/mGraph/iGraph';
 export {IVertex} from '../guiElements/mGraph/Vertex/iVertex';
@@ -82,11 +84,29 @@ export {EAnnotationDetail} from '../Model/EAnnotationDetail';
 export {DamContextMenuComponent} from '../guiElements/dam-context-menu/dam-context-menu.component';
 export {EOperation, OperationVisibility} from '../mClass/classChild/Operations/eOperation';
 export {EParameter} from '../mClass/classChild/Operations/eParameter';
-export {MeasurableTemplateGenerator}         from '../app/measurabletemplate/measurabletemplate.component';
+export {Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent} from '../app/measurabletemplate/measurabletemplate.component';
+export {ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix} from '../guiElements/changelog/ChangelogEntry';
+export {WebsiteTheme} from '../GuiStyles/global';
 
 
 
-
+export class ReservedClasses {
+  // everytime i draw a vertex, i need to search in all the DOM sub-tree for all attributes starting with measurableRules.onRefresh and execute them.
+  // hence i made a class tied with the presence of attributes starting with measurableRules.onRefresh for efficiency.
+  static readonly onRefresh = 'onRefresh';
+  static readonly template = 'template';
+  static readonly vertexRoot = 'vertexRoot';
+}
+export class ReservedAttributes {
+  static readonly todo = 'todo';
+}
+export class ReservedDatasets {
+  static readonly todo = 'todo';
+}
+export class ReservedStorageKey {
+  static readonly userTheme: string = 'userTheme';
+  static readonly versionAcknowledged = 'versionAcknowledged';
+}
 
 
 

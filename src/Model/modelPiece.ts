@@ -289,10 +289,10 @@ export abstract class ModelPiece {
   abstract fullname(): string;
   endingName(valueMaxLength: number = 10): string { return ''; }
 
-  public printableName(valueMaxLength: number = 5): string {
-    if (this.name !== null) { return this.fullname(); }
+  public printableName(valueMaxLength: number = 5, full: boolean = false): string {
+    if (this.name !== null) { return full ? this.fullname() : this.name; }
     const ending: String = this.endingName(valueMaxLength);
-    return this.metaParent.fullname() + ':' + this.id + (ending && ending !== '' ? ':' + ending : ''); }
+    return (full ? this.metaParent.fullname() : this.metaParent.name) + ':' + this.id + (ending && ending !== '' ? ':' + ending : ''); }
 
   public printableNameshort(valueMaxLength: number = 5): string {
     if (this.name !== null) { return this.fullname(); }

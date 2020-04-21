@@ -25,6 +25,7 @@
 }
 .preview:blank{
   background-color: gray;
+  opacity: 0.4;
 }
 .separatorShell.top{
   margin-top: 30px;
@@ -50,6 +51,7 @@ div[contenteditable="true"] {
 div[contenteditable="false"] {
   background-color: gray;
   cursor: no-drop;
+  opacity: 0.4;
 }
 label.allowEdit {
   color: goldenrod;
@@ -62,8 +64,9 @@ button {
   flex-flow: wrap;
 }
 .detail{
-  border: 3px solid #0084ff;
-  background: #252525;
+  border: 3px solid var(--bluebordercolor);
+  background: var(--);
+  color: var(--altFontColor);
 }
 button.detail {
   margin: auto;
@@ -445,8 +448,47 @@ label > input[type="checkbox"] ~ * { margin-left: 0; }
   white-space: break-spaces;
 }
 
+.autosizecontainer{
+  display: inline-block;
+}
+.autosizecontainer > *{
+  display: inline-block;
+  margin-right: 5px;
+}
+.sizeContainer {
+  display: flex;
+  flex-wrap: wrap; }
+.sizeContainerHalf {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+.sizelabel {
+  display: inline-flex;
+  flex-flow: column-reverse;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 700px) {
+  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/
+  .sizelabel{
+    display: inline-block;
+  }
+}
+.sizelabel > *{
+  display: inline;
+  margin: auto; }
 
-/* they fix outer css influence on measurable section. */
+
+
+
+
+
+
+
+
+
+  /* they fix outer css influence on measurable section. */
 
 input[type="checkbox"].arrow {
   margin: 0; }
@@ -578,6 +620,7 @@ input[type="checkbox"].arrow {
 .meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }
 .meas_acc0 .attrname {
   max-width: 200px !important; /* todo: remove when is autosizing */
+  min-width: 0;
 }
 .meas_acc0 .addrule {
   float: right;

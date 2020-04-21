@@ -1,8 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  AttribETypes, IModel, Json,
-  MClass, MetaModel, Model, Status, U, // Options,
-  ShortAttribETypes, InputPopup, myFileReader, prxml2json, EType, LocalStorage, prjson2xml
+  AttribETypes,
+  IModel,
+  Json,
+  MClass,
+  MetaModel,
+  Model,
+  Status,
+  U, // Options,
+  ShortAttribETypes,
+  InputPopup,
+  myFileReader,
+  prxml2json,
+  EType,
+  LocalStorage,
+  prjson2xml,
+  ChangelogRoot,
+  WebsiteTheme,
+  ReservedClasses,
+  ReservedStorageKey
 } from '../../common/Joiner';
 import ChangeEvent = JQuery.ChangeEvent;
 import ClickEvent = JQuery.ClickEvent;
@@ -24,16 +40,17 @@ export class TopBarComponent implements OnInit {
 
 export class TopBar {
   static topbar: TopBar = null;
-  $html: JQuery<HTMLElement> = null;
+  $shell: JQuery<HTMLElement> = null;
   $topbar: JQuery<HTMLElement> = null;
   html: HTMLElement = null;
   topbar: HTMLElement = null;
+  static $checkboxesTheme: JQuery<HTMLInputElement>;
   constructor() {
     U.pe(!!TopBar.topbar, 'top bar instantiated twice, but it is a singleton.');
     TopBar.topbar = this;
-    this.$html = $('#topbarShell');
-    this.html = this.$html[0];
-    this.$topbar = this.$html.find('#topbar');
+    this.$shell = $('#topbarShell');
+    this.html = this.$shell[0];
+    this.$topbar = this.$shell.find('#topbar');
     this.topbar = this.$topbar[0];
     TopBar.topbar.updateRecents();
     this.addEventListeners(); }
@@ -199,8 +216,8 @@ export class TopBar {
     tmp = localStorage.getItem('M_SaveList');
     if (!tmp || tmp === '' || tmp === 'null' || tmp === 'undefined') { tmp = JSON.stringify([]); }
     const mSaveList: string[] = JSON.parse(tmp);
-    const $metamodelHtml: JQuery<HTMLElement> = this.$html.find('.metamodel');
-    const $modelHtml: JQuery<HTMLElement> = this.$html.find('.model');
+    const $metamodelHtml: JQuery<HTMLElement> = this.$shell.find('.metamodel');
+    const $modelHtml: JQuery<HTMLElement> = this.$shell.find('.model');
     const recentContainerMM: HTMLElement = $metamodelHtml.find('.recentSaveContainer')[0];
     const recentContainerM: HTMLElement = $modelHtml.find('.recentSaveContainer')[0];
     console.log(recentContainerM, recentContainerMM);
@@ -241,7 +258,13 @@ export class TopBar {
     const $t = this.$topbar;
     const $m2 = $t.find('.metamodel');
     const $m1 = $t.find('.model');
+    TopBar.$checkboxesTheme = $t.find('input.themename') as JQuery<HTMLInputElement>;
     $t.find('.TypeMapping').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.topbar.showTypeMap(); });
+    $t.find('.changelogbutton').off('click.btn').on('click.btn', (e: ClickEvent) => { ChangelogRoot.show(); });
+    TopBar.$checkboxesTheme.off('change.btn').on('change.btn', (e: ChangeEvent) => {
+      const checkboxTriggered: HTMLInputElement = e.currentTarget;
+      WebsiteTheme.setTheme(checkboxTriggered);
+    });
     $m2.find('.save').off('click.btn').on('click.btn', (e: ClickEvent) => { Status.status.mm.save(false, true); } );
     $m1.find('.save').off('click.btn').on('click.btn', (e: ClickEvent) => { Status.status.m.save(false, true); } );
 
@@ -261,7 +284,7 @@ export class TopBar {
     $m1.find('.loadTxt').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_JSON_Text(e, 'm'); } ); }
 
   showTypeMap(): void {
-    const $shell = this.$html.find('#TypeMapper');
+    const $shell = this.$shell.find('#TypeMapper');
     const $html = $shell.find('.TypeList');
     const html = $html[0];
     U.clear(html);

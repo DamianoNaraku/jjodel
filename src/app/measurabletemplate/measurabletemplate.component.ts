@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {GraphSize, Measurable, measurableRules, U} from '../../common/Joiner';
-import {ConstraintLeftAdmitteds} from '../../common/measurable';
+import {Dictionary, GraphSize, Measurable, measurableRules, U} from '../../common/Joiner';
+import {ConstraintLeftAdmitteds, ConstraintLeftAdmittedsStatic} from '../../common/measurable';
 
 @Component({
   selector: 'app-measurabletemplate',
@@ -17,8 +17,8 @@ export class MeasurabletemplateComponent implements OnInit {
 }
 export class MeasurableTemplateGenerator {
   private static output: HTMLElement = null;
-  public static constraintMap: any; // deformed ConstraintLeftAdmitteds;
-  public static constraintPlaceholderMap: any; // deformed ConstraintLeftAdmitteds;
+  public static constraintMap: Dictionary<string, string>; // deformed ConstraintLeftAdmitteds;
+  public static constraintPlaceholderMap: Dictionary<string, string>; // deformed ConstraintLeftAdmitteds;
   public static generateMeasurableTemplate(): HTMLElement {
     if (MeasurableTemplateGenerator.output) return U.cloneHtml(MeasurableTemplateGenerator.output, true);
     const $root: JQuery<HTMLElement> = $('#measurableTemplateGeneratorShell');
@@ -68,7 +68,7 @@ export class MeasurableTemplateGenerator {
     havetarget = true;
     nameph = null;
     leftph = 'condition';
-    rightph = '[selector] [->] rulename';
+    rightph = '[selector] [' + U.AttributeSelectorOperator + '] rulename';
     arr.push(new Tmp(prefix, name, preleft, haveleft, haveoperator, havetarget, leftph, rightph, nameph));
 
     prefix = measurableRules.onDragStart;
@@ -337,7 +337,7 @@ export class MeasurableTemplateGenerator {
     ret.parentElement.removeChild(ret);
     ret.removeAttribute('id');
     MeasurableTemplateGenerator.makedatasetLists();
-    return ret; }
+    return this.generateMeasurableTemplate(); }
 
   public static makedatasetLists(): void {
     const constraintOptions: ConstraintLeftAdmitteds = new ConstraintLeftAdmitteds();
@@ -362,7 +362,7 @@ export class MeasurableTemplateGenerator {
     constraintOptions['vertexSize.y'] = 'vertexSize.y';
     constraintOptions['vertexSize.w'] = 'vertexSize.w';
     constraintOptions['vertexSize.h'] = 'vertexSize.h';
-    const constraintOptionsPH: object = U.cloneObj(constraintOptions);
+    const constraintOptionsPH: Dictionary<string, string> = U.cloneObj(constraintOptions);
     for (key in constraintOptionsPH) { constraintOptionsPH[key] = 'Number'; }
     MeasurableTemplateGenerator.constraintMap = constraintOptions;
     MeasurableTemplateGenerator.constraintPlaceholderMap = constraintOptionsPH;
@@ -383,183 +383,186 @@ export class MeasurableTemplateGenerator {
   }
 }
 export class Rotatableoptions {
-  static degrees: string = 'degrees';
+  static readonly degrees: string = 'degrees';
   // static radians: string = 'radians';
-  static handle: string = 'handle'; //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading
-  static handleOffsetX: string = 'handleOffsetX';
-  static handleOffsetY: string = 'handleOffsetY'; // internamente è: handleOffset: { top: 0, left: 0 }
-  static rotationCenterOffsetX: string = 'rotationCenterOffsetX';
-  static rotationCenterOffsetY: string = 'rotationCenterOffsetY';
+  static readonly handle: string = 'handle'; //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading
+  static readonly handleOffsetX: string = 'handleOffsetX';
+  static readonly handleOffsetY: string = 'handleOffsetY'; // internamente è: handleOffset: { top: 0, left: 0 }
+  static readonly rotationCenterOffsetX: string = 'rotationCenterOffsetX';
+  static readonly rotationCenterOffsetY: string = 'rotationCenterOffsetY';
    // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element
-  static step: string = 'step'; // internamente ha "snap = boolean" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.
-  static transforms: string = 'transforms'; // non chiaro neanche negli esempi demo. googla.
-  static wheelRotate: string = 'wheelRotate'; // NB: non previene lo scroll della pagina come azione default.
-  static onRotating: string = 'onRotating'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.
-  static onRotationStart: string = 'onRotationStart'; // in realtà è "start"
-  static onRotationEnd: string = 'onRotationEnd'; // in realtà è "stop"
+  static readonly step: string = 'step'; // internamente ha "snap = boolean" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.
+  static readonly transforms: string = 'transforms'; // non chiaro neanche negli esempi demo. googla.
+  static readonly wheelRotate: string = 'wheelRotate'; // NB: non previene lo scroll della pagina come azione default.
+  static readonly onRotating: string = 'onRotating'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.
+  static readonly onRotationStart: string = 'onRotationStart'; // in realtà è "start"
+  static readonly onRotationEnd: string = 'onRotationEnd'; // in realtà è "stop"
+  static readonly disabled: string = 'disabled';
+  // static readonly enabled: string = 'enabled'; // $var.resizable('disable'); or .resizable( "enable" );
 }
 //if the placeholder value is a choice of literals, the first literal is the default value. UPPERCASED, CamelCased and (parenthesized) words are not literals. Those values are not dynamic and are evaluated only once.
 
 export class Resizableoptions {
-  static alsoResize: string = 'alsoResize';
-  static animate: string = 'animate';
-  static animateDuration: string = 'animateDuration';
-  static animateEasing: string = 'animateEasing';
-  static aspectRatio: string = 'aspectRatio';
-  static autoHide: string = 'autoHide';
-  static cancel: string = 'cancel';
-  static classes: string = 'classes';
-  static containment: string = 'containment';
-  static delay: string = 'delay';
-  static disabled: string = 'disabled';
-  static distance: string = 'distance';
-  static ghost: string = 'ghost';
-  static grid: string = 'grid';
-  static handles: 'handles';
-  static helper: string = 'helper';
-  static maxHeight: string = 'maxHeight';
-  static maxWidth: string = 'maxWidth';
-  static minHeight: string = 'minHeight';
-  static minWidth: string = 'minWidth';
+  static readonly alsoResize: string = 'alsoResize';
+  static readonly animate: string = 'animate';
+  static readonly animateDuration: string = 'animateDuration';
+  static readonly animateEasing: string = 'animateEasing';
+  static readonly aspectRatio: string = 'aspectRatio';
+  static readonly autoHide: string = 'autoHide';
+  static readonly cancel: string = 'cancel';
+  static readonly classes: string = 'classes';
+  static readonly containment: string = 'containment';
+  static readonly delay: string = 'delay';
+  static readonly distance: string = 'distance';
+  static readonly ghost: string = 'ghost';
+  static readonly grid: string = 'grid';
+  static readonly handles: string = 'handles';
+  static readonly helper: string = 'helper';
+  static readonly maxHeight: string = 'maxHeight';
+  static readonly maxWidth: string = 'maxWidth';
+  static readonly minHeight: string = 'minHeight';
+  static readonly minWidth: string = 'minWidth';
 // Methods
 // destroy()
-  static enabled: string = 'enabled'; // $var.resizable('disable'); or .resizable( "enable" );
+  static readonly disabled: string = 'disabled';
+  // static readonly enabled: string = 'enabled'; // $var.resizable('disable'); or .resizable( "enable" );
 // instance(); only useful as return value on javascript
 // .resizable('option',{key', 'optionname') return the current option or a key-value object with all options or .resizable('option', {key: value}) setta opzioni.
 // .resizable('widget') return $(resizable element)
-  static create: string = 'create'; // .resizable('create', functioncallback);
-  static resizing: string = 'resizing';
-  static resizeStart: string = 'resizeStart';
-  static resizeStop: string = 'resizeStop';
+  static readonly create: string = 'create'; // .resizable('create', functioncallback);
+  static readonly resizing: string = 'resizing';
+  static readonly resizeStart: string = 'resizeStart';
+  static readonly resizeStop: string = 'resizeStop';
 }
 
 export class Draggableoptions {
-  static addClasses: string = 'addClasses';
-  static appendTo: string = 'appendTo';
-  static axis: string = 'axis'; // actually "x, y" happens when you input "false"
-  static cancel: string = 'cancel';
-  static classes: string = 'classes';
-  static connectToSortable: string = 'connectToSortable';
-  static containment: string = 'containment';
-  static cursor: string = 'cursor'; // todo: setta default: quadriarrow (crosshair?)
-  static cursorAt: string = 'cursorAt';
-  static delay: string = 'delay';
-  static disabled: string = 'disabled';
-  static distance: string = 'distance';
+  static readonly addClasses: string = 'addClasses';
+  static readonly appendTo: string = 'appendTo';
+  static readonly axis: string = 'axis'; // actually "x, y" happens when you input "false"
+  static readonly cancel: string = 'cancel';
+  static readonly classes: string = 'classes';
+  static readonly connectToSortable: string = 'connectToSortable';
+  static readonly containment: string = 'containment';
+  static readonly cursor: string = 'cursor'; // todo: setta default: quadriarrow (crosshair?)
+  static readonly cursorAt: string = 'cursorAt';
+  static readonly delay: string = 'delay';
+  static readonly distance: string = 'distance';
   //todo: permetti di fare cambiamenti a run-time usando: chain -> optional export (dinamically rcalculate and replace content of _jquiDrag* attributes), second chain -> point to _jquiDragRule and execute things like in the example "Get or set the grid option, after initialization: ..."
-  static grid: string = 'grid';
-  static handle: string = 'handle';
-  static helper: string = 'helper';
-  static iframeFix: string = 'iframeFix';
-  static opacity: string = 'opacity';
-  static refreshPositions: string = 'refreshPositions';
+  static readonly grid: string = 'grid';
+  static readonly handle: string = 'handle';
+  static readonly helper: string = 'helper';
+  static readonly iframeFix: string = 'iframeFix';
+  static readonly opacity: string = 'opacity';
+  static readonly refreshPositions: string = 'refreshPositions';
   // todo: droppable
-  static revert: string = 'revert';
-  static revertDuration: string = 'revertDuration';
-  static scope: string = 'scope';
-  static scroll: string = 'scroll'; //todo: devi fare lo scroll quando trascini un vertice out of visible graph boundary.
-  static scrollSensitivity: string = 'scrollSensitivity'; //Distance in pixels from the edge of the viewport after which the viewport should scroll. Distance is relative to pointer, not the draggable.
-  static scrollSpeed: string = 'scrollSpeed';
-  static snap: string = 'snap';
-  static snapMode: string = 'snapMode';
-  static snapTolerance: string = 'snapTolerance';
-  static stack: string = 'stack';
-  static zIndex: string = 'zIndex';
+  static readonly revert: string = 'revert';
+  static readonly revertDuration: string = 'revertDuration';
+  static readonly scope: string = 'scope';
+  static readonly scroll: string = 'scroll'; //todo: devi fare lo scroll quando trascini un vertice out of visible graph boundary.
+  static readonly scrollSensitivity: string = 'scrollSensitivity'; //Distance in pixels from the edge of the viewport after which the viewport should scroll. Distance is relative to pointer, not the draggable.
+  static readonly scrollSpeed: string = 'scrollSpeed';
+  static readonly snap: string = 'snap';
+  static readonly snapMode: string = 'snapMode';
+  static readonly snapTolerance: string = 'snapTolerance';
+  static readonly stack: string = 'stack';
+  static readonly zIndex: string = 'zIndex';
 // Methods
-  static enabled: string = 'enabled'; // actually it is: .droppable( "enable" / "disable")
-  static dragging: string = 'dragging';
-  static dragStart: string = 'dragStart';
-  static dragStop: string = 'dragStop';
+  static readonly disabled: string = 'disabled';
+  // static readonly enabled: string = 'enabled'; //  actually it is: .droppable( "enable" / "disable")
+  static readonly dragging: string = 'dragging';
+  static readonly dragStart: string = 'dragStart';
+  static readonly dragStop: string = 'dragStop';
 }
 
 export class RotatableoptionsPH {
-  static degrees: string = 'false | number';
-  static radians: string = 'false | number';
-  static handle: string = 'image url'; // internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading
-  static handleOffsetX: string = 'width / 2';
-  static handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }
-  static rotationCenterOffsetX: string = 'width / 2';
-  static rotationCenterOffsetY: string = 'height / 2';
+  static readonly degrees: string = 'false | number';
+  static readonly radians: string = 'false | number';
+  static readonly handle: string = 'image url'; // internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading
+  static readonly handleOffsetX: string = 'width / 2';
+  static readonly handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }
+  static readonly rotationCenterOffsetX: string = 'width / 2';
+  static readonly rotationCenterOffsetY: string = 'height / 2';
 // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element
-  static step: string = 'degree'; // internamente ha "snap = boolean" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.
-  static transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.
-  static wheelRotate: string = 'false'; // NB: non previene lo scroll della pagina come azione default.
-  static onRotating: string = 'function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.
-  static onRotationStart: string = 'function(event, ui) { ... }'; // in realtà è "start"
-  static onRotationEnd: string = 'function(event, ui) { ... }'; // in realtà è "stop"
+  static readonly step: string = 'degree'; // internamente ha "snap = boolean" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.
+  static readonly transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.
+  static readonly wheelRotate: string = 'false'; // NB: non previene lo scroll della pagina come azione default.
+  static readonly onRotating: string = 'function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.
+  static readonly onRotationStart: string = 'function(event, ui) { ... }'; // in realtà è "start"
+  static readonly onRotationEnd: string = 'function(event, ui) { ... }'; // in realtà è "stop"
+  static readonly disabled: string = 'false | true';
 }
 //if the placeholder value is a choice of literals, the first literal is the default value. UPPERCASED, CamelCased and (parenthesized) words are not literals. Those values are not dynamic and are evaluated only once.
 
 export class ResizableoptionsPH {
-  static alsoResize: string = 'Selector | Element | jQuery';
-  static animate: string = 'Boolean';
-  static animateDuration: string = 'slow | fast | msec number';
-  static animateEasing: string = 'swing | api.jqueryui.com/easings';
-  static aspectRatio: string = 'Boolean | Number';
-  static autoHide: string = 'Boolean';
-  static cancel: string = 'Selector';
-  static classes: string = 'Object (see jQUI website)';
-  static containment: string = 'Selector | Element | parent | document';
-  static delay: string = 'Number';
-  static disabled: string = 'Boolean';
-  static distance: string = 'Number (tolerance)';
-  static ghost: string = 'Boolean';
-  static grid: string = '[x: 0, y: 0]';
-  static handles: 'se|s|e|n|w|ne|sw|nw|all (comma separated)';
-  static helper: string = 'Classname';
-  static maxHeight: string = 'Number';
-  static maxWidth: string = 'Number';
-  static minHeight: string = 'Number';
-  static minWidth: string = 'Number';
+  static readonly alsoResize: string = 'Selector | Element | jQuery';
+  static readonly animate: string = 'Boolean';
+  static readonly animateDuration: string = 'slow | fast | msec number';
+  static readonly animateEasing: string = 'swing | api.jqueryui.com/easings';
+  static readonly aspectRatio: string = 'Boolean | Number';
+  static readonly autoHide: string = 'Boolean';
+  static readonly cancel: string = 'Selector';
+  static readonly classes: string = 'Object (see jQUI website)';
+  static readonly containment: string = 'Selector | Element | parent | document';
+  static readonly delay: string = 'Number';
+  static readonly distance: string = 'Number (tolerance)';
+  static readonly ghost: string = 'Boolean';
+  static readonly grid: string = '[x: 0, y: 0]';
+  static readonly handles: string = 'se|s|e|n|w|ne|sw|nw|all (comma separated)';
+  static readonly helper: string = 'Classname';
+  static readonly maxHeight: string = 'Number';
+  static readonly maxWidth: string = 'Number';
+  static readonly minHeight: string = 'Number';
+  static readonly minWidth: string = 'Number';
+  static readonly disabled: string = 'false | true';
 // Methods
 // destroy()
-  static enabled: string = 'true | false'; // $var.resizable('disable'); or .resizable( "enable" );
+  static readonly enabled: string = 'true | false'; // $var.resizable('disable'); or .resizable( "enable" );
 // instance(); only useful as return value on javascript
 // .resizable('option', 'optionname') return the current option or a key-value object with all options or .resizable('option', {key: value}) setta opzioni.
 // .resizable('widget') return $(resizable element)
 // create: string = ''; .resizable('create', functioncallback);
-  static resizing: string = 'function(event, ui){...}';
-  static resizeStart: string = 'function(event, ui){...}';
-  static resizeStop: string = 'function(event, ui){...}';
+  static readonly resizing: string = 'function(event, ui){...}';
+  static readonly resizeStart: string = 'function(event, ui){...}';
+  static readonly resizeStop: string = 'function(event, ui){...}';
 }
 
 export class DraggableOptionsPH {
-  static  addClasses: string = 'false | tr ue';
-  static  appendTo: string = 'Selector | Element | jQuery | parent';
-  static  axis: string = 'x, y | x | y'; // actually "x, y" happens when you input "false"
-  static  cancel: string = 'Selector';
-  static  classes: string = 'Object (see jQUI website)';
-  static  connectToSortable: string = 'Selector';
-  static  containment: string = 'Selector | SizeArray | parent | document | window';
-  static  cursor: string = 'CSSCursor'; // todo: setta default: quadriarrow (crosshair?)
-  static  cursorAt: string = '{top, left} | {right, bottom} | {top, right} | {bottom, left}';
-  static  delay: string = 'Number (msec)';
-  static  disabled: string = 'Boolean';
-  static  distance: string = 'Number (pixel tolerance)';
+  static readonly  addClasses: string = 'false | tr ue';
+  static readonly  appendTo: string = 'Selector | Element | jQuery | parent';
+  static readonly  axis: string = 'x, y | x | y'; // actually "x, y" happens when you input "false"
+  static readonly  cancel: string = 'Selector';
+  static readonly  classes: string = 'Object (see jQUI website)';
+  static readonly  connectToSortable: string = 'Selector';
+  static readonly  containment: string = 'Selector | SizeArray | parent | document | window';
+  static readonly  cursor: string = 'CSSCursor'; // todo: setta default: quadriarrow (crosshair?)
+  static readonly  cursorAt: string = '{top, left} | {right, bottom} | {top, right} | {bottom, left}';
+  static readonly  delay: string = 'Number (msec)';
+  static readonly  distance: string = 'Number (pixel tolerance)';
 //todo: permetti di fare cambiamenti a run-time usando: chain -> optional export (dinamically rcalculate and replace content of _jquiDrag* attributes), second chain -> point to _jquiDragRule and execute things like in the example "Get or set the grid option, after initialization: ..."
-  static  grid: string = '[x: 0, y: 0]';
-  static  handle: string = 'Selector | Element';
-  static  helper: string = 'original | clone | Function() => Element';
-  static  iframeFix: string = 'Boolean | Selector';
-  static opacity: string = 'Number';
-  static refreshPositions: string = 'false | true';
+  static readonly  grid: string = '[x: 0, y: 0]';
+  static readonly  handle: string = 'Selector | Element';
+  static readonly  helper: string = 'original | clone | Function() => Element';
+  static readonly  iframeFix: string = 'Boolean | Selector';
+  static readonly opacity: string = 'Number';
+  static readonly refreshPositions: string = 'false | true';
 //todo: droppable
-  static revert: string = 'false | true | valid | invalid | Function() => Boolean';
-  static revertDuration: string = 'Number (msec)';
-  static scope: string = 'String';
-  static scroll: string = 'true | false'; //todo: devi fare lo scroll quando trascini un vertice out of visible graph boundary.
-  static scrollSensitivity: string = 'Number (pixel)'; //Distance in pixels from the edge of the viewport after which the viewport should scroll. Distance is relative to pointer, not the draggable.
-  static scrollSpeed: string = '20 | Number';
-  static snap: string = 'false | true | Selector';
-  static snapMode: string = 'both | inner | outer';
-  static snapTolerance: string = '20 | Number';
-  static stack: string = 'Selector';
-  static zIndex: string = 'Number';
+  static readonly revert: string = 'false | true | valid | invalid | Function() => Boolean';
+  static readonly revertDuration: string = 'Number (msec)';
+  static readonly scope: string = 'String';
+  static readonly scroll: string = 'true | false'; //todo: devi fare lo scroll quando trascini un vertice out of visible graph boundary.
+  static readonly scrollSensitivity: string = 'Number (pixel)'; //Distance in pixels from the edge of the viewport after which the viewport should scroll. Distance is relative to pointer, not the draggable.
+  static readonly scrollSpeed: string = '20 | Number';
+  static readonly snap: string = 'false | true | Selector';
+  static readonly snapMode: string = 'both | inner | outer';
+  static readonly snapTolerance: string = '20 | Number';
+  static readonly stack: string = 'Selector';
+  static readonly zIndex: string = 'Number';
 // Methods
-  static enabled: string = 'true | false'; // actually it is: .droppable( "enable" / "disable")
-  static dragging: string = 'function(event, ui){...}';
-  static dragStart: string = 'function(event, ui){...}';
-  static dragStop: string = 'function(event, ui){...}';
+  static readonly dragging: string = 'function(event, ui){...}';
+  static readonly dragStart: string = 'function(event, ui){...}';
+  static readonly dragStop: string = 'function(event, ui){...}';
+  static readonly disabled: string = 'false | true';
+  // static readonly enabled: string = 'true | false'; // actually it is: .droppable( "enable" / "disable")
 }
 /*
 draggableui vertex:

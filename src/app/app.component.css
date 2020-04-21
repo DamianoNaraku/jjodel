@@ -1,14 +1,36 @@
 ::ng-deep :root  {/* css variables */
   --topbarH: 40px;
   --sidebarW: 283px;
-  --mainFontColor: whiteSmoke;
-  --mainBackgroundColor: #1a1a1c;/*whiteSmoke;*/
   --mainBorderWidth: 5px;
-  --mainBorderColor: #2e2f34;/*#e5e5e5;*/
-  --secondaryBorderColor: #3c3c44;/*#c5c5c5;*/
   --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);
   --scrollbarW: 0px;
   --tabH: 30px;
+  --bluebordercolor: #0084ff;
+
+  --mainFontColor: transparent;
+  --mainBackgroundColor: transparent;
+  --mainBorderColor: transparent;
+  --secondaryBorderColor: transparent;
+  --popupBackgroundColor: transparent;
+  --altBackgroundColor: var(--mainBorderColor);
+  --altFontColor: transparent;
+
+  --DarkmainFontColor: #b2b2ba;
+  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;*/
+  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;*/
+  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;*/
+  --DarkpopupBackgroundColor: #44444c;
+  --DarkaltBackgroundColor: var(--mainBorderColor);
+  --DarkaltFontColor: var(--LightmainBorderColor);
+
+
+  --LightmainFontColor: var(--DarksecondaryBorderColor);
+  --LightmainBackgroundColor: white;
+  --LightmainBorderColor: #f0f0f0; /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/
+  --LightsecondaryBorderColor: #f5f5f5; /*#c5c5c5;*/
+  --LightpopupBackgroundColor: var(--DarkmainBorderColor);
+  --LightaltBackgroundColor: var(--mainBorderColor);
+  --LightaltFontColor: var(--DarkmainBorderColor);
 }
 ::ng-deep *{
   box-sizing: border-box;

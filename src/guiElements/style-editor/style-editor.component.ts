@@ -1,45 +1,39 @@
 import {Component, OnInit} from '@angular/core';
 import {
-  IAttribute,
-  M2Class,
+  Draggableoptions,
+  DraggableOptionsPH,
+  EdgeModes,
+  GraphSize,
+  IClass,
+  IClassifier,
   IEdge,
   IModel,
   IPackage,
   IReference,
+  IVertex,
+  Measurable,
+  MeasurableRuleLists,
+  MeasurableRuleParts,
+  measurableRules,
+  MeasurableTemplateGenerator,
   ModelPiece,
   PropertyBarr,
-  Status,
-  U,
-  IClass,
-  EdgeModes,
-  EOperation,
-  EParameter,
-  Database,
-  Size,
-  AttribETypes,
-  ViewRule,
-  ViewHtmlSettings,
-  StyleComplexEntry,
-  ViewPoint,
-  Type, MeasurableTemplateGenerator,
-  MeasurableRuleParts, MeasurableRuleLists, Measurable, measurableRules
-} from '../../common/Joiner';
-import ChangeEvent = JQuery.ChangeEvent;
-import BlurEvent = JQuery.BlurEvent;
-import KeyDownEvent = JQuery.KeyDownEvent;
-import KeyboardEventBase = JQuery.KeyboardEventBase;
-import KeyUpEvent = JQuery.KeyUpEvent;
-import ClickEvent = JQuery.ClickEvent;
-import SelectEvent = JQuery.SelectEvent;
-import MouseDownEvent = JQuery.MouseDownEvent;
-import MouseUpEvent = JQuery.MouseUpEvent;
-import {
-  Draggableoptions,
-  DraggableOptionsPH,
+  ReservedClasses,
   Resizableoptions,
   ResizableoptionsPH,
-  Rotatableoptions, RotatableoptionsPH
-} from '../../app/measurabletemplate/measurabletemplate.component';
+  RotatableoptionsPH,
+  Status,
+  StyleComplexEntry,
+  U,
+  ViewHtmlSettings,
+  ViewPoint,
+  ViewRule,
+} from '../../common/Joiner';
+import ChangeEvent = JQuery.ChangeEvent;
+import KeyDownEvent = JQuery.KeyDownEvent;
+import ClickEvent = JQuery.ClickEvent;
+import MouseDownEvent = JQuery.MouseDownEvent;
+import MouseUpEvent = JQuery.MouseUpEvent;
 
 @Component({
   selector: 'app-style-editor',
@@ -55,6 +49,30 @@ export class StyleEditorComponent implements OnInit {
 
 }
 class editorcontext {templateLevel: Element; graphLevel: Element; applyNodeChangesToInput: () => void;}
+type ownStyleContext = {
+  editLabel: HTMLLabelElement;
+  editAllowed: HTMLButtonElement;
+  // selectstyle: HTMLSelectElement,
+  previewselect: HTMLSelectElement,
+  preview: HTMLElement,
+  input: HTMLDivElement | HTMLTextAreaElement,
+  detailButton: HTMLButtonElement,
+  detailPanel: HTMLElement,
+  isM1: HTMLInputElement,
+  isM2: HTMLInputElement,
+  isClass: HTMLInputElement,
+  isReference: HTMLInputElement,
+  isAttribute: HTMLInputElement,
+  isOperation: HTMLInputElement,
+  isParameter: HTMLInputElement,
+  stylename: HTMLInputElement,
+  forkButton: HTMLButtonElement,
+  delete: HTMLButtonElement,
+  saveasName: HTMLInputElement,
+  styledelete: HTMLButtonElement,
+  measurableCheckbox: HTMLInputElement,
+};
+
 export class StyleEditor {
   private propertyBar: PropertyBarr = null;
   private $root: JQuery<HTMLElement> = null;
@@ -64,6 +82,11 @@ export class StyleEditor {
   private templates: HTMLElement = null;
   private display: HTMLElement = null;
   private clickedLevel: Element = null;
+  sizeInputx: HTMLInputElement;
+  sizeInputy: HTMLInputElement;
+  sizeInputw: HTMLInputElement;
+  sizeInputh: HTMLInputElement;
+  private ownstylecontext: ownStyleContext;
 
   onHide(): void {
     this.updateClickedGUIHighlight();
@@ -171,7 +194,7 @@ export class StyleEditor {
 
   showP(m: IPackage) { U.pe(true, 'styles of Package(', m, '): unexpected.'); }
 
-  setStyleEditor($styleown: JQuery<HTMLElement>, model: IModel, mp: ModelPiece, style: StyleComplexEntry, context: editorcontext, indexedPath: number[] = null): number[] {
+  setStyleEditor($styleown: JQuery<HTMLElement>, model: IModel, mp: ModelPiece, style: StyleComplexEntry, context: editorcontext, indexedPath: number[] = null, insideOwnSection: boolean = false): number[] {
     /// getting the template to fill.
     const debug: boolean = false;
     let i: number;
@@ -189,28 +212,7 @@ export class StyleEditor {
     U.pe(!styleowntemplate.parentElement, 'null parent: ',  styleowntemplate, $styleown);
     $styleown = $(styleowntemplate);
     U.pif(debug, 'styleComplexEntry:', style, 'mp:', mp, styleowntemplate, $styleown);
-    const obj: {
-      editLabel: HTMLLabelElement;
-      editAllowed: HTMLButtonElement;
-      // selectstyle: HTMLSelectElement,
-      previewselect: HTMLSelectElement,
-      preview: HTMLElement,
-      input: HTMLDivElement | HTMLTextAreaElement,
-      detailButton: HTMLButtonElement,
-      detailPanel: HTMLElement,
-      isM1: HTMLInputElement,
-      isM2: HTMLInputElement,
-      isClass: HTMLInputElement,
-      isReference: HTMLInputElement,
-      isAttribute: HTMLInputElement,
-      isOperation: HTMLInputElement,
-      isParameter: HTMLInputElement,
-      stylename: HTMLInputElement,
-      forkButton: HTMLButtonElement,
-      delete: HTMLButtonElement,
-      saveasName: HTMLInputElement,
-      styledelete: HTMLButtonElement
-    } = {
+    const obj: ownStyleContext = {
       editLabel: null,
       editAllowed: null,
       // selectstyle: null,
@@ -230,8 +232,10 @@ export class StyleEditor {
       forkButton: null,
       delete: null,
       saveasName: null,
-      styledelete: null
+      styledelete: null,
+      measurableCheckbox: null,
     };
+    if (insideOwnSection) this.ownstylecontext = obj;
     //// setting up labelAllowEdit (checking if the (own, inherited or inheritable) style exist or a modelpiece local copy is needed.)
     obj.editAllowed = $styleown.find('button.allowEdit')[0] as HTMLButtonElement;
     obj.editLabel = $styleown.find('label.allowEdit')[0] as HTMLLabelElement;
@@ -315,8 +319,10 @@ export class StyleEditor {
       onStyleChange();
     };
     const onStyleChange = (): void => {
+      console.log('onStyleChange', U.getCaller(), U.getStackTrace());
       const inputHtml: Element = U.toHtml(obj.input.innerText);
-      if (inputHtml.getAttribute('disabled') !== 'false') return;
+      const disabledAttr: string = obj.input.getAttribute('disabled');
+      if (disabledAttr === 'true' || disabledAttr === '') return;
       // console.log('PRE: ', inputHtml, 'outer:', inputHtml.outerHTML, 'innertext:', obj.input.innerText);
       U.pif(debug, '*** setting inheritable PRE. style.htmlobj:', style.htmlobj, ', style:', style, ', context:', context,
         'templatelvl.parent:', context.templateLevel.parentElement, ', inputHtml:', inputHtml);
@@ -357,33 +363,21 @@ export class StyleEditor {
     // .log('swap End:', measurableRoot.childNodes.length, tmp.childNodes.length);
     //U.pe(true,'swapend');
     const $measurableRoot = $(measurableRoot);
+    const $measurableBody = $measurableRoot.find('.measurableSettingRoot');
     // obj.input is same const ownhtmlinput: HTMLDivElement | HTMLTextAreaElement = $measurableRoot.find('.html[contenteditable="true"]')[0] as HTMLDivElement | HTMLTextAreaElement;
     const $measurableCheckbox: JQuery<HTMLInputElement> = $measurableRoot.find('input.ismeasurable') as JQuery<HTMLInputElement>;
-    const measurableCheckbox: HTMLInputElement = $measurableCheckbox[0];
+    const measurableCheckbox = obj.measurableCheckbox = $measurableCheckbox[0];
     measurableCheckbox.disabled = obj.input.getAttribute('disabled') === 'true';
     measurableCheckbox.checked = (context.templateLevel.classList.contains('measurable') || context.graphLevel.classList.contains('measurable'));
     const $measurableTitle = $measurableRoot.find('.meas_acc0 > .ruletitle');
     $measurableTitle.on('click', (e: ClickEvent) => {
-      const $innerroot = $measurableRoot.find('.measurableSettingRoot ');
+      const $innerroot = $measurableBody;
       const innerroot = $innerroot[0];
       if (innerroot.classList.contains('show')) {
-        innerroot.setAttribute('style', '');
-        innerroot.classList.add('collapsing');
         // todo: elimina slideup e usa la transizione css su collapsing, come?
-        $innerroot.slideUp(400, () => {
-          innerroot.classList.remove('show', 'collapsing');
-          innerroot.classList.remove('collapse');
-          innerroot.classList.add('collapse');
-          $measurableTitle[0].classList.add('collapsed');
-        });
-        return;
-      }
-
-      innerroot.classList.remove('collapse');
-      innerroot.classList.add('collapse');
-      innerroot.classList.add('show');
-      $measurableTitle[0].classList.remove('collapsed');
-      $innerroot.slideDown();
+        $innerroot.slideUp(400, () => { innerroot.classList.remove('show', 'collapsing', 'collapse'); });
+        return; }
+      $innerroot.slideDown(400, () => { innerroot.classList.add('collapse', 'show'); });
       e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation();
@@ -396,11 +390,17 @@ export class StyleEditor {
       context.templateLevel.classList.remove('measurable');
       if (measurableCheckbox.checked) {
         context.templateLevel.classList.add('measurable');
+        if (context.templateLevel instanceof HTMLElement) context.templateLevel.style.position = 'absolute';
         $measurableTitle.slideDown();
-        if (!measurableRoot.classList.contains('show')) { $measurableTitle.trigger('click'); }
+        if (!$measurableBody[0].classList.contains('show')) { $measurableTitle.trigger('click'); }
+        console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', context.templateLevel.parentElement && context.templateLevel.parentElement.style.position);
+        if (context.templateLevel.parentElement && context.templateLevel.parentElement.style.position !== 'relative') {
+          U.ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was:'
+            + context.templateLevel.parentElement.style.position);
+          context.templateLevel.parentElement.style.position = 'relative'; }
       }
       else {
-        if (measurableRoot.classList.contains('show')) { $measurableTitle.trigger('click'); }
+        if ($measurableBody[0].classList.contains('show')) { $measurableTitle.trigger('click'); }
         $measurableTitle.slideUp(); }
       if (U.isTriggered(e)) return;
       context.applyNodeChangesToInput();
@@ -454,7 +454,7 @@ export class StyleEditor {
     const $styleInherited = $html.find('.style.inherited');
     const $styleInheritable = $html.find('.style.inheritable');
     //const ownhtml = m.getStyle();
-    const htmlPath: number[] = this.setStyleEditor($styleown, model, m, style, context, indexedPath);
+    const htmlPath: number[] = this.setStyleEditor($styleown, model, m, style, context, indexedPath, true);
     // U.pe(!style.html, $styleown, m, clickedLevel, model, style, instanceshtml);
     // const clickedonStyle: Element = U.followIndexesPath(style.html, htmlPath) as Element;
     $html.find('.tsclass').html('' + m.printableName()); // + (htmlDepth === 0 ? ' (root level)' : ' (level&nbsp;' + htmlDepth + ')') );
@@ -473,6 +473,59 @@ export class StyleEditor {
     if (!model.isM1()) { this.setStyleEditor($styleInheritable, model, m, styleinheritable, inheritablecontext); }
     else {$styleInheritable[0].innerHTML = '<h5 class="text-danger">M1 elements cannot give inheritance.</h5>'}
     U.detailButtonSetup($html);
+    /// start autosize
+    const v: IVertex = m instanceof IClassifier ? m.getVertex() : null;
+    this.sizeInputx = $html.find('input.sizex')[0] as HTMLInputElement;
+    this.sizeInputy = $html.find('input.sizey')[0] as HTMLInputElement;
+    this.sizeInputw = $html.find('input.sizew')[0] as HTMLInputElement;
+    this.sizeInputh = $html.find('input.sizeh')[0] as HTMLInputElement;
+    const $autosizew = $html.find('input.autowidth') as JQuery<HTMLInputElement>;
+    const $autosizeh = $html.find('input.autoheight') as JQuery<HTMLInputElement>;
+    const autosizew = $autosizew[0];
+    const autosizeh = $autosizeh[0];
+    if (v && this.sizeInputx) {
+      autosizeh.disabled = autosizew.disabled = this.ownstylecontext.measurableCheckbox.disabled;
+      const isAutosize = v.isAutosize();
+      this.sizeInputw.disabled = autosizew.checked = isAutosize.x;
+      this.sizeInputh.disabled = autosizeh.checked = isAutosize.y;
+      const autosizeLevelTemplate: HTMLElement = templateRoot.firstChild as any;
+      const setAutosize = (statusx: boolean, statusy: boolean): void => {
+        const html: HTMLElement = autosizeLevelTemplate; // this.getHtmlFirstChild();
+        if (statusx !== null) {
+          if (statusx) {
+            html.dataset.autosizex = 'true';
+            html.style.width = 'auto';
+          } else {
+            html.dataset.autosizex = 'false';
+            html.style.width = '100%';
+          }
+        }
+        if (statusy !== null) {
+          if (statusy) {
+            html.dataset.autosizey = 'true';
+            html.style.height = 'auto';
+          } else {
+            html.dataset.autosizey = 'false';
+            html.style.height = '100%';
+          }
+        }
+        context.applyNodeChangesToInput();
+        v.refreshGUI();
+        v.refreshEdgesGUI();
+      };
+      $autosizew.on('change', () => { setAutosize(autosizew.checked, null); this.sizeInputw.disabled = autosizew.checked; });
+      $autosizeh.on('change', () => { setAutosize(null, autosizeh.checked); this.sizeInputh.disabled = autosizeh.checked; });
+      const vSize: GraphSize = v.getSize();
+      this.sizeInputx.value = '' + (vSize.x);
+      this.sizeInputy.value = '' + (vSize.y);
+      this.sizeInputw.value = '' + (vSize.w);
+      this.sizeInputh.value = '' + (vSize.h);
+      $(this.sizeInputx).on('change', () => { v.setSize(new GraphSize(+this.sizeInputx.value, null, null, null)); });
+      $(this.sizeInputy).on('change', () => { v.setSize(new GraphSize(null, +this.sizeInputy.value, null, null)); });
+      $(this.sizeInputw).on('change', () => { v.setSize(new GraphSize(null, null, +this.sizeInputw.value,  null)); });
+      $(this.sizeInputh).on('change', () => { v.setSize(new GraphSize(null, null, null, +this.sizeInputh.value)); });
+    } else { $html.find('.sizeContainer').remove(); }
+    //// end autosize
     // <meta>
     //     <dependency><attributes><type>double</ </ </
     //     <preview><img src=imgurl</img> or html diretto.</
@@ -480,13 +533,12 @@ export class StyleEditor {
 
     // pulsanti per settare preview: "takesnapshotOf / set as example... + select vertex with that style"
 
+    const $arrowupp: JQuery<HTMLButtonElement> = ($html.find('button.arrow.upp') as JQuery<HTMLButtonElement>).on('click', (e: ClickEvent) => {
+      this.propertyBar.show(null, clickedRoot, null, false); });
     const $arrowup: JQuery<HTMLButtonElement> = ($html.find('button.arrow.up') as JQuery<HTMLButtonElement>).on('click', (e: ClickEvent) => {
-      // $(clickedLevel.parentNode).trigger('click');
-      this.propertyBar.show(null, clickedLevel.parentElement, null, false);
-      // this.show(this.propertyBar.selectedModelPiece, clickedLevel.parentElement); this will not update clickedHtml
-    });
-    $arrowup[0].disabled = htmlPath.length === 0 && m instanceof IClass;
-    ($html.find('button.arrow.down') as JQuery<HTMLButtonElement>)[0].disabled = true;
+      this.propertyBar.show(null, clickedLevel.parentElement, null, false); });
+    $arrowup[0].disabled = $arrowupp[0].disabled = htmlPath.length === 0 && m instanceof IClass;
+    // ($html.find('button.arrow.down') as JQuery<HTMLButtonElement>)[0].disabled = true;
 
     showAsEdge.checked = false;
     if (m instanceof IClass) {
@@ -685,51 +737,57 @@ export class StyleEditor {
     const dragarrows: {x, y} = {} as any;
     const $arrowroot = $measurableShell.find('.rectangledrawing.outer');
     const $innerroot = $arrowroot.find('.rectangledrawing');
-    // todo: sposta la fase di setattribute direttamente nella generazione html.
-    resizearrows.tl = $innerroot.find('.top.left').attr('direction', 'tl');
-    resizearrows.t = $innerroot.find('.side.top').attr('direction', 't');
-    resizearrows.tr = $innerroot.find('.top.right').attr('direction', 'tr');
-    resizearrows.ml = $innerroot.find('.side.left').attr('direction', 'l');
-    resizearrows.mr = $innerroot.find('.side.right').attr('direction', 'r');
-    resizearrows.bl = $innerroot.find('.bot.left').attr('direction', 'bl');
-    resizearrows.b = $innerroot.find('.side.bot').attr('direction', 'b');
-    resizearrows.br = $innerroot.find('.bot.right').attr('direction', 'br');
-    resizearrows.tla = $arrowroot.find('.top.left.arrow').attr('direction', 'tl');
-    resizearrows.ta = $arrowroot.find('.side.top.arrow').attr('direction', 't');
-    resizearrows.tra = $arrowroot.find('.top.right.arrow').attr('direction', 'tr');
-    resizearrows.mla = $arrowroot.find('.side.left.arrow').attr('direction', 'l');
-    resizearrows.mra = $arrowroot.find('.side.right.arrow').attr('direction', 'r');
-    resizearrows.bla = $arrowroot.find('.bot.left.arrow').attr('direction', 'bl');
-    resizearrows.ba = $arrowroot.find('.side.bot.arrow').attr('direction', 'b');
-    resizearrows.bra = $arrowroot.find('.bot.right.arrow').attr('direction', 'br');
-    dragarrows.x = $measurableShell.find('.arrowh').attr('direction', 'x');
-    dragarrows.y = $measurableShell.find('.arrowv').attr('direction', 'y');
+    resizearrows.tl = $innerroot.find('.top.left');
+    resizearrows.t = $innerroot.find('.side.top');
+    resizearrows.tr = $innerroot.find('.top.right');
+    resizearrows.ml = $innerroot.find('.side.left');
+    resizearrows.mr = $innerroot.find('.side.right');
+    resizearrows.bl = $innerroot.find('.bot.left');
+    resizearrows.b = $innerroot.find('.side.bot');
+    resizearrows.br = $innerroot.find('.bot.right');
+    resizearrows.tla = $arrowroot.find('.top.left.arrow');
+    resizearrows.ta = $arrowroot.find('.side.top.arrow');
+    resizearrows.tra = $arrowroot.find('.top.right.arrow');
+    resizearrows.mla = $arrowroot.find('.side.left.arrow');
+    resizearrows.mra = $arrowroot.find('.side.right.arrow');
+    resizearrows.bla = $arrowroot.find('.bot.left.arrow');
+    resizearrows.ba = $arrowroot.find('.side.bot.arrow');
+    resizearrows.bra = $arrowroot.find('.bot.right.arrow');
+    dragarrows.x = $measurableShell.find('.arrowh');
+    dragarrows.y = $measurableShell.find('.arrowv');
 
+    const updateArrowGUI = (arrow: HTMLInputElement, direction: string = null) => {
+      direction = direction || arrow.getAttribute('direction');
+      const innerbox: HTMLElement = $innerroot.find('*[direction = "' + direction + '"]')[0] as HTMLElement;
+      if (!innerbox) return;
+      innerbox.classList.remove('selected');
+      if (arrow.checked) innerbox.classList.add('selected');
+    };
     const arrowchange = (e: ChangeEvent) => {
       let tmp: any;
       const arrow: HTMLInputElement = e.currentTarget;
       const direction = arrow.getAttribute('direction');
-      const innerbox: HTMLElement = $innerroot.find('*[direction = "' + direction + '"]')[0] as HTMLElement;
       const checked = arrow.checked;
       const isrotatable = arrow.classList.contains('rot');
       const isdraggable = arrow.classList.contains('drag');
       const isresizable = !isdraggable && !isrotatable;
-      if (innerbox) {
-        innerbox.classList.remove('selected');
-        if (checked) innerbox.classList.add('selected'); }
+      updateArrowGUI(arrow, direction);
       if (isdraggable) { tmp = context.templateLevel.getAttribute(measurableRules._jquiDra + Draggableoptions.axis); }
       if (isresizable) { tmp = context.templateLevel.getAttribute(measurableRules._jquiRes + Resizableoptions.handles); }
       let currentHandles: string[] = U.replaceAll(tmp || '', ' ', '').split(',');
       U.arrayRemoveAll(currentHandles, direction);
       if (checked) { U.ArrayAdd(currentHandles, direction); }
       U.arrayRemoveAll(currentHandles, '');
-      if (isdraggable && currentHandles.length) { context.templateLevel.setAttribute(measurableRules._jquiDra + Draggableoptions.axis, currentHandles.join(', ')); }
-      else context.templateLevel.removeAttribute(measurableRules._jquiDra + Draggableoptions.axis);
-      if (isresizable && currentHandles.length) { context.templateLevel.setAttribute(measurableRules._jquiRes + Resizableoptions.handles, currentHandles.join(', ')); }
-      else context.templateLevel.removeAttribute(measurableRules._jquiRes + Resizableoptions.handles);
+      U.pe (Resizableoptions.handles !== 'handles', Resizableoptions.handles);
+      if (isdraggable) {
+        if (currentHandles.length) { context.templateLevel.setAttribute(measurableRules._jquiDra + Draggableoptions.axis, currentHandles.join(', ')); }
+        else { context.templateLevel.removeAttribute(measurableRules._jquiDra + Draggableoptions.axis); } }
+      if (isresizable){
+        if (currentHandles.length){ context.templateLevel.setAttribute(measurableRules._jquiRes + Resizableoptions.handles, currentHandles.join(', ')); }
+        else { context.templateLevel.removeAttribute(measurableRules._jquiRes + Resizableoptions.handles);} }
       console.log('resizable:', isresizable, 'draggable:', isdraggable, currentHandles, 'tmp:', tmp, context);
       context.applyNodeChangesToInput(); };
-    const rulelist: MeasurableRuleLists = Measurable.getRuleList(context.templateLevel);
+    const rulelist: MeasurableRuleLists = Measurable.getRuleList(context.templateLevel, null, true);
     /*
     for (let key in measurableRules) {
       key = measurableRules[key];
@@ -738,10 +796,14 @@ export class StyleEditor {
        U.pe(!counter, 'counter not found for rule: ' + key);
       counter.innerText = rulelist[key].length;
     }*/
+    // console.log('rules:', rulelist.all.length, rulelist, context.templateLevel);
+    // $measurableShell.find('.rulecontainer:not(.template)').remove();
     for (i = 0; i < rulelist.all.length; i++) {
       const rule: MeasurableRuleParts = rulelist.all[i];
       U.pe(!rule.prefix, 'astdh', rule, rulelist, context.templateLevel);
-      if (rule.prefix === measurableRules._jquiDra && rule.name === Draggableoptions.axis) {
+      if (rule.prefix === measurableRules._jquiDra && rule.name === Draggableoptions.axis) continue;
+      if (rule.prefix === measurableRules._jquiRes && rule.name === Resizableoptions.handles) continue;
+      if (false && rule.prefix === measurableRules._jquiDra && rule.name === Draggableoptions.axis) {
         const value = rulelist._jquiDra[i].right;
         const handles: string[] = (value.indexOf('all') !== -1 ? 'x,y' : U.replaceAll(value, ' ', '')).split(',');
         let map: {x,y} = {} as any;
@@ -754,7 +816,7 @@ export class StyleEditor {
         dragarrows.x.checked = map.x;
         dragarrows.y.checked = map.y;
         continue; }
-      if (rule.prefix === measurableRules._jquiRes && rule.name === Resizableoptions.handles) {
+      if (false && rule.prefix === measurableRules._jquiRes && rule.name === Resizableoptions.handles) {
         const handles: string[] = (rule.right.indexOf('all') !== -1 ? 'n,e,s,w,ne,se,sw,nw' : U.replaceAll(rule.right, ' ', '')).split(',');
         let map: {tl, t, tr, l, r, bl, b, br} = {} as any;
         for (i = 0; i < handles.length; i++) {
@@ -779,12 +841,30 @@ export class StyleEditor {
         resizearrows.br.checked = map.br;
         continue; }
       const fakeevt: any = {};
-      fakeevt.currentTarget = $measurableShell.find(
-        '.ruletitle[data-target=".meas_acc > .panel > .' + rule.prefix + '" > button.addrule')[0];
-      fakeevt.currentTarget = fakeevt.currentTarget.parentElement;
+      fakeevt.currentTarget = $measurableShell.find('.ruletitle[data-target=".meas_acc > .panel > .' + rule.prefix + '"] > button.addrule')[0];
       this.addRule(fakeevt, context, rule);
     }
-    $measurableShell.find('.arrow').on('change', arrowchange).trigger('change');
+
+    // per leggere la direzione da una freccia htmlcheckbox: getAttribute('direction');
+
+
+    let tmp: any;
+    let j: number;
+    tmp = context.templateLevel.getAttribute(measurableRules._jquiDra + Draggableoptions.axis);
+    const dragHandles: string[] = U.replaceAll(tmp || '', ' ', '').split(',');
+    tmp = context.templateLevel.getAttribute(measurableRules._jquiRes + Resizableoptions.handles);
+    const resHandles: string[] = U.replaceAll(tmp || '', ' ', '').split(',');
+    const handlesarr: string[][] = [dragHandles, resHandles];
+    for (j = 0; j < handlesarr.length; j++) {
+      const handles: string[] = handlesarr[j];
+      U.arrayRemoveAll(handles, '');
+      for (i = 0; i < handles.length; i++) {
+        const arrow: HTMLInputElement = $measurableShell.find('.arrow[direction=' + handles[i] + ']')[0] as any;
+        arrow.checked = true;
+        updateArrowGUI(arrow); }
+    }
+
+    $measurableShell.find('.arrow').on('change', arrowchange);
     $measurableShell.find('button.addrule').off('click.addrule').on('click.addrule',
       (e: ClickEvent) => { e.stopPropagation(); this.addRule(e, context); });
   }
@@ -797,10 +877,12 @@ export class StyleEditor {
     let i: number;
     const title = (e.currentTarget as HTMLElement).parentElement;
     const $title = $(title);
+//    console.log(title, e);
     const ruletype: string = U.trimStart(title.dataset.target.substr(title.dataset.target.lastIndexOf('>') + 1), ['.', ' ']);
     const prefix: string = ruletype;
     const counter: HTMLElement = $title.find('.rulecounter')[0];
     counter.innerHTML = '' + (+counter.innerHTML + 1);
+    // U.pe(counter.innerHTML === '2', '2');
     // const targetsectionselector: string = title.dataset.target;
     // const $targetsection: JQuery<HTMLElement> = $measurableShell.find(targetsectionselector) as  JQuery<HTMLElement>;
     const appendparent = title.parentElement;
@@ -814,6 +896,7 @@ export class StyleEditor {
     const operator: HTMLSelectElement = $newtemplate.find('.operatorcontainer > select.operator')[0] as HTMLSelectElement;
     const right: HTMLInputElement = $newtemplate.find('input.rightside')[0] as HTMLInputElement;
     const target: HTMLInputElement = $newtemplate.find('input.target')[0] as HTMLInputElement;
+    const $testbutton: JQuery<HTMLButtonElement> = $newtemplate.find('button.executedebug') as any;
 
 
     const dynamicjquiplaceholder = (valueinput: HTMLInputElement, phinput: HTMLInputElement, phdictionary: object) => {
@@ -837,6 +920,11 @@ export class StyleEditor {
       if (left) left.value = ruleparts.left;
       if (operator) U.selectHtml(operator, ruleparts.operator);
       right.value = ruleparts.right;
+    }
+    else {
+      if (prefix === measurableRules.onRefresh) {
+        context.templateLevel.classList.add(ReservedClasses.onRefresh)
+        context.applyNodeChangesToInput(); }
     }
     const rulespanelshell = this.getruleShellRoot(nameinput);
     const $rulespanelshell = $(rulespanelshell);
@@ -910,7 +998,7 @@ export class StyleEditor {
     const rightChanged = () => {
       updateRule();
     };
-    const nameChanged = () => { setRuleName(nameinput.value); };
+    const nameChanged = () => { setRuleName(nameinput.value = nameinput.value.toLowerCase()); };
     $(nameinput).off('change.name').on('change.name', nameChanged);
     $(left).off('change.leftside').on('change.leftside', leftChanged);
     $(operator).off('change.operator').on('change.operator', operatorChanged);
@@ -920,8 +1008,36 @@ export class StyleEditor {
       newtemplate.parentNode.removeChild(newtemplate);
       context.templateLevel.removeAttribute(generateOldRuleName());
       context.templateLevel.removeAttribute(generateRuleName()); //todo: potrebbe fare casini se qualcuno swappa nomi e cancella una regola?
+      if (prefix === measurableRules.onRefresh) { context.templateLevel.classList.remove(ReservedClasses.onRefresh); }
       context.applyNodeChangesToInput();
     });
     if (!ruleparts) setRuleName(nameinput.getAttribute('defaultvalue'));
+
+
+    const isEventTriggerRule: boolean = Measurable.eventTriggers.indexOf(prefix as measurableRules) !== -1;
+    let debugleft = $newtemplate.find('.debugleft')[0];
+    let debugoperator = $newtemplate.find('.debugoperator')[0];
+    let debugright = $newtemplate.find('.debugright')[0];
+    let debugtriggers = $newtemplate.find('.debugtriggers')[0];
+    if (!left) { U.remove(debugleft.parentElement); debugleft = null; }
+    if (!right) { U.remove(debugright.parentElement); debugright = null; }
+    if (!operator) { U.remove(debugoperator.parentElement); debugoperator = null; }
+    if (!isEventTriggerRule) { U.remove(debugtriggers.parentElement); debugtriggers = null; }
+    let execute = () => {
+      const attr: Attr = context.graphLevel.attributes.getNamedItem(generateRuleName());
+      let parts: MeasurableRuleParts = new MeasurableRuleParts(attr, null, true);
+      let output: MeasurableRuleParts = parts.process(false);
+      console.log('execution output:', output);
+      if (debugleft) debugleft.innerText = output.left;
+      if (debugoperator) debugoperator.innerText = output.operator;
+      if (debugright) debugright.innerText = output.right;
+      if (debugtriggers) debugtriggers.innerText = 'Triggered ' + output.triggeredResults.length + ' rules.';
+    }
+    $testbutton.on('click', execute);
+  }
+
+  isLoaded(): boolean{
+    //todo: carica styleEditor solo quando diventa visibile.
+    return true;
   }
 }

@@ -32,14 +32,21 @@
   top: 10px;
   height: 40px;
   width: 40px;
-  border: 2px solid black;
-  background-color: transparent; }
+  border: 2px solid var(--mainFontColor);
+  background-color: var( --altBackgroundColor);
+  color: var(--mainFontColor);
+  font-size: 12px;
+}
 ::ng-deep .popupContent .closeButton:hover{
   right: 5px;
   top: 5px;
   height: 50px;
   width: 50px;
-  background-color: red; }
+  background-color: red;
+  color: var(--LightmainFontColor);
+  font-weight: bolder;
+  font-size: 15px;
+}
 
 ::ng-deep .screenWideShadow{
   position: absolute;

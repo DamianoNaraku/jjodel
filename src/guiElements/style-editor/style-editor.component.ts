@@ -732,7 +732,16 @@ export class StyleEditor {
   private makeMeasurableOptions(measurableShell: Element, inputuseless: HTMLDivElement|HTMLTextAreaElement,
                                 style: StyleComplexEntry, context: editorcontext, indexedPath: number[]): void{
     const $measurableShell = $(measurableShell);
+    const $meas_acc = $measurableShell.find('.meas_acc');
     let i: number;
+    const searchForm: HTMLInputElement = $meas_acc.find('input.rulesearch').on('input', (e: Event) => {
+      let searchstr: string = searchForm.value.trim().toLowerCase();
+      if(searchstr === '') {
+        $meas_acc.find('.panel[prefixlc]').show();
+        return; }
+      $meas_acc.find('.panel[prefixlc]').hide();
+      $meas_acc.find('.panel[prefixlc*=\'' + searchstr + '\']').show();
+    })[0] as HTMLInputElement;
     const resizearrows: {tl, tla, t, ta, tr, tra, ml, mla, mr, mra, bl, bla, b, ba, br, bra} = {} as any;
     const dragarrows: {x, y} = {} as any;
     const $arrowroot = $measurableShell.find('.rectangledrawing.outer');
@@ -888,7 +897,8 @@ export class StyleEditor {
     const appendparent = title.parentElement;
     const newtemplate = U.cloneHtml($(appendparent).find('.template')[0], true);
     newtemplate.classList.remove('template');
-    appendparent.appendChild(newtemplate);
+    appendparent.insertBefore(newtemplate, title);
+    appendparent.insertBefore(title, newtemplate); // non esiste insertAfter, quindi ri-prependo il titolo.
 
     const $newtemplate = $(newtemplate);
     const nameinput: HTMLInputElement = $newtemplate.find('input.attrname')[0] as HTMLInputElement;
@@ -1006,6 +1016,7 @@ export class StyleEditor {
     $(target).off('change.target').on('change.target', targetChanged);
     $newtemplate.find('button.ruledelete').off('click.delete').on('click.delete', () => {
       newtemplate.parentNode.removeChild(newtemplate);
+      counter.innerHTML = '' + (+counter.innerHTML - 1);
       context.templateLevel.removeAttribute(generateOldRuleName());
       context.templateLevel.removeAttribute(generateRuleName()); //todo: potrebbe fare casini se qualcuno swappa nomi e cancella una regola?
       if (prefix === measurableRules.onRefresh) { context.templateLevel.classList.remove(ReservedClasses.onRefresh); }
@@ -1031,7 +1042,12 @@ export class StyleEditor {
       if (debugleft) debugleft.innerText = output.left;
       if (debugoperator) debugoperator.innerText = output.operator;
       if (debugright) debugright.innerText = output.right;
-      if (debugtriggers) debugtriggers.innerText = 'Triggered ' + output.triggeredResults.length + ' rules.';
+      if (debugtriggers) {
+        let str = 'Triggered ' + output.triggeredResults.length + ' rules.';
+        debugtriggers.innerText = 'Triggered ' + output.triggeredResults.length + ' rules.';
+        if (!output.triggeredResults.length) str += '\n if this is not intended, remind that layoutable rules always start with the "_" prefix, eg: "_export1"'
+        debugtriggers.innerText = str;i
+      }
     }
     $testbutton.on('click', execute);
   }

@@ -291,3 +291,8 @@
 .meas_acc0 .collapse:not(.show) { display: none; }
 .meas_acc0 .rule.template { display: none !important; }
 .meas_acc0 .selected { background-color: #37ff66 !important; }
+
+.meas_acc .rulesearch:focus {
+  border: 1px solid dodgerblue;
+  box-shadow: 0 0 0 1px dodgerblue;
+}

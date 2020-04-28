@@ -342,14 +342,24 @@ button.edit:not(.btn) { background-image: url(../img/black/edit.png); }
 /****** changelog style *******/
 .changelog{
   width: 60vw;
+  list-style: none;
 }
+
+.changelog li.version::before,
 .changelog li.feature::before,
+.changelog li.info::before,
 .changelog li.bugfix::before,
 .changelog li.bug::before {
-  content: "◦";
+  content: "•";
   margin-right: 5px;
   font-size: 1.5rem;
-  vertical-align: middle;
+  vertical-align: sub;
+}
+
+.changelog li.version::before{
+  content: "◦";
+  margin-right: 20px;
+  margin-left: -25px;
 }
 .changelog li.bugfix::before {
   color: green;
@@ -357,8 +367,21 @@ button.edit:not(.btn) { background-image: url(../img/black/edit.png); }
 .changelog li.bug::before {
   color: red;
 }
+.changelog li.info::before {
+  color: gray;
+}
 .changelog li.feature::before {
   color: dodgerblue;
+}
+.filterContainer{
+  display: flex;
+  width: 100%;
+}
+.filterContainer button.featurefilter {
+  flex-grow: 1;
+  margin: 10px;
+  margin-top: 0;
+  text-align: center;
 }
 
 .changelog li {

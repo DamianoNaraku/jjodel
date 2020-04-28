@@ -37,7 +37,8 @@ export {ModelPiece, Info, ModelNone, StyleComplexEntry} from '../Model/modelPiec
   ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel} from '../Model/iModel';
 export {ShortAttribETypes, U, Json, AttribETypes,
   InputPopup, DetectZoom, Dictionary,
-  IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput} from './util';
+  IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput
+, TSON_JSTypes, TSON, TSON_UnsupportedTypes, TSONString} from './util';
 export {MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions} from './measurable';
 export {Status} from '../../src/app/app.module';
 export {IGraph, ViewPointShell} from '../guiElements/mGraph/iGraph';

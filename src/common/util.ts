@@ -2350,7 +2350,7 @@ export class U {
     let i: number;
     let j: number;
     if (!ret.attrRegex && !ret.attrselector) return ret;
-    const attrSelectorArr: string[] = !ret.attrRegex ? ret.attrselector.split(' ') : null;
+    const attrSelectorArr: string[] = !ret.attrRegex ? U.replaceAll(ret.attrselector, ',', ' ').split(' ') : null;
     for (i = 0; i < ret.resultSetElem.length; i++) {
       if (ret.attrRegex) { U.ArrayMerge(ret.resultSetAttr, getAttributes(ret.resultSetElem[i], null, ret.attrRegex)); continue; }
       for (j = 0; j < attrSelectorArr.length; j++) {
@@ -2361,8 +2361,202 @@ export class U {
     }
     U.pif(debug, 'part4 ret:  index:', attributeSelectorIndex, ' data:', ret);
     return ret; }
+
+  static deepCloneWithFunctions(obj: object): object {
+    try {JSON.stringify(obj); } catch(e) { U.pe(true, 'U.deepCloneWithFunctions() Object have circular references.'); } // just to throw exception if the object have circular references
+    let copy: object;
+    let key: string;
+    // Handle the 3 simple types, and null or undefined
+    if (null === obj || undefined === obj || "object" !== typeof obj) return obj;
+
+    if (obj instanceof Date) { return new Date(obj.toString()); }
+    if (obj instanceof Number) { return new Number(obj.valueOf()); }
+    if (obj instanceof Boolean) { return new Boolean(obj.valueOf()); }
+    if (obj instanceof String) { return new String(obj.valueOf()); }
+    if (obj instanceof String) { return new String(obj.valueOf()); }
+    if (obj instanceof Function) { return obj; }
+    if (Array.isArray(obj)) { copy = []; }
+    if (obj instanceof Object) { copy = {}; }
+    // Handle Object
+    if (obj instanceof Object) {
+      copy = {};
+      for (key in obj) {
+        if (obj.hasOwnProperty(key)) copy[key] = U.deepCloneWithFunctions(obj[key]);
+      }
+      return copy;
+    }
+    return obj;
+  }
+
+  static objecKeysIntersect(obj1: object, obj2: object, prioritizeleft: boolean = true, clone: boolean = false): object {
+    if (!U.isObject(obj1, false, false, true) || !U.isObject(obj2, false, false, true)) return prioritizeleft ? obj1 : obj2;
+    let retobj: object = clone ? {} : obj1;
+    let key: string;
+
+    for (key in obj1) {
+      if (key in obj2) { retobj[key] = prioritizeleft ? obj1[key] : obj2[key]; continue }
+      if (!clone) delete obj1[key];
+    }
+    return retobj;
+  }
 }
 
+export enum TSON_JSTypes {
+  'null' = 'null',
+  'undefined' = 'undefined',
+  'boolean' = 'boolean',
+  'number' = 'number',
+  'string' = 'string',
+  'object' = 'object',
+  'Array' = 'array',
+  'Date' = 'date',
+  'Boolean' = 'boolean',// type is obj, serialized as bool.
+  'Number' = 'number',
+  'String' = 'string',// type is obj, serialized as str.
+  'function' = 'function',
+}
+export enum TSON_UnsupportedTypes {
+  'BigInt' = 'bigint',
+  'symbol' = 'symbol',
+  'arrowFunction?' = 'arrowfunction?',
+  'RegExp' = 'regexp',
+  'Int8Array' = 'int8array',
+  'Uint8Array' = 'uint8array',
+  'Uint8ClampedArray' = 'uint8clampedarray',
+  'Int16Array' = 'int16array',
+  'Uint16Array' = 'uint16array',
+  'Int32Array' = 'int32array',
+  'Uint32Array' = 'uint32array',
+  'Float32Array' = 'float32array',
+  'Float64Array' = 'float64array',
+  'BigInt64Array' = 'bigint64array',
+  'BigUint64Array' = 'biguint64array',
+  'Keyed' = 'keyed',
+  'collections' = 'collections',
+  'Map' = 'map',
+  'Set' = 'set',
+  'WeakMap' = 'weakmap',
+  'WeakSet' = 'weakset',
+  'ArrayBuffer' = 'arraybuffer',
+  'SharedArrayBuffer' = 'sharedarraybuffer',
+  'Atomics' = 'atomics',
+  'DataView' = 'dataview',
+  'Promise' = 'promise',
+  'Generator' = 'generator',
+  'GeneratorFunction' = 'generatorfunction',
+  'AsyncFunction' = 'asyncfunction',
+  'Iterator' = 'iterator',
+  'AsyncIterator' = 'asynciterator',
+  'Reflection' = 'reflection',
+  'Reflect' = 'reflect',
+  'Proxy' = 'proxy',
+}
+export type TSONString = string;
+export class TSON { //typed json (js impl.) actually dovrei fare una map che converte JS_Types in TSON_Types per scrivere e leggere types language-indipendent.
+  private values: any;
+  private types: any;
+
+  public static stringify(val: any): TSONString {
+    try { JSON.stringify(val); } catch(e) { U.pe(true, 'U.deepCloneWithFunctions() Object might have circular references.', e); } // just to throw exception if the object have circular references
+    let tmp = TSON.cloneAndGetTypings(val);
+    const ret = new TSON();
+    ret.values = tmp.val as any;//  JSON.stringify(val);
+    ret.types = tmp.type as any;// JSON.stringify(typings);
+    return JSON.stringify(ret); }
+
+  public static parse(tson: string): any {
+    try{
+      // let tson: TSON = typeof(Tson) === TSON_JSTypes.string ? JSON.parse(Tson as string) : Tson;
+      return TSON.parse0(JSON.parse(tson));
+    }
+    catch (e) { let er = new Error('TSON.parse failed, it maybe the argument is not a valid TSON string / object.'); er['suberror'] = e; throw e; }
+  }
+
+  private static parse0(jsontson: TSON): any {
+    TSON.fixTypes(jsontson.values, jsontson.types);
+    return jsontson; }
+
+  private static cloneAndGetTypings(obj: any): {val: any, type: string | any[] | object} {
+    // let copy: object;
+    let key: string;
+    let ret: {val: object, type: string | any[] | object} = {val: undefined, type: undefined};
+    let tmp: {val: object, type: string | any[] | object} = {val: undefined, type: undefined};
+    // Handle primitives
+    if (null === obj) { ret.val = obj; ret.type = TSON_JSTypes.null; return ret; }
+    if (undefined === obj) { ret.val = obj; ret.type = TSON_JSTypes.undefined; return ret; }
+    switch(typeof obj){
+      default: U.pe(true, 'unexpected type:', obj, typeof obj); break; // do not use, too dangerous for types not defined in TSON_JSTypes
+      case TSON_JSTypes.boolean: ret.val = obj; ret.type = TSON_JSTypes.boolean; return ret;
+      case TSON_JSTypes.number: ret.val = obj; ret.type = TSON_JSTypes.number; return ret;
+      case TSON_JSTypes.string: ret.val = obj; ret.type = TSON_JSTypes.string; return ret;
+      case TSON_JSTypes.function: break;
+      case TSON_JSTypes.object: break; // those should cover everything. array and date = object
+    }
+    if (typeof obj === TSON_JSTypes.boolean) { ret.val = obj; ret.type = TSON_JSTypes.undefined; return ret; }
+
+    // handle non-primitives
+    if (obj instanceof Date) { ret.val = new Date(obj.toString()); ret.type = TSON_JSTypes.Date; return ret; }
+    if (obj instanceof Boolean) { ret.val = new Boolean(obj.valueOf()); ret.type = TSON_JSTypes.Boolean; return ret; }
+    if (obj instanceof Number) { ret.val = new Number(obj.valueOf()); ret.type = TSON_JSTypes.Number; return ret; }
+    if (obj instanceof String) { ret.val = new String(obj.valueOf()); ret.type = TSON_JSTypes.String; return ret; }
+    // takes lambda too
+    if (obj instanceof Function) { ret.val = obj.toString(); ret.type = TSON_JSTypes.function; return ret; }
+    if (Array.isArray(obj)) { ret.val = []; ret.type = []; }
+    else if (obj instanceof Object) { ret.val = {}; ret.type = {}; }
+    if (typeof(obj) === TSON_JSTypes.string) { ret.val = obj; ret.type = TSON_JSTypes.string; return ret; }
+    // Handle Object
+    for (key in obj) {
+      //if (!obj.hasOwnProperty(key)) continue;
+      tmp = TSON.cloneAndGetTypings(obj[key]);
+      if (key === 'cc') console.log('cc:', tmp);
+      ret.val[key] = tmp.val;
+      ret.type[key] = tmp.type; }
+    return ret; }
+
+  private static fixTypes(values: any, types: any): any {
+      let key: string;
+      let i: number;
+      let exampleval = {a:0, b:'0', c:[1, 'kk', ()=>{}, {k:''}]};
+      let exampletyp = {a:'number', b:'string', c:['number', 'string', 'arrowfunc', {k:'string'}]};
+      let leafvalstr: string;
+      switch (typeof(values)){
+        default: // is leaf-type and i can read my typemap
+        case TSON_UnsupportedTypes.BigInt: case TSON_UnsupportedTypes.symbol:
+          U.pe (true, 'TSON parse found an unsupported type:', typeof(values)); break;
+        case TSON_JSTypes.string:
+        case TSON_JSTypes.function:
+        case TSON_JSTypes.undefined:
+        case TSON_JSTypes.number:
+        case TSON_JSTypes.boolean:
+        leafvalstr = '' + values;
+          switch(types) { // primitivi secondo JSON
+            default: U.pe(true, 'Unimplemented TSON type found:', types); break;
+            case TSON_JSTypes.null: return null;
+            case TSON_JSTypes.undefined: return undefined;
+            case TSON_JSTypes.Date: return new Date(leafvalstr);
+            case TSON_JSTypes.boolean: return new Boolean(leafvalstr).valueOf();
+            case TSON_JSTypes.number: return +leafvalstr;
+            case TSON_JSTypes.Boolean: return new Boolean(leafvalstr);
+            case TSON_JSTypes.Number: return new Number(leafvalstr);
+            case TSON_JSTypes.string: return leafvalstr;
+            case TSON_JSTypes.String: return new String(leafvalstr);
+            case TSON_JSTypes.function: return eval('let a=' + leafvalstr + '; a;');
+          }
+          //
+        case TSON_JSTypes.object:
+          let typestr = typeof(types) === 'string' ? types : null; // null if non-leaf type.
+          switch(typestr) { // non primitivi secondo JSON
+            default: U.pe(true, 'Unimplemented TSON typing found:', types); break;
+            case null: // object or array (non primitivi secondo json e non-leaf per tson)
+              // if (Array.isArray(values)){ same as object fallback, will ignore length.
+              for (key in values) { values[key] = TSON.fixTypes(values[key], types[key]); }
+              // problema: Json stringify and parse trasforma (let a = []; a[600] = 1;) in un array con 600 elementi (599 null). problema ereditato da TSON.
+              return values; }
+      }
+      U.pe(true, 'TSON.fixtypes() should not reach here');
+    }
+
+}
 export enum AttribETypes {
 //  FakeElementAddFeature = 'ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//FakeElement',
 // era il 'pulsante per aggiungere feature nel mm.',

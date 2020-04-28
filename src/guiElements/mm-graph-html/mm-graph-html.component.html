@@ -104,24 +104,24 @@
       </div>
     </foreignobject>
 
-    <div class="template Reference" style="height: 22px; padding-left: 5px; display:flex; box-sizing:content-box;">
+    <div class="template Reference" style="width:100%; height: 22px; padding-left:5px; display:flex;">
       <select data-class="true" style="border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;"></select>
       <input type="text" placeholder="Reference Name" pattern="[A-Za-z0-9_$]+" value="$##name$" style="border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;">
     </div>
 
-    <div class="template Attribute EString EInteger" style="height:22px; padding-left: 5px; display:flex; box-sizing:content-box;">
+    <div class="template Attribute EString EInteger" style="width:100%; height:22px; padding-left:5px; display:flex;">
       <select data-primitive="true" data-enum="true" style="border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
       <input type="text" placeholder="Attribute Name" pattern="[A-Za-z0-9_$]+" value="$##name$" style="border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
     </div>
 
-    <div class="template ELiteral" style="height:22px; display:flex; box-sizing:content-box; padding-left: 5px; padding-right: 10px;">
+    <div class="template ELiteral" style="width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;">
       <input class="value" type="number" placeholder="auto" value="$##ordinal$" style="border:none; display: flex; width: 30px;">
       <input class="name" type="text" placeholder="name" value="$##name$" pattern="[A-Za-z0-9_$]+" style="border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;">
       <input class="literal" type="text" placeholder="literal" value="$$#literal$" style="border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;">
     </div>
 
-    <div class="template Operation" style="display:flex; box-sizing:content-box; flex-flow:column;">
-      <div class="specialjs signature" data-maxargumentchars="10" data-maxarguments="2" style="height:21px; min-width:100%"></div>
+    <div class="template Operation" style="width:100%; display:flex; flex-flow:column;">
+      <div class="specialjs signature" data-maxargumentchars="10" data-maxarguments="2" style="height:22px; min-width:100%"></div>
       <div class="specialjs operationDetail" style="margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;">
         <div style="display: flex; width: 100%;">
           <select data-primitive="true" data-enum="true" data-class="true" data-void="true" style="border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
@@ -133,7 +133,7 @@
       </div>
     </div>
 
-    <div class="template Parameter" style="height: 22px; border-bottom: 1px solid lightgray; display:flex; box-sizing:content-box;">
+    <div class="template Parameter" style="width: 100%; height: 22px; border-bottom:1px solid lightgray; display:flex;">
        <select data-primitive="true" data-enum="true" data-class="true" style="border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;"></select>
        <input type="text" placeholder="Parameter Name" pattern="[A-Za-z0-9_$]*" value="$##name$" style="border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;">
        <button style="order: 3; padding:0 5px;">X</button>

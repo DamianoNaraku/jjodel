@@ -16,7 +16,7 @@ import {
   Draggableoptions,
   Resizableoptions,
   Rotatableoptions,
-  Size, Point, Status, ReservedClasses, SelectorOutput, MeasurableTemplateGenerator
+  Size, Point, Status, ReservedClasses, SelectorOutput, MeasurableTemplateGenerator, Model, MyException
 } from './Joiner';
 // import {ModelPiece, IClassifier, IVertex, MAttribute, Size, Point} from './Joiner';
 import ResizableOptions = JQueryUI.ResizableOptions;
@@ -24,6 +24,7 @@ import ResizableUIParams = JQueryUI.ResizableUIParams;
 import DraggableEventUIParams = JQueryUI.DraggableEventUIParams;
 import DraggableOptions = JQueryUI.DraggableOptions;
 import {createTokenForExternalReference} from '@angular/compiler/src/identifiers';
+import {PendingFunctionCall, ProtectedModelPiece} from '../Model/modelPiece';
 /*
 export class MeasurableArrays {rules: Attr[]; imports: Attr[]; exports: Attr[]; variables: Attr[];
   constraints: Attr[]; chain: Attr[]; chainFinal: Attr[]; dstyle: Attr[]; html: Element; e: Event; }*/
@@ -52,10 +53,15 @@ export class ConstraintLeftAdmittedsStatic {
   static readonly absoluteDocPosX: 'absoluteDocPos.x' = 'absoluteDocPos.x';
   static readonly absoluteDocPosY: 'absoluteDocPos.y' = 'absoluteDocPos.y';
 }
-
-export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
+export class UnsafeMeasurableEvalContext {
+  model: ModelPiece;
   node: Element;
   vertex: IVertex;
+  graph: IGraph;
+  modelRoot: IModel;
+}
+export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
+  unsafe: UnsafeMeasurableEvalContext
   graphSize: ISize;
   documentSize: ISize;
   graphScroll: IPoint;
@@ -63,13 +69,15 @@ export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
   // NB: se un attributo viene sovrascritto durante l'esecuzione di una regola measurable, i valori in questa mappa NON verranno aggiornati fino al prossimo evento (onresize, ondrag...)
   a: Dictionary<string, string>;
   // NB: questi sono sempre updated
-  attributes: NamedNodeMap;
-  graph: IGraph;
-  modelPiece: ModelPiece;
-  modelRoot: IModel;
+  attributes: Dictionary<string, string>;
+  model: ProtectedModelPiece;
   target: MeasurableEvalContext;
+  constructor(){
+    super();
+    this.unsafe = new UnsafeMeasurableEvalContext();
+  }
 
-  static isVertex(context: MeasurableEvalContext): boolean { return context.vertex.getHtmlRawForeign() === context.node; }
+  static isVertex(context: MeasurableEvalContext): boolean { return context.unsafe.vertex.getHtmlRawForeign() === context.unsafe.node; }
   setSize = (w: number = null, h: number = null): void => {
     if (U.isNumerizable(w)) { this.width = w; }
     if (U.isNumerizable(h)) { this.height = h; }
@@ -113,10 +121,10 @@ export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
   };
   setVertexSize = (x: number = null, y: number = null, w: number = null, h: number = null): void => {
     const isVertex: boolean = MeasurableEvalContext.isVertex(this);
-    console.log('vsize pre:', this.vertexSize.duplicate());
-    console.log('vsize pre:', this.vertexSize.duplicate());
+    console.log('vsize pre:', this.vertexSize.duplicate(), 'w:', w, 'isVertex?', isVertex);
     if (U.isNumerizable(w)) this.vertexSize.w = +w;
-    if (U.isNumerizable(h)) this.vertexSize.w = +h;
+    if (U.isNumerizable(h)) this.vertexSize.h = +h;
+    console.log('vsize mid:', this.vertexSize.duplicate());
     if (isVertex) { this.setAbsoluteGPos(x, y); }
     else {
       if (U.isNumerizable(x)) { this.absoluteGPos.x = x + this.relativeVPos.x; }
@@ -138,6 +146,10 @@ export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
   setVertexSizeY = (y: number = null): void => { return this.setVertexSize(null, y, null, null); };
   setVertexSizeW = (w: number = null): void => { return this.setVertexSize(null, null, w, null); };
   setVertexSizeH = (h: number = null): void => { return this.setVertexSize(null, null, null, h); };
+  setVertexX = (x: number = null): void => { return this.setVertexSizeX(x); };
+  setVertexY = (y: number = null): void => { return this.setVertexSizeY(y); };
+  setVertexW = (w: number = null): void => { return this.setVertexSizeW(w); };
+  setVertexH = (h: number = null): void => { return this.setVertexSizeH(h); };
   setRelativePosX = (x: number = null): void => { return this.setRelativePos(x, null); };
   setRelativePosY = (y: number = null): void => { return this.setRelativePos(null, y); };
   setRelativeVPosX = (x: number = null): void => { return this.setRelativeVPos(x, null); };
@@ -235,46 +247,69 @@ export class MeasurableRuleParts {
     MeasurableRuleParts.leftmap = leftmap;
     return MeasurableRuleParts.operatormap = operatormap; }
 
-  static fillEvalContext(evalContext: MeasurableEvalContext, node: Element, targetquery: string, vertex: IVertex = null): void {
+  static fillEvalContext(evalContext: MeasurableEvalContext, backupContext: MeasurableEvalContext = null, node: Element, targetquery: string): MyException {
     let tmp: any;
     let tmpjq: any;
     let i: number;
-    evalContext.node = node;
-    evalContext.modelPiece = ModelPiece.getLogic(evalContext.node);
-    evalContext.modelRoot = evalContext.modelPiece.getModelRoot();
-    evalContext.vertex = vertex = (vertex || evalContext.modelPiece.getVertex());
-    evalContext.graph = evalContext.vertex.owner;
-    const size: ISize = U.sizeof(evalContext.node);
-    evalContext.width = size.w;
-    evalContext.height = size.h;
-    if (targetquery && (tmpjq = $(evalContext.graph.container).find(targetquery)).length) {
+    let j: number;
+    if (!backupContext) backupContext = new MeasurableEvalContext() as any;
+    evalContext.unsafe.node = node;
+    backupContext.unsafe.node = node; // node.cloneNode(true) as Element;
+    const mp: ModelPiece = ModelPiece.getLogic(backupContext.unsafe.node);
+    const vertex: IVertex = mp.getVertex();
+    const graph: IGraph = vertex.owner;
+    backupContext.unsafe.graph = evalContext.unsafe.graph = graph;
+    backupContext.unsafe.vertex = evalContext.unsafe.vertex = vertex;
+    backupContext.unsafe.model = evalContext.unsafe.model = mp;
+    backupContext.unsafe.modelRoot = evalContext.unsafe.modelRoot = mp.getModelRoot();
+    backupContext.model = new ProtectedModelPiece(mp, null);
+    evalContext.model = new ProtectedModelPiece(mp, null);
+    delete evalContext.model.applyChanges;
+    const size: ISize = U.sizeof(node);
+    backupContext.width = evalContext.width = size.w;
+    backupContext.height = evalContext.height = size.h;
+    let $tmpjq: JQuery<Element>;
+    if (targetquery) try { $tmpjq = $(graph.container).find(targetquery); }
+    catch (e) { return e; }
+
+    if ($tmpjq && $tmpjq.length) {
       evalContext.target = new MeasurableEvalContext();
-      evalContext.target.node = tmpjq[0];
-      MeasurableRuleParts.fillEvalContext(evalContext.target, evalContext.target.node, null, null);
-    }
-    evalContext.graphScroll = evalContext.graph.scroll.duplicate();
-    evalContext.graphZoom = evalContext.graph.zoom.duplicate();
+      backupContext.target = new MeasurableEvalContext();
+      MeasurableRuleParts.fillEvalContext(evalContext.target, backupContext.target, $tmpjq[0], null); }
+    evalContext.graphScroll = graph.scroll.duplicate();
+    evalContext.graphZoom = graph.zoom.duplicate();
     evalContext.vertexSize = vertex.getSize().duplicate();
-    evalContext.graphSize = U.sizeof(evalContext.graph.container).duplicate();
+    evalContext.graphSize = U.sizeof(graph.container).duplicate();
     evalContext.documentSize = new Size(0, 0, document.documentElement.scrollWidth, document.documentElement.scrollHeight); // documentElement counts also body's margin
-    evalContext.attributes = evalContext.node.attributes;
+
+    backupContext.graphScroll = evalContext.graphScroll.duplicate();
+    backupContext.graphZoom = evalContext.graphZoom.duplicate();
+    backupContext.vertexSize = evalContext.vertexSize.duplicate();
+    backupContext.graphSize = evalContext.graphSize.duplicate();
+    backupContext.documentSize = evalContext.documentSize.duplicate();
+
+
+    let attrs = evalContext.unsafe.node.attributes;
     evalContext.a = {};
-
-
+    evalContext.attributes = evalContext.a;
+    backupContext.attributes = null;
+    backupContext.a = null;
+    for (i = 0; i < attrs.length; i++) { evalContext.a[attrs[i].name] = attrs[i].value; }
 
     evalContext.relativePos = new GraphPoint();
     evalContext.relativeVPos = new GraphPoint();
     evalContext.absoluteGPos = new GraphPoint(); // all updated when absoluteGpos is updated.
     evalContext.absoluteDocPos = new Point();
+    backupContext.relativePos = new GraphPoint();
+    backupContext.relativeVPos = new GraphPoint();
+    backupContext.absoluteGPos = new GraphPoint();
+    backupContext.absoluteDocPos = new Point();
 
     evalContext.setAbsoluteDocPos(size.x, size.y);
+    backupContext.setAbsoluteDocPos(size.x, size.y);
 
-    console.log('3xd fillcontext set vertexsize:', evalContext.vertexSize, evalContext.relativeVPos, evalContext.relativePos, evalContext);
+    return null; };
 
-    for (i = 0; i < evalContext.attributes.length; i++) {
-      const attr: Attr = evalContext.attributes[i];
-      evalContext.a[attr.name] = attr.value; }
-  };
   prefix: string;
   name: string;
   left: string;
@@ -295,11 +330,13 @@ export class MeasurableRuleParts {
     return out; }
 
   process0(validatefirst: boolean = false, vertex: IVertex = null, graph: IGraph = null): MeasurableRuleParts {
+    let exception: MyException;
     const out: MeasurableRuleParts = new MeasurableRuleParts(null);
     let tmp: any;
     let i: number;
     let j: number;
     let evalContext: MeasurableEvalContext = new MeasurableEvalContext();
+    let rollbackContext: MeasurableEvalContext = new MeasurableEvalContext();
     if (validatefirst) {
       const validoperators: string[] = Object.keys(MeasurableRuleParts.operatormap[this.prefix]);
       if (validoperators.length > 0 && this.operator || !MeasurableRuleParts.operatormap[this.prefix][this.operator]) {
@@ -308,7 +345,11 @@ export class MeasurableRuleParts {
       if (!new RegExp(MeasurableRuleParts.leftmap[this.prefix]).test(this.left)) {
         out.left = validoperators.length ? 'must be one of: ' + tmp.join(' ') : 'must be empty, found instead: ' + this.operator + '';
       }
-      MeasurableRuleParts.fillEvalContext(evalContext, this.attr.ownerElement, this.target, vertex);
+      exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, this.target);
+      if (exception) {
+        out.left += '\ninvalid target selector: ' + exception.toString();
+        out.right += '\ninvalid target selector: ' + exception.toString();
+        return out; }
       const tmpev = U.evalInContext(evalContext, this.right);
       out.right = tmpev.exception || tmpev.return;
       // do nothing, just report validation  and execution debugging results
@@ -316,42 +357,72 @@ export class MeasurableRuleParts {
     }
 
     const exportChanges = (outContext: MeasurableEvalContext): boolean => {
-      try{ exportChanges0(outContext); } catch(e) {
+      let ret: boolean = true;
+      try{
+        exportChanges0(outContext, false);
+        if (outContext.target) exportChanges0(outContext.target, false);
+      } catch(e) {
         out.right += + '\n\npartially failed to export changes, likely caused by an overwrite of a predefined variable object.:' + e.toString();
-        return false; }
-      return true; }
+        doRollback();
+        ret = false; }
+      // rollbackContext.unsafe.model.refreshGUI_Alone(); will erase export changes and cause infinite looks on "onRefresh"
+      // if (rollbackContext.target) rollbackContext.target.unsafe.model.refreshGUI_Alone();
+      return ret; }
 
     let debug: boolean = this.prefix === measurableRules.export;
-    const exportChanges0 = (outcontext: MeasurableEvalContext): void => {
-      let oldContext = outcontext;
+    const doRollback = () => {
+      try{
+        exportChanges0(rollbackContext, true);
+        if (rollbackContext.target) exportChanges0(rollbackContext.target, false);
+      } catch(e) {
+        out.right += + '\n\npartially failed to rollback changes, contact the developer.:' + e.toString(); return false; }
+      return true; }
+    const exportChanges0 = (outcontext: MeasurableEvalContext, isRollback: boolean): void => {
+      // let oldContext = outcontext;
       let DONOTUSE = evalContext;
       let ermsg: string;
-      oldContext.graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y);
-      oldContext.graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y);
+      const vertex: IVertex = rollbackContext.unsafe.vertex;
+      const graph: IGraph = vertex.owner;
+      graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y);
+      graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y);
       // U.pe(true, 'meastest');
       // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
-      const isVertex = (oldContext.vertex.getHtmlRawForeign() === oldContext.node);
+      const isVertex = (vertex.getHtmlRawForeign() === rollbackContext.unsafe.node);
       console.log('3xd finalize set vertexsize:', outcontext.vertexSize, outcontext.relativeVPos, outcontext.relativePos, outcontext);
-      oldContext.vertex.setSize(outcontext.vertexSize, false, true);
+      vertex.setSize(outcontext.vertexSize, false, true);
+      if (!outcontext.model && outcontext !== rollbackContext) { out.right += 'invalid final value for this.model = ' + outcontext.model + ', please do not overwrite context variables.';
+        doRollback(); return; }
       if (!isVertex){
-        const html: HTMLElement = oldContext.node instanceof HTMLElement || oldContext.node instanceof SVGSVGElement ? oldContext.node as any : null;
-        const svgSubElement: SVGElement = !html ? oldContext.node as any : null;
+        const html: HTMLElement = rollbackContext.unsafe.node instanceof HTMLElement || rollbackContext.unsafe.node instanceof SVGSVGElement ? rollbackContext.unsafe.node as any : null;
+        const svgSubElement: SVGElement = !html ? rollbackContext.unsafe.node as any : null;
         if (!outcontext.relativeVPos || !U.isNumerizable(outcontext.relativeVPos.x) || !U.isNumerizable(outcontext.relativeVPos.y)) {
           out.right+= '\nAn error inside a measurable condition has happened, an invalid value has been wrote inside the variable "relativeVPos".';
-          return; }
-        if (!html) { out.right += 'inner svg\'s are currently not supported'; return; }
+          doRollback();  return; }
+        if (!html) { out.right += 'inner svg\'s are currently not supported'; doRollback(); return; }
         if (html.style.position !== 'absolute') html.style.position = 'absolute';
-        let relativeParentNode: Element = U.getRelativeParentNode(outcontext.node);
-        if (relativeParentNode === oldContext.vertex.getHtmlRawForeign()) {
-          html.style.top = (outcontext.relativeVPos.y * oldContext.graph.zoom.y) + 'px';
-          html.style.left = (outcontext.relativeVPos.x * oldContext.graph.zoom.x) + 'px';
+        let relativeParentNode: Element = U.getRelativeParentNode(rollbackContext.unsafe.node);
+        if (relativeParentNode === vertex.getHtmlRawForeign()) {
+          html.style.top = (outcontext.relativeVPos.y * graph.zoom.y) + 'px';
+          html.style.left = (outcontext.relativeVPos.x * graph.zoom.x) + 'px';
         } else {
-          const parentGpos: GraphPoint = oldContext.graph.toGraphCoord(U.sizeof(relativeParentNode).tl());
-          html.style.top = ((outcontext.absoluteGPos.y - parentGpos.y) * oldContext.graph.zoom.y) + 'px';
-          html.style.left = ((outcontext.absoluteGPos.x - parentGpos.x) * oldContext.graph.zoom.y) + 'px';
+          const parentGpos: GraphPoint = graph.toGraphCoord(U.sizeof(relativeParentNode).tl());
+          html.style.top = ((outcontext.absoluteGPos.y - parentGpos.y) * graph.zoom.y) + 'px';
+          html.style.left = ((outcontext.absoluteGPos.x - parentGpos.x) * graph.zoom.y) + 'px';
         }
         if (U.isNumerizable(outcontext.width)) html.style.width = (+outcontext.width) + 'px';
         if (U.isNumerizable(outcontext.height)) html.style.height = (+outcontext.height) + 'px';
+      }
+      if (!isRollback) {
+        // called by rollbackContext because evalContext got the method deleted.
+        try {
+          PendingFunctionCall.executeProtectedMPBuffer();
+          PendingFunctionCall.clearProtectedMPBuffer();
+        } catch(e) {
+          out.right += 'Error while executing buffered model "set" functions, likely caused by invalid paramerers. ' + e.toString();
+          doRollback();
+          return; }
+      } else {
+        PendingFunctionCall.clearProtectedMPBuffer();
       }
       // outcontext.setsize o refresh vertex
     }
@@ -359,13 +430,22 @@ export class MeasurableRuleParts {
 
     let evalOutput: EvalOutput<MeasurableEvalContext> = null;
     const executeRight = (): boolean => {
-      MeasurableRuleParts.fillEvalContext(evalContext, this.attr.ownerElement, this.target, vertex);
+      exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, this.target);
+      if (exception) {
+        out.left += '\ninvalid target selector: ' + exception.toString();
+        out.right += '\ninvalid target selector: ' + exception.toString();
+        return false; }
       evalOutput = U.evalInContext<MeasurableEvalContext>(evalContext, this.right);
+      let ret: boolean;
       if (evalOutput.exception) {
         out.right += '\n' + evalOutput.exception;
-        return false; }
-      this.outputAttr.value = out.right = evalOutput.return;
-      return true; };
+        ret = false; }
+      else {
+        this.outputAttr.value = out.right = evalOutput.return;
+        ret = true;
+      }
+    if (!ret) doRollback();
+    return ret; };
     // const exportChanges = () => { U.pe(true, todo); };
     let selectorout: SelectorOutput;
 
@@ -404,8 +484,12 @@ export class MeasurableRuleParts {
       case measurableRules.onRefresh:
           out.triggeredResults = [];
           ///// check precondition
-          MeasurableRuleParts.fillEvalContext(evalContext, this.attr.ownerElement, this.target, vertex);
-          vertex = evalContext.vertex;
+          exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, this.target);
+        if (exception) {
+          out.left += '\ninvalid target selector: ' + exception.toString();
+          out.right += '\ninvalid target selector: ' + exception.toString();
+          return out; }
+          vertex = rollbackContext.unsafe.vertex;
           evalOutput = U.evalInContext(evalContext, this.left);
           if (evalOutput.exception) {
             out.left += '' + evalOutput.exception;
@@ -502,8 +586,6 @@ export class MeasurableRuleParts {
           out.right = 'not processed.';
           return out; }
         const preLeft: number = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]
-
-        MeasurableRuleParts.fillEvalContext(evalContext, this.attr.ownerElement, this.target, vertex);
         if (!executeRight()) return out;
         if (!exportChanges(evalOutput.outContext)) return out;
         let oc = evalOutput.outContext;

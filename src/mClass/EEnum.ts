@@ -14,8 +14,9 @@ export class EEnum extends IClassifier {
 
   refreshGUI_Alone(debug: boolean = false): void { this.getVertex().refreshGUI(); }
 
-  addLiteral(): ELiteral {
+  addLiteral(literal: string = null): ELiteral {
     const attr: ELiteral = new ELiteral(this, null);
+    if (literal) attr.literal = literal;
     if (attr.ordinal === Number.NEGATIVE_INFINITY) this.autofixEnumValues();
     this.refreshGUI();
     return attr; }
@@ -95,10 +96,14 @@ export class EEnum extends IClassifier {
     }
   }
 
-  isChildLiteralTaken(s: string): boolean { // indirectly called by setLiteral(); using this['isChildLiteralTaken']();
+  isChildNameTaken(s: string): boolean{
     let i;
     for (i = 0; i < this.childrens.length; i++) { if (s === this.childrens[i].literal) { return true; } }
     return false; }
+
+  // indirectly called by setLiteral() -> setName(); using this['isChildLiteralTaken']();
+  private isChildLiteralTaken(s: string): boolean { return this.isChildNameTaken(s); }
+
 
   delete(refreshgui: boolean = true): void {
     const oldparent = this.parent;

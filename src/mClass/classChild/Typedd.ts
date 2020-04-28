@@ -68,10 +68,10 @@ export abstract class Typedd extends ModelPiece {
     if (!fromSidebar) { graph.propertyBar.refreshGUI(); }
   }
 
-  setType(classOrPrimitiveString: string, throwError: boolean = true, refreshGui: boolean = true): boolean {
+  setType(ecoreTypeString: string, throwError: boolean = true, refreshGui: boolean = true): boolean {
     const type: Type = this.getType();
     U.pe(type !== this.type, 'attempting to change parent type!', this, type);
-    type.changeType(classOrPrimitiveString);
+    type.changeType(ecoreTypeString);
     if (refreshGui) this.refreshGUI();
     return true; }
 

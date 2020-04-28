@@ -692,7 +692,7 @@ export class IVertex {
     const $elementsWithRefreshTrigger = $html.find('.' + ReservedClasses.onRefresh);
     for (i = 0; i < $elementsWithRefreshTrigger.length; i++) {
       const elem: Element = $elementsWithRefreshTrigger[i];
-      this.measuringEventTrigger({currentTarget: elem} as any, null, measurableRules.onRefresh);
+      this.measuringEventTrigger(null, null, measurableRules.onRefresh, elem);
     }
   }
 

@@ -27,7 +27,21 @@ import {
   ViewHtmlSettings,
   M3Reference,
   M2Attribute,
-  M3Attribute, M3Class, M2Reference, M3Package, MPackage, M2Package, Type, ELiteral, EEnum, EAnnotation, IClassifier, IGraph
+  M3Attribute,
+  M3Class,
+  M2Reference,
+  M3Package,
+  MPackage,
+  M2Package,
+  Type,
+  ELiteral,
+  EEnum,
+  EAnnotation,
+  IClassifier,
+  IGraph,
+  Typedd,
+  IField,
+  TSON_JSTypes
 } from '../common/Joiner';
 
 import ClickEvent = JQuery.ClickEvent;
@@ -35,6 +49,8 @@ import MouseMoveEvent = JQuery.MouseMoveEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
 import {ViewRule} from '../GuiStyles/viewpoint';
+import {deserializeSummaries} from '@angular/compiler/src/aot/summary_serializer';
+import {FunctionCall} from '@angular/compiler';
 export type StyleComplexEntry = {html: Element, htmlobj:ViewHtmlSettings, view: ViewRule, ownermp: ModelPiece, isownhtml: boolean, isinstanceshtml: boolean, isGlobalhtml: boolean};
 export class Info {
   static forConsole(obj: any): any {}
@@ -660,4 +676,321 @@ export abstract class ModelPiece {
       U.arrayInsertAt(arr, i + offset, this); }
     this.updateKey(); }
 }
+
 export abstract class ModelNone extends ModelPiece {}
+
+export class PendingFunctionCall {
+  static ProtectedMPBuffer: PendingFunctionCall[] = [];
+  name: string;
+  arguments: any[];
+  target: object;
+
+  static executeProtectedMPBuffer(): void {
+    let i: number;
+    for (i = 0; i < PendingFunctionCall.ProtectedMPBuffer.length; i++) { PendingFunctionCall.ProtectedMPBuffer[i].call(); }
+  }
+
+  static clearProtectedMPBuffer(): void { PendingFunctionCall.ProtectedMPBuffer = []; }
+
+  constructor (target: object, name: string, args: any[] = null) {
+    this.target = target;
+    this.name = name;
+    this.arguments = args || [];
+  }
+
+  call(target: object = null): void {
+    if (!target) target = this.target;
+    let f = target[this.name];
+    U.pe(!f, 'failed to find function "' + this.name + '" to execute inside:', target, this.arguments);
+    f(...this.arguments);
+  }
+
+}
+
+export class ServerUpdateRequest {
+  static readonly minResendMessageCount = 3;
+  static buffer: Dictionary<number, ServerRequestAction> = {};
+  static lastupdate: Date;
+  static lastNumber = -1;
+  THIS_SHOULD_HAVE_A_NUMERIC_KEY_EQUAL_TO_NUM_MAX: ServerRequestAction[];
+  numMin: number;
+  numMax: number;// can be = numMin
+  static send(s: ServerUpdateRequest) {}
+  static receive(s: ServerUpdateRequest) {/*
+    let i: number;
+    if (ServerUpdateRequest.lastNumber > s.numMax) U.refreshPage();
+    if (s.numMax < s.numMin) { ServerUpdateRequest.requestMissingFrom(ServerUpdateRequest.lastNumber); U.CompletelyBlockWebPage(); return; }
+    // se ho ricevuto un buco nelle richieste, bufferizzo senza eseguire
+    if (ServerUpdateRequest.lastNumber !== -1 || ServerUpdateRequest.lastNumber < s.numMin){
+
+      for (i = s.numMin; i <= s.numMax; i++) { ServerUpdateRequest.buffer[i] = s[i]; }
+        U.CompletelyBlockWebPage(); // impedisco all'utente di fare altre azioni finchè non si risincronizza
+        return;
+    }
+    const pageGotUnlocked: boolean = U.UnlockWebPage();
+    for (i = ServerUpdateRequest.lastNumber + 1; i <= s.numMax; i++) { ServerRequestAction.process(s[i] as ServerRequestAction); }
+    ServerUpdateRequest.lastNumber += 1 + (s.numMin - s.numMax);
+    if (pageGotUnlocked) {
+      for (i = ServerUpdateRequest.lastNumber + 1; i <= s.numMax; i++) {
+        let buffered: ServerRequestAction = ServerUpdateRequest.buffer[i];
+        if (!buffered) { break; }
+        ServerRequestAction.process(buffered); ServerUpdateRequest.lastNumber++;
+        delete ServerRequestAction[i]; }
+      problema grosso come una casa: se io credo di essere sincronizzato ma è solo internet-lag ed eseguo A mentre mi sta arrivando il comando B:
+      io ho eseguito B,A; l'altro ha eseguito A,B
+    }*/
+  }
+}
+
+export class ServerRequestAction {
+  modelpiecekey: number[];
+  viewRuleKey: number[];
+  viewPointRuleKey: number[];
+  cmdline: PendingFunctionCall[];
+
+  static process(r: ServerRequestAction){
+      const mp = ModelPiece.getByKey(r.modelpiecekey);
+      let i: number;
+      // for (i = 0; i < r.cmdline.length; i++) PendingFunctionCall.processMP(mp, r.cmdline[i]);
+  }
+}
+
+export class PendingMeasurableChanges {
+  target: ModelPiece;
+  cmdline: PendingFunctionCall[];
+  constructor(target: ModelPiece) { this.target = target; }
+  public add(s: string, args: any[] = null) { this.cmdline.push(new PendingFunctionCall(this.target, s, args)); }
+  public apply(): void {
+    let i: number;
+    for (i = 0; i < this.cmdline.length; i++) this.cmdline[i].call(this.target);
+  }
+}
+
+class F{
+  static alse(): boolean { return false; }
+}
+
+export class ProtectedModelPiece {/* implements MReference {
+  upperbound: any;
+  lowerbound: any;
+  field: any;
+  ordered: any;
+  unique: any;
+  type: any;
+  serializable: any;
+  parent: any;
+  childrens: any;
+  vertex: any;
+  instanceTypeName: any;
+  id: number;
+  metaParent: any;
+  instances: any;
+  name: any;
+  key: any;
+  views: any;
+  annotations: any;
+  detachedViews: any;
+  private sidebarHtml: any;
+
+  /////////// real fields*/
+  unsafe: ModelPiece;
+  pendingChanges: PendingMeasurableChanges;
+  subChanges: ProtectedModelPiece[] = [];
+  constructor(original: ModelPiece, createdBy: ProtectedModelPiece){
+    if (createdBy) createdBy.subChanges.push(this);
+    this.unsafe = original; this.pendingChanges = new PendingMeasurableChanges(original);
+    const unsafeFunctionNames: Dictionary< string, boolean> = {};
+    const allowedFunctionNames: Dictionary< string, boolean> = {};
+    const alwaysToKeep: object = { applyChanges: ''};
+
+    let key: string;
+    for (key in this.unsafe) {
+      if (typeof this.unsafe[key] === TSON_JSTypes.function) { unsafeFunctionNames[key] = true; } }
+    for (key in this) {
+      if (typeof this[key] === TSON_JSTypes.function) { allowedFunctionNames[key] = true; } }
+    U.join(unsafeFunctionNames, alwaysToKeep, true, false);
+    U.objecKeysIntersect(allowedFunctionNames, unsafeFunctionNames, null, false);
+
+    for (key in this) {
+      if (this[key] in allowedFunctionNames) continue;
+      delete this[key]; }
+    console.log('getting types test: ', this.duplicate, this.duplicate.toString());
+  }
+
+  applyChanges(): void { // got deleted in evalContext, it is only in backupContext. evalContext calls it through backupContext.call(this = evalContext);
+    PendingFunctionCall.executeProtectedMPBuffer();
+//todo: send all messages to Client.receiveMessage(jsonCommandFormat);
+  }
+
+  //////// safe functions()
+
+  endingName(valueMaxLength?: number): string{ return this.unsafe.endingName() }
+
+  fullname(): string { return this.unsafe.fullname(); }
+
+  generateModel(): Json { return this.unsafe.generateModel(); }
+
+  generateModelString(): string { return this.unsafe.generateModelString(); }
+
+  getClassName(): string{ return this.unsafe.getClassName(); }
+
+  getInfo(toLower?: boolean): Info{ return this.unsafe.getInfo(toLower); }
+
+  getInstanceClassName(): string{ return this.unsafe.getInstanceClassName(); }
+
+  getKey(): number[]{ return this.unsafe.getKey(); }
+
+  getKeyStr(): string{ return this.unsafe.getKeyStr(); }
+
+  isChildNameTaken(s: string): boolean{ return this.unsafe.isChildNameTaken(s); }
+
+  printableName(valueMaxLength?: number, full?: boolean): string{ return this.unsafe.printableName(valueMaxLength, full); }
+
+  printableNameshort(valueMaxLength?: number): string{ return this.unsafe.printableNameshort(valueMaxLength); }
+
+  getType(): Type {
+    if (!(this.unsafe instanceof Typedd)) throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    return this.unsafe.getType(); }
+  getClass(): IClassifier {
+    if (!(this.unsafe instanceof Typedd)) throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    return new ProtectedModelPiece(this.unsafe.getClass(), this) as any; }
+  getUpperbound(): number {
+    if (!(this.unsafe instanceof Typedd)) throw new Error("called Typed.getUpperbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    return this.unsafe.getUpperbound(); }
+  getLowerbound(): number {
+    if (!(this.unsafe instanceof Typedd)) throw new Error("called Typed.getLowerbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    return this.unsafe.getLowerbound(); }
+
+  getAllowedValuesStr(): string[] {
+    let e: EEnum = this.unsafe instanceof EEnum ? this.unsafe : null;
+    if (!e) throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    return e.getAllowedValuesStr(); }
+
+  getAllowedValuesInt(): number[] {
+    let e: EEnum = this.unsafe instanceof EEnum ? this.unsafe : null;
+    if (!e) throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    return e.getAllowedValuesInt(); }
+
+  getDefaultValueStr(): string {
+    let e: EEnum = this.unsafe instanceof EEnum ? this.unsafe : null;
+    if (!e) throw new Error("called EEnum.getDefaultValueStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    return e.getDefaultValueStr(); }
+
+
+
+
+  ////////// safe-able functions adjusting parameters.
+
+  shouldBeDisplayedAsEdge(set?: boolean): boolean{ return this.unsafe.shouldBeDisplayedAsEdge(null); }
+
+
+
+
+
+
+  ////////// unsafe functions got buffered.
+
+  delete(): void {
+    if (F.alse()) this.unsafe.delete(); // just to trigger errors if the source is modified
+    this.pendingChanges.add('delete', [true]); }
+
+  duplicate(nameAppend?/*commentPreType*/: string/*commentPostType*/, newParent?: ModelPiece): ModelPiece {
+    if (F.alse()) this.unsafe.duplicate(nameAppend, newParent); // just to trigger errors if the source is modified
+    this.pendingChanges.add('delete', [true]); return null; }
+
+  mark(markb: boolean, key: string, color?: string, radiusX?: number, radiusY?: number, width?: number, backColor?: string, extraOffset?: GraphSize): void{
+    if (F.alse()) this.unsafe.mark(markb, key, color, radiusX, radiusY, width, backColor, extraOffset); // just to trigger errors if the source is modified
+    this.pendingChanges.add('mark', [...arguments]); }
+
+  pushDown(untilStartOrEnd: boolean): void{
+    if (F.alse()) this.unsafe.pushDown(untilStartOrEnd); // just to trigger errors if the source is modified
+    this.pendingChanges.add('pushDown', ['' + untilStartOrEnd]); }
+
+  pushUp(untilStartOrEnd: boolean, offset?: number): void{
+    if (F.alse()) this.unsafe.pushUp(untilStartOrEnd, offset); // just to trigger errors if the source is modified
+    this.pendingChanges.add('pushUp', ['' + untilStartOrEnd, '' + offset]); }
+
+  refreshGUI(): void{
+    if (F.alse()) this.unsafe.refreshGUI(); // just to trigger errors if the source is modified
+    this.pendingChanges.add('refreshGUI'); }
+
+  refreshGUI_Alone(): void{
+    if (F.alse()) this.unsafe.refreshGUI_Alone(); // just to trigger errors if the source is modified
+    this.pendingChanges.add('refreshGUI_Alone'); }
+
+  refreshInstancesGUI(): void{
+    if (F.alse()) this.unsafe.refreshInstancesGUI(); // just to trigger errors if the source is modified
+    this.pendingChanges.add('refreshInstancesGUI'); }
+
+  validate(): boolean {
+    if (F.alse()) this.unsafe.validate(); // just to trigger errors if the source is modified
+    this.pendingChanges.add('validate');  return undefined; }
+
+  setName(value: string, refreshGUI?: boolean, warnDuplicateFix?: boolean): string {
+    if (F.alse()) this.unsafe.setName(value, refreshGUI, warnDuplicateFix); // just to trigger errors if the source is modified
+    this.pendingChanges.add('setName', [...arguments]);  return undefined; }
+// EEnum things.
+
+  addLiteral(literal: string = null): ELiteral {
+    const t: EEnum = this.unsafe instanceof EEnum ? this.unsafe : null;
+    if (!t) throw new Error("called EEnum.addLiteral() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    if (F.alse()) t.addLiteral(literal); // just to trigger errors if the source is modified
+    this.pendingChanges.add('addLiteral', [...arguments]); return undefined; }
+
+  setType(ecoreTypeString: string, throwError?: boolean, refreshGui?: boolean): boolean {
+    const t: Typedd = this.unsafe as Typedd;
+    if (!t) throw new Error("called Typed.setType() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    if (F.alse()) t.setType(ecoreTypeString, true, false);
+    this.pendingChanges.add('setType', [...arguments]);  return undefined; }
+
+  setUpperbound(val: number): void {
+    const t: Typedd = this.unsafe instanceof Typedd ? this.unsafe : null;
+    if (!t) throw new Error("called Typed.setUpperbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    if (F.alse()) t.setUpperbound(val);
+    this.pendingChanges.add('setUpperbound', [...arguments]);  return undefined; }
+
+  setLowerbound(val: number): void {
+    const t: Typedd = this.unsafe instanceof Typedd ? this.unsafe : null;
+    if (!t) throw new Error("called Typed.setLowerbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    if (F.alse()) t.setLowerbound(val);
+    this.pendingChanges.add('setLowerbound', [...arguments]);  return undefined; }
+
+
+  /*
+    /////// trash to discard NB: do not delete, just comment. if you need to implement MAttribute you won't need to filter and order them again.
+    assignID(): number { return undefined; }
+    copy(other: ModelPiece, nameAppend?: string, newParent?: ModelPiece): void{ }
+    fieldChanged(e: JQuery.ChangeEvent): void{}
+    getChildren(name: string, caseSensitive?: boolean): ModelPiece{ return undefined; }
+    getGlobalLevelStyle(checkCustomizedFirst?: boolean): Element{ return undefined; }
+    getHtmlOnGraph(): Element{ return undefined; }
+    getInheritableStyle(): StyleComplexEntry{ return undefined; }
+    getInheritedStyle(): StyleComplexEntry{ return undefined; }
+    getLastView(): ViewRule{ return undefined; }
+    getLastViewWith(fieldname: string): ViewRule{ return undefined; }
+    getModelRoot(): IModel{ return undefined; }
+    getStyle(): StyleComplexEntry{ return undefined; }
+    getVertex(): IVertex{ return undefined; }
+    getm2(): MetaModel{ return undefined; }
+    linkToLogic(html0: Element): void{ }
+    parse(json: Json, destructive?: boolean): void{}
+    replaceVarsSetup(): void{}
+    setName0(value: string, refreshGUI: boolean, warnDuplicateFix: boolean, key: string, allowEmpty: boolean): string{ return undefined; }
+    setNameOld(value: string, refreshGUI?: boolean, warnDuplicateFix?: boolean): string{ return undefined; }
+    updateKey(): number[]{ return undefined; }
+    getPackage(): IPackage { throw new Error("(Typedd) Method not implemented."); }
+    graph(): IGraph { throw new Error("(Typedd) Method not implemented."); }
+    generateField(): IField { throw new Error("(Typedd) Method not implemented."); }
+    getField(): IField { throw new Error("(Typedd) Method not implemented."); }
+    // trash that i could use in future
+    getEcoreTypeName(): string { throw new Error("Method not implemented."); }
+  /// end of ModelPiece trash
+
+    generateVertex(): IVertex { throw new Error("Method not implemented."); }
+    getSidebarHtml(): HTMLElement { throw new Error("Method not implemented."); }
+    isChildLiteralTaken(s: string): boolean { return undefined; } // will call isChildNameTaken, l'ho messo perhè viene chiamato da this['funcname...'] in setname()
+    private autofixEnumValues(): void{ }
+    /// end of trash*/
+
+
+}

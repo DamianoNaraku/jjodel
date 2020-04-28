@@ -205,6 +205,7 @@ export class MeasurableTemplateGenerator {
     const template: HTMLElement = $root.find('.rule.template')[0];
     const accordion: HTMLElement = $root.find('.meas_acc')[0];
 
+
     let genericvarattrnameinput;
     let genericvarpattern = '^(?!ng';
     /*delete prefix;
@@ -223,6 +224,8 @@ export class MeasurableTemplateGenerator {
       const elem: Tmp = arr[i];
       const nodee: HTMLElement = template.cloneNode(true) as HTMLElement;
       nodee.setAttribute('class', 'panel ' + elem.prefix);
+      nodee.setAttribute('prefix', elem.prefix);
+      nodee.setAttribute('prefixlc', elem.prefix.toLowerCase());
       const $node: JQuery<HTMLElement> = $(nodee);
       const title: HTMLElement = $node.find('h7')[0];
       const prefix: HTMLElement = $node.find('.compoundInputprefix > .prefix')[0];

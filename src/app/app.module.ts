@@ -57,7 +57,16 @@ import {
   IEdge,
   IVertex,
   ExtEdge,
-  EdgePoint, ViewRule, MeasurableRuleParts, Rotatableoptions, Resizableoptions, Draggableoptions, WebsiteTheme, ChangelogRoot,
+  EdgePoint,
+  ViewRule,
+  MeasurableRuleParts,
+  Rotatableoptions,
+  Resizableoptions,
+  Draggableoptions,
+  WebsiteTheme,
+  ChangelogRoot,
+  TSON,
+  TSON_JSTypes, TSON_UnsupportedTypes,
 } from '../common/Joiner';
 import { PropertyBarrComponent }   from '../guiElements/property-barr/property-barr.component';
 import { MGraphHtmlComponent }     from '../guiElements/m-graph-html/m-graph-html.component';
@@ -258,6 +267,9 @@ function globalevents(): void {
   window['Rotatableoptions'] = Rotatableoptions;
   window['Resizableoptions'] = Resizableoptions;
   window['Draggableoptions'] = Draggableoptions;
+  window['TSON'] = TSON;
+  window['TSON_JSTypes'] = TSON_JSTypes;
+  window['TSON_UnsupportedTypes'] = TSON_UnsupportedTypes;
   window['' + 'help'] = [
     'setBackup (backup <= saveToDB)',
     'backupSave (saveToDB <= backup)',

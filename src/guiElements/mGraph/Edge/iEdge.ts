@@ -852,7 +852,7 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
         if (logicref && logicref.isContainment()) { html = this.generateContainmentTail(this.getStyle().edgeHeadStyle); }
         if (this instanceof ExtEdge) { html = this.generateGeneralizationTail(this.getStyle().edgeHeadStyle); }
       }
-      U.pe(this instanceof ExtEdge && !html, 'cannot return null on extedge:', html, this);
+      // U.pe(this instanceof ExtEdge && !html, 'cannot return null on extedge:', html, this);
       if (debug && debugi === 4.2) return edgeTailHeadSVG ? edgeTailHeadSVG : html;
       if (!html) {
         if (isHead) this.edgeHead = null; else this.edgeTail = null;

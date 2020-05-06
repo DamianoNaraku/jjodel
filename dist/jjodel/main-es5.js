@@ -12091,6 +12091,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.txtPost) this.html.appendChild(this.txtPost);
           this.html.appendChild(this.buttonContainer);
           this.$container.slideDown(400);
+          console.log('6x', this.input, !!this.input);
           if (this.input) this.input.focus();
         }
       }, {

@@ -66,7 +66,7 @@ import {
   WebsiteTheme,
   ChangelogRoot,
   TSON,
-  TSON_JSTypes, TSON_UnsupportedTypes,
+  TSON_JSTypes, TSON_UnsupportedTypes, PropertyBarr, MeasurableEvalContext, InputPopup,
 } from '../common/Joiner';
 import { PropertyBarrComponent }   from '../guiElements/property-barr/property-barr.component';
 import { MGraphHtmlComponent }     from '../guiElements/m-graph-html/m-graph-html.component';
@@ -75,6 +75,7 @@ import { StyleEditorComponent }    from '../guiElements/style-editor/style-edito
 import { ConsoleComponent }        from '../guiElements/console/console.component';
 import {MeasurabletemplateComponent} from './measurabletemplate/measurabletemplate.component';
 import KeyDownEvent = JQuery.KeyDownEvent;
+import {AutocompleteMatch} from '../common/util';
 
 // @ts-ignore
 @NgModule({
@@ -220,10 +221,17 @@ const M2InputXml: string = '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '  </eClassifiers>\n' +
   '</ecore:EPackage>\n';
 
+function globalNativeFunctionOverride() {
+  const getattr = Element.prototype.getAttribute;
+  // apparently getattrib() in svg elements is case sensitive, while in html is not. but still svg cannot have uppercase letters in attributes. (chrome bug?)
+  Element.prototype.getAttribute = function(qualifiedName: string): string | null { return typeof qualifiedName === TSON_JSTypes.string ? getattr.call(this, qualifiedName.toLowerCase()) : null; }
+}
+
 function globalevents(): void {
+  globalNativeFunctionOverride();
   // Prevent the backspace key from navigating back.
   const $document = $(document);
-  $document.unbind('keydown').bind('keydown', U.preventBackSlashHistoryNavigation);
+  $document.off('keydown').on('keydown', U.preventBackSlashHistoryNavigation);
   $document.on('keydown', (e: KeyDownEvent): void  => {
     console.log('documentKeyDown: ', e.key, e.keyCode);
     if (e.key === 'Escape') { Status.status.getActiveModel().graph.edgeChangingAbort(e); }
@@ -321,24 +329,11 @@ function main() {
   (window as any).status = Status.status;
   U.focusHistorySetup();
   U.tabSetup();
-  $('app-mm-graph-html .propertyBarContainer .UtabHeader').on('click', (e) =>  {
-    if (e.currentTarget.innerText === 'Style') { Status.status.mm.graph.propertyBar.styleEditor.onShow(); } else
-    if (e.currentTarget.innerText === 'Structured') { Status.status.mm.graph.propertyBar.onShow(); } else
-    if (e.currentTarget.innerText === 'Raw')  { Status.status.mm.graph.propertyBar.onShow(true); }
-    else { U.pe(true, 'unrecognized right-side tab:', e.currentTarget); }
-  });
-  $('app-m-graph-html .propertyBarContainer .UtabHeader').on('click', (e) =>  {
-    if (e.currentTarget.innerText === 'Style') { Status.status.m.graph.propertyBar.styleEditor.onShow(); } else
-    if (e.currentTarget.innerText === 'Structured') { Status.status.m.graph.propertyBar.onShow(); } else
-    if (e.currentTarget.innerText === 'Raw')  { Status.status.m.graph.propertyBar.onShow(true); }
-    else { U.pe(true, 'unrecognized right-side tab:', e.currentTarget); }
-  });
   U.resizableBorderSetup();
 
   const $resizableBorders: JQuery<HTMLElement> = $('.resizableBorder.side, .resizableBorder.corner');
   for (i = 0; i < $resizableBorders.length; i++) { $resizableBorders[i].style.borderColor = 'var(--mainBorderColor)'; }
 
-  ChangelogRoot.CheckUpdates();
 
   ECoreRoot.initializeAllECoreEnums();
   globalevents();
@@ -386,12 +381,12 @@ function main() {
   savem2.model = validate(savem2.model, MetaModel.emptyModel);
   savem1.model = validate(savem1.model, Model.emptyModel);
 
+  useless = new TopBar();
+  WebsiteTheme.setTheme();
+  Status.status.mmm = new MetaMetaModel(null);
   console.log('loading MM:', savem2);
   console.log('loading M:', savem1);
 
-  Status.status.mmm = new MetaMetaModel(null);
-  useless = new TopBar();
-  WebsiteTheme.setTheme();
   try {
     Status.status.mm = new MetaModel(JSON.parse(savem2.model), Status.status.mmm);
   } catch(e) {
@@ -417,9 +412,12 @@ function main() {
   useless = new ISidebar(Status.status.mm, document.getElementById('model_sidebar'));
   useless = new IGraph(Status.status.mm, document.getElementById('metamodel_editor') as unknown as SVGSVGElement);
   useless = new IGraph(Status.status.m, document.getElementById('model_editor') as unknown as SVGSVGElement);
+  Status.status.mm.graph.setGrid(20, 20, true);
+  Status.status.m.graph.setGrid(20, 20, true);
   Status.status.loadedGUI = true;
   Status.status.mm.graph.propertyBar.show(Status.status.mm, null, null);
   Status.status.m.graph.propertyBar.show(Status.status.m, null, null);
+  PropertyBarr.staticinit();
   Type.updateTypeSelectors(null, true, true, true);
 
   if (!savem2.vertexpos || !savem2.view){
@@ -485,10 +483,16 @@ function main() {
   // per evitare di perdere oltre X minuti di lavoro.
   // In condizioni normali non è necessario perchè il salvataggio è effettuato al cambio di pagina asincronamente
   // e con consegna dei dati garantita dal browser anche a pagina chiusa (navigator.beacon)
+  ChangelogRoot.CheckUpdates();
+  fakemain();
   return;
   Status.status.enableAutosave(2 * 60 * 1000);
   //Options.enableAutosave(2 * 60 * 1000);
   // Options.Load(Status.status);
+
+}
+
+function fakemain() {
 
 }
 window['' + 'main'] = main0;

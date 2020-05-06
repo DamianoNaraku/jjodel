@@ -1,6 +1,8 @@
 import {ReservedStorageKey, TopBar, U} from '../common/Joiner';
 
 export class WebsiteTheme{
+  static readonly Dark: string = 'Dark';
+  static readonly Light: string = 'Light';
 
   static setTheme(checkbox: HTMLInputElement = null) {
     let s: string = checkbox && checkbox.value;
@@ -22,4 +24,6 @@ export class WebsiteTheme{
     change('altBackgroundColor');
     change('altFontColor');
   }
+
+  static get(): string { return (TopBar.topbar.$topbar.find('input.themename:checked')[0] as HTMLInputElement).value; }
 }

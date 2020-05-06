@@ -4,10 +4,34 @@
   </div>
   <div class="styleTemplates styleEditor">
     <div class="template model">
+      <!--
+      <label>
+        <input type="number" class="gridX" min="0" step="1" placeholder="off">
+        <span>Grid X</span>
+      </label>
+      <label>
+        <input type="number" class="gridY" min="0" step="1" placeholder="off">
+        <span>Grid Y</span>
+      </label>
+      <label>
+        <input type="number" class="zoomX" min="0.0001" step="0.1" placeholder="1">
+        <span>Zoom</span>
+      </label>
+      <label display = "none">
+        <input type="number" class="zoomY" min="0.0001" step="0.1" placeholder="1">
+        <span>Zoom Y</span>
+      </label>
+      <label><input type="checkbox" class="showGrid"><span>Show grid</span></label>
+      <label><input type="color" class="graphColor"><span>Background color</span></label>
+      -->
       <table><tbody>
       <tr>
-        <td>Grid</td>
-        <td>X: <input type="number" class="gridX" min="0" step="1" placeholder="off"> Y: <input type="number" class="gridY" min="0" step="1"  placeholder="off"></td>
+        <td>Grid X</td>
+        <td><input type="number" class="gridX" min="0" step="1" placeholder="off"></td>
+      </tr>
+      <tr>
+        <td>Grid Y</td>
+        <td><input type="number" class="gridY" min="0" step="1"  placeholder="off"></td>
       </tr>
       <tr>
         <td>Zoom</td>
@@ -191,7 +215,7 @@
         <button class="arrow upp btn btn-primary" title="Go to the root level">🢁</button>
         <button class="arrow down btn btn-primary" style="display:none" title="Go to the previous level">⇩</button>
       </div>
-      <label class="m1 iclass">
+      <label class="iclass show">
         <input type="checkbox" class="showAsEdge">
         <span class="showAsEdgeText">#####</span>
       </label>

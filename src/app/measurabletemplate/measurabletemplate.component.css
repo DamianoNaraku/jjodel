@@ -170,7 +170,22 @@
   padding-right: 4px;
   margin-bottom: 5px;
   display: flex;
+  border: 2px solid transparent;
+  border-radius: 22.5px 0 0 22.5px;
 }
+.meas_acc0 .maintitle{
+  border-radius: 5px;
+}
+
+.meas_acc0 .ruletitle:hover{
+  border-color: gray;
+  background-color: rgba(127, 127, 127, 0.2); }
+
+.meas_acc0 .ruletitle:hover.ruletitle[counter]:not([counter="0"]), .meas_acc0 .ruletitle[counter]:not([counter="0"]):not(.collapsed),
+.meas_acc0 .maintitle:hover,  .meas_acc0 .maintitle:not(.collapsed){
+  border-color: dodgerblue;
+  background-color: rgba(30, 144, 255, 0.2); }
+
 ::ng-deep .meas_acc0 .innertitle { margin: auto; } /* dynamically added*/
 .meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }
 .meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }

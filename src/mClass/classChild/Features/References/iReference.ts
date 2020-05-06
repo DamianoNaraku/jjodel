@@ -10,7 +10,7 @@ import {
   M2Reference,
   M3Class, MAttribute, MetaMetaModel, MetaModel,
   MReference,
-  U
+  U, WebsiteTheme
 } from '../../../../common/Joiner';
 import {EdgeHeadStyle} from '../../../../guiElements/mGraph/Edge/edgeStyle';
 
@@ -36,6 +36,25 @@ export abstract class IReference extends IFeature {
     this.edgeStyleSelected = new EdgeStyle(EdgeModes.straight, 4, '#ffffff', // #ffbb22
       new EdgePointStyle(5, 2, '#ffffff', '#ff0000'),
       new EdgeHeadStyle(25, 25, '#ffffff', '#ffffff'));
+
+
+    let complementaHex = (hexstr: string): string => { return '#' + U.toHex(16777215 - (U.hexToNum(hexstr)), 6); }
+    let i: number;
+
+    switch (WebsiteTheme.get()) {
+      default: U.pe(true, 'unexpected website theme: |' + WebsiteTheme.get() + '|' + WebsiteTheme.Light + '|'); break;
+      case WebsiteTheme.Dark: break;
+      case WebsiteTheme.Light:
+        let edgeStyles: EdgeStyle[] = [this.edgeStyleCommon, this.edgeStyleHighlight, this.edgeStyleSelected];
+        for (i = 0; i < edgeStyles.length; i++) {
+          let style: EdgeStyle = edgeStyles[i];
+          style.color = complementaHex(style.color);
+          style.edgePointStyle.fillColor = complementaHex(style.edgePointStyle.fillColor);
+          style.edgePointStyle.strokeColor = complementaHex(style.edgePointStyle.strokeColor);
+          style.edgeHeadStyle.fill = complementaHex(style.edgeHeadStyle.fill);
+          style.edgeHeadStyle.stroke = complementaHex(style.edgeHeadStyle.stroke); }
+        break;
+    }
   }
 
   abstract generateEdges(): IEdge[];
@@ -158,6 +177,9 @@ export abstract class IReference extends IFeature {
   public clearTargets(): void {
     // azioni solo su m1, non spostato direttamente su m1 per comodità d'uso nella IReference.clone();
   }
+
+  abstract getTarget(index?: number): IClass;
+  getTargetSelector(index?: number): string { return this.getTarget(index).getSelector(); }
 }
 
 export class M3Reference extends IReference {
@@ -184,6 +206,8 @@ export class M3Reference extends IReference {
   parse(json: Json, destructive?: boolean): void { this.name = 'Reference'; }
 
   linkClass(classe: IClass = null): void { U.pe(true, 'Invalid operation: M3Reference.linkClass();'); }
+
+  getTarget(index?: number): M3Class { return this.parent; }
   // metaParent: M3Reference;
   // instances: M3Reference[] | M2Reference[];
 }

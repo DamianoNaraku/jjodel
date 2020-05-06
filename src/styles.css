@@ -35,10 +35,15 @@ textarea::selection,
 }
 
 
-input[type="color"] {
-  width: 22px;
-  height: 22px;
+input[type="checkbox"], input[type="radio"], input[type="color"] {
+  width: 24px;
+  height: 24px;
+  margin: 0;
   margin-right: 5px;
+  vertical-align: middle;
+}
+
+input[type="color"] {
   padding: 0;
   vertical-align: middle;
   /*border: none;*/
@@ -53,13 +58,6 @@ input[type="color"]::-webkit-color-swatch {
   /*il centro*/
   /*border-radius: 100%;*/
   border: none;
-}
-input[type="checkbox"], input[type="radio"] {
-  width: 24px;
-  height: 24px;
-  margin: 0;
-  margin-right: 5px;
-  vertical-align: middle;
 }
 
 label > input[type="number"][digit="3"]{

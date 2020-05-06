@@ -9,8 +9,8 @@ import {
   M2Class, M3Class,
   ModelPiece,
   ShortAttribETypes, Type,
-  U
-}                 from '../../../common/Joiner';
+  U, ELiteral
+} from '../../../common/Joiner';
 import {ViewRule} from '../../../GuiStyles/viewpoint';
 // export abstract class EOperation extends Typedd {}
 /*
@@ -47,6 +47,10 @@ export class EOperation extends Typedd {
     super(parent, null);
     if (parent instanceof M2Class) parent.operations.push(this);
     this.parse(json); }
+
+
+  getChildrenParameter(index: number): EParameter { return this.childrens[index]; }
+  getChildrenParameterSelector(index: number): string { return this.getChildrenParameter(index).getSelector(); }
 
   getVisibilityChar(): string {
     switch (this.visibility) {

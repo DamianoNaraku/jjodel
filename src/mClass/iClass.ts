@@ -36,14 +36,21 @@ import {
   M3Attribute,
   M3Feature,
   EdgeModes,
-  EdgePointStyle, EOperation, EParameter, Typedd, Type,
-}                    from '../common/Joiner';
+  EdgePointStyle, EOperation, EParameter, Typedd, Type, EEnum, WebsiteTheme,
+} from '../common/Joiner';
 import {IClassifier} from './IClassifier';
 import {EdgeHeadStyle} from '../guiElements/mGraph/Edge/edgeStyle';
-
+export abstract class ClassInheritance{
+  attributes: IAttribute[];
+  references: IReference[];
+  operations: EOperation[];
+  childrens: Typedd[];
+}
 export abstract class IClass extends IClassifier {
   attributes: IAttribute[];
   references: IReference[];
+  operations: EOperation[];
+  inherited: ClassInheritance[];
   metaParent: IClass;
   instances: IClass[];
   referencesIN: IReference[] = []; // external pointers to this class.
@@ -54,19 +61,50 @@ export abstract class IClass extends IClassifier {
   edgeStyleHighlight: EdgeStyle;
   edgeStyleSelected: EdgeStyle;
 
+  getReferences(personal: boolean = true, inherited: boolean = true) {
+    let refs: IReference[] = this.references;
+  }
+
   protected constructor(parent: IPackage, meta: IClass) {
     super(parent, meta);
     if (this.parent) { U.ArrayAdd(this.parent.classes, this); }
+    // let selectedcolor: string = 'var(--'; todo, ma crea problemi con l'input type color
+    let html: HTMLButtonElement;
+    let complementaHex = (hexstr: string): string => { return '#' + U.toHex(16777215 - (U.hexToNum(hexstr)), 6); }
+    let i: number;
+
     this.edgeStyleCommon = new EdgeStyle(EdgeModes.straight, 2, '#7f7f7f',
       new EdgePointStyle(5, 2, '#ffffff', '#000000'),
       new EdgeHeadStyle(20, 20, '#7f7f7f', '#7f7f7f'));
     this.edgeStyleHighlight = new EdgeStyle(EdgeModes.straight, 2, '#ffffff',
       new EdgePointStyle(5, 2, '#ffffff', '#0077ff'),
-    new EdgeHeadStyle(20, 20, '#ffffff', '#ffffff'));
+      new EdgeHeadStyle(20, 20, '#ffffff', '#ffffff'));
     this.edgeStyleSelected = new EdgeStyle(EdgeModes.straight, 4, '#ffffff',
       new EdgePointStyle(5, 2, '#ffffff', '#ff0000'),
       new EdgeHeadStyle(25, 25, '#ffffff', '#ffffff'));
+
+    switch (WebsiteTheme.get()) {
+      default: U.pe(true, 'unexpected website theme: |' + WebsiteTheme.get() + '|' + WebsiteTheme.Light + '|'); break;
+      case WebsiteTheme.Dark: break;
+      case WebsiteTheme.Light:
+        let edgeStyles: EdgeStyle[] = [this.edgeStyleCommon, this.edgeStyleHighlight, this.edgeStyleSelected];
+        for (i = 0; i < edgeStyles.length; i++) {
+          let style: EdgeStyle = edgeStyles[i];
+          style.color = complementaHex(style.color);
+          style.edgePointStyle.fillColor = complementaHex(style.edgePointStyle.fillColor);
+          style.edgePointStyle.strokeColor = complementaHex(style.edgePointStyle.strokeColor);
+          style.edgeHeadStyle.fill = complementaHex(style.edgeHeadStyle.fill);
+          style.edgeHeadStyle.stroke = complementaHex(style.edgeHeadStyle.stroke); }
+        break;
+    }
   }
+
+  getChildrenAttribute(index: number): IAttribute { return this.attributes[index]; }
+  getChildrenReference(index: number): IReference { return this.references[index]; }
+  getChildrenOperation(index: number): EOperation { return this.getOperations()[index]; }
+  getChildrenAttributeSelector(index: number): string { return this.getChildrenAttribute(index).getSelector(); }
+  getChildrenReferenceSelector(index: number): string { return this.getChildrenReference(index).getSelector(); }
+  getChildrenOperationSelector(index: number): string { return this.getChildrenOperation(index).getSelector(); }
 
   fullname(): string { return this.parent.name + '.' + this.name; }
 
@@ -256,6 +294,9 @@ export abstract class IClass extends IClassifier {
     if (this instanceof MClass) { return this.metaParent.operations; }
     U.pe(true, 'unexpected class:' + U.getTSClassName(this) + ': ', this);
   }
+
+  getAllAttributes(): IAttribute[] { return this.attributes; }
+  getAllReferences(): IReference[] { return this.references; }
 }
 export class M3Class extends IClass {
   parent: M3Package;

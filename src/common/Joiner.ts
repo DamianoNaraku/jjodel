@@ -39,7 +39,10 @@ export {ShortAttribETypes, U, Json, AttribETypes,
   InputPopup, DetectZoom, Dictionary,
   IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput
 , TSON_JSTypes, TSON, TSON_UnsupportedTypes, TSONString} from './util';
-export {MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions} from './measurable';
+export {
+  MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules,
+  MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl,
+  RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic} from './measurable';
 export {Status} from '../../src/app/app.module';
 export {IGraph, ViewPointShell} from '../guiElements/mGraph/iGraph';
 export {IVertex} from '../guiElements/mGraph/Vertex/iVertex';
@@ -85,7 +88,8 @@ export {EAnnotationDetail} from '../Model/EAnnotationDetail';
 export {DamContextMenuComponent} from '../guiElements/dam-context-menu/dam-context-menu.component';
 export {EOperation, OperationVisibility} from '../mClass/classChild/Operations/eOperation';
 export {EParameter} from '../mClass/classChild/Operations/eParameter';
-export {Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent} from '../app/measurabletemplate/measurabletemplate.component';
+export {Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH,
+  DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent} from '../app/measurabletemplate/measurabletemplate.component';
 export {ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix} from '../guiElements/changelog/ChangelogEntry';
 export {WebsiteTheme} from '../GuiStyles/global';
 

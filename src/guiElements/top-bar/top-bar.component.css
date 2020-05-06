@@ -69,6 +69,8 @@
   padding: 30px 60px;
   border: 4px solid var(--mainBorderColor);
   background-color: var(--mainBackgroundColor);
+  max-height: 90vh;
+  overflow: auto;
 }
 ::ng-deep .typeRow {
   height: 20px;

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Dictionary, GraphSize, Measurable, measurableRules, U} from '../../common/Joiner';
-import {ConstraintLeftAdmitteds, ConstraintLeftAdmittedsStatic} from '../../common/measurable';
+import {Dictionary, GraphSize, Measurable, measurableRules, U, ConstraintLeftAdmittedsStatic} from '../../common/Joiner';
 
 @Component({
   selector: 'app-measurabletemplate',
@@ -343,30 +342,17 @@ export class MeasurableTemplateGenerator {
     return this.generateMeasurableTemplate(); }
 
   public static makedatasetLists(): void {
-    const constraintOptions: ConstraintLeftAdmitteds = new ConstraintLeftAdmitteds();
+    const constraintOptions: Dictionary<string, string> =  {};
     let opt: HTMLOptionElement;
     let datalist: HTMLDataListElement;
     let key: string;
     let i: number;
-    delete constraintOptions.absoluteDocPos;
-    constraintOptions['absoluteDocPos.x'] = 'absoluteDocPos.x';
-    constraintOptions['absoluteDocPos.y'] = 'absoluteDocPos.y';
-    delete constraintOptions.absoluteGPos;
-    constraintOptions['absoluteGPos.x'] = 'absoluteGPos.x';
-    constraintOptions['absoluteGPos.y'] = 'absoluteGPos.y';
-    delete constraintOptions.relativePos;
-    constraintOptions['relativePos.x'] = 'relativePos.x';
-    constraintOptions['relativePos.y'] = 'relativePos.y';
-    delete constraintOptions.relativeVPos;
-    constraintOptions['relativeVPos.x'] = 'relativeVPos.x';
-    constraintOptions['relativeVPos.y'] = 'relativeVPos.y';
-    delete constraintOptions.vertexSize;
-    constraintOptions['vertexSize.x'] = 'vertexSize.x';
-    constraintOptions['vertexSize.y'] = 'vertexSize.y';
-    constraintOptions['vertexSize.w'] = 'vertexSize.w';
-    constraintOptions['vertexSize.h'] = 'vertexSize.h';
-    const constraintOptionsPH: Dictionary<string, string> = U.cloneObj(constraintOptions);
-    for (key in constraintOptionsPH) { constraintOptionsPH[key] = 'Number'; }
+
+    const constraintOptionsPH: Dictionary<string, string> = {};
+    for (key in ConstraintLeftAdmittedsStatic) {
+      constraintOptions[ConstraintLeftAdmittedsStatic[key]] = ConstraintLeftAdmittedsStatic[key];
+      constraintOptionsPH[ConstraintLeftAdmittedsStatic[key]] = 'Number'; }
+
     MeasurableTemplateGenerator.constraintMap = constraintOptions;
     MeasurableTemplateGenerator.constraintPlaceholderMap = constraintOptionsPH;
     let datasets: object[] = [ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, constraintOptionsPH];

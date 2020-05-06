@@ -317,7 +317,7 @@ export class IGraph {
     this.propertyBar = new PropertyBarr(this.model);
     this.viewPointShell = new ViewPointShell(this);
     this.addGraphEventListeners();
-    this.setGrid0(); }
+    this.refreshGridGUI(); }
 
   fitToGrid(pt0: GraphPoint, clone: boolean = true, debug: boolean = false, fitHorizontal = true, fitVertical = true): GraphPoint {
     const pt: GraphPoint = clone ? pt0.duplicate() : pt0;
@@ -420,7 +420,7 @@ export class IGraph {
   onMouseMoveVertexMove(evt: MouseMoveEvent, v: IVertex): void {
     if (!v) { return; }
     // if (U.vertexOldPos === 1) U.vertexOldPos = 2;
-    console.log('onMouseMoveVertexMove:', v.logic().name, evt, v);
+//     console.log('onMouseMoveVertexMove:', v.logic().name, evt, v);
     const currentMousePos: Point = new Point(evt.pageX, evt.pageY);
     // console.log('evt:', evt);
     let currentGraphCoord: GraphPoint = this.toGraphCoord(currentMousePos);
@@ -431,6 +431,7 @@ export class IGraph {
     if (isMeasurable) {
       if (axis === undefined || axis !== null && axis.indexOf('x') === -1) currentGraphCoord.x = null;
       if (axis === undefined || axis !== null && axis.indexOf('y') === -1) currentGraphCoord.y = null; }
+    console.log('onMouseMoveVertexMove:', v.logic().name, 'vertex:', v, 'coord:', currentGraphCoord, 'ismeasurable:', isMeasurable);
     v.moveTo(currentGraphCoord); }
 
   onMouseMoveDrag(e: MouseMoveEvent): void {
@@ -564,16 +565,20 @@ export class IGraph {
     document.body.appendChild(this.markp);
     this.container.appendChild(this.markgp); }
 
-  setGrid(x: number, y: number): void {
-    this.grid.x = x;
-    this.grid.y = y;
-    this.setGrid0(); }
+  setGrid(x: number = null, y: number = null, checked: boolean = null): void {
+    if (x !== null) this.grid.x = x;
+    if (y !== null) this.grid.y = y;
+    if (checked !== null) this.gridDisplay = checked;
+    this.refreshGridGUI(); }
 
   setScroll(x: number, y: number): void {
-    this.scroll.x = x;
-    this.scroll.y = y;
-    this.setGrid0();
-    this.updateViewbox(); }
+    const old = this.scroll.duplicate();
+    if (x !== null) this.scroll.x = x;
+    if (y !== null) this.scroll.y = y;
+    console.log('SetScroll(', x, y, '): ', old.x, old.y, ' -> ', this.scroll.x, this.scroll.y);
+    this.refreshGridGUI(); // error here
+    this.updateViewbox();
+  }
 
   setZoom(x: number, y: number): void {
     const oldZoom = this.zoom.duplicate();
@@ -600,33 +605,53 @@ export class IGraph {
     const biggerSquareX = this.grid.x * 10;
     const biggerSquareY = this.grid.y * 10;
     const safetySquares = 1;
-    this.gridHtml.setAttributeNS(null, 'x', '' + ((this.scroll.x - this.scroll.x % biggerSquareX) - biggerSquareX * safetySquares));
-    this.gridHtml.setAttributeNS(null, 'y', '' + ((this.scroll.y - this.scroll.y % biggerSquareY) - biggerSquareY * safetySquares));
+    if (this.grid.x > 0 && !isNaN(this.scroll.x + this.grid.x))
+      this.gridHtml.setAttributeNS(null, 'x', '' + ((this.scroll.x - this.scroll.x % biggerSquareX) - biggerSquareX * safetySquares));
+    if (this.grid.y > 0 && !isNaN(this.scroll.y + this.grid.y))
+      this.gridHtml.setAttributeNS(null, 'y', '' + ((this.scroll.y - this.scroll.y % biggerSquareY) - biggerSquareY * safetySquares));
     const size: Size = new Size(0, 0, window.screen.width, window.screen.height);
     size.w = Math.max(size.w, window.outerWidth);
     size.h = Math.max(size.h, window.outerHeight);
-    this.gridHtml.setAttributeNS(null, 'width', ((size.w + biggerSquareX * safetySquares * 2) / this.zoom.x) + '');
-    this.gridHtml.setAttributeNS(null, 'height', ((size.h + biggerSquareY * safetySquares * 2) / this.zoom.y) + ''); }
+    if (!isNaN(this.grid.x + this.zoom.x))
+      this.gridHtml.setAttributeNS(null, 'width', ((size.w + biggerSquareX * safetySquares * 2) / this.zoom.x) + '');
+    if (!isNaN(this.grid.y + this.zoom.y))
+      this.gridHtml.setAttributeNS(null, 'height', ((size.h + biggerSquareY * safetySquares * 2) / this.zoom.y) + ''); }
 
-  setGrid0(checked: boolean = null) {
-    const graph = (this.model === Status.status.mm ? Status.status.mm.graph : Status.status.m.graph);
-    if (checked === null) { checked = graph.gridDisplay; }
-    graph.gridDisplay = checked;
-   const maxSquareSize = 10000; // Number.MAX_SAFE_INTEGER sarebbe meglio maxint, ma temo per il consumo di memoria.
-    const x = isNaN(this.grid.x) || this.grid.x <= 0 ? maxSquareSize : this.grid.x; // if the size of squares in grid is zero or negative, i just use a big number.
-    const y = isNaN(this.grid.y) || this.grid.y <= 0 ? maxSquareSize : this.grid.y;
+  private oldGridX: number = null;
+  private oldGridY: number = null;
+  refreshGridGUI() {
+    // if (this.grid.x === null) this.grid.x = this.oldGridX; crea un bug che mette i vertici trascinati che triggerano una rule (anche senza effetto o event senza targets) in vertexPos.y = 0;
+    // if (this.grid.y === null) this.grid.y = this.oldGridY; forse perchè null è un valore valido che dice "non usare la griglia", almeno mentre trascini
+
+
+    if (this.grid.x !== null) this.oldGridX = this.grid.x;
+    if (this.grid.y !== null) this.oldGridY = this.grid.y;
+    const maxSquareSize = 1000; // Number.MAX_SAFE_INTEGER sarebbe meglio maxint, ma temo per il consumo di memoria.
+    const x = isNaN(this.grid.x) || this.grid.x === null ? this.oldGridX : this.grid.x <= 0 ? maxSquareSize : this.grid.x; // if the size of squares in grid is zero or negative, i just use a big number.
+    const y = isNaN(this.grid.y) || this.grid.y === null ? this.oldGridX : this.grid.y <= 0 ? maxSquareSize : this.grid.y;
+    // NB: x è "displayed grid", grid.x è actual grid. se grid.x = null lo snap è disattivato ma continuo a mostrare old grid.
+    console.log('oldGridX:' + this.oldGridX, this.grid.x, x, this.gridDisplay);
+    console.log('oldGridY:' + this.oldGridY, this.grid.y, y);
+    if (x === null || y === null) /*todo: x = getOldX;*/ return;
+
+    let drawx = this.grid.x === null || !(isNaN(this.grid.x) || this.grid.x <= 0 || this.grid.x >= maxSquareSize);
+    let drawy = this.grid.x === null || !(isNaN(this.grid.y) || this.grid.y <= 0 || this.grid.x >= maxSquareSize);
+
     this.gridDefsHtml.innerHTML =
       '<pattern id="smallGrid_' + this.id + '" width="' + x + '" height="' + y + '" patternUnits="userSpaceOnUse">\n' +
-      '  <path d="M ' + x + ' 0 L 0 0 0 ' + y + '" fill="none" stroke="gray" stroke-width="0.5"/>\n' +
+      (!drawx && !drawy ? '<!-- no grid -->' :
+      '  <path d="m 0 0' + (drawy ? ' l' : ' m' ) + (x) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y) + '" fill="none" stroke="gray" stroke-width="0.5"/>\n'
+      ) +
       '</pattern>\n' +
       '<pattern id="grid_' + this.id + '" width="' + (x * 10) + '" height="' + (y * 10) + '" patternUnits="userSpaceOnUse">\n' +
+      (!drawx && !drawy ? '<!-- no grid -->' :
       '  <rect width="' + (x * 10) + '" height="' + (y * 10) + '" fill="url(#smallGrid_' + this.id + ')"/>\n' +
-      '  <path d="M ' + (x * 10) + ' 0 L 0 0 0 ' + (y * 10) + '" fill="none" stroke="gray" stroke-width="1"/>\n' +
+      '  <path d="m 0 0' + (drawy ? ' l' : ' m' ) + (x * 10) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y * 10) + '" fill="none" stroke="gray" stroke-width="1"/>\n') +
       '</pattern>';
     this.setGridPos();
     // $grid[0].setAttributeNS(null, 'justForRefreshingIt', 'true');
     // $grid.x
-    if (checked) { $(this.gridHtml).show(); } else { $(this.gridHtml).hide(); }
+    if (this.gridDisplay) { $(this.gridHtml).show(); } else { $(this.gridHtml).hide(); }
 
   }
 

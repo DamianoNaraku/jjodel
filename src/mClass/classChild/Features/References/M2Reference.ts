@@ -156,4 +156,5 @@ export class M2Reference extends IReference {
   //  return (this.type.classType === hoveringTarget || this.type.classType.isExtending(hoveringTarget));
   }// && !(hoveringTarget instanceof EEnum); }
 
+  getTarget(): M2Class { return this.type.classType; }
 }

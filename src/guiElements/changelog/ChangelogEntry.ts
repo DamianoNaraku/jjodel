@@ -94,12 +94,13 @@ export class VersionUpload extends ChangelogEntry {
   constructor (date: Date, title: string, description: string, subPoints: ChangelogEntry[] = []) {
     super (title, description, subPoints);
     this.date = date;
+    ChangelogRoot.latestVersion = date.toString();
     VersionUpload.all.push(this); }
 
 }
 
 export class ChangelogRoot extends ChangelogEntry {
-  static readonly latestVersion = '1';
+  static latestVersion: string = null;
 
   static generateHtml(): HTMLElement {
     ChangelogRoot.versionBlockNoteWriteHere();
@@ -156,9 +157,9 @@ export class ChangelogRoot extends ChangelogEntry {
 
   static versionBlockNoteWriteHere(): void {
     let v: VersionUpload;
+
     v = new VersionUpload(new Date('2020/4/21'), 'Measurable reworking:',
       'Measurable system got rewritten from scratch to expand functionality and making the syntax more user friendly, the old documentation became obsolete and will be rewritten.', null);
-
     v.addf('GUI: ', 'Demo of light theme inserted (in the topbar).');
     v.addf('GUI: ', 'for inserting measurable rules without editing directly the HTML with some suggestion while typing and minor autocorrections on input mistakes.');
     v.addf('debugger: ', 'built-in simple debugger to see the output or execution errors of the rules executed and manually trigger measurable events. ("Test it!" button)');
@@ -172,33 +173,42 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addbf('Many minor bugfixed', '');
     v.addf('Vertex', 'Support for manually set vertex size and position through coordinates and possibility to set a vertex in autosize mode, losing the ability to manually resize it but ensuring it will always fit to his contents.');
     v.addi('Other:', 'Implemented this self-referential changelog system, that will automatically pop-up every time there are new updates not yet acknowledged.');
-    v = new VersionUpload(new Date(2020, 4, 30), 'small update', '');
-    v.addi('Info:', 'measurable elements are now called layouting elements');
-    v.addf('GUI:', 'layouting elements editor now have a search form to filter layouting rules.');
-    v.addf('Changelog:', 'inserted possibility to filter news on your interests (features, info, bugfix...).');
-    v.addbf('GUI:', 'layouting elements editor counter was not updated on element removal.');
-    // v = new VersionUpload(new Date(2020,4, 20), 'faketitle', 'fakedescr.');
+
+    v = new VersionUpload(new Date('2020/4/30'), '', '');
+    v.addi('Info:', 'Measurable elements are now called layouting elements');
+    v.addf('GUI:', 'Layouting elements editor now have a search form to filter layouting rules.');
+    v.addf('Changelog:', 'Inserted possibility to filter news on your interests (features, info, bugfix...).');
+    v.addbf('GUI:', 'Layouting rules counter on the editor gui was not updated on rule removal.');
+    v.addf('GUI:', 'Default edge colors will now change according to website theme (manually edited styles won\'t change).');
+    v.addbf('Layoutable:', '_Constraint was not working properly, rules sometime were improperly altering graph grid\'s size.');
+    v.addbf('GUI:', 'A recent chrome update was making the graph grid blurry on extremely big or small grid sizes, fixed.');
+
+    v = new VersionUpload(new Date('2020/5/6'), '', '');
+    v.addf('Layoutable:', 'Improved the rule editor with code autocompletion, providing dynamic suggestions and information about types of available variables, function\'s parameters and return values. With a link to documentation.');
+    v.addi('Optimization:', 'Reduced redundant calls during MClass creation and loading.');
+
+    let searchterm = 'clog cls addbf';
+    // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
     // v.addf('fakegfeat', 'kkk');
     // v = new VersionUpload('v3'...);
 
   }
 
   static popup: InputPopup;
-  static show(): void {
-    if (!ChangelogRoot.popup){
-      ChangelogRoot.popup = new InputPopup('Changelog', ' ', ' ', null, null, null, 'input', null, null);
-      ChangelogRoot.popup.getInputNode().hide();
-      const html: HTMLElement = this.generateHtml();
-      ChangelogRoot.popup.setPostHtml(html);
-      $(ChangelogRoot.popup.html).find('button.closeButton').on('click.acknowledgeOnClose', ChangelogRoot.acknowledgeOnClose);
-    }
+  static generate(): void {
+    if (ChangelogRoot.popup) return;
+    ChangelogRoot.popup = new InputPopup();
+    ChangelogRoot.popup.setText('Changelog', this.generateHtml(), '');
+    ChangelogRoot.popup.onCloseButton([ChangelogRoot.acknowledgeOnClose]); }
 
-    ChangelogRoot.popup.show();
-  }
-  static acknowledgeOnClose(): void {
-    localStorage.setItem(ReservedStorageKey.versionAcknowledged, ChangelogRoot.latestVersion);
-  }
+  static show(): void {
+    ChangelogRoot.generate();
+    ChangelogRoot.popup.show(); }
+
+  static acknowledgeOnClose(): void { localStorage.setItem(ReservedStorageKey.versionAcknowledged, ChangelogRoot.latestVersion); }
+
   static CheckUpdates() {
+    ChangelogRoot.generate();
     let acknowledgedVersion: string = localStorage.getItem(ReservedStorageKey.versionAcknowledged);
     if (acknowledgedVersion !== ChangelogRoot.latestVersion) ChangelogRoot.show();
   }

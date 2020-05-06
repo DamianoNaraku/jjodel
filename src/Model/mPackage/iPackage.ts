@@ -31,6 +31,11 @@ export abstract class IPackage extends ModelPiece {
     this.enums = [];
   }
 
+  getChildrenClass(index: number): IClass { return this.classes[index]; }
+  getChildrenEnum(index: number): EEnum { return this.enums[index]; }
+  getChildrenClassSelector(index: number): string { return this.getChildrenClass(index).getSelector(); }
+  getChildrenEnumSelector(index: number): string { return this.getChildrenEnum(index).getSelector(); }
+
   abstract parse(json: Json, destructive?: boolean): void;
   abstract addEmptyClass(metaVersion: IClass): IClass;
 

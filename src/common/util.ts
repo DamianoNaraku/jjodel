@@ -28,6 +28,9 @@ import FocusInEvent = JQuery.FocusInEvent;
 import BlurEvent = JQuery.BlurEvent;
 import TriggeredEvent = JQuery.TriggeredEvent;
 import EventBase = JQuery.EventBase;
+import KeyPressEvent = JQuery.KeyPressEvent;
+import {split} from 'ts-node';
+import KeyUpEvent = JQuery.KeyUpEvent;
 
   export class myFileReader {
   private static input: HTMLInputElement;
@@ -94,8 +97,160 @@ export class FocusHistoryEntry {
 export class InputPopup {
   static popupCounter = 0;
   html: HTMLElement;
-  constructor(title: string, txtpre: string, txtpost: string, event: any[][] /* array of (['oninput', onInputFunction])*/,
-              placeholder: string = null, value: string, inputType: string = 'input', inputSubType: string = null, onsuccess: ((value: string, input: HTMLElement) => any)[]) {
+  buttonContainer: HTMLElement;
+  title: HTMLElement;
+  txtPre: HTMLElement;
+  input: HTMLElement;
+  txtPost: HTMLElement;
+  okButton: HTMLButtonElement;
+  xbutton: HTMLButtonElement;
+  container: HTMLElement;
+  innercontainer: HTMLElement;
+
+  $html: JQuery<HTMLElement>;
+  $title: JQuery<HTMLElement>;
+  $txtPre: JQuery<HTMLElement>;
+  $input: JQuery<HTMLElement>;
+  $txtPost: JQuery<HTMLElement>;
+  $okButton: JQuery<HTMLButtonElement>;
+  $xbutton: JQuery<HTMLButtonElement>;
+  $container: JQuery<HTMLElement>;
+  validators: {validatorCallback: (value: string, input: HTMLElement) => boolean, errormsg: string}[] = [];
+
+
+  constructor(title: HTMLElement |string = null, txtPre: HTMLElement | string = null, inputOrTag: HTMLElement | string = null, txtPost: HTMLElement |string = null){
+    const id = 'popup_' + InputPopup.popupCounter++;
+    this.container = U.toHtml('<div data-closebuttontarget="' + id + '" class="screenWideShadow" style="display: none;"></div>');
+    this.xbutton = document.createElement('button');
+    this.xbutton.classList.add('closeButton');
+    this.xbutton.dataset.closebuttontarget = id;
+    this.xbutton.innerText = 'X';
+    this.html = document.createElement('div');
+    this.html.classList.add('popupContent');
+    this.buttonContainer = document.createElement('div');
+    this.buttonContainer.style.width = '100%';
+    this.buttonContainer.style.display = 'flex';
+    this.buttonContainer.style.marginTop = '10px';
+    this.$container = $(this.container);
+    this.$xbutton = $(this.xbutton);
+    this.$html = $(this.html);
+    this.container.append(this.html);
+    this.html.append(this.xbutton);
+    U.closeButtonSetup($(this.container));
+
+    if (title || txtPre || txtPost) this.setText(title, txtPre, txtPost);
+    this.setInputNode(inputOrTag); }
+
+  addButtons(textornode: string|HTMLButtonElement, onclick: ((e:ClickEvent, value: string, input: HTMLElement, btn: HTMLButtonElement) => any)[], classes: string[] = ['btn-primary']): HTMLButtonElement {
+    let btn: HTMLButtonElement;
+    if (textornode instanceof HTMLButtonElement) { btn = textornode; }
+    else {
+      btn = document.createElement('button');
+      btn.style.margin = 'auto';
+      btn.textContent = textornode;
+      btn.classList.add('btn', ...classes); }
+    let i: number;
+    for (i = 0; i < onclick.length; i++) {
+      let clickhandler = onclick[i];
+      $(btn).on('click', (e: ClickEvent) => { clickhandler(e, U.getValue(this.input), this.input, btn); });
+    }
+    this.buttonContainer.append(btn);
+    return btn; }
+
+  addOkButton(text: string = 'Confirm', onclick: ((e:ClickEvent, value: string, input: HTMLElement, btn: HTMLButtonElement) => any)[]) {
+    onclick = onclick || [];
+    text = text || 'Confirm';
+    onclick.push((e:ClickEvent, value: string, input: HTMLElement, btn: HTMLButtonElement) => { this.destroy(); });
+    U.remove(this.okButton);
+    this.okButton = this.addButtons(text, onclick, ['btn-primary']);
+    this.$okButton = $(this.okButton); }
+
+  onCloseButton(onclick: ((e:ClickEvent, value: string, input: HTMLElement, btn: HTMLButtonElement) => any)[]) {
+    let i: number;
+    for (i = 0; i < onclick.length; i++) {
+      let evt = onclick[i];
+      this.$xbutton.on('click.customhandler', (e: ClickEvent) => { evt(e, U.getValue(this.input), this.input, this.xbutton); });
+    }
+  }
+
+  setText(title: string|HTMLElement = '', pre: string | HTMLElement = '', post: string | HTMLElement = ''): void {
+    U.remove(this.title);
+    U.remove(this.txtPre);
+    U.remove(this.txtPost);
+
+    if (typeof title === 'string') {
+      this.title = document.createElement('h1');
+      this.title.style.textAlign = 'center';
+      this.title.innerText = title; }
+    else this.title = title;
+
+    if (typeof pre === 'string') {
+      this.txtPre = document.createElement('div');
+      this.txtPre.innerText = pre; }
+    else this.txtPre = pre;
+
+    if (typeof post === 'string') {
+      this.txtPost = document.createElement('div');
+      this.txtPost.innerText = post; }
+    else this.txtPost = post;
+
+    this.$title = $(this.title);
+    this.$txtPre = $(this.txtPre);
+    this.$txtPost = $(this.txtPost); }
+
+  setNestedInputNode(container: HTMLElement = null, node: HTMLElement, addDefaultEvents: boolean = true): void {
+   this.innercontainer = container;
+   this.setInputNode(node, null, null, addDefaultEvents); }
+
+  setInputNode(nodeOrTag: HTMLElement | string = null, inputSubType: string = null, pattern: string = null, addDefaultEvents: boolean = true): void {
+    if (!this.innercontainer) U.remove(this.input);
+    if (nodeOrTag === null) return;
+    if (typeof nodeOrTag === 'string') {
+      this.input = document.createElement(nodeOrTag);
+      console.log('tadebug', nodeOrTag === 'textarea', nodeOrTag);
+      if (nodeOrTag === 'textarea') {
+        // this.input.classList.add('form-control'); looks better without, mainly for font-size and overflowing outline
+        // this.input.style.fontSize = 'inherit';
+        this.input.style.width  = 'calc(75vw - 152px)';
+        this.input.style.height = 'calc(75vh - 200px)'; }
+      if (nodeOrTag === 'input') {
+        this.input.classList.add('form-control', 'form-control-lg');
+        this.input.style.width = '100%';
+        this.input.style.textAlign = 'center';
+        this.input.style.margin = '50px 0'; }
+      else {
+        this.input.style.width  = 'calc(75vw - 152px)';
+        this.input.style.height = 'calc(75vh - 200px)';
+        this.input.style.border = '1px solid #ced4da';
+        this.input.style.borderRadius = '.25rem;';
+        this.input.style.padding = '1rem'; }
+    }
+    else this.input = nodeOrTag;
+    if (inputSubType) { this.input.setAttribute('type', inputSubType); }
+    if (pattern) { this.input.setAttribute('pattern', pattern); }
+    this.$input = $(this.input);
+
+    if (addDefaultEvents) {
+      this.validators.push({validatorCallback: (value: string, input: HTMLElement): boolean => {
+          const pattern: string = input.getAttribute('pattern');
+          if (!pattern) return true;
+          const regex = new RegExp(pattern);
+          console.log('validating pattern:', regex, pattern, value);
+          return regex.test(value);
+        }, errormsg: 'pattern violated.'});
+      this.$input.off('keydown.defaultvalidate').on('keydown.defaultvalidate', (e: KeyDownEvent) => { this.defaultKeydownEvt(e); });
+      // $input.off('change.defaultvalidate').on('change.defaultvalidate', (e: BlurEvent) => {this.defaultChangeEvt(e)});
+    }
+  }
+
+  setInput(value: string = null, placeholder: string = null): void {
+    U.pe(!this.input, 'cannot set inputPopup values without setting an input field first.');
+    U.setInputValue(this.input, value);
+    this.input.setAttribute('placeholder', placeholder || ''); }
+/*
+  oldconstructor(title: string, txtpre: string, txtpost: string, event: any[][] /* array of (['oninput', onInputFunction])* /,
+              placeholder: string = null, value: string, inputType: string = 'input',
+                 inputSubType: string = null, onsuccess: ((value: string, input: HTMLElement) => any)[]) {
     const value0 = value;
     if (!value) { value = ''; }
     this.onsuccess = onsuccess ? onsuccess : [];
@@ -132,25 +287,19 @@ export class InputPopup {
       this.getInputNode()[0].setAttribute('style', 'width: calc(75vw - 152px); height: calc(75vh - 200px);');
     }
     this.show();
-  }
-  events: any[][];
-  onsuccess: ((value: string, input: HTMLElement) => any)[];
-  validators: {validatorCallback: (value: string, input: HTMLElement) => boolean, errormsg: string}[] = [];
-  valid = false;
-  getInputNode(): JQuery<HTMLElement> { return $(this.html).find('.popupInput'); }
+  }*/
+  // events: any[][];
+  // onsuccess: ((value: string, input: HTMLElement) => any)[];
+  // valid = false;
+  // getInputNode(): JQuery<HTMLElement> { return $(this.html).find('.popupInput'); }
 
-  defaultBlurEvt(e: JQuery.BlurEvent){ this.inputted(); }
+  // defaultBlurEvt(e: JQuery.BlurEvent){ this.inputted(); }
 
-  defaultKeydownEvt(e: KeyDownEvent, input: HTMLElement = null): void {
-    input = input || this.getInputNode()[0];
-    if (e.key === 'escape') {
-      input.innerText = ''; // if contenteditable
-      (input as any).value = ''; }
-    if (e.key === 'return') { this.inputted(); }
-  }
-  inputted(input: HTMLElement = null): void {
-    input = input || this.getInputNode()[0];
-    const value: string = this.getValue(input);
+  private defaultKeydownEvt(e: KeyDownEvent): void { this.inputted(); }
+
+  private inputted(): void {
+    const input: HTMLElement = this.input;
+    const value: string = U.getValue(input);
     let i: number;
     let valid: boolean = true;
     for (i = 0; this.validators && i < this.validators.length; i++) {
@@ -159,73 +308,35 @@ export class InputPopup {
       console.log('this:', this, 'input:', input, 'value:', value);
       if (!valentry.validatorCallback(value, input)) { this.setErrText(valentry.errormsg); valid = false; }
     }
-    this.valid = valid;
-    if (!valid) return;
-    for (i = 0; this.onsuccess && i < this.onsuccess.length; i++) { if(this.onsuccess[i]) this.onsuccess[i](this.getValue(input), input); }
-    this.destroy();
-  }
-  getValue(inputnode: HTMLElement = null): string {
-    inputnode = inputnode || this.getInputNode()[0];
-    let value: string;
-    if (inputnode['' + 'value']) { return inputnode['' + 'value']; }
-    // if (inputnode.hasAttribute('value')) value = inputnode.getAttribute('value');
-    else value = inputnode.innerText;
-    return value; }
+    this.okButton.disabled = !valid; }
 
-  show(addDefaultEvents: boolean = true): void {
-    let i = -1;
-    const $input: JQuery<HTMLElement> = this.getInputNode();
-    while (this.events && ++i < this.events.length) {
-      const currentEvt = this.events[i];
-      if (!currentEvt) continue;
-      $input.on(currentEvt[0], currentEvt[1]); }
-    if (addDefaultEvents) {
-      $input.off('keydown.defaultvalidate').on('keydown.defaultvalidate', (e: KeyDownEvent) => {this.defaultKeydownEvt(e)});
-      $input.off('blur.defaultvalidate').on('blur.defaultvalidate', (e: BlurEvent) => {this.defaultBlurEvt(e)});
-      // $input.off('change.defaultvalidate').on('change.defaultvalidate', (e: BlurEvent) => {this.defaultChangeEvt(e)});
-      this.validators.push({validatorCallback: (value: string, input: HTMLElement): boolean => {
-          const pattern: string = input.getAttribute('pattern');
-          if (!pattern) return true;
-          const regex = new RegExp(pattern);
-          console.log('validating pattern:', regex, pattern, value);
-          console.log(value);
-          return regex.test(value);
-        }, errormsg: 'pattern violated.'});
-    }
-    document.body.appendChild(this.html);
-    this.html.style.display = 'none';
-    $(this.html).slideDown(400);
-  }
+  show(): void {
+    document.body.appendChild(this.container);
+    this.container.style.display = 'none';
+    if (this.title) this.html.appendChild(this.title);
+    if (this.xbutton) this.html.appendChild(this.xbutton);
+    if (this.innercontainer) this.html.appendChild(this.innercontainer);
+    else if (this.input) this.html.appendChild(this.input);
+    if (this.txtPre) this.html.appendChild(this.txtPre);
+    if (this.txtPost) this.html.appendChild(this.txtPost);
+    this.html.appendChild(this.buttonContainer);
+    this.$container.slideDown(400);
+    this.input.focus(); }
+
   hide(): void {
-    this.html.style.display = 'block';
-    $(this.html).slideUp(400, () => { this.html.style.display = 'none'; }); }
+    this.container.style.display = 'block';
+    this.$container.slideUp(400); }
+
   destroy(): null {
-    this.html.style.display = 'block';
-    $(this.html).slideUp(400, () => {
-      if (this.html && this.html.parentNode) {
-        this.html.parentNode.removeChild(this.html);
-        this.html = null; }} );
+    this.container.style.display = 'block';
+    $(this.container).slideUp(400, () => {
+      if (this.container && this.container.parentNode) {
+        this.container.parentNode.removeChild(this.container);
+        this.container = null; }} );
     return null; }
 
-  addOkButton(load1: string, finish: () => void) {
-    const input: HTMLElement = this.getInputNode()[0];
-    const button: HTMLButtonElement = document.createElement('button');
-    button.innerText = 'Confirm';
-    const size: Size = U.sizeof(button);
-    button.style.left = 'calc( 50% - ' + size.w / 2 + 'px);';
-    input.parentNode.appendChild(button);
-    $(button).on('click.btnclickpopup', finish);
-  }
-
-  setPostHtml(node: Element) { $(this.html).find('.textPre')[0].append(node); }
-  setPostText(str: string) { $(this.html).find('.textPre')[0].innerHTML = str; }
   setErrText(str: string) {
-    U.pe(true, 'InputPopup.setErrText is deprecated:', str);
-    /*
-    const $err = $(this.html).find('.errors');
-    if (!str) { $err.hide(); return; }
-    $err.show();
-    $err[0].innerHTML = str; */
+    this.setText(null, null, str);
   }
 
   setValidation(validatorCallback: (value: string, input: HTMLElement) => boolean, errormsg: string): void {
@@ -387,35 +498,7 @@ export class U {
     const highestTimeoutId: number = setTimeout(() => {}, 1) as any;
     for (let i = 0 ; i < highestTimeoutId ; i++) { clearTimeout(i); }
   }
-  static petmp(b: boolean, s: any, ...restArgs: any[]): null { return U.pe(b, s, restArgs); }
 
-  static pe(b: boolean, s: any, ...restArgs: any[]): null {
-    if (!b) { return null; }
-    if (restArgs === null || restArgs === undefined) { restArgs = []; }
-    let str = 'Error:' + s + '';
-    console.error('pe[0/' + (restArgs.length + 1) + ']: ', s);
-    for (let i = 0; i < restArgs.length; i++) {
-      s = restArgs[i];
-      str += 'pe[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ' + s + '\t\t\r\n';
-      console.error('pe[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ', s);
-    }
-    if (!U.production) { alert(str); } else U.pw(true, s, ...restArgs);
-    return (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash']; }
-
-  static pw(b: boolean, s: any, ...restArgs: any[]): string {
-    if (!b) { return null; }
-    if (restArgs === null || restArgs === undefined) { restArgs = []; }
-    console['' + 'trace']();
-    let str = 'Warning:' + s + '';
-    console.warn('pw[0/' + (restArgs.length + 1) + ']: ', s);
-    for (let i = 0; i < restArgs.length; i++) {
-      s = restArgs[i];
-      str += 'pw[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ' + s + '\t\t\r\n';
-      console.warn('pw[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ', s);
-    }
-    U.bootstrapPopup(str, 'warning', 5000);
-    // s = (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash'];
-    return str; }
 
   private static oneTimeMap: Dictionary<string, boolean> = {};
   // todo: un U.genID() che generi unico a seconda del n° linea di codice da cui viene invocato, o sempre diverso se senza linea (console, eval)
@@ -446,49 +529,52 @@ export class U {
     U.oneTimeMap[key] = true;
     return printFunction(condition, s, restArgs); }
 
+  static petmp(b: boolean, s: any, ...restArgs: any[]): null { return U.pe(b, s, restArgs); }
+
+  static pe(b: boolean, s: any, ...restArgs: any[]): null {
+    if (!b) { return null; }
+    if (restArgs === null || restArgs === undefined) { restArgs = []; }
+    let str = 'Error:' + s + '';
+    for (let i = 0; i < restArgs.length; i++) {
+      s = restArgs[i];
+      str += '' + s + '\t\r\n'; }
+    console.error(s, ...restArgs);
+    if (!U.production && false) { alert(str); } else { U.bootstrapPopup(str, 'danger', 5000); }
+    return (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash']; }
+
+  static pw(b: boolean, s: any, ...restArgs: any[]): string {
+    if (!b) { return null; }
+    if (restArgs === null || restArgs === undefined) { restArgs = []; }
+    let str = 'Warning:' + s + '';
+    for (let i = 0; i < restArgs.length; i++) {
+      s = restArgs[i];
+      str += '' + s + '\t\r\n'; }
+    console.trace();
+    console.warn(s, ...restArgs);
+    U.bootstrapPopup(str, 'warning', 5000);
+    return str; }
+
   static ps(b: boolean, s: any, ...restArgs: any[]): string {
     if (!b) { return null; }
     if (restArgs === null || restArgs === undefined) { restArgs = []; }
     let str = s + '';
-    console.info('ps[0/' + (restArgs.length + 1) + ']: ', s);
     for (let i = 0; i < restArgs.length; i++) {
       s = restArgs[i];
-      str += 'ps[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ' + s + '\t\t\r\n';
-      console.info('pw[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ', s);
-    }
+      str += '' + s + '\t\t\r\n'; }
+    console.info(s, ...restArgs);
     U.bootstrapPopup(str, 'success', 3000);
-    // s = (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash'];
     return str; }
 
-  static pif(b: boolean, s: any, ...restArgs: any[]): string {
-    if (!b) {
-      return null;
-    }
-    if (restArgs === null || restArgs === undefined) {
-      restArgs = [];
-    }
-    let str = 'p: ' + s;
-    console.info('p:', s);
-    for (let i = 0; i < restArgs.length; i++) {
-      s = restArgs[i];
-      str += 'p[' + (i + 1) + '/' + restArgs.length + ']: ' + s + '\t\t\r\n';
-      console.info('p[' + (i + 1) + '/' + restArgs.length + ']: ', s);
-    }
-    // alert(str);
-    return str; }
+  static pif(b: boolean, s: any, ...restArgs: any[]): string { if (!b) { return null; } }
 
   static p(s: any, ...restArgs: any[]): string {
     if (restArgs === null || restArgs === undefined) { restArgs = []; }
-    let str = 'p: ' + s;
-    console.info('p:', s);
+    let str = '' + s;
     for (let i = 0; i < restArgs.length; i++) {
       s = restArgs[i];
-      str += 'p[' + (i + 1) + '/' + restArgs.length + ']: ' + s + '\t\t\r\n';
-      console.info('p[' + (i + 1) + '/' + restArgs.length + ']: ', s);
-    }
-    // alert(str);
-    return str;
-  }
+      str += '' + s + '\t\r\n'; }
+    console.info(s, ...restArgs);
+    return str; }
 
   static $alertcontainer: JQuery<HTMLElement> = null;
   static alertcontainer: HTMLElement = null;
@@ -1858,6 +1944,17 @@ export class U {
     for (i = 0; i < min; i++) { if (s1[i] !== s2[i]) { return [s1.substr(i, len), s2.substr(i, len)]; } }
     return null; }
 
+  // get the index of the first char not equal between s1 and s2 or null if one of the string ended.
+  public static strFirstDiffIndex(s1: string, s2: string): number{
+    let i: number = -1;
+    if (!s1 || !s2) return -1;
+    let minlen: number = Math.min(s1.length, s2.length);
+    console.log('strequal minlen:', minlen, '|'+s1+'|', '|'+s2+'|');
+    for (i = -1; ++i < minlen && s1[i] === s2[i];) {
+      console.log('strequal:', i, 's1:', s1[i], 's2', s2[i], true);
+    }
+    return i; }
+
   public static mergeArray(a: any[], b: any[], inplace: boolean, asSet: boolean): any[] {
     a = a || [];
     b = b || [];
@@ -2399,8 +2496,415 @@ export class U {
     }
     return retobj;
   }
-}
 
+  static toHex(num: number, lengthMin: number = 6): string {
+    let ret: string = Number(num).toString(16);
+    while (ret.length < lengthMin) ret = '0' + ret;
+    return ret; }
+
+  static hexToNum(hexstr: string): number {
+    if (hexstr === null || hexstr === undefined) return hexstr as any;
+    if (hexstr.charAt(0) === '#') hexstr = hexstr.substr(1);
+    if (hexstr.length <= 2 || hexstr.charAt(1).toLowerCase() !== 'x') hexstr = '0x' + hexstr;
+    return parseInt(hexstr, 16); }
+
+  static expandInputSetup($root: JQuery<HTMLElement>) {
+    $root.find('input.expansible').addBack('input.expansible').on('focus', (e) => {
+      let inp: HTMLInputElement = e.currentTarget as HTMLInputElement;
+      let $exp = $('.expandedinput[data-expandedid=\"' + inp.dataset.expandedid + '"]');
+      let exp = $exp[0];
+      let expinput: HTMLElement = exp.firstElementChild as HTMLElement;
+      expinput.focus();
+      $exp.show();
+      console.log(expinput.innerText, inp.value);
+      expinput.innerText = inp.value;
+    });
+    $('.expandedinput').on('keydown', (e) => {
+      if (!(e.key === "Enter" && !e.shiftKey)) return;
+      let exp: HTMLElement = e.currentTarget as HTMLElement;
+      let $exp = $(exp);
+      let $inp: JQuery<HTMLInputElement> = $('input.expansible[data-expandedid=\"' + exp.dataset.expandedid + '"]');
+      let inp = $inp[0];
+      inp.value = (exp.firstElementChild as HTMLElement).innerText;
+      $exp.hide();
+    });
+  }
+
+  /**
+   * filtra la selezione dentro un elemento, ignorando selezione che fa overflow e calcolando gli elementi interni come se i testi fossero in un unico nodo (come se il parametero avesse tutto il testo senza childrens).
+   * @param {HTMLElement} div: must be a contenteditable or contained in a contenteditable to work (getSelection() will not work on non-focusable i think?)
+   **/
+  static getDivSelection(div: HTMLElement): {start: number, end: number, text: string} {
+    U.pe(div instanceof HTMLInputElement || div instanceof HTMLTextAreaElement, 'parameter must not be a input or textarea element');
+    //let caretOffset: number = 0;
+    const doc: Document = div.ownerDocument || div['document'];
+    const win: Window = doc.defaultView || doc['parentWindow'];
+    let sel: Selection;
+    let ret: {start: number, end: number, text: string} = {start: 0, end: 0, text: ''};
+    let range: Range;
+    let caretRange: Range;
+    if (typeof win.getSelection != "undefined") {
+      sel = win.getSelection();
+      if (sel.rangeCount > 0) { // if is contenteditable
+        range = win.getSelection().getRangeAt(0);
+        caretRange = range.cloneRange();
+        caretRange.selectNodeContents(div);
+        // taking start selection
+        caretRange.setEnd(range.startContainer, range.startOffset);
+        ret.start = caretRange.toString().length;
+        caretRange.setEnd(range.endContainer, range.endOffset);
+        ret.end = caretRange.toString().length;
+        caretRange.setStart(range.startContainer, range.startOffset);
+        ret.text = caretRange.toString(); }
+    } else if ( (sel = doc['selection']) && sel.type != "Control") {
+      //IE  compatibility (start and text sono improvvisati e non testati)
+      var textRange = sel['createRange']();
+      var preCaretTextRange = doc.body['createTextRange']();
+      preCaretTextRange.moveToElementText(div);
+      preCaretTextRange.setEndPoint("EndToStart", textRange);// set selection end to start of the input parameter range.
+      ret.start = preCaretTextRange.text.length;
+      preCaretTextRange.setEndPoint("EndToEnd", textRange);
+      ret.end = preCaretTextRange.text.length;
+      preCaretTextRange.setEndPoint("StartToStart", textRange);
+      ret.text = preCaretTextRange.text; }
+    return ret; }
+
+  static getInputSelection(el: HTMLInputElement | HTMLTextAreaElement): {start: number, end: number, text: string} {
+    let range: Range;
+    let textInputRange: Range;
+    let endRange: Range;
+    U.pe(!(el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement), 'parameter must be a input or textarea element');
+    let ret: {start: number, end: number, text: string} = {start: 0, end: 0, text: ''};
+    if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+      ret.start = el.selectionStart;
+      ret.end = el.selectionEnd;
+    } else { // IE compatibility
+      range = document['selection'].createRange();
+      if (range && range['parentElement']() == el) {
+        let len: number = el.value.length;
+        let normalizedValue = el.value.replace(/\r\n/g, "\n");
+        // Create a working TextRange that lives only in the input
+        textInputRange = el['createTextRange']();
+        textInputRange['moveToBookmark'](range['getBookmark']());
+        // Check if the start and end of the selection are at the very end
+        // of the input, since moveStart/moveEnd doesn't return what we want
+        // in those cases
+        endRange = el['createTextRange']();
+        endRange.collapse(false);
+
+        if (textInputRange['compareEndPoints']("StartToEnd", endRange) > -1) { ret.start = ret.end = len; }
+        else {
+          ret.start = -textInputRange['moveStart']("character", -len);
+          ret.start += normalizedValue.slice(0, ret.start).split("\n").length - 1;
+
+          if (textInputRange['compareEndPoints']("EndToEnd", endRange) > -1) { ret.end = len; }
+          else {
+            ret.end = -textInputRange['moveEnd']("character", -len);
+            ret.end += normalizedValue.slice(0, ret.end).split("\n").length - 1; }
+        }
+      }
+    }
+    ret.text = el.innerText.substring(ret.start, ret.end);
+    return ret; }
+
+  static getSelection(el: HTMLElement): {start: number, end: number, text: string} {
+    let ret: {start: number, end: number, text: string} = {start: 0, end: 0, text: ''};
+    U.pe(!(el instanceof HTMLElement), 'U.getSelection(): only html elements are supported');
+    if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) { return U.getInputSelection(el); }
+    else return U.getDivSelection(el); }
+
+  // NB: might not work on contenteditable with childrens filled with text.
+  static setSelection(el: HTMLElement, start: number, end: number = null): void {
+    end = end === null ? start : null;
+    let i: HTMLInputElement;
+    if (el['setSelectionRange']) { el['setSelectionRange'](start, end); return; } // for inputs
+    let range = new Range();
+    let endchildIndex = start;
+    let startchildIndex = end;
+    range.setStart(el.firstChild, startchildIndex);
+    range.setEnd(el.firstChild, endchildIndex); // firstchild is raw text.
+    // range.startOffset = start;
+    // range.endOffset = end;
+    // apply the selection, explained later
+    document.getSelection().removeAllRanges();
+    document.getSelection().addRange(range);
+    // el.setSelectionRange(start, end);
+  }
+  static setSelection2(obj: HTMLElement, start: number, end: number) {
+    end = end === null ? start : null;
+    var endNode, startNode = endNode = obj.firstChild;
+
+    // startNode.nodeValue = startNode.nodeValue.trim();
+
+    var range = document.createRange();
+    range.setStart(startNode, start);
+    range.setEnd(endNode, end + 1);
+
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range); }
+
+  static autocompleteInputSetup(inputGroup: HTMLElement, autocomplete: AutocompleteMatch[]){
+    let input: HTMLElement = inputGroup.firstElementChild as HTMLElement;
+    let suggestionList: HTMLUListElement = inputGroup.lastElementChild as HTMLUListElement;
+    let $suggestionList: JQuery<HTMLUListElement> = $(suggestionList);
+    U.pe(!input || !input.contentEditable || !suggestionList || input === suggestionList, 'input html must be a container with firstchild as contenteditable, lastchild as suggestion ul list.');
+    let validSuggestions: AutocompleteMatch[] = [];
+    let splitIndexes: number[] = [];
+    let i: number;
+    let li: HTMLLIElement;
+    let $li: JQuery<HTMLLinkElement>;
+    let $input = $(input);
+    let getSuggestionText = (li: HTMLLIElement) => { return (li.lastElementChild as HTMLElement).innerText; }
+    let getPreCursorString = (): string => {
+      let ret = U.getSelection(input);
+      return input.innerText.substr(0, ret.start); };
+    const insertStringAtCurrentCursorPosition = (input: HTMLElement, text: string, replacePostText: boolean = false, rightArrow: boolean = false) => {
+      let ret = U.getSelection(input);
+      let fakeend: string = ' ';
+      let str: string = input.innerText;// + fakeend;
+      let arrowfix: number = (rightArrow && ret.start < str.length ? -1 :0);
+      // se premo right-arrow senza che ci siano elementi dopo il cursore lo mette come penultimo.
+      let pre: string = str.substring(0, ret.start + arrowfix);
+      let post: string = str.substring(ret.end + arrowfix, str.length) + ' ';
+      let i: number = U.strFirstDiffIndex(text, post);
+      // console.log('ArrowDebug:', pre, 'text:', text, 'post.substr(i):',post.substr(i), 'post:', post, 'i:', i);
+      input.innerText = pre + text + post.substr(i);
+      U.setSelection(input, pre.length + 1, null);
+    };
+    let updateSuggestions = () => {
+      // logical and graphical update
+      let str = getPreCursorString();
+      str = U.replaceAll(str, String.fromCharCode(160), ' ');
+      validSuggestions = [];
+      splitIndexes = [];
+      // console.log('updateSuggestions, prestring: |' + str + '|, suggestions:' + autocomplete.length);
+      U.clear(suggestionList);
+      for (i = 0; i < autocomplete.length; i++){
+        let matchindex = autocomplete[i].matches(str);
+        // console.log(autocomplete[i], str);
+        // console.log('updateSuggestions[' + i + '], str:' + str + ', hiddenMatch:' + autocomplete[i].hiddenprecondition + ', visibleMatch:' + autocomplete[i].key + ', matchindex:', matchindex);
+        if (matchindex === -1) continue;
+        splitIndexes.push(matchindex);
+        validSuggestions.push(autocomplete[i]);
+        let li = autocomplete[i].getLI(matchindex);
+        let $li = $(li);
+
+        $li.on('click', () => {
+          insertStringAtCurrentCursorPosition(input, getSuggestionText(li));
+          U.setSelection(input, input.innerText.length, null);
+          updateSuggestions();
+        });
+        if (validSuggestions.length > 0) $suggestionList.show(); else $suggestionList.hide();
+        suggestionList.append(li);
+      }
+      console.log('valid suggestions:', validSuggestions);
+    }
+    $input.on('mouseup', (e: MouseUpEvent) => { updateSuggestions(); });
+    $input.on('keydown', (e: KeyDownEvent) => {
+      switch(e.key){ default: break;
+        case Keystrokes.tab:
+          e.preventDefault();
+          li = suggestionList.firstElementChild as HTMLLIElement;
+          if (!li) break;
+          $(li).trigger('click');
+          break;
+    }});
+    $input.on('keyup', (e: KeyUpEvent) => {
+      console.log('input keyup:', e);
+      switch(e.key){
+        default:
+          updateSuggestions();
+          break;
+        // case Keystrokes.tab: break;// can never happen on keyUP unless i stop default action on keydown.
+
+        case Keystrokes.arrowRight:
+          if (e.shiftKey) return;
+          li = suggestionList.firstElementChild as HTMLLIElement;
+          if (!li) { updateSuggestions(); break; } // as a normal arrow press
+          // as a suggestion accept
+          let char = (li.lastElementChild as HTMLElement).innerText.charAt(0);
+          insertStringAtCurrentCursorPosition(input, char, true, true);
+          $input.trigger(jQuery.Event('keyup', {key:char}));
+          break;
+      }
+    });
+  }
+
+  // NB: object.keys e for... in listano solo le proprietà enumerabili, le funzioni di classe in es6 non sono enumerabili.
+  static getAllProperties(obj0): string[] {
+    let props: string[] = [];
+    let obj = obj0;
+    do {
+      props = props.concat(Object.getOwnPropertyNames(obj));
+    } while (obj = Object.getPrototypeOf(obj));
+
+    return props.sort().filter(function(e, i, arr) { if (e!=arr[i+1]) return true; });
+  }
+  static copyFirstLevelStructureWithoutValues(o: object, allowPrimitive: boolean = true, allowObject: boolean = false, allowFunctions: boolean = true): Dictionary<string, string /*type description*/> {
+    let ret: Dictionary<string, undefined> = {};
+    let keys: string[] = U.getAllProperties(o);
+    for (let index in keys) {
+      let key = keys[index];
+      let val = o[key];
+      if(val instanceof Function) { ret[key] = allowFunctions ? val : null; continue; }
+      if(val instanceof Object) { ret[key] = allowObject ? val : null; continue; }
+      ret[key] = allowPrimitive ? val : null;
+    }
+    return ret; }
+
+
+  static getFunctionSignatureFromComments(f: Function): {parameters: {name: string, defaultVal: string, typedesc: string}[], returns: string, f: Function, fname: string, isLambda: boolean, signature: string} {
+    U.pe(!(f instanceof Function), 'getFunctionSignature() parameter must be a function');
+    // let parameters: {name: string, defaultVal: string, typedesc: string}[] = []; //{name: '', defaultVal: undefined, typedesc: ''};
+    let ret: {parameters: {name: string, defaultVal: string, typedesc: string}[], returns: string, f: Function, fname: string, isLambda: boolean, signature: string}
+    = {parameters: [], returns: '', f: f, fname: '', isLambda: null, signature: ''};
+    let str: string = f.toString();
+    let starti: number = str.indexOf('(');
+    let endi: number;
+    let parcounter: number = 1;
+    for (endi = starti + 1; endi < str.length; endi++) {
+      if (str[endi] === ')' && --parcounter === 0) break;
+      if (str[endi] === '(') parcounter++; }
+
+    let parameterStr = str.substring(starti + 1, endi);
+    console.log('starti:', starti, 'endi', endi, 'fname:', str.substr(0, starti), 'parameterStr:', parameterStr);
+    ret.fname = str.substr(0, starti).trim();
+    ret.fname = ret.fname.substr(0, ret.fname.indexOf(' ')).trim();
+    // 2 casi: anonimo "function (par1...){}" e "() => {}", oppure nominato: "function a1(){}"
+    if (ret.fname === '' || ret.fname === 'function') ret.fname = null; // 'anonymous function';
+
+
+
+    let returnstarti: number = str.indexOf('/*', endi + 1);
+    let returnendi: number = -1;
+    let bodystarti: number = str.indexOf('{', endi + 1);
+    if (returnstarti === -1 || bodystarti !== -1 && bodystarti < returnstarti) {
+      // no return type or comment is past body
+      ret.returns = null;
+    } else {
+      returnendi = str.indexOf('*/', returnstarti + 2);
+      ret.returns = str.substring(returnstarti + 2, returnendi).trim();
+      bodystarti = str.indexOf('{', returnendi); }
+    if (ret.returns === '') ret.returns = null;
+
+    // is lambda if do not have curly body or contains => between return comment and body
+    console.log('isLambda:', bodystarti, str.substring(Math.max(endi, returnendi)+1, bodystarti));
+    ret.isLambda =  bodystarti === -1 || str.substring(Math.max(endi, returnendi)+1, bodystarti).trim() === '=>';
+
+    let regexp = /([^=\/\,]+)(=?)([^,]*?)(\/\*[^,]*?\*\/)?,/g; // only problem: the last parameter won't match because it does not end with ",", so i will append it everytime.
+    //console.clear(); console.log( parameterStr);
+    // parameterStr = 'l1=3/*float=3*/, l2= 2/*float= 2*/, l3 =3/*float =3*/';
+    let match;
+    while ((match = regexp.exec(parameterStr + ','))) {
+      // match[0] is always the full match (not a capture group)
+      // match[2] can only be "=" or empty string
+      // nb: match[4] can be "/*something*/" or "," a single , without spaces.
+      let par = {name: match[1], defaultVal: match[3], typedesc: match[4] && match[4].length > 1 ? match[4] : null};
+      par.name = par.name.trim();
+      par.defaultVal = par.defaultVal && par.defaultVal.trim() || null;
+      par.typedesc = par.typedesc && par.typedesc && par.typedesc.length > 1 ? par.typedesc.substring(2, par.typedesc.length - 2).trim() || null: null;
+      ret.parameters.push(par); }
+    // set signature
+
+    ret.signature = '' + (ret.fname ? '/*' + ret.fname + '*/' : '') + '(';
+    let i: number;
+    for (i = 0; i < ret.parameters.length; i++) {
+      let par = ret.parameters[i];
+      ret.signature += (i === 0 ? '' : ', ') + par.name + (par.typedesc ? '/*' + par.typedesc + '*/' : '') + (par.defaultVal ? ' = ' + par.defaultVal : '');
+    }
+    ret.signature += ')' + (ret.returns ? '/*' + ret.returns + '*/' : '');
+    return ret; }
+
+   /* for both input, textarea and contenteditable.*/
+  static setInputValue(input: HTMLElement, value: string): void{
+    value = value === null || value === undefined ? '' : value;
+    if (input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement) {
+      input.value = value;
+    } else input.innerText = value;
+  }
+}
+export enum Keystrokes {
+  escape = 'Escape',
+  capsLock = 'CapsLock',
+  shift = 'Shift',
+  tab = 'Tab',
+  alt = 'Alt',
+  control = 'Control',
+  end = 'End',
+  home = 'Home',
+  pageUp = 'PageUp',
+  pageDown = 'PageDown',
+  enter = 'Enter', // event.code = 'NumpadEnter' se fatto da numpad, oppure "numpad3", "NumpadMultiply", ShiftLeft, etc...
+  audioVolumeMute = 'AudioVolumeMute',
+  audioVolumeUp = 'AudioVolumeUp',
+  audioVolumeDown = 'AudioVolumeDown',
+  mediaTrackPrevious = 'MediaTrackPrevious',
+  delete = 'Delete', // canc
+  backspace = 'Backspace',
+  space = ' ',
+  altGraph = 'AltGraph',
+  arrowLeft = 'ArrowLeft',
+  arrowRight = 'ArrowRight',
+  arrowUp = 'ArrowUp',
+  arrowDown = 'ArrowDown',
+  insert = 'Insert',
+  f1 = 'F1',
+  // weird ones:
+  meta = 'Meta', // f1, or other f's with custom binding and windows key
+  unidentified = 'Unidentified', // brightness
+  __NotReacting__ = 'fn, print, maybe others', // not even triggering event?
+
+
+}
+export class AutocompleteMatch {
+  hiddenprecondition: string;
+  key: string;
+  //value: string;
+  /*minCharMatch = 1;
+
+  constructor(key: string, minCharMatch: number = 1, value: string = null){
+    this.minCharMatch = Math.min(1, minCharMatch);
+    //this.value = value;
+    this.key = key; }
+*/
+  constructor(hiddenprecondition: string = '', key: string = ''){
+    this.hiddenprecondition = hiddenprecondition;
+    this.key = key; }
+
+  matches(preCursorString: string): number{
+    let fullkey: string = this.hiddenprecondition + this.key;
+    for (let i = this.hiddenprecondition.length; i < fullkey.length; i++){
+      let keystart = fullkey.substring(0, i);
+      //console.log('str:', preCursorString, ' matches:', keystart);
+      let matchindex = preCursorString.lastIndexOf(keystart);
+      if (matchindex !== -1 &&  matchindex === preCursorString.length - keystart.length){
+        //console.log('matched!  at index:', preCursorString.lastIndexOf(keystart) );
+        return i - this.hiddenprecondition.length; // indice dove posso splittare key
+      }
+    }
+    return -1; }
+
+  getLI(splitIndex: number): HTMLLIElement{
+    const li: HTMLLIElement = document.createElement('li');
+    const matched: HTMLElement = document.createElement('span');
+    matched.style.fontWeight = '900';
+    matched.classList.add('matched');
+    const suggestion: HTMLElement = document.createElement('span');
+    suggestion.classList.add('prediction');
+    li.classList.add('suggestion');
+    li.style.cursor = 'pointer';
+    li.append(matched);
+    li.append(suggestion);
+    matched.innerText = this.key.substr(0, splitIndex);
+    suggestion.innerText = this.key.substr(splitIndex);
+    return li; }
+
+// aaaa+this.
+// aaa+th
+
+
+}
 export enum TSON_JSTypes {
   'null' = 'null',
   'undefined' = 'undefined',
@@ -2741,8 +3245,7 @@ export class GraphSize extends ISize {
     let pt = pt0.duplicate();
     const m = GraphPoint.getM(prevPt, pt);
     const q = GraphPoint.getQ(prevPt, pt);
-    U.pe( Math.abs((pt.y - m * pt.x) - (prevPt.y - m * prevPt.x)) > .001,
-      'wrong math in Q:', (pt.y - m * pt.x), ' vs ', (prevPt.y - m * prevPt.x));
+    // U.pe( Math.abs((pt.y - m * pt.x) - (prevPt.y - m * prevPt.x)) > .001, 'wrong math in Q:', (pt.y - m * pt.x), ' vs ', (prevPt.y - m * prevPt.x));
     /*const isL = prevPt.x < pt.x;
     const isT = prevPt.y < pt.y;
     const isR = !isL;

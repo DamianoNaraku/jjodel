@@ -96,16 +96,16 @@ export class TopBar {
     U.refreshPage(); }
 
   static load_JSON_Text(e: JQuery.ClickEvent, prefix: string) {
-    const onoutput = (ee: Event) => {  finish(); };
-    const finish = () => {
-      const input: HTMLInputElement = popup.getInputNode()[0] as HTMLInputElement;
+    const popup: InputPopup = new InputPopup();
+    popup.setText('paste JSON/string data', '', '');
+    popup.setInputNode('textarea');
+    popup.setInput('', 'paste data here.');
+    const finish = (e: ClickEvent, value: string) => {
       popup.destroy();
-      TopBar.load(input.value, prefix); };
-    const popup: InputPopup = new InputPopup('paste JSON/string data', '', '', null,
-      'paste data here.', '', 'textarea', '', null);
+      TopBar.load(value, prefix); };
     // $(popup).find('.closeButton');
-    popup.addOkButton('Load', finish);
-    popup.show(false); }
+    popup.addOkButton('Load', [finish]);
+    popup.show(); }
 
   static download_JSON_String(e: ClickEvent, modelstr: string): void {
     const model: IModel = Status.status[modelstr];
@@ -113,9 +113,11 @@ export class TopBar {
     const savetxt: string = model.generateModelString();
     U.pe(!savetxt || savetxt === '', 'empty str');
     U.clipboardCopy(savetxt);
-    const popup: InputPopup = new InputPopup((model.isM() ? 'Model' : 'Metamodel') + ' eCore/JSON',
-      '', '<br>Already copied to clipboard.', [], null, '' + savetxt, 'textarea', null, null);
-    popup.show(false); }
+    const popup: InputPopup = new InputPopup();
+    popup.setText((model.isM() ? 'Model' : 'Metamodel') + ' eCore/JSON', '', 'Already copied to clipboard.');
+    popup.setInputNode('textarea');
+    popup.setInput('' + savetxt);
+    popup.show(); }
 
   static download_JSON_File(e: ClickEvent, modelstr: string): void {
     const model: IModel = Status.status[modelstr];

@@ -168,7 +168,7 @@ select{
 }
 
 label {display: flex; flex-grow:1;}
-label > *, h6 > * {
+label > *:not(input), h6 > * {
   display: flex;
   /* flex-grow: 1;*/
   margin: auto;
@@ -440,7 +440,13 @@ input.name:focus {
 label.allowEdit > span {
   margin-left:0;
 }
-label > input[type="checkbox"] ~ * { margin-left: 0; }
+label > input ~ * {
+  margin: 0;
+  margin-right: 5px;
+}
+label > input[type="checkbox"] ~ * {
+  margin-left: 0;
+}
 .html[contenteditable] {
   /*IDE gives error but they all actually exist, at least on mozilla.*/
   overflow-wrap: anywhere;

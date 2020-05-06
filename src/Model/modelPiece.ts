@@ -189,6 +189,11 @@ export abstract class ModelPiece {
     ModelPiece.idToLogic[this.id] = this;
     return this.id; }
 
+  getID(): number { return this.id; }
+  getSelector(): string { return '#ID' + this.id; }
+  getChildren(index: number): ModelPiece { return this.childrens[index]; }
+  getChildrenSelector(index: number): string { return this.getChildren(index).getSelector(); }
+
   //todo: devo stare attento ogni volta che aggiungo-elimino un elemento a chiamare updateKey()
   // le views si salvano perchè usano la chiave all avvio e poi la rigenerano ad ogni salvataggio e non la usano ulteriormente se non per generare
   // la savestring.
@@ -359,7 +364,7 @@ export abstract class ModelPiece {
     return this['' + key]; }
 
   // meant to be called from user js.
-  getChildren(name: string, caseSensitive: boolean = false): ModelPiece {
+  getChildrenByName(name: string, caseSensitive: boolean = false): ModelPiece {
     let i: number;
     U.pe(!name || name !== '' + name, 'ModelPiece.getChildren() name must be a non-empty string, found: |' + name + '|', name);
     if (!caseSensitive) name = name.toLowerCase();
@@ -793,28 +798,28 @@ export class ProtectedModelPiece {/* implements MReference {
   private sidebarHtml: any;
 
   /////////// real fields*/
-  unsafe: ModelPiece;
+  unsafemp: ModelPiece;
   pendingChanges: PendingMeasurableChanges;
   subChanges: ProtectedModelPiece[] = [];
   constructor(original: ModelPiece, createdBy: ProtectedModelPiece){
     if (createdBy) createdBy.subChanges.push(this);
-    this.unsafe = original; this.pendingChanges = new PendingMeasurableChanges(original);
+    this.unsafemp = original;
+    this.pendingChanges = new PendingMeasurableChanges(original);
     const unsafeFunctionNames: Dictionary< string, boolean> = {};
     const allowedFunctionNames: Dictionary< string, boolean> = {};
     const alwaysToKeep: object = { applyChanges: ''};
 
     let key: string;
-    for (key in this.unsafe) {
-      if (typeof this.unsafe[key] === TSON_JSTypes.function) { unsafeFunctionNames[key] = true; } }
+    for (key in this.unsafemp) {
+      if (typeof this.unsafemp[key] === TSON_JSTypes.function) { unsafeFunctionNames[key] = true; } }
     for (key in this) {
       if (typeof this[key] === TSON_JSTypes.function) { allowedFunctionNames[key] = true; } }
     U.join(unsafeFunctionNames, alwaysToKeep, true, false);
     U.objecKeysIntersect(allowedFunctionNames, unsafeFunctionNames, null, false);
 
     for (key in this) {
-      if (this[key] in allowedFunctionNames) continue;
-      delete this[key]; }
-    console.log('getting types test: ', this.duplicate, this.duplicate.toString());
+      if (typeof this[key] === TSON_JSTypes.function && !(this[key] in allowedFunctionNames)) delete this[key];
+    }
   }
 
   applyChanges(): void { // got deleted in evalContext, it is only in backupContext. evalContext calls it through backupContext.call(this = evalContext);
@@ -824,56 +829,112 @@ export class ProtectedModelPiece {/* implements MReference {
 
   //////// safe functions()
 
-  endingName(valueMaxLength?: number): string{ return this.unsafe.endingName() }
+  getID(): number{/*number*/ return this.unsafemp.getID(); }
+  getSelector(): string {/*string*/ return this.unsafemp.getSelector(); }
 
-  fullname(): string { return this.unsafe.fullname(); }
+  getChildrenSelector(index: number/*number*/): string {/*string*/ return this.unsafemp.getChildrenSelector(index); }
+  getChildrenAttributeSelector(index: number/*number*/): string {/*string*/
+    if (!(this.unsafemp instanceof IClass)) throw new Error("called IClass.getChildrenAttributeSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getChildrenAttributeSelector(index); }
+  getTarget(index: number = 0/*number = 0*/): ProtectedModelPiece {/*ModelPiece*/
+    if (!(this.unsafemp instanceof IReference)) throw new Error("called IReference.getTarget() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return new ProtectedModelPiece(this.unsafemp.getTarget(index), this); }
+  getTargetSelector(index: number = 0/*number = 0*/): string {/*string*/
+    if (!(this.unsafemp instanceof IReference)) throw new Error("called IReference.getTargetSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getTargetSelector(index); }
+  getChildrenReferenceSelector(index: number/*number*/): string {/*string*/
+    console.log('getChildrenReferenceSelector()', index, this);
+    if (!(this.unsafemp instanceof IClass)) throw new Error("called IClass.getChildrenReferenceSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getChildrenReferenceSelector(index); }
+  getChildrenOperationSelector(index: number/*number*/): string {/*string*/
+    if (!(this.unsafemp instanceof IClass)) throw new Error("called IClass.getChildrenOperationSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getChildrenOperationSelector(index); }
+  getChildrenLiteralSelector(index: number/*number*/): string {/*string*/
+    if (!(this.unsafemp instanceof EEnum)) throw new Error("called EEnum.getChildrenLiteralSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getChildrenLiteralSelector(index); }
+  getChildrenParameterSelector(index: number/*number*/): string {/*string*/
+    if (!(this.unsafemp instanceof EOperation)) throw new Error("called EOperation.getChildrenParameterSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getChildrenParameterSelector(index); }
+  getChildrenClassSelector(index: number/*number*/): string {/*string*/
+    if (!(this.unsafemp instanceof IPackage)) throw new Error("called IPackage.getChildrenClassSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getChildrenClassSelector(index); }
+  getChildrenEnumSelector(index: number/*number*/): string {/*string*/
+    if (!(this.unsafemp instanceof IPackage)) throw new Error("called IPackage.getChildrenEnumSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getChildrenEnumSelector(index); }
 
-  generateModel(): Json { return this.unsafe.generateModel(); }
+  getChildren(index: number): ProtectedModelPiece { return new ProtectedModelPiece(this.unsafemp.getChildren(index), this); }
+  getChildrenAttribute(index: number): ProtectedModelPiece {
+    if (!(this.unsafemp instanceof IClass)) throw new Error("called IClass.getChildrenAttribute() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return new ProtectedModelPiece(this.unsafemp.getChildrenAttribute(index), this); }
+  getChildrenReference(index: number): ProtectedModelPiece {
+    if (!(this.unsafemp instanceof IClass)) throw new Error("called IClass.getChildrenReference() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return new ProtectedModelPiece(this.unsafemp.getChildrenReference(index), this); }
+  getChildrenOperation(index: number): ProtectedModelPiece {
+    if (!(this.unsafemp instanceof IClass)) throw new Error("called IClass.getChildrenOperation() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return new ProtectedModelPiece(this.unsafemp.getChildrenOperation(index), this); }
+  getChildrenLiteral(index: number): ProtectedModelPiece {
+    if (!(this.unsafemp instanceof EEnum)) throw new Error("called EEnum.getChildrenLiteral() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return new ProtectedModelPiece(this.unsafemp.getChildrenLiteral(index), this); }
+  getChildrenParameter(index: number): ProtectedModelPiece {
+    if (!(this.unsafemp instanceof EOperation)) throw new Error("called EOperation.getChildrenParameter() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return new ProtectedModelPiece(this.unsafemp.getChildrenParameter(index), this); }
+  getChildrenClass(index: number): ProtectedModelPiece {
+    if (!(this.unsafemp instanceof IPackage)) throw new Error("called IPackage.getChildrenClass() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return new ProtectedModelPiece(this.unsafemp.getChildrenClass(index), this); }
+  getChildrenEnum(index: number): ProtectedModelPiece {
+    if (!(this.unsafemp instanceof IPackage)) throw new Error("called IPackage.getChildrenEnum() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return new ProtectedModelPiece(this.unsafemp.getChildrenEnum(index), this); }
 
-  generateModelString(): string { return this.unsafe.generateModelString(); }
+  endingName(valueMaxLength?: number): string{ return this.unsafemp.endingName() }
 
-  getClassName(): string{ return this.unsafe.getClassName(); }
+  fullname(): string { return this.unsafemp.fullname(); }
 
-  getInfo(toLower?: boolean): Info{ return this.unsafe.getInfo(toLower); }
+  generateModel(): Json { return this.unsafemp.generateModel(); }
 
-  getInstanceClassName(): string{ return this.unsafe.getInstanceClassName(); }
+  generateModelString(): string { return this.unsafemp.generateModelString(); }
 
-  getKey(): number[]{ return this.unsafe.getKey(); }
+  getClassName(): string{ return this.unsafemp.getClassName(); }
 
-  getKeyStr(): string{ return this.unsafe.getKeyStr(); }
+  getInfo(toLower?: boolean): Info{ return this.unsafemp.getInfo(toLower); }
 
-  isChildNameTaken(s: string): boolean{ return this.unsafe.isChildNameTaken(s); }
+  getInstanceClassName(): string{ return this.unsafemp.getInstanceClassName(); }
 
-  printableName(valueMaxLength?: number, full?: boolean): string{ return this.unsafe.printableName(valueMaxLength, full); }
+  getKey(): number[]{ return this.unsafemp.getKey(); }
 
-  printableNameshort(valueMaxLength?: number): string{ return this.unsafe.printableNameshort(valueMaxLength); }
+  getKeyStr(): string{ return this.unsafemp.getKeyStr(); }
+
+  isChildNameTaken(s: string): boolean{ return this.unsafemp.isChildNameTaken(s); }
+
+  printableName(valueMaxLength?: number, full?: boolean): string{ return this.unsafemp.printableName(valueMaxLength, full); }
+
+  printableNameshort(valueMaxLength?: number): string{ return this.unsafemp.printableNameshort(valueMaxLength); }
 
   getType(): Type {
-    if (!(this.unsafe instanceof Typedd)) throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
-    return this.unsafe.getType(); }
+    if (!(this.unsafemp instanceof Typedd)) throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getType(); }
   getClass(): IClassifier {
-    if (!(this.unsafe instanceof Typedd)) throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
-    return new ProtectedModelPiece(this.unsafe.getClass(), this) as any; }
+    if (!(this.unsafemp instanceof Typedd)) throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return new ProtectedModelPiece(this.unsafemp.getClass(), this) as any; }
   getUpperbound(): number {
-    if (!(this.unsafe instanceof Typedd)) throw new Error("called Typed.getUpperbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
-    return this.unsafe.getUpperbound(); }
+    if (!(this.unsafemp instanceof Typedd)) throw new Error("called Typed.getUpperbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getUpperbound(); }
   getLowerbound(): number {
-    if (!(this.unsafe instanceof Typedd)) throw new Error("called Typed.getLowerbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
-    return this.unsafe.getLowerbound(); }
+    if (!(this.unsafemp instanceof Typedd)) throw new Error("called Typed.getLowerbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return this.unsafemp.getLowerbound(); }
 
   getAllowedValuesStr(): string[] {
-    let e: EEnum = this.unsafe instanceof EEnum ? this.unsafe : null;
-    if (!e) throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    let e: EEnum = this.unsafemp instanceof EEnum ? this.unsafemp : null;
+    if (!e) throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return e.getAllowedValuesStr(); }
 
   getAllowedValuesInt(): number[] {
-    let e: EEnum = this.unsafe instanceof EEnum ? this.unsafe : null;
-    if (!e) throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    let e: EEnum = this.unsafemp instanceof EEnum ? this.unsafemp : null;
+    if (!e) throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return e.getAllowedValuesInt(); }
 
   getDefaultValueStr(): string {
-    let e: EEnum = this.unsafe instanceof EEnum ? this.unsafe : null;
-    if (!e) throw new Error("called EEnum.getDefaultValueStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    let e: EEnum = this.unsafemp instanceof EEnum ? this.unsafemp : null;
+    if (!e) throw new Error("called EEnum.getDefaultValueStr() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return e.getDefaultValueStr(); }
 
 
@@ -881,7 +942,7 @@ export class ProtectedModelPiece {/* implements MReference {
 
   ////////// safe-able functions adjusting parameters.
 
-  shouldBeDisplayedAsEdge(set?: boolean): boolean{ return this.unsafe.shouldBeDisplayedAsEdge(null); }
+  shouldBeDisplayedAsEdge(set?: boolean): boolean{ return this.unsafemp.shouldBeDisplayedAsEdge(null); }
 
 
 
@@ -891,67 +952,67 @@ export class ProtectedModelPiece {/* implements MReference {
   ////////// unsafe functions got buffered.
 
   delete(): void {
-    if (F.alse()) this.unsafe.delete(); // just to trigger errors if the source is modified
+    if (F.alse()) this.unsafemp.delete(); // just to trigger errors if the source is modified
     this.pendingChanges.add('delete', [true]); }
 
-  duplicate(nameAppend?/*commentPreType*/: string/*commentPostType*/, newParent?: ModelPiece): ModelPiece {
-    if (F.alse()) this.unsafe.duplicate(nameAppend, newParent); // just to trigger errors if the source is modified
+  duplicate(nameAppend?/*preTypeComment are ignored*/: string/*:string*/, newParent?: ModelPiece/*:ModelPiece = null*/): /*ignored*/ModelPiece/*ignored*/ {/*ModelPiece*/
+    if (F.alse()) this.unsafemp.duplicate(nameAppend, newParent); // just to trigger errors if the source is modified
     this.pendingChanges.add('delete', [true]); return null; }
 
   mark(markb: boolean, key: string, color?: string, radiusX?: number, radiusY?: number, width?: number, backColor?: string, extraOffset?: GraphSize): void{
-    if (F.alse()) this.unsafe.mark(markb, key, color, radiusX, radiusY, width, backColor, extraOffset); // just to trigger errors if the source is modified
+    if (F.alse()) this.unsafemp.mark(markb, key, color, radiusX, radiusY, width, backColor, extraOffset); // just to trigger errors if the source is modified
     this.pendingChanges.add('mark', [...arguments]); }
 
   pushDown(untilStartOrEnd: boolean): void{
-    if (F.alse()) this.unsafe.pushDown(untilStartOrEnd); // just to trigger errors if the source is modified
+    if (F.alse()) this.unsafemp.pushDown(untilStartOrEnd); // just to trigger errors if the source is modified
     this.pendingChanges.add('pushDown', ['' + untilStartOrEnd]); }
 
   pushUp(untilStartOrEnd: boolean, offset?: number): void{
-    if (F.alse()) this.unsafe.pushUp(untilStartOrEnd, offset); // just to trigger errors if the source is modified
+    if (F.alse()) this.unsafemp.pushUp(untilStartOrEnd, offset); // just to trigger errors if the source is modified
     this.pendingChanges.add('pushUp', ['' + untilStartOrEnd, '' + offset]); }
 
   refreshGUI(): void{
-    if (F.alse()) this.unsafe.refreshGUI(); // just to trigger errors if the source is modified
+    if (F.alse()) this.unsafemp.refreshGUI(); // just to trigger errors if the source is modified
     this.pendingChanges.add('refreshGUI'); }
 
   refreshGUI_Alone(): void{
-    if (F.alse()) this.unsafe.refreshGUI_Alone(); // just to trigger errors if the source is modified
+    if (F.alse()) this.unsafemp.refreshGUI_Alone(); // just to trigger errors if the source is modified
     this.pendingChanges.add('refreshGUI_Alone'); }
 
   refreshInstancesGUI(): void{
-    if (F.alse()) this.unsafe.refreshInstancesGUI(); // just to trigger errors if the source is modified
+    if (F.alse()) this.unsafemp.refreshInstancesGUI(); // just to trigger errors if the source is modified
     this.pendingChanges.add('refreshInstancesGUI'); }
 
   validate(): boolean {
-    if (F.alse()) this.unsafe.validate(); // just to trigger errors if the source is modified
+    if (F.alse()) this.unsafemp.validate(); // just to trigger errors if the source is modified
     this.pendingChanges.add('validate');  return undefined; }
 
   setName(value: string, refreshGUI?: boolean, warnDuplicateFix?: boolean): string {
-    if (F.alse()) this.unsafe.setName(value, refreshGUI, warnDuplicateFix); // just to trigger errors if the source is modified
+    if (F.alse()) this.unsafemp.setName(value, refreshGUI, warnDuplicateFix); // just to trigger errors if the source is modified
     this.pendingChanges.add('setName', [...arguments]);  return undefined; }
 // EEnum things.
 
   addLiteral(literal: string = null): ELiteral {
-    const t: EEnum = this.unsafe instanceof EEnum ? this.unsafe : null;
-    if (!t) throw new Error("called EEnum.addLiteral() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    const t: EEnum = this.unsafemp instanceof EEnum ? this.unsafemp : null;
+    if (!t) throw new Error("called EEnum.addLiteral() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     if (F.alse()) t.addLiteral(literal); // just to trigger errors if the source is modified
     this.pendingChanges.add('addLiteral', [...arguments]); return undefined; }
 
   setType(ecoreTypeString: string, throwError?: boolean, refreshGui?: boolean): boolean {
-    const t: Typedd = this.unsafe as Typedd;
-    if (!t) throw new Error("called Typed.setType() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    const t: Typedd = this.unsafemp as Typedd;
+    if (!t) throw new Error("called Typed.setType() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     if (F.alse()) t.setType(ecoreTypeString, true, false);
     this.pendingChanges.add('setType', [...arguments]);  return undefined; }
 
   setUpperbound(val: number): void {
-    const t: Typedd = this.unsafe instanceof Typedd ? this.unsafe : null;
-    if (!t) throw new Error("called Typed.setUpperbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    const t: Typedd = this.unsafemp instanceof Typedd ? this.unsafemp : null;
+    if (!t) throw new Error("called Typed.setUpperbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     if (F.alse()) t.setUpperbound(val);
     this.pendingChanges.add('setUpperbound', [...arguments]);  return undefined; }
 
   setLowerbound(val: number): void {
-    const t: Typedd = this.unsafe instanceof Typedd ? this.unsafe : null;
-    if (!t) throw new Error("called Typed.setLowerbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafe) + ") ");
+    const t: Typedd = this.unsafemp instanceof Typedd ? this.unsafemp : null;
+    if (!t) throw new Error("called Typed.setLowerbound() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     if (F.alse()) t.setLowerbound(val);
     this.pendingChanges.add('setLowerbound', [...arguments]);  return undefined; }
 

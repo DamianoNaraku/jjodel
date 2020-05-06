@@ -1,4 +1,17 @@
-import {Dictionary, ECoreEnum, ELiteral, EType, IClassifier, IPackage, Json, ModelPiece, ShortAttribETypes, Type, U} from '../common/Joiner';
+import {
+  Dictionary,
+  ECoreEnum,
+  ELiteral, EOperation,
+  EType,
+  IAttribute,
+  IClassifier,
+  IPackage, IReference,
+  Json,
+  ModelPiece,
+  ShortAttribETypes,
+  Type,
+  U
+} from '../common/Joiner';
 
 export class EEnum extends IClassifier {
   childrens: ELiteral[];
@@ -9,6 +22,9 @@ export class EEnum extends IClassifier {
     if (this.parent) { U.ArrayAdd(this.parent.enums, this); }
     this.parse(json);
   }
+
+  getChildrenLiteral(index: number): ELiteral { return this.childrens[index]; }
+  getChildrenLiteralSelector(index: number): string { return this.getChildrenLiteral(index).getSelector(); }
 
   fullname(): string { return this.parent.name + '.' + this.name; }
 

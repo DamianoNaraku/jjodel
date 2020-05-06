@@ -2,6 +2,7 @@ import {IModel, Json, TopBar, U, InputPopup, ViewRule, ViewPoint, Dictionary, Gr
 import ChangeEvent = JQuery.ChangeEvent;
 import KeyDownEvent = JQuery.KeyDownEvent;
 import BlurEvent = JQuery.BlurEvent;
+import ClickEvent = JQuery.ClickEvent;
 
 export class SaveListEntry {
   static vertexPos = new SaveListEntry('_LastOpenedVertexPos', 'VertexPos', '_SaveListVertexPos');
@@ -111,7 +112,6 @@ export class LocalStorage {
 
   private finishSave(saveVal: string): void {
     const m: IModel = this.model;
-    if (this.popupTmp) { this.popupTmp = this.popupTmp.destroy(); }
     U.pe(!m.name, 'model name should be filled with a validated user input.');
 
     // must be recalculated, model.name might have been changed by user input (saveas or un-named model being given a name)
@@ -140,7 +140,7 @@ export class LocalStorage {
     let error: boolean = false;
     try { model.setName(input.value); } catch (e) { error = true; } finally {}
     if (error || input.value !== model.name) {
-      this.popupTmp.setPostText('invalid or already registered name, a fix');
+      this.popupTmp.setErrText('invalid or already registered name, a fix');
       input.setAttribute('valid', '0');
       if (model.name) { input.value = model.name; }
       return; }
@@ -161,7 +161,6 @@ export class LocalStorage {
     this.add(null, viepointJSONStr, SaveListEntry.view);
     this.add(null, this.vertexSaveStr, SaveListEntry.vertexPos);
 
-    let popup: InputPopup;
     const onblur = (e: BlurEvent) => { this.save_BlurEvent(e, ecoreJSONStr); };
     const onkeydown = (e: KeyDownEvent) => { this.save_OnKeyDown(e, ecoreJSONStr); };
     const onchange = (e: any) => { this.save_OnChange(e, model); };
@@ -173,18 +172,21 @@ export class LocalStorage {
     if (isAutosave) { return; }
     // saveas without a name.
     if (saveAs) {
-      const onSuccess = (value: string, input: HTMLElement) => { model.setName(value); };
+      const onSuccess = (e: ClickEvent, value: string, input: HTMLElement, btn: HTMLButtonElement) => { model.setName(value); this.popupTmp = this.popupTmp.destroy(); };
+      const onAbort = (e: ClickEvent, value: string, input: HTMLElement, btn: HTMLButtonElement) => { this.popupTmp = this.popupTmp.destroy(); };
       const validator = (value: string, input: HTMLElement) => {
         const oldVal = model.name;
         const ret = model.setName(value) === value;
         if (oldVal) model.setName(oldVal);
         return ret; };
-      popup = new InputPopup('Choose a name for the ' + model.friendlyClassName(),
-        '', '', null,
-        model.friendlyClassName() + ' name', '', 'input', 'text', [onSuccess]);
-      popup.setValidation(validator, U.getTSClassName(model) + ' name is already used or contains invalid pattern.');
-      (popup.getInputNode()[0] as HTMLInputElement).pattern = '^[a-zA-Z_$][a-zA-Z_$0-9]*$';
-      popup.show(true); return; }
+      this.popupTmp = new InputPopup();
+      this.popupTmp.setText('Choose a name for the ' + model.friendlyClassName(), '', '');
+      this.popupTmp.setInputNode('input', 'text', '^[a-zA-Z_$][a-zA-Z_$0-9]*$', true);
+      this.popupTmp.setInput('', 'Enter ' + model.friendlyClassName() + ' name');
+      this.popupTmp.addOkButton(null, [onSuccess]);
+      this.popupTmp.onCloseButton([onAbort]);
+      this.popupTmp.setValidation(validator, U.getTSClassName(model) + ' name is already used or contains invalid pattern.');
+      this.popupTmp.show(); return; }
     // user clicked save without a name
   }
 

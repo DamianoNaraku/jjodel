@@ -28,15 +28,7 @@ import {PendingFunctionCall, ProtectedModelPiece} from '../Model/modelPiece';
 /*
 export class MeasurableArrays {rules: Attr[]; imports: Attr[]; exports: Attr[]; variables: Attr[];
   constraints: Attr[]; chain: Attr[]; chainFinal: Attr[]; dstyle: Attr[]; html: Element; e: Event; }*/
-export class ConstraintLeftAdmitteds {
-  vertexSize: GraphSize;
-  width: number;
-  height: number;
-  relativePos: GraphPoint;
-  relativeVPos: GraphPoint;
-  absoluteGPos: GraphPoint;
-  absoluteDocPos: IPoint; // posizione dell'elemento rispetto al documento, es: impedisce che l'elemento scenda oltre metà schermata.
-}
+
 export class ConstraintLeftAdmittedsStatic {
   static readonly vertexSizeX: 'vertexSize.x' = 'vertexSize.x';
   static readonly vertexSizeY: 'vertexSize.y' = 'vertexSize.y';
@@ -52,6 +44,21 @@ export class ConstraintLeftAdmittedsStatic {
   static readonly absoluteGPosY: 'absoluteGPos.y' = 'absoluteGPos.y';
   static readonly absoluteDocPosX: 'absoluteDocPos.x' = 'absoluteDocPos.x';
   static readonly absoluteDocPosY: 'absoluteDocPos.y' = 'absoluteDocPos.y';
+
+  static readonly targetvertexSizeX: 'target.vertexSize.x' = 'target.vertexSize.x';
+  static readonly targetvertexSizeY: 'target.vertexSize.y' = 'target.vertexSize.y';
+  static readonly targetvertexSizeW: 'target.vertexSize.w' = 'target.vertexSize.w';
+  static readonly targetvertexSizeH: 'target.vertexSize.h' = 'target.vertexSize.h';
+  static readonly targetwidth: 'target.width' = 'target.width';
+  static readonly targetheight: 'target.height' = 'target.height';
+  static readonly targetrelativePosX: 'target.relativePos.x' = 'target.relativePos.x';
+  static readonly targetrelativePosY: 'target.relativePos.y' = 'target.relativePos.y';
+  static readonly targetrelativeVPosX: 'target.relativeVPos.x' = 'target.relativeVPos.x';
+  static readonly targetrelativeVPosY: 'target.relativeVPos.y' = 'target.relativeVPos.y';
+  static readonly targetabsoluteGPosX: 'target.absoluteGPos.x' = 'target.absoluteGPos.x';
+  static readonly targetabsoluteGPosY: 'target.absoluteGPos.y' = 'target.absoluteGPos.y';
+  static readonly targetabsoluteDocPosX: 'target.absoluteDocPos.x' = 'target.absoluteDocPos.x';
+  static readonly targetabsoluteDocPosY: 'target.absoluteDocPos.y' = 'target.absoluteDocPos.y';
 }
 export class UnsafeMeasurableEvalContext {
   model: ModelPiece;
@@ -60,8 +67,8 @@ export class UnsafeMeasurableEvalContext {
   graph: IGraph;
   modelRoot: IModel;
 }
-export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
-  unsafe: UnsafeMeasurableEvalContext
+export class MeasurableEvalContext {
+  unsafec: UnsafeMeasurableEvalContext
   graphSize: ISize;
   documentSize: ISize;
   graphScroll: IPoint;
@@ -72,17 +79,26 @@ export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
   attributes: Dictionary<string, string>;
   model: ProtectedModelPiece;
   target: MeasurableEvalContext;
-  constructor(){
-    super();
-    this.unsafe = new UnsafeMeasurableEvalContext();
+  isFilled: boolean = false;
+
+  // editable positions
+  vertexSize: GraphSize;
+  width: number;
+  height: number;
+  relativePos: GraphPoint;
+  relativeVPos: GraphPoint;
+  absoluteGPos: GraphPoint;
+  absoluteDocPos: IPoint; // posizione dell'elemento rispetto al documento, es: impedisce che l'elemento scenda oltre metà schermata.
+  constructor() {
+    this.unsafec = new UnsafeMeasurableEvalContext();
   }
 
-  static isVertex(context: MeasurableEvalContext): boolean { return context.unsafe.vertex.getHtmlRawForeign() === context.unsafe.node; }
-  setSize = (w: number = null, h: number = null): void => {
+  static isVertex(context: MeasurableEvalContext): boolean { return context.unsafec.vertex.getHtmlRawForeign() === context.unsafec.node; }
+  setSize = (w: number = null/*number*/, h: number = null/*number*/): void => /*void*/{
     if (U.isNumerizable(w)) { this.width = w; }
     if (U.isNumerizable(h)) { this.height = h; }
   };
-  setAbsoluteGPos = (x: number = null, y: number = null): void => {
+  setAbsoluteGPos = (x: number = null/*number*/, y: number = null/*number*/): void=>/*void*/ {
     const isVertex: boolean = MeasurableEvalContext.isVertex(this);
     if (U.isNumerizable(x)) {
       this.absoluteGPos.x = +x;
@@ -106,20 +122,20 @@ export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
     }
 
   };
-  setRelativePos = (x: number = null, y: number = null): void => {
+  setRelativePos = (x: number = null/*number*/, y: number = null/*number*/): void=>/*void*/ {
     if (!this.target) return;
-    const isVertex: boolean = MeasurableEvalContext.isVertex(this);
+    //const isVertex: boolean = MeasurableEvalContext.isVertex(this);
     if (U.isNumerizable(x)) { this.absoluteGPos.x = this.target.absoluteGPos.x + x; }
     if (U.isNumerizable(y)) { this.absoluteGPos.y = this.target.absoluteGPos.y + y; }
     this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
   };
-  setRelativeVPos = (x: number = null, y: number = null): void => {
-    const isVertex: boolean = MeasurableEvalContext.isVertex(this);
+  setRelativeVPos = (x: number = null/*number*/, y: number = null/*number*/): void=>/*void*/ {
+    //const isVertex: boolean = MeasurableEvalContext.isVertex(this); should not be used at all in vertexes.
     if (U.isNumerizable(x)) { this.absoluteGPos.x = this.vertexSize.x + x; }
     if (U.isNumerizable(y)) { this.absoluteGPos.y = this.vertexSize.y + y; }
     this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
   };
-  setVertexSize = (x: number = null, y: number = null, w: number = null, h: number = null): void => {
+  setVertexSize = (x: number = null/*number*/, y: number = null/*number*/, w: number = null/*number*/, h: number = null/*number*/): void=>/*void*/ {
     const isVertex: boolean = MeasurableEvalContext.isVertex(this);
     console.log('vsize pre:', this.vertexSize.duplicate(), 'w:', w, 'isVertex?', isVertex);
     if (U.isNumerizable(w)) this.vertexSize.w = +w;
@@ -133,7 +149,7 @@ export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
     console.log('vsize post:', this.vertexSize.duplicate());
   };
   // può servire a tenere qualcosa fisso al centro del grafo anche se faccio panning
-  setAbsoluteDocPos = (x: number = null, y: number = null): void => {
+  setAbsoluteDocPos = (x: number = null/*number */, y: number = null/*number*/): void=>/*void*/ {
     if (U.isNumerizable(x)) {
       this.absoluteDocPos.x = x;
       this.absoluteGPos.x = this.graphScroll.x + this.graphZoom.x * (this.absoluteDocPos.x - this.graphSize.x); }
@@ -142,24 +158,50 @@ export class MeasurableEvalContext extends ConstraintLeftAdmitteds {
       this.absoluteGPos.y = this.graphScroll.y + this.graphZoom.y * (this.absoluteDocPos.y - this.graphSize.y); }
     this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y); };
 
-  setVertexSizeX = (x: number = null): void => { return this.setVertexSize(x, null, null, null); };
-  setVertexSizeY = (y: number = null): void => { return this.setVertexSize(null, y, null, null); };
-  setVertexSizeW = (w: number = null): void => { return this.setVertexSize(null, null, w, null); };
-  setVertexSizeH = (h: number = null): void => { return this.setVertexSize(null, null, null, h); };
-  setVertexX = (x: number = null): void => { return this.setVertexSizeX(x); };
-  setVertexY = (y: number = null): void => { return this.setVertexSizeY(y); };
-  setVertexW = (w: number = null): void => { return this.setVertexSizeW(w); };
-  setVertexH = (h: number = null): void => { return this.setVertexSizeH(h); };
-  setRelativePosX = (x: number = null): void => { return this.setRelativePos(x, null); };
-  setRelativePosY = (y: number = null): void => { return this.setRelativePos(null, y); };
-  setRelativeVPosX = (x: number = null): void => { return this.setRelativeVPos(x, null); };
-  setRelativeVPosY = (y: number = null): void => { return this.setRelativeVPos(null, y); };
-  setAbsoluteGPosX = (x: number = null): void => { return this.setAbsoluteGPos(x, null); };
-  setAbsoluteGPosY = (y: number = null): void => { return this.setAbsoluteGPos(null, y); };
-  setAbsoluteDocPosX = (x: number = null): void => { return this.setAbsoluteDocPos(x, null); };
-  setAbsoluteDocPosY = (y: number = null): void => { return this.setAbsoluteDocPos(null, y); };
-  setWidth = (w: number = null): void => { return this.setSize(w, null); };
-  setHeight = (h: number = null): void => { return this.setSize(null, h); };
+  setVertexSizeX = (x: number/*number*/ = null): void=>/*void*/ { return this.setVertexSize(x, null, null, null); };
+  setVertexSizeY = (y: number/*number*/ = null): void=>/*void*/ { return this.setVertexSize(null, y, null, null); };
+  setVertexSizeW = (w: number/*number*/ = null): void=>/*void*/ { return this.setVertexSize(null, null, w, null); };
+  setVertexSizeH = (h: number/*number*/ = null): void=>/*void*/ { return this.setVertexSize(null, null, null, h); };
+  setVertexX = (x: number/*number*/ = null): void=>/*void*/ { return this.setVertexSizeX(x); };
+  setVertexY = (y: number/*number*/ = null): void=>/*void*/ { return this.setVertexSizeY(y); };
+  setVertexW = (w: number/*number*/ = null): void=>/*void*/ { return this.setVertexSizeW(w); };
+  setVertexH = (h: number/*number*/ = null): void=>/*void*/ { return this.setVertexSizeH(h); };
+  setRelativePosX = (x: number/*number*/ = null): void=>/*void*/ { return this.setRelativePos(x, null); };
+  setRelativePosY = (y: number/*number*/ = null): void=>/*void*/ { return this.setRelativePos(null, y); };
+  setRelativeVPosX = (x: number/*number*/ = null): void=>/*void*/ { return this.setRelativeVPos(x, null); };
+  setRelativeVPosY = (y: number/*number*/ = null): void=>/*void*/ { return this.setRelativeVPos(null, y); };
+  setAbsoluteGPosX = (x: number/*number*/ = null): void=>/*void*/ { return this.setAbsoluteGPos(x, null); };
+  setAbsoluteGPosY = (y: number/*number*/ = null): void=>/*void*/ { return this.setAbsoluteGPos(null, y); };
+  setAbsoluteDocPosX = (x: number/*number*/ = null): void=>/*void*/ { return this.setAbsoluteDocPos(x, null); };
+  setAbsoluteDocPosY = (y: number/*number*/ = null): void=>/*void*/ { return this.setAbsoluteDocPos(null, y); };
+  setWidth = (w: number/*number*/ = null): void=>/*void*/ { return this.setSize(w, null); };
+  setHeight = (h: number/*number*/ = null): void=>/*void*/ { return this.setSize(null, h); };
+
+
+  static fillFake(filltarget: boolean = true): MeasurableEvalContext {
+    let thiss: MeasurableEvalContext = new MeasurableEvalContext();
+    thiss.isFilled = false;
+    thiss.width = thiss.height = 0;
+    thiss.unsafec = new UnsafeMeasurableEvalContext();
+    thiss.relativePos = thiss.relativeVPos = thiss.absoluteGPos = thiss.absoluteDocPos = new GraphPoint(0, 0);
+    thiss.absoluteDocPos = new Point(0, 0);
+    thiss.documentSize = new Size(0, 0);
+    thiss.vertexSize = new GraphSize(0, 0, 0, 0);
+    thiss.model = U.copyFirstLevelStructureWithoutValues(new ProtectedModelPiece(null, null)) as any;
+    // set unsafec
+    console.log(new IVertex(null, null), U.copyFirstLevelStructureWithoutValues(new IVertex(null, null)));
+    // throw new Error();
+    thiss.unsafec.vertex = U.copyFirstLevelStructureWithoutValues(new IVertex(null, null)) as any;
+    thiss.unsafec.graph = U.copyFirstLevelStructureWithoutValues(Status.status.mm.graph) as any;
+    thiss.unsafec.modelRoot = U.copyFirstLevelStructureWithoutValues(Status.status.mm) as any;
+    thiss.unsafec.node = document.createElement('div');
+
+    thiss.attributes = thiss.a = []; // not an array but i want [] suggestions. todo: se è oggetto suggerisci "." se è array suggerisci "["
+    // approximation tricks
+    if(filltarget) thiss.target = MeasurableEvalContext.fillFake(false);
+    thiss.model.unsafemp = thiss.unsafec.model = thiss.model as any as ModelPiece;
+    return thiss; }
+
 }
 type pattern = string;
 export enum MeasurableOperators { eq = '=', lt = '<', lte = '<=', gt = '>', gte = '>=', ne = '!='}
@@ -248,34 +290,55 @@ export class MeasurableRuleParts {
     return MeasurableRuleParts.operatormap = operatormap; }
 
   static fillEvalContext(evalContext: MeasurableEvalContext, backupContext: MeasurableEvalContext = null, node: Element, targetquery: string): MyException {
+    console.log('FillEvalContext() called, targetquery: |' + targetquery + '|');
     let tmp: any;
     let tmpjq: any;
     let i: number;
     let j: number;
-    if (!backupContext) backupContext = new MeasurableEvalContext() as any;
-    evalContext.unsafe.node = node;
-    backupContext.unsafe.node = node; // node.cloneNode(true) as Element;
-    const mp: ModelPiece = ModelPiece.getLogic(backupContext.unsafe.node);
+    const mp: ModelPiece = ModelPiece.getLogic(node);
     const vertex: IVertex = mp.getVertex();
     const graph: IGraph = vertex.owner;
-    backupContext.unsafe.graph = evalContext.unsafe.graph = graph;
-    backupContext.unsafe.vertex = evalContext.unsafe.vertex = vertex;
-    backupContext.unsafe.model = evalContext.unsafe.model = mp;
-    backupContext.unsafe.modelRoot = evalContext.unsafe.modelRoot = mp.getModelRoot();
+    const backupcontext0: MeasurableEvalContext = backupContext; // to overwrite ".target"
+    // prevent to overwrite the initial backup status with a mid-way status by filling a disposable object instead
+    if (!backupContext || backupContext.isFilled) backupContext = new MeasurableEvalContext() as any;
+    let debug = (window['debug'] === 1);
+    let filltarget = () => {
+      let backupcontext = 'do not use here, keep changes on the real backupcontext, never write on the mock disposable object.';
+      let $tmpjq: JQuery<Element>;
+      if (targetquery) try { $tmpjq = $(graph.container).find(targetquery); }
+      catch (e) { console.log('exception:', e); return e; }
+      U.pif(true, '1.context:', evalContext, 'target:', $tmpjq, evalContext.target);
+      if ($tmpjq && $tmpjq.length) {
+        evalContext.target = new MeasurableEvalContext();
+        backupcontext0.target = backupcontext0.target || new MeasurableEvalContext();
+        let exception = MeasurableRuleParts.fillEvalContext(evalContext.target, backupcontext0.target, $tmpjq[0], null);
+        if (exception) { exception['mysource'] = ['occurred inside this.target']; return exception; }
+      }
+      U.pif(true, '2.context:', evalContext, 'target:', $tmpjq, evalContext.target);
+      U.pe(debug && !evalContext.target, '!target');
+    };
+
+    if (targetquery && !backupContext.target) { filltarget(); }
+    if (evalContext.isFilled) { return null; } // must be after filltarget
+    backupContext.isFilled = true; // avoid dual fill, se ci sono due eval() questo rollbackerebbe alla scorsa esecuzione.
+    evalContext.isFilled = true;
+
+    evalContext.unsafec.node = node;
+    backupContext.unsafec.node = node; // node.cloneNode(true) as Element;
+    backupContext.unsafec.graph = evalContext.unsafec.graph = graph;
+    backupContext.unsafec.vertex = evalContext.unsafec.vertex = vertex;
+    backupContext.unsafec.model = evalContext.unsafec.model = mp;
+    backupContext.unsafec.modelRoot = evalContext.unsafec.modelRoot = mp.getModelRoot();
     backupContext.model = new ProtectedModelPiece(mp, null);
     evalContext.model = new ProtectedModelPiece(mp, null);
+    U.pe(!evalContext.model.unsafemp, 'unsafe is unset:', evalContext.model, mp, evalContext);
     delete evalContext.model.applyChanges;
-    const size: ISize = U.sizeof(node);
+    const isvroot: boolean = vertex.getMeasurableNode() === node;
+    const size: ISize = isvroot ? graph.toHtmlCoordS(vertex.getSize()) : U.sizeof(node);
     backupContext.width = evalContext.width = size.w;
     backupContext.height = evalContext.height = size.h;
-    let $tmpjq: JQuery<Element>;
-    if (targetquery) try { $tmpjq = $(graph.container).find(targetquery); }
-    catch (e) { return e; }
 
-    if ($tmpjq && $tmpjq.length) {
-      evalContext.target = new MeasurableEvalContext();
-      backupContext.target = new MeasurableEvalContext();
-      MeasurableRuleParts.fillEvalContext(evalContext.target, backupContext.target, $tmpjq[0], null); }
+
     evalContext.graphScroll = graph.scroll.duplicate();
     evalContext.graphZoom = graph.zoom.duplicate();
     evalContext.vertexSize = vertex.getSize().duplicate();
@@ -289,7 +352,7 @@ export class MeasurableRuleParts {
     backupContext.documentSize = evalContext.documentSize.duplicate();
 
 
-    let attrs = evalContext.unsafe.node.attributes;
+    let attrs = evalContext.unsafec.node.attributes;
     evalContext.a = {};
     evalContext.attributes = evalContext.a;
     backupContext.attributes = null;
@@ -331,7 +394,7 @@ export class MeasurableRuleParts {
 
   process0(validatefirst: boolean = false, vertex: IVertex = null, graph: IGraph = null): MeasurableRuleParts {
     let exception: MyException;
-    const out: MeasurableRuleParts = new MeasurableRuleParts(null);
+    const out: MeasurableRuleParts = new MeasurableRuleParts(null, null, true);
     let tmp: any;
     let i: number;
     let j: number;
@@ -345,7 +408,7 @@ export class MeasurableRuleParts {
       if (!new RegExp(MeasurableRuleParts.leftmap[this.prefix]).test(this.left)) {
         out.left = validoperators.length ? 'must be one of: ' + tmp.join(' ') : 'must be empty, found instead: ' + this.operator + '';
       }
-      exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, this.target);
+      exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, out && out.target);
       if (exception) {
         out.left += '\ninvalid target selector: ' + exception.toString();
         out.right += '\ninvalid target selector: ' + exception.toString();
@@ -356,12 +419,16 @@ export class MeasurableRuleParts {
       if (out.left || out.operator || tmpev.exception) return out;
     }
 
-    const exportChanges = (outContext: MeasurableEvalContext): boolean => {
+    const exportChanges = (outContext: MeasurableEvalContext, safeContextRollback: MeasurableEvalContext): boolean => {
       let ret: boolean = true;
       try{
-        exportChanges0(outContext, false);
-        if (outContext.target) exportChanges0(outContext.target, false);
+        console.log('exportchanges part 1', outContext.vertexSize.y);
+        exportChanges0(outContext, safeContextRollback, false);
+        console.log('exportchanges part 2', outContext.vertexSize.y);
+        if (outContext.target) exportChanges0(outContext.target, safeContextRollback.target, false);
+        console.log('exportchanges part 3', outContext.vertexSize.y);
       } catch(e) {
+        throw e;
         out.right += + '\n\npartially failed to export changes, likely caused by an overwrite of a predefined variable object.:' + e.toString();
         doRollback();
         ret = false; }
@@ -371,47 +438,58 @@ export class MeasurableRuleParts {
 
     let debug: boolean = this.prefix === measurableRules.export;
     const doRollback = () => {
+      console.trace('doing rollback');
       try{
-        exportChanges0(rollbackContext, true);
-        if (rollbackContext.target) exportChanges0(rollbackContext.target, false);
+        exportChanges0(rollbackContext, rollbackContext, true);
+        if (rollbackContext.target) exportChanges0(rollbackContext.target, rollbackContext.target, true);
       } catch(e) {
-        out.right += + '\n\npartially failed to rollback changes, contact the developer.:' + e.toString(); return false; }
+        out.right += + '\npartially failed to rollback changes, contact the developer.:' + e.toString(); return false; }
       return true; }
-    const exportChanges0 = (outcontext: MeasurableEvalContext, isRollback: boolean): void => {
+
+    const exportChanges0 = (outcontext: MeasurableEvalContext, safeContextRollback: MeasurableEvalContext, isRollback: boolean): void => {
       // let oldContext = outcontext;
-      let DONOTUSE = evalContext;
       let ermsg: string;
-      const vertex: IVertex = rollbackContext.unsafe.vertex;
+      let rollbackContext = 'donotuse';
+      let evalContext = 'donotusetoo'
+      console.log('000exportchanges part 1', outcontext.vertexSize.y);
+      const vertex: IVertex = safeContextRollback.unsafec.vertex;
       const graph: IGraph = vertex.owner;
       graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y);
-      graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y);
+      // graph.setScroll(500, 500);//  error here??? questo mi cambia vpos.y
+      graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y);//  error here??? questo mi cambia vpos.y
       // U.pe(true, 'meastest');
       // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
-      const isVertex = (vertex.getHtmlRawForeign() === rollbackContext.unsafe.node);
+      const isVertex = (vertex.getMeasurableNode() === safeContextRollback.unsafec.node);
       console.log('3xd finalize set vertexsize:', outcontext.vertexSize, outcontext.relativeVPos, outcontext.relativePos, outcontext);
       vertex.setSize(outcontext.vertexSize, false, true);
-      if (!outcontext.model && outcontext !== rollbackContext) { out.right += 'invalid final value for this.model = ' + outcontext.model + ', please do not overwrite context variables.';
+      console.log('000exportchanges part 2', outcontext.vertexSize.y);
+      if (!outcontext.model && outcontext !== safeContextRollback) {
+        out.right += 'invalid final value for this.model = ' + outcontext.model + ', please do not overwrite context variables.';
         doRollback(); return; }
       if (!isVertex){
-        const html: HTMLElement = rollbackContext.unsafe.node instanceof HTMLElement || rollbackContext.unsafe.node instanceof SVGSVGElement ? rollbackContext.unsafe.node as any : null;
-        const svgSubElement: SVGElement = !html ? rollbackContext.unsafe.node as any : null;
-        if (!outcontext.relativeVPos || !U.isNumerizable(outcontext.relativeVPos.x) || !U.isNumerizable(outcontext.relativeVPos.y)) {
+        console.log('000exportchanges part 3', !isVertex, outcontext.vertexSize.y);
+        const html: HTMLElement = safeContextRollback.unsafec.node instanceof HTMLElement || safeContextRollback.unsafec.node instanceof SVGSVGElement ? safeContextRollback.unsafec.node as any : null;
+        const svgSubElement: SVGElement = !html ? safeContextRollback.unsafec.node as any : null;
+        if (!outcontext.relativeVPos || !U.isNumerizable(safeContextRollback.relativeVPos.x) || !U.isNumerizable(outcontext.relativeVPos.y)) {
           out.right+= '\nAn error inside a measurable condition has happened, an invalid value has been wrote inside the variable "relativeVPos".';
           doRollback();  return; }
+        console.log('000exportchanges part 4', !isVertex, outcontext.vertexSize.y);
         if (!html) { out.right += 'inner svg\'s are currently not supported'; doRollback(); return; }
         if (html.style.position !== 'absolute') html.style.position = 'absolute';
-        let relativeParentNode: Element = U.getRelativeParentNode(rollbackContext.unsafe.node);
+        let relativeParentNode: Element = U.getRelativeParentNode(safeContextRollback.unsafec.node);
         if (relativeParentNode === vertex.getHtmlRawForeign()) {
           html.style.top = (outcontext.relativeVPos.y * graph.zoom.y) + 'px';
           html.style.left = (outcontext.relativeVPos.x * graph.zoom.x) + 'px';
         } else {
-          const parentGpos: GraphPoint = graph.toGraphCoord(U.sizeof(relativeParentNode).tl());
+          // vertex.setSize(outcontext.vertexSize); already done no need to do anything?
+          /*const parentGpos: GraphPoint = graph.toGraphCoord(U.sizeof(relativeParentNode).tl());
           html.style.top = ((outcontext.absoluteGPos.y - parentGpos.y) * graph.zoom.y) + 'px';
-          html.style.left = ((outcontext.absoluteGPos.x - parentGpos.x) * graph.zoom.y) + 'px';
+          html.style.left = ((outcontext.absoluteGPos.x - parentGpos.x) * graph.zoom.y) + 'px';*/
         }
         if (U.isNumerizable(outcontext.width)) html.style.width = (+outcontext.width) + 'px';
         if (U.isNumerizable(outcontext.height)) html.style.height = (+outcontext.height) + 'px';
       }
+      console.log('000exportchanges part 5', !isVertex, outcontext.vertexSize.y);
       if (!isRollback) {
         // called by rollbackContext because evalContext got the method deleted.
         try {
@@ -430,10 +508,11 @@ export class MeasurableRuleParts {
 
     let evalOutput: EvalOutput<MeasurableEvalContext> = null;
     const executeRight = (): boolean => {
-      exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, this.target);
+//      window['debug'] = 1;
+      exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, out && out.target);
+//      U.pe(window['debug'] === 1, 'out:', out, 'targetStr: |' + out.target + '|', 'exception:', exception, 'evalContext:', evalContext);
       if (exception) {
-        out.left += '\ninvalid target selector: ' + exception.toString();
-        out.right += '\ninvalid target selector: ' + exception.toString();
+        out.right += '\nexecution failed, probably for an invalid target selector: ' + exception.toString();
         return false; }
       evalOutput = U.evalInContext<MeasurableEvalContext>(evalContext, this.right);
       let ret: boolean;
@@ -441,36 +520,56 @@ export class MeasurableRuleParts {
         out.right += '\n' + evalOutput.exception;
         ret = false; }
       else {
-        this.outputAttr.value = out.right = evalOutput.return;
-        ret = true;
-      }
+        this.outputAttr.value = evalOutput.return;
+        out.right += evalOutput.return;
+        ret = true; }
+    if (!ret) doRollback();
+    return ret; };
+
+    const executeSelector = (): boolean => {
+      exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, null);
+      evalOutput = U.evalInContext<MeasurableEvalContext>(evalContext, this.target);
+      let ret: boolean;
+      if (evalOutput.exception) {
+        throw evalOutput.exception;
+        out.target += '\n' + evalOutput.exception;
+        ret = false; }
+      else {
+        if (evalOutput.return instanceof ModelPiece || evalOutput.return instanceof ProtectedModelPiece) {
+          out.target += '\nwarn: output was a ' + U.getTSClassName(evalOutput.return) + ', it got automatically transformed to css+ selector string with .getSelector();';
+          evalOutput.return = evalOutput.return.getSelector(); }
+        this.outputAttr.value = evalOutput.return;
+        out.target = evalOutput.return + out.target;
+        ret = true; }
     if (!ret) doRollback();
     return ret; };
     // const exportChanges = () => { U.pe(true, todo); };
     let selectorout: SelectorOutput;
 
+    //U.pe(!rollbackContext.target, '!starget-1', evalOutput.outContext.target);
+    if (this.target && !executeSelector()) return out;
     switch (this.prefix) {
       case measurableRules._jquiRes: case measurableRules._jquiDra: case measurableRules._jquiRot:
           out.prefix = 'invalid prefix or wrong execution time. ' + this.prefix + ' rules are parsed at refresh time.';
           U.pw(true, out.prefix);
           return out;
       case measurableRules.console:
-          try { out.right = MyConsole.console.execCommand(this.right); } catch (e) { out.right = 'command failed:' + e.toString(); }
+          try { out.right += MyConsole.console.execCommand(this.right); } catch (e) { out.right += 'command failed:' + e.toString(); }
           return out;
       default:
-          U.pe(true, 'unexpected rule: ' + this.prefix);
+          U.pe(true, 'unexpected rule: ' + this.prefix, this);
           out.prefix = 'unexpected rule:' + this.prefix;
           return out;
       case measurableRules.bind:
           if (!executeRight()) return out;
-          if (!exportChanges(evalOutput.outContext)) return out;
+          if (!exportChanges(evalOutput.outContext, rollbackContext)) return out;
           let newmp: ModelPiece = evalOutput.return;
-          if (!(newmp instanceof ModelPiece)) { out.right += 'returned value is not a ModelPiece.'; return  out; }
+          if (!(newmp instanceof ModelPiece)) { out.right += 'returned value is not a ModelPiece.'; return out; }
           newmp.linkToLogic(this.attr.ownerElement);
           return out;
       case measurableRules.variable:
           if (!executeRight()) return out;
-          if (!exportChanges(evalOutput.outContext)) return out;
+          if (!exportChanges(evalOutput.outContext, rollbackContext)) return out;
           return out;
       case measurableRules.onDragStart:
       case measurableRules.whileDragging:
@@ -484,29 +583,31 @@ export class MeasurableRuleParts {
       case measurableRules.onRefresh:
           out.triggeredResults = [];
           ///// check precondition
-          exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, this.target);
+          exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, out && out.target);
         if (exception) {
           out.left += '\ninvalid target selector: ' + exception.toString();
           out.right += '\ninvalid target selector: ' + exception.toString();
           return out; }
-          vertex = rollbackContext.unsafe.vertex;
+          vertex = rollbackContext.unsafec.vertex;
           evalOutput = U.evalInContext(evalContext, this.left);
           if (evalOutput.exception) {
             out.left += '' + evalOutput.exception;
-            out.right = 'not executed.';
+            out.right += 'not executed.';
             return out; }
           out.left = evalOutput.return;
           if (!out.left) {
-            out.right = 'not executed.';
+            out.right += 'not executed.';
             return out; }
-          if (!exportChanges(evalOutput.outContext)) return out; // va messo qui, se lo metto dopo i triggers equivale ad un rollback dei loro cambiamenti.
+          console.log('5xd', evalOutput.outContext, rollbackContext);
+        // return null; // per qualche motivo questo export changes mi azzera la Y del vertex.
+          if (!exportChanges(evalOutput.outContext, rollbackContext)) return out; // va messo qui, se lo metto dopo i triggers equivale ad un rollback dei loro cambiamenti.
           ///// try execution
           selectorout = U.processSelectorPlusPlus(this.right, false, $(vertex.owner.container), $(this.attr.ownerElement), Measurable.GlobalPrefix);
-          if (selectorout.exception) { out.right += (out.right ? '\n<br/>\n' : '') + selectorout.exception.toString(); return out; }
+          if (selectorout.exception) { out.right += (out.right ? '\n' : '') + selectorout.exception.toString(); return out; }
           // last validation and execution.
           const htmlFoundsevt: Element[] = [];
           const vertexFoundsevt: IVertex[] = [];
-          console.log('resultset', selectorout);
+          // console.log('resultset', selectorout);
           for (i = 0; i < selectorout.resultSetAttr.length; i++) {
             const a: Attr = selectorout.resultSetAttr[i];
             let ruleprefix: string = Measurable.isExecutableRule(a.name, true);
@@ -520,10 +621,10 @@ export class MeasurableRuleParts {
               vertexFoundsevt.push(vertex); }
               let mr: MeasurableRuleParts = new MeasurableRuleParts(a, ruleprefix, true);
               try { out.triggeredResults.push(mr.process(false, vertex)); }
-              catch (e) { out.right += '\n<br/>\n' + e.toString(); /* must not stop if only 1 triggered fails. */ }
+              catch (e) { out.right += '\n' + e.toString(); /* must not stop if only 1 triggered fails. */ }
             }
-          out.right = selectorout.jqselector + ' ' + U.AttributeSelectorOperator + ' ' + selectorout.attrselector
-            + (out.right.length ? '\n<br/>\n' : '' ) + out.right;
+          out.right += selectorout.jqselector + ' ' + U.AttributeSelectorOperator + ' ' + selectorout.attrselector
+            + (out.right.length ? '\n' : '' ) + out.right;
           return out;
 
       case measurableRules.export:
@@ -532,17 +633,17 @@ export class MeasurableRuleParts {
         this.left = this.left.trim();
         this.left = this.left || 'this ->';
         selectorout = U.processSelectorPlusPlus(this.left, false, $(vertex.owner.container), $(this.attr.ownerElement), null);
-        if (selectorout.exception) { out.left += (out.left ? '\n<br/>\n' : '') + selectorout.exception.toString(); return out; }
+        if (selectorout.exception) { out.left += (out.left ? '\n' : '') + selectorout.exception.toString(); return out; }
         out.left = 'matched ' + selectorout.resultSetElem.length + ' elements and ' + selectorout.resultSetAttr.length + ' attributes. search "xprt" on console to see them';
         console.info('xprt', 'Matched elements:', selectorout.resultSetElem, 'Matched attributes:', selectorout.resultSetAttr);
-        if (selectorout.resultSetAttr.length + selectorout.resultSetElem.length === 0) { out.right = 'not executed.'; return out; }
+        if (selectorout.resultSetAttr.length + selectorout.resultSetElem.length === 0) { out.right += 'not executed.'; return out; }
         ////////// can proceed to execution.
         if (!executeRight()) return out;
-        if (!exportChanges(evalOutput.outContext)) return out;
+        if (!exportChanges(evalOutput.outContext, rollbackContext)) return out;
         if (evalOutput.return instanceof Object) {
           if (U.isFunction(evalOutput.return.toString)) { evalOutput.return = evalOutput.return.toString(); }
           else evalOutput.return = JSON.stringify(evalOutput.return); }
-        out.right = evalOutput.return;
+        out.right += evalOutput.return;
         ////////// exporting resulting value
         for (i = 0; i < selectorout.resultSetAttr.length; i++) { selectorout.resultSetAttr[i].value = evalOutput.return; }
         for (i = 0; i < selectorout.resultSetElem.length; i++) { selectorout.resultSetElem[i].innerHTML = evalOutput.return; }
@@ -550,11 +651,11 @@ export class MeasurableRuleParts {
 
       case measurableRules.dynamicClass:
         if (!executeRight()) { out.right +='\n If it isn\'t code, try wrapping it in quotes.'; return out;}
-        if (!exportChanges(evalOutput.outContext)) return out;
+        if (!exportChanges(evalOutput.outContext, rollbackContext)) return out;
         if (evalOutput.return instanceof Object) {
           if (U.isFunction(evalOutput.return.toString)) { evalOutput.return = evalOutput.return.toString(); }
           else evalOutput.return = JSON.stringify(evalOutput.return); }
-        out.right = evalOutput.return;
+        // out.right += evalOutput.return;
         // start setting classes
         const classes: string[] = (evalOutput.return + '').split(' ');
         for (i = 0; i < classes.length; i++) {
@@ -562,17 +663,17 @@ export class MeasurableRuleParts {
           if (!cl[i].length) continue;
           if (cl[i][0] === '+') { this.attr.ownerElement.classList.add(cl[i].substr(1)); continue; }
           if (cl[i][0] === '-') { this.attr.ownerElement.classList.remove(cl[i].substr(1)); continue; }
-          out.right = 'all class tokens must start with a plus (if inserting) or minus (if removing) sign.';
+          out.right += '\nall class tokens must start with a plus (if inserting) or minus (if removing) sign.';
           return out; }
         return out;
 
       case measurableRules.dynamicStyle:
-        if (!executeRight()) { out.right +='\n If it isn\'t code, try wrapping it in quotes.'; return out;}
-        if (!exportChanges(evalOutput.outContext)) return out;
+        if (!executeRight()) { out.right +='\n If it isn\'t code, try wrapping it in quotes.'; return out; }
+        if (!exportChanges(evalOutput.outContext, rollbackContext)) return out;
         if (evalOutput.return instanceof Object) {
           if (U.isFunction(evalOutput.return.toString)) { evalOutput.return = evalOutput.return.toString(); }
           else evalOutput.return = JSON.stringify(evalOutput.return); }
-        out.right = evalOutput.return;
+        // out.right += evalOutput.return;
         // start setting styles
         console.log('mergeSTyles:', this.attr.ownerElement, evalOutput.return);
         U.mergeStyles(this.attr.ownerElement, null, evalOutput.return, true);
@@ -582,51 +683,105 @@ export class MeasurableRuleParts {
         ///// left validation
         this.left = this.left.trim();
         if (!MeasurableTemplateGenerator.constraintMap[this.left]) {
-          out.left = 'invalid.';
-          out.right = 'not processed.';
+          out.left += 'invalid.';
+          out.right += 'not processed.';
           return out; }
-        const preLeft: number = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]
+        //console.log('preconstraint1');
+//        const preLeft: number = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]
+        //U.pe(!rollbackContext.target, '!starget1', evalOutput.outContext.target);
         if (!executeRight()) return out;
-        if (!exportChanges(evalOutput.outContext)) return out;
-        let oc = evalOutput.outContext;
+        //U.pe(!rollbackContext.target, '!starget2', evalOutput.outContext.target);
+        //console.log('preconstraint2', evalOutput.outContext, rollbackContext);
+        if (!exportChanges(evalOutput.outContext, rollbackContext)) return out;
+        //console.log('preconstraint3', evalOutput.outContext, rollbackContext);
         let postLeft: number = null;
         try { postLeft = eval("evalOutput.outContext." + this.left);} // this one CAN fail if the user deletes the predefined variable in the context.
-        catch (e) { out.right = e.toString() + '\n; likely caused by an overwrite on a predefined variable.'; return out; }
-
+        catch (e) { out.right += '\n' + e.toString() + '\n; likely caused by an overwrite on a predefined variable inside the path "' + this.left + '".'; return out; }
+        // console.log('preconstraint4', evalOutput.outContext, rollbackContext);
+        if (this.operator === '=') this.operator = '==';
         const condition: boolean = eval(postLeft + this.operator + evalOutput.return);
-        this.operator = condition ? 'true' : 'false';
-        if (condition) { return out; }
-        switch (this.left) {
-          default : U.pe(true, 'unexpected left part:', this.left, 'but only validated left parts should reach here.'); break;
-          case ConstraintLeftAdmittedsStatic.height: oc.setHeight(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.width: oc.setWidth(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.absoluteDocPosX: oc.setAbsoluteDocPosX(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.absoluteDocPosY: oc.setAbsoluteDocPosY(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.absoluteGPosX: oc.setAbsoluteGPosX(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.absoluteGPosY: oc.setAbsoluteGPosY(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.relativePosX: oc.setRelativePosX(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.relativePosY: oc.setRelativePosY(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.relativeVPosX: oc.setRelativeVPosX(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.relativeVPosY: oc.setRelativeVPosY(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.vertexSizeX: oc.setVertexSizeX(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.vertexSizeY: oc.setVertexSizeY(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.vertexSizeW: oc.setVertexSizeW(evalOutput.return); break;
-          case ConstraintLeftAdmittedsStatic.vertexSizeH: oc.setVertexSizeH(evalOutput.return); break;
+        out.operator += '' + !!condition;
+        let isTargeting = this.left.indexOf('target.') === 0;
+        const left = isTargeting ? this.left.substr('target.'.length) : this.left;
+        let oc0 = evalOutput.outContext;
+        let rc0 = rollbackContext;
+        let oc = isTargeting ? evalOutput.outContext.target : evalOutput.outContext;
+        let rc = isTargeting ? rollbackContext.target : rollbackContext;
+        U.pe(!isTargeting, 'left side is not targeting');
+        if (isTargeting && (!oc || !rc))  { out.left = 'this kind of rule cannot be executed without a target.'; return out; }
+        switch (left) {
+          default:
+            out.left += 'invalid left part, use one of the precompiled suggestions.';
+            doRollback();
+            // U.pe(true, 'unexpected left part:', this.left, 'but only validated left parts should reach here.');
+            return out;
+          case ConstraintLeftAdmittedsStatic.height:
+            out.left += '' + rc.height;
+            if (!condition) oc.setHeight(evalOutput.return);
+            break;
+          case ConstraintLeftAdmittedsStatic.width:
+            out.left += '' + rc.width;
+            if (!condition) oc.setWidth(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.absoluteDocPosX:
+            out.left += '' + rc.absoluteDocPos.x;
+            if (!condition) oc.setAbsoluteDocPosX(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.absoluteDocPosY:
+            out.left += '' + rc.absoluteDocPos.y;
+            if (!condition)  oc.setAbsoluteDocPosY(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.absoluteGPosX:
+            out.left += '' + rc.absoluteGPos.x;
+            if (!condition)  oc.setAbsoluteGPosX(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.absoluteGPosY:
+            out.left += '' + rc.absoluteGPos.y;
+            if (!condition)  oc.setAbsoluteGPosY(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.relativePosX:
+            out.left += '' + rc.relativePos.x;
+            if (!condition)  oc.setRelativePosX(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.relativePosY:
+            out.left += '' + rc.relativePos.y;
+            if (!condition)  oc.setRelativePosY(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.relativeVPosX:
+            out.left += '' + rc.relativeVPos.x;
+            if (!condition)  oc.setRelativeVPosX(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.relativeVPosY:
+            out.left += '' + rc.relativeVPos.y;
+            if (!condition)  oc.setRelativeVPosY(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.vertexSizeX:
+            out.left += '' + rc.vertexSize.x;
+            if (!condition)  oc.setVertexSizeX(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.vertexSizeY:
+            out.left += '' + rc.vertexSize.y;
+            if (!condition)  oc.setVertexSizeY(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.vertexSizeW:
+            out.left += '' + rc.vertexSize.w;
+            if (!condition)  oc.setVertexSizeW(evalOutput.return); break;
+          case ConstraintLeftAdmittedsStatic.vertexSizeH:
+            out.left += '' + rc.vertexSize.h;
+            if (!condition)  oc.setVertexSizeH(evalOutput.return); break;
         }
-        exportChanges(oc); // commit
+        exportChanges(oc0, rc0); // commit
         return out;
     }
     U.pe (true, 'should never reach here');
     return null; }
 
   constructor(a: Attr, prefix: string = null, doNotThrow: boolean = false) {
+    this.attr = a;
     if (a === null) {
+      U.pe(!doNotThrow, 'MeasurableRuleParts() called on null attribute:', a, prefix);
+      this.attr = null;
+      this.output = null;
+      this.outputAttr = null;
+      this.triggeredResults = [];
+      this.operator = '';
       this.right = '';
       this.left = '';
       this.target = '';
-      return;
-    } // empty constructor used by output clone var.
-    this.attr = a;
+      this.prefix = '';
+      this.fallbackValue = '';
+      this.name = '';
+      return; } // empty constructor used by output clone var.
+
     if (!prefix) {
       const attrname: string = a.name.toLowerCase();
       if (a.name.indexOf('_') === 0) for (let i = 0; i < Measurable.ruleParsingOrder.length; i++) {
@@ -656,9 +811,10 @@ export class MeasurableRuleParts {
     this.right = a.value.substr(rightindex);*/
     const parts: string[] = a.value.split(Measurable.separator);
     this.left = parts.length > 1 ? parts[0] : '';
-    this.operator = parts.length === 2 ? parts[1] : '';
+    this.operator = parts.length === 3 ? parts[1] : '';
+    U.pe(this.prefix === measurableRules.constraint && !this.operator, 'failed to get constraint operator: ', this);
     this.right = parts[parts.length - 1];
-    const targetstr =  a.ownerElement.getAttribute('relativeSelectorOf' + a.name);
+    const targetstr =  a.ownerElement.getAttribute(('relativeSelectorOf' + a.name));
     this.target = targetstr ? targetstr.trim() : null;
     this.fallbackValue = null;
 
@@ -867,14 +1023,19 @@ export class Measurable {
     (draConfig as any).prefix = measurableRules._jquiDra;
 
     for (i = 0; i < arr.length; i++){
-      attrval = elem.getAttribute(arr[i].config.prefix + arr[i].friendlyname);
+      attrval = elem.getAttribute((arr[i].config.prefix + arr[i].friendlyname));
       attrval = attrval && attrval.trim();
       if (!attrval) func = null;
       else try{
         func = eval(attrval);
-        func = (e, ui) => { try{func(e, ui);}catch(e){U.pw(true, 'error evaluating' + arr[i].friendlyname + ':', e);}}
+        func = (e, ui) => {
+          try{func(e, ui);}
+          catch(e){
+            U.pw(true, 'error evaluating' + arr[i].friendlyname + ':', e);
+          }
+        }
       }catch(e){
-        U.pw(true, 'invalid function as argument of resize create');
+        U.pw(true, 'invalid function as argument of resize create', e);
         func = null;
       }
       // se resConfig[triggername] non è settato, lo setto a func.
@@ -907,7 +1068,7 @@ export class Measurable {
       switch(jquikey){
         default:
           friendlykey = jquikey;
-          let customparameterval: string = elem.getAttribute(measurableRules._jquiRes + friendlykey);
+          let customparameterval: string = elem.getAttribute((measurableRules._jquiRes + friendlykey));
           if (resConfig[jquikey] || !customparameterval){ continue; }
           resConfig[jquikey] = customparameterval;
           break;
@@ -925,7 +1086,7 @@ export class Measurable {
       switch(jquikey){
         default:
           friendlykey = jquikey;
-          let customparameterval: string = elem.getAttribute(measurableRules._jquiRot + friendlykey);
+          let customparameterval: string = elem.getAttribute((measurableRules._jquiRot + friendlykey));
           if (rotConfig[jquikey] || !customparameterval || rotConfig[jquikey] === customparameterval){ continue; }
           rotConfig[jquikey] = customparameterval;
           isRotatableCustomized = true;
@@ -939,7 +1100,7 @@ export class Measurable {
       }
     }
     let defaultAction = (friendlykey, jquikey) => {
-      let customparameterval = elem.getAttribute(measurableRules._jquiDra + friendlykey);
+      let customparameterval = elem.getAttribute((measurableRules._jquiDra + friendlykey));
       if (draConfig[jquikey] || !customparameterval){ return; }
       draConfig[jquikey] = customparameterval;
     };
@@ -954,6 +1115,7 @@ export class Measurable {
         case Draggableoptions.axis:
           friendlykey = jquikey;
           defaultAction(friendlykey, jquikey);
+          console.log('draconfig.setaxis: ', draConfig[jquikey], elem, jquikey, friendlykey);
           const val: string = U.replaceAll(draConfig[jquikey] + '', ' ', '');
           if (val === null || val === undefined){
             draConfig[jquikey] = '';
@@ -972,7 +1134,7 @@ export class Measurable {
     }
 
     const $elem = $(elem);
-    console.log('measurableConfig:  drag:', draConfig, 'res:', resConfig, 'rot:', rotConfig, 'isVertex:', isvroot, 'axis:', draConfig.axis, 'handles:', resConfig.handles);
+    console.log('measurableConfig:  drag:', draConfig, 'res:', resConfig, 'rot:', rotConfig, 'isVertex:', isvroot, 'axis:', draConfig.axis, 'handles:', resConfig.handles, elem);
     if (draConfig.axis !== undefined && draConfig.axis !== '' && !isvroot){
       $elem.draggable(draConfig);
       if (draConfig.disabled) $elem.draggable('disable');

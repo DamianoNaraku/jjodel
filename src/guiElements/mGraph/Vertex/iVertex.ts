@@ -187,6 +187,7 @@ export class IVertex {
     return ret; }
 
   constructor(logical: IClassifier, size: GraphSize = null) {
+    if (!logical) return;
     this.id = IVertex.ID++;
     IVertex.all[this.id] = this;
     const graph: IGraph = logical.getModelRoot().graph;
@@ -517,7 +518,8 @@ export class IVertex {
       $attContainer.append(field);
     }
 
-    for (i = 0; i <  data.references.length; i++) {
+    console.trace('4x', 'data.references:', data.references, data.references.length);
+    for (i = 0; i < data.references.length; i++) {
       const field = this.drawR(data.references[i]);
       field.id = 'ID' + data.references[i].id;
       $refContainer.append(field);
@@ -698,7 +700,7 @@ export class IVertex {
 
   measuringEventTrigger(uiseless: ResizableUIParams | DraggableEventUIParams = null, e: Event = null, prefix: string, html: Element = null): void {
     if (!html) html = e.target as Element;
-    console.log('measuringEventTrigger:', prefix); // , html, e);
+    // console.log('measuringEventTrigger:', prefix); // , html, e);
     if (!html.attributes) return;
     let i: number;
     for (i = 0; i < html.attributes.length; i++) {

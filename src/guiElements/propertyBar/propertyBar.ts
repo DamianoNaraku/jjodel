@@ -26,7 +26,7 @@ import {
 } from '../../common/Joiner';
 import ClickEvent = JQuery.ClickEvent;
 import ContextMenuEvent = JQuery.ContextMenuEvent;
-
+export enum PropertyBarTabs {style = 'Style', structured = 'Structured', raw = 'Raw' }
 export class PropertyBarr {
   model: IModel = null;
   container: HTMLElement;
@@ -36,6 +36,12 @@ export class PropertyBarr {
   styleEditor: StyleEditor = null;
   selectedModelPieceIsEdge: IEdge;
   clickedLevel: Element;
+
+
+  static getActiveTab(): PropertyBarTabs {
+    return $('app-' + Status.status.getActiveModel().getPrefix() + '-graph-html .propertyBarContainer .UtabHeader[selected="true"]')[0].innerText as PropertyBarTabs; }
+
+  static isTabVisible(model: IModel, tab: PropertyBarTabs) { return model === Status.status.getActiveModel() && PropertyBarr.getActiveTab() === tab; }
 
   private templateMinimizerClick(e: ClickEvent): void {
     const minimizer: HTMLElement = e.currentTarget;
@@ -410,4 +416,20 @@ export class PropertyBarr {
 
   public onHide(): void {}
 
+  static staticinit(): void {
+    $('app-mm-graph-html .propertyBarContainer .UtabHeader').on('click', (e) =>  {
+      switch (e.currentTarget.innerText) {
+        default: U.pe(true, 'unrecognized right-side tab:', e.currentTarget); break;
+        case PropertyBarTabs.style: Status.status.mm.graph.propertyBar.styleEditor.onShow(); break;
+        case PropertyBarTabs.structured: Status.status.mm.graph.propertyBar.onShow(); break;
+        case PropertyBarTabs.raw: Status.status.mm.graph.propertyBar.onShow(true); break; }
+    });
+    $('app-m-graph-html .propertyBarContainer .UtabHeader').on('click', (e) =>  {
+      switch (e.currentTarget.innerText) {
+        default: U.pe(true, 'unrecognized right-side tab:', e.currentTarget); break;
+        case PropertyBarTabs.style: Status.status.m.graph.propertyBar.styleEditor.onShow(); break;
+        case PropertyBarTabs.structured: Status.status.m.graph.propertyBar.onShow(); break;
+        case PropertyBarTabs.raw: Status.status.m.graph.propertyBar.onShow(true); break; }
+    });
+  }
 }

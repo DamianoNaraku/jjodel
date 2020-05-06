@@ -66,13 +66,13 @@ export class MAttribute extends IAttribute {
 
   parse(json: Json, destructive: boolean): void {
     // if (!json) { json = }
-    this.setValues(json as any[]);
+    this.setValues(json as any[]);/*
     if (!this.validate()) {
       this.setValues(null);
       U.pw(true, 'marked attribute (' + this.metaParent.name + ') with type ', this.getType(), 'values:', this.values, 'this:', this);
       this.mark(true, 'errorValue');
-    } else { this.mark(false, 'errorValue'); }
-    this.refreshGUI();
+    } else { this.mark(false, 'errorValue'); }*/
+    // this.refreshGUI();
 /*
     this.views = [];
     let i: number;

@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"measurableTemplateGeneratorShell\" class=\"template\">\n  <label><input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span></label>\n  <div class=\"meas_acc0\">\n    <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">Measurable settings</h7>\n    <div class=\"measurableSettingRoot collapse\">\n      <div class=\"boxesroot\">\n        <div class=\"resizable boxroot\">\n          <h6 class=\"boxtitle\">Resizable handles</h6>\n          <div class=\"rectangledrawing outer\">\n            <div class=\"top row\">\n              <input type=\"checkbox\" class=\"arrow corner top left\" direction=\"nw\">\n              <input type=\"checkbox\" class=\"arrow side top\" direction=\"n\">\n              <input type=\"checkbox\" class=\"arrow corner top right\" direction=\"ne\">\n            </div>\n            <div class=\"mid row\">\n              <input type=\"checkbox\" class=\"arrow side left\" direction=\"w\">\n              <div class=\"middle\">\n                <div class=\"rectangledrawing inner\">\n                  <div class=\"top row\">\n                    <div class=\"corner top left\" direction=\"nw\"></div>\n                    <div class=\"side top\" direction=\"n\"></div>\n                    <div class=\"corner top right\" direction=\"ne\"></div>\n                  </div>\n                  <div class=\"mid row\">\n                    <div class=\"side left\" direction=\"w\"></div>\n                    <div class=\"middle\">\n                    </div>\n                    <div class=\"side right\" direction=\"e\"></div>\n                  </div>\n                  <div class=\"bot row\">\n                    <div class=\"corner bot left\" direction=\"sw\"></div>\n                    <div class=\"side bot\" direction=\"s\"></div>\n                    <div class=\"corner bot right\" direction=\"se\"></div>\n                  </div>\n                </div>\n              </div>\n              <input type=\"checkbox\" class=\"arrow side right\" direction=\"e\">\n            </div>\n            <div class=\"bot row\">\n              <input type=\"checkbox\" class=\"arrow corner bot left\" direction=\"sw\">\n              <input type=\"checkbox\" class=\"arrow side bot\" direction=\"s\">\n              <input type=\"checkbox\" class=\"arrow corner bot right\" direction=\"se\">\n            </div>\n          </div>\n        </div>\n        <div class=\"draggable boxroot\">\n          <h6 class=\"boxtitle\">Draggable directions</h6>\n          <div class=\"rectangledrawing directions\">\n            <input type=\"checkbox\" class=\"arrow arrowh drag\" direction=\"x\">\n            <input type=\"checkbox\" class=\"arrow arrowv drag\" direction=\"y\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"meas_acc\">\n        <input class=\"form-control rulesearch\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\n        <!-- dynamically generated accordions will be placed below -->\n      </div>\n\n      <div class=\"rule template\">\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\n        <div class=\"rulecontainer columncontainer collapse template\">\n\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\n          </div>\n          <div class=\"rightx column rowcontainer fill break mb-3\">\n            <div class=\"row break\">\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\n                <span class=\"prefix form-control\">_</span>\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\n                <select class=\"operator trigger\">\n                  <optgroup label=\"When\">\n                    <option>Start</option>\n                    <option>ing</option>\n                    <option selected>End</option>\n                  </optgroup>\n                </select>\n              </label>\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\n            </div>\n            <div class=\"row break\">\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\n              <span class=\"eventsplitpoint operatorcontainer\">\n                <span class=\"operator\">=</span>\n                <select class=\"operator relational\">\n                  <optgroup label=\"Operator\">\n                    <option>&lt;=</option>\n                    <option selected>=</option>\n                    <option>&gt;=</option>\n                  </optgroup>\n                </select></span>\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\n            <div class=\"measurabledebug rowcontainer\">\n              <button class=\"btn btn-primary executedebug\">Test it!</button>\n              <span class=\"debugrows\" tabindex=\"-1\">\n                <span class=\"measurableoktext\"><span>Debug output: </span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Left: </span><span class=\"measurableoutputtext debugleft\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Operator: </span><span class=\"measurableoutputtext debugoperator\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Right: </span><span class=\"measurableoutputtext debugright\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Triggers: </span><span class=\"measurableoutputtext debugtriggers\"></span></span>\n                <!--\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\n                <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\n                -->\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--\n\n\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\n  _target1=\"positionX\"\n  relativetargetof_target1=\"#leftside\"\n  _target2=\"positionX\"\n  relativetargetof_target2=\"#rightside\"\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\n\n  angle:false,\n  class Rotatableoptions {\n  degrees: string = 'false | number';\n  radians: string = 'false | number';\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\n  handleOffsetX: string = 'width / 2';\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\n  rotationCenterOffsetX: string = 'width / 2';\n  rotationCenterOffsetY: string = 'height / 2';\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\n  onRotationStart: string = same as above // in realtà è \"start\"\n  onRotationEnd: string = same as above // in realtà è \"stop\"\n  }\n\n--->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"measurableTemplateGeneratorShell\" class=\"template\">\n  <label><input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span></label>\n  <div class=\"meas_acc0\">\n    <h7 class=\"ruletitle btn btn-link collapsed maintitle\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">\n      <span class=\"innertitle\">Measurable Settings</span>\n    </h7>\n    <div class=\"measurableSettingRoot collapse\">\n      <div class=\"boxesroot\">\n        <div class=\"resizable boxroot\">\n          <h6 class=\"boxtitle\">Resizable handles</h6>\n          <div class=\"rectangledrawing outer\">\n            <div class=\"top row\">\n              <input type=\"checkbox\" class=\"arrow corner top left\" direction=\"nw\">\n              <input type=\"checkbox\" class=\"arrow side top\" direction=\"n\">\n              <input type=\"checkbox\" class=\"arrow corner top right\" direction=\"ne\">\n            </div>\n            <div class=\"mid row\">\n              <input type=\"checkbox\" class=\"arrow side left\" direction=\"w\">\n              <div class=\"middle\">\n                <div class=\"rectangledrawing inner\">\n                  <div class=\"top row\">\n                    <div class=\"corner top left\" direction=\"nw\"></div>\n                    <div class=\"side top\" direction=\"n\"></div>\n                    <div class=\"corner top right\" direction=\"ne\"></div>\n                  </div>\n                  <div class=\"mid row\">\n                    <div class=\"side left\" direction=\"w\"></div>\n                    <div class=\"middle\">\n                    </div>\n                    <div class=\"side right\" direction=\"e\"></div>\n                  </div>\n                  <div class=\"bot row\">\n                    <div class=\"corner bot left\" direction=\"sw\"></div>\n                    <div class=\"side bot\" direction=\"s\"></div>\n                    <div class=\"corner bot right\" direction=\"se\"></div>\n                  </div>\n                </div>\n              </div>\n              <input type=\"checkbox\" class=\"arrow side right\" direction=\"e\">\n            </div>\n            <div class=\"bot row\">\n              <input type=\"checkbox\" class=\"arrow corner bot left\" direction=\"sw\">\n              <input type=\"checkbox\" class=\"arrow side bot\" direction=\"s\">\n              <input type=\"checkbox\" class=\"arrow corner bot right\" direction=\"se\">\n            </div>\n          </div>\n        </div>\n        <div class=\"draggable boxroot\">\n          <h6 class=\"boxtitle\">Draggable directions</h6>\n          <div class=\"rectangledrawing directions\">\n            <input type=\"checkbox\" class=\"arrow arrowh drag\" direction=\"x\">\n            <input type=\"checkbox\" class=\"arrow arrowv drag\" direction=\"y\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"meas_acc\">\n        <input class=\"form-control rulesearch\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\n        <!-- dynamically generated accordions will be placed below -->\n      </div>\n\n      <div class=\"rule template\">\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\n        <div class=\"rulecontainer columncontainer collapse template\">\n\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\n          </div>\n          <div class=\"rightx column rowcontainer fill break mb-3\">\n            <div class=\"row break\">\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\n                <span class=\"prefix form-control\">_</span>\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\n                <select class=\"operator trigger\">\n                  <optgroup label=\"When\">\n                    <option>Start</option>\n                    <option>ing</option>\n                    <option selected>End</option>\n                  </optgroup>\n                </select>\n              </label>\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\n            </div>\n            <div class=\"row break\">\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\n              <span class=\"eventsplitpoint operatorcontainer\">\n                <span class=\"operator\">=</span>\n                <select class=\"operator relational\">\n                  <optgroup label=\"Operator\">\n                    <option>&lt;=</option>\n                    <option selected>=</option>\n                    <option>&gt;=</option>\n                  </optgroup>\n                </select></span>\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\n            <div class=\"measurabledebug rowcontainer\">\n              <button class=\"btn btn-primary executedebug\">Test it!</button>\n              <span class=\"debugrows\" tabindex=\"-1\">\n                <span class=\"measurableoktext\"><span>Debug output: </span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Left: </span><span class=\"measurableoutputtext debugleft\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Operator: </span><span class=\"measurableoutputtext debugoperator\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Right: </span><span class=\"measurableoutputtext debugright\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Target: </span><span class=\"measurableoutputtext debugtarget\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Triggered: </span><span class=\"measurableoutputtext debugtriggers\"></span></span>\n                <!--\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\n                <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\n                -->\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--\n\n\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\n  _target1=\"positionX\"\n  relativetargetof_target1=\"#leftside\"\n  _target2=\"positionX\"\n  relativetargetof_target2=\"#rightside\"\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\n\n  angle:false,\n  class Rotatableoptions {\n  degrees: string = 'false | number';\n  radians: string = 'false | number';\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\n  handleOffsetX: string = 'width / 2';\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\n  rotationCenterOffsetX: string = 'width / 2';\n  rotationCenterOffsetY: string = 'height / 2';\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\n  onRotationStart: string = same as above // in realtà è \"start\"\n  onRotationEnd: string = same as above // in realtà è \"stop\"\n  }\n\n--->\n");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n    <div id='model_sidebar'></div>\r\n  </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n    <ul class=\"UtabHeaderContainer\">\r\n      <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n      <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n      <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n    </ul>\r\n    <div class=\"UtabContentContainer\">\r\n      <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n      <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n      <div class=\"UtabContent\" data-target=\"3\">\r\n        <div class=\"rawContainer\">\r\n          <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n          <textarea class=\"rawecore\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Attribute\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"border: none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" pattern=\"[A-Za-z0-9_$]*\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n    <div id='model_sidebar'></div>\r\n  </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n    <ul class=\"UtabHeaderContainer\">\r\n      <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n      <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n      <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n    </ul>\r\n    <div class=\"UtabContentContainer\">\r\n      <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n      <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n      <div class=\"UtabContent\" data-target=\"3\">\r\n        <div class=\"rawContainer\">\r\n          <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n          <textarea class=\"rawecore\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:transparent; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Attribute\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; color:inherit; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color:transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" pattern=\"[A-Za-z0-9_$]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n");
 
 /***/ }),
 
@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n    <div id='metamodel_sidebar'></div>\r\n  </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n    <ul class=\"UtabHeaderContainer\">\r\n      <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n      <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n      <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n    </ul>\r\n    <div class=\"UtabContentContainer\">\r\n      <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n      <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n      <div class=\"UtabContent\" data-target=\"3\">\r\n        <div class=\"rawContainer\">\r\n          <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n          <textarea class=\"rawecore\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[A-Za-z0-9_$]+\" style=\"border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:black; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">(Class)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black;\">\r\n      <div class=\"Class Vertex vertexShell EEnum\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[A-Za-z0-9_$]+\" style=\"border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:black; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height: 22px; padding-left:5px; display:flex;\">\r\n      <select data-class=\"true\" style=\"border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Attribute EString EInteger\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template ELiteral\" style=\"width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[A-Za-z0-9_$]+\" style=\"border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" pattern=\"[A-Za-z0-9_$]+\" value=\"Return type\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm btn-success\" style=\"width: 100%; height: 22px; padding:0; text-align: center\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width: 100%; height: 22px; border-bottom:1px solid lightgray; display:flex;\">\r\n       <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n       <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[A-Za-z0-9_$]*\" value=\"$##name$\" style=\"border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n       <button style=\"order: 3; padding:0 5px;\">X</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n    <div id='metamodel_sidebar'></div>\r\n  </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n    <ul class=\"UtabHeaderContainer\">\r\n      <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n      <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n      <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n    </ul>\r\n    <div class=\"UtabContentContainer\">\r\n      <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n      <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n      <div class=\"UtabContent\" data-target=\"3\">\r\n        <div class=\"rawContainer\">\r\n          <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n          <textarea class=\"rawecore\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:transparent; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[A-Za-z0-9_$]+\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">(Class)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell EEnum\" style=\"background:transparent; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[A-Za-z0-9_$]+\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height: 22px; padding-left:5px; display:flex;\">\r\n      <select data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Attribute EString EInteger\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[A-Za-z0-9_$]+\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template ELiteral\" style=\"width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[A-Za-z0-9_$]+\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; color:inherit; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" pattern=\"[A-Za-z0-9_$]+\" value=\"Return type\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm btn-success\" style=\"width: 100%; height: 22px; padding:0; text-align: center\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width: 100%; height: 22px; border-bottom:1px solid lightgray; display:flex;\">\r\n       <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n       <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[A-Za-z0-9_$]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n       <button style=\"order: 3; padding:0 5px;\">X</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -188,7 +188,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid</td>\r\n        <td>X: <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"> Y: <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"graphColor\">Background color</label></td></tr>\r\n      </tbody></table>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n      <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n      <!-- start of new measurable -->\r\n\r\n      <div class=\"measurablePlaceholder\"></div>\r\n\r\n      <!-- end of new measurable -->\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"m1 iclass\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span> <!-- Behequated -->\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <!--\r\n      <label>\r\n        <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid X</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid Y</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom</span>\r\n      </label>\r\n      <label display = \"none\">\r\n        <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom Y</span>\r\n      </label>\r\n      <label><input type=\"checkbox\" class=\"showGrid\"><span>Show grid</span></label>\r\n      <label><input type=\"color\" class=\"graphColor\"><span>Background color</span></label>\r\n      -->\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid X</td>\r\n        <td><input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Grid Y</td>\r\n        <td><input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"graphColor\">Background color</label></td></tr>\r\n      </tbody></table>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n      <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n      <!-- start of new measurable -->\r\n\r\n      <div class=\"measurablePlaceholder\"></div>\r\n\r\n      <!-- end of new measurable -->\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"iclass show\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span> <!-- Behequated -->\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -569,9 +569,6 @@ class LocalStorage {
     p(arg1, ...restArgs) { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(this.print, arg1, ...restArgs); }
     finishSave(saveVal) {
         const m = this.model;
-        if (this.popupTmp) {
-            this.popupTmp = this.popupTmp.destroy();
-        }
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!m.name, 'model name should be filled with a validated user input.');
         // must be recalculated, model.name might have been changed by user input (saveas or un-named model being given a name)
         let viewpointSave = JSON.stringify(m.generateViewPointSaveArr());
@@ -607,7 +604,7 @@ class LocalStorage {
         }
         finally { }
         if (error || input.value !== model.name) {
-            this.popupTmp.setPostText('invalid or already registered name, a fix');
+            this.popupTmp.setErrText('invalid or already registered name, a fix');
             input.setAttribute('valid', '0');
             if (model.name) {
                 input.value = model.name;
@@ -629,7 +626,6 @@ class LocalStorage {
         this.add(null, ecoreJSONStr, SaveListEntry.model);
         this.add(null, viepointJSONStr, SaveListEntry.view);
         this.add(null, this.vertexSaveStr, SaveListEntry.vertexPos);
-        let popup;
         const onblur = (e) => { this.save_BlurEvent(e, ecoreJSONStr); };
         const onkeydown = (e) => { this.save_OnKeyDown(e, ecoreJSONStr); };
         const onchange = (e) => { this.save_OnChange(e, model); };
@@ -645,7 +641,8 @@ class LocalStorage {
         }
         // saveas without a name.
         if (saveAs) {
-            const onSuccess = (value, input) => { model.setName(value); };
+            const onSuccess = (e, value, input, btn) => { model.setName(value); this.popupTmp = this.popupTmp.destroy(); };
+            const onAbort = (e, value, input, btn) => { this.popupTmp = this.popupTmp.destroy(); };
             const validator = (value, input) => {
                 const oldVal = model.name;
                 const ret = model.setName(value) === value;
@@ -653,10 +650,14 @@ class LocalStorage {
                     model.setName(oldVal);
                 return ret;
             };
-            popup = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["InputPopup"]('Choose a name for the ' + model.friendlyClassName(), '', '', null, model.friendlyClassName() + ' name', '', 'input', 'text', [onSuccess]);
-            popup.setValidation(validator, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(model) + ' name is already used or contains invalid pattern.');
-            popup.getInputNode()[0].pattern = '^[a-zA-Z_$][a-zA-Z_$0-9]*$';
-            popup.show(true);
+            this.popupTmp = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["InputPopup"]();
+            this.popupTmp.setText('Choose a name for the ' + model.friendlyClassName(), '', '');
+            this.popupTmp.setInputNode('input', 'text', '^[a-zA-Z_$][a-zA-Z_$0-9]*$', true);
+            this.popupTmp.setInput('', 'Enter ' + model.friendlyClassName() + ' name');
+            this.popupTmp.addOkButton(null, [onSuccess]);
+            this.popupTmp.onCloseButton([onAbort]);
+            this.popupTmp.setValidation(validator, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(model) + ' name is already used or contains invalid pattern.');
+            this.popupTmp.show();
             return;
         }
         // user clicked save without a name
@@ -721,7 +722,10 @@ class WebsiteTheme {
         change('altBackgroundColor');
         change('altFontColor');
     }
+    static get() { return _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["TopBar"].topbar.$topbar.find('input.themename:checked')[0].value; }
 }
+WebsiteTheme.Dark = 'Dark';
+WebsiteTheme.Light = 'Light';
 
 
 /***/ }),
@@ -2289,6 +2293,10 @@ class IPackage extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"]
         this.classes = [];
         this.enums = [];
     }
+    getChildrenClass(index) { return this.classes[index]; }
+    getChildrenEnum(index) { return this.enums[index]; }
+    getChildrenClassSelector(index) { return this.getChildrenClass(index).getSelector(); }
+    getChildrenEnumSelector(index) { return this.getChildrenEnum(index).getSelector(); }
     addEmptyEnum() {
         const c = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"](this, null);
         if (this instanceof M3Package || !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic)
@@ -2567,6 +2575,10 @@ class ModelPiece {
         ModelPiece.idToLogic[this.id] = this;
         return this.id;
     }
+    getID() { return this.id; }
+    getSelector() { return '#ID' + this.id; }
+    getChildren(index) { return this.childrens[index]; }
+    getChildrenSelector(index) { return this.getChildren(index).getSelector(); }
     //todo: devo stare attento ogni volta che aggiungo-elimino un elemento a chiamare updateKey()
     // le views si salvano perchè usano la chiave all avvio e poi la rigenerano ad ogni salvataggio e non la usano ulteriormente se non per generare
     // la savestring.
@@ -2801,7 +2813,7 @@ class ModelPiece {
         return this['' + key];
     }
     // meant to be called from user js.
-    getChildren(name, caseSensitive = false) {
+    getChildrenByName(name, caseSensitive = false) {
         let i;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!name || name !== '' + name, 'ModelPiece.getChildren() name must be a non-empty string, found: |' + name + '|', name);
         if (!caseSensitive)
@@ -3279,14 +3291,14 @@ class ProtectedModelPiece {
         this.subChanges = [];
         if (createdBy)
             createdBy.subChanges.push(this);
-        this.unsafe = original;
+        this.unsafemp = original;
         this.pendingChanges = new PendingMeasurableChanges(original);
         const unsafeFunctionNames = {};
         const allowedFunctionNames = {};
         const alwaysToKeep = { applyChanges: '' };
         let key;
-        for (key in this.unsafe) {
-            if (typeof this.unsafe[key] === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["TSON_JSTypes"].function) {
+        for (key in this.unsafemp) {
+            if (typeof this.unsafemp[key] === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["TSON_JSTypes"].function) {
                 unsafeFunctionNames[key] = true;
             }
         }
@@ -3298,155 +3310,238 @@ class ProtectedModelPiece {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].join(unsafeFunctionNames, alwaysToKeep, true, false);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].objecKeysIntersect(allowedFunctionNames, unsafeFunctionNames, null, false);
         for (key in this) {
-            if (this[key] in allowedFunctionNames)
-                continue;
-            delete this[key];
+            if (typeof this[key] === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["TSON_JSTypes"].function && !(this[key] in allowedFunctionNames))
+                delete this[key];
         }
-        console.log('getting types test: ', this.duplicate, this.duplicate.toString());
     }
     applyChanges() {
         PendingFunctionCall.executeProtectedMPBuffer();
         //todo: send all messages to Client.receiveMessage(jsonCommandFormat);
     }
     //////// safe functions()
-    endingName(valueMaxLength) { return this.unsafe.endingName(); }
-    fullname() { return this.unsafe.fullname(); }
-    generateModel() { return this.unsafe.generateModel(); }
-    generateModelString() { return this.unsafe.generateModelString(); }
-    getClassName() { return this.unsafe.getClassName(); }
-    getInfo(toLower) { return this.unsafe.getInfo(toLower); }
-    getInstanceClassName() { return this.unsafe.getInstanceClassName(); }
-    getKey() { return this.unsafe.getKey(); }
-    getKeyStr() { return this.unsafe.getKeyStr(); }
-    isChildNameTaken(s) { return this.unsafe.isChildNameTaken(s); }
-    printableName(valueMaxLength, full) { return this.unsafe.printableName(valueMaxLength, full); }
-    printableNameshort(valueMaxLength) { return this.unsafe.printableNameshort(valueMaxLength); }
+    getID() { /*number*/ return this.unsafemp.getID(); }
+    getSelector() { /*string*/ return this.unsafemp.getSelector(); }
+    getChildrenSelector(index /*number*/) { /*string*/ return this.unsafemp.getChildrenSelector(index); }
+    getChildrenAttributeSelector(index /*number*/) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]))
+            throw new Error("called IClass.getChildrenAttributeSelector() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getChildrenAttributeSelector(index);
+    }
+    getTarget(index = 0 /*number = 0*/) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"]))
+            throw new Error("called IReference.getTarget() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return new ProtectedModelPiece(this.unsafemp.getTarget(index), this);
+    }
+    getTargetSelector(index = 0 /*number = 0*/) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"]))
+            throw new Error("called IReference.getTargetSelector() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getTargetSelector(index);
+    }
+    getChildrenReferenceSelector(index /*number*/) {
+        console.log('getChildrenReferenceSelector()', index, this);
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]))
+            throw new Error("called IClass.getChildrenReferenceSelector() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getChildrenReferenceSelector(index);
+    }
+    getChildrenOperationSelector(index /*number*/) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]))
+            throw new Error("called IClass.getChildrenOperationSelector() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getChildrenOperationSelector(index);
+    }
+    getChildrenLiteralSelector(index /*number*/) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"]))
+            throw new Error("called EEnum.getChildrenLiteralSelector() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getChildrenLiteralSelector(index);
+    }
+    getChildrenParameterSelector(index /*number*/) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]))
+            throw new Error("called EOperation.getChildrenParameterSelector() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getChildrenParameterSelector(index);
+    }
+    getChildrenClassSelector(index /*number*/) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"]))
+            throw new Error("called IPackage.getChildrenClassSelector() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getChildrenClassSelector(index);
+    }
+    getChildrenEnumSelector(index /*number*/) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"]))
+            throw new Error("called IPackage.getChildrenEnumSelector() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getChildrenEnumSelector(index);
+    }
+    getChildren(index) { return new ProtectedModelPiece(this.unsafemp.getChildren(index), this); }
+    getChildrenAttribute(index) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]))
+            throw new Error("called IClass.getChildrenAttribute() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return new ProtectedModelPiece(this.unsafemp.getChildrenAttribute(index), this);
+    }
+    getChildrenReference(index) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]))
+            throw new Error("called IClass.getChildrenReference() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return new ProtectedModelPiece(this.unsafemp.getChildrenReference(index), this);
+    }
+    getChildrenOperation(index) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]))
+            throw new Error("called IClass.getChildrenOperation() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return new ProtectedModelPiece(this.unsafemp.getChildrenOperation(index), this);
+    }
+    getChildrenLiteral(index) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"]))
+            throw new Error("called EEnum.getChildrenLiteral() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return new ProtectedModelPiece(this.unsafemp.getChildrenLiteral(index), this);
+    }
+    getChildrenParameter(index) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]))
+            throw new Error("called EOperation.getChildrenParameter() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return new ProtectedModelPiece(this.unsafemp.getChildrenParameter(index), this);
+    }
+    getChildrenClass(index) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"]))
+            throw new Error("called IPackage.getChildrenClass() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return new ProtectedModelPiece(this.unsafemp.getChildrenClass(index), this);
+    }
+    getChildrenEnum(index) {
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"]))
+            throw new Error("called IPackage.getChildrenEnum() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return new ProtectedModelPiece(this.unsafemp.getChildrenEnum(index), this);
+    }
+    endingName(valueMaxLength) { return this.unsafemp.endingName(); }
+    fullname() { return this.unsafemp.fullname(); }
+    generateModel() { return this.unsafemp.generateModel(); }
+    generateModelString() { return this.unsafemp.generateModelString(); }
+    getClassName() { return this.unsafemp.getClassName(); }
+    getInfo(toLower) { return this.unsafemp.getInfo(toLower); }
+    getInstanceClassName() { return this.unsafemp.getInstanceClassName(); }
+    getKey() { return this.unsafemp.getKey(); }
+    getKeyStr() { return this.unsafemp.getKeyStr(); }
+    isChildNameTaken(s) { return this.unsafemp.isChildNameTaken(s); }
+    printableName(valueMaxLength, full) { return this.unsafemp.printableName(valueMaxLength, full); }
+    printableNameshort(valueMaxLength) { return this.unsafemp.printableNameshort(valueMaxLength); }
     getType() {
-        if (!(this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"]))
-            throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
-        return this.unsafe.getType();
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"]))
+            throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getType();
     }
     getClass() {
-        if (!(this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"]))
-            throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
-        return new ProtectedModelPiece(this.unsafe.getClass(), this);
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"]))
+            throw new Error("called Typed.getDefaultValueStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return new ProtectedModelPiece(this.unsafemp.getClass(), this);
     }
     getUpperbound() {
-        if (!(this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"]))
-            throw new Error("called Typed.getUpperbound() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
-        return this.unsafe.getUpperbound();
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"]))
+            throw new Error("called Typed.getUpperbound() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getUpperbound();
     }
     getLowerbound() {
-        if (!(this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"]))
-            throw new Error("called Typed.getLowerbound() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
-        return this.unsafe.getLowerbound();
+        if (!(this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"]))
+            throw new Error("called Typed.getLowerbound() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
+        return this.unsafemp.getLowerbound();
     }
     getAllowedValuesStr() {
-        let e = this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"] ? this.unsafe : null;
+        let e = this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"] ? this.unsafemp : null;
         if (!e)
-            throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
+            throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
         return e.getAllowedValuesStr();
     }
     getAllowedValuesInt() {
-        let e = this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"] ? this.unsafe : null;
+        let e = this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"] ? this.unsafemp : null;
         if (!e)
-            throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
+            throw new Error("called EEnum.getAllowedValuesStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
         return e.getAllowedValuesInt();
     }
     getDefaultValueStr() {
-        let e = this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"] ? this.unsafe : null;
+        let e = this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"] ? this.unsafemp : null;
         if (!e)
-            throw new Error("called EEnum.getDefaultValueStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
+            throw new Error("called EEnum.getDefaultValueStr() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
         return e.getDefaultValueStr();
     }
     ////////// safe-able functions adjusting parameters.
-    shouldBeDisplayedAsEdge(set) { return this.unsafe.shouldBeDisplayedAsEdge(null); }
+    shouldBeDisplayedAsEdge(set) { return this.unsafemp.shouldBeDisplayedAsEdge(null); }
     ////////// unsafe functions got buffered.
     delete() {
         if (F.alse())
-            this.unsafe.delete(); // just to trigger errors if the source is modified
+            this.unsafemp.delete(); // just to trigger errors if the source is modified
         this.pendingChanges.add('delete', [true]);
     }
-    duplicate(nameAppend /*commentPostType*/, newParent) {
+    duplicate(nameAppend /*:string*/, newParent /*:ModelPiece = null*/) {
         if (F.alse())
-            this.unsafe.duplicate(nameAppend, newParent); // just to trigger errors if the source is modified
+            this.unsafemp.duplicate(nameAppend, newParent); // just to trigger errors if the source is modified
         this.pendingChanges.add('delete', [true]);
         return null;
     }
     mark(markb, key, color, radiusX, radiusY, width, backColor, extraOffset) {
         if (F.alse())
-            this.unsafe.mark(markb, key, color, radiusX, radiusY, width, backColor, extraOffset); // just to trigger errors if the source is modified
+            this.unsafemp.mark(markb, key, color, radiusX, radiusY, width, backColor, extraOffset); // just to trigger errors if the source is modified
         this.pendingChanges.add('mark', [...arguments]);
     }
     pushDown(untilStartOrEnd) {
         if (F.alse())
-            this.unsafe.pushDown(untilStartOrEnd); // just to trigger errors if the source is modified
+            this.unsafemp.pushDown(untilStartOrEnd); // just to trigger errors if the source is modified
         this.pendingChanges.add('pushDown', ['' + untilStartOrEnd]);
     }
     pushUp(untilStartOrEnd, offset) {
         if (F.alse())
-            this.unsafe.pushUp(untilStartOrEnd, offset); // just to trigger errors if the source is modified
+            this.unsafemp.pushUp(untilStartOrEnd, offset); // just to trigger errors if the source is modified
         this.pendingChanges.add('pushUp', ['' + untilStartOrEnd, '' + offset]);
     }
     refreshGUI() {
         if (F.alse())
-            this.unsafe.refreshGUI(); // just to trigger errors if the source is modified
+            this.unsafemp.refreshGUI(); // just to trigger errors if the source is modified
         this.pendingChanges.add('refreshGUI');
     }
     refreshGUI_Alone() {
         if (F.alse())
-            this.unsafe.refreshGUI_Alone(); // just to trigger errors if the source is modified
+            this.unsafemp.refreshGUI_Alone(); // just to trigger errors if the source is modified
         this.pendingChanges.add('refreshGUI_Alone');
     }
     refreshInstancesGUI() {
         if (F.alse())
-            this.unsafe.refreshInstancesGUI(); // just to trigger errors if the source is modified
+            this.unsafemp.refreshInstancesGUI(); // just to trigger errors if the source is modified
         this.pendingChanges.add('refreshInstancesGUI');
     }
     validate() {
         if (F.alse())
-            this.unsafe.validate(); // just to trigger errors if the source is modified
+            this.unsafemp.validate(); // just to trigger errors if the source is modified
         this.pendingChanges.add('validate');
         return undefined;
     }
     setName(value, refreshGUI, warnDuplicateFix) {
         if (F.alse())
-            this.unsafe.setName(value, refreshGUI, warnDuplicateFix); // just to trigger errors if the source is modified
+            this.unsafemp.setName(value, refreshGUI, warnDuplicateFix); // just to trigger errors if the source is modified
         this.pendingChanges.add('setName', [...arguments]);
         return undefined;
     }
     // EEnum things.
     addLiteral(literal = null) {
-        const t = this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"] ? this.unsafe : null;
+        const t = this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"] ? this.unsafemp : null;
         if (!t)
-            throw new Error("called EEnum.addLiteral() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
+            throw new Error("called EEnum.addLiteral() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
         if (F.alse())
             t.addLiteral(literal); // just to trigger errors if the source is modified
         this.pendingChanges.add('addLiteral', [...arguments]);
         return undefined;
     }
     setType(ecoreTypeString, throwError, refreshGui) {
-        const t = this.unsafe;
+        const t = this.unsafemp;
         if (!t)
-            throw new Error("called Typed.setType() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
+            throw new Error("called Typed.setType() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
         if (F.alse())
             t.setType(ecoreTypeString, true, false);
         this.pendingChanges.add('setType', [...arguments]);
         return undefined;
     }
     setUpperbound(val) {
-        const t = this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] ? this.unsafe : null;
+        const t = this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] ? this.unsafemp : null;
         if (!t)
-            throw new Error("called Typed.setUpperbound() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
+            throw new Error("called Typed.setUpperbound() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
         if (F.alse())
             t.setUpperbound(val);
         this.pendingChanges.add('setUpperbound', [...arguments]);
         return undefined;
     }
     setLowerbound(val) {
-        const t = this.unsafe instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] ? this.unsafe : null;
+        const t = this.unsafemp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] ? this.unsafemp : null;
         if (!t)
-            throw new Error("called Typed.setLowerbound() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafe) + ") ");
+            throw new Error("called Typed.setLowerbound() on a ModelPiece with a wrong type(" + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this.unsafemp) + ") ");
         if (F.alse())
             t.setLowerbound(val);
         this.pendingChanges.add('setLowerbound', [...arguments]);
@@ -3466,7 +3561,7 @@ class ProtectedModelPiece {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep :root  {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainBorderWidth: 5px;\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n  --bluebordercolor: #0084ff;\r\n\r\n  --mainFontColor: transparent;\r\n  --mainBackgroundColor: transparent;\r\n  --mainBorderColor: transparent;\r\n  --secondaryBorderColor: transparent;\r\n  --popupBackgroundColor: transparent;\r\n  --altBackgroundColor: var(--mainBorderColor);\r\n  --altFontColor: transparent;\r\n\r\n  --DarkmainFontColor: #b2b2ba;\r\n  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;*/\r\n  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;*/\r\n  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;*/\r\n  --DarkpopupBackgroundColor: #44444c;\r\n  --DarkaltBackgroundColor: var(--mainBorderColor);\r\n  --DarkaltFontColor: var(--LightmainBorderColor);\r\n\r\n\r\n  --LightmainFontColor: var(--DarksecondaryBorderColor);\r\n  --LightmainBackgroundColor: white;\r\n  --LightmainBorderColor: #f0f0f0; /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/\r\n  --LightsecondaryBorderColor: #f5f5f5; /*#c5c5c5;*/\r\n  --LightpopupBackgroundColor: var(--DarkmainBorderColor);\r\n  --LightaltBackgroundColor: var(--mainBorderColor);\r\n  --LightaltFontColor: var(--DarkmainBorderColor);\r\n}\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0);\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n/*::-webkit-scrollbar {\r\n    display: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsa0JBQWtCLGtCQUFrQjtFQUNsQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpRUFBaUU7RUFDakUsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWiwwQkFBMEI7O0VBRTFCLDRCQUE0QjtFQUM1QixrQ0FBa0M7RUFDbEMsOEJBQThCO0VBQzlCLG1DQUFtQztFQUNuQyxtQ0FBbUM7RUFDbkMsNENBQTRDO0VBQzVDLDJCQUEyQjs7RUFFM0IsNEJBQTRCO0VBQzVCLGtDQUFrQyxDQUFDLGNBQWM7RUFDakQsOEJBQThCLENBQUMsV0FBVztFQUMxQyxtQ0FBbUMsQ0FBQyxXQUFXO0VBQy9DLG1DQUFtQztFQUNuQyxnREFBZ0Q7RUFDaEQsK0NBQStDOzs7RUFHL0MscURBQXFEO0VBQ3JELGlDQUFpQztFQUNqQywrQkFBK0IsRUFBRSxtREFBbUQ7RUFDcEYsb0NBQW9DLEVBQUUsV0FBVztFQUNqRCx1REFBdUQ7RUFDdkQsaURBQWlEO0VBQ2pELCtDQUErQztBQUNqRDtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLGlDQUFpQztFQUNqQyxvQ0FBb0M7RUFDcEMsNENBQTRDO0VBQzVDLHdDQUF3QztFQUN4QywyQkFBMkI7RUFDM0IseUNBQXlDO0VBQ3pDLDZDQUE2QztFQUM3QyxzQ0FBc0M7QUFDeEM7QUFDQTs7RUFFRTtBQUNGLGFBQWEsOEJBQThCLEVBQUU7QUFDN0Msc0JBQXNCLG9DQUFvQyxFQUFFO0FBQzVELG1CQUFtQixpQ0FBaUMsRUFBRTtBQUN0RDtFQUNFLGFBQWE7RUFDYiwyQkFBMkIsRUFBRSxTQUFTO0FBQ3hDO0FBQ0E7RUFDRSxrQ0FBa0M7QUFDcEM7QUFDQSxPQUFPO0FBRVAseUNBQXlDO0FBQ3pDO0VBQ0Usc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDRDQUE0QztFQUM1Qyx5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsdUNBQXVDO0VBQ3ZDLHlIQUF5SDtFQUN6SCw0REFBNEQ7QUFDOUQ7QUFDQTtFQUNFLDZCQUE2QjtFQUM3QjtnQkFDYztBQUNoQjtBQUNBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isd0JBQXVCO1VBQXZCLHVCQUF1QjtBQUN6QjtBQUNBOzs7Ozs7Ozs7Ozs7Ozs7OztFQWlCRTtBQUVGO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFFQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixVQUFVO0FBQ1o7QUFHQSwwRkFBMEY7QUFDMUY7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztDQXFCQztBQUNEO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQW1CO0VBQW5CLDZCQUFtQjtVQUFuQixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHlCQUE4QjtVQUE5Qiw4QkFBOEI7RUFDOUIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBeUI7RUFDekIsWUFBWSxDQUFDO0FBR2Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osdUdBQXVHO0VBQ3ZHLHdEQUF3RDtFQUN4RCx5QkFBeUIsQ0FBQyx3QkFBd0I7QUFDcEQ7QUFDQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjtBQU1BO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgOnJvb3QgIHsvKiBjc3MgdmFyaWFibGVzICovXHJcbiAgLS10b3BiYXJIOiA0MHB4O1xyXG4gIC0tc2lkZWJhclc6IDI4M3B4O1xyXG4gIC0tbWFpbkJvcmRlcldpZHRoOiA1cHg7XHJcbiAgLS1tYWluQm9yZGVyOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpIHNvbGlkIHZhcigtLW1haW5Cb3JkZXJXaWR0aCk7XHJcbiAgLS1zY3JvbGxiYXJXOiAwcHg7XHJcbiAgLS10YWJIOiAzMHB4O1xyXG4gIC0tYmx1ZWJvcmRlcmNvbG9yOiAjMDA4NGZmO1xyXG5cclxuICAtLW1haW5Gb250Q29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tYWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tYWx0Rm9udENvbG9yOiB0cmFuc3BhcmVudDtcclxuXHJcbiAgLS1EYXJrbWFpbkZvbnRDb2xvcjogI2IyYjJiYTtcclxuICAtLURhcmttYWluQmFja2dyb3VuZENvbG9yOiAjMWExYTFjOy8qd2hpdGVTbW9rZTsqL1xyXG4gIC0tRGFya21haW5Cb3JkZXJDb2xvcjogIzJlMmYzNDsvKiNlNWU1ZTU7Ki9cclxuICAtLURhcmtzZWNvbmRhcnlCb3JkZXJDb2xvcjogIzNjM2M0NDsvKiNjNWM1YzU7Ki9cclxuICAtLURhcmtwb3B1cEJhY2tncm91bmRDb2xvcjogIzQ0NDQ0YztcclxuICAtLURhcmthbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7XHJcbiAgLS1EYXJrYWx0Rm9udENvbG9yOiB2YXIoLS1MaWdodG1haW5Cb3JkZXJDb2xvcik7XHJcblxyXG5cclxuICAtLUxpZ2h0bWFpbkZvbnRDb2xvcjogdmFyKC0tRGFya3NlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAtLUxpZ2h0bWFpbkJhY2tncm91bmRDb2xvcjogd2hpdGU7XHJcbiAgLS1MaWdodG1haW5Cb3JkZXJDb2xvcjogI2YwZjBmMDsgLyojOWNhN2I4OyBvbiBpbnRlbGxpSmlkZWEgZGFya2VyIHNoYWRlIC8qI2U1ZTVlNTsqL1xyXG4gIC0tTGlnaHRzZWNvbmRhcnlCb3JkZXJDb2xvcjogI2Y1ZjVmNTsgLyojYzVjNWM1OyovXHJcbiAgLS1MaWdodHBvcHVwQmFja2dyb3VuZENvbG9yOiB2YXIoLS1EYXJrbWFpbkJvcmRlckNvbG9yKTtcclxuICAtLUxpZ2h0YWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tTGlnaHRhbHRGb250Q29sb3I6IHZhcigtLURhcmttYWluQm9yZGVyQ29sb3IpO1xyXG59XHJcbjo6bmctZGVlcCAqe1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgc2Nyb2xsYmFyLWJhc2UtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHNjcm9sbGJhci0zZGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBzY3JvbGxiYXItaGlnaGxpZ2h0LWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItdHJhY2stY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIHNjcm9sbGJhci1hcnJvdy1jb2xvcjogIzAwMDtcclxuICBzY3JvbGxiYXItc2hhZG93LWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItZGFya3NoYWRvdy1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgLyogLW1vei1hcHBlYXJhbmNlOiBub25lICFpbXBvcnRhbnQ7ICovXHJcbn1cclxuLyo6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbn0qL1xyXG4qOmRpc2FibGVkIHsgY3Vyc29yOiBub3QtYWxsb3dlZCAhaW1wb3J0YW50OyB9XHJcbmlucHV0W3R5cGU9Y2hlY2tib3hdeyAtbW96LWFwcGVhcmFuY2U6IGNoZWNrYm94ICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1yYWRpb117IC1tb3otYXBwZWFyYW5jZTogcmFkaW8gIWltcG9ydGFudDsgfVxyXG5pbnB1dDpkaXNhYmxlZHtcclxuICBvcGFjaXR5IDogLjc1O1xyXG4gIGZpbHRlciAgOiBhbHBoYShvcGFjaXR5PTc1KTsgLyogSUU8OSAqL1xyXG59XHJcbjo6bmctZGVlcCAuc3R5bGVFZGl0b3JTZWxlY3RlZHtcclxuICBvdXRsaW5lOiAzcHggZGFzaGVkIHJlZCAhaW1wb3J0YW50O1xyXG59XHJcbi8qb2xkcyovXHJcblxyXG4vKioqKioqKioqKioqKioqKioqIGF0dHJpYnV0ZUVkaXRvci5jc3MgKi9cclxuLmF0dHJpYnV0ZUVkaXRvciwgLnN0eWxlRWRpdG9ye1xyXG4gIC8qZGlzcGxheTppbmxpbmUtYm94OyovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAtbW96LWZpdC1jb250ZW50O1xyXG4gIHBhZGRpbmc6OHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIGJvcmRlcjogdmFyKC0tbWFpbkJvcmRlcik7XHJcbiAgbWF4LXdpZHRoOiAxMDB2dztcclxuICBtYXgtaGVpZ2h0OjEwMHZoO1xyXG4gIG92ZXJmbG93OiBhdXRvO1xyXG59XHJcbi5zdHlsZUVkaXRvcntcclxuICBsZWZ0OiB2YXIoLS1zaWRlYmFyVyk7XHJcbiAgdG9wOiBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpO1xyXG4gIC8qdm9nbGlvIGNoZSBzaWEgZGl2ZXJzYSBwZXJjaMOoIGRpIHNvbGl0byBwYXJ0ZSBjb24gYWx0ZXp6YSBwYXJpIGEgdG9wYmFyLmggZSB2b2dsaW8gY2hlIHNpYSBzY3JvbGxhYmlsZSBzZW56YSBzcG9zdGFybGEqL1xyXG4gIG1heC1oZWlnaHQ6IGNhbGMoMTAwdmggLSBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTtcclxufVxyXG5idXR0b24uYXR0cmlidXRlRWRpdG9yQ29uZmlybSwgYnV0dG9uLnN0eWxlRWRpdG9yQ29uZmlybXtcclxuICBtYXJnaW4tbGVmdDogY2FsYyg1MCUgLSA1MHB4KTtcclxuICAvKiB3aWR0aDoxMDBweDtcclxuICAgaGVpZ2h0OjMwcHg7Ki9cclxufVxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSAuYXR0cmlidXRlRWRpdG9yRmllbGROYW1lLCB0YWJsZS5zdHlsZVRhYmxlIC5zdHlsZUVkaXRvckZpZWxkTmFtZXtcclxuICBtYXgtd2lkdGg6MTUwcHg7XHJcbiAgbWF4LWhlaWdodDoxNTBweDtcclxuICBvdmVyZmxvdzphdXRvO1xyXG59XHJcbi5zdHlsZVRhYmxle1xyXG4gIG1hcmdpbi10b3A6MTBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLnN0eWxlVGFibGUgdGR7XHJcbiAgbWF4LXdpZHRoOiAzMDBweDtcclxufVxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUsIC5zdHlsZUVkaXRvclRpdGxle1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uZWRnZVJvd3tcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5lZGdlUm93Pip7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IDBweDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogNHB4O1xyXG4gIGZsZXgtYmFzaXM6IDBweDtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxufVxyXG4uaXNDb21wb3VuZEVkZ2V7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuLnN0eWxlQ29tcG91bmRXcmFwcGVye1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG4uY29tcG91bmRFZGdlU3RhcnQsIC5jb21wb3VuZEVkZ2VFbmR7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5TaWRlYmFyU3R5bGVIdG1sLCAuR3JhcGhTdHlsZUh0bWx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG4vKlxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB7XHJcbiAgICBib3JkZXI6bm9uZTtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkIHtcclxuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgIzAwMDtcclxuICAgIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICMwMDA7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmZpcnN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1sZWZ0OiBub25lO1xyXG59XHJcblxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB0ZDpsYXN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1yaWdodDogbm9uZTtcclxufSovXHJcblxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLCAuc3R5bGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwicmFkaW9cIl17XHJcbiAgbWFyZ2luOiA0cHg7XHJcbn1cclxuLlJlZmVyZW5jZVNlbGVjdG9ye1xyXG4gIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLnJvd01vZGVsRGV0YWlsLCAudmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICB3aWR0aDogMzNweDtcclxuICBoZWlnaHQ6IDMzcHg7XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxufVxyXG4udmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbiAgZmxvYXQ6bm9uZTtcclxufVxyXG5cclxuXHJcbi8qLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8gIGNzcy5jc3Mgbm90aGluZyBvZiB0aGlzIHNob3VsZCB3b3JrKi9cclxuLypcclxuLnNpZGViYXJTaGVsbCwgLmVkaXRvclNoZWxsLCAucHJvcGVydHlfc2lkZWJhcntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7LypmbGV4OyogL1xyXG4gIC8qIGhlaWdodDogY2FsYygxMDB2aCAtICh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7KiAvXHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICBmbGV4LXdyYXA6IHdyYXA7fVxyXG4uc2lkZWJhclNoZWxse1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LWJhc2lzOiBjYWxjKHZhcigtLXNpZGViYXJXKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbn1cclxuI3Byb3BlcnR5X3NpZGViYXJ7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4uZWRpdG9yU2hlbGx7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICB3aWR0aDogY2FsYygxMDB2dyAtIHZhcigtLXNpZGViYXJXKSk7XHJcbn1cclxuKi9cclxuI21ldGFtb2RlbF90YWIsICNtb2RlbF90YWJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XHJcbiAgYWxpZ24tY29udGVudDogZmxleC1zdGFydDtcclxuICB3aWR0aDogMTAwdnc7fVxyXG5cclxuXHJcbiNtZXRhbW9kZWxfZWRpdG9yLCAjbW9kZWxfZWRpdG9ye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICAvKndpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpIC0gdmFyKC0tc2Nyb2xsYmFyVykpOy8qTkI6IFRPIERPOiBxdWFuZG8gbmFzY29uZGkgbCdoaWRkZW5pbnB1dCAqL1xyXG4gIGhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM0NDQ0NGM7LypsaWdodGdvbGRlbnJvZHllbGxvdzsqL1xyXG59XHJcbiNpbnB1dHtcclxuICBkaXNwbGF5Om5vbmU7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogMzAwcHg7XHJcbiAgb3ZlcmZsb3cteTpzY3JvbGw7XHJcbn1cclxuXHJcblxyXG5cclxuXHJcblxyXG50YWJsZS5ub0JvcmRlcntcclxuICBib3JkZXI6IG5vbmU7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep :root  {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainBorderWidth: 5px;\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n  --bluebordercolor: #0084ff;\r\n\r\n  --mainFontColor: transparent;\r\n  --mainBackgroundColor: transparent;\r\n  --mainBorderColor: transparent;\r\n  --secondaryBorderColor: transparent;\r\n  --popupBackgroundColor: transparent;\r\n  --altBackgroundColor: var(--mainBorderColor);\r\n  --altFontColor: transparent;\r\n\r\n  --DarkmainFontColor: #b2b2ba;\r\n  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;*/\r\n  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;*/\r\n  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;*/\r\n  --DarkpopupBackgroundColor: #44444c;\r\n  --DarkaltBackgroundColor: var(--mainBorderColor);\r\n  --DarkaltFontColor: var(--LightmainBorderColor);\r\n\r\n\r\n  --LightmainFontColor: var(--DarksecondaryBorderColor);\r\n  --LightmainBackgroundColor: white;\r\n  --LightmainBorderColor: #f0f0f0; /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/\r\n  --LightsecondaryBorderColor: #f5f5f5; /*#c5c5c5;*/\r\n  --LightpopupBackgroundColor: var(--DarkmainBorderColor);\r\n  --LightaltBackgroundColor: var(--mainBorderColor);\r\n  --LightaltFontColor: var(--DarkmainBorderColor);\r\n}\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0);\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n/*because color will be inherited, but background not (since input and selects cannot inherit and inherit behave like transparent.\r\n this is fine on the input itself but the optgroup cannot have transparent and will be always white.\r\n now, the problem is if you set a bacgkround-color: inherit / transparent select inside a black element with white text, the optgroup will be white with white text.\r\n */\r\n::ng-deep optgroup{\r\n  color: black;\r\n  background-color: white;\r\n}\r\n/*::-webkit-scrollbar {\r\ndisplay: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsa0JBQWtCLGtCQUFrQjtFQUNsQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpRUFBaUU7RUFDakUsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWiwwQkFBMEI7O0VBRTFCLDRCQUE0QjtFQUM1QixrQ0FBa0M7RUFDbEMsOEJBQThCO0VBQzlCLG1DQUFtQztFQUNuQyxtQ0FBbUM7RUFDbkMsNENBQTRDO0VBQzVDLDJCQUEyQjs7RUFFM0IsNEJBQTRCO0VBQzVCLGtDQUFrQyxDQUFDLGNBQWM7RUFDakQsOEJBQThCLENBQUMsV0FBVztFQUMxQyxtQ0FBbUMsQ0FBQyxXQUFXO0VBQy9DLG1DQUFtQztFQUNuQyxnREFBZ0Q7RUFDaEQsK0NBQStDOzs7RUFHL0MscURBQXFEO0VBQ3JELGlDQUFpQztFQUNqQywrQkFBK0IsRUFBRSxtREFBbUQ7RUFDcEYsb0NBQW9DLEVBQUUsV0FBVztFQUNqRCx1REFBdUQ7RUFDdkQsaURBQWlEO0VBQ2pELCtDQUErQztBQUNqRDtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLGlDQUFpQztFQUNqQyxvQ0FBb0M7RUFDcEMsNENBQTRDO0VBQzVDLHdDQUF3QztFQUN4QywyQkFBMkI7RUFDM0IseUNBQXlDO0VBQ3pDLDZDQUE2QztFQUM3QyxzQ0FBc0M7QUFDeEM7QUFDQTs7O0VBR0U7QUFDRjtFQUNFLFlBQVk7RUFDWix1QkFBdUI7QUFDekI7QUFDQTs7RUFFRTtBQUNGLGFBQWEsOEJBQThCLEVBQUU7QUFDN0Msc0JBQXNCLG9DQUFvQyxFQUFFO0FBQzVELG1CQUFtQixpQ0FBaUMsRUFBRTtBQUN0RDtFQUNFLGFBQWE7RUFDYiwyQkFBMkIsRUFBRSxTQUFTO0FBQ3hDO0FBQ0E7RUFDRSxrQ0FBa0M7QUFDcEM7QUFDQSxPQUFPO0FBRVAseUNBQXlDO0FBQ3pDO0VBQ0Usc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDRDQUE0QztFQUM1Qyx5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsdUNBQXVDO0VBQ3ZDLHlIQUF5SDtFQUN6SCw0REFBNEQ7QUFDOUQ7QUFDQTtFQUNFLDZCQUE2QjtFQUM3QjtnQkFDYztBQUNoQjtBQUNBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isd0JBQXVCO1VBQXZCLHVCQUF1QjtBQUN6QjtBQUNBOzs7Ozs7Ozs7Ozs7Ozs7OztFQWlCRTtBQUVGO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFFQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixVQUFVO0FBQ1o7QUFHQSwwRkFBMEY7QUFDMUY7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztDQXFCQztBQUNEO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQW1CO0VBQW5CLDZCQUFtQjtVQUFuQixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHlCQUE4QjtVQUE5Qiw4QkFBOEI7RUFDOUIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBeUI7RUFDekIsWUFBWSxDQUFDO0FBR2Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osdUdBQXVHO0VBQ3ZHLHdEQUF3RDtFQUN4RCx5QkFBeUIsQ0FBQyx3QkFBd0I7QUFDcEQ7QUFDQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjtBQU1BO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgOnJvb3QgIHsvKiBjc3MgdmFyaWFibGVzICovXHJcbiAgLS10b3BiYXJIOiA0MHB4O1xyXG4gIC0tc2lkZWJhclc6IDI4M3B4O1xyXG4gIC0tbWFpbkJvcmRlcldpZHRoOiA1cHg7XHJcbiAgLS1tYWluQm9yZGVyOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpIHNvbGlkIHZhcigtLW1haW5Cb3JkZXJXaWR0aCk7XHJcbiAgLS1zY3JvbGxiYXJXOiAwcHg7XHJcbiAgLS10YWJIOiAzMHB4O1xyXG4gIC0tYmx1ZWJvcmRlcmNvbG9yOiAjMDA4NGZmO1xyXG5cclxuICAtLW1haW5Gb250Q29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tYWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tYWx0Rm9udENvbG9yOiB0cmFuc3BhcmVudDtcclxuXHJcbiAgLS1EYXJrbWFpbkZvbnRDb2xvcjogI2IyYjJiYTtcclxuICAtLURhcmttYWluQmFja2dyb3VuZENvbG9yOiAjMWExYTFjOy8qd2hpdGVTbW9rZTsqL1xyXG4gIC0tRGFya21haW5Cb3JkZXJDb2xvcjogIzJlMmYzNDsvKiNlNWU1ZTU7Ki9cclxuICAtLURhcmtzZWNvbmRhcnlCb3JkZXJDb2xvcjogIzNjM2M0NDsvKiNjNWM1YzU7Ki9cclxuICAtLURhcmtwb3B1cEJhY2tncm91bmRDb2xvcjogIzQ0NDQ0YztcclxuICAtLURhcmthbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7XHJcbiAgLS1EYXJrYWx0Rm9udENvbG9yOiB2YXIoLS1MaWdodG1haW5Cb3JkZXJDb2xvcik7XHJcblxyXG5cclxuICAtLUxpZ2h0bWFpbkZvbnRDb2xvcjogdmFyKC0tRGFya3NlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAtLUxpZ2h0bWFpbkJhY2tncm91bmRDb2xvcjogd2hpdGU7XHJcbiAgLS1MaWdodG1haW5Cb3JkZXJDb2xvcjogI2YwZjBmMDsgLyojOWNhN2I4OyBvbiBpbnRlbGxpSmlkZWEgZGFya2VyIHNoYWRlIC8qI2U1ZTVlNTsqL1xyXG4gIC0tTGlnaHRzZWNvbmRhcnlCb3JkZXJDb2xvcjogI2Y1ZjVmNTsgLyojYzVjNWM1OyovXHJcbiAgLS1MaWdodHBvcHVwQmFja2dyb3VuZENvbG9yOiB2YXIoLS1EYXJrbWFpbkJvcmRlckNvbG9yKTtcclxuICAtLUxpZ2h0YWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tTGlnaHRhbHRGb250Q29sb3I6IHZhcigtLURhcmttYWluQm9yZGVyQ29sb3IpO1xyXG59XHJcbjo6bmctZGVlcCAqe1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgc2Nyb2xsYmFyLWJhc2UtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHNjcm9sbGJhci0zZGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBzY3JvbGxiYXItaGlnaGxpZ2h0LWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItdHJhY2stY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIHNjcm9sbGJhci1hcnJvdy1jb2xvcjogIzAwMDtcclxuICBzY3JvbGxiYXItc2hhZG93LWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItZGFya3NoYWRvdy1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgLyogLW1vei1hcHBlYXJhbmNlOiBub25lICFpbXBvcnRhbnQ7ICovXHJcbn1cclxuLypiZWNhdXNlIGNvbG9yIHdpbGwgYmUgaW5oZXJpdGVkLCBidXQgYmFja2dyb3VuZCBub3QgKHNpbmNlIGlucHV0IGFuZCBzZWxlY3RzIGNhbm5vdCBpbmhlcml0IGFuZCBpbmhlcml0IGJlaGF2ZSBsaWtlIHRyYW5zcGFyZW50LlxyXG4gdGhpcyBpcyBmaW5lIG9uIHRoZSBpbnB1dCBpdHNlbGYgYnV0IHRoZSBvcHRncm91cCBjYW5ub3QgaGF2ZSB0cmFuc3BhcmVudCBhbmQgd2lsbCBiZSBhbHdheXMgd2hpdGUuXHJcbiBub3csIHRoZSBwcm9ibGVtIGlzIGlmIHlvdSBzZXQgYSBiYWNna3JvdW5kLWNvbG9yOiBpbmhlcml0IC8gdHJhbnNwYXJlbnQgc2VsZWN0IGluc2lkZSBhIGJsYWNrIGVsZW1lbnQgd2l0aCB3aGl0ZSB0ZXh0LCB0aGUgb3B0Z3JvdXAgd2lsbCBiZSB3aGl0ZSB3aXRoIHdoaXRlIHRleHQuXHJcbiAqL1xyXG46Om5nLWRlZXAgb3B0Z3JvdXB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG59XHJcbi8qOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbmRpc3BsYXk6IG5vbmU7XHJcbn0qL1xyXG4qOmRpc2FibGVkIHsgY3Vyc29yOiBub3QtYWxsb3dlZCAhaW1wb3J0YW50OyB9XHJcbmlucHV0W3R5cGU9Y2hlY2tib3hdeyAtbW96LWFwcGVhcmFuY2U6IGNoZWNrYm94ICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1yYWRpb117IC1tb3otYXBwZWFyYW5jZTogcmFkaW8gIWltcG9ydGFudDsgfVxyXG5pbnB1dDpkaXNhYmxlZHtcclxuICBvcGFjaXR5IDogLjc1O1xyXG4gIGZpbHRlciAgOiBhbHBoYShvcGFjaXR5PTc1KTsgLyogSUU8OSAqL1xyXG59XHJcbjo6bmctZGVlcCAuc3R5bGVFZGl0b3JTZWxlY3RlZHtcclxuICBvdXRsaW5lOiAzcHggZGFzaGVkIHJlZCAhaW1wb3J0YW50O1xyXG59XHJcbi8qb2xkcyovXHJcblxyXG4vKioqKioqKioqKioqKioqKioqIGF0dHJpYnV0ZUVkaXRvci5jc3MgKi9cclxuLmF0dHJpYnV0ZUVkaXRvciwgLnN0eWxlRWRpdG9ye1xyXG4gIC8qZGlzcGxheTppbmxpbmUtYm94OyovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAtbW96LWZpdC1jb250ZW50O1xyXG4gIHBhZGRpbmc6OHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIGJvcmRlcjogdmFyKC0tbWFpbkJvcmRlcik7XHJcbiAgbWF4LXdpZHRoOiAxMDB2dztcclxuICBtYXgtaGVpZ2h0OjEwMHZoO1xyXG4gIG92ZXJmbG93OiBhdXRvO1xyXG59XHJcbi5zdHlsZUVkaXRvcntcclxuICBsZWZ0OiB2YXIoLS1zaWRlYmFyVyk7XHJcbiAgdG9wOiBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpO1xyXG4gIC8qdm9nbGlvIGNoZSBzaWEgZGl2ZXJzYSBwZXJjaMOoIGRpIHNvbGl0byBwYXJ0ZSBjb24gYWx0ZXp6YSBwYXJpIGEgdG9wYmFyLmggZSB2b2dsaW8gY2hlIHNpYSBzY3JvbGxhYmlsZSBzZW56YSBzcG9zdGFybGEqL1xyXG4gIG1heC1oZWlnaHQ6IGNhbGMoMTAwdmggLSBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTtcclxufVxyXG5idXR0b24uYXR0cmlidXRlRWRpdG9yQ29uZmlybSwgYnV0dG9uLnN0eWxlRWRpdG9yQ29uZmlybXtcclxuICBtYXJnaW4tbGVmdDogY2FsYyg1MCUgLSA1MHB4KTtcclxuICAvKiB3aWR0aDoxMDBweDtcclxuICAgaGVpZ2h0OjMwcHg7Ki9cclxufVxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSAuYXR0cmlidXRlRWRpdG9yRmllbGROYW1lLCB0YWJsZS5zdHlsZVRhYmxlIC5zdHlsZUVkaXRvckZpZWxkTmFtZXtcclxuICBtYXgtd2lkdGg6MTUwcHg7XHJcbiAgbWF4LWhlaWdodDoxNTBweDtcclxuICBvdmVyZmxvdzphdXRvO1xyXG59XHJcbi5zdHlsZVRhYmxle1xyXG4gIG1hcmdpbi10b3A6MTBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLnN0eWxlVGFibGUgdGR7XHJcbiAgbWF4LXdpZHRoOiAzMDBweDtcclxufVxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUsIC5zdHlsZUVkaXRvclRpdGxle1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uZWRnZVJvd3tcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5lZGdlUm93Pip7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IDBweDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogNHB4O1xyXG4gIGZsZXgtYmFzaXM6IDBweDtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxufVxyXG4uaXNDb21wb3VuZEVkZ2V7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuLnN0eWxlQ29tcG91bmRXcmFwcGVye1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG4uY29tcG91bmRFZGdlU3RhcnQsIC5jb21wb3VuZEVkZ2VFbmR7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5TaWRlYmFyU3R5bGVIdG1sLCAuR3JhcGhTdHlsZUh0bWx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG4vKlxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB7XHJcbiAgICBib3JkZXI6bm9uZTtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkIHtcclxuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgIzAwMDtcclxuICAgIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICMwMDA7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmZpcnN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1sZWZ0OiBub25lO1xyXG59XHJcblxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB0ZDpsYXN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1yaWdodDogbm9uZTtcclxufSovXHJcblxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLCAuc3R5bGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwicmFkaW9cIl17XHJcbiAgbWFyZ2luOiA0cHg7XHJcbn1cclxuLlJlZmVyZW5jZVNlbGVjdG9ye1xyXG4gIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLnJvd01vZGVsRGV0YWlsLCAudmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICB3aWR0aDogMzNweDtcclxuICBoZWlnaHQ6IDMzcHg7XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxufVxyXG4udmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbiAgZmxvYXQ6bm9uZTtcclxufVxyXG5cclxuXHJcbi8qLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8gIGNzcy5jc3Mgbm90aGluZyBvZiB0aGlzIHNob3VsZCB3b3JrKi9cclxuLypcclxuLnNpZGViYXJTaGVsbCwgLmVkaXRvclNoZWxsLCAucHJvcGVydHlfc2lkZWJhcntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7LypmbGV4OyogL1xyXG4gIC8qIGhlaWdodDogY2FsYygxMDB2aCAtICh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7KiAvXHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICBmbGV4LXdyYXA6IHdyYXA7fVxyXG4uc2lkZWJhclNoZWxse1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LWJhc2lzOiBjYWxjKHZhcigtLXNpZGViYXJXKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbn1cclxuI3Byb3BlcnR5X3NpZGViYXJ7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4uZWRpdG9yU2hlbGx7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICB3aWR0aDogY2FsYygxMDB2dyAtIHZhcigtLXNpZGViYXJXKSk7XHJcbn1cclxuKi9cclxuI21ldGFtb2RlbF90YWIsICNtb2RlbF90YWJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XHJcbiAgYWxpZ24tY29udGVudDogZmxleC1zdGFydDtcclxuICB3aWR0aDogMTAwdnc7fVxyXG5cclxuXHJcbiNtZXRhbW9kZWxfZWRpdG9yLCAjbW9kZWxfZWRpdG9ye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICAvKndpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpIC0gdmFyKC0tc2Nyb2xsYmFyVykpOy8qTkI6IFRPIERPOiBxdWFuZG8gbmFzY29uZGkgbCdoaWRkZW5pbnB1dCAqL1xyXG4gIGhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM0NDQ0NGM7LypsaWdodGdvbGRlbnJvZHllbGxvdzsqL1xyXG59XHJcbiNpbnB1dHtcclxuICBkaXNwbGF5Om5vbmU7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogMzAwcHg7XHJcbiAgb3ZlcmZsb3cteTpzY3JvbGw7XHJcbn1cclxuXHJcblxyXG5cclxuXHJcblxyXG50YWJsZS5ub0JvcmRlcntcclxuICBib3JkZXI6IG5vbmU7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -3704,10 +3799,16 @@ const M2InputXml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '    <eStructuralFeatures xsi:type="ecore:EReference" name="playerlist" eType="#//player"/>\n' +
     '  </eClassifiers>\n' +
     '</ecore:EPackage>\n';
+function globalNativeFunctionOverride() {
+    const getattr = Element.prototype.getAttribute;
+    // apparently getattrib() in svg elements is case sensitive, while in html is not. but still svg cannot have uppercase letters in attributes. (chrome bug?)
+    Element.prototype.getAttribute = function (qualifiedName) { return typeof qualifiedName === _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["TSON_JSTypes"].string ? getattr.call(this, qualifiedName.toLowerCase()) : null; };
+}
 function globalevents() {
+    globalNativeFunctionOverride();
     // Prevent the backspace key from navigating back.
     const $document = $(document);
-    $document.unbind('keydown').bind('keydown', _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].preventBackSlashHistoryNavigation);
+    $document.off('keydown').on('keydown', _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].preventBackSlashHistoryNavigation);
     $document.on('keydown', (e) => {
         console.log('documentKeyDown: ', e.key, e.keyCode);
         if (e.key === 'Escape') {
@@ -3811,40 +3912,11 @@ function main() {
     window.status = Status.status;
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].focusHistorySetup();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].tabSetup();
-    $('app-mm-graph-html .propertyBarContainer .UtabHeader').on('click', (e) => {
-        if (e.currentTarget.innerText === 'Style') {
-            Status.status.mm.graph.propertyBar.styleEditor.onShow();
-        }
-        else if (e.currentTarget.innerText === 'Structured') {
-            Status.status.mm.graph.propertyBar.onShow();
-        }
-        else if (e.currentTarget.innerText === 'Raw') {
-            Status.status.mm.graph.propertyBar.onShow(true);
-        }
-        else {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pe(true, 'unrecognized right-side tab:', e.currentTarget);
-        }
-    });
-    $('app-m-graph-html .propertyBarContainer .UtabHeader').on('click', (e) => {
-        if (e.currentTarget.innerText === 'Style') {
-            Status.status.m.graph.propertyBar.styleEditor.onShow();
-        }
-        else if (e.currentTarget.innerText === 'Structured') {
-            Status.status.m.graph.propertyBar.onShow();
-        }
-        else if (e.currentTarget.innerText === 'Raw') {
-            Status.status.m.graph.propertyBar.onShow(true);
-        }
-        else {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pe(true, 'unrecognized right-side tab:', e.currentTarget);
-        }
-    });
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].resizableBorderSetup();
     const $resizableBorders = $('.resizableBorder.side, .resizableBorder.corner');
     for (i = 0; i < $resizableBorders.length; i++) {
         $resizableBorders[i].style.borderColor = 'var(--mainBorderColor)';
     }
-    _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ChangelogRoot"].CheckUpdates();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ECoreRoot"].initializeAllECoreEnums();
     globalevents();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MeasurableRuleParts"].staticinit();
@@ -3884,11 +3956,11 @@ function main() {
     const validate = (thing, defaultvalue) => { return thing && thing !== '' && thing !== 'null' && thing !== 'undefined' ? thing : defaultvalue; };
     savem2.model = validate(savem2.model, _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"].emptyModel);
     savem1.model = validate(savem1.model, _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Model"].emptyModel);
-    console.log('loading MM:', savem2);
-    console.log('loading M:', savem1);
-    Status.status.mmm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaMetaModel"](null);
     useless = new _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"]();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["WebsiteTheme"].setTheme();
+    Status.status.mmm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaMetaModel"](null);
+    console.log('loading MM:', savem2);
+    console.log('loading M:', savem1);
     try {
         Status.status.mm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"](JSON.parse(savem2.model), Status.status.mmm);
     }
@@ -3916,9 +3988,12 @@ function main() {
     useless = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ISidebar"](Status.status.mm, document.getElementById('model_sidebar'));
     useless = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IGraph"](Status.status.mm, document.getElementById('metamodel_editor'));
     useless = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IGraph"](Status.status.m, document.getElementById('model_editor'));
+    Status.status.mm.graph.setGrid(20, 20, true);
+    Status.status.m.graph.setGrid(20, 20, true);
     Status.status.loadedGUI = true;
     Status.status.mm.graph.propertyBar.show(Status.status.mm, null, null);
     Status.status.m.graph.propertyBar.show(Status.status.m, null, null);
+    _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["PropertyBarr"].staticinit();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Type"].updateTypeSelectors(null, true, true, true);
     if (!savem2.vertexpos || !savem2.view) {
         const tmpp = Status.status.mm.storage.getViewPoints();
@@ -3983,10 +4058,14 @@ function main() {
     // per evitare di perdere oltre X minuti di lavoro.
     // In condizioni normali non è necessario perchè il salvataggio è effettuato al cambio di pagina asincronamente
     // e con consegna dei dati garantita dal browser anche a pagina chiusa (navigator.beacon)
+    _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ChangelogRoot"].CheckUpdates();
+    fakemain();
     return;
     Status.status.enableAutosave(2 * 60 * 1000);
     //Options.enableAutosave(2 * 60 * 1000);
     // Options.Load(Status.status);
+}
+function fakemain() {
 }
 window['' + 'main'] = main0;
 document.addEventListener('DOMContentLoaded', main0);
@@ -4003,7 +4082,7 @@ document.addEventListener('DOMContentLoaded', main0);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n  min-width: 0;\r\n}\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n/* dynamically added*/\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n.meas_acc0 .measurableoktext{\r\n  margin-left: 5px;\r\n  color: var(--success);\r\n}\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n.meas_acc0 .measurabledebug { display: none; }\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n.meas_acc0 .measurabledebug .debugrows { display: none; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-flow: column; }\r\n.meas_acc0 .measurabledebug:focus-within .debugrows { display: -webkit-box; display: flex; }\r\n.meas_acc0 .countershell { float: right; }\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n.meas_acc0 .directions > * { margin: auto; }\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n.meas_acc0 .rule.template { display: none !important; }\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n.meas_acc .rulesearch:focus {\r\n  border: 1px solid dodgerblue;\r\n  box-shadow: 0 0 0 1px dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsY0FBYztFQUNkLFVBQVU7RUFDVixjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBQ0Esc0JBQXNCLGlCQUFpQixFQUFFO0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTtBQUN6QyxzQkFBc0Isa0JBQWtCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDekQ7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDtBQUNBLG9CQUFvQixlQUFlLEVBQUU7QUFDckMsd0JBQXdCLGtCQUFrQixFQUFFO0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTtBQUNqQyx1QkFBdUIsY0FBYyxFQUFFLGtCQUFrQixFQUFFLG1CQUFtQixFQUFFO0FBQ2hGLG1CQUFtQixvQkFB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Q2pEO0VBQ0UsV0FBVztFQUNYLFlBQVksRUFBRTtBQUVoQix5QkFBeUIsYUFBYSxFQUFFO0FBQ3hDO0VBQ0UsNEZBQW9GO1VBQXBGLG9GQUFvRixFQUFFO0FBRXhGO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLFlBQVksRUFBRTtBQUNoQiw2QkFBNkIsWUFBWSxFQUFFO0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25CO0FBQ0Esa0NBQWtDLGFBQWEsRUFBRTtBQUNqRCw0QkFBNEIsd0JBQXdCLEVBQUU7QUFDdEQsdUJBQXVCLG9DQUFvQyxFQUFFO0FBRTdEO0VBQ0UsNEJBQTRCO0VBQzVCLGdDQUFnQztBQUNsQyIsImZpbGUiOiJzcmMvYXBwL21lYXN1cmFibGV0ZW1wbGF0ZS9tZWFzdXJhYmxldGVtcGxhdGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tZWFzX2FjYzAgLm1lYXN1cmFibGVTZXR0aW5nUm9vdHtcclxuICB3aWR0aDogMTAwJTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG4ubWVhc19hY2MwIC5ib3hlc3Jvb3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLnByZWxlZnQsIC5tZWFzX2FjYzAgLnBvc3ROYW1lIHtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgYmFja2dyb3VuZDogbm9uZTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogYXV0byAwO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgY29sb3I6IGluaGVyaXQ7XHJcbiAgaGVpZ2h0OiB1bnNldDtcclxufVxyXG4ubWVhc19hY2MwIC5wcmVsZWZ0IHsgbWFyZ2luLXJpZ2h0OiA1cHg7IH1cclxuLm1lYXNfYWNjMCAucG9zdE5hbWUgeyBtYXJnaW4tbGVmdDogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLmJvdG1hcmcgeyBtYXJnaW4tYm90dG9tOiA1cHg7IGRpc3BsYXk6IGZsZXg7IH1cclxuLm1lYXNfYWNjMCAubW92ZW1lbnRib3hyb290LCAubWVhc19hY2MwIC5yZXNpemVib3hyb290IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxufVxyXG4ubWVhc19hY2MwIC5jb2x1bW5jb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiByb3c7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuXHJcbi5tZWFzX2FjYzAgLnJvd2NvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5jb2x1bW4sIC5tZWFzX2FjYzAgLnJvd3tcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJvdyB7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gIG1hcmdpbi1yaWdodDogdW5zZXQ7XHJcbiAgbWFyZ2luLWxlZnQ6IHVuc2V0OyAvKiBkdW1iIF9ncmlkLnNjc3MgZml4ZXIgKi9cclxufVxyXG4ubWVhc19hY2MwIC5icmVhayB7IGZsZXgtd3JhcDogd3JhcDsgfVxyXG4ubWVhc19hY2MwIC5hdXRvYnJlYWsgeyBmbGV4LXdyYXA6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAuZmlsbCB7IGZsZXgtZ3JvdzogMTsgfVxyXG4ubWVhc19hY2MwIC5ib3h0aXRsZSB7IGRpc3BsYXk6IGJsb2NrOyB0ZXh0LWFsaWduOiBjZW50ZXI7IG1hcmdpbi1ib3R0b206IDEycHg7IH1cclxuLm1lYXNfYWNjMCAuc2lkZSB7IGRpc3BsYXk6IGZsZXg7IH1cclxuLm1lYXNfYWNjMCAuc2lkZS5sZWZ0LCAubWVhc19hY2MwIC5zaWRlLnJpZ2h0IHsgd2lkdGg6IDEwcHg7IH1cclxuLm1lYXNfYWNjMCAuc2lkZS50b3AsIC5tZWFzX2FjYzAgLnNpZGUuYm90IHsgaGVpZ2h0OiAxMHB4OyB3aWR0aDogY2FsYygxMDAlIC0gMjBweCk7IH1cclxuLm1lYXNfYWNjMCAuY29ybmVyIHsgZGlzcGxheTogZmxleDsgd2lkdGg6IDEwcHg7IGhlaWdodDogMTBweDsgfVxyXG4ubWVhc19hY2MwIC5taWRkbGUgeyBiYWNrZ3JvdW5kLWNvbG9yOiBnb2xkZW5yb2Q7IGRpc3BsYXk6IGZsZXg7IH1cclxuLm1lYXNfYWNjMCAubWlkZGxlIC5taWRkbGUgeyB3aWR0aDogMTIwcHg7IGhlaWdodDogOTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLmlubmVyID4gLnJvdyA+IC5zaWRlLCAubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLmlubmVyID4gLnJvdyA+IC5jb3JuZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xyXG59XHJcbi5tZWFzX2FjYzAgLmJveHJvb3Qge1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxle1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIGJ1dHRvbi5ydWxlZGVsZXRlIHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgd2lkdGg6IDMwcHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxuICBib3JkZXItcmFkaXVzOiAyNXB4IDAgMCAyNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXgge1xyXG4gIG1heC13aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IGZpdC1jb250ZW50O1xyXG4gIG1hcmdpbi1ib3R0b206IDA7XHJcbiAgcGFkZGluZzogMDtcclxuICBmbGV4LWdyb3c6IDAgIWltcG9ydGFudDtcclxuICB3aWR0aDogYXV0bztcclxuICBmbGV4LWJhc2lzOiBhdXRvICFpbXBvcnRhbnQ7XHJcbiAgZmxleC1zaHJpbms6IDAgIWltcG9ydGFudDtcclxufVxyXG4ubWVhc19hY2MwIC5vcGVyYXRvci50cmlnZ2VyIHtcclxuICBvcmRlcjogMjtcclxuICBtYXJnaW46IGF1dG8gMDtcclxuICBtYXJnaW4tbGVmdDogLTRweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gIGNvbG9yOiBpbmhlcml0O1xyXG4gIHRleHQtYWxpZ24tbGFzdDogbGVmdDtcclxufVxyXG4ubWVhc19hY2MwIC5fb25kcmFnIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA1NnB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbnJlc2l6ZSAub3BlcmF0b3IudHJpZ2dlcntcclxuICB3aWR0aDogNjRweDtcclxufVxyXG4ubWVhc19hY2MwIC5fb25yb3RhdGlvbiAub3BlcmF0b3IudHJpZ2dlcntcclxuICB3aWR0aDogNzdweDtcclxufVxyXG4ubWVhc19hY2MwIC5vcGVyYXRvci50cmlnZ2VyOmZvY3Vze1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm94LXNoYWRvdzogbm9uZTtcclxuICBib3JkZXI6IG5vbmU7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0LmF0dHJuYW1lIHtcclxuICBvcmRlcjogMztcclxuICBib3JkZXItbGVmdDogbm9uZTtcclxuICBwYWRkaW5nLWxlZnQ6IDA7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xyXG4gIG1pbi13aWR0aDogMDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gKiB7IGJvcmRlcjogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gKjpmaXJzdC1jaGlsZCB7XHJcbiAgbWFyZ2luLXRvcDogMXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDA7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgd2lkdGg6IG1pbi1jb250ZW50O1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dDpmb2N1cyB7IGJveC1zaGFkb3c6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeDpmb2N1cy13aXRoaW4ge1xyXG4gIGJvcmRlci1jb2xvcjogIzgwYmRmZjtcclxuICBib3gtc2hhZG93OiAwIDAgMCAwLjJyZW0gcmdiYSgwLCAxMjMsIDI1NSwgMC4yNSk7XHJcbn1cclxuXHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAucmlnaHR4LCAubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLmxlZnR4IHsgbWFyZ2luLWJvdHRvbTogMCAhaW1wb3J0YW50OyB9XHJcbi8qIC5tZWFzX2FjYzAgLnJpZ2h0eCB7IG1pbi13aWR0aDogMDsgfSAqL1xyXG4ubWVhc19hY2MwIC5yaWdodHggc3Bhbi5vcGVyYXRvciB7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgLyptYXJnaW4tdG9wOiA4cHg7Ki9cclxufVxyXG4ubWVhc19hY2MwIC5yaWdodHggc3Bhbi5vcGVyYXRvci5hcHBseSB7XHJcbiAgIG1hcmdpbi1sZWZ0OiAwcHg7XHJcbiB9XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yY29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG4ubWVhc19hY2MwIHNlbGVjdC5vcGVyYXRvciB7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgbWFyZ2luOiBhdXRvIDVweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgdGV4dC1hbGlnbi1sYXN0OiBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmlnaHR4IC5jb21wb3VuZElucHV0cHJlZml4LCAubWVhc19hY2MwIC5yaWdodHggaW5wdXQucmlnaHRzaWRlLCAubWVhc19hY2MwIGlucHV0LmxlZnRzaWRlLCAubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbiAgbWluLXdpZHRoOiAxMjBweDtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyIHsgbWFyZ2luLWJvdHRvbTogMXJlbTsgfVxyXG4ubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHsgbWFyZ2luLWJvdHRvbTogMDsgfVxyXG4ubWVhc19hY2MwIC5yaWdodHggPiAubWVhc3VyYWJsZWRlYnVnIHsgbWFyZ2luLXRvcDogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLmF0dHJuYW1lIHtcclxuICBtYXgtd2lkdGg6IDIwMHB4ICFpbXBvcnRhbnQ7IC8qIHRvZG86IHJlbW92ZSB3aGVuIGlzIGF1dG9zaXppbmcgKi9cclxufVxyXG4ubWVhc19hY2MwIC5hZGRydWxlIHtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgbWFyZ2luLXRvcDogLTRweDtcclxuICBwYWRkaW5nOiA0cHggMTBweDtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGUge1xyXG4gIHBhZGRpbmctcmlnaHQ6IDRweDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG46Om5nLWRlZXAgLm1lYXNfYWNjMCAuaW5uZXJ0aXRsZSB7IG1hcmdpbjogYXV0bzsgfSAvKiBkeW5hbWljYWxseSBhZGRlZCovXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZS5jb2xsYXBzZWQgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVyIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBidXR0b247IHRleHQtZGVjb3JhdGlvbjogbm9uZTsgY29sb3I6IGRvZGdlcmJsdWU7IH1cclxuLm1lYXNfYWNjMCAuZm9ybS1jb250cm9sID4gLmZvcm0tY29udHJvbDpub3QoOmZpcnN0LWNoaWxkKXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiB1bnNldDtcclxuICAvKiBkaXNhYmxlIGJvb3RzdHJhcCBydWxlKi9cclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dDpmb2N1cyxcclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dDpmb2N1cyxcclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0OmZvY3Vze1xyXG4gIC8qb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lOyovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW9rdGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1zdWNjZXNzKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZXJyb3J0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLWRhbmdlcik7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXdhcm5pbmcpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lcnsgbWFyZ2luLWJvdHRvbTogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4OmZvY3VzLXdpdGhpbiAubWVhc3VyYWJsZWRlYnVneyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyAuZGVidWdyb3dzIHsgZGlzcGxheTogbm9uZTsgZmxleC1mbG93OiBjb2x1bW47IH1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnOmZvY3VzLXdpdGhpbiAuZGVidWdyb3dzIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5jb3VudGVyc2hlbGwgeyBmbG9hdDogcmlnaHQ7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+ICoge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAqLCAubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93diB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3RxeFhoazQvdGwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pndnB5d3ovdGxsLnBuZyk7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAuc2lkZS50b3Age1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL005ZkM3RFAvdC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1B6c21qeGYvdHIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1NOMlRITHQvdHJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vN2ptOUJCUS9sLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLmxlZnQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vcXJZV2RwSC9ibC5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5zaWRlLmJvdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vY1hjMG5tUy9iLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vSzBwVlZUNy9ici5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUXB3UlNzVC9icmwucG5nKTsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcclxuICBtYXJnaW4tYm90dG9tOiAzcHg7XHJcbiAgbWFyZ2luLXRvcDogLTNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcclxuICBtYXJnaW4tYm90dG9tOiAtM3B4O1xyXG4gIG1hcmdpbi10b3A6IDNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcclxuICBtYXJnaW4tcmlnaHQ6IC0zcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDNweDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pkM2p0YmMvbHIucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgbWluLXdpZHRoOiA1MHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA1MHB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdyB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93dntcclxuICB3aWR0aDogNzVweDtcclxuICBoZWlnaHQ6IDc1cHg7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmFycm93OmZvY3VzeyBvdXRsaW5lOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93OmNoZWNrZWR7XHJcbiAgZmlsdGVyOiBzZXBpYSg4MiUpIHNhdHVyYXRlKDM5MjUlKSBodWUtcm90YXRlKDU1ZGVnKSBicmlnaHRuZXNzKDEyNSUpIGNvbnRyYXN0KDEyMCUpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBtYXJnaW46IGF1dG87IH1cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyA+ICogeyBtYXJnaW46IGF1dG87IH1cclxuLm1lYXNfYWNjMCAuZHJhZ2dhYmxlLmJveHJvb3R7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICAvKmhlaWdodDogMjM3cHg7Ki9cclxufVxyXG4ubWVhc19hY2MwIC5jb2xsYXBzZTpub3QoLnNob3cpIHsgZGlzcGxheTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5ydWxlLnRlbXBsYXRlIHsgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50OyB9XHJcbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XHJcblxyXG4ubWVhc19hY2MgLnJ1bGVzZWFyY2g6Zm9jdXMge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGRvZGdlcmJsdWU7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMXB4IGRvZGdlcmJsdWU7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n  min-width: 0;\r\n}\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border: 2px solid transparent;\r\n  border-radius: 22.5px 0 0 22.5px;\r\n}\r\n.meas_acc0 .maintitle{\r\n  border-radius: 5px;\r\n}\r\n.meas_acc0 .ruletitle:hover{\r\n  border-color: gray;\r\n  background-color: rgba(127, 127, 127, 0.2); }\r\n.meas_acc0 .ruletitle:hover.ruletitle[counter]:not([counter=\"0\"]), .meas_acc0 .ruletitle[counter]:not([counter=\"0\"]):not(.collapsed),\r\n.meas_acc0 .maintitle:hover,  .meas_acc0 .maintitle:not(.collapsed){\r\n  border-color: dodgerblue;\r\n  background-color: rgba(30, 144, 255, 0.2); }\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n/* dynamically added*/\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n.meas_acc0 .measurableoktext{\r\n  margin-left: 5px;\r\n  color: var(--success);\r\n}\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n.meas_acc0 .measurabledebug { display: none; }\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n.meas_acc0 .measurabledebug .debugrows { display: none; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-flow: column; }\r\n.meas_acc0 .measurabledebug:focus-within .debugrows { display: -webkit-box; display: flex; }\r\n.meas_acc0 .countershell { float: right; }\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n.meas_acc0 .directions > * { margin: auto; }\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n.meas_acc0 .rule.template { display: none !important; }\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n.meas_acc .rulesearch:focus {\r\n  border: 1px solid dodgerblue;\r\n  box-shadow: 0 0 0 1px dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsY0FBYztFQUNkLFVBQVU7RUFDVixjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBQ0Esc0JBQXNCLGlCQUFpQixFQUFFO0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTtBQUN6QyxzQkFBc0Isa0JBQWtCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDekQ7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDtBQUNBLG9CQUFvQixlQUFlLEVBQUU7QUFDckMsd0JBQXdCLGtCQUFrQixFQUFFO0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTtBQUNqQyx1QkFBdUIsY0FBYyxFQUFFLGtCQUFrQixFQUFFLG1CQUFtQixFQUFFO0FBQ2hGLG1CQUFtQixvQkFB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QUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFFZixvQkFBb0IsMkJBQTJCLEVBQUU7QUFDakQ7RUFDRSxXQUFXO0VBQ1gsWUFBWSxFQUFFO0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7QUFDeEM7RUFDRSw0RkFBb0Y7VUFBcEYsb0ZBQW9GLEVBQUU7QUFFeEY7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsWUFBWSxFQUFFO0FBQ2hCLDZCQUE2QixZQUFZLEVBQUU7QUFDM0M7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7QUFDQSxrQ0FBa0MsYUFBYSxFQUFFO0FBQ2pELDRCQUE0Qix3QkFBd0IsRUFBRTtBQUN0RCx1QkFBdUIsb0NBQW9DLEVBQUU7QUFFN0Q7RUFDRSw0QkFBNEI7RUFDNUIsZ0NBQWdDO0FBQ2xDIiwiZmlsZSI6InNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lYXNfYWNjMCAubWVhc3VyYWJsZVNldHRpbmdSb290e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAucHJlbGVmdCwgLm1lYXNfYWNjMCAucG9zdE5hbWUge1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBiYWNrZ3JvdW5kOiBub25lO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbiAgcGFkZGluZzogMDtcclxuICBjb2xvcjogaW5oZXJpdDtcclxuICBoZWlnaHQ6IHVuc2V0O1xyXG59XHJcbi5tZWFzX2FjYzAgLnByZWxlZnQgeyBtYXJnaW4tcmlnaHQ6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5wb3N0TmFtZSB7IG1hcmdpbi1sZWZ0OiA1cHg7IH1cclxuLm1lYXNfYWNjMCAuYm90bWFyZyB7IG1hcmdpbi1ib3R0b206IDVweDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5tb3ZlbWVudGJveHJvb3QsIC5tZWFzX2FjYzAgLnJlc2l6ZWJveHJvb3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHJvdztcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucm93Y29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAucm93IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcclxuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XHJcbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5maWxsIHsgZmxleC1ncm93OiAxOyB9XHJcbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLmxlZnQsIC5tZWFzX2FjYzAgLnNpZGUucmlnaHQgeyB3aWR0aDogMTBweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxyXG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSB7IGJhY2tncm91bmQtY29sb3I6IGdvbGRlbnJvZDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbn1cclxuLm1lYXNfYWNjMCAuYm94cm9vdCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGV7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgYnV0dG9uLnJ1bGVkZWxldGUge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICB3aWR0aDogMzBweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDI1cHggMCAwIDI1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCB7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGZsZXgtZ3JvdzogMCAhaW1wb3J0YW50O1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGZsZXgtYmFzaXM6IGF1dG8gIWltcG9ydGFudDtcclxuICBmbGV4LXNocmluazogMCAhaW1wb3J0YW50O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXIge1xyXG4gIG9yZGVyOiAyO1xyXG4gIG1hcmdpbjogYXV0byAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAtNHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6IGluaGVyaXQ7XHJcbiAgdGV4dC1hbGlnbi1sYXN0OiBsZWZ0O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbmRyYWcgLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDU2cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29ucmVzaXplIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA2NHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbnJvdGF0aW9uIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA3N3B4O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXI6Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xyXG4gIG9yZGVyOiAzO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XHJcbiAgbWluLXdpZHRoOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqIHsgYm9yZGVyOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcclxuICBtYXJnaW4tdG9wOiAxcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICB3aWR0aDogbWluLWNvbnRlbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0OmZvY3VzIHsgYm94LXNoYWRvdzogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4OmZvY3VzLXdpdGhpbiB7XHJcbiAgYm9yZGVyLWNvbG9yOiAjODBiZGZmO1xyXG4gIGJveC1zaGFkb3c6IDAgMCAwIDAuMnJlbSByZ2JhKDAsIDEyMywgMjU1LCAwLjI1KTtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5yaWdodHgsIC5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAubGVmdHggeyBtYXJnaW4tYm90dG9tOiAwICFpbXBvcnRhbnQ7IH1cclxuLyogLm1lYXNfYWNjMCAucmlnaHR4IHsgbWluLXdpZHRoOiAwOyB9ICovXHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yIHtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxuICAvKm1hcmdpbi10b3A6IDhweDsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yLmFwcGx5IHtcclxuICAgbWFyZ2luLWxlZnQ6IDBweDtcclxuIH1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3Jjb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgc2VsZWN0Lm9wZXJhdG9yIHtcclxuICB3aWR0aDogNDVweDtcclxuICBtYXJnaW46IGF1dG8gNXB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yaWdodHggLmNvbXBvdW5kSW5wdXRwcmVmaXgsIC5tZWFzX2FjYzAgLnJpZ2h0eCBpbnB1dC5yaWdodHNpZGUsIC5tZWFzX2FjYzAgaW5wdXQubGVmdHNpZGUsIC5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQge1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxuICBtaW4td2lkdGg6IDEyMHB4O1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgeyBtYXJnaW4tYm90dG9tOiAxcmVtOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQgeyBtYXJnaW4tYm90dG9tOiAwOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC5tZWFzdXJhYmxlZGVidWcgeyBtYXJnaW4tdG9wOiA1cHg7IH1cclxuLm1lYXNfYWNjMCAuYXR0cm5hbWUge1xyXG4gIG1heC13aWR0aDogMjAwcHggIWltcG9ydGFudDsgLyogdG9kbzogcmVtb3ZlIHdoZW4gaXMgYXV0b3NpemluZyAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmFkZHJ1bGUge1xyXG4gIGZsb2F0OiByaWdodDtcclxuICBtYXJnaW4tdG9wOiAtNHB4O1xyXG4gIHBhZGRpbmc6IDRweCAxMHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XHJcbiAgcGFkZGluZy1yaWdodDogNHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIHRyYW5zcGFyZW50O1xyXG4gIGJvcmRlci1yYWRpdXM6IDIyLjVweCAwIDAgMjIuNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLm1haW50aXRsZXtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbn1cclxuXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlcntcclxuICBib3JkZXItY29sb3I6IGdyYXk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxMjcsIDEyNywgMTI3LCAwLjIpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGU6aG92ZXIucnVsZXRpdGxlW2NvdW50ZXJdOm5vdChbY291bnRlcj1cIjBcIl0pLCAubWVhc19hY2MwIC5ydWxldGl0bGVbY291bnRlcl06bm90KFtjb3VudGVyPVwiMFwiXSk6bm90KC5jb2xsYXBzZWQpLFxyXG4ubWVhc19hY2MwIC5tYWludGl0bGU6aG92ZXIsICAubWVhc19hY2MwIC5tYWludGl0bGU6bm90KC5jb2xsYXBzZWQpe1xyXG4gIGJvcmRlci1jb2xvcjogZG9kZ2VyYmx1ZTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDMwLCAxNDQsIDI1NSwgMC4yKTsgfVxyXG5cclxuOjpuZy1kZWVwIC5tZWFzX2FjYzAgLmlubmVydGl0bGUgeyBtYXJnaW46IGF1dG87IH0gLyogZHluYW1pY2FsbHkgYWRkZWQqL1xyXG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlciB7IC13ZWJraXQtYXBwZWFyYW5jZTogYnV0dG9uOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGNvbG9yOiBkb2RnZXJibHVlOyB9XHJcbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogdW5zZXQ7XHJcbiAgLyogZGlzYWJsZSBib290c3RyYXAgcnVsZSovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW91dHB1dHRleHQ6Zm9jdXMsXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHQ6Zm9jdXMsXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dDpmb2N1c3tcclxuICAvKm91dGxpbmU6IG5vbmU7XHJcbiAgYm94LXNoYWRvdzogbm9uZTsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVva3RleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tc3VjY2Vzcyk7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1kYW5nZXIpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS13YXJuaW5nKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXJ7IG1hcmdpbi1ib3R0b206IDVweDsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgeyBkaXNwbGF5OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eDpmb2N1cy13aXRoaW4gLm1lYXN1cmFibGVkZWJ1Z3sgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgLmRlYnVncm93cyB7IGRpc3BsYXk6IG5vbmU7IGZsZXgtZmxvdzogY29sdW1uOyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1Zzpmb2N1cy13aXRoaW4gLmRlYnVncm93cyB7IGRpc3BsYXk6IGZsZXg7IH1cclxuLm1lYXNfYWNjMCAuY291bnRlcnNoZWxsIHsgZmxvYXQ6IHJpZ2h0OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAqIHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gKiwgLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAubGVmdCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby90cXhYaGs0L3RsLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZ3ZweXd6L3RsbC5wbmcpO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnNpZGUudG9wIHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9NOWZDN0RQL3QucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5yaWdodCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9QenNtanhmL3RyLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9TTjJUSEx0L3RybC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvLzdqbTlCQlEvbC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9SWVpuVk41L3IucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3FyWVdkcEgvYmwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2dES0ZyeTUvYmxsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAuc2lkZS5ib3Qge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2NYYzBubVMvYi5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL0swcFZWVDcvYnIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1Fwd1JTc1QvYnJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnRvcCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xyXG4gIG1hcmdpbi10b3A6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmJvdCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogLTNweDtcclxuICBtYXJnaW4tdG9wOiAzcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmxlZnQge1xyXG4gIG1hcmdpbi1yaWdodDogM3B4O1xyXG4gIG1hcmdpbi1sZWZ0OiAtM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5yaWdodCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAtM3B4O1xyXG4gIG1hcmdpbi1sZWZ0OiAzcHg7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3doIHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZDNqdGJjL2xyLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3d2IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9qSFR0UER4L3RiLnBuZyk7IH1cclxuXHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgaGVpZ2h0OiA1MHB4O1xyXG4gIG1pbi13aWR0aDogNTBweDtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+ICoge1xyXG4gIGhlaWdodDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+ICoge1xyXG4gIGhlaWdodDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd2lkdGg6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG5cclxuLm1lYXNfYWNjMCAuYXJyb3cgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Z7XHJcbiAgd2lkdGg6IDc1cHg7XHJcbiAgaGVpZ2h0OiA3NXB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdzpmb2N1c3sgb3V0bGluZTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xyXG4gIGZpbHRlcjogc2VwaWEoODIlKSBzYXR1cmF0ZSgzOTI1JSkgaHVlLXJvdGF0ZSg1NWRlZykgYnJpZ2h0bmVzcygxMjUlKSBjb250cmFzdCgxMjAlKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luOiBhdXRvOyB9XHJcbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMgPiAqIHsgbWFyZ2luOiBhdXRvOyB9XHJcbi5tZWFzX2FjYzAgLmRyYWdnYWJsZS5ib3hyb290e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgLypoZWlnaHQ6IDIzN3B4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAuY29sbGFwc2U6bm90KC5zaG93KSB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAucnVsZS50ZW1wbGF0ZSB7IGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDsgfVxyXG4ubWVhc19hY2MwIC5zZWxlY3RlZCB7IGJhY2tncm91bmQtY29sb3I6ICMzN2ZmNjYgIWltcG9ydGFudDsgfVxyXG5cclxuLm1lYXNfYWNjIC5ydWxlc2VhcmNoOmZvY3VzIHtcclxuICBib3JkZXI6IDFweCBzb2xpZCBkb2RnZXJibHVlO1xyXG4gIGJveC1zaGFkb3c6IDAgMCAwIDFweCBkb2RnZXJibHVlO1xyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -4027,8 +4106,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
-/* harmony import */ var _common_measurable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/measurable */ "./src/common/measurable.ts");
-
 
 
 
@@ -4352,31 +4429,15 @@ class MeasurableTemplateGenerator {
         return this.generateMeasurableTemplate();
     }
     static makedatasetLists() {
-        const constraintOptions = new _common_measurable__WEBPACK_IMPORTED_MODULE_3__["ConstraintLeftAdmitteds"]();
+        const constraintOptions = {};
         let opt;
         let datalist;
         let key;
         let i;
-        delete constraintOptions.absoluteDocPos;
-        constraintOptions['absoluteDocPos.x'] = 'absoluteDocPos.x';
-        constraintOptions['absoluteDocPos.y'] = 'absoluteDocPos.y';
-        delete constraintOptions.absoluteGPos;
-        constraintOptions['absoluteGPos.x'] = 'absoluteGPos.x';
-        constraintOptions['absoluteGPos.y'] = 'absoluteGPos.y';
-        delete constraintOptions.relativePos;
-        constraintOptions['relativePos.x'] = 'relativePos.x';
-        constraintOptions['relativePos.y'] = 'relativePos.y';
-        delete constraintOptions.relativeVPos;
-        constraintOptions['relativeVPos.x'] = 'relativeVPos.x';
-        constraintOptions['relativeVPos.y'] = 'relativeVPos.y';
-        delete constraintOptions.vertexSize;
-        constraintOptions['vertexSize.x'] = 'vertexSize.x';
-        constraintOptions['vertexSize.y'] = 'vertexSize.y';
-        constraintOptions['vertexSize.w'] = 'vertexSize.w';
-        constraintOptions['vertexSize.h'] = 'vertexSize.h';
-        const constraintOptionsPH = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneObj(constraintOptions);
-        for (key in constraintOptionsPH) {
-            constraintOptionsPH[key] = 'Number';
+        const constraintOptionsPH = {};
+        for (key in _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ConstraintLeftAdmittedsStatic"]) {
+            constraintOptions[_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ConstraintLeftAdmittedsStatic"][key]] = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ConstraintLeftAdmittedsStatic"][key];
+            constraintOptionsPH[_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ConstraintLeftAdmittedsStatic"][key]] = 'Number';
         }
         MeasurableTemplateGenerator.constraintMap = constraintOptions;
         MeasurableTemplateGenerator.constraintPlaceholderMap = constraintOptionsPH;
@@ -4662,7 +4723,7 @@ Database.db = new Database();
 /*!******************************!*\
   !*** ./src/common/Joiner.ts ***!
   \******************************/
-/*! exports provided: ansiUp, StringSimilarity, $, $b, prjson2xml, prxml2json, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, OperationVisibility, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
+/*! exports provided: ansiUp, StringSimilarity, $, $b, prjson2xml, prxml2json, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, OperationVisibility, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4796,6 +4857,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["ResizableOptionsImpl"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableOptions", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["RotatableOptions"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UnsafeMeasurableEvalContext", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["UnsafeMeasurableEvalContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmittedsStatic", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["ConstraintLeftAdmittedsStatic"]; });
 
 /* harmony import */ var _src_app_app_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../src/app/app.module */ "./src/app/app.module.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return _src_app_app_module__WEBPACK_IMPORTED_MODULE_14__["Status"]; });
@@ -5205,12 +5270,11 @@ function wordLetterPairs(str) {
 /*!**********************************!*\
   !*** ./src/common/measurable.ts ***!
   \**********************************/
-/*! exports provided: ConstraintLeftAdmitteds, ConstraintLeftAdmittedsStatic, UnsafeMeasurableEvalContext, MeasurableEvalContext, MeasurableOperators, MeasurableRuleParts, measurableRules, MeasurableRuleLists, RotatableOptions, Measurable, ResizableOptionsImpl, DraggableOptionsImpl */
+/*! exports provided: ConstraintLeftAdmittedsStatic, UnsafeMeasurableEvalContext, MeasurableEvalContext, MeasurableOperators, MeasurableRuleParts, measurableRules, MeasurableRuleLists, RotatableOptions, Measurable, ResizableOptionsImpl, DraggableOptionsImpl */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmitteds", function() { return ConstraintLeftAdmitteds; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmittedsStatic", function() { return ConstraintLeftAdmittedsStatic; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnsafeMeasurableEvalContext", function() { return UnsafeMeasurableEvalContext; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeasurableEvalContext", function() { return MeasurableEvalContext; });
@@ -5232,8 +5296,6 @@ __webpack_require__.r(__webpack_exports__);
 /*
 export class MeasurableArrays {rules: Attr[]; imports: Attr[]; exports: Attr[]; variables: Attr[];
   constraints: Attr[]; chain: Attr[]; chainFinal: Attr[]; dstyle: Attr[]; html: Element; e: Event; }*/
-class ConstraintLeftAdmitteds {
-}
 class ConstraintLeftAdmittedsStatic {
 }
 ConstraintLeftAdmittedsStatic.vertexSizeX = 'vertexSize.x';
@@ -5250,12 +5312,26 @@ ConstraintLeftAdmittedsStatic.absoluteGPosX = 'absoluteGPos.x';
 ConstraintLeftAdmittedsStatic.absoluteGPosY = 'absoluteGPos.y';
 ConstraintLeftAdmittedsStatic.absoluteDocPosX = 'absoluteDocPos.x';
 ConstraintLeftAdmittedsStatic.absoluteDocPosY = 'absoluteDocPos.y';
+ConstraintLeftAdmittedsStatic.targetvertexSizeX = 'target.vertexSize.x';
+ConstraintLeftAdmittedsStatic.targetvertexSizeY = 'target.vertexSize.y';
+ConstraintLeftAdmittedsStatic.targetvertexSizeW = 'target.vertexSize.w';
+ConstraintLeftAdmittedsStatic.targetvertexSizeH = 'target.vertexSize.h';
+ConstraintLeftAdmittedsStatic.targetwidth = 'target.width';
+ConstraintLeftAdmittedsStatic.targetheight = 'target.height';
+ConstraintLeftAdmittedsStatic.targetrelativePosX = 'target.relativePos.x';
+ConstraintLeftAdmittedsStatic.targetrelativePosY = 'target.relativePos.y';
+ConstraintLeftAdmittedsStatic.targetrelativeVPosX = 'target.relativeVPos.x';
+ConstraintLeftAdmittedsStatic.targetrelativeVPosY = 'target.relativeVPos.y';
+ConstraintLeftAdmittedsStatic.targetabsoluteGPosX = 'target.absoluteGPos.x';
+ConstraintLeftAdmittedsStatic.targetabsoluteGPosY = 'target.absoluteGPos.y';
+ConstraintLeftAdmittedsStatic.targetabsoluteDocPosX = 'target.absoluteDocPos.x';
+ConstraintLeftAdmittedsStatic.targetabsoluteDocPosY = 'target.absoluteDocPos.y';
 class UnsafeMeasurableEvalContext {
 }
-class MeasurableEvalContext extends ConstraintLeftAdmitteds {
+class MeasurableEvalContext {
     constructor() {
-        super();
-        this.setSize = (w = null, h = null) => {
+        this.isFilled = false;
+        this.setSize = (w = null /*number*/, h = null /*number*/) => /*void*/ {
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(w)) {
                 this.width = w;
             }
@@ -5263,7 +5339,7 @@ class MeasurableEvalContext extends ConstraintLeftAdmitteds {
                 this.height = h;
             }
         };
-        this.setAbsoluteGPos = (x = null, y = null) => {
+        this.setAbsoluteGPos = (x = null /*number*/, y = null /*number*/) => /*void*/ {
             const isVertex = MeasurableEvalContext.isVertex(this);
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
                 this.absoluteGPos.x = +x;
@@ -5296,10 +5372,10 @@ class MeasurableEvalContext extends ConstraintLeftAdmitteds {
                 this.absoluteDocPos.y = this.graphSize.y + (this.absoluteGPos.y - this.graphScroll.y) / this.graphZoom.y;
             }
         };
-        this.setRelativePos = (x = null, y = null) => {
+        this.setRelativePos = (x = null /*number*/, y = null /*number*/) => /*void*/ {
             if (!this.target)
                 return;
-            const isVertex = MeasurableEvalContext.isVertex(this);
+            //const isVertex: boolean = MeasurableEvalContext.isVertex(this);
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
                 this.absoluteGPos.x = this.target.absoluteGPos.x + x;
             }
@@ -5308,8 +5384,8 @@ class MeasurableEvalContext extends ConstraintLeftAdmitteds {
             }
             this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
         };
-        this.setRelativeVPos = (x = null, y = null) => {
-            const isVertex = MeasurableEvalContext.isVertex(this);
+        this.setRelativeVPos = (x = null /*number*/, y = null /*number*/) => /*void*/ {
+            //const isVertex: boolean = MeasurableEvalContext.isVertex(this); should not be used at all in vertexes.
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
                 this.absoluteGPos.x = this.vertexSize.x + x;
             }
@@ -5318,7 +5394,7 @@ class MeasurableEvalContext extends ConstraintLeftAdmitteds {
             }
             this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
         };
-        this.setVertexSize = (x = null, y = null, w = null, h = null) => {
+        this.setVertexSize = (x = null /*number*/, y = null /*number*/, w = null /*number*/, h = null /*number*/) => /*void*/ {
             const isVertex = MeasurableEvalContext.isVertex(this);
             console.log('vsize pre:', this.vertexSize.duplicate(), 'w:', w, 'isVertex?', isVertex);
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(w))
@@ -5341,7 +5417,7 @@ class MeasurableEvalContext extends ConstraintLeftAdmitteds {
             console.log('vsize post:', this.vertexSize.duplicate());
         };
         // può servire a tenere qualcosa fisso al centro del grafo anche se faccio panning
-        this.setAbsoluteDocPos = (x = null, y = null) => {
+        this.setAbsoluteDocPos = (x = null /*number */, y = null /*number*/) => /*void*/ {
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
                 this.absoluteDocPos.x = x;
                 this.absoluteGPos.x = this.graphScroll.x + this.graphZoom.x * (this.absoluteDocPos.x - this.graphSize.x);
@@ -5352,27 +5428,51 @@ class MeasurableEvalContext extends ConstraintLeftAdmitteds {
             }
             this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
         };
-        this.setVertexSizeX = (x = null) => { return this.setVertexSize(x, null, null, null); };
-        this.setVertexSizeY = (y = null) => { return this.setVertexSize(null, y, null, null); };
-        this.setVertexSizeW = (w = null) => { return this.setVertexSize(null, null, w, null); };
-        this.setVertexSizeH = (h = null) => { return this.setVertexSize(null, null, null, h); };
-        this.setVertexX = (x = null) => { return this.setVertexSizeX(x); };
-        this.setVertexY = (y = null) => { return this.setVertexSizeY(y); };
-        this.setVertexW = (w = null) => { return this.setVertexSizeW(w); };
-        this.setVertexH = (h = null) => { return this.setVertexSizeH(h); };
-        this.setRelativePosX = (x = null) => { return this.setRelativePos(x, null); };
-        this.setRelativePosY = (y = null) => { return this.setRelativePos(null, y); };
-        this.setRelativeVPosX = (x = null) => { return this.setRelativeVPos(x, null); };
-        this.setRelativeVPosY = (y = null) => { return this.setRelativeVPos(null, y); };
-        this.setAbsoluteGPosX = (x = null) => { return this.setAbsoluteGPos(x, null); };
-        this.setAbsoluteGPosY = (y = null) => { return this.setAbsoluteGPos(null, y); };
-        this.setAbsoluteDocPosX = (x = null) => { return this.setAbsoluteDocPos(x, null); };
-        this.setAbsoluteDocPosY = (y = null) => { return this.setAbsoluteDocPos(null, y); };
-        this.setWidth = (w = null) => { return this.setSize(w, null); };
-        this.setHeight = (h = null) => { return this.setSize(null, h); };
-        this.unsafe = new UnsafeMeasurableEvalContext();
+        this.setVertexSizeX = (x = null) => /*void*/ { return this.setVertexSize(x, null, null, null); };
+        this.setVertexSizeY = (y = null) => /*void*/ { return this.setVertexSize(null, y, null, null); };
+        this.setVertexSizeW = (w = null) => /*void*/ { return this.setVertexSize(null, null, w, null); };
+        this.setVertexSizeH = (h = null) => /*void*/ { return this.setVertexSize(null, null, null, h); };
+        this.setVertexX = (x = null) => /*void*/ { return this.setVertexSizeX(x); };
+        this.setVertexY = (y = null) => /*void*/ { return this.setVertexSizeY(y); };
+        this.setVertexW = (w = null) => /*void*/ { return this.setVertexSizeW(w); };
+        this.setVertexH = (h = null) => /*void*/ { return this.setVertexSizeH(h); };
+        this.setRelativePosX = (x = null) => /*void*/ { return this.setRelativePos(x, null); };
+        this.setRelativePosY = (y = null) => /*void*/ { return this.setRelativePos(null, y); };
+        this.setRelativeVPosX = (x = null) => /*void*/ { return this.setRelativeVPos(x, null); };
+        this.setRelativeVPosY = (y = null) => /*void*/ { return this.setRelativeVPos(null, y); };
+        this.setAbsoluteGPosX = (x = null) => /*void*/ { return this.setAbsoluteGPos(x, null); };
+        this.setAbsoluteGPosY = (y = null) => /*void*/ { return this.setAbsoluteGPos(null, y); };
+        this.setAbsoluteDocPosX = (x = null) => /*void*/ { return this.setAbsoluteDocPos(x, null); };
+        this.setAbsoluteDocPosY = (y = null) => /*void*/ { return this.setAbsoluteDocPos(null, y); };
+        this.setWidth = (w = null) => /*void*/ { return this.setSize(w, null); };
+        this.setHeight = (h = null) => /*void*/ { return this.setSize(null, h); };
+        this.unsafec = new UnsafeMeasurableEvalContext();
     }
-    static isVertex(context) { return context.unsafe.vertex.getHtmlRawForeign() === context.unsafe.node; }
+    static isVertex(context) { return context.unsafec.vertex.getHtmlRawForeign() === context.unsafec.node; }
+    static fillFake(filltarget = true) {
+        let thiss = new MeasurableEvalContext();
+        thiss.isFilled = false;
+        thiss.width = thiss.height = 0;
+        thiss.unsafec = new UnsafeMeasurableEvalContext();
+        thiss.relativePos = thiss.relativeVPos = thiss.absoluteGPos = thiss.absoluteDocPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0);
+        thiss.absoluteDocPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](0, 0);
+        thiss.documentSize = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["Size"](0, 0);
+        thiss.vertexSize = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](0, 0, 0, 0);
+        thiss.model = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].copyFirstLevelStructureWithoutValues(new _Model_modelPiece__WEBPACK_IMPORTED_MODULE_2__["ProtectedModelPiece"](null, null));
+        // set unsafec
+        console.log(new _Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"](null, null), _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].copyFirstLevelStructureWithoutValues(new _Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"](null, null)));
+        // throw new Error();
+        thiss.unsafec.vertex = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].copyFirstLevelStructureWithoutValues(new _Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"](null, null));
+        thiss.unsafec.graph = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].copyFirstLevelStructureWithoutValues(_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.graph);
+        thiss.unsafec.modelRoot = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].copyFirstLevelStructureWithoutValues(_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm);
+        thiss.unsafec.node = document.createElement('div');
+        thiss.attributes = thiss.a = []; // not an array but i want [] suggestions. todo: se è oggetto suggerisci "." se è array suggerisci "["
+        // approximation tricks
+        if (filltarget)
+            thiss.target = MeasurableEvalContext.fillFake(false);
+        thiss.model.unsafemp = thiss.unsafec.model = thiss.model;
+        return thiss;
+    }
 }
 var MeasurableOperators;
 (function (MeasurableOperators) {
@@ -5415,13 +5515,22 @@ export class ValidImportLefts {
 // le uso direttamente dentro la libreria U... // export enum constraintConditions { insideRect = 'insideRect', insideNode = 'insideNode', insidePolygon = 'insidePolygon', insideCircle = 'insideCircle'};
 class MeasurableRuleParts {
     constructor(a, prefix = null, doNotThrow = false) {
+        this.attr = a;
         if (a === null) {
+            _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!doNotThrow, 'MeasurableRuleParts() called on null attribute:', a, prefix);
+            this.attr = null;
+            this.output = null;
+            this.outputAttr = null;
+            this.triggeredResults = [];
+            this.operator = '';
             this.right = '';
             this.left = '';
             this.target = '';
+            this.prefix = '';
+            this.fallbackValue = '';
+            this.name = '';
             return;
         } // empty constructor used by output clone var.
-        this.attr = a;
         if (!prefix) {
             const attrname = a.name.toLowerCase();
             if (a.name.indexOf('_') === 0)
@@ -5455,9 +5564,10 @@ class MeasurableRuleParts {
         this.right = a.value.substr(rightindex);*/
         const parts = a.value.split(Measurable.separator);
         this.left = parts.length > 1 ? parts[0] : '';
-        this.operator = parts.length === 2 ? parts[1] : '';
+        this.operator = parts.length === 3 ? parts[1] : '';
+        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(this.prefix === measurableRules.constraint && !this.operator, 'failed to get constraint operator: ', this);
         this.right = parts[parts.length - 1];
-        const targetstr = a.ownerElement.getAttribute('relativeSelectorOf' + a.name);
+        const targetstr = a.ownerElement.getAttribute(('relativeSelectorOf' + a.name));
         this.target = targetstr ? targetstr.trim() : null;
         this.fallbackValue = null;
         let outputname = a.name.substr(1);
@@ -5513,40 +5623,65 @@ class MeasurableRuleParts {
         return MeasurableRuleParts.operatormap = operatormap;
     }
     static fillEvalContext(evalContext, backupContext = null, node, targetquery) {
+        console.log('FillEvalContext() called, targetquery: |' + targetquery + '|');
         let tmp;
         let tmpjq;
         let i;
         let j;
-        if (!backupContext)
-            backupContext = new MeasurableEvalContext();
-        evalContext.unsafe.node = node;
-        backupContext.unsafe.node = node; // node.cloneNode(true) as Element;
-        const mp = _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(backupContext.unsafe.node);
+        const mp = _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(node);
         const vertex = mp.getVertex();
         const graph = vertex.owner;
-        backupContext.unsafe.graph = evalContext.unsafe.graph = graph;
-        backupContext.unsafe.vertex = evalContext.unsafe.vertex = vertex;
-        backupContext.unsafe.model = evalContext.unsafe.model = mp;
-        backupContext.unsafe.modelRoot = evalContext.unsafe.modelRoot = mp.getModelRoot();
+        const backupcontext0 = backupContext; // to overwrite ".target"
+        // prevent to overwrite the initial backup status with a mid-way status by filling a disposable object instead
+        if (!backupContext || backupContext.isFilled)
+            backupContext = new MeasurableEvalContext();
+        let debug = (window['debug'] === 1);
+        let filltarget = () => {
+            let backupcontext = 'do not use here, keep changes on the real backupcontext, never write on the mock disposable object.';
+            let $tmpjq;
+            if (targetquery)
+                try {
+                    $tmpjq = $(graph.container).find(targetquery);
+                }
+                catch (e) {
+                    console.log('exception:', e);
+                    return e;
+                }
+            _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(true, '1.context:', evalContext, 'target:', $tmpjq, evalContext.target);
+            if ($tmpjq && $tmpjq.length) {
+                evalContext.target = new MeasurableEvalContext();
+                backupcontext0.target = backupcontext0.target || new MeasurableEvalContext();
+                let exception = MeasurableRuleParts.fillEvalContext(evalContext.target, backupcontext0.target, $tmpjq[0], null);
+                if (exception) {
+                    exception['mysource'] = ['occurred inside this.target'];
+                    return exception;
+                }
+            }
+            _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(true, '2.context:', evalContext, 'target:', $tmpjq, evalContext.target);
+            _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(debug && !evalContext.target, '!target');
+        };
+        if (targetquery && !backupContext.target) {
+            filltarget();
+        }
+        if (evalContext.isFilled) {
+            return null;
+        } // must be after filltarget
+        backupContext.isFilled = true; // avoid dual fill, se ci sono due eval() questo rollbackerebbe alla scorsa esecuzione.
+        evalContext.isFilled = true;
+        evalContext.unsafec.node = node;
+        backupContext.unsafec.node = node; // node.cloneNode(true) as Element;
+        backupContext.unsafec.graph = evalContext.unsafec.graph = graph;
+        backupContext.unsafec.vertex = evalContext.unsafec.vertex = vertex;
+        backupContext.unsafec.model = evalContext.unsafec.model = mp;
+        backupContext.unsafec.modelRoot = evalContext.unsafec.modelRoot = mp.getModelRoot();
         backupContext.model = new _Model_modelPiece__WEBPACK_IMPORTED_MODULE_2__["ProtectedModelPiece"](mp, null);
         evalContext.model = new _Model_modelPiece__WEBPACK_IMPORTED_MODULE_2__["ProtectedModelPiece"](mp, null);
+        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!evalContext.model.unsafemp, 'unsafe is unset:', evalContext.model, mp, evalContext);
         delete evalContext.model.applyChanges;
-        const size = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].sizeof(node);
+        const isvroot = vertex.getMeasurableNode() === node;
+        const size = isvroot ? graph.toHtmlCoordS(vertex.getSize()) : _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].sizeof(node);
         backupContext.width = evalContext.width = size.w;
         backupContext.height = evalContext.height = size.h;
-        let $tmpjq;
-        if (targetquery)
-            try {
-                $tmpjq = $(graph.container).find(targetquery);
-            }
-            catch (e) {
-                return e;
-            }
-        if ($tmpjq && $tmpjq.length) {
-            evalContext.target = new MeasurableEvalContext();
-            backupContext.target = new MeasurableEvalContext();
-            MeasurableRuleParts.fillEvalContext(evalContext.target, backupContext.target, $tmpjq[0], null);
-        }
         evalContext.graphScroll = graph.scroll.duplicate();
         evalContext.graphZoom = graph.zoom.duplicate();
         evalContext.vertexSize = vertex.getSize().duplicate();
@@ -5557,7 +5692,7 @@ class MeasurableRuleParts {
         backupContext.vertexSize = evalContext.vertexSize.duplicate();
         backupContext.graphSize = evalContext.graphSize.duplicate();
         backupContext.documentSize = evalContext.documentSize.duplicate();
-        let attrs = evalContext.unsafe.node.attributes;
+        let attrs = evalContext.unsafec.node.attributes;
         evalContext.a = {};
         evalContext.attributes = evalContext.a;
         backupContext.attributes = null;
@@ -5586,7 +5721,7 @@ class MeasurableRuleParts {
     }
     process0(validatefirst = false, vertex = null, graph = null) {
         let exception;
-        const out = new MeasurableRuleParts(null);
+        const out = new MeasurableRuleParts(null, null, true);
         let tmp;
         let i;
         let j;
@@ -5600,7 +5735,7 @@ class MeasurableRuleParts {
             if (!new RegExp(MeasurableRuleParts.leftmap[this.prefix]).test(this.left)) {
                 out.left = validoperators.length ? 'must be one of: ' + tmp.join(' ') : 'must be empty, found instead: ' + this.operator + '';
             }
-            exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, this.target);
+            exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, out && out.target);
             if (exception) {
                 out.left += '\ninvalid target selector: ' + exception.toString();
                 out.right += '\ninvalid target selector: ' + exception.toString();
@@ -5612,14 +5747,18 @@ class MeasurableRuleParts {
             if (out.left || out.operator || tmpev.exception)
                 return out;
         }
-        const exportChanges = (outContext) => {
+        const exportChanges = (outContext, safeContextRollback) => {
             let ret = true;
             try {
-                exportChanges0(outContext, false);
+                console.log('exportchanges part 1', outContext.vertexSize.y);
+                exportChanges0(outContext, safeContextRollback, false);
+                console.log('exportchanges part 2', outContext.vertexSize.y);
                 if (outContext.target)
-                    exportChanges0(outContext.target, false);
+                    exportChanges0(outContext.target, safeContextRollback.target, false);
+                console.log('exportchanges part 3', outContext.vertexSize.y);
             }
             catch (e) {
+                throw e;
                 out.right += +'\n\npartially failed to export changes, likely caused by an overwrite of a predefined variable object.:' + e.toString();
                 doRollback();
                 ret = false;
@@ -5630,43 +5769,50 @@ class MeasurableRuleParts {
         };
         let debug = this.prefix === measurableRules.export;
         const doRollback = () => {
+            console.trace('doing rollback');
             try {
-                exportChanges0(rollbackContext, true);
+                exportChanges0(rollbackContext, rollbackContext, true);
                 if (rollbackContext.target)
-                    exportChanges0(rollbackContext.target, false);
+                    exportChanges0(rollbackContext.target, rollbackContext.target, true);
             }
             catch (e) {
-                out.right += +'\n\npartially failed to rollback changes, contact the developer.:' + e.toString();
+                out.right += +'\npartially failed to rollback changes, contact the developer.:' + e.toString();
                 return false;
             }
             return true;
         };
-        const exportChanges0 = (outcontext, isRollback) => {
+        const exportChanges0 = (outcontext, safeContextRollback, isRollback) => {
             // let oldContext = outcontext;
-            let DONOTUSE = evalContext;
             let ermsg;
-            const vertex = rollbackContext.unsafe.vertex;
+            let rollbackContext = 'donotuse';
+            let evalContext = 'donotusetoo';
+            console.log('000exportchanges part 1', outcontext.vertexSize.y);
+            const vertex = safeContextRollback.unsafec.vertex;
             const graph = vertex.owner;
             graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y);
-            graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y);
+            // graph.setScroll(500, 500);//  error here??? questo mi cambia vpos.y
+            graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y); //  error here??? questo mi cambia vpos.y
             // U.pe(true, 'meastest');
             // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
-            const isVertex = (vertex.getHtmlRawForeign() === rollbackContext.unsafe.node);
+            const isVertex = (vertex.getMeasurableNode() === safeContextRollback.unsafec.node);
             console.log('3xd finalize set vertexsize:', outcontext.vertexSize, outcontext.relativeVPos, outcontext.relativePos, outcontext);
             vertex.setSize(outcontext.vertexSize, false, true);
-            if (!outcontext.model && outcontext !== rollbackContext) {
+            console.log('000exportchanges part 2', outcontext.vertexSize.y);
+            if (!outcontext.model && outcontext !== safeContextRollback) {
                 out.right += 'invalid final value for this.model = ' + outcontext.model + ', please do not overwrite context variables.';
                 doRollback();
                 return;
             }
             if (!isVertex) {
-                const html = rollbackContext.unsafe.node instanceof HTMLElement || rollbackContext.unsafe.node instanceof SVGSVGElement ? rollbackContext.unsafe.node : null;
-                const svgSubElement = !html ? rollbackContext.unsafe.node : null;
-                if (!outcontext.relativeVPos || !_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.relativeVPos.x) || !_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.relativeVPos.y)) {
+                console.log('000exportchanges part 3', !isVertex, outcontext.vertexSize.y);
+                const html = safeContextRollback.unsafec.node instanceof HTMLElement || safeContextRollback.unsafec.node instanceof SVGSVGElement ? safeContextRollback.unsafec.node : null;
+                const svgSubElement = !html ? safeContextRollback.unsafec.node : null;
+                if (!outcontext.relativeVPos || !_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(safeContextRollback.relativeVPos.x) || !_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.relativeVPos.y)) {
                     out.right += '\nAn error inside a measurable condition has happened, an invalid value has been wrote inside the variable "relativeVPos".';
                     doRollback();
                     return;
                 }
+                console.log('000exportchanges part 4', !isVertex, outcontext.vertexSize.y);
                 if (!html) {
                     out.right += 'inner svg\'s are currently not supported';
                     doRollback();
@@ -5674,21 +5820,23 @@ class MeasurableRuleParts {
                 }
                 if (html.style.position !== 'absolute')
                     html.style.position = 'absolute';
-                let relativeParentNode = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getRelativeParentNode(rollbackContext.unsafe.node);
+                let relativeParentNode = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getRelativeParentNode(safeContextRollback.unsafec.node);
                 if (relativeParentNode === vertex.getHtmlRawForeign()) {
                     html.style.top = (outcontext.relativeVPos.y * graph.zoom.y) + 'px';
                     html.style.left = (outcontext.relativeVPos.x * graph.zoom.x) + 'px';
                 }
                 else {
-                    const parentGpos = graph.toGraphCoord(_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].sizeof(relativeParentNode).tl());
+                    // vertex.setSize(outcontext.vertexSize); already done no need to do anything?
+                    /*const parentGpos: GraphPoint = graph.toGraphCoord(U.sizeof(relativeParentNode).tl());
                     html.style.top = ((outcontext.absoluteGPos.y - parentGpos.y) * graph.zoom.y) + 'px';
-                    html.style.left = ((outcontext.absoluteGPos.x - parentGpos.x) * graph.zoom.y) + 'px';
+                    html.style.left = ((outcontext.absoluteGPos.x - parentGpos.x) * graph.zoom.y) + 'px';*/
                 }
                 if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.width))
                     html.style.width = (+outcontext.width) + 'px';
                 if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.height))
                     html.style.height = (+outcontext.height) + 'px';
             }
+            console.log('000exportchanges part 5', !isVertex, outcontext.vertexSize.y);
             if (!isRollback) {
                 // called by rollbackContext because evalContext got the method deleted.
                 try {
@@ -5708,10 +5856,11 @@ class MeasurableRuleParts {
         };
         let evalOutput = null;
         const executeRight = () => {
-            exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, this.target);
+            //      window['debug'] = 1;
+            exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, out && out.target);
+            //      U.pe(window['debug'] === 1, 'out:', out, 'targetStr: |' + out.target + '|', 'exception:', exception, 'evalContext:', evalContext);
             if (exception) {
-                out.left += '\ninvalid target selector: ' + exception.toString();
-                out.right += '\ninvalid target selector: ' + exception.toString();
+                out.right += '\nexecution failed, probably for an invalid target selector: ' + exception.toString();
                 return false;
             }
             evalOutput = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].evalInContext(evalContext, this.right);
@@ -5721,7 +5870,30 @@ class MeasurableRuleParts {
                 ret = false;
             }
             else {
-                this.outputAttr.value = out.right = evalOutput.return;
+                this.outputAttr.value = evalOutput.return;
+                out.right += evalOutput.return;
+                ret = true;
+            }
+            if (!ret)
+                doRollback();
+            return ret;
+        };
+        const executeSelector = () => {
+            exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, null);
+            evalOutput = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].evalInContext(evalContext, this.target);
+            let ret;
+            if (evalOutput.exception) {
+                throw evalOutput.exception;
+                out.target += '\n' + evalOutput.exception;
+                ret = false;
+            }
+            else {
+                if (evalOutput.return instanceof _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"] || evalOutput.return instanceof _Model_modelPiece__WEBPACK_IMPORTED_MODULE_2__["ProtectedModelPiece"]) {
+                    out.target += '\nwarn: output was a ' + _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(evalOutput.return) + ', it got automatically transformed to css+ selector string with .getSelector();';
+                    evalOutput.return = evalOutput.return.getSelector();
+                }
+                this.outputAttr.value = evalOutput.return;
+                out.target = evalOutput.return + out.target;
                 ret = true;
             }
             if (!ret)
@@ -5730,6 +5902,9 @@ class MeasurableRuleParts {
         };
         // const exportChanges = () => { U.pe(true, todo); };
         let selectorout;
+        //U.pe(!rollbackContext.target, '!starget-1', evalOutput.outContext.target);
+        if (this.target && !executeSelector())
+            return out;
         switch (this.prefix) {
             case measurableRules._jquiRes:
             case measurableRules._jquiDra:
@@ -5739,20 +5914,20 @@ class MeasurableRuleParts {
                 return out;
             case measurableRules.console:
                 try {
-                    out.right = _Joiner__WEBPACK_IMPORTED_MODULE_1__["MyConsole"].console.execCommand(this.right);
+                    out.right += _Joiner__WEBPACK_IMPORTED_MODULE_1__["MyConsole"].console.execCommand(this.right);
                 }
                 catch (e) {
-                    out.right = 'command failed:' + e.toString();
+                    out.right += 'command failed:' + e.toString();
                 }
                 return out;
             default:
-                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected rule: ' + this.prefix);
+                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected rule: ' + this.prefix, this);
                 out.prefix = 'unexpected rule:' + this.prefix;
                 return out;
             case measurableRules.bind:
                 if (!executeRight())
                     return out;
-                if (!exportChanges(evalOutput.outContext))
+                if (!exportChanges(evalOutput.outContext, rollbackContext))
                     return out;
                 let newmp = evalOutput.return;
                 if (!(newmp instanceof _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"])) {
@@ -5764,7 +5939,7 @@ class MeasurableRuleParts {
             case measurableRules.variable:
                 if (!executeRight())
                     return out;
-                if (!exportChanges(evalOutput.outContext))
+                if (!exportChanges(evalOutput.outContext, rollbackContext))
                     return out;
                 return out;
             case measurableRules.onDragStart:
@@ -5779,36 +5954,38 @@ class MeasurableRuleParts {
             case measurableRules.onRefresh:
                 out.triggeredResults = [];
                 ///// check precondition
-                exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, this.target);
+                exception = MeasurableRuleParts.fillEvalContext(evalContext, rollbackContext, this.attr.ownerElement, out && out.target);
                 if (exception) {
                     out.left += '\ninvalid target selector: ' + exception.toString();
                     out.right += '\ninvalid target selector: ' + exception.toString();
                     return out;
                 }
-                vertex = rollbackContext.unsafe.vertex;
+                vertex = rollbackContext.unsafec.vertex;
                 evalOutput = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].evalInContext(evalContext, this.left);
                 if (evalOutput.exception) {
                     out.left += '' + evalOutput.exception;
-                    out.right = 'not executed.';
+                    out.right += 'not executed.';
                     return out;
                 }
                 out.left = evalOutput.return;
                 if (!out.left) {
-                    out.right = 'not executed.';
+                    out.right += 'not executed.';
                     return out;
                 }
-                if (!exportChanges(evalOutput.outContext))
+                console.log('5xd', evalOutput.outContext, rollbackContext);
+                // return null; // per qualche motivo questo export changes mi azzera la Y del vertex.
+                if (!exportChanges(evalOutput.outContext, rollbackContext))
                     return out; // va messo qui, se lo metto dopo i triggers equivale ad un rollback dei loro cambiamenti.
                 ///// try execution
                 selectorout = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].processSelectorPlusPlus(this.right, false, $(vertex.owner.container), $(this.attr.ownerElement), Measurable.GlobalPrefix);
                 if (selectorout.exception) {
-                    out.right += (out.right ? '\n<br/>\n' : '') + selectorout.exception.toString();
+                    out.right += (out.right ? '\n' : '') + selectorout.exception.toString();
                     return out;
                 }
                 // last validation and execution.
                 const htmlFoundsevt = [];
                 const vertexFoundsevt = [];
-                console.log('resultset', selectorout);
+                // console.log('resultset', selectorout);
                 for (i = 0; i < selectorout.resultSetAttr.length; i++) {
                     const a = selectorout.resultSetAttr[i];
                     let ruleprefix = Measurable.isExecutableRule(a.name, true);
@@ -5830,11 +6007,11 @@ class MeasurableRuleParts {
                         out.triggeredResults.push(mr.process(false, vertex));
                     }
                     catch (e) {
-                        out.right += '\n<br/>\n' + e.toString(); /* must not stop if only 1 triggered fails. */
+                        out.right += '\n' + e.toString(); /* must not stop if only 1 triggered fails. */
                     }
                 }
-                out.right = selectorout.jqselector + ' ' + _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].AttributeSelectorOperator + ' ' + selectorout.attrselector
-                    + (out.right.length ? '\n<br/>\n' : '') + out.right;
+                out.right += selectorout.jqselector + ' ' + _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].AttributeSelectorOperator + ' ' + selectorout.attrselector
+                    + (out.right.length ? '\n' : '') + out.right;
                 return out;
             case measurableRules.export:
                 ////////// prima trovo i bersagli, così se non ci sono mi fermo.
@@ -5843,19 +6020,19 @@ class MeasurableRuleParts {
                 this.left = this.left || 'this ->';
                 selectorout = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].processSelectorPlusPlus(this.left, false, $(vertex.owner.container), $(this.attr.ownerElement), null);
                 if (selectorout.exception) {
-                    out.left += (out.left ? '\n<br/>\n' : '') + selectorout.exception.toString();
+                    out.left += (out.left ? '\n' : '') + selectorout.exception.toString();
                     return out;
                 }
                 out.left = 'matched ' + selectorout.resultSetElem.length + ' elements and ' + selectorout.resultSetAttr.length + ' attributes. search "xprt" on console to see them';
                 console.info('xprt', 'Matched elements:', selectorout.resultSetElem, 'Matched attributes:', selectorout.resultSetAttr);
                 if (selectorout.resultSetAttr.length + selectorout.resultSetElem.length === 0) {
-                    out.right = 'not executed.';
+                    out.right += 'not executed.';
                     return out;
                 }
                 ////////// can proceed to execution.
                 if (!executeRight())
                     return out;
-                if (!exportChanges(evalOutput.outContext))
+                if (!exportChanges(evalOutput.outContext, rollbackContext))
                     return out;
                 if (evalOutput.return instanceof Object) {
                     if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isFunction(evalOutput.return.toString)) {
@@ -5864,7 +6041,7 @@ class MeasurableRuleParts {
                     else
                         evalOutput.return = JSON.stringify(evalOutput.return);
                 }
-                out.right = evalOutput.return;
+                out.right += evalOutput.return;
                 ////////// exporting resulting value
                 for (i = 0; i < selectorout.resultSetAttr.length; i++) {
                     selectorout.resultSetAttr[i].value = evalOutput.return;
@@ -5878,7 +6055,7 @@ class MeasurableRuleParts {
                     out.right += '\n If it isn\'t code, try wrapping it in quotes.';
                     return out;
                 }
-                if (!exportChanges(evalOutput.outContext))
+                if (!exportChanges(evalOutput.outContext, rollbackContext))
                     return out;
                 if (evalOutput.return instanceof Object) {
                     if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isFunction(evalOutput.return.toString)) {
@@ -5887,7 +6064,7 @@ class MeasurableRuleParts {
                     else
                         evalOutput.return = JSON.stringify(evalOutput.return);
                 }
-                out.right = evalOutput.return;
+                // out.right += evalOutput.return;
                 // start setting classes
                 const classes = (evalOutput.return + '').split(' ');
                 for (i = 0; i < classes.length; i++) {
@@ -5902,7 +6079,7 @@ class MeasurableRuleParts {
                         this.attr.ownerElement.classList.remove(cl[i].substr(1));
                         continue;
                     }
-                    out.right = 'all class tokens must start with a plus (if inserting) or minus (if removing) sign.';
+                    out.right += '\nall class tokens must start with a plus (if inserting) or minus (if removing) sign.';
                     return out;
                 }
                 return out;
@@ -5911,7 +6088,7 @@ class MeasurableRuleParts {
                     out.right += '\n If it isn\'t code, try wrapping it in quotes.';
                     return out;
                 }
-                if (!exportChanges(evalOutput.outContext))
+                if (!exportChanges(evalOutput.outContext, rollbackContext))
                     return out;
                 if (evalOutput.return instanceof Object) {
                     if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isFunction(evalOutput.return.toString)) {
@@ -5920,7 +6097,7 @@ class MeasurableRuleParts {
                     else
                         evalOutput.return = JSON.stringify(evalOutput.return);
                 }
-                out.right = evalOutput.return;
+                // out.right += evalOutput.return;
                 // start setting styles
                 console.log('mergeSTyles:', this.attr.ownerElement, evalOutput.return);
                 _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mergeStyles(this.attr.ownerElement, null, evalOutput.return, true);
@@ -5929,77 +6106,122 @@ class MeasurableRuleParts {
                 ///// left validation
                 this.left = this.left.trim();
                 if (!_Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableTemplateGenerator"].constraintMap[this.left]) {
-                    out.left = 'invalid.';
-                    out.right = 'not processed.';
+                    out.left += 'invalid.';
+                    out.right += 'not processed.';
                     return out;
                 }
-                const preLeft = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]
+                //console.log('preconstraint1');
+                //        const preLeft: number = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]
+                //U.pe(!rollbackContext.target, '!starget1', evalOutput.outContext.target);
                 if (!executeRight())
                     return out;
-                if (!exportChanges(evalOutput.outContext))
+                //U.pe(!rollbackContext.target, '!starget2', evalOutput.outContext.target);
+                //console.log('preconstraint2', evalOutput.outContext, rollbackContext);
+                if (!exportChanges(evalOutput.outContext, rollbackContext))
                     return out;
-                let oc = evalOutput.outContext;
+                //console.log('preconstraint3', evalOutput.outContext, rollbackContext);
                 let postLeft = null;
                 try {
                     postLeft = eval("evalOutput.outContext." + this.left);
                 } // this one CAN fail if the user deletes the predefined variable in the context.
                 catch (e) {
-                    out.right = e.toString() + '\n; likely caused by an overwrite on a predefined variable.';
+                    out.right += '\n' + e.toString() + '\n; likely caused by an overwrite on a predefined variable inside the path "' + this.left + '".';
                     return out;
                 }
+                // console.log('preconstraint4', evalOutput.outContext, rollbackContext);
+                if (this.operator === '=')
+                    this.operator = '==';
                 const condition = eval(postLeft + this.operator + evalOutput.return);
-                this.operator = condition ? 'true' : 'false';
-                if (condition) {
+                out.operator += '' + !!condition;
+                let isTargeting = this.left.indexOf('target.') === 0;
+                const left = isTargeting ? this.left.substr('target.'.length) : this.left;
+                let oc0 = evalOutput.outContext;
+                let rc0 = rollbackContext;
+                let oc = isTargeting ? evalOutput.outContext.target : evalOutput.outContext;
+                let rc = isTargeting ? rollbackContext.target : rollbackContext;
+                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!isTargeting, 'left side is not targeting');
+                if (isTargeting && (!oc || !rc)) {
+                    out.left = 'this kind of rule cannot be executed without a target.';
                     return out;
                 }
-                switch (this.left) {
+                switch (left) {
                     default:
-                        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected left part:', this.left, 'but only validated left parts should reach here.');
-                        break;
+                        out.left += 'invalid left part, use one of the precompiled suggestions.';
+                        doRollback();
+                        // U.pe(true, 'unexpected left part:', this.left, 'but only validated left parts should reach here.');
+                        return out;
                     case ConstraintLeftAdmittedsStatic.height:
-                        oc.setHeight(evalOutput.return);
+                        out.left += '' + rc.height;
+                        if (!condition)
+                            oc.setHeight(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.width:
-                        oc.setWidth(evalOutput.return);
+                        out.left += '' + rc.width;
+                        if (!condition)
+                            oc.setWidth(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.absoluteDocPosX:
-                        oc.setAbsoluteDocPosX(evalOutput.return);
+                        out.left += '' + rc.absoluteDocPos.x;
+                        if (!condition)
+                            oc.setAbsoluteDocPosX(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.absoluteDocPosY:
-                        oc.setAbsoluteDocPosY(evalOutput.return);
+                        out.left += '' + rc.absoluteDocPos.y;
+                        if (!condition)
+                            oc.setAbsoluteDocPosY(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.absoluteGPosX:
-                        oc.setAbsoluteGPosX(evalOutput.return);
+                        out.left += '' + rc.absoluteGPos.x;
+                        if (!condition)
+                            oc.setAbsoluteGPosX(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.absoluteGPosY:
-                        oc.setAbsoluteGPosY(evalOutput.return);
+                        out.left += '' + rc.absoluteGPos.y;
+                        if (!condition)
+                            oc.setAbsoluteGPosY(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.relativePosX:
-                        oc.setRelativePosX(evalOutput.return);
+                        out.left += '' + rc.relativePos.x;
+                        if (!condition)
+                            oc.setRelativePosX(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.relativePosY:
-                        oc.setRelativePosY(evalOutput.return);
+                        out.left += '' + rc.relativePos.y;
+                        if (!condition)
+                            oc.setRelativePosY(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.relativeVPosX:
-                        oc.setRelativeVPosX(evalOutput.return);
+                        out.left += '' + rc.relativeVPos.x;
+                        if (!condition)
+                            oc.setRelativeVPosX(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.relativeVPosY:
-                        oc.setRelativeVPosY(evalOutput.return);
+                        out.left += '' + rc.relativeVPos.y;
+                        if (!condition)
+                            oc.setRelativeVPosY(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.vertexSizeX:
-                        oc.setVertexSizeX(evalOutput.return);
+                        out.left += '' + rc.vertexSize.x;
+                        if (!condition)
+                            oc.setVertexSizeX(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.vertexSizeY:
-                        oc.setVertexSizeY(evalOutput.return);
+                        out.left += '' + rc.vertexSize.y;
+                        if (!condition)
+                            oc.setVertexSizeY(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.vertexSizeW:
-                        oc.setVertexSizeW(evalOutput.return);
+                        out.left += '' + rc.vertexSize.w;
+                        if (!condition)
+                            oc.setVertexSizeW(evalOutput.return);
                         break;
                     case ConstraintLeftAdmittedsStatic.vertexSizeH:
-                        oc.setVertexSizeH(evalOutput.return);
+                        out.left += '' + rc.vertexSize.h;
+                        if (!condition)
+                            oc.setVertexSizeH(evalOutput.return);
                         break;
                 }
-                exportChanges(oc); // commit
+                exportChanges(oc0, rc0); // commit
                 return out;
         }
         _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'should never reach here');
@@ -6207,22 +6429,24 @@ class Measurable {
         rotConfig.prefix = measurableRules._jquiRot;
         draConfig.prefix = measurableRules._jquiDra;
         for (i = 0; i < arr.length; i++) {
-            attrval = elem.getAttribute(arr[i].config.prefix + arr[i].friendlyname);
+            attrval = elem.getAttribute((arr[i].config.prefix + arr[i].friendlyname));
             attrval = attrval && attrval.trim();
             if (!attrval)
                 func = null;
             else
                 try {
                     func = eval(attrval);
-                    func = (e, ui) => { try {
-                        func(e, ui);
-                    }
-                    catch (e) {
-                        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'error evaluating' + arr[i].friendlyname + ':', e);
-                    } };
+                    func = (e, ui) => {
+                        try {
+                            func(e, ui);
+                        }
+                        catch (e) {
+                            _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'error evaluating' + arr[i].friendlyname + ':', e);
+                        }
+                    };
                 }
                 catch (e) {
-                    _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'invalid function as argument of resize create');
+                    _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'invalid function as argument of resize create', e);
                     func = null;
                 }
             // se resConfig[triggername] non è settato, lo setto a func.
@@ -6252,7 +6476,7 @@ class Measurable {
             switch (jquikey) {
                 default:
                     friendlykey = jquikey;
-                    let customparameterval = elem.getAttribute(measurableRules._jquiRes + friendlykey);
+                    let customparameterval = elem.getAttribute((measurableRules._jquiRes + friendlykey));
                     if (resConfig[jquikey] || !customparameterval) {
                         continue;
                     }
@@ -6272,7 +6496,7 @@ class Measurable {
             switch (jquikey) {
                 default:
                     friendlykey = jquikey;
-                    let customparameterval = elem.getAttribute(measurableRules._jquiRot + friendlykey);
+                    let customparameterval = elem.getAttribute((measurableRules._jquiRot + friendlykey));
                     if (rotConfig[jquikey] || !customparameterval || rotConfig[jquikey] === customparameterval) {
                         continue;
                     }
@@ -6288,7 +6512,7 @@ class Measurable {
             }
         }
         let defaultAction = (friendlykey, jquikey) => {
-            let customparameterval = elem.getAttribute(measurableRules._jquiDra + friendlykey);
+            let customparameterval = elem.getAttribute((measurableRules._jquiDra + friendlykey));
             if (draConfig[jquikey] || !customparameterval) {
                 return;
             }
@@ -6305,6 +6529,7 @@ class Measurable {
                 case _Joiner__WEBPACK_IMPORTED_MODULE_1__["Draggableoptions"].axis:
                     friendlykey = jquikey;
                     defaultAction(friendlykey, jquikey);
+                    console.log('draconfig.setaxis: ', draConfig[jquikey], elem, jquikey, friendlykey);
                     const val = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceAll(draConfig[jquikey] + '', ' ', '');
                     if (val === null || val === undefined) {
                         draConfig[jquikey] = '';
@@ -6324,7 +6549,7 @@ class Measurable {
             }
         }
         const $elem = $(elem);
-        console.log('measurableConfig:  drag:', draConfig, 'res:', resConfig, 'rot:', rotConfig, 'isVertex:', isvroot, 'axis:', draConfig.axis, 'handles:', resConfig.handles);
+        console.log('measurableConfig:  drag:', draConfig, 'res:', resConfig, 'rot:', rotConfig, 'isVertex:', isvroot, 'axis:', draConfig.axis, 'handles:', resConfig.handles, elem);
         if (draConfig.axis !== undefined && draConfig.axis !== '' && !isvroot) {
             $elem.draggable(draConfig);
             if (draConfig.disabled)
@@ -6672,7 +6897,7 @@ function xml2json(xml, tab = '    '/*XML_DOM, string*/) {
 /*!****************************!*\
   !*** ./src/common/util.ts ***!
   \****************************/
-/*! exports provided: Dictionary, myFileReader, FocusHistoryEntry, InputPopup, ShortAttribETypes, EvalOutput, SelectorOutput, U, TSON_JSTypes, TSON_UnsupportedTypes, TSON, AttribETypes, Json, DetectZoom, ISize, Size, GraphSize, IPoint, GraphPoint, Point, FileReadTypeEnum */
+/*! exports provided: Dictionary, myFileReader, FocusHistoryEntry, InputPopup, ShortAttribETypes, EvalOutput, SelectorOutput, U, Keystrokes, AutocompleteMatch, TSON_JSTypes, TSON_UnsupportedTypes, TSON, AttribETypes, Json, DetectZoom, ISize, Size, GraphSize, IPoint, GraphPoint, Point, FileReadTypeEnum */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6685,6 +6910,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EvalOutput", function() { return EvalOutput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectorOutput", function() { return SelectorOutput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "U", function() { return U; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Keystrokes", function() { return Keystrokes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AutocompleteMatch", function() { return AutocompleteMatch; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TSON_JSTypes", function() { return TSON_JSTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TSON_UnsupportedTypes", function() { return TSON_UnsupportedTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TSON", function() { return TSON; });
@@ -6768,66 +6995,200 @@ class FocusHistoryEntry {
     }
 }
 class InputPopup {
-    constructor(title, txtpre, txtpost, event /* array of (['oninput', onInputFunction])*/, placeholder = null, value, inputType = 'input', inputSubType = null, onsuccess) {
+    constructor(title = null, txtPre = null, inputOrTag = null, txtPost = null) {
         this.validators = [];
-        this.valid = false;
-        const value0 = value;
-        if (!value) {
-            value = '';
+        const id = 'popup_' + InputPopup.popupCounter++;
+        this.container = U.toHtml('<div data-closebuttontarget="' + id + '" class="screenWideShadow" style="display: none;"></div>');
+        this.xbutton = document.createElement('button');
+        this.xbutton.classList.add('closeButton');
+        this.xbutton.dataset.closebuttontarget = id;
+        this.xbutton.innerText = 'X';
+        this.html = document.createElement('div');
+        this.html.classList.add('popupContent');
+        this.buttonContainer = document.createElement('div');
+        this.buttonContainer.style.width = '100%';
+        this.buttonContainer.style.display = 'flex';
+        this.buttonContainer.style.marginTop = '10px';
+        this.$container = $(this.container);
+        this.$xbutton = $(this.xbutton);
+        this.$html = $(this.html);
+        this.container.append(this.html);
+        this.html.append(this.xbutton);
+        U.closeButtonSetup($(this.container));
+        if (title || txtPre || txtPost)
+            this.setText(title, txtPre, txtPost);
+        this.setInputNode(inputOrTag);
+    }
+    addButtons(textornode, onclick, classes = ['btn-primary']) {
+        let btn;
+        if (textornode instanceof HTMLButtonElement) {
+            btn = textornode;
         }
+        else {
+            btn = document.createElement('button');
+            btn.style.margin = 'auto';
+            btn.textContent = textornode;
+            btn.classList.add('btn', ...classes);
+        }
+        let i;
+        for (i = 0; i < onclick.length; i++) {
+            let clickhandler = onclick[i];
+            $(btn).on('click', (e) => { clickhandler(e, U.getValue(this.input), this.input, btn); });
+        }
+        this.buttonContainer.append(btn);
+        return btn;
+    }
+    addOkButton(text = 'Confirm', onclick) {
+        onclick = onclick || [];
+        text = text || 'Confirm';
+        onclick.push((e, value, input, btn) => { this.destroy(); });
+        U.remove(this.okButton);
+        this.okButton = this.addButtons(text, onclick, ['btn-primary']);
+        this.$okButton = $(this.okButton);
+    }
+    onCloseButton(onclick) {
+        let i;
+        for (i = 0; i < onclick.length; i++) {
+            let evt = onclick[i];
+            this.$xbutton.on('click.customhandler', (e) => { evt(e, U.getValue(this.input), this.input, this.xbutton); });
+        }
+    }
+    setText(title = '', pre = '', post = '') {
+        U.remove(this.title);
+        U.remove(this.txtPre);
+        U.remove(this.txtPost);
+        if (typeof title === 'string') {
+            this.title = document.createElement('h1');
+            this.title.style.textAlign = 'center';
+            this.title.innerText = title;
+        }
+        else
+            this.title = title;
+        if (typeof pre === 'string') {
+            this.txtPre = document.createElement('div');
+            this.txtPre.innerText = pre;
+        }
+        else
+            this.txtPre = pre;
+        if (typeof post === 'string') {
+            this.txtPost = document.createElement('div');
+            this.txtPost.innerText = post;
+        }
+        else
+            this.txtPost = post;
+        this.$title = $(this.title);
+        this.$txtPre = $(this.txtPre);
+        this.$txtPost = $(this.txtPost);
+    }
+    setNestedInputNode(container = null, node, addDefaultEvents = true) {
+        this.innercontainer = container;
+        this.setInputNode(node, null, null, addDefaultEvents);
+    }
+    setInputNode(nodeOrTag = null, inputSubType = null, pattern = null, addDefaultEvents = true) {
+        if (!this.innercontainer)
+            U.remove(this.input);
+        if (nodeOrTag === null)
+            return;
+        if (typeof nodeOrTag === 'string') {
+            this.input = document.createElement(nodeOrTag);
+            console.log('tadebug', nodeOrTag === 'textarea', nodeOrTag);
+            if (nodeOrTag === 'textarea') {
+                // this.input.classList.add('form-control'); looks better without, mainly for font-size and overflowing outline
+                // this.input.style.fontSize = 'inherit';
+                this.input.style.width = 'calc(75vw - 152px)';
+                this.input.style.height = 'calc(75vh - 200px)';
+            }
+            if (nodeOrTag === 'input') {
+                this.input.classList.add('form-control', 'form-control-lg');
+                this.input.style.width = '100%';
+                this.input.style.textAlign = 'center';
+                this.input.style.margin = '50px 0';
+            }
+            else {
+                this.input.style.width = 'calc(75vw - 152px)';
+                this.input.style.height = 'calc(75vh - 200px)';
+                this.input.style.border = '1px solid #ced4da';
+                this.input.style.borderRadius = '.25rem;';
+                this.input.style.padding = '1rem';
+            }
+        }
+        else
+            this.input = nodeOrTag;
+        if (inputSubType) {
+            this.input.setAttribute('type', inputSubType);
+        }
+        if (pattern) {
+            this.input.setAttribute('pattern', pattern);
+        }
+        this.$input = $(this.input);
+        if (addDefaultEvents) {
+            this.validators.push({ validatorCallback: (value, input) => {
+                    const pattern = input.getAttribute('pattern');
+                    if (!pattern)
+                        return true;
+                    const regex = new RegExp(pattern);
+                    console.log('validating pattern:', regex, pattern, value);
+                    return regex.test(value);
+                }, errormsg: 'pattern violated.' });
+            this.$input.off('keydown.defaultvalidate').on('keydown.defaultvalidate', (e) => { this.defaultKeydownEvt(e); });
+            // $input.off('change.defaultvalidate').on('change.defaultvalidate', (e: BlurEvent) => {this.defaultChangeEvt(e)});
+        }
+    }
+    setInput(value = null, placeholder = null) {
+        U.pe(!this.input, 'cannot set inputPopup values without setting an input field first.');
+        U.setInputValue(this.input, value);
+        this.input.setAttribute('placeholder', placeholder || '');
+    }
+    /*
+      oldconstructor(title: string, txtpre: string, txtpost: string, event: any[][] /* array of (['oninput', onInputFunction])* /,
+                  placeholder: string = null, value: string, inputType: string = 'input',
+                     inputSubType: string = null, onsuccess: ((value: string, input: HTMLElement) => any)[]) {
+        const value0 = value;
+        if (!value) { value = ''; }
         this.onsuccess = onsuccess ? onsuccess : [];
         const id = 'popup_' + InputPopup.popupCounter++;
         placeholder = (placeholder ? 'placeholder="' + placeholder + '"' : '');
         inputSubType = (inputSubType ? 'type = "' + inputSubType + '"' : '');
-        let innerValue;
+        let innerValue: string;
         if (inputType.toLowerCase() === 'textarea') {
-            innerValue = U.replaceAll(U.replaceAll(value, '<', '&lt;'), '>', '&gt;');
-            innerValue += '</' + inputType + '>';
-            value = '';
-        }
-        else {
-            value = value === '' ? '' : 'value="' + U.replaceAll(value, '"', '&quot;') + '"';
-            innerValue = '';
-        }
-        const container = U.toHtml('' +
-            '<div _ngcontent-c3="" data-closebuttontarget="' + id + '" class="screenWideShadow" style="display: none;">' +
-            '<div _ngcontent-c3="" class="popupContent">' +
-            '<h1 _ngcontent-c3="" style="text-align: center;">' + title + '</h1>' +
-            '<button _ngcontent-c3="" class="closeButton" data-closebuttontarget="' + id + '">X</button>' +
-            '<br _ngcontent-c3="">' +
-            '<div _ngcontent-c3="" class="TypeList">' +
-            '<table class="typeTable"><tbody>' +
-            '<tr class="typeRow"><td class="alias textPre">' + txtpre + '</td>' +
-            '<' + inputType + ' ' + inputSubType + ' ' + placeholder + ' ' + value + ' class="form-control popupInput" ' +
-            'aria-label="Small" aria-describedby="inputGroup-sizing-sm">' + innerValue + txtpost +
-            '</td>' +
-            '</tr>' +
-            '<tr><td class="errors" style="display: none;"></td></tr>' +
-            '</tbody></table></div>' +
-            '</div></div>');
+          innerValue = U.replaceAll(U.replaceAll(value, '<', '&lt;'), '>', '&gt;');
+          innerValue += '</' + inputType + '>';
+          value = '';
+        } else { value = value === '' ? '' : 'value="' + U.replaceAll(value, '"', '&quot;') + '"'; innerValue = ''; }
+        const container: HTMLElement = U.toHtml('' +
+          '<div _ngcontent-c3="" data-closebuttontarget="' + id + '" class="screenWideShadow" style="display: none;">' +
+          '<div _ngcontent-c3="" class="popupContent">' +
+          '<h1 _ngcontent-c3="" style="text-align: center;">' + title + '</h1>' +
+          '<button _ngcontent-c3="" class="closeButton" data-closebuttontarget="' + id + '">X</button>' +
+          '<br _ngcontent-c3="">' +
+          '<div _ngcontent-c3="" class="TypeList">' +
+          '<table class="typeTable"><tbody>' +
+          '<tr class="typeRow"><td class="alias textPre">' + txtpre + '</td>' +
+          '<' + inputType + ' ' + inputSubType + ' ' + placeholder + ' ' + value + ' class="form-control popupInput" ' +
+          'aria-label="Small" aria-describedby="inputGroup-sizing-sm">' + innerValue + txtpost +
+          '</td>' +
+          '</tr>' +
+          '<tr><td class="errors" style="display: none;"></td></tr>' +
+          '</tbody></table></div>' +
+          '</div></div>');
         U.closeButtonSetup($(container));
         this.events = event;
         this.html = container;
+    
         if (inputType === 'textarea') {
-            this.getInputNode()[0].setAttribute('style', 'width: calc(75vw - 152px); height: calc(75vh - 200px);');
+          this.getInputNode()[0].setAttribute('style', 'width: calc(75vw - 152px); height: calc(75vh - 200px);');
         }
         this.show();
-    }
-    getInputNode() { return $(this.html).find('.popupInput'); }
-    defaultBlurEvt(e) { this.inputted(); }
-    defaultKeydownEvt(e, input = null) {
-        input = input || this.getInputNode()[0];
-        if (e.key === 'escape') {
-            input.innerText = ''; // if contenteditable
-            input.value = '';
-        }
-        if (e.key === 'return') {
-            this.inputted();
-        }
-    }
-    inputted(input = null) {
-        input = input || this.getInputNode()[0];
-        const value = this.getValue(input);
+      }*/
+    // events: any[][];
+    // onsuccess: ((value: string, input: HTMLElement) => any)[];
+    // valid = false;
+    // getInputNode(): JQuery<HTMLElement> { return $(this.html).find('.popupInput'); }
+    // defaultBlurEvt(e: JQuery.BlurEvent){ this.inputted(); }
+    defaultKeydownEvt(e) { this.inputted(); }
+    inputted() {
+        const input = this.input;
+        const value = U.getValue(input);
         let i;
         let valid = true;
         for (i = 0; this.validators && i < this.validators.length; i++) {
@@ -6840,85 +7201,43 @@ class InputPopup {
                 valid = false;
             }
         }
-        this.valid = valid;
-        if (!valid)
-            return;
-        for (i = 0; this.onsuccess && i < this.onsuccess.length; i++) {
-            if (this.onsuccess[i])
-                this.onsuccess[i](this.getValue(input), input);
-        }
-        this.destroy();
+        this.okButton.disabled = !valid;
     }
-    getValue(inputnode = null) {
-        inputnode = inputnode || this.getInputNode()[0];
-        let value;
-        if (inputnode['' + 'value']) {
-            return inputnode['' + 'value'];
-        }
-        // if (inputnode.hasAttribute('value')) value = inputnode.getAttribute('value');
-        else
-            value = inputnode.innerText;
-        return value;
-    }
-    show(addDefaultEvents = true) {
-        let i = -1;
-        const $input = this.getInputNode();
-        while (this.events && ++i < this.events.length) {
-            const currentEvt = this.events[i];
-            if (!currentEvt)
-                continue;
-            $input.on(currentEvt[0], currentEvt[1]);
-        }
-        if (addDefaultEvents) {
-            $input.off('keydown.defaultvalidate').on('keydown.defaultvalidate', (e) => { this.defaultKeydownEvt(e); });
-            $input.off('blur.defaultvalidate').on('blur.defaultvalidate', (e) => { this.defaultBlurEvt(e); });
-            // $input.off('change.defaultvalidate').on('change.defaultvalidate', (e: BlurEvent) => {this.defaultChangeEvt(e)});
-            this.validators.push({ validatorCallback: (value, input) => {
-                    const pattern = input.getAttribute('pattern');
-                    if (!pattern)
-                        return true;
-                    const regex = new RegExp(pattern);
-                    console.log('validating pattern:', regex, pattern, value);
-                    console.log(value);
-                    return regex.test(value);
-                }, errormsg: 'pattern violated.' });
-        }
-        document.body.appendChild(this.html);
-        this.html.style.display = 'none';
-        $(this.html).slideDown(400);
+    show() {
+        document.body.appendChild(this.container);
+        this.container.style.display = 'none';
+        if (this.title)
+            this.html.appendChild(this.title);
+        if (this.xbutton)
+            this.html.appendChild(this.xbutton);
+        if (this.innercontainer)
+            this.html.appendChild(this.innercontainer);
+        else if (this.input)
+            this.html.appendChild(this.input);
+        if (this.txtPre)
+            this.html.appendChild(this.txtPre);
+        if (this.txtPost)
+            this.html.appendChild(this.txtPost);
+        this.html.appendChild(this.buttonContainer);
+        this.$container.slideDown(400);
+        this.input.focus();
     }
     hide() {
-        this.html.style.display = 'block';
-        $(this.html).slideUp(400, () => { this.html.style.display = 'none'; });
+        this.container.style.display = 'block';
+        this.$container.slideUp(400);
     }
     destroy() {
-        this.html.style.display = 'block';
-        $(this.html).slideUp(400, () => {
-            if (this.html && this.html.parentNode) {
-                this.html.parentNode.removeChild(this.html);
-                this.html = null;
+        this.container.style.display = 'block';
+        $(this.container).slideUp(400, () => {
+            if (this.container && this.container.parentNode) {
+                this.container.parentNode.removeChild(this.container);
+                this.container = null;
             }
         });
         return null;
     }
-    addOkButton(load1, finish) {
-        const input = this.getInputNode()[0];
-        const button = document.createElement('button');
-        button.innerText = 'Confirm';
-        const size = U.sizeof(button);
-        button.style.left = 'calc( 50% - ' + size.w / 2 + 'px);';
-        input.parentNode.appendChild(button);
-        $(button).on('click.btnclickpopup', finish);
-    }
-    setPostHtml(node) { $(this.html).find('.textPre')[0].append(node); }
-    setPostText(str) { $(this.html).find('.textPre')[0].innerHTML = str; }
     setErrText(str) {
-        U.pe(true, 'InputPopup.setErrText is deprecated:', str);
-        /*
-        const $err = $(this.html).find('.errors');
-        if (!str) { $err.hide(); return; }
-        $err.show();
-        $err[0].innerHTML = str; */
+        this.setText(null, null, str);
     }
     setValidation(validatorCallback, errormsg) {
         if (validatorCallback)
@@ -7059,47 +7378,6 @@ class U {
             clearTimeout(i);
         }
     }
-    static petmp(b, s, ...restArgs) { return U.pe(b, s, restArgs); }
-    static pe(b, s, ...restArgs) {
-        if (!b) {
-            return null;
-        }
-        if (restArgs === null || restArgs === undefined) {
-            restArgs = [];
-        }
-        let str = 'Error:' + s + '';
-        console.error('pe[0/' + (restArgs.length + 1) + ']: ', s);
-        for (let i = 0; i < restArgs.length; i++) {
-            s = restArgs[i];
-            str += 'pe[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ' + s + '\t\t\r\n';
-            console.error('pe[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ', s);
-        }
-        if (!U.production) {
-            alert(str);
-        }
-        else
-            U.pw(true, s, ...restArgs);
-        return b['@makeMeCrash']['@makeMeCrash'];
-    }
-    static pw(b, s, ...restArgs) {
-        if (!b) {
-            return null;
-        }
-        if (restArgs === null || restArgs === undefined) {
-            restArgs = [];
-        }
-        console['' + 'trace']();
-        let str = 'Warning:' + s + '';
-        console.warn('pw[0/' + (restArgs.length + 1) + ']: ', s);
-        for (let i = 0; i < restArgs.length; i++) {
-            s = restArgs[i];
-            str += 'pw[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ' + s + '\t\t\r\n';
-            console.warn('pw[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ', s);
-        }
-        U.bootstrapPopup(str, 'warning', 5000);
-        // s = (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash'];
-        return str;
-    }
     // todo: un U.genID() che generi unico a seconda del n° linea di codice da cui viene invocato, o sempre diverso se senza linea (console, eval)
     static getStackTrace(sliceThisCall = true) {
         const ret = Error().stack;
@@ -7131,6 +7409,45 @@ class U {
         U.oneTimeMap[key] = true;
         return printFunction(condition, s, restArgs);
     }
+    static petmp(b, s, ...restArgs) { return U.pe(b, s, restArgs); }
+    static pe(b, s, ...restArgs) {
+        if (!b) {
+            return null;
+        }
+        if (restArgs === null || restArgs === undefined) {
+            restArgs = [];
+        }
+        let str = 'Error:' + s + '';
+        for (let i = 0; i < restArgs.length; i++) {
+            s = restArgs[i];
+            str += '' + s + '\t\r\n';
+        }
+        console.error(s, ...restArgs);
+        if (!U.production && false) {
+            alert(str);
+        }
+        else {
+            U.bootstrapPopup(str, 'danger', 5000);
+        }
+        return b['@makeMeCrash']['@makeMeCrash'];
+    }
+    static pw(b, s, ...restArgs) {
+        if (!b) {
+            return null;
+        }
+        if (restArgs === null || restArgs === undefined) {
+            restArgs = [];
+        }
+        let str = 'Warning:' + s + '';
+        for (let i = 0; i < restArgs.length; i++) {
+            s = restArgs[i];
+            str += '' + s + '\t\r\n';
+        }
+        console.trace();
+        console.warn(s, ...restArgs);
+        U.bootstrapPopup(str, 'warning', 5000);
+        return str;
+    }
     static ps(b, s, ...restArgs) {
         if (!b) {
             return null;
@@ -7139,45 +7456,27 @@ class U {
             restArgs = [];
         }
         let str = s + '';
-        console.info('ps[0/' + (restArgs.length + 1) + ']: ', s);
         for (let i = 0; i < restArgs.length; i++) {
             s = restArgs[i];
-            str += 'ps[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ' + s + '\t\t\r\n';
-            console.info('pw[' + (i + 1) + '/' + (restArgs.length + 1) + ']: ', s);
+            str += '' + s + '\t\t\r\n';
         }
+        console.info(s, ...restArgs);
         U.bootstrapPopup(str, 'success', 3000);
-        // s = (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash'];
         return str;
     }
-    static pif(b, s, ...restArgs) {
-        if (!b) {
-            return null;
-        }
-        if (restArgs === null || restArgs === undefined) {
-            restArgs = [];
-        }
-        let str = 'p: ' + s;
-        console.info('p:', s);
-        for (let i = 0; i < restArgs.length; i++) {
-            s = restArgs[i];
-            str += 'p[' + (i + 1) + '/' + restArgs.length + ']: ' + s + '\t\t\r\n';
-            console.info('p[' + (i + 1) + '/' + restArgs.length + ']: ', s);
-        }
-        // alert(str);
-        return str;
-    }
+    static pif(b, s, ...restArgs) { if (!b) {
+        return null;
+    } }
     static p(s, ...restArgs) {
         if (restArgs === null || restArgs === undefined) {
             restArgs = [];
         }
-        let str = 'p: ' + s;
-        console.info('p:', s);
+        let str = '' + s;
         for (let i = 0; i < restArgs.length; i++) {
             s = restArgs[i];
-            str += 'p[' + (i + 1) + '/' + restArgs.length + ']: ' + s + '\t\t\r\n';
-            console.info('p[' + (i + 1) + '/' + restArgs.length + ']: ', s);
+            str += '' + s + '\t\r\n';
         }
-        // alert(str);
+        console.info(s, ...restArgs);
         return str;
     }
     static bootstrapPopup(innerhtmlstr, color, timer) {
@@ -8854,6 +9153,18 @@ class U {
         }
         return null;
     }
+    // get the index of the first char not equal between s1 and s2 or null if one of the string ended.
+    static strFirstDiffIndex(s1, s2) {
+        let i = -1;
+        if (!s1 || !s2)
+            return -1;
+        let minlen = Math.min(s1.length, s2.length);
+        console.log('strequal minlen:', minlen, '|' + s1 + '|', '|' + s2 + '|');
+        for (i = -1; ++i < minlen && s1[i] === s2[i];) {
+            console.log('strequal:', i, 's1:', s1[i], 's2', s2[i], true);
+        }
+        return i;
+    }
     static mergeArray(a, b, inplace, asSet) {
         a = a || [];
         b = b || [];
@@ -9572,6 +9883,362 @@ class U {
         }
         return retobj;
     }
+    static toHex(num, lengthMin = 6) {
+        let ret = Number(num).toString(16);
+        while (ret.length < lengthMin)
+            ret = '0' + ret;
+        return ret;
+    }
+    static hexToNum(hexstr) {
+        if (hexstr === null || hexstr === undefined)
+            return hexstr;
+        if (hexstr.charAt(0) === '#')
+            hexstr = hexstr.substr(1);
+        if (hexstr.length <= 2 || hexstr.charAt(1).toLowerCase() !== 'x')
+            hexstr = '0x' + hexstr;
+        return parseInt(hexstr, 16);
+    }
+    static expandInputSetup($root) {
+        $root.find('input.expansible').addBack('input.expansible').on('focus', (e) => {
+            let inp = e.currentTarget;
+            let $exp = $('.expandedinput[data-expandedid=\"' + inp.dataset.expandedid + '"]');
+            let exp = $exp[0];
+            let expinput = exp.firstElementChild;
+            expinput.focus();
+            $exp.show();
+            console.log(expinput.innerText, inp.value);
+            expinput.innerText = inp.value;
+        });
+        $('.expandedinput').on('keydown', (e) => {
+            if (!(e.key === "Enter" && !e.shiftKey))
+                return;
+            let exp = e.currentTarget;
+            let $exp = $(exp);
+            let $inp = $('input.expansible[data-expandedid=\"' + exp.dataset.expandedid + '"]');
+            let inp = $inp[0];
+            inp.value = exp.firstElementChild.innerText;
+            $exp.hide();
+        });
+    }
+    /**
+     * filtra la selezione dentro un elemento, ignorando selezione che fa overflow e calcolando gli elementi interni come se i testi fossero in un unico nodo (come se il parametero avesse tutto il testo senza childrens).
+     * @param {HTMLElement} div: must be a contenteditable or contained in a contenteditable to work (getSelection() will not work on non-focusable i think?)
+     **/
+    static getDivSelection(div) {
+        U.pe(div instanceof HTMLInputElement || div instanceof HTMLTextAreaElement, 'parameter must not be a input or textarea element');
+        //let caretOffset: number = 0;
+        const doc = div.ownerDocument || div['document'];
+        const win = doc.defaultView || doc['parentWindow'];
+        let sel;
+        let ret = { start: 0, end: 0, text: '' };
+        let range;
+        let caretRange;
+        if (typeof win.getSelection != "undefined") {
+            sel = win.getSelection();
+            if (sel.rangeCount > 0) { // if is contenteditable
+                range = win.getSelection().getRangeAt(0);
+                caretRange = range.cloneRange();
+                caretRange.selectNodeContents(div);
+                // taking start selection
+                caretRange.setEnd(range.startContainer, range.startOffset);
+                ret.start = caretRange.toString().length;
+                caretRange.setEnd(range.endContainer, range.endOffset);
+                ret.end = caretRange.toString().length;
+                caretRange.setStart(range.startContainer, range.startOffset);
+                ret.text = caretRange.toString();
+            }
+        }
+        else if ((sel = doc['selection']) && sel.type != "Control") {
+            //IE  compatibility (start and text sono improvvisati e non testati)
+            var textRange = sel['createRange']();
+            var preCaretTextRange = doc.body['createTextRange']();
+            preCaretTextRange.moveToElementText(div);
+            preCaretTextRange.setEndPoint("EndToStart", textRange); // set selection end to start of the input parameter range.
+            ret.start = preCaretTextRange.text.length;
+            preCaretTextRange.setEndPoint("EndToEnd", textRange);
+            ret.end = preCaretTextRange.text.length;
+            preCaretTextRange.setEndPoint("StartToStart", textRange);
+            ret.text = preCaretTextRange.text;
+        }
+        return ret;
+    }
+    static getInputSelection(el) {
+        let range;
+        let textInputRange;
+        let endRange;
+        U.pe(!(el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement), 'parameter must be a input or textarea element');
+        let ret = { start: 0, end: 0, text: '' };
+        if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+            ret.start = el.selectionStart;
+            ret.end = el.selectionEnd;
+        }
+        else { // IE compatibility
+            range = document['selection'].createRange();
+            if (range && range['parentElement']() == el) {
+                let len = el.value.length;
+                let normalizedValue = el.value.replace(/\r\n/g, "\n");
+                // Create a working TextRange that lives only in the input
+                textInputRange = el['createTextRange']();
+                textInputRange['moveToBookmark'](range['getBookmark']());
+                // Check if the start and end of the selection are at the very end
+                // of the input, since moveStart/moveEnd doesn't return what we want
+                // in those cases
+                endRange = el['createTextRange']();
+                endRange.collapse(false);
+                if (textInputRange['compareEndPoints']("StartToEnd", endRange) > -1) {
+                    ret.start = ret.end = len;
+                }
+                else {
+                    ret.start = -textInputRange['moveStart']("character", -len);
+                    ret.start += normalizedValue.slice(0, ret.start).split("\n").length - 1;
+                    if (textInputRange['compareEndPoints']("EndToEnd", endRange) > -1) {
+                        ret.end = len;
+                    }
+                    else {
+                        ret.end = -textInputRange['moveEnd']("character", -len);
+                        ret.end += normalizedValue.slice(0, ret.end).split("\n").length - 1;
+                    }
+                }
+            }
+        }
+        ret.text = el.innerText.substring(ret.start, ret.end);
+        return ret;
+    }
+    static getSelection(el) {
+        let ret = { start: 0, end: 0, text: '' };
+        U.pe(!(el instanceof HTMLElement), 'U.getSelection(): only html elements are supported');
+        if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
+            return U.getInputSelection(el);
+        }
+        else
+            return U.getDivSelection(el);
+    }
+    // NB: might not work on contenteditable with childrens filled with text.
+    static setSelection(el, start, end = null) {
+        end = end === null ? start : null;
+        let i;
+        if (el['setSelectionRange']) {
+            el['setSelectionRange'](start, end);
+            return;
+        } // for inputs
+        let range = new Range();
+        let endchildIndex = start;
+        let startchildIndex = end;
+        range.setStart(el.firstChild, startchildIndex);
+        range.setEnd(el.firstChild, endchildIndex); // firstchild is raw text.
+        // range.startOffset = start;
+        // range.endOffset = end;
+        // apply the selection, explained later
+        document.getSelection().removeAllRanges();
+        document.getSelection().addRange(range);
+        // el.setSelectionRange(start, end);
+    }
+    static setSelection2(obj, start, end) {
+        end = end === null ? start : null;
+        var endNode, startNode = endNode = obj.firstChild;
+        // startNode.nodeValue = startNode.nodeValue.trim();
+        var range = document.createRange();
+        range.setStart(startNode, start);
+        range.setEnd(endNode, end + 1);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+    }
+    static autocompleteInputSetup(inputGroup, autocomplete) {
+        let input = inputGroup.firstElementChild;
+        let suggestionList = inputGroup.lastElementChild;
+        let $suggestionList = $(suggestionList);
+        U.pe(!input || !input.contentEditable || !suggestionList || input === suggestionList, 'input html must be a container with firstchild as contenteditable, lastchild as suggestion ul list.');
+        let validSuggestions = [];
+        let splitIndexes = [];
+        let i;
+        let li;
+        let $li;
+        let $input = $(input);
+        let getSuggestionText = (li) => { return li.lastElementChild.innerText; };
+        let getPreCursorString = () => {
+            let ret = U.getSelection(input);
+            return input.innerText.substr(0, ret.start);
+        };
+        const insertStringAtCurrentCursorPosition = (input, text, replacePostText = false, rightArrow = false) => {
+            let ret = U.getSelection(input);
+            let fakeend = ' ';
+            let str = input.innerText; // + fakeend;
+            let arrowfix = (rightArrow && ret.start < str.length ? -1 : 0);
+            // se premo right-arrow senza che ci siano elementi dopo il cursore lo mette come penultimo.
+            let pre = str.substring(0, ret.start + arrowfix);
+            let post = str.substring(ret.end + arrowfix, str.length) + ' ';
+            let i = U.strFirstDiffIndex(text, post);
+            // console.log('ArrowDebug:', pre, 'text:', text, 'post.substr(i):',post.substr(i), 'post:', post, 'i:', i);
+            input.innerText = pre + text + post.substr(i);
+            U.setSelection(input, pre.length + 1, null);
+        };
+        let updateSuggestions = () => {
+            // logical and graphical update
+            let str = getPreCursorString();
+            str = U.replaceAll(str, String.fromCharCode(160), ' ');
+            validSuggestions = [];
+            splitIndexes = [];
+            // console.log('updateSuggestions, prestring: |' + str + '|, suggestions:' + autocomplete.length);
+            U.clear(suggestionList);
+            for (i = 0; i < autocomplete.length; i++) {
+                let matchindex = autocomplete[i].matches(str);
+                // console.log(autocomplete[i], str);
+                // console.log('updateSuggestions[' + i + '], str:' + str + ', hiddenMatch:' + autocomplete[i].hiddenprecondition + ', visibleMatch:' + autocomplete[i].key + ', matchindex:', matchindex);
+                if (matchindex === -1)
+                    continue;
+                splitIndexes.push(matchindex);
+                validSuggestions.push(autocomplete[i]);
+                let li = autocomplete[i].getLI(matchindex);
+                let $li = $(li);
+                $li.on('click', () => {
+                    insertStringAtCurrentCursorPosition(input, getSuggestionText(li));
+                    U.setSelection(input, input.innerText.length, null);
+                    updateSuggestions();
+                });
+                if (validSuggestions.length > 0)
+                    $suggestionList.show();
+                else
+                    $suggestionList.hide();
+                suggestionList.append(li);
+            }
+            console.log('valid suggestions:', validSuggestions);
+        };
+        $input.on('mouseup', (e) => { updateSuggestions(); });
+        $input.on('keydown', (e) => {
+            switch (e.key) {
+                default: break;
+                case Keystrokes.tab:
+                    e.preventDefault();
+                    li = suggestionList.firstElementChild;
+                    if (!li)
+                        break;
+                    $(li).trigger('click');
+                    break;
+            }
+        });
+        $input.on('keyup', (e) => {
+            console.log('input keyup:', e);
+            switch (e.key) {
+                default:
+                    updateSuggestions();
+                    break;
+                // case Keystrokes.tab: break;// can never happen on keyUP unless i stop default action on keydown.
+                case Keystrokes.arrowRight:
+                    if (e.shiftKey)
+                        return;
+                    li = suggestionList.firstElementChild;
+                    if (!li) {
+                        updateSuggestions();
+                        break;
+                    } // as a normal arrow press
+                    // as a suggestion accept
+                    let char = li.lastElementChild.innerText.charAt(0);
+                    insertStringAtCurrentCursorPosition(input, char, true, true);
+                    $input.trigger(jQuery.Event('keyup', { key: char }));
+                    break;
+            }
+        });
+    }
+    // NB: object.keys e for... in listano solo le proprietà enumerabili, le funzioni di classe in es6 non sono enumerabili.
+    static getAllProperties(obj0) {
+        let props = [];
+        let obj = obj0;
+        do {
+            props = props.concat(Object.getOwnPropertyNames(obj));
+        } while (obj = Object.getPrototypeOf(obj));
+        return props.sort().filter(function (e, i, arr) { if (e != arr[i + 1])
+            return true; });
+    }
+    static copyFirstLevelStructureWithoutValues(o, allowPrimitive = true, allowObject = false, allowFunctions = true) {
+        let ret = {};
+        let keys = U.getAllProperties(o);
+        for (let index in keys) {
+            let key = keys[index];
+            let val = o[key];
+            if (val instanceof Function) {
+                ret[key] = allowFunctions ? val : null;
+                continue;
+            }
+            if (val instanceof Object) {
+                ret[key] = allowObject ? val : null;
+                continue;
+            }
+            ret[key] = allowPrimitive ? val : null;
+        }
+        return ret;
+    }
+    static getFunctionSignatureFromComments(f) {
+        U.pe(!(f instanceof Function), 'getFunctionSignature() parameter must be a function');
+        // let parameters: {name: string, defaultVal: string, typedesc: string}[] = []; //{name: '', defaultVal: undefined, typedesc: ''};
+        let ret = { parameters: [], returns: '', f: f, fname: '', isLambda: null, signature: '' };
+        let str = f.toString();
+        let starti = str.indexOf('(');
+        let endi;
+        let parcounter = 1;
+        for (endi = starti + 1; endi < str.length; endi++) {
+            if (str[endi] === ')' && --parcounter === 0)
+                break;
+            if (str[endi] === '(')
+                parcounter++;
+        }
+        let parameterStr = str.substring(starti + 1, endi);
+        console.log('starti:', starti, 'endi', endi, 'fname:', str.substr(0, starti), 'parameterStr:', parameterStr);
+        ret.fname = str.substr(0, starti).trim();
+        ret.fname = ret.fname.substr(0, ret.fname.indexOf(' ')).trim();
+        // 2 casi: anonimo "function (par1...){}" e "() => {}", oppure nominato: "function a1(){}"
+        if (ret.fname === '' || ret.fname === 'function')
+            ret.fname = null; // 'anonymous function';
+        let returnstarti = str.indexOf('/*', endi + 1);
+        let returnendi = -1;
+        let bodystarti = str.indexOf('{', endi + 1);
+        if (returnstarti === -1 || bodystarti !== -1 && bodystarti < returnstarti) {
+            // no return type or comment is past body
+            ret.returns = null;
+        }
+        else {
+            returnendi = str.indexOf('*/', returnstarti + 2);
+            ret.returns = str.substring(returnstarti + 2, returnendi).trim();
+            bodystarti = str.indexOf('{', returnendi);
+        }
+        if (ret.returns === '')
+            ret.returns = null;
+        // is lambda if do not have curly body or contains => between return comment and body
+        console.log('isLambda:', bodystarti, str.substring(Math.max(endi, returnendi) + 1, bodystarti));
+        ret.isLambda = bodystarti === -1 || str.substring(Math.max(endi, returnendi) + 1, bodystarti).trim() === '=>';
+        let regexp = /([^=\/\,]+)(=?)([^,]*?)(\/\*[^,]*?\*\/)?,/g; // only problem: the last parameter won't match because it does not end with ",", so i will append it everytime.
+        //console.clear(); console.log( parameterStr);
+        // parameterStr = 'l1=3/*float=3*/, l2= 2/*float= 2*/, l3 =3/*float =3*/';
+        let match;
+        while ((match = regexp.exec(parameterStr + ','))) {
+            // match[0] is always the full match (not a capture group)
+            // match[2] can only be "=" or empty string
+            // nb: match[4] can be "/*something*/" or "," a single , without spaces.
+            let par = { name: match[1], defaultVal: match[3], typedesc: match[4] && match[4].length > 1 ? match[4] : null };
+            par.name = par.name.trim();
+            par.defaultVal = par.defaultVal && par.defaultVal.trim() || null;
+            par.typedesc = par.typedesc && par.typedesc && par.typedesc.length > 1 ? par.typedesc.substring(2, par.typedesc.length - 2).trim() || null : null;
+            ret.parameters.push(par);
+        }
+        // set signature
+        ret.signature = '' + (ret.fname ? '/*' + ret.fname + '*/' : '') + '(';
+        let i;
+        for (i = 0; i < ret.parameters.length; i++) {
+            let par = ret.parameters[i];
+            ret.signature += (i === 0 ? '' : ', ') + par.name + (par.typedesc ? '/*' + par.typedesc + '*/' : '') + (par.defaultVal ? ' = ' + par.defaultVal : '');
+        }
+        ret.signature += ')' + (ret.returns ? '/*' + ret.returns + '*/' : '');
+        return ret;
+    }
+    /* for both input, textarea and contenteditable.*/
+    static setInputValue(input, value) {
+        value = value === null || value === undefined ? '' : value;
+        if (input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement) {
+            input.value = value;
+        }
+        else
+            input.innerText = value;
+    }
 }
 U.loopcounter = 0;
 U.AttributeSelectorOperator = '->';
@@ -9608,6 +10275,80 @@ U.startSeparatorKeyMax = -1;
 U.focusHistoryEntriesAndIdleTimes = undefined;
 U.focusHistoryEntries = undefined;
 U.focusHistoryElements = undefined;
+var Keystrokes;
+(function (Keystrokes) {
+    Keystrokes["escape"] = "Escape";
+    Keystrokes["capsLock"] = "CapsLock";
+    Keystrokes["shift"] = "Shift";
+    Keystrokes["tab"] = "Tab";
+    Keystrokes["alt"] = "Alt";
+    Keystrokes["control"] = "Control";
+    Keystrokes["end"] = "End";
+    Keystrokes["home"] = "Home";
+    Keystrokes["pageUp"] = "PageUp";
+    Keystrokes["pageDown"] = "PageDown";
+    Keystrokes["enter"] = "Enter";
+    Keystrokes["audioVolumeMute"] = "AudioVolumeMute";
+    Keystrokes["audioVolumeUp"] = "AudioVolumeUp";
+    Keystrokes["audioVolumeDown"] = "AudioVolumeDown";
+    Keystrokes["mediaTrackPrevious"] = "MediaTrackPrevious";
+    Keystrokes["delete"] = "Delete";
+    Keystrokes["backspace"] = "Backspace";
+    Keystrokes["space"] = " ";
+    Keystrokes["altGraph"] = "AltGraph";
+    Keystrokes["arrowLeft"] = "ArrowLeft";
+    Keystrokes["arrowRight"] = "ArrowRight";
+    Keystrokes["arrowUp"] = "ArrowUp";
+    Keystrokes["arrowDown"] = "ArrowDown";
+    Keystrokes["insert"] = "Insert";
+    Keystrokes["f1"] = "F1";
+    // weird ones:
+    Keystrokes["meta"] = "Meta";
+    Keystrokes["unidentified"] = "Unidentified";
+    Keystrokes["__NotReacting__"] = "fn, print, maybe others";
+})(Keystrokes || (Keystrokes = {}));
+class AutocompleteMatch {
+    //value: string;
+    /*minCharMatch = 1;
+  
+    constructor(key: string, minCharMatch: number = 1, value: string = null){
+      this.minCharMatch = Math.min(1, minCharMatch);
+      //this.value = value;
+      this.key = key; }
+  */
+    constructor(hiddenprecondition = '', key = '') {
+        this.hiddenprecondition = hiddenprecondition;
+        this.key = key;
+    }
+    matches(preCursorString) {
+        let fullkey = this.hiddenprecondition + this.key;
+        for (let i = this.hiddenprecondition.length; i < fullkey.length; i++) {
+            let keystart = fullkey.substring(0, i);
+            //console.log('str:', preCursorString, ' matches:', keystart);
+            let matchindex = preCursorString.lastIndexOf(keystart);
+            if (matchindex !== -1 && matchindex === preCursorString.length - keystart.length) {
+                //console.log('matched!  at index:', preCursorString.lastIndexOf(keystart) );
+                return i - this.hiddenprecondition.length; // indice dove posso splittare key
+            }
+        }
+        return -1;
+    }
+    getLI(splitIndex) {
+        const li = document.createElement('li');
+        const matched = document.createElement('span');
+        matched.style.fontWeight = '900';
+        matched.classList.add('matched');
+        const suggestion = document.createElement('span');
+        suggestion.classList.add('prediction');
+        li.classList.add('suggestion');
+        li.style.cursor = 'pointer';
+        li.append(matched);
+        li.append(suggestion);
+        matched.innerText = this.key.substr(0, splitIndex);
+        suggestion.innerText = this.key.substr(splitIndex);
+        return li;
+    }
+}
 var TSON_JSTypes;
 (function (TSON_JSTypes) {
     TSON_JSTypes["null"] = "null";
@@ -10064,7 +10805,7 @@ class GraphSize extends ISize {
         let pt = pt0.duplicate();
         const m = GraphPoint.getM(prevPt, pt);
         const q = GraphPoint.getQ(prevPt, pt);
-        U.pe(Math.abs((pt.y - m * pt.x) - (prevPt.y - m * prevPt.x)) > .001, 'wrong math in Q:', (pt.y - m * pt.x), ' vs ', (prevPt.y - m * prevPt.x));
+        // U.pe( Math.abs((pt.y - m * pt.x) - (prevPt.y - m * prevPt.x)) > .001, 'wrong math in Q:', (pt.y - m * pt.x), ' vs ', (prevPt.y - m * prevPt.x));
         /*const isL = prevPt.x < pt.x;
         const isT = prevPt.y < pt.y;
         const isR = !isL;
@@ -10594,6 +11335,7 @@ class VersionUpload extends ChangelogEntry {
     constructor(date, title, description, subPoints = []) {
         super(title, description, subPoints);
         this.date = date;
+        ChangelogRoot.latestVersion = date.toString();
         VersionUpload.all.push(this);
     }
 }
@@ -10666,35 +11408,42 @@ class ChangelogRoot extends ChangelogEntry {
         v.addbf('Many minor bugfixed', '');
         v.addf('Vertex', 'Support for manually set vertex size and position through coordinates and possibility to set a vertex in autosize mode, losing the ability to manually resize it but ensuring it will always fit to his contents.');
         v.addi('Other:', 'Implemented this self-referential changelog system, that will automatically pop-up every time there are new updates not yet acknowledged.');
-        v = new VersionUpload(new Date(2020, 4, 30), 'small update', '');
-        v.addi('Info:', 'measurable elements are now called layouting elements');
-        v.addf('GUI:', 'layouting elements editor now have a search form to filter layouting rules.');
-        v.addf('Changelog:', 'inserted possibility to filter news on your interests (features, info, bugfix...).');
-        v.addbf('GUI:', 'layouting elements editor counter was not updated on element removal.');
-        // v = new VersionUpload(new Date(2020,4, 20), 'faketitle', 'fakedescr.');
+        v = new VersionUpload(new Date('2020/4/30'), '', '');
+        v.addi('Info:', 'Measurable elements are now called layouting elements');
+        v.addf('GUI:', 'Layouting elements editor now have a search form to filter layouting rules.');
+        v.addf('Changelog:', 'Inserted possibility to filter news on your interests (features, info, bugfix...).');
+        v.addbf('GUI:', 'Layouting rules counter on the editor gui was not updated on rule removal.');
+        v.addf('GUI:', 'Default edge colors will now change according to website theme (manually edited styles won\'t change).');
+        v.addbf('Layoutable:', '_Constraint was not working properly, rules sometime were improperly altering graph grid\'s size.');
+        v.addbf('GUI:', 'A recent chrome update was making the graph grid blurry on extremely big or small grid sizes, fixed.');
+        v = new VersionUpload(new Date('2020/5/6'), '', '');
+        v.addf('Layoutable:', 'Improved the rule editor with code autocompletion, providing dynamic suggestions and information about types of available variables, function\'s parameters and return values. With a link to documentation.');
+        v.addi('Optimization:', 'Reduced redundant calls during MClass creation and loading.');
+        let searchterm = 'clog cls addbf';
+        // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
         // v.addf('fakegfeat', 'kkk');
         // v = new VersionUpload('v3'...);
     }
+    static generate() {
+        if (ChangelogRoot.popup)
+            return;
+        ChangelogRoot.popup = new _common_util__WEBPACK_IMPORTED_MODULE_1__["InputPopup"]();
+        ChangelogRoot.popup.setText('Changelog', this.generateHtml(), '');
+        ChangelogRoot.popup.onCloseButton([ChangelogRoot.acknowledgeOnClose]);
+    }
     static show() {
-        if (!ChangelogRoot.popup) {
-            ChangelogRoot.popup = new _common_util__WEBPACK_IMPORTED_MODULE_1__["InputPopup"]('Changelog', ' ', ' ', null, null, null, 'input', null, null);
-            ChangelogRoot.popup.getInputNode().hide();
-            const html = this.generateHtml();
-            ChangelogRoot.popup.setPostHtml(html);
-            $(ChangelogRoot.popup.html).find('button.closeButton').on('click.acknowledgeOnClose', ChangelogRoot.acknowledgeOnClose);
-        }
+        ChangelogRoot.generate();
         ChangelogRoot.popup.show();
     }
-    static acknowledgeOnClose() {
-        localStorage.setItem(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ReservedStorageKey"].versionAcknowledged, ChangelogRoot.latestVersion);
-    }
+    static acknowledgeOnClose() { localStorage.setItem(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ReservedStorageKey"].versionAcknowledged, ChangelogRoot.latestVersion); }
     static CheckUpdates() {
+        ChangelogRoot.generate();
         let acknowledgedVersion = localStorage.getItem(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ReservedStorageKey"].versionAcknowledged);
         if (acknowledgedVersion !== ChangelogRoot.latestVersion)
             ChangelogRoot.show();
     }
 }
-ChangelogRoot.latestVersion = '1';
+ChangelogRoot.latestVersion = null;
 
 
 /***/ }),
@@ -13245,6 +13994,8 @@ class IVertex {
         this.edgesStart = [];
         this.edgesEnd = [];
         this.Vmarks = {};
+        if (!logical)
+            return;
         this.id = IVertex.ID++;
         IVertex.all[this.id] = this;
         const graph = logical.getModelRoot().graph;
@@ -13765,6 +14516,7 @@ class IVertex {
             field.id = 'ID' + data.attributes[i].id;
             $attContainer.append(field);
         }
+        console.trace('4x', 'data.references:', data.references, data.references.length);
         for (i = 0; i < data.references.length; i++) {
             const field = this.drawR(data.references[i]);
             field.id = 'ID' + data.references[i].id;
@@ -13970,7 +14722,7 @@ class IVertex {
     measuringEventTrigger(uiseless = null, e = null, prefix, html = null) {
         if (!html)
             html = e.target;
-        console.log('measuringEventTrigger:', prefix); // , html, e);
+        // console.log('measuringEventTrigger:', prefix); // , html, e);
         if (!html.attributes)
             return;
         let i;
@@ -14582,6 +15334,8 @@ class IGraph {
         this.gridDisplay =  false && false;
         // campi per robe di debug
         this.allMarkgp = [];
+        this.oldGridX = null;
+        this.oldGridY = null;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!container, 'graph container is null. model:', model);
         this.id = IGraph.ID++;
         IGraph.all[this.id + ''] = this;
@@ -14646,7 +15400,7 @@ class IGraph {
         this.propertyBar = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["PropertyBarr"](this.model);
         this.viewPointShell = new ViewPointShell(this);
         this.addGraphEventListeners();
-        this.setGrid0();
+        this.refreshGridGUI();
     }
     static getByID(id) { return IGraph.all[id]; }
     static getByHtml(html) {
@@ -14783,7 +15537,7 @@ class IGraph {
             return;
         }
         // if (U.vertexOldPos === 1) U.vertexOldPos = 2;
-        console.log('onMouseMoveVertexMove:', v.logic().name, evt, v);
+        //     console.log('onMouseMoveVertexMove:', v.logic().name, evt, v);
         const currentMousePos = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](evt.pageX, evt.pageY);
         // console.log('evt:', evt);
         let currentGraphCoord = this.toGraphCoord(currentMousePos);
@@ -14797,6 +15551,7 @@ class IGraph {
             if (axis === undefined || axis !== null && axis.indexOf('y') === -1)
                 currentGraphCoord.y = null;
         }
+        console.log('onMouseMoveVertexMove:', v.logic().name, 'vertex:', v, 'coord:', currentGraphCoord, 'ismeasurable:', isMeasurable);
         v.moveTo(currentGraphCoord);
     }
     onMouseMoveDrag(e) {
@@ -14949,15 +15704,23 @@ class IGraph {
         document.body.appendChild(this.markp);
         this.container.appendChild(this.markgp);
     }
-    setGrid(x, y) {
-        this.grid.x = x;
-        this.grid.y = y;
-        this.setGrid0();
+    setGrid(x = null, y = null, checked = null) {
+        if (x !== null)
+            this.grid.x = x;
+        if (y !== null)
+            this.grid.y = y;
+        if (checked !== null)
+            this.gridDisplay = checked;
+        this.refreshGridGUI();
     }
     setScroll(x, y) {
-        this.scroll.x = x;
-        this.scroll.y = y;
-        this.setGrid0();
+        const old = this.scroll.duplicate();
+        if (x !== null)
+            this.scroll.x = x;
+        if (y !== null)
+            this.scroll.y = y;
+        console.log('SetScroll(', x, y, '): ', old.x, old.y, ' -> ', this.scroll.x, this.scroll.y);
+        this.refreshGridGUI(); // error here
         this.updateViewbox();
     }
     setZoom(x, y) {
@@ -14987,35 +15750,49 @@ class IGraph {
         const biggerSquareX = this.grid.x * 10;
         const biggerSquareY = this.grid.y * 10;
         const safetySquares = 1;
-        this.gridHtml.setAttributeNS(null, 'x', '' + ((this.scroll.x - this.scroll.x % biggerSquareX) - biggerSquareX * safetySquares));
-        this.gridHtml.setAttributeNS(null, 'y', '' + ((this.scroll.y - this.scroll.y % biggerSquareY) - biggerSquareY * safetySquares));
+        if (this.grid.x > 0 && !isNaN(this.scroll.x + this.grid.x))
+            this.gridHtml.setAttributeNS(null, 'x', '' + ((this.scroll.x - this.scroll.x % biggerSquareX) - biggerSquareX * safetySquares));
+        if (this.grid.y > 0 && !isNaN(this.scroll.y + this.grid.y))
+            this.gridHtml.setAttributeNS(null, 'y', '' + ((this.scroll.y - this.scroll.y % biggerSquareY) - biggerSquareY * safetySquares));
         const size = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Size"](0, 0, window.screen.width, window.screen.height);
         size.w = Math.max(size.w, window.outerWidth);
         size.h = Math.max(size.h, window.outerHeight);
-        this.gridHtml.setAttributeNS(null, 'width', ((size.w + biggerSquareX * safetySquares * 2) / this.zoom.x) + '');
-        this.gridHtml.setAttributeNS(null, 'height', ((size.h + biggerSquareY * safetySquares * 2) / this.zoom.y) + '');
+        if (!isNaN(this.grid.x + this.zoom.x))
+            this.gridHtml.setAttributeNS(null, 'width', ((size.w + biggerSquareX * safetySquares * 2) / this.zoom.x) + '');
+        if (!isNaN(this.grid.y + this.zoom.y))
+            this.gridHtml.setAttributeNS(null, 'height', ((size.h + biggerSquareY * safetySquares * 2) / this.zoom.y) + '');
     }
-    setGrid0(checked = null) {
-        const graph = (this.model === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm ? _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.graph : _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph);
-        if (checked === null) {
-            checked = graph.gridDisplay;
-        }
-        graph.gridDisplay = checked;
-        const maxSquareSize = 10000; // Number.MAX_SAFE_INTEGER sarebbe meglio maxint, ma temo per il consumo di memoria.
-        const x = isNaN(this.grid.x) || this.grid.x <= 0 ? maxSquareSize : this.grid.x; // if the size of squares in grid is zero or negative, i just use a big number.
-        const y = isNaN(this.grid.y) || this.grid.y <= 0 ? maxSquareSize : this.grid.y;
+    refreshGridGUI() {
+        // if (this.grid.x === null) this.grid.x = this.oldGridX; crea un bug che mette i vertici trascinati che triggerano una rule (anche senza effetto o event senza targets) in vertexPos.y = 0;
+        // if (this.grid.y === null) this.grid.y = this.oldGridY; forse perchè null è un valore valido che dice "non usare la griglia", almeno mentre trascini
+        if (this.grid.x !== null)
+            this.oldGridX = this.grid.x;
+        if (this.grid.y !== null)
+            this.oldGridY = this.grid.y;
+        const maxSquareSize = 1000; // Number.MAX_SAFE_INTEGER sarebbe meglio maxint, ma temo per il consumo di memoria.
+        const x = isNaN(this.grid.x) || this.grid.x === null ? this.oldGridX : this.grid.x <= 0 ? maxSquareSize : this.grid.x; // if the size of squares in grid is zero or negative, i just use a big number.
+        const y = isNaN(this.grid.y) || this.grid.y === null ? this.oldGridX : this.grid.y <= 0 ? maxSquareSize : this.grid.y;
+        // NB: x è "displayed grid", grid.x è actual grid. se grid.x = null lo snap è disattivato ma continuo a mostrare old grid.
+        console.log('oldGridX:' + this.oldGridX, this.grid.x, x, this.gridDisplay);
+        console.log('oldGridY:' + this.oldGridY, this.grid.y, y);
+        if (x === null || y === null) /*todo: x = getOldX;*/
+            return;
+        let drawx = this.grid.x === null || !(isNaN(this.grid.x) || this.grid.x <= 0 || this.grid.x >= maxSquareSize);
+        let drawy = this.grid.x === null || !(isNaN(this.grid.y) || this.grid.y <= 0 || this.grid.x >= maxSquareSize);
         this.gridDefsHtml.innerHTML =
             '<pattern id="smallGrid_' + this.id + '" width="' + x + '" height="' + y + '" patternUnits="userSpaceOnUse">\n' +
-                '  <path d="M ' + x + ' 0 L 0 0 0 ' + y + '" fill="none" stroke="gray" stroke-width="0.5"/>\n' +
+                (!drawx && !drawy ? '<!-- no grid -->' :
+                    '  <path d="m 0 0' + (drawy ? ' l' : ' m') + (x) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y) + '" fill="none" stroke="gray" stroke-width="0.5"/>\n') +
                 '</pattern>\n' +
                 '<pattern id="grid_' + this.id + '" width="' + (x * 10) + '" height="' + (y * 10) + '" patternUnits="userSpaceOnUse">\n' +
-                '  <rect width="' + (x * 10) + '" height="' + (y * 10) + '" fill="url(#smallGrid_' + this.id + ')"/>\n' +
-                '  <path d="M ' + (x * 10) + ' 0 L 0 0 0 ' + (y * 10) + '" fill="none" stroke="gray" stroke-width="1"/>\n' +
+                (!drawx && !drawy ? '<!-- no grid -->' :
+                    '  <rect width="' + (x * 10) + '" height="' + (y * 10) + '" fill="url(#smallGrid_' + this.id + ')"/>\n' +
+                        '  <path d="m 0 0' + (drawy ? ' l' : ' m') + (x * 10) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y * 10) + '" fill="none" stroke="gray" stroke-width="1"/>\n') +
                 '</pattern>';
         this.setGridPos();
         // $grid[0].setAttributeNS(null, 'justForRefreshingIt', 'true');
         // $grid.x
-        if (checked) {
+        if (this.gridDisplay) {
             $(this.gridHtml).show();
         }
         else {
@@ -15274,16 +16051,23 @@ PropertyBarrComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!****************************************************!*\
   !*** ./src/guiElements/propertyBar/propertyBar.ts ***!
   \****************************************************/
-/*! exports provided: PropertyBarr */
+/*! exports provided: PropertyBarTabs, PropertyBarr */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyBarTabs", function() { return PropertyBarTabs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyBarr", function() { return PropertyBarr; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
 
 
+var PropertyBarTabs;
+(function (PropertyBarTabs) {
+    PropertyBarTabs["style"] = "Style";
+    PropertyBarTabs["structured"] = "Structured";
+    PropertyBarTabs["raw"] = "Raw";
+})(PropertyBarTabs || (PropertyBarTabs = {}));
 class PropertyBarr {
     constructor(model) {
         this.model = null;
@@ -15297,6 +16081,10 @@ class PropertyBarr {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.templateContainer, 'property bar template shell not found in: ', $root);
         this.styleEditor = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["StyleEditor"](this, $root);
     }
+    static getActiveTab() {
+        return $('app-' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().getPrefix() + '-graph-html .propertyBarContainer .UtabHeader[selected="true"]')[0].innerText;
+    }
+    static isTabVisible(model, tab) { return model === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel() && PropertyBarr.getActiveTab() === tab; }
     templateMinimizerClick(e) {
         const minimizer = e.currentTarget;
         let templatee = minimizer;
@@ -15729,6 +16517,40 @@ class PropertyBarr {
     }
     onShow(isRaw = false) { this.styleEditor.onHide(); }
     onHide() { }
+    static staticinit() {
+        $('app-mm-graph-html .propertyBarContainer .UtabHeader').on('click', (e) => {
+            switch (e.currentTarget.innerText) {
+                default:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unrecognized right-side tab:', e.currentTarget);
+                    break;
+                case PropertyBarTabs.style:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.graph.propertyBar.styleEditor.onShow();
+                    break;
+                case PropertyBarTabs.structured:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.graph.propertyBar.onShow();
+                    break;
+                case PropertyBarTabs.raw:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.graph.propertyBar.onShow(true);
+                    break;
+            }
+        });
+        $('app-m-graph-html .propertyBarContainer .UtabHeader').on('click', (e) => {
+            switch (e.currentTarget.innerText) {
+                default:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unrecognized right-side tab:', e.currentTarget);
+                    break;
+                case PropertyBarTabs.style:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.styleEditor.onShow();
+                    break;
+                case PropertyBarTabs.structured:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.onShow();
+                    break;
+                case PropertyBarTabs.raw:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.onShow(true);
+                    break;
+            }
+        });
+    }
 }
 
 
@@ -15743,7 +16565,7 @@ class PropertyBarr {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n.styleContainer{\n  /*position: relative;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: auto;\n  padding: 17px;\n  padding-right: calc(17px - 10px);*/\n}\n.template{\n  display: none;\n}\n.StyleEditorDisplay .template{\n  display: unset;\n}\n.preview{\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 10px;\n  border: 1px solid red;\n  background-color: transparent;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.preview:blank{\n  background-color: gray;\n  opacity: 0.4;\n}\n.separatorShell.top{\n  margin-top: 30px;\n}\ndiv[contenteditable=\"true\"]:focus {\n  max-height: unset;\n}\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\n  overflow: auto;\n  display: -webkit-box;\n  display: flex;\n  color: black;\n  border: 1px solid black;\n  min-height: 100px;\n  max-height: 100px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\ndiv[contenteditable=\"true\"] {\n  background-color: white;\n  cursor: text;\n}\ndiv[contenteditable=\"false\"] {\n  background-color: gray;\n  cursor: no-drop;\n  opacity: 0.4;\n}\nlabel.allowEdit {\n  color: goldenrod;\n}\nbutton {\n  margin: 5px;\n}\n.style.own, .style.instances{\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.detail{\n  border: 3px solid var(--bluebordercolor);\n  background: var(--);\n  color: var(--altFontColor);\n}\nbutton.detail {\n  margin: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  display: -webkit-box;\n  display: flex;\n  height: auto;\n  border-top-left-radius: 17px;\n  border-top-right-radius: 17px;\n  z-index: 1;\n }\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  margin-right: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\nbutton.detail:last-child:not(:only-child){\n  margin-left: -3px;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\nbutton.detail:focus {\n  box-shadow: none !important;\n  outline: none !important;\n}\ndiv.detail{\n  padding: 5px;\n  margin-top: -3px;\n  width: calc(100%);\n}\n.saveasrow{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n}\nbutton.delete{\n  margin: auto;\n  margin-bottom: 5px;\n}\nbutton.saveas{\n  margin: auto;\n  margin-bottom: 5px;\n}\ninput.saveas {\n  margin: auto;\n  margin-bottom: 5px;\n  flex-basis: 100px;\n  -webkit-box-flex: 0.6;\n          flex-grow: 0.6;\n  width: 0;\n}\n.compatibleRow > label > span{\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n  margin-left: 0;\n}\n.saveasrow, .compatibleRow{\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.compatibleRow > label > input {\n  -webkit-box-ordinal-group: 2;\n          order: 1;\n  margin-left: 0;\n  margin-right: 5px;\n}\n.detail > label {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  flex-wrap: nowrap;\n}\nbutton.detail > .opened, button.detail > .closed{\n  margin: auto;\n}\ntable {\n  width: 100%;\n}\ntd.title {\n  font-weight: bold;\n  padding-top: 10px;\n  text-align: center;\n}\nh1 {\n  text-align: center;\n}\nselect{\n  /* background: inherit;\n  border: none;\n  color: inherit;\n  font: inherit; */\n  /*flex-basis: 0;*/\n  flex-shrink: 1;\n  -webkit-box-flex: 0.9;\n          flex-grow: 0.9;\n  max-width: -webkit-max-content;\n  max-width: -moz-max-content;\n  max-width: max-content;\n  min-width: 0;\n}\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\nlabel > *, h6 > * {\n  display: -webkit-box;\n  display: flex;\n  /* flex-grow: 1;*/\n  margin: auto;\n  flex-wrap: wrap;\n}\nh6{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n\n}\n.separator > * {\n  text-align: center;\n}\n/*\nbutton {\n  background: #0084ff;\n  border: none;\n  border-radius: 5px;\n  padding: 8px 14px;\n  font-size: 15px;\n  color: #fff;\n}\n\nbutton:disabled{\n  background: gray;\n}*/\ninput[type=\"number\"] {\n  width: 40px;\n  margin-right: 5px;\n}\n.zoomX, .zoomY, .gridX, .gridY {\n  margin-left: 5px;\n  margin-right: 15px;}\nlabel>input[type=\"checkbox\"],\nlabel>input[type=\"color\"] {\n  margin-bottom: 3px;\n}\n#primary_color {\n  border-radius: 100%;\n  height: 60px;\n  width: 60px;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n}\n[contenteditable=true]:empty:before {\n  content: attr(placeholder);\n  display: block;\n  /* For Firefox */\n  cursor: text;\n  vertical-align: middle;\n  color: darkgray;\n  text-align: center;\n  margin: auto;\n}\n.separatorShell {\n  min-height: 33px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n  margin: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100%;\n}\n.roww {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.colContainer, .columnContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-flow: nowrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n}\n.colChild, .columnChild {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-flow: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  max-width: 100%;\n  min-width: 0;\n}\n.separator {\n  margin: auto;\n  display: inline-block;\n}\n.stylelabel{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  margin-right: 5px;\n}\nselect.stylename{\n  display: -webkit-box;\n  display: flex;\n  margin: auto;\n  margin-left: 0;\n}\n.HorizontalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.HorizontalChild{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n}\n.opened{\n  display: none;\n}\n.helpButton, .styledelete {\n  display: -webkit-box;\n  display: flex;\n  width: 35px;\n  height: 35px;\n  margin: auto;\n  margin-right: 0;\n}\n.styledelete {\n  margin-right: 5px;\n  margin-left: 5px;\n}\n.helpButton {\n  background: rgb(0, 62, 127);\n  border-color: rgb(0, 62, 127); }\n.htmlstyle > .top {\n  display: -webkit-box;\n  display: flex;\n}\n.expressionRoot {\n  flex-wrap: nowrap !important;\n  max-width: 100%;\n}\ninput.fill{\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n  margin-left: 7px;\n}\n.leftside{\n  -webkit-box-flex: 3;\n          flex-grow: 3;\n  flex-basis: 0;\n  min-width: 0;\n  max-width: 150px;\n}\n.rightside{\n  -webkit-box-flex: 7;\n          flex-grow: 7;\n  flex-basis: 0;\n  min-width: 0;\n}\n.arrowContainer{\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 10px;\n}\nbutton.arrow{\n  display: -webkit-box;\n  display: flex;\n  line-height: unset;\n  padding: 0 6px;\n}\n.tsclass{\n  margin: auto;\n  display: inline;\n  text-align: center;\n}\n/* */\n/*\npre {\n  background:#EEE;\n  padding:5px;\n  width: 290px;\n}*/\n.addHeader{\n  display: -webkit-box;\n  display: flex;\n}\n.addHeader > button {\n  margin-left: 0;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n}\nselect.attributetypeadd{\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  min-width: 0;\n  margin-right: 10px;\n}\n.previewselector{\n  height: 23px;\n  outline: none;\n  border: 2px dashed #666666;\n}\n.showAsEdge{\n  margin-right: 5px !important;\n}\nbutton.delete, button.saveas{\n  font-size: 0.8rem;\n}\nbutton.deleteRule{\n  -webkit-box-flex: 0;\n          flex-grow: 0;\n  flex-basis: auto;\n  min-width: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  padding: 5px;\n}\n.nowrap{\n  flex-wrap: nowrap;\n}\n._root {\n  margin-bottom: 5px;\n}\ndiv.detail.measurable > div.template {\n  display: none;\n}\n.graphColor, .showGrid{\n  margin-left: 0;\n}\nselect.operator{\n  -moz-text-align-last: center;\n       text-align-last: center;\n  margin-left: 5px;\n  margin-right: 5px;\n  width: 25px;\n}\nspan.operatortext{\n  margin-left: 5px;\n  margin-right: 5px;\n}\nselect.operator:disabled{\n  display: none;\n  /*\n  background: inherit;\n  border: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  margin: 0;*/\n}\nspan.nameprefix {\n  margin-left: 7px;\n  background: white;\n  border: 2px inset rgb(238, 238, 238);\n  height: 21px;\n  border-right: none;\n  color: black;\n  line-height: 16px;\n}\ninput.name {\n  margin-left: 0;\n  border-left: none;\n  padding-left: 0;\n}\nlabel:focus > input.name {\n  outline: none;\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\n}\ninput.name:focus {\n  outline: none;\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\n}\n.htmlstyle {\n  width: 100%;\n}\nlabel.allowEdit > span {\n  margin-left:0;\n}\nlabel > input[type=\"checkbox\"] ~ * { margin-left: 0; }\n.html[contenteditable] {\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\n  overflow-wrap: anywhere;\n  word-wrap: anywhere;\n  white-space: break-spaces;\n}\n.autosizecontainer{\n  display: inline-block;\n}\n.autosizecontainer > *{\n  display: inline-block;\n  margin-right: 5px;\n}\n.sizeContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap; }\n.sizeContainerHalf {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.sizelabel {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n          flex-flow: column-reverse;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 700px) {\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\n  .sizelabel{\n    display: inline-block;\n  }\n}\n.sizelabel > *{\n  display: inline;\n  margin: auto; }\n/* they fix outer css influence on measurable section. */\ninput[type=\"checkbox\"].arrow {\n  margin: 0; }\n.meas_acc0 button { margin: 0; }\n/***********              Measurable editor v2 start                 ********/\n.meas_acc0 .measurableSettingRoot{\n  width: 100%;\n  display: block;\n}\n.meas_acc0 .boxesroot {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n}\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n}\n.meas_acc0 .columncontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .rowcontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .column, .meas_acc0 .row{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .row {\n  max-width: 100%;\n  margin-right: unset;\n  margin-left: unset; /* dumb _grid.scss fixer */\n}\n.meas_acc0 .break { flex-wrap: wrap; }\n.meas_acc0 .autobreak { flex-wrap: initial; }\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\n.meas_acc0 .side { display: -webkit-box; display: flex; }\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\n  background-color: dimgray;\n}\n.meas_acc0 .boxroot {\n  display: block;\n  margin: auto;\n  flex-wrap: wrap;\n}\n.meas_acc0 .ruletitle{\n  display: block;\n  text-align: center;\n}\n.meas_acc0 button.ruledelete {\n  height: 100%;\n  width: 30px;\n  padding: 0;\n  margin-right: 5px;\n  border-radius: 25px 0 0 25px;\n}\n.meas_acc0 .compoundInputprefix {\n  max-width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 0;\n  padding: 0;\n  -webkit-box-flex: 0 !important;\n          flex-grow: 0 !important;\n  width: auto;\n  flex-basis: auto !important;\n  flex-shrink: 0 !important;\n}\n.meas_acc0 .compoundInputprefix > input.attrname {\n  border-left: none;\n  padding-left: 0;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.meas_acc0 .compoundInputprefix > * { border: none; }\n.meas_acc0 .compoundInputprefix > *:first-child {\n  margin-top: 1px;\n  padding-right: 0;\n  background-color: transparent;\n}\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\n.meas_acc0 .compoundInputprefix:focus-within {\n  border-color: #80bdff;\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\n/* .meas_acc0 .rightx { min-width: 0; } */\n.meas_acc0 .rightx span.operator {\n  margin: auto;\n  margin-left: 5px;\n  margin-right: 5px;\n  margin-top: 8px;\n}\n.meas_acc0 .operatorcontainer {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 5px;\n}\n.meas_acc0 select.operator {\n  width: 45px;\n  margin: auto 5px;\n  text-align: center;\n  -moz-text-align-last: center;\n       text-align-last: center;\n}\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\n  margin-bottom: 5px;\n  min-width: 120px;\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\n.meas_acc0 .attrname {\n  max-width: 200px !important; /* todo: remove when is autosizing */\n  min-width: 0;\n}\n.meas_acc0 .addrule {\n  float: right;\n  margin-top: -4px;\n  padding: 4px 10px;\n}\n.meas_acc0 .ruletitle {\n  padding-right: 4px;\n  margin-bottom: 5px;\n}\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\n.meas_acc0 .form-control > .form-control:not(:first-child){\n  border-top-left-radius: unset;\n  /* disable bootstrap rule*/\n}\n.meas_acc0 .measurableerrortext{\n  margin-left: 5px;\n  color: var(--danger);\n}\n.meas_acc0 .measurablewarningtext{\n  margin-left: 5px;\n  color: var(--warning);\n}\n.meas_acc0 .measurableoutputtext{\n  margin-left: 5px;\n  color: var(--secondary);\n}\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\n.meas_acc0 .measurabledebug { display: none; }\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\n.meas_acc0 .countershell { float: right; }\n.meas_acc0 .rectangledrawing.outer > * {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .top > .left {\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\n}\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\n.meas_acc0 .rectangledrawing.outer > .top > .right {\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\n.meas_acc0 input.side.top {\n  margin-bottom: 3px;\n  margin-top: -3px; }\n.meas_acc0 input.side.bot {\n  margin-bottom: -3px;\n  margin-top: 3px; }\n.meas_acc0 input.side.left {\n  margin-right: 3px;\n  margin-left: -3px; }\n.meas_acc0 input.side.right {\n  margin-right: -3px;\n  margin-left: 3px; }\n.meas_acc0 .arrowh {\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\n.meas_acc0 .arrowv {\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\n  height: 50px;\n  min-width: 50px;\n}\n.meas_acc0 .rectangledrawing.outer > .top > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .bot > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .arrow { -webkit-appearance: initial; }\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\n  width: 75px;\n  height: 75px; }\n.meas_acc0 .arrow:focus{ outline: none; }\n.meas_acc0 .arrow:checked{\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\n.meas_acc0 .directions {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto; }\n.meas_acc0 .directions > * { margin: auto; }\n.meas_acc0 .draggable.boxroot{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  /*height: 237px;*/\n}\n.meas_acc0 .collapse:not(.show) { display: none; }\n.meas_acc0 .selected { background-color: #37ff66 !important; }\n/***********              Measurable editor v2 end                   ********/\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0U7Ozs7O29DQUtrQztBQUNwQztBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLDZCQUE2QjtFQUM3QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLHdDQUF3QztFQUN4QyxtQkFBbUI7RUFDbkIsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osNEJBQTRCO0VBQzVCLDZCQUE2QjtFQUM3QixVQUFVO0NBQ1g7QUFDRCw0Q0FBNEMsaURBQWlEO0VBQzNGLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsNkJBQTZCO0FBQy9CO0FBQ0E7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QjtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTtBQUNwQjtFQUNFLHNEQUFzRCxFQUFFO0FBQzFEO0VBQ0Usc0RBQXNELEVBQUU7QUFFMUQ7RUFDRSxZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsWUFBWSxFQUFFO0FBQ2hCO0VBQ0UsWUFBWSxFQUFFO0FBQ2hCO0VBQ0UsWUFBWTtFQUNaLFdBQVcsRUFBRTtBQUNmO0VBQ0UsWUFBWTtFQUNaLFdBQVcsRUFBRTtBQUVmLG9CQUFvQiwyQkFBMkIsRUFBRTtBQUVqRDtFQUNFLFdBQVc7RUFDWCxZQUFZLEVBQUU7QUFFaEIseUJBQXlCLGFBQWEsRUFBRTtBQUN4QztFQUNFLDRGQUFvRjtVQUFwRixvRkFBb0YsRUFBRTtBQUV4RjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixZQUFZLEVBQUU7QUFFaEIsNkJBQTZCLFlBQVksRUFBRTtBQUMzQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjtBQUNBLGtDQUFrQyxhQUFhLEVBQUU7QUFDakQsdUJBQXVCLG9DQUFvQyxFQUFFO0FBQzdELDZFQUE2RSIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvc3R5bGUtZWRpdG9yL3N0eWxlLWVkaXRvci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG4uc3R5bGVDb250YWluZXJ7XG4gIC8qcG9zaXRpb246IHJlbGF0aXZlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG92ZXJmbG93LXk6IGF1dG87XG4gIG92ZXJmbG93LXg6IGF1dG87XG4gIHBhZGRpbmc6IDE3cHg7XG4gIHBhZGRpbmctcmlnaHQ6IGNhbGMoMTdweCAtIDEwcHgpOyovXG59XG4udGVtcGxhdGV7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4uU3R5bGVFZGl0b3JEaXNwbGF5IC50ZW1wbGF0ZXtcbiAgZGlzcGxheTogdW5zZXQ7XG59XG4ucHJldmlld3tcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIG1pbi1oZWlnaHQ6IDEwcHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHJlZDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG4ucHJldmlldzpibGFua3tcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcbiAgb3BhY2l0eTogMC40O1xufVxuLnNlcGFyYXRvclNoZWxsLnRvcHtcbiAgbWFyZ2luLXRvcDogMzBweDtcbn1cblxuZGl2W2NvbnRlbnRlZGl0YWJsZT1cInRydWVcIl06Zm9jdXMge1xuICBtYXgtaGVpZ2h0OiB1bnNldDtcbn1cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdLCBkaXZbY29udGVudGVkaXRhYmxlPVwiZmFsc2VcIl0ge1xuICBvdmVyZmxvdzogYXV0bztcbiAgZGlzcGxheTogZmxleDtcbiAgY29sb3I6IGJsYWNrO1xuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbiAgbWluLWhlaWdodDogMTAwcHg7XG4gIG1heC1oZWlnaHQ6IDEwMHB4O1xuICBtYXJnaW4tdG9wOiA1cHg7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG4gIGN1cnNvcjogdGV4dDtcbn1cbmRpdltjb250ZW50ZWRpdGFibGU9XCJmYWxzZVwiXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG4gIGN1cnNvcjogbm8tZHJvcDtcbiAgb3BhY2l0eTogMC40O1xufVxubGFiZWwuYWxsb3dFZGl0IHtcbiAgY29sb3I6IGdvbGRlbnJvZDtcbn1cbmJ1dHRvbiB7XG4gIG1hcmdpbjogNXB4O1xufVxuLnN0eWxlLm93biwgLnN0eWxlLmluc3RhbmNlc3tcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiB3cmFwO1xufVxuLmRldGFpbHtcbiAgYm9yZGVyOiAzcHggc29saWQgdmFyKC0tYmx1ZWJvcmRlcmNvbG9yKTtcbiAgYmFja2dyb3VuZDogdmFyKC0tKTtcbiAgY29sb3I6IHZhcigtLWFsdEZvbnRDb2xvcik7XG59XG5idXR0b24uZGV0YWlsIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tdG9wOiAwO1xuICBtYXJnaW4tYm90dG9tOiAwO1xuICBkaXNwbGF5OiBmbGV4O1xuICBoZWlnaHQ6IGF1dG87XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDE3cHg7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAxN3B4O1xuICB6LWluZGV4OiAxO1xuIH1cbmJ1dHRvbi5kZXRhaWw6Zmlyc3QtY2hpbGQ6bm90KDpvbmx5LWNoaWxkKXsgLyogZmlyc3QgdmlzaWJsZSBjaGlsZCBub3QgcG9zc2libGUgaWMgcHVyZSBjc3MgKi9cbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIG1hcmdpbi1yaWdodDogMDtcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDA7XG4gIGJvcmRlci1ib3R0b20tcmlnaHQtcmFkaXVzOiAwO1xufVxuYnV0dG9uLmRldGFpbDpsYXN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7XG4gIG1hcmdpbi1sZWZ0OiAtM3B4O1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xufVxuYnV0dG9uLmRldGFpbDpmb2N1cyB7XG4gIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcbiAgb3V0bGluZTogbm9uZSAhaW1wb3J0YW50O1xufVxuZGl2LmRldGFpbHtcbiAgcGFkZGluZzogNXB4O1xuICBtYXJnaW4tdG9wOiAtM3B4O1xuICB3aWR0aDogY2FsYygxMDAlKTtcbn1cbi5zYXZlYXNyb3d7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cbmJ1dHRvbi5kZWxldGV7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuYnV0dG9uLnNhdmVhc3tcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5pbnB1dC5zYXZlYXMge1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbiAgZmxleC1iYXNpczogMTAwcHg7XG4gIGZsZXgtZ3JvdzogMC42O1xuICB3aWR0aDogMDtcbn1cbi5jb21wYXRpYmxlUm93ID4gbGFiZWwgPiBzcGFue1xuICBoZWlnaHQ6IGZpdC1jb250ZW50O1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xuICBvcmRlcjogMjtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uc2F2ZWFzcm93LCAuY29tcGF0aWJsZVJvd3tcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbn1cbi5jb21wYXRpYmxlUm93ID4gbGFiZWwgPiBpbnB1dCB7XG4gIG9yZGVyOiAxO1xuICBtYXJnaW4tbGVmdDogMDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uZGV0YWlsID4gbGFiZWwge1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbn1cbmJ1dHRvbi5kZXRhaWwgPiAub3BlbmVkLCBidXR0b24uZGV0YWlsID4gLmNsb3NlZHtcbiAgbWFyZ2luOiBhdXRvO1xufVxudGFibGUge1xuICB3aWR0aDogMTAwJTtcbn1cblxudGQudGl0bGUge1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgcGFkZGluZy10b3A6IDEwcHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuaDEge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5zZWxlY3R7XG4gIC8qIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgY29sb3I6IGluaGVyaXQ7XG4gIGZvbnQ6IGluaGVyaXQ7ICovXG4gIC8qZmxleC1iYXNpczogMDsqL1xuICBmbGV4LXNocmluazogMTtcbiAgZmxleC1ncm93OiAwLjk7XG4gIG1heC13aWR0aDogbWF4LWNvbnRlbnQ7XG4gIG1pbi13aWR0aDogMDtcbn1cblxubGFiZWwge2Rpc3BsYXk6IGZsZXg7IGZsZXgtZ3JvdzoxO31cbmxhYmVsID4gKiwgaDYgPiAqIHtcbiAgZGlzcGxheTogZmxleDtcbiAgLyogZmxleC1ncm93OiAxOyovXG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuXG5oNntcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcblxufVxuLnNlcGFyYXRvciA+ICoge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKlxuYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDhweCAxNHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG5idXR0b246ZGlzYWJsZWR7XG4gIGJhY2tncm91bmQ6IGdyYXk7XG59Ki9cbmlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xuICB3aWR0aDogNDBweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7fVxuXG5cbmxhYmVsPmlucHV0W3R5cGU9XCJjaGVja2JveFwiXSxcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbn1cblxuI3ByaW1hcnlfY29sb3Ige1xuICBib3JkZXItcmFkaXVzOiAxMDAlO1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcbn1cblxuW2NvbnRlbnRlZGl0YWJsZT10cnVlXTplbXB0eTpiZWZvcmUge1xuICBjb250ZW50OiBhdHRyKHBsYWNlaG9sZGVyKTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIC8qIEZvciBGaXJlZm94ICovXG4gIGN1cnNvcjogdGV4dDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgY29sb3I6IGRhcmtncmF5O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbjogYXV0bztcbn1cblxuLnNlcGFyYXRvclNoZWxsIHtcbiAgbWluLWhlaWdodDogMzNweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnJvd3cge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuLmNvbENvbnRhaW5lciwgLmNvbHVtbkNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogbm93cmFwO1xuICBmbGV4LWZsb3c6IHJvdztcbn1cbi5jb2xDaGlsZCwgLmNvbHVtbkNoaWxkIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1pbi13aWR0aDogMDtcbn1cbi5zZXBhcmF0b3Ige1xuICBtYXJnaW46IGF1dG87XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5zdHlsZWxhYmVse1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbn1cbnNlbGVjdC5zdHlsZW5hbWV7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uSG9yaXpvbnRhbENvbnRhaW5lcntcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgd2lkdGg6IDEwMCU7XG59XG4uSG9yaXpvbnRhbENoaWxke1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuLm9wZW5lZHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmhlbHBCdXR0b24sIC5zdHlsZWRlbGV0ZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAzNXB4O1xuICBoZWlnaHQ6IDM1cHg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiAwO1xufVxuLnN0eWxlZGVsZXRlIHtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG4uaGVscEJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IHJnYigwLCA2MiwgMTI3KTtcbiAgYm9yZGVyLWNvbG9yOiByZ2IoMCwgNjIsIDEyNyk7IH1cblxuLmh0bWxzdHlsZSA+IC50b3Age1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmV4cHJlc3Npb25Sb290IHtcbiAgZmxleC13cmFwOiBub3dyYXAgIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuaW5wdXQuZmlsbHtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xuICBtYXJnaW4tbGVmdDogN3B4O1xufVxuLmxlZnRzaWRle1xuICBmbGV4LWdyb3c6IDM7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIG1pbi13aWR0aDogMDtcbiAgbWF4LXdpZHRoOiAxNTBweDtcbn1cbi5yaWdodHNpZGV7XG4gIGZsZXgtZ3JvdzogNztcbiAgZmxleC1iYXNpczogMDtcbiAgbWluLXdpZHRoOiAwO1xufVxuLmFycm93Q29udGFpbmVye1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuYnV0dG9uLmFycm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBsaW5lLWhlaWdodDogdW5zZXQ7XG4gIHBhZGRpbmc6IDAgNnB4O1xufVxuLnRzY2xhc3N7XG4gIG1hcmdpbjogYXV0bztcbiAgZGlzcGxheTogaW5saW5lO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKiAqL1xuXG4vKlxucHJlIHtcbiAgYmFja2dyb3VuZDojRUVFO1xuICBwYWRkaW5nOjVweDtcbiAgd2lkdGg6IDI5MHB4O1xufSovXG4uYWRkSGVhZGVye1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmFkZEhlYWRlciA+IGJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBvcmRlcjogMjtcbn1cbnNlbGVjdC5hdHRyaWJ1dGV0eXBlYWRke1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG4gIG1pbi13aWR0aDogMDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuLnByZXZpZXdzZWxlY3RvcntcbiAgaGVpZ2h0OiAyM3B4O1xuICBvdXRsaW5lOiBub25lO1xuICBib3JkZXI6IDJweCBkYXNoZWQgIzY2NjY2Njtcbn1cblxuLnNob3dBc0VkZ2V7XG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5idXR0b24uZGVsZXRlLCBidXR0b24uc2F2ZWFze1xuICBmb250LXNpemU6IDAuOHJlbTtcbn1cbmJ1dHRvbi5kZWxldGVSdWxle1xuICBmbGV4LWdyb3c6IDA7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIG1pbi13aWR0aDogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogNXB4O1xufVxuLm5vd3JhcHtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4uX3Jvb3Qge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXYuZGV0YWlsLm1lYXN1cmFibGUgPiBkaXYudGVtcGxhdGUge1xuICBkaXNwbGF5OiBub25lO1xufVxuLmdyYXBoQ29sb3IsIC5zaG93R3JpZHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG5zZWxlY3Qub3BlcmF0b3J7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgd2lkdGg6IDI1cHg7XG59XG5zcGFuLm9wZXJhdG9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Qub3BlcmF0b3I6ZGlzYWJsZWR7XG4gIGRpc3BsYXk6IG5vbmU7XG4gIC8qXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgLW1vei1hcHBlYXJhbmNlOiBub25lO1xuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG4gIG1hcmdpbjogMDsqL1xufVxuXG5zcGFuLm5hbWVwcmVmaXgge1xuICBtYXJnaW4tbGVmdDogN3B4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xuICBoZWlnaHQ6IDIxcHg7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbiAgY29sb3I6IGJsYWNrO1xuICBsaW5lLWhlaWdodDogMTZweDtcbn1cbmlucHV0Lm5hbWUge1xuICBtYXJnaW4tbGVmdDogMDtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbn1cblxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogMCAycHggMnB4IDJweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cblxuaW5wdXQubmFtZTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IDJweCAycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KSwgMnB4IC0ycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cbi5odG1sc3R5bGUge1xuICB3aWR0aDogMTAwJTtcbn1cbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xuICBtYXJnaW4tbGVmdDowO1xufVxubGFiZWwgPiBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0gfiAqIHsgbWFyZ2luLWxlZnQ6IDA7IH1cbi5odG1sW2NvbnRlbnRlZGl0YWJsZV0ge1xuICAvKklERSBnaXZlcyBlcnJvciBidXQgdGhleSBhbGwgYWN0dWFsbHkgZXhpc3QsIGF0IGxlYXN0IG9uIG1vemlsbGEuKi9cbiAgb3ZlcmZsb3ctd3JhcDogYW55d2hlcmU7XG4gIHdvcmQtd3JhcDogYW55d2hlcmU7XG4gIHdoaXRlLXNwYWNlOiBicmVhay1zcGFjZXM7XG59XG5cbi5hdXRvc2l6ZWNvbnRhaW5lcntcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuLmF1dG9zaXplY29udGFpbmVyID4gKntcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbn1cbi5zaXplQ29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwOyB9XG4uc2l6ZUNvbnRhaW5lckhhbGYge1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICBmbGV4LWdyb3c6IDE7XG59XG4uc2l6ZWxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtZmxvdzogY29sdW1uLXJldmVyc2U7XG4gIG1hcmdpbi1yaWdodDogMTBweDtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbn1cbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XG4gIC8qIHN1IHZpZXdwb3J0IHRyb3BwbyBwaWNjb2xpIGNhbWJpbyBsYSB2aXN1YWxpenphemlvbmUgZGEgbGFiZWwgc29wcmEgaWwgdGVzdG8gKGJ1b25vIHBlciBmYXJlIG1vbm8tcm93KSBhIGxhYmVsIGFmZmlhbmNhdGEgYWwgdGVzdG8gKHBlciBmYXJlIDQgcm93IGUgc2NvcnJlcmUgdmVydGljYWxtZW50ZSkqL1xuICAuc2l6ZWxhYmVse1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgfVxufVxuLnNpemVsYWJlbCA+ICp7XG4gIGRpc3BsYXk6IGlubGluZTtcbiAgbWFyZ2luOiBhdXRvOyB9XG5cblxuXG5cblxuXG5cblxuXG5cbiAgLyogdGhleSBmaXggb3V0ZXIgY3NzIGluZmx1ZW5jZSBvbiBtZWFzdXJhYmxlIHNlY3Rpb24uICovXG5cbmlucHV0W3R5cGU9XCJjaGVja2JveFwiXS5hcnJvdyB7XG4gIG1hcmdpbjogMDsgfVxuXG4ubWVhc19hY2MwIGJ1dHRvbiB7IG1hcmdpbjogMDsgfVxuXG5cblxuXG4vKioqKioqKioqKiogICAgICAgICAgICAgIE1lYXN1cmFibGUgZWRpdG9yIHYyIHN0YXJ0ICAgICAgICAgICAgICAgICAqKioqKioqKi9cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVTZXR0aW5nUm9vdHtcbiAgd2lkdGg6IDEwMCU7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuLm1lYXNfYWNjMCAuYm94ZXNyb290IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICBmbGV4LWdyb3c6IDE7XG4gIGZsZXgtYmFzaXM6IDA7XG59XG4ubWVhc19hY2MwIC5tb3ZlbWVudGJveHJvb3QsIC5tZWFzX2FjYzAgLnJlc2l6ZWJveHJvb3Qge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWdyb3c6IDE7XG4gIGZsZXgtZmxvdzogY29sdW1uO1xufVxuLm1lYXNfYWNjMCAuY29sdW1uY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuXG4ubWVhc19hY2MwIC5yb3djb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4ubWVhc19hY2MwIC5jb2x1bW4sIC5tZWFzX2FjYzAgLnJvd3tcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4ubWVhc19hY2MwIC5yb3cge1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi1yaWdodDogdW5zZXQ7XG4gIG1hcmdpbi1sZWZ0OiB1bnNldDsgLyogZHVtYiBfZ3JpZC5zY3NzIGZpeGVyICovXG59XG4ubWVhc19hY2MwIC5icmVhayB7IGZsZXgtd3JhcDogd3JhcDsgfVxuLm1lYXNfYWNjMCAuYXV0b2JyZWFrIHsgZmxleC13cmFwOiBpbml0aWFsOyB9XG4ubWVhc19hY2MwIC5maWxsIHsgZmxleC1ncm93OiAxOyB9XG4ubWVhc19hY2MwIC5ib3h0aXRsZSB7IGRpc3BsYXk6IGJsb2NrOyB0ZXh0LWFsaWduOiBjZW50ZXI7IG1hcmdpbi1ib3R0b206IDEycHg7IH1cbi5tZWFzX2FjYzAgLnNpZGUgeyBkaXNwbGF5OiBmbGV4OyB9XG4ubWVhc19hY2MwIC5zaWRlLmxlZnQsIC5tZWFzX2FjYzAgLnNpZGUucmlnaHQgeyB3aWR0aDogMTBweDsgfVxuLm1lYXNfYWNjMCAuc2lkZS50b3AsIC5tZWFzX2FjYzAgLnNpZGUuYm90IHsgaGVpZ2h0OiAxMHB4OyB3aWR0aDogY2FsYygxMDAlIC0gMjBweCk7IH1cbi5tZWFzX2FjYzAgLmNvcm5lciB7IGRpc3BsYXk6IGZsZXg7IHdpZHRoOiAxMHB4OyBoZWlnaHQ6IDEwcHg7IH1cbi5tZWFzX2FjYzAgLm1pZGRsZSB7IGJhY2tncm91bmQtY29sb3I6IGdvbGRlbnJvZDsgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAubWlkZGxlIC5taWRkbGUgeyB3aWR0aDogMTIwcHg7IGhlaWdodDogOTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuc2lkZSwgLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuY29ybmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogZGltZ3JheTtcbn1cbi5tZWFzX2FjYzAgLmJveHJvb3Qge1xuICBkaXNwbGF5OiBibG9jaztcbiAgbWFyZ2luOiBhdXRvO1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG4ubWVhc19hY2MwIC5ydWxldGl0bGV7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4ubWVhc19hY2MwIGJ1dHRvbi5ydWxlZGVsZXRlIHtcbiAgaGVpZ2h0OiAxMDAlO1xuICB3aWR0aDogMzBweDtcbiAgcGFkZGluZzogMDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIGJvcmRlci1yYWRpdXM6IDI1cHggMCAwIDI1cHg7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4IHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IGZpdC1jb250ZW50O1xuICBtYXJnaW4tYm90dG9tOiAwO1xuICBwYWRkaW5nOiAwO1xuICBmbGV4LWdyb3c6IDAgIWltcG9ydGFudDtcbiAgd2lkdGg6IGF1dG87XG4gIGZsZXgtYmFzaXM6IGF1dG8gIWltcG9ydGFudDtcbiAgZmxleC1zaHJpbms6IDAgIWltcG9ydGFudDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dC5hdHRybmFtZSB7XG4gIGJvcmRlci1sZWZ0OiBub25lO1xuICBwYWRkaW5nLWxlZnQ6IDA7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDA7XG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gKiB7IGJvcmRlcjogbm9uZTsgfVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICo6Zmlyc3QtY2hpbGQge1xuICBtYXJnaW4tdG9wOiAxcHg7XG4gIHBhZGRpbmctcmlnaHQ6IDA7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0OmZvY3VzIHsgYm94LXNoYWRvdzogbm9uZTsgfVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeDpmb2N1cy13aXRoaW4ge1xuICBib3JkZXItY29sb3I6ICM4MGJkZmY7XG4gIGJveC1zaGFkb3c6IDAgMCAwIDAuMnJlbSByZ2JhKDAsIDEyMywgMjU1LCAwLjI1KTtcbn1cblxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5yaWdodHgsIC5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAubGVmdHggeyBtYXJnaW4tYm90dG9tOiAwICFpbXBvcnRhbnQ7IH1cbi8qIC5tZWFzX2FjYzAgLnJpZ2h0eCB7IG1pbi13aWR0aDogMDsgfSAqL1xuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3Ige1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xuICBtYXJnaW4tdG9wOiA4cHg7XG59XG4ubWVhc19hY2MwIC5vcGVyYXRvcmNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbi5tZWFzX2FjYzAgc2VsZWN0Lm9wZXJhdG9yIHtcbiAgd2lkdGg6IDQ1cHg7XG4gIG1hcmdpbjogYXV0byA1cHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgdGV4dC1hbGlnbi1sYXN0OiBjZW50ZXI7XG59XG4ubWVhc19hY2MwIC5yaWdodHggLmNvbXBvdW5kSW5wdXRwcmVmaXgsIC5tZWFzX2FjYzAgLnJpZ2h0eCBpbnB1dC5yaWdodHNpZGUsIC5tZWFzX2FjYzAgaW5wdXQubGVmdHNpZGUsIC5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIG1pbi13aWR0aDogMTIwcHg7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIGZsZXgtZ3JvdzogMTtcbn1cbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgeyBtYXJnaW4tYm90dG9tOiAxcmVtOyB9XG4ubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHsgbWFyZ2luLWJvdHRvbTogMDsgfVxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLm1lYXN1cmFibGVkZWJ1ZyB7IG1hcmdpbi10b3A6IDVweDsgfVxuLm1lYXNfYWNjMCAuYXR0cm5hbWUge1xuICBtYXgtd2lkdGg6IDIwMHB4ICFpbXBvcnRhbnQ7IC8qIHRvZG86IHJlbW92ZSB3aGVuIGlzIGF1dG9zaXppbmcgKi9cbiAgbWluLXdpZHRoOiAwO1xufVxuLm1lYXNfYWNjMCAuYWRkcnVsZSB7XG4gIGZsb2F0OiByaWdodDtcbiAgbWFyZ2luLXRvcDogLTRweDtcbiAgcGFkZGluZzogNHB4IDEwcHg7XG59XG4ubWVhc19hY2MwIC5ydWxldGl0bGUge1xuICBwYWRkaW5nLXJpZ2h0OiA0cHg7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZS5jb2xsYXBzZWQgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlciB7IC13ZWJraXQtYXBwZWFyYW5jZTogYnV0dG9uOyB9XG4ubWVhc19hY2MwIC5mb3JtLWNvbnRyb2wgPiAuZm9ybS1jb250cm9sOm5vdCg6Zmlyc3QtY2hpbGQpe1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiB1bnNldDtcbiAgLyogZGlzYWJsZSBib290c3RyYXAgcnVsZSovXG59XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZXJyb3J0ZXh0e1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBjb2xvcjogdmFyKC0tZGFuZ2VyKTtcbn1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgY29sb3I6IHZhcigtLXdhcm5pbmcpO1xufVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW91dHB1dHRleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIGNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xufVxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lcnsgbWFyZ2luLWJvdHRvbTogNXB4OyB9XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgeyBkaXNwbGF5OiBub25lOyB9XG4ubWVhc19hY2MwIC5yaWdodHg6Zm9jdXMtd2l0aGluIC5tZWFzdXJhYmxlZGVidWd7IGRpc3BsYXk6IGZsZXg7IH1cbi5tZWFzX2FjYzAgLmNvdW50ZXJzaGVsbCB7IGZsb2F0OiByaWdodDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+ICoge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+ICosIC5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2IHtcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAubGVmdCB7XG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vdHF4WGhrNC90bC5wbmcpOyovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pndnB5d3ovdGxsLnBuZyk7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5zaWRlLnRvcCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL005ZkM3RFAvdC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5yaWdodCB7XG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUHpzbWp4Zi90ci5wbmcpOyovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1NOMlRITHQvdHJsLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby83am05QkJRL2wucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9SWVpuVk41L3IucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAubGVmdCB7XG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vcXJZV2RwSC9ibC5wbmcpOyovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2dES0ZyeTUvYmxsLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnNpZGUuYm90IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vY1hjMG5tUy9iLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnJpZ2h0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9LMHBWVlQ3L2JyLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUXB3UlNzVC9icmwucG5nKTsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnRvcCB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbiAgbWFyZ2luLXRvcDogLTNweDsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmJvdCB7XG4gIG1hcmdpbi1ib3R0b206IC0zcHg7XG4gIG1hcmdpbi10b3A6IDNweDsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmxlZnQge1xuICBtYXJnaW4tcmlnaHQ6IDNweDtcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5yaWdodCB7XG4gIG1hcmdpbi1yaWdodDogLTNweDtcbiAgbWFyZ2luLWxlZnQ6IDNweDsgfVxuLm1lYXNfYWNjMCAuYXJyb3doIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmQzanRiYy9sci5wbmcpOyB9XG4ubWVhc19hY2MwIC5hcnJvd3Yge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9qSFR0UER4L3RiLnBuZyk7IH1cblxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAuY29ybmVyIHtcbiAgaGVpZ2h0OiA1MHB4O1xuICBtaW4td2lkdGg6IDUwcHg7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+ICoge1xuICBoZWlnaHQ6IDUwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gKiB7XG4gIGhlaWdodDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XG4gIGhlaWdodDogYXV0bztcbiAgd2lkdGg6IDUwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcbiAgaGVpZ2h0OiBhdXRvO1xuICB3aWR0aDogNTBweDsgfVxuXG4ubWVhc19hY2MwIC5hcnJvdyB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxuXG4ubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93dntcbiAgd2lkdGg6IDc1cHg7XG4gIGhlaWdodDogNzVweDsgfVxuXG4ubWVhc19hY2MwIC5hcnJvdzpmb2N1c3sgb3V0bGluZTogbm9uZTsgfVxuLm1lYXNfYWNjMCAuYXJyb3c6Y2hlY2tlZHtcbiAgZmlsdGVyOiBzZXBpYSg4MiUpIHNhdHVyYXRlKDM5MjUlKSBodWUtcm90YXRlKDU1ZGVnKSBicmlnaHRuZXNzKDEyNSUpIGNvbnRyYXN0KDEyMCUpOyB9XG5cbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIG1hcmdpbjogYXV0bzsgfVxuXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zID4gKiB7IG1hcmdpbjogYXV0bzsgfVxuLm1lYXNfYWNjMCAuZHJhZ2dhYmxlLmJveHJvb3R7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogY29sdW1uO1xuICAvKmhlaWdodDogMjM3cHg7Ki9cbn1cbi5tZWFzX2FjYzAgLmNvbGxhcHNlOm5vdCguc2hvdykgeyBkaXNwbGF5OiBub25lOyB9XG4ubWVhc19hY2MwIC5zZWxlY3RlZCB7IGJhY2tncm91bmQtY29sb3I6ICMzN2ZmNjYgIWltcG9ydGFudDsgfVxuLyoqKioqKioqKioqICAgICAgICAgICAgICBNZWFzdXJhYmxlIGVkaXRvciB2MiBlbmQgICAgICAgICAgICAgICAgICAgKioqKioqKiovXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n.styleContainer{\n  /*position: relative;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: auto;\n  padding: 17px;\n  padding-right: calc(17px - 10px);*/\n}\n.template{\n  display: none;\n}\n.StyleEditorDisplay .template{\n  display: unset;\n}\n.preview{\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 10px;\n  border: 1px solid red;\n  background-color: transparent;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.preview:blank{\n  background-color: gray;\n  opacity: 0.4;\n}\n.separatorShell.top{\n  margin-top: 30px;\n}\ndiv[contenteditable=\"true\"]:focus {\n  max-height: unset;\n}\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\n  overflow: auto;\n  display: -webkit-box;\n  display: flex;\n  color: black;\n  border: 1px solid black;\n  min-height: 100px;\n  max-height: 100px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\ndiv[contenteditable=\"true\"] {\n  background-color: white;\n  cursor: text;\n}\ndiv[contenteditable=\"false\"] {\n  background-color: gray;\n  cursor: no-drop;\n  opacity: 0.4;\n}\nlabel.allowEdit {\n  color: goldenrod;\n}\nbutton {\n  margin: 5px;\n}\n.style.own, .style.instances{\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.detail{\n  border: 3px solid var(--bluebordercolor);\n  background: var(--);\n  color: var(--altFontColor);\n}\nbutton.detail {\n  margin: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  display: -webkit-box;\n  display: flex;\n  height: auto;\n  border-top-left-radius: 17px;\n  border-top-right-radius: 17px;\n  z-index: 1;\n }\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  margin-right: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\nbutton.detail:last-child:not(:only-child){\n  margin-left: -3px;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\nbutton.detail:focus {\n  box-shadow: none !important;\n  outline: none !important;\n}\ndiv.detail{\n  padding: 5px;\n  margin-top: -3px;\n  width: calc(100%);\n}\n.saveasrow{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n}\nbutton.delete{\n  margin: auto;\n  margin-bottom: 5px;\n}\nbutton.saveas{\n  margin: auto;\n  margin-bottom: 5px;\n}\ninput.saveas {\n  margin: auto;\n  margin-bottom: 5px;\n  flex-basis: 100px;\n  -webkit-box-flex: 0.6;\n          flex-grow: 0.6;\n  width: 0;\n}\n.compatibleRow > label > span{\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n  margin-left: 0;\n}\n.saveasrow, .compatibleRow{\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.compatibleRow > label > input {\n  -webkit-box-ordinal-group: 2;\n          order: 1;\n  margin-left: 0;\n  margin-right: 5px;\n}\n.detail > label {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  flex-wrap: nowrap;\n}\nbutton.detail > .opened, button.detail > .closed{\n  margin: auto;\n}\ntable {\n  width: 100%;\n}\ntd.title {\n  font-weight: bold;\n  padding-top: 10px;\n  text-align: center;\n}\nh1 {\n  text-align: center;\n}\nselect{\n  /* background: inherit;\n  border: none;\n  color: inherit;\n  font: inherit; */\n  /*flex-basis: 0;*/\n  flex-shrink: 1;\n  -webkit-box-flex: 0.9;\n          flex-grow: 0.9;\n  max-width: -webkit-max-content;\n  max-width: -moz-max-content;\n  max-width: max-content;\n  min-width: 0;\n}\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\nlabel > *:not(input), h6 > * {\n  display: -webkit-box;\n  display: flex;\n  /* flex-grow: 1;*/\n  margin: auto;\n  flex-wrap: wrap;\n}\nh6{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n\n}\n.separator > * {\n  text-align: center;\n}\n/*\nbutton {\n  background: #0084ff;\n  border: none;\n  border-radius: 5px;\n  padding: 8px 14px;\n  font-size: 15px;\n  color: #fff;\n}\n\nbutton:disabled{\n  background: gray;\n}*/\ninput[type=\"number\"] {\n  width: 40px;\n  margin-right: 5px;\n}\n.zoomX, .zoomY, .gridX, .gridY {\n  margin-left: 5px;\n  margin-right: 15px;}\nlabel>input[type=\"checkbox\"],\nlabel>input[type=\"color\"] {\n  margin-bottom: 3px;\n}\n#primary_color {\n  border-radius: 100%;\n  height: 60px;\n  width: 60px;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n}\n[contenteditable=true]:empty:before {\n  content: attr(placeholder);\n  display: block;\n  /* For Firefox */\n  cursor: text;\n  vertical-align: middle;\n  color: darkgray;\n  text-align: center;\n  margin: auto;\n}\n.separatorShell {\n  min-height: 33px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n  margin: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100%;\n}\n.roww {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.colContainer, .columnContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-flow: nowrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n}\n.colChild, .columnChild {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-flow: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  max-width: 100%;\n  min-width: 0;\n}\n.separator {\n  margin: auto;\n  display: inline-block;\n}\n.stylelabel{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  margin-right: 5px;\n}\nselect.stylename{\n  display: -webkit-box;\n  display: flex;\n  margin: auto;\n  margin-left: 0;\n}\n.HorizontalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.HorizontalChild{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n}\n.opened{\n  display: none;\n}\n.helpButton, .styledelete {\n  display: -webkit-box;\n  display: flex;\n  width: 35px;\n  height: 35px;\n  margin: auto;\n  margin-right: 0;\n}\n.styledelete {\n  margin-right: 5px;\n  margin-left: 5px;\n}\n.helpButton {\n  background: rgb(0, 62, 127);\n  border-color: rgb(0, 62, 127); }\n.htmlstyle > .top {\n  display: -webkit-box;\n  display: flex;\n}\n.expressionRoot {\n  flex-wrap: nowrap !important;\n  max-width: 100%;\n}\ninput.fill{\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n  margin-left: 7px;\n}\n.leftside{\n  -webkit-box-flex: 3;\n          flex-grow: 3;\n  flex-basis: 0;\n  min-width: 0;\n  max-width: 150px;\n}\n.rightside{\n  -webkit-box-flex: 7;\n          flex-grow: 7;\n  flex-basis: 0;\n  min-width: 0;\n}\n.arrowContainer{\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 10px;\n}\nbutton.arrow{\n  display: -webkit-box;\n  display: flex;\n  line-height: unset;\n  padding: 0 6px;\n}\n.tsclass{\n  margin: auto;\n  display: inline;\n  text-align: center;\n}\n/* */\n/*\npre {\n  background:#EEE;\n  padding:5px;\n  width: 290px;\n}*/\n.addHeader{\n  display: -webkit-box;\n  display: flex;\n}\n.addHeader > button {\n  margin-left: 0;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n}\nselect.attributetypeadd{\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  min-width: 0;\n  margin-right: 10px;\n}\n.previewselector{\n  height: 23px;\n  outline: none;\n  border: 2px dashed #666666;\n}\n.showAsEdge{\n  margin-right: 5px !important;\n}\nbutton.delete, button.saveas{\n  font-size: 0.8rem;\n}\nbutton.deleteRule{\n  -webkit-box-flex: 0;\n          flex-grow: 0;\n  flex-basis: auto;\n  min-width: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  padding: 5px;\n}\n.nowrap{\n  flex-wrap: nowrap;\n}\n._root {\n  margin-bottom: 5px;\n}\ndiv.detail.measurable > div.template {\n  display: none;\n}\n.graphColor, .showGrid{\n  margin-left: 0;\n}\nselect.operator{\n  -moz-text-align-last: center;\n       text-align-last: center;\n  margin-left: 5px;\n  margin-right: 5px;\n  width: 25px;\n}\nspan.operatortext{\n  margin-left: 5px;\n  margin-right: 5px;\n}\nselect.operator:disabled{\n  display: none;\n  /*\n  background: inherit;\n  border: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  margin: 0;*/\n}\nspan.nameprefix {\n  margin-left: 7px;\n  background: white;\n  border: 2px inset rgb(238, 238, 238);\n  height: 21px;\n  border-right: none;\n  color: black;\n  line-height: 16px;\n}\ninput.name {\n  margin-left: 0;\n  border-left: none;\n  padding-left: 0;\n}\nlabel:focus > input.name {\n  outline: none;\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\n}\ninput.name:focus {\n  outline: none;\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\n}\n.htmlstyle {\n  width: 100%;\n}\nlabel.allowEdit > span {\n  margin-left:0;\n}\nlabel > input ~ * {\n  margin: 0;\n  margin-right: 5px;\n}\nlabel > input[type=\"checkbox\"] ~ * {\n  margin-left: 0;\n}\n.html[contenteditable] {\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\n  overflow-wrap: anywhere;\n  word-wrap: anywhere;\n  white-space: break-spaces;\n}\n.autosizecontainer{\n  display: inline-block;\n}\n.autosizecontainer > *{\n  display: inline-block;\n  margin-right: 5px;\n}\n.sizeContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap; }\n.sizeContainerHalf {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.sizelabel {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n          flex-flow: column-reverse;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 700px) {\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\n  .sizelabel{\n    display: inline-block;\n  }\n}\n.sizelabel > *{\n  display: inline;\n  margin: auto; }\n/* they fix outer css influence on measurable section. */\ninput[type=\"checkbox\"].arrow {\n  margin: 0; }\n.meas_acc0 button { margin: 0; }\n/***********              Measurable editor v2 start                 ********/\n.meas_acc0 .measurableSettingRoot{\n  width: 100%;\n  display: block;\n}\n.meas_acc0 .boxesroot {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n}\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n}\n.meas_acc0 .columncontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .rowcontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .column, .meas_acc0 .row{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .row {\n  max-width: 100%;\n  margin-right: unset;\n  margin-left: unset; /* dumb _grid.scss fixer */\n}\n.meas_acc0 .break { flex-wrap: wrap; }\n.meas_acc0 .autobreak { flex-wrap: initial; }\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\n.meas_acc0 .side { display: -webkit-box; display: flex; }\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\n  background-color: dimgray;\n}\n.meas_acc0 .boxroot {\n  display: block;\n  margin: auto;\n  flex-wrap: wrap;\n}\n.meas_acc0 .ruletitle{\n  display: block;\n  text-align: center;\n}\n.meas_acc0 button.ruledelete {\n  height: 100%;\n  width: 30px;\n  padding: 0;\n  margin-right: 5px;\n  border-radius: 25px 0 0 25px;\n}\n.meas_acc0 .compoundInputprefix {\n  max-width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 0;\n  padding: 0;\n  -webkit-box-flex: 0 !important;\n          flex-grow: 0 !important;\n  width: auto;\n  flex-basis: auto !important;\n  flex-shrink: 0 !important;\n}\n.meas_acc0 .compoundInputprefix > input.attrname {\n  border-left: none;\n  padding-left: 0;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.meas_acc0 .compoundInputprefix > * { border: none; }\n.meas_acc0 .compoundInputprefix > *:first-child {\n  margin-top: 1px;\n  padding-right: 0;\n  background-color: transparent;\n}\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\n.meas_acc0 .compoundInputprefix:focus-within {\n  border-color: #80bdff;\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\n/* .meas_acc0 .rightx { min-width: 0; } */\n.meas_acc0 .rightx span.operator {\n  margin: auto;\n  margin-left: 5px;\n  margin-right: 5px;\n  margin-top: 8px;\n}\n.meas_acc0 .operatorcontainer {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 5px;\n}\n.meas_acc0 select.operator {\n  width: 45px;\n  margin: auto 5px;\n  text-align: center;\n  -moz-text-align-last: center;\n       text-align-last: center;\n}\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\n  margin-bottom: 5px;\n  min-width: 120px;\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\n.meas_acc0 .attrname {\n  max-width: 200px !important; /* todo: remove when is autosizing */\n  min-width: 0;\n}\n.meas_acc0 .addrule {\n  float: right;\n  margin-top: -4px;\n  padding: 4px 10px;\n}\n.meas_acc0 .ruletitle {\n  padding-right: 4px;\n  margin-bottom: 5px;\n}\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\n.meas_acc0 .form-control > .form-control:not(:first-child){\n  border-top-left-radius: unset;\n  /* disable bootstrap rule*/\n}\n.meas_acc0 .measurableerrortext{\n  margin-left: 5px;\n  color: var(--danger);\n}\n.meas_acc0 .measurablewarningtext{\n  margin-left: 5px;\n  color: var(--warning);\n}\n.meas_acc0 .measurableoutputtext{\n  margin-left: 5px;\n  color: var(--secondary);\n}\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\n.meas_acc0 .measurabledebug { display: none; }\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\n.meas_acc0 .countershell { float: right; }\n.meas_acc0 .rectangledrawing.outer > * {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .top > .left {\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\n}\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\n.meas_acc0 .rectangledrawing.outer > .top > .right {\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\n.meas_acc0 input.side.top {\n  margin-bottom: 3px;\n  margin-top: -3px; }\n.meas_acc0 input.side.bot {\n  margin-bottom: -3px;\n  margin-top: 3px; }\n.meas_acc0 input.side.left {\n  margin-right: 3px;\n  margin-left: -3px; }\n.meas_acc0 input.side.right {\n  margin-right: -3px;\n  margin-left: 3px; }\n.meas_acc0 .arrowh {\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\n.meas_acc0 .arrowv {\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\n  height: 50px;\n  min-width: 50px;\n}\n.meas_acc0 .rectangledrawing.outer > .top > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .bot > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .arrow { -webkit-appearance: initial; }\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\n  width: 75px;\n  height: 75px; }\n.meas_acc0 .arrow:focus{ outline: none; }\n.meas_acc0 .arrow:checked{\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\n.meas_acc0 .directions {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto; }\n.meas_acc0 .directions > * { margin: auto; }\n.meas_acc0 .draggable.boxroot{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  /*height: 237px;*/\n}\n.meas_acc0 .collapse:not(.show) { display: none; }\n.meas_acc0 .selected { background-color: #37ff66 !important; }\n/***********              Measurable editor v2 end                   ********/\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0U7Ozs7O29DQUtrQztBQUNwQztBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLDZCQUE2QjtFQUM3QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLHdDQUF3QztFQUN4QyxtQkFBbUI7RUFDbkIsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osNEJBQTRCO0VBQzVCLDZCQUE2QjtFQUM3QixVQUFVO0NBQ1g7QUFDRCw0Q0FBNEMsaURBQWlEO0VBQzNGLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsNkJBQTZCO0FBQy9CO0FBQ0E7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RSxpQkFBaUI7RUFDakIsaUJBQWlCLEVBQUU7QUFDckI7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTtBQUMxRDtFQUNFLHNEQUFzRCxFQUFFO0FBRTFEO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFFZixvQkFBb0IsMkJBQTJCLEVBQUU7QUFFakQ7RUFDRSxXQUFXO0VBQ1gsWUFBWSxFQUFFO0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7QUFDeEM7RUFDRSw0RkFBb0Y7VUFBcEYsb0ZBQW9GLEVBQUU7QUFFeEY7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsWUFBWSxFQUFFO0FBRWhCLDZCQUE2QixZQUFZLEVBQUU7QUFDM0M7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7QUFDQSxrQ0FBa0MsYUFBYSxFQUFFO0FBQ2pELHVCQUF1QixvQ0FBb0MsRUFBRTtBQUM3RCw2RUFBNkUiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3N0eWxlLWVkaXRvci9zdHlsZS1lZGl0b3IuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLnN0eWxlQ29udGFpbmVye1xuICAvKnBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBvdmVyZmxvdy15OiBhdXRvO1xuICBvdmVyZmxvdy14OiBhdXRvO1xuICBwYWRkaW5nOiAxN3B4O1xuICBwYWRkaW5nLXJpZ2h0OiBjYWxjKDE3cHggLSAxMHB4KTsqL1xufVxuLnRlbXBsYXRle1xuICBkaXNwbGF5OiBub25lO1xufVxuLlN0eWxlRWRpdG9yRGlzcGxheSAudGVtcGxhdGV7XG4gIGRpc3BsYXk6IHVuc2V0O1xufVxuLnByZXZpZXd7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBtaW4taGVpZ2h0OiAxMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCByZWQ7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuLnByZXZpZXc6Ymxhbmt7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbi5zZXBhcmF0b3JTaGVsbC50b3B7XG4gIG1hcmdpbi10b3A6IDMwcHg7XG59XG5cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdOmZvY3VzIHtcbiAgbWF4LWhlaWdodDogdW5zZXQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSwgZGl2W2NvbnRlbnRlZGl0YWJsZT1cImZhbHNlXCJdIHtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGNvbG9yOiBibGFjaztcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xuICBtYXgtaGVpZ2h0OiAxMDBweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBjdXJzb3I6IHRleHQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwiZmFsc2VcIl0ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xuICBjdXJzb3I6IG5vLWRyb3A7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbmxhYmVsLmFsbG93RWRpdCB7XG4gIGNvbG9yOiBnb2xkZW5yb2Q7XG59XG5idXR0b24ge1xuICBtYXJnaW46IDVweDtcbn1cbi5zdHlsZS5vd24sIC5zdHlsZS5pbnN0YW5jZXN7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbn1cbi5kZXRhaWx7XG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLWJsdWVib3JkZXJjb2xvcik7XG4gIGJhY2tncm91bmQ6IHZhcigtLSk7XG4gIGNvbG9yOiB2YXIoLS1hbHRGb250Q29sb3IpO1xufVxuYnV0dG9uLmRldGFpbCB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgZGlzcGxheTogZmxleDtcbiAgaGVpZ2h0OiBhdXRvO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxN3B4O1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMTdweDtcbiAgei1pbmRleDogMTtcbiB9XG5idXR0b24uZGV0YWlsOmZpcnN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7IC8qIGZpcnN0IHZpc2libGUgY2hpbGQgbm90IHBvc3NpYmxlIGljIHB1cmUgY3NzICovXG4gIGZsZXgtZmxvdzogY29sdW1uO1xuICBtYXJnaW4tcmlnaHQ6IDA7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6bGFzdC1jaGlsZDpub3QoOm9ubHktY2hpbGQpe1xuICBtYXJnaW4tbGVmdDogLTNweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6Zm9jdXMge1xuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcbn1cbmRpdi5kZXRhaWx7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXRvcDogLTNweDtcbiAgd2lkdGg6IGNhbGMoMTAwJSk7XG59XG4uc2F2ZWFzcm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG5idXR0b24uZGVsZXRle1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbmJ1dHRvbi5zYXZlYXN7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuaW5wdXQuc2F2ZWFzIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xuICBmbGV4LWdyb3c6IDAuNjtcbiAgd2lkdGg6IDA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gc3BhbntcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgb3JkZXI6IDI7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLnNhdmVhc3JvdywgLmNvbXBhdGlibGVSb3d7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IHdyYXA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gaW5wdXQge1xuICBvcmRlcjogMTtcbiAgbWFyZ2luLWxlZnQ6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLmRldGFpbCA+IGxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG5idXR0b24uZGV0YWlsID4gLm9wZW5lZCwgYnV0dG9uLmRldGFpbCA+IC5jbG9zZWR7XG4gIG1hcmdpbjogYXV0bztcbn1cbnRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbnRkLnRpdGxlIHtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbmgxIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuc2VsZWN0e1xuICAvKiBiYWNrZ3JvdW5kOiBpbmhlcml0O1xuICBib3JkZXI6IG5vbmU7XG4gIGNvbG9yOiBpbmhlcml0O1xuICBmb250OiBpbmhlcml0OyAqL1xuICAvKmZsZXgtYmFzaXM6IDA7Ki9cbiAgZmxleC1zaHJpbms6IDE7XG4gIGZsZXgtZ3JvdzogMC45O1xuICBtYXgtd2lkdGg6IG1heC1jb250ZW50O1xuICBtaW4td2lkdGg6IDA7XG59XG5cbmxhYmVsIHtkaXNwbGF5OiBmbGV4OyBmbGV4LWdyb3c6MTt9XG5sYWJlbCA+ICo6bm90KGlucHV0KSwgaDYgPiAqIHtcbiAgZGlzcGxheTogZmxleDtcbiAgLyogZmxleC1ncm93OiAxOyovXG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuXG5oNntcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcblxufVxuLnNlcGFyYXRvciA+ICoge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKlxuYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDhweCAxNHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG5idXR0b246ZGlzYWJsZWR7XG4gIGJhY2tncm91bmQ6IGdyYXk7XG59Ki9cbmlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xuICB3aWR0aDogNDBweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7fVxuXG5cbmxhYmVsPmlucHV0W3R5cGU9XCJjaGVja2JveFwiXSxcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbn1cblxuI3ByaW1hcnlfY29sb3Ige1xuICBib3JkZXItcmFkaXVzOiAxMDAlO1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcbn1cblxuW2NvbnRlbnRlZGl0YWJsZT10cnVlXTplbXB0eTpiZWZvcmUge1xuICBjb250ZW50OiBhdHRyKHBsYWNlaG9sZGVyKTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIC8qIEZvciBGaXJlZm94ICovXG4gIGN1cnNvcjogdGV4dDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgY29sb3I6IGRhcmtncmF5O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbjogYXV0bztcbn1cblxuLnNlcGFyYXRvclNoZWxsIHtcbiAgbWluLWhlaWdodDogMzNweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnJvd3cge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuLmNvbENvbnRhaW5lciwgLmNvbHVtbkNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogbm93cmFwO1xuICBmbGV4LWZsb3c6IHJvdztcbn1cbi5jb2xDaGlsZCwgLmNvbHVtbkNoaWxkIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1pbi13aWR0aDogMDtcbn1cbi5zZXBhcmF0b3Ige1xuICBtYXJnaW46IGF1dG87XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5zdHlsZWxhYmVse1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbn1cbnNlbGVjdC5zdHlsZW5hbWV7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uSG9yaXpvbnRhbENvbnRhaW5lcntcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgd2lkdGg6IDEwMCU7XG59XG4uSG9yaXpvbnRhbENoaWxke1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuLm9wZW5lZHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmhlbHBCdXR0b24sIC5zdHlsZWRlbGV0ZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAzNXB4O1xuICBoZWlnaHQ6IDM1cHg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiAwO1xufVxuLnN0eWxlZGVsZXRlIHtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG4uaGVscEJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IHJnYigwLCA2MiwgMTI3KTtcbiAgYm9yZGVyLWNvbG9yOiByZ2IoMCwgNjIsIDEyNyk7IH1cblxuLmh0bWxzdHlsZSA+IC50b3Age1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmV4cHJlc3Npb25Sb290IHtcbiAgZmxleC13cmFwOiBub3dyYXAgIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuaW5wdXQuZmlsbHtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xuICBtYXJnaW4tbGVmdDogN3B4O1xufVxuLmxlZnRzaWRle1xuICBmbGV4LWdyb3c6IDM7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIG1pbi13aWR0aDogMDtcbiAgbWF4LXdpZHRoOiAxNTBweDtcbn1cbi5yaWdodHNpZGV7XG4gIGZsZXgtZ3JvdzogNztcbiAgZmxleC1iYXNpczogMDtcbiAgbWluLXdpZHRoOiAwO1xufVxuLmFycm93Q29udGFpbmVye1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuYnV0dG9uLmFycm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBsaW5lLWhlaWdodDogdW5zZXQ7XG4gIHBhZGRpbmc6IDAgNnB4O1xufVxuLnRzY2xhc3N7XG4gIG1hcmdpbjogYXV0bztcbiAgZGlzcGxheTogaW5saW5lO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKiAqL1xuXG4vKlxucHJlIHtcbiAgYmFja2dyb3VuZDojRUVFO1xuICBwYWRkaW5nOjVweDtcbiAgd2lkdGg6IDI5MHB4O1xufSovXG4uYWRkSGVhZGVye1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmFkZEhlYWRlciA+IGJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBvcmRlcjogMjtcbn1cbnNlbGVjdC5hdHRyaWJ1dGV0eXBlYWRke1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG4gIG1pbi13aWR0aDogMDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuLnByZXZpZXdzZWxlY3RvcntcbiAgaGVpZ2h0OiAyM3B4O1xuICBvdXRsaW5lOiBub25lO1xuICBib3JkZXI6IDJweCBkYXNoZWQgIzY2NjY2Njtcbn1cblxuLnNob3dBc0VkZ2V7XG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5idXR0b24uZGVsZXRlLCBidXR0b24uc2F2ZWFze1xuICBmb250LXNpemU6IDAuOHJlbTtcbn1cbmJ1dHRvbi5kZWxldGVSdWxle1xuICBmbGV4LWdyb3c6IDA7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIG1pbi13aWR0aDogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogNXB4O1xufVxuLm5vd3JhcHtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4uX3Jvb3Qge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXYuZGV0YWlsLm1lYXN1cmFibGUgPiBkaXYudGVtcGxhdGUge1xuICBkaXNwbGF5OiBub25lO1xufVxuLmdyYXBoQ29sb3IsIC5zaG93R3JpZHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG5zZWxlY3Qub3BlcmF0b3J7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgd2lkdGg6IDI1cHg7XG59XG5zcGFuLm9wZXJhdG9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Qub3BlcmF0b3I6ZGlzYWJsZWR7XG4gIGRpc3BsYXk6IG5vbmU7XG4gIC8qXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgLW1vei1hcHBlYXJhbmNlOiBub25lO1xuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG4gIG1hcmdpbjogMDsqL1xufVxuXG5zcGFuLm5hbWVwcmVmaXgge1xuICBtYXJnaW4tbGVmdDogN3B4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xuICBoZWlnaHQ6IDIxcHg7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbiAgY29sb3I6IGJsYWNrO1xuICBsaW5lLWhlaWdodDogMTZweDtcbn1cbmlucHV0Lm5hbWUge1xuICBtYXJnaW4tbGVmdDogMDtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbn1cblxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogMCAycHggMnB4IDJweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cblxuaW5wdXQubmFtZTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IDJweCAycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KSwgMnB4IC0ycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cbi5odG1sc3R5bGUge1xuICB3aWR0aDogMTAwJTtcbn1cbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xuICBtYXJnaW4tbGVmdDowO1xufVxubGFiZWwgPiBpbnB1dCB+ICoge1xuICBtYXJnaW46IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxubGFiZWwgPiBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0gfiAqIHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uaHRtbFtjb250ZW50ZWRpdGFibGVdIHtcbiAgLypJREUgZ2l2ZXMgZXJyb3IgYnV0IHRoZXkgYWxsIGFjdHVhbGx5IGV4aXN0LCBhdCBsZWFzdCBvbiBtb3ppbGxhLiovXG4gIG92ZXJmbG93LXdyYXA6IGFueXdoZXJlO1xuICB3b3JkLXdyYXA6IGFueXdoZXJlO1xuICB3aGl0ZS1zcGFjZTogYnJlYWstc3BhY2VzO1xufVxuXG4uYXV0b3NpemVjb250YWluZXJ7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5hdXRvc2l6ZWNvbnRhaW5lciA+ICp7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uc2l6ZUNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDsgfVxuLnNpemVDb250YWluZXJIYWxmIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xufVxuLnNpemVsYWJlbCB7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBmbGV4LWZsb3c6IGNvbHVtbi1yZXZlcnNlO1xuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG59XG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3MDBweCkge1xuICAvKiBzdSB2aWV3cG9ydCB0cm9wcG8gcGljY29saSBjYW1iaW8gbGEgdmlzdWFsaXp6YXppb25lIGRhIGxhYmVsIHNvcHJhIGlsIHRlc3RvIChidW9ubyBwZXIgZmFyZSBtb25vLXJvdykgYSBsYWJlbCBhZmZpYW5jYXRhIGFsIHRlc3RvIChwZXIgZmFyZSA0IHJvdyBlIHNjb3JyZXJlIHZlcnRpY2FsbWVudGUpKi9cbiAgLnNpemVsYWJlbHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cbn1cbi5zaXplbGFiZWwgPiAqe1xuICBkaXNwbGF5OiBpbmxpbmU7XG4gIG1hcmdpbjogYXV0bzsgfVxuXG5cblxuXG5cblxuXG5cblxuXG4gIC8qIHRoZXkgZml4IG91dGVyIGNzcyBpbmZsdWVuY2Ugb24gbWVhc3VyYWJsZSBzZWN0aW9uLiAqL1xuXG5pbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0uYXJyb3cge1xuICBtYXJnaW46IDA7IH1cblxuLm1lYXNfYWNjMCBidXR0b24geyBtYXJnaW46IDA7IH1cblxuXG5cblxuLyoqKioqKioqKioqICAgICAgICAgICAgICBNZWFzdXJhYmxlIGVkaXRvciB2MiBzdGFydCAgICAgICAgICAgICAgICAgKioqKioqKiovXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlU2V0dGluZ1Jvb3R7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbn1cbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xufVxuLm1lYXNfYWNjMCAubW92ZW1lbnRib3hyb290LCAubWVhc19hY2MwIC5yZXNpemVib3hyb290IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbn1cbi5tZWFzX2FjYzAgLmNvbHVtbmNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogcm93O1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbn1cblxuLm1lYXNfYWNjMCAucm93Y29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuLm1lYXNfYWNjMCAuY29sdW1uLCAubWVhc19hY2MwIC5yb3d7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuLm1lYXNfYWNjMCAucm93IHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBtYXJnaW4tcmlnaHQ6IHVuc2V0O1xuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xufVxuLm1lYXNfYWNjMCAuYnJlYWsgeyBmbGV4LXdyYXA6IHdyYXA7IH1cbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxuLm1lYXNfYWNjMCAuZmlsbCB7IGZsZXgtZ3JvdzogMTsgfVxuLm1lYXNfYWNjMCAuYm94dGl0bGUgeyBkaXNwbGF5OiBibG9jazsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9XG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAuc2lkZS5sZWZ0LCAubWVhc19hY2MwIC5zaWRlLnJpZ2h0IHsgd2lkdGg6IDEwcHg7IH1cbi5tZWFzX2FjYzAgLnNpZGUudG9wLCAubWVhc19hY2MwIC5zaWRlLmJvdCB7IGhlaWdodDogMTBweDsgd2lkdGg6IGNhbGMoMTAwJSAtIDIwcHgpOyB9XG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XG4ubWVhc19hY2MwIC5taWRkbGUgeyBiYWNrZ3JvdW5kLWNvbG9yOiBnb2xkZW5yb2Q7IGRpc3BsYXk6IGZsZXg7IH1cbi5tZWFzX2FjYzAgLm1pZGRsZSAubWlkZGxlIHsgd2lkdGg6IDEyMHB4OyBoZWlnaHQ6IDkwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XG4gIGJhY2tncm91bmQtY29sb3I6IGRpbWdyYXk7XG59XG4ubWVhc19hY2MwIC5ib3hyb290IHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxle1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDMwcHg7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xuICBib3JkZXItcmFkaXVzOiAyNXB4IDAgMCAyNXB4O1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCB7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogMDtcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XG4gIHdpZHRoOiBhdXRvO1xuICBmbGV4LWJhc2lzOiBhdXRvICFpbXBvcnRhbnQ7XG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xuICBib3JkZXItbGVmdDogbm9uZTtcbiAgcGFkZGluZy1sZWZ0OiAwO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcbiAgbWFyZ2luLXRvcDogMXB4O1xuICBwYWRkaW5nLXJpZ2h0OiAwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dDpmb2N1cyB7IGJveC1zaGFkb3c6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcbiAgYm9yZGVyLWNvbG9yOiAjODBiZGZmO1xuICBib3gtc2hhZG93OiAwIDAgMCAwLjJyZW0gcmdiYSgwLCAxMjMsIDI1NSwgMC4yNSk7XG59XG5cbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAucmlnaHR4LCAubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLmxlZnR4IHsgbWFyZ2luLWJvdHRvbTogMCAhaW1wb3J0YW50OyB9XG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgbWFyZ2luLXRvcDogOHB4O1xufVxuLm1lYXNfYWNjMCAub3BlcmF0b3Jjb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG4ubWVhc19hY2MwIHNlbGVjdC5vcGVyYXRvciB7XG4gIHdpZHRoOiA0NXB4O1xuICBtYXJnaW46IGF1dG8gNXB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xufVxuLm1lYXNfYWNjMCAucmlnaHR4IC5jb21wb3VuZElucHV0cHJlZml4LCAubWVhc19hY2MwIC5yaWdodHggaW5wdXQucmlnaHRzaWRlLCAubWVhc19hY2MwIGlucHV0LmxlZnRzaWRlLCAubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xuICBtaW4td2lkdGg6IDEyMHB4O1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG59XG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyIHsgbWFyZ2luLWJvdHRvbTogMXJlbTsgfVxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC5tZWFzdXJhYmxlZGVidWcgeyBtYXJnaW4tdG9wOiA1cHg7IH1cbi5tZWFzX2FjYzAgLmF0dHJuYW1lIHtcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXG4gIG1pbi13aWR0aDogMDtcbn1cbi5tZWFzX2FjYzAgLmFkZHJ1bGUge1xuICBmbG9hdDogcmlnaHQ7XG4gIG1hcmdpbi10b3A6IC00cHg7XG4gIHBhZGRpbmc6IDRweCAxMHB4O1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlIHtcbiAgcGFkZGluZy1yaWdodDogNHB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XG4ubWVhc19hY2MwIC5ydWxldGl0bGU6aG92ZXIgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGJ1dHRvbjsgfVxuLm1lYXNfYWNjMCAuZm9ybS1jb250cm9sID4gLmZvcm0tY29udHJvbDpub3QoOmZpcnN0LWNoaWxkKXtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogdW5zZXQ7XG4gIC8qIGRpc2FibGUgYm9vdHN0cmFwIHJ1bGUqL1xufVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgY29sb3I6IHZhcigtLWRhbmdlcik7XG59XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxld2FybmluZ3RleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIGNvbG9yOiB2YXIoLS13YXJuaW5nKTtcbn1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0e1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBjb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbn1cbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXJ7IG1hcmdpbi1ib3R0b206IDVweDsgfVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnIHsgZGlzcGxheTogbm9uZTsgfVxuLm1lYXNfYWNjMCAucmlnaHR4OmZvY3VzLXdpdGhpbiAubWVhc3VyYWJsZWRlYnVneyBkaXNwbGF5OiBmbGV4OyB9XG4ubWVhc19hY2MwIC5jb3VudGVyc2hlbGwgeyBmbG9hdDogcmlnaHQ7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAqIHtcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAqLCAubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93diB7XG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLmxlZnQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3RxeFhoazQvdGwucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZ3ZweXd6L3RsbC5wbmcpO1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAuc2lkZS50b3Age1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9NOWZDN0RQL3QucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAucmlnaHQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1B6c21qeGYvdHIucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9TTjJUSEx0L3RybC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vN2ptOUJCUS9sLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUllablZONS9yLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLmxlZnQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3FyWVdkcEgvYmwucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9nREtGcnk1L2JsbC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5zaWRlLmJvdCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2NYYzBubVMvYi5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5yaWdodCB7XG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vSzBwVlZUNy9ici5wbmcpOyovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1Fwd1JTc1QvYnJsLnBuZyk7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS50b3Age1xuICBtYXJnaW4tYm90dG9tOiAzcHg7XG4gIG1hcmdpbi10b3A6IC0zcHg7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5ib3Qge1xuICBtYXJnaW4tYm90dG9tOiAtM3B4O1xuICBtYXJnaW4tdG9wOiAzcHg7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5sZWZ0IHtcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XG4gIG1hcmdpbi1sZWZ0OiAtM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUucmlnaHQge1xuICBtYXJnaW4tcmlnaHQ6IC0zcHg7XG4gIG1hcmdpbi1sZWZ0OiAzcHg7IH1cbi5tZWFzX2FjYzAgLmFycm93aCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pkM2p0YmMvbHIucG5nKTsgfVxuLm1lYXNfYWNjMCAuYXJyb3d2IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vakhUdFBEeC90Yi5wbmcpOyB9XG5cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gLmNvcm5lciB7XG4gIGhlaWdodDogNTBweDtcbiAgbWluLXdpZHRoOiA1MHB4O1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAqIHtcbiAgaGVpZ2h0OiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+ICoge1xuICBoZWlnaHQ6IDUwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xuICBoZWlnaHQ6IGF1dG87XG4gIHdpZHRoOiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XG4gIGhlaWdodDogYXV0bztcbiAgd2lkdGg6IDUwcHg7IH1cblxuLm1lYXNfYWNjMCAuYXJyb3cgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cblxuLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Z7XG4gIHdpZHRoOiA3NXB4O1xuICBoZWlnaHQ6IDc1cHg7IH1cblxuLm1lYXNfYWNjMCAuYXJyb3c6Zm9jdXN7IG91dGxpbmU6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmFycm93OmNoZWNrZWR7XG4gIGZpbHRlcjogc2VwaWEoODIlKSBzYXR1cmF0ZSgzOTI1JSkgaHVlLXJvdGF0ZSg1NWRlZykgYnJpZ2h0bmVzcygxMjUlKSBjb250cmFzdCgxMjAlKTsgfVxuXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICBtYXJnaW46IGF1dG87IH1cblxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyA+ICogeyBtYXJnaW46IGF1dG87IH1cbi5tZWFzX2FjYzAgLmRyYWdnYWJsZS5ib3hyb290e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbiAgLypoZWlnaHQ6IDIzN3B4OyovXG59XG4ubWVhc19hY2MwIC5jb2xsYXBzZTpub3QoLnNob3cpIHsgZGlzcGxheTogbm9uZTsgfVxuLm1lYXNfYWNjMCAuc2VsZWN0ZWQgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjMzdmZjY2ICFpbXBvcnRhbnQ7IH1cbi8qKioqKioqKioqKiAgICAgICAgICAgICAgTWVhc3VyYWJsZSBlZGl0b3IgdjIgZW5kICAgICAgICAgICAgICAgICAgICoqKioqKioqL1xuIl19 */");
 
 /***/ }),
 
@@ -15761,6 +16583,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
+/* harmony import */ var _propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../propertyBar/propertyBar */ "./src/guiElements/propertyBar/propertyBar.ts");
+/* harmony import */ var _common_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../common/util */ "./src/common/util.ts");
+
+
 
 
 
@@ -15798,6 +16624,7 @@ class StyleEditor {
         this.templates = this.$templates[0];
     }
     onHide() {
+        console.log('styleeditor.onHide()');
         this.updateClickedGUIHighlight();
     }
     onShow() {
@@ -15811,23 +16638,27 @@ class StyleEditor {
         text = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(text, '\n', ' ');
         div.innerText = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(text, '\r', ' ');
     }
-    isVisible() { return this.$root.is(':visible'); }
+    isVisible() { return _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["PropertyBarr"].isTabVisible(this.propertyBar.model, _propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_3__["PropertyBarTabs"].style); }
     show(m, clickedLevel) {
         m = m || this.propertyBar.selectedModelPiece;
         if (!m)
             m = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.getActiveModel();
         // console.log('styleShow(', m, ')');
+        this.clickedLevel = null;
         if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IModel"]) {
             this.showM(m);
+            this.updateClickedGUIHighlight();
             return;
         }
         if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IPackage"]) {
             this.showM(m.parent);
+            this.updateClickedGUIHighlight();
             return;
         }
         // if (m instanceof IPackage) { this.showP(m); return; }
         this.clickedLevel = clickedLevel = clickedLevel || m.getHtmlOnGraph();
         this.showMP(m, null, false, null);
+        this.updateClickedGUIHighlight();
         return; /*
         if (m instanceof IClass) { this.showC(m); }
         if (m instanceof IAttribute) { this.showA(m); }
@@ -15853,6 +16684,8 @@ class StyleEditor {
             appendTo.appendChild(html);
         }
         $html = $(html).find('.' + (m.getModelRoot().isM() ? 'm1' : 'm2') + 'hide').hide();
+        if (!(m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"]))
+            $(html).find('.iclass.show').hide();
         return html;
     }
     showM(m) {
@@ -15874,14 +16707,16 @@ class StyleEditor {
         // event listeners:
         $(gridX).off('change.set').on('change.set', (e) => {
             const input = e.currentTarget;
-            m.graph.grid.x = isNaN(+input.value) ? 0 : +input.value;
+            if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isNumerizable(input.value))
+                m.graph.grid.x = +input.value; // will be displayed by gridDisplay.trigger
             showGrid.checked = true;
             $(showGrid).trigger('change');
             m.refreshGUI();
         });
         $(gridY).off('change.set').on('change.set', (e) => {
             const input = e.currentTarget;
-            m.graph.grid.y = isNaN(+input.value) ? 0 : +input.value;
+            if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isNumerizable(input.value))
+                m.graph.grid.y = +input.value; // will be displayed by gridDisplay.trigger
             showGrid.checked = true;
             $(showGrid).trigger('change');
             m.refreshGUI();
@@ -15896,7 +16731,7 @@ class StyleEditor {
         });
         $(showGrid).off('change.set').on('change.set', (e) => {
             const input = e.currentTarget;
-            m.graph.setGrid0(input.checked);
+            m.graph.setGrid(null, null, input.checked);
         });
     }
     showP(m) { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'styles of Package(', m, '): unexpected.'); }
@@ -16092,15 +16927,17 @@ class StyleEditor {
         const measurableCheckbox = obj.measurableCheckbox = $measurableCheckbox[0];
         measurableCheckbox.disabled = obj.input.getAttribute('disabled') === 'true';
         measurableCheckbox.checked = (context.templateLevel.classList.contains('measurable') || context.graphLevel.classList.contains('measurable'));
-        const $measurableTitle = $measurableRoot.find('.meas_acc0 > .ruletitle');
+        const $measurableTitle = $measurableRoot.find('.meas_acc0 > .maintitle');
         $measurableTitle.on('click', (e) => {
             const $innerroot = $measurableBody;
             const innerroot = $innerroot[0];
             if (innerroot.classList.contains('show')) {
                 // todo: elimina slideup e usa la transizione css su collapsing, come?
+                $measurableTitle.addClass('collapsed');
                 $innerroot.slideUp(400, () => { innerroot.classList.remove('show', 'collapsing', 'collapse'); });
                 return;
             }
+            $measurableTitle.removeClass('collapsed');
             $innerroot.slideDown(400, () => { innerroot.classList.add('collapse', 'show'); });
             e.preventDefault();
             e.stopPropagation();
@@ -16110,6 +16947,8 @@ class StyleEditor {
         $measurableCheckbox.on('click', (e) => { e.stopPropagation(); });
         $measurableCheckbox.on('mousedown', (e) => { e.stopPropagation(); });
         $measurableCheckbox.on('mouseup', (e) => { e.stopPropagation(); });
+        if (!$measurableCheckbox[0].checked)
+            $measurableTitle.hide();
         $measurableCheckbox.off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e) => {
             context.templateLevel.classList.remove('measurable');
             if (measurableCheckbox.checked) {
@@ -16122,12 +16961,15 @@ class StyleEditor {
                 }
                 console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', context.templateLevel.parentElement && context.templateLevel.parentElement.style.position);
                 if (context.templateLevel.parentElement && context.templateLevel.parentElement.style.position !== 'relative') {
-                    _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was:'
-                        + context.templateLevel.parentElement.style.position);
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was'
+                        + (context.templateLevel.parentElement.style.position === '' ? ' unset.' : ': ' + context.templateLevel.parentElement.style.position));
                     context.templateLevel.parentElement.style.position = 'relative';
                 }
             }
             else {
+                if (context.templateLevel instanceof HTMLElement)
+                    context.templateLevel.style.position = ''; // restore default
+                context.templateLevel.parentElement.style.position = '';
                 if ($measurableBody[0].classList.contains('show')) {
                     $measurableTitle.trigger('click');
                 }
@@ -16175,7 +17017,6 @@ class StyleEditor {
             indexedPath = realindexfollowed.indexFollowed;
             this.clickedLevel = clickedLevel = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(clickedRoot, indexedPath, 'childNodes');
         }
-        this.updateClickedGUIHighlight();
         // html set END.
         const model = m.getModelRoot();
         if (asEdge && (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"] || m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IReference"]) && m.shouldBeDisplayedAsEdge()) {
@@ -16602,6 +17443,7 @@ class StyleEditor {
         const prefix = ruletype;
         const counter = $title.find('.rulecounter')[0];
         counter.innerHTML = '' + (+counter.innerHTML + 1);
+        title.setAttribute('counter', counter.innerText);
         // U.pe(counter.innerHTML === '2', '2');
         // const targetsectionselector: string = title.dataset.target;
         // const $targetsection: JQuery<HTMLElement> = $measurableShell.find(targetsectionselector) as  JQuery<HTMLElement>;
@@ -16648,9 +17490,11 @@ class StyleEditor {
             nameinput.value = ruleparts.name;
             if (left)
                 left.value = ruleparts.left;
+            console.log('md5', operator, ruleparts);
             if (operator)
                 _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].selectHtml(operator, ruleparts.operator);
             right.value = ruleparts.right;
+            target.value = ruleparts.target;
         }
         else {
             if (prefix === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"].onRefresh) {
@@ -16670,16 +17514,20 @@ class StyleEditor {
         const mp = this.propertyBar.selectedModelPiece;
         const generateRuleValue = () => {
             let ret = (left ? left.value : '');
-            if (!operator)
+            console.log('generaterule operator:', operator, operator && operator.value);
+            if (!operator || !(operator instanceof HTMLSelectElement))
                 return ret + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Measurable"].separator + right.value;
             switch (operator.value) {
-                default: break; // describing separators (arrows, do, then...) are ignored.
+                default:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'unexpected measurable rule operator:' + operator.value, operator);
+                    break; // describing separators (arrows, do, then...) are ignored.
                 case '<=':
                 case '<':
                 case '>':
                 case '>=':
                 case '!=':
                 case '==':
+                case '=':
                 case '===':
                 case '!==':
                     ret += _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Measurable"].separator + operator.value;
@@ -16716,7 +17564,7 @@ class StyleEditor {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pif(true, 'changetarget of: |' + ruletype + oldrulename + '|  |' + generateRuleName() + '|');
             context.applyNodeChangesToInput();
         };
-        const targetChanged = (e) => { setRuleTarget(target.value); };
+        const targetChanged = () => { setRuleTarget(target.value); };
         const setRuleName = (name) => {
             if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followsPattern(nameinput, name))
                 return;
@@ -16748,14 +17596,66 @@ class StyleEditor {
             updateRule();
         };
         const nameChanged = () => { setRuleName(nameinput.value = nameinput.value.toLowerCase()); };
+        let input;
+        let tmp = this.getRuleEditor();
+        const editorshell = tmp.editor;
+        const editorinput = tmp.input;
+        const helplink = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtml('<span>Need help? read the <a href = "https://github.com/DamianoNaraku/jjodel/wiki/Positional-element-editor">documentation</a>.</span>');
+        const leftClicked = () => {
+            editorinput.innerText = String.fromCharCode(160) + left.value;
+            input = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]();
+            input.setText('Left side editor', null, helplink);
+            input.setNestedInputNode(editorshell, editorinput);
+            input.addOkButton(null, [(e, value) => {
+                    left.value = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(value, String.fromCharCode(160), ' ').trim();
+                    leftChanged();
+                }]);
+            input.show();
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].setSelection(editorinput, editorinput.innerText.length);
+            $(editorinput).trigger('mouseup');
+        };
+        const rightClicked = () => {
+            editorinput.innerText = String.fromCharCode(160) + right.value;
+            input = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]();
+            input.setText('Right side editor', null, helplink);
+            input.setNestedInputNode(editorshell, editorinput);
+            input.addOkButton(null, [(e, value) => {
+                    right.value = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(value, String.fromCharCode(160), ' ').trim();
+                    rightChanged();
+                }]);
+            input.show();
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].setSelection(editorinput, editorinput.innerText.length);
+            // mouseup triggera il ricalcolo dei suggerimenti. sia perchè potrebbero essercene già di pronti, sia per pulire i suggerimenti della precedente apertura (l'editor è unico)
+            $(editorinput).trigger('mouseup');
+        };
+        const targetClicked = () => {
+            editorinput.innerText = String.fromCharCode(160) + target.value;
+            input = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]();
+            input.setText('Target selector editor', null, helplink);
+            input.setNestedInputNode(editorshell, editorinput);
+            input.addOkButton(null, [(e, value) => {
+                    target.value = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(value, String.fromCharCode(160), ' ').trim();
+                    targetChanged();
+                }]);
+            input.show();
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].setSelection(editorinput, editorinput.innerText.length);
+            $(editorinput).trigger('mouseup');
+        };
+        $(nameinput).off('change.name').on('change.name', nameChanged);
+        $(operator).off('change.operator').on('change.operator', operatorChanged);
+        $(left).off('click.leftside').on('click.leftside', leftClicked);
+        $(right).off('click.rightside').on('click.rightside', rightClicked);
+        $(target).off('click.target').on('click.target', targetClicked);
+        /*
         $(nameinput).off('change.name').on('change.name', nameChanged);
         $(left).off('change.leftside').on('change.leftside', leftChanged);
         $(operator).off('change.operator').on('change.operator', operatorChanged);
         $(right).off('change.rightside').on('change.rightside', rightChanged);
-        $(target).off('change.target').on('change.target', targetChanged);
+        $(target).off('change.target').on('change.target', targetChanged);*/
         $newtemplate.find('button.ruledelete').off('click.delete').on('click.delete', () => {
             newtemplate.parentNode.removeChild(newtemplate);
             counter.innerHTML = '' + (+counter.innerHTML - 1);
+            title.setAttribute('counter', counter.innerText);
             context.templateLevel.removeAttribute(generateOldRuleName());
             context.templateLevel.removeAttribute(generateRuleName()); //todo: potrebbe fare casini se qualcuno swappa nomi e cancella una regola?
             if (prefix === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["measurableRules"].onRefresh) {
@@ -16769,6 +17669,7 @@ class StyleEditor {
         let debugleft = $newtemplate.find('.debugleft')[0];
         let debugoperator = $newtemplate.find('.debugoperator')[0];
         let debugright = $newtemplate.find('.debugright')[0];
+        let debugtarget = $newtemplate.find('.debugtarget')[0];
         let debugtriggers = $newtemplate.find('.debugtriggers')[0];
         if (!left) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].remove(debugleft.parentElement);
@@ -16782,13 +17683,18 @@ class StyleEditor {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].remove(debugoperator.parentElement);
             debugoperator = null;
         }
+        if (!target) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].remove(debugtarget.parentElement);
+            debugtarget = null;
+        }
         if (!isEventTriggerRule) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].remove(debugtriggers.parentElement);
             debugtriggers = null;
         }
         let execute = () => {
-            const attr = context.graphLevel.attributes.getNamedItem(generateRuleName());
-            let parts = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](attr, null, true);
+            const attr = context.graphLevel.attributes.getNamedItem(generateRuleName().toLowerCase());
+            let parts = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](attr, null, false);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!parts.prefix, 'unexpected rule: ' + parts, this, attr, generateRuleName());
             let output = parts.process(false);
             console.log('execution output:', output);
             if (debugleft)
@@ -16797,6 +17703,8 @@ class StyleEditor {
                 debugoperator.innerText = output.operator;
             if (debugright)
                 debugright.innerText = output.right;
+            if (debugtarget)
+                debugtarget.innerText = output.target;
             if (debugtriggers) {
                 let str = 'Triggered ' + output.triggeredResults.length + ' rules.';
                 debugtriggers.innerText = 'Triggered ' + output.triggeredResults.length + ' rules.';
@@ -16806,13 +17714,73 @@ class StyleEditor {
                 i;
             }
         };
-        $testbutton.on('click', execute);
+        $testbutton.on('mousedown', execute);
     }
     isLoaded() {
         //todo: carica styleEditor solo quando diventa visibile.
         return true;
     }
+    getRuleEditor() {
+        if (StyleEditor.ruleeditor)
+            return { editor: StyleEditor.ruleeditor, input: StyleEditor.ruleeditorinput };
+        const callforeachkeyrecursive = (obj, f, pathuntilnow) => {
+            let key0;
+            let key;
+            let val;
+            for (key0 in obj) {
+                key = key0;
+                val = obj[key];
+                if (typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].function) {
+                    key += _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getFunctionSignatureFromComments(val).signature + ';';
+                }
+                else if (Array.isArray(val)) {
+                    key += '/*array*/';
+                }
+                else if (typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].object) {
+                    key += '.'; /*no post comment*/
+                }
+                else
+                    key += '; /*' + typeof val + '*/';
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(key === 'vertex', 'key:', key, 'obj[key]:', obj[key], 'val:', val, 'cond:', (val instanceof Object && !(val instanceof Function)));
+                f(pathuntilnow + '.', key);
+                // console.log(pathuntilnow, val);
+                if (val instanceof Element)
+                    return;
+                if (val instanceof Object)
+                    callforeachkeyrecursive(val, f, pathuntilnow + '.' + key0);
+            }
+        };
+        let i;
+        // let preChars = ' ';
+        let spaceUsed = ' '; // String.fromCharCode(160);
+        let preChars = '};' + spaceUsed + '*/+-';
+        let autocompletekeys = [];
+        let addmanyv2 = (prechars, prePath, key) => {
+            if (prePath.charAt(0) === '.')
+                prePath = prePath.substr(1);
+            for (i = 0; i < preChars.length; i++) {
+                autocompletekeys.push(new _common_util__WEBPACK_IMPORTED_MODULE_4__["AutocompleteMatch"](prechars[i] + prePath, key));
+            }
+        };
+        let contextobj = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableEvalContext"].fillFake();
+        let obj = { 'this': contextobj };
+        callforeachkeyrecursive(obj, (prePath, key) => { addmanyv2(preChars, prePath, key); }, '');
+        let inputcontainer = document.createElement('div');
+        let input = document.createElement('div');
+        let suggestionlist = document.createElement('ul');
+        inputcontainer.append(input);
+        inputcontainer.append(suggestionlist);
+        inputcontainer.setAttribute('style', "width: calc(75vw - 152px); height: auto;");
+        input.setAttribute('style', "border: 1px solid #ced4da; border-radius: .25rem; padding: 1rem;");
+        input.setAttribute('contenteditable', 'true');
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].autocompleteInputSetup(inputcontainer, autocompletekeys);
+        StyleEditor.ruleeditor = inputcontainer;
+        StyleEditor.ruleeditorinput = input;
+        return this.getRuleEditor();
+    }
 }
+StyleEditor.ruleeditor = null;
+StyleEditor.ruleeditorinput = null;
 
 
 /***/ }),
@@ -16826,7 +17794,7 @@ class StyleEditor {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  color: var(--LightmainFontColor);\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  width: 600px;\r\n  margin-bottom: 5px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLGdDQUFnQztFQUNoQyxtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztBQUM5QztBQUNBO0VBQ0UsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUIsQ0FBQztBQUN0QjtFQUNFLGtCQUFrQjtFQUNsQixtQkFBbUI7QUFDckI7QUFDQTtBQUNBO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFJQSx1SEFBdUg7QUFFdkg7RUFDRSx5QkFBeUIsRUFBRSw4QkFBOEI7RUFDekQsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGVBQWU7QUFDakI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixxQkFBcUI7RUFDckIsZUFBZTtFQUNmLFdBQVc7RUFDWCxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsNENBQTRDO0VBQzVDLFVBQVU7RUFDViw2Q0FBNkM7RUFDN0MsVUFBVTtFQUNWLFNBQVM7RUFDVCxTQUFTO0FBQ1g7QUFDQTtFQUNFLFFBQVE7RUFDUixNQUFNO0VBQ04sVUFBVTtBQUNaO0FBRUE7RUFDRSxVQUFVO0VBQ1YscUJBQXFCO0VBQ3JCLGNBQWM7QUFDaEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0UsK0JBQStCO0FBQ2pDO0FBQ0Esa0RBQWtELDRCQUE0QixFQUFFO0FBQ2hGLDZHQUE2RztBQUM3RztFQUNFLDZDQUE2QztFQUM3QyxzQkFBc0I7RUFDdEIsZ0NBQWdDO0VBQ2hDLCtCQUErQjtFQUMvQjtpQ0FDK0I7QUFDakM7QUFDQTtFQUNFLDRCQUE0QjtFQUM1Qiw2QkFBNkIsQ0FBQztBQUNoQztFQUNFLDZDQUE2QztBQUMvQztBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLDhCQUE4QjtFQUM5QixpREFBaUQsRUFBRSx5RkFBeUY7QUFDOUk7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLGNBQWM7RUFDZCxZQUFZO0VBQ1osWUFBWSxFQUFFO0FBRWhCO0VBQ0UsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUdBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxtQkFBWTtFQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usd0JBQXdCO0VBQ3hCLFlBQVk7RUFDWixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0NBQW9DO0VBQ3BDLDhCQUE4QjtBQUNoQztBQUlBLHdDQUF3QztBQUN4QztFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3RvcC1iYXIvdG9wLWJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbiN0b3BiYXJTaGVsbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtYmFzaXM6IDEwMHZ3O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIC8qYm9yZGVyLWJvdHRvbTogdmFyKC0tbWFpbkJvcmRlcik7Ki9cclxuICB3aWR0aDogMTAwdnc7XHJcbiAgaGVpZ2h0OiB2YXIoLS10b3BiYXJIKTtcclxuICBtYXgtaGVpZ2h0OiB2YXIoLS10b3BiYXJIKTtcclxufVxyXG4jdG9wYmFyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbiN0b3BiYXIgPiAqIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIC8qbWFyZ2luOiBhdXRvIDAgYXV0byAxMHB4OyAvKlQ/UkI/TCovXHJcbn0vKlxyXG4jdG9wYmFyID4gYnV0dG9ue1xyXG4gIGhlaWdodDogY2FsYyh2YXIoLS10b3BiYXJIKSAtIDEwcHgpO1xyXG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xyXG4gIG1pbi13aWR0aDogMTAwcHg7XHJcbiAgbWF4LXdpZHRoOiAxMDBweDtcclxufSovXHJcbiN0b3BiYXIgYnV0dG9uLmRyb3Bkb3duVGl0bGU6Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxufVxyXG5cclxuOjpuZy1kZWVwIC5wb3B1cENvbnRlbnQgLmNsb3NlQnV0dG9ue1xyXG4gIC8qIGZsb2F0OiByaWdodDsgKi9cclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDEwcHg7XHJcbiAgdG9wOiAxMHB4O1xyXG4gIGhlaWdodDogNDBweDtcclxuICB3aWR0aDogNDBweDtcclxuICBib3JkZXI6IDJweCBzb2xpZCB2YXIoLS1tYWluRm9udENvbG9yKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoIC0tYWx0QmFja2dyb3VuZENvbG9yKTtcclxuICBjb2xvcjogdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbjpob3ZlcntcclxuICByaWdodDogNXB4O1xyXG4gIHRvcDogNXB4O1xyXG4gIGhlaWdodDogNTBweDtcclxuICB3aWR0aDogNTBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XHJcbiAgY29sb3I6IHZhcigtLUxpZ2h0bWFpbkZvbnRDb2xvcik7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAuc2NyZWVuV2lkZVNoYWRvd3tcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICB0b3A6IDA7XHJcbiAgei1pbmRleDogMjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNSk7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50e1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHBhZGRpbmc6IDMwcHggNjBweDtcclxuICBib3JkZXI6IDRweCBzb2xpZCB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdyB7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIHdpZHRoOiA2MDBweDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93Pip7XHJcbiAgbWFyZ2luLXRvcDogYXV0bztcclxuICBtYXJnaW4tYm90dG9tOiBhdXRvO31cclxuOjpuZy1kZWVwIC5hbGlhc3tcclxuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3cgPiAqe1xyXG59XHJcbjo6bmctZGVlcCAudHlwZU5hbWV7XHJcbiAgY29sb3I6IGRhcmtvcmFuZ2U7XHJcbn1cclxuXHJcblxyXG5cclxuLyoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiAgICAgZHJvcGRvd24gc3R5bGUgICAgICoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovXHJcblxyXG4uZHJvcGRvd25UaXRsZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogaW5oZXJpdDsgLyp2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTsqL1xyXG4gIGNvbG9yOiB1bnNldDtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIHBhZGRpbmc6IDEycHggMTZweDtcclxuICBjdXJzb3I6IGluaGVyaXQ7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyIHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIC8qaGVpZ2h0OiA4MCU7Ki9cclxuICB3aWR0aDogYXV0bztcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyLnJpZ2h0IHtcclxuICBtaW4td2lkdGg6IDEwMCU7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50IHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICBtaW4td2lkdGg6IDE2MHB4O1xyXG4gIGJveC1zaGFkb3c6IDBweCA4cHggMTZweCAwcHggcmdiYSgwLDAsMCwwLjIpO1xyXG4gIHotaW5kZXg6IDE7XHJcbiAgYm9yZGVyOiAzcHggc29saWQgdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgbWFyZ2luOiAwO1xyXG4gIHRvcDogMTAwJTtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQucmlnaHR7XHJcbiAgbWFyZ2luOjA7XHJcbiAgdG9wOiAwO1xyXG4gIGxlZnQ6IDEwMCU7XHJcbn1cclxuXHJcbmxpLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgcGFkZGluZzogMDtcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbnVsLmRyb3Bkb3duQ29udGVudDpub3QoOmVtcHR5KXtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAzM3B4O1xyXG59XHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0LCAuZHJvcGRvd25wYWRkaW5ne1xyXG4gIGZvbnQtc2l6ZTogaW5oZXJpdDtcclxuICBwYWRkaW5nOiAxMnB4IDE2cHg7XHJcbn1cclxuXHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0OmhvdmVyLCAuZHJvcGRvd25Db250YWluZXIucmlnaHQ6aG92ZXIsIC5kcm9wZG93bnBhZGRpbmc6aG92ZXJ7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMjNweDtcclxufVxyXG4uZHJvcGRvd25UaXRsZS5yaWdodC50b2RvLCAuZHJvcGRvd25wYWRkaW5nLnRvZG97IGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7IH1cclxuLyouZHJvcGRvd25UaXRsZS5yaWdodC50b2RvOmxhc3QtY2hpbGQsIC5kcm9wZG93bnBhZGRpbmcudG9kbzpsYXN0LWNoaWxkeyBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAzM3B4OyB9Ki9cclxubGkuZHJvcGRvd25Db250ZW50OmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgLypwYWRkaW5nLWxlZnQ6IDEycHg7Ki9cclxuICBib3JkZXItbGVmdDogOHB4IHNvbGlkICNmZjAwMDBhMDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAzMHB4O1xyXG4gIC8qbWFyZ2luLWxlZnQ6IC0xMnB4OyBib3R0b20tcm91bmQgYm9yZGVyLCB0cm91YmxlIGNvbiBzdGlsaSBzb3ZyYXBwb3N0aSBjaGUgbG8gcmktc3F1YWRyYW5vLlxyXG4gICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAyNHB4OyovXHJcbn1cclxuI3RvcGJhcj4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+LmRyb3Bkb3duVGl0bGV7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMzBweDtcclxuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMzBweDt9XHJcbiN0b3BiYXI+LmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPi5kcm9wZG93blRpdGxlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbn1cclxuXHJcbi5idXR0b25HcmlkQ29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICAvKiB3aWR0aDogY2FsYyg0MHB4ICogNSAtIDEpOyovXHJcbiAgd2lkdGg6IG1pbigyNXZ3LCBjYWxjKDQwcHggKiA1ICsgMTBweCAqIDUgLSAxcHgpKTsgLyogYnV0dG9uIHNpemUgKyBidXR0b25zaGVsbCBtYXJnaW4sIDQgcGVyIHJpZ2EgY29uIG1hc3NpbW8gc3BhemlvIGF2YW56YXRvIHByaW1hIGRlbCA1wrAqL1xyXG59XHJcblxyXG4uYnV0dG9uR3JpZE1pbk1hcmdpbiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1zaHJpbms6IDA7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIHBhZGRpbmc6IDVweDsgfVxyXG5cclxuLmJ1dHRvbkdyaWQge1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIGhlaWdodDogNDVweDtcclxufVxyXG5cclxuXHJcbnVsLmRyb3Bkb3duQ29udGVudHtcclxuICBtaW4taGVpZ2h0OiAxMDAlO1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj51bC5kcm9wZG93bkNvbnRlbnQge1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lcjpob3ZlciA+IHVsLmRyb3Bkb3duQ29udGVudDplbXB0eXtcclxuICBkaXNwbGF5OmZsZXg7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50OmVtcHR5OmJlZm9yZXtcclxuICBjb250ZW50OiAnLi4uIEVtcHR5IC4uLic7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50OmVtcHR5OmhvdmVye1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGRhcmtyZWQgIWltcG9ydGFudDtcclxuICBjdXJzb3I6IG5vdC1hbGxvd2VkICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcblxyXG5cclxuLyoqKioqKioqKiogICAgIGNoYW5nZWxvZyAgICAgKioqKioqKioqKi9cclxuLmNoYW5nZWxvZ1Jvb3R7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  color: var(--LightmainFontColor);\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n  max-height: 90vh;\r\n  overflow: auto;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  width: 600px;\r\n  margin-bottom: 5px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLGdDQUFnQztFQUNoQyxtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUIsQ0FBQztBQUN0QjtFQUNFLGtCQUFrQjtFQUNsQixtQkFBbUI7QUFDckI7QUFDQTtBQUNBO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFJQSx1SEFBdUg7QUFFdkg7RUFDRSx5QkFBeUIsRUFBRSw4QkFBOEI7RUFDekQsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGVBQWU7QUFDakI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixxQkFBcUI7RUFDckIsZUFBZTtFQUNmLFdBQVc7RUFDWCxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsNENBQTRDO0VBQzVDLFVBQVU7RUFDViw2Q0FBNkM7RUFDN0MsVUFBVTtFQUNWLFNBQVM7RUFDVCxTQUFTO0FBQ1g7QUFDQTtFQUNFLFFBQVE7RUFDUixNQUFNO0VBQ04sVUFBVTtBQUNaO0FBRUE7RUFDRSxVQUFVO0VBQ1YscUJBQXFCO0VBQ3JCLGNBQWM7QUFDaEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0UsK0JBQStCO0FBQ2pDO0FBQ0Esa0RBQWtELDRCQUE0QixFQUFFO0FBQ2hGLDZHQUE2RztBQUM3RztFQUNFLDZDQUE2QztFQUM3QyxzQkFBc0I7RUFDdEIsZ0NBQWdDO0VBQ2hDLCtCQUErQjtFQUMvQjtpQ0FDK0I7QUFDakM7QUFDQTtFQUNFLDRCQUE0QjtFQUM1Qiw2QkFBNkIsQ0FBQztBQUNoQztFQUNFLDZDQUE2QztBQUMvQztBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLDhCQUE4QjtFQUM5QixpREFBaUQsRUFBRSx5RkFBeUY7QUFDOUk7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLGNBQWM7RUFDZCxZQUFZO0VBQ1osWUFBWSxFQUFFO0FBRWhCO0VBQ0UsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUdBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxtQkFBWTtFQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usd0JBQXdCO0VBQ3hCLFlBQVk7RUFDWixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0NBQW9DO0VBQ3BDLDhCQUE4QjtBQUNoQztBQUlBLHdDQUF3QztBQUN4QztFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3RvcC1iYXIvdG9wLWJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbiN0b3BiYXJTaGVsbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtYmFzaXM6IDEwMHZ3O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIC8qYm9yZGVyLWJvdHRvbTogdmFyKC0tbWFpbkJvcmRlcik7Ki9cclxuICB3aWR0aDogMTAwdnc7XHJcbiAgaGVpZ2h0OiB2YXIoLS10b3BiYXJIKTtcclxuICBtYXgtaGVpZ2h0OiB2YXIoLS10b3BiYXJIKTtcclxufVxyXG4jdG9wYmFyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbiN0b3BiYXIgPiAqIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIC8qbWFyZ2luOiBhdXRvIDAgYXV0byAxMHB4OyAvKlQ/UkI/TCovXHJcbn0vKlxyXG4jdG9wYmFyID4gYnV0dG9ue1xyXG4gIGhlaWdodDogY2FsYyh2YXIoLS10b3BiYXJIKSAtIDEwcHgpO1xyXG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xyXG4gIG1pbi13aWR0aDogMTAwcHg7XHJcbiAgbWF4LXdpZHRoOiAxMDBweDtcclxufSovXHJcbiN0b3BiYXIgYnV0dG9uLmRyb3Bkb3duVGl0bGU6Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxufVxyXG5cclxuOjpuZy1kZWVwIC5wb3B1cENvbnRlbnQgLmNsb3NlQnV0dG9ue1xyXG4gIC8qIGZsb2F0OiByaWdodDsgKi9cclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDEwcHg7XHJcbiAgdG9wOiAxMHB4O1xyXG4gIGhlaWdodDogNDBweDtcclxuICB3aWR0aDogNDBweDtcclxuICBib3JkZXI6IDJweCBzb2xpZCB2YXIoLS1tYWluRm9udENvbG9yKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoIC0tYWx0QmFja2dyb3VuZENvbG9yKTtcclxuICBjb2xvcjogdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbjpob3ZlcntcclxuICByaWdodDogNXB4O1xyXG4gIHRvcDogNXB4O1xyXG4gIGhlaWdodDogNTBweDtcclxuICB3aWR0aDogNTBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XHJcbiAgY29sb3I6IHZhcigtLUxpZ2h0bWFpbkZvbnRDb2xvcik7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAuc2NyZWVuV2lkZVNoYWRvd3tcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICB0b3A6IDA7XHJcbiAgei1pbmRleDogMjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNSk7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50e1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHBhZGRpbmc6IDMwcHggNjBweDtcclxuICBib3JkZXI6IDRweCBzb2xpZCB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1heC1oZWlnaHQ6IDkwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93IHtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgd2lkdGg6IDYwMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3c+KntcclxuICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IGF1dG87fVxyXG46Om5nLWRlZXAgLmFsaWFze1xyXG4gIHBhZGRpbmctbGVmdDogMTBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdyA+ICp7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlTmFtZXtcclxuICBjb2xvcjogZGFya29yYW5nZTtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqICAgICBkcm9wZG93biBzdHlsZSAgICAgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuXHJcbi5kcm9wZG93blRpdGxlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0OyAvKnZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpOyovXHJcbiAgY29sb3I6IHVuc2V0O1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgcGFkZGluZzogMTJweCAxNnB4O1xyXG4gIGN1cnNvcjogaW5oZXJpdDtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgLypoZWlnaHQ6IDgwJTsqL1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIucmlnaHQge1xyXG4gIG1pbi13aWR0aDogMTAwJTtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1pbi13aWR0aDogMTYwcHg7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAxNnB4IDBweCByZ2JhKDAsMCwwLDAuMik7XHJcbiAgei1pbmRleDogMTtcclxuICBib3JkZXI6IDNweCBzb2xpZCB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgcGFkZGluZzogMDtcclxuICBtYXJnaW46IDA7XHJcbiAgdG9wOiAxMDAlO1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudC5yaWdodHtcclxuICBtYXJnaW46MDtcclxuICB0b3A6IDA7XHJcbiAgbGVmdDogMTAwJTtcclxufVxyXG5cclxubGkuZHJvcGRvd25Db250ZW50IHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG5cclxudWwuZHJvcGRvd25Db250ZW50Om5vdCg6ZW1wdHkpe1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7XHJcbn1cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQsIC5kcm9wZG93bnBhZGRpbmd7XHJcbiAgZm9udC1zaXplOiBpbmhlcml0O1xyXG4gIHBhZGRpbmc6IDEycHggMTZweDtcclxufVxyXG5cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQ6aG92ZXIsIC5kcm9wZG93bkNvbnRhaW5lci5yaWdodDpob3ZlciwgLmRyb3Bkb3ducGFkZGluZzpob3ZlcntcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAyM3B4O1xyXG59XHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG8sIC5kcm9wZG93bnBhZGRpbmcudG9kb3sgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDsgfVxyXG4vKi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG86bGFzdC1jaGlsZCwgLmRyb3Bkb3ducGFkZGluZy50b2RvOmxhc3QtY2hpbGR7IGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7IH0qL1xyXG5saS5kcm9wZG93bkNvbnRlbnQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAvKnBhZGRpbmctbGVmdDogMTJweDsqL1xyXG4gIGJvcmRlci1sZWZ0OiA4cHggc29saWQgI2ZmMDAwMGEwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMwcHg7XHJcbiAgLyptYXJnaW4tbGVmdDogLTEycHg7IGJvdHRvbS1yb3VuZCBib3JkZXIsIHRyb3VibGUgY29uIHN0aWxpIHNvdnJhcHBvc3RpIGNoZSBsbyByaS1zcXVhZHJhbm8uXHJcbiAgIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDI0cHg7Ki9cclxufVxyXG4jdG9wYmFyPi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj4uZHJvcGRvd25UaXRsZXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAzMHB4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAzMHB4O31cclxuI3RvcGJhcj4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+LmRyb3Bkb3duVGl0bGUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxufVxyXG5cclxuLmJ1dHRvbkdyaWRDb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIC8qIHdpZHRoOiBjYWxjKDQwcHggKiA1IC0gMSk7Ki9cclxuICB3aWR0aDogbWluKDI1dncsIGNhbGMoNDBweCAqIDUgKyAxMHB4ICogNSAtIDFweCkpOyAvKiBidXR0b24gc2l6ZSArIGJ1dHRvbnNoZWxsIG1hcmdpbiwgNCBwZXIgcmlnYSBjb24gbWFzc2ltbyBzcGF6aW8gYXZhbnphdG8gcHJpbWEgZGVsIDXCsCovXHJcbn1cclxuXHJcbi5idXR0b25HcmlkTWluTWFyZ2luIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LXNocmluazogMDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgcGFkZGluZzogNXB4OyB9XHJcblxyXG4uYnV0dG9uR3JpZCB7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG59XHJcblxyXG5cclxudWwuZHJvcGRvd25Db250ZW50e1xyXG4gIG1pbi1oZWlnaHQ6IDEwMCU7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPnVsLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyID4gdWwuZHJvcGRvd25Db250ZW50OmVtcHR5e1xyXG4gIGRpc3BsYXk6ZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6YmVmb3Jle1xyXG4gIGNvbnRlbnQ6ICcuLi4gRW1wdHkgLi4uJztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZGFya3JlZCAhaW1wb3J0YW50O1xyXG4gIGN1cnNvcjogbm90LWFsbG93ZWQgIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKiAgICAgY2hhbmdlbG9nICAgICAqKioqKioqKioqL1xyXG4uY2hhbmdlbG9nUm9vdHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -16916,16 +17884,17 @@ class TopBar {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].refreshPage();
     }
     static load_JSON_Text(e, prefix) {
-        const onoutput = (ee) => { finish(); };
-        const finish = () => {
-            const input = popup.getInputNode()[0];
+        const popup = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]();
+        popup.setText('paste JSON/string data', '', '');
+        popup.setInputNode('textarea');
+        popup.setInput('', 'paste data here.');
+        const finish = (e, value) => {
             popup.destroy();
-            TopBar.load(input.value, prefix);
+            TopBar.load(value, prefix);
         };
-        const popup = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]('paste JSON/string data', '', '', null, 'paste data here.', '', 'textarea', '', null);
         // $(popup).find('.closeButton');
-        popup.addOkButton('Load', finish);
-        popup.show(false);
+        popup.addOkButton('Load', [finish]);
+        popup.show();
     }
     static download_JSON_String(e, modelstr) {
         const model = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status[modelstr];
@@ -16933,8 +17902,11 @@ class TopBar {
         const savetxt = model.generateModelString();
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!savetxt || savetxt === '', 'empty str');
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].clipboardCopy(savetxt);
-        const popup = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]((model.isM() ? 'Model' : 'Metamodel') + ' eCore/JSON', '', '<br>Already copied to clipboard.', [], null, '' + savetxt, 'textarea', null, null);
-        popup.show(false);
+        const popup = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]();
+        popup.setText((model.isM() ? 'Model' : 'Metamodel') + ' eCore/JSON', '', 'Already copied to clipboard.');
+        popup.setInputNode('textarea');
+        popup.setInput('' + savetxt);
+        popup.show();
     }
     static download_JSON_File(e, modelstr) {
         const model = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status[modelstr];
@@ -17171,6 +18143,8 @@ class EEnum extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClassifier"] {
         }
         this.parse(json);
     }
+    getChildrenLiteral(index) { return this.childrens[index]; }
+    getChildrenLiteralSelector(index) { return this.getChildrenLiteral(index).getSelector(); }
     fullname() { return this.parent.name + '.' + this.name; }
     refreshGUI_Alone(debug = false) { this.getVertex().refreshGUI(); }
     addLiteral(literal = null) {
@@ -17517,6 +18491,8 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
                 console.log('add[' + i + '/' + this.metaParent.attributes.length + ']:', attr, this.attributes, this.attributes.length, this);
             }
             i = -1;
+            if (window['debug'])
+                console.log('5xd', references, references.length, this);
             while (++i < references.length) {
                 const ref = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"](this, null, references[i]);
                 /*U.ArrayAdd(this.childrens, ref);*/
@@ -17817,16 +18793,13 @@ class MAttribute extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute
     getModelRoot() { return super.getModelRoot(); }
     parse(json, destructive) {
         // if (!json) { json = }
-        this.setValues(json);
+        this.setValues(json); /*
         if (!this.validate()) {
-            this.setValues(null);
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'marked attribute (' + this.metaParent.name + ') with type ', this.getType(), 'values:', this.values, 'this:', this);
-            this.mark(true, 'errorValue');
-        }
-        else {
-            this.mark(false, 'errorValue');
-        }
-        this.refreshGUI();
+          this.setValues(null);
+          U.pw(true, 'marked attribute (' + this.metaParent.name + ') with type ', this.getType(), 'values:', this.values, 'this:', this);
+          this.mark(true, 'errorValue');
+        } else { this.mark(false, 'errorValue'); }*/
+        // this.refreshGUI();
         /*
             this.views = [];
             let i: number;
@@ -18332,6 +19305,7 @@ class M2Reference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReferenc
         return (hoveringTarget instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]);
         //  return (this.type.classType === hoveringTarget || this.type.classType.isExtending(hoveringTarget));
     } // && !(hoveringTarget instanceof EEnum); }
+    getTarget() { return this.type.classType; }
 }
 
 
@@ -18374,7 +19348,8 @@ class MReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference
         const $selector = $html.find('select.ClassSelector');
         M2Class.updateMMClassSelector($selector[0] as HTMLSelectElement, this.getm2Target());
         return htmlRaw; }*/
-    getm2Target() { return this.metaParent.type.classType; }
+    getm2Target() { return this.metaParent.getTarget(); }
+    getTarget(index = 0) { return this.mtarget[index]; }
     getfirstEmptyTarget() {
         let i;
         for (i = 0; i < this.mtarget.length; i++) {
@@ -18623,6 +19598,25 @@ class IReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]
         this.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
         this.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', // #ffbb22
         new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
+        let complementaHex = (hexstr) => { return '#' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(16777215 - (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].hexToNum(hexstr)), 6); };
+        let i;
+        switch (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].get()) {
+            default:
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected website theme: |' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].get() + '|' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Light + '|');
+                break;
+            case _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Dark: break;
+            case _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Light:
+                let edgeStyles = [this.edgeStyleCommon, this.edgeStyleHighlight, this.edgeStyleSelected];
+                for (i = 0; i < edgeStyles.length; i++) {
+                    let style = edgeStyles[i];
+                    style.color = complementaHex(style.color);
+                    style.edgePointStyle.fillColor = complementaHex(style.edgePointStyle.fillColor);
+                    style.edgePointStyle.strokeColor = complementaHex(style.edgePointStyle.strokeColor);
+                    style.edgeHeadStyle.fill = complementaHex(style.edgeHeadStyle.fill);
+                    style.edgeHeadStyle.stroke = complementaHex(style.edgeHeadStyle.stroke);
+                }
+                break;
+        }
     }
     delete(refreshgui = true, linkStart = null, linkEnd = null) {
         if (linkStart === null && linkEnd === null) {
@@ -18757,6 +19751,7 @@ class IReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]
     clearTargets() {
         // azioni solo su m1, non spostato direttamente su m1 per comodità d'uso nella IReference.clone();
     }
+    getTargetSelector(index) { return this.getTarget(index).getSelector(); }
 }
 class M3Reference extends IReference {
     constructor(parent, meta = null) {
@@ -18771,6 +19766,7 @@ class M3Reference extends IReference {
     generateModel() { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Reference.generateModel()'); return {}; }
     parse(json, destructive) { this.name = 'Reference'; }
     linkClass(classe = null) { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: M3Reference.linkClass();'); }
+    getTarget(index) { return this.parent; }
 }
 
 
@@ -18861,6 +19857,8 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
             parent.operations.push(this);
         this.parse(json);
     }
+    getChildrenParameter(index) { return this.childrens[index]; }
+    getChildrenParameterSelector(index) { return this.getChildrenParameter(index).getSelector(); }
     getVisibilityChar() {
         switch (this.visibility) {
             case OperationVisibility.public: return '+';
@@ -19626,11 +20624,12 @@ class Typedd extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"] {
 /*!******************************!*\
   !*** ./src/mClass/iClass.ts ***!
   \******************************/
-/*! exports provided: IClass, M3Class */
+/*! exports provided: ClassInheritance, IClass, M3Class */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClassInheritance", function() { return ClassInheritance; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IClass", function() { return IClass; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M3Class", function() { return M3Class; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
@@ -19641,6 +20640,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+class ClassInheritance {
+}
 class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
     constructor(parent, meta) {
         super(parent, meta);
@@ -19650,10 +20651,40 @@ class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
         if (this.parent) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.parent.classes, this);
         }
+        // let selectedcolor: string = 'var(--'; todo, ma crea problemi con l'input type color
+        let html;
+        let complementaHex = (hexstr) => { return '#' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(16777215 - (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].hexToNum(hexstr)), 6); };
+        let i;
         this.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
         this.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
         this.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
+        switch (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].get()) {
+            default:
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected website theme: |' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].get() + '|' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Light + '|');
+                break;
+            case _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Dark: break;
+            case _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Light:
+                let edgeStyles = [this.edgeStyleCommon, this.edgeStyleHighlight, this.edgeStyleSelected];
+                for (i = 0; i < edgeStyles.length; i++) {
+                    let style = edgeStyles[i];
+                    style.color = complementaHex(style.color);
+                    style.edgePointStyle.fillColor = complementaHex(style.edgePointStyle.fillColor);
+                    style.edgePointStyle.strokeColor = complementaHex(style.edgePointStyle.strokeColor);
+                    style.edgeHeadStyle.fill = complementaHex(style.edgeHeadStyle.fill);
+                    style.edgeHeadStyle.stroke = complementaHex(style.edgeHeadStyle.stroke);
+                }
+                break;
+        }
     }
+    getReferences(personal = true, inherited = true) {
+        let refs = this.references;
+    }
+    getChildrenAttribute(index) { return this.attributes[index]; }
+    getChildrenReference(index) { return this.references[index]; }
+    getChildrenOperation(index) { return this.getOperations()[index]; }
+    getChildrenAttributeSelector(index) { return this.getChildrenAttribute(index).getSelector(); }
+    getChildrenReferenceSelector(index) { return this.getChildrenReference(index).getSelector(); }
+    getChildrenOperationSelector(index) { return this.getChildrenOperation(index).getSelector(); }
     fullname() { return this.parent.name + '.' + this.name; }
     generateEdge() { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'IClass.generateEdge() todo.'); return null; }
     canBeLinkedTo(target) {
@@ -19875,6 +20906,8 @@ class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
         }
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected class:' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this) + ': ', this);
     }
+    getAllAttributes() { return this.attributes; }
+    getAllReferences() { return this.references; }
 }
 class M3Class extends IClass {
     constructor(parent, json = null) {

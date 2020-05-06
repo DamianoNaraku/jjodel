@@ -140,6 +140,7 @@ export class MClass extends IClass {
         console.log('add[' + i + '/' + this.metaParent.attributes.length + ']:', attr, this.attributes, this.attributes.length, this);
       }
       i = -1;
+      if (window['debug']) console.log('5xd', references, references.length, this);
       while (++i < references.length) {
         const ref: MReference = new MReference(this, null, references[i]);
         /*U.ArrayAdd(this.childrens, ref);*/

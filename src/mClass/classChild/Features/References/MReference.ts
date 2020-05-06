@@ -59,7 +59,8 @@ export class MReference extends IReference {
     M2Class.updateMMClassSelector($selector[0] as HTMLSelectElement, this.getm2Target());
     return htmlRaw; }*/
 
-  getm2Target(): M2Class { return this.metaParent.type.classType; }
+  getm2Target(): M2Class { return this.metaParent.getTarget(); }
+  getTarget(index: number = 0): MClass { return this.mtarget[index]; }
 
   getfirstEmptyTarget(): number {
     let i:number;

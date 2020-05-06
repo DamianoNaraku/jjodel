@@ -7,11 +7,11 @@ import {
   IClass,
   IClassifier,
   IEdge,
-  IModel,
+  IModel, InputPopup,
   IPackage,
   IReference,
   IVertex,
-  Measurable,
+  Measurable, MeasurableEvalContext,
   MeasurableRuleLists,
   MeasurableRuleParts,
   measurableRules,
@@ -23,17 +23,20 @@ import {
   ResizableoptionsPH,
   RotatableoptionsPH,
   Status,
-  StyleComplexEntry,
+  StyleComplexEntry, TSON_JSTypes,
   U,
   ViewHtmlSettings,
   ViewPoint,
   ViewRule,
 } from '../../common/Joiner';
+import {PropertyBarTabs} from '../propertyBar/propertyBar';
 import ChangeEvent = JQuery.ChangeEvent;
 import KeyDownEvent = JQuery.KeyDownEvent;
 import ClickEvent = JQuery.ClickEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
+import {AutocompleteMatch} from '../../common/util';
+import {Style} from '@angular/cli/lib/config/schema';
 
 @Component({
   selector: 'app-style-editor',
@@ -89,6 +92,7 @@ export class StyleEditor {
   private ownstylecontext: ownStyleContext;
 
   onHide(): void {
+    console.log('styleeditor.onHide()');
     this.updateClickedGUIHighlight();
   }
   onShow(): void {
@@ -113,16 +117,19 @@ export class StyleEditor {
     div.innerText = U.replaceAll(text, '\r', ' ');
   }
 
-  isVisible(): boolean { return this.$root.is(':visible'); }
+  isVisible(): boolean { return PropertyBarr.isTabVisible(this.propertyBar.model, PropertyBarTabs.style); }
+
   show(m: ModelPiece, clickedLevel: Element) {
     m = m || this.propertyBar.selectedModelPiece;
     if (!m) m = Status.status.getActiveModel();
     // console.log('styleShow(', m, ')');
-    if (m instanceof IModel) { this.showM(m); return; }
-    if (m instanceof IPackage) { this.showM(m.parent); return; }
+    this.clickedLevel = null;
+    if (m instanceof IModel) { this.showM(m); this.updateClickedGUIHighlight(); return; }
+    if (m instanceof IPackage) { this.showM(m.parent); this.updateClickedGUIHighlight(); return; }
     // if (m instanceof IPackage) { this.showP(m); return; }
     this.clickedLevel = clickedLevel = clickedLevel || m.getHtmlOnGraph();
     this.showMP(m, null, false, null);
+    this.updateClickedGUIHighlight();
     return;/*
     if (m instanceof IClass) { this.showC(m); }
     if (m instanceof IAttribute) { this.showA(m); }
@@ -133,7 +140,8 @@ export class StyleEditor {
 
   updateClickedGUIHighlight() {
     $(this.propertyBar.model.graph.container).find('.styleEditorSelected').removeClass('styleEditorSelected');
-    if (this.isVisible() && this.clickedLevel) { this.clickedLevel.classList.add('styleEditorSelected'); } }
+    if (this.isVisible() && this.clickedLevel) { this.clickedLevel.classList.add('styleEditorSelected'); }
+  }
 
   private getCopyOfTemplate(m: ModelPiece, s: string, appendTo: HTMLElement, clear: boolean): HTMLElement {
     let $html: JQuery<HTMLElement> = this.$templates.find('.template' + s);
@@ -145,6 +153,7 @@ export class StyleEditor {
       if (clear) U.clear(appendTo);
       appendTo.appendChild(html); }
     $html = $(html).find('.' + (m.getModelRoot().isM() ? 'm1' : 'm2') + 'hide').hide();
+    if (!(m instanceof IClass)) $(html).find('.iclass.show').hide();
     return html; }
 
   showM(m: IModel) {
@@ -166,14 +175,14 @@ export class StyleEditor {
     // event listeners:
     $(gridX).off('change.set').on('change.set', (e: ChangeEvent) => {
       const input: HTMLInputElement = e.currentTarget;
-      m.graph.grid.x = isNaN(+input.value) ? 0 : +input.value;
+      if(U.isNumerizable(input.value)) m.graph.grid.x = +input.value; // will be displayed by gridDisplay.trigger
       showGrid.checked = true;
       $(showGrid).trigger('change');
       m.refreshGUI();
     });
     $(gridY).off('change.set').on('change.set', (e: ChangeEvent) => {
       const input: HTMLInputElement = e.currentTarget;
-      m.graph.grid.y = isNaN(+input.value) ? 0 : +input.value;
+      if(U.isNumerizable(input.value)) m.graph.grid.y = +input.value; // will be displayed by gridDisplay.trigger
       showGrid.checked = true;
       $(showGrid).trigger('change');
       m.refreshGUI();
@@ -188,7 +197,7 @@ export class StyleEditor {
     });
     $(showGrid).off('change.set').on('change.set', (e: ChangeEvent) => {
       const input: HTMLInputElement = e.currentTarget;
-      m.graph.setGrid0(input.checked);
+      m.graph.setGrid(null, null, input.checked);
     });
   }
 
@@ -369,14 +378,16 @@ export class StyleEditor {
     const measurableCheckbox = obj.measurableCheckbox = $measurableCheckbox[0];
     measurableCheckbox.disabled = obj.input.getAttribute('disabled') === 'true';
     measurableCheckbox.checked = (context.templateLevel.classList.contains('measurable') || context.graphLevel.classList.contains('measurable'));
-    const $measurableTitle = $measurableRoot.find('.meas_acc0 > .ruletitle');
+    const $measurableTitle = $measurableRoot.find('.meas_acc0 > .maintitle');
     $measurableTitle.on('click', (e: ClickEvent) => {
       const $innerroot = $measurableBody;
       const innerroot = $innerroot[0];
       if (innerroot.classList.contains('show')) {
         // todo: elimina slideup e usa la transizione css su collapsing, come?
+        $measurableTitle.addClass('collapsed');
         $innerroot.slideUp(400, () => { innerroot.classList.remove('show', 'collapsing', 'collapse'); });
         return; }
+      $measurableTitle.removeClass('collapsed');
       $innerroot.slideDown(400, () => { innerroot.classList.add('collapse', 'show'); });
       e.preventDefault();
       e.stopPropagation();
@@ -386,6 +397,7 @@ export class StyleEditor {
     $measurableCheckbox.on('click', (e: ClickEvent) => { e.stopPropagation(); });
     $measurableCheckbox.on('mousedown', (e: MouseDownEvent) => {e.stopPropagation(); });
     $measurableCheckbox.on('mouseup', (e: MouseUpEvent) => { e.stopPropagation(); });
+    if (!$measurableCheckbox[0].checked) $measurableTitle.hide();
     $measurableCheckbox.off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e: ChangeEvent) => {
       context.templateLevel.classList.remove('measurable');
       if (measurableCheckbox.checked) {
@@ -395,11 +407,14 @@ export class StyleEditor {
         if (!$measurableBody[0].classList.contains('show')) { $measurableTitle.trigger('click'); }
         console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', context.templateLevel.parentElement && context.templateLevel.parentElement.style.position);
         if (context.templateLevel.parentElement && context.templateLevel.parentElement.style.position !== 'relative') {
-          U.ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was:'
-            + context.templateLevel.parentElement.style.position);
+          U.ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was'
+            + (context.templateLevel.parentElement.style.position === '' ? ' unset.' : ': ' + context.templateLevel.parentElement.style.position)
+          );
           context.templateLevel.parentElement.style.position = 'relative'; }
       }
       else {
+        if (context.templateLevel instanceof HTMLElement) context.templateLevel.style.position = ''; // restore default
+        context.templateLevel.parentElement.style.position = '';
         if ($measurableBody[0].classList.contains('show')) { $measurableTitle.trigger('click'); }
         $measurableTitle.slideUp(); }
       if (U.isTriggered(e)) return;
@@ -442,7 +457,6 @@ export class StyleEditor {
     if (realindexfollowed.indexFollowed.length !== indexedPath.length) {
       indexedPath = realindexfollowed.indexFollowed as number[];
       this.clickedLevel = clickedLevel = U.followIndexesPath(clickedRoot, indexedPath,  'childNodes'); }
-    this.updateClickedGUIHighlight();
     // html set END.
     const model: IModel = m.getModelRoot();
     if (asEdge && (m instanceof IClass || m instanceof IReference) && m.shouldBeDisplayedAsEdge()) { return this.showE(m, asEdge); }
@@ -891,6 +905,7 @@ export class StyleEditor {
     const prefix: string = ruletype;
     const counter: HTMLElement = $title.find('.rulecounter')[0];
     counter.innerHTML = '' + (+counter.innerHTML + 1);
+    title.setAttribute('counter', counter.innerText);
     // U.pe(counter.innerHTML === '2', '2');
     // const targetsectionselector: string = title.dataset.target;
     // const $targetsection: JQuery<HTMLElement> = $measurableShell.find(targetsectionselector) as  JQuery<HTMLElement>;
@@ -928,8 +943,10 @@ export class StyleEditor {
     if (ruleparts) { // if existing rule
       nameinput.value = ruleparts.name;
       if (left) left.value = ruleparts.left;
+      console.log('md5', operator, ruleparts);
       if (operator) U.selectHtml(operator, ruleparts.operator);
       right.value = ruleparts.right;
+      target.value = ruleparts.target;
     }
     else {
       if (prefix === measurableRules.onRefresh) {
@@ -950,10 +967,11 @@ export class StyleEditor {
 
     const generateRuleValue = (): string => {
       let ret: string =  (left ? left.value : '');
-      if (!operator) return ret + Measurable.separator + right.value;
+      console.log('generaterule operator:', operator, operator && operator.value)
+      if (!operator || !(operator instanceof HTMLSelectElement)) return ret + Measurable.separator + right.value;
       switch (operator.value) {
-        default: break; // describing separators (arrows, do, then...) are ignored.
-        case '<=': case '<': case '>': case '>=': case '!=': case '==': case '===': case '!==': ret += Measurable.separator + operator.value; break; }
+        default: U.pe(true, 'unexpected measurable rule operator:' + operator.value, operator); break; // describing separators (arrows, do, then...) are ignored.
+        case '<=': case '<': case '>': case '>=': case '!=': case '==': case '=': case '===': case '!==': ret += Measurable.separator + operator.value; break; }
       return ret + Measurable.separator + right.value; };
     const generateOldRuleName = (): string => { return ruletype + oldrulename; };
     const generateRuleName = (): string => { return ruletype + nameinput.value; };
@@ -981,7 +999,7 @@ export class StyleEditor {
       U.pif(true, 'changetarget of: |' + ruletype + oldrulename + '|  |' + generateRuleName() + '|');
       context.applyNodeChangesToInput();
     };
-    const targetChanged = (e: ChangeEvent): void => { setRuleTarget(target.value); };
+    const targetChanged = (): void => { setRuleTarget(target.value); };
     const setRuleName = (name: string): void => {
       if (!U.followsPattern(nameinput, name)) return;
       console.log('setRuleName pt0 ', nameinput, 'istaken?', isRuleNameTaken(name));
@@ -1009,14 +1027,63 @@ export class StyleEditor {
       updateRule();
     };
     const nameChanged = () => { setRuleName(nameinput.value = nameinput.value.toLowerCase()); };
+
+    let input: InputPopup;
+    let tmp = this.getRuleEditor();
+    const editorshell: HTMLElement = tmp.editor;
+    const editorinput: HTMLElement = tmp.input;
+    const helplink: HTMLElement = U.toHtml('<span>Need help? read the <a href = "https://github.com/DamianoNaraku/jjodel/wiki/Positional-element-editor">documentation</a>.</span>');
+    const leftClicked = () => {
+      editorinput.innerText = String.fromCharCode(160) + left.value;
+      input = new InputPopup();
+      input.setText('Left side editor', null, helplink);
+      input.setNestedInputNode(editorshell, editorinput);
+      input.addOkButton(null, [(e: ClickEvent, value: string) => {
+        left.value = U.replaceAll(value, String.fromCharCode(160), ' ').trim();
+        leftChanged(); }]);
+      input.show();
+      U.setSelection(editorinput, editorinput.innerText.length);
+      $(editorinput).trigger('mouseup'); }
+    const rightClicked = () => {
+      editorinput.innerText = String.fromCharCode(160) + right.value;
+      input = new InputPopup();
+      input.setText('Right side editor', null, helplink);
+      input.setNestedInputNode(editorshell, editorinput);
+      input.addOkButton(null, [(e: ClickEvent, value: string) => {
+        right.value = U.replaceAll(value, String.fromCharCode(160), ' ').trim();
+        rightChanged(); }]);
+      input.show();
+      U.setSelection(editorinput, editorinput.innerText.length);
+      // mouseup triggera il ricalcolo dei suggerimenti. sia perchè potrebbero essercene già di pronti, sia per pulire i suggerimenti della precedente apertura (l'editor è unico)
+      $(editorinput).trigger('mouseup'); }
+    const targetClicked = () => {
+      editorinput.innerText = String.fromCharCode(160) + target.value;
+      input = new InputPopup();
+      input.setText('Target selector editor', null, helplink);
+      input.setNestedInputNode(editorshell, editorinput);
+      input.addOkButton(null, [(e: ClickEvent, value: string) => {
+        target.value = U.replaceAll(value, String.fromCharCode(160), ' ').trim();
+        targetChanged(); }]);
+      input.show();
+      U.setSelection(editorinput, editorinput.innerText.length);
+      $(editorinput).trigger('mouseup'); }
+
+    $(nameinput).off('change.name').on('change.name', nameChanged);
+    $(operator).off('change.operator').on('change.operator', operatorChanged);
+    $(left).off('click.leftside').on('click.leftside', leftClicked);
+    $(right).off('click.rightside').on('click.rightside', rightClicked);
+    $(target).off('click.target').on('click.target', targetClicked);
+
+    /*
     $(nameinput).off('change.name').on('change.name', nameChanged);
     $(left).off('change.leftside').on('change.leftside', leftChanged);
     $(operator).off('change.operator').on('change.operator', operatorChanged);
     $(right).off('change.rightside').on('change.rightside', rightChanged);
-    $(target).off('change.target').on('change.target', targetChanged);
+    $(target).off('change.target').on('change.target', targetChanged);*/
     $newtemplate.find('button.ruledelete').off('click.delete').on('click.delete', () => {
       newtemplate.parentNode.removeChild(newtemplate);
       counter.innerHTML = '' + (+counter.innerHTML - 1);
+      title.setAttribute('counter', counter.innerText);
       context.templateLevel.removeAttribute(generateOldRuleName());
       context.templateLevel.removeAttribute(generateRuleName()); //todo: potrebbe fare casini se qualcuno swappa nomi e cancella una regola?
       if (prefix === measurableRules.onRefresh) { context.templateLevel.classList.remove(ReservedClasses.onRefresh); }
@@ -1029,19 +1096,23 @@ export class StyleEditor {
     let debugleft = $newtemplate.find('.debugleft')[0];
     let debugoperator = $newtemplate.find('.debugoperator')[0];
     let debugright = $newtemplate.find('.debugright')[0];
+    let debugtarget = $newtemplate.find('.debugtarget')[0];
     let debugtriggers = $newtemplate.find('.debugtriggers')[0];
     if (!left) { U.remove(debugleft.parentElement); debugleft = null; }
     if (!right) { U.remove(debugright.parentElement); debugright = null; }
     if (!operator) { U.remove(debugoperator.parentElement); debugoperator = null; }
+    if (!target) { U.remove(debugtarget.parentElement); debugtarget = null; }
     if (!isEventTriggerRule) { U.remove(debugtriggers.parentElement); debugtriggers = null; }
     let execute = () => {
-      const attr: Attr = context.graphLevel.attributes.getNamedItem(generateRuleName());
-      let parts: MeasurableRuleParts = new MeasurableRuleParts(attr, null, true);
+      const attr: Attr = context.graphLevel.attributes.getNamedItem(generateRuleName().toLowerCase());
+      let parts: MeasurableRuleParts = new MeasurableRuleParts(attr, null, false);
+      U.pe(!parts.prefix, 'unexpected rule: ' + parts, this, attr, generateRuleName());
       let output: MeasurableRuleParts = parts.process(false);
       console.log('execution output:', output);
       if (debugleft) debugleft.innerText = output.left;
       if (debugoperator) debugoperator.innerText = output.operator;
       if (debugright) debugright.innerText = output.right;
+      if (debugtarget) debugtarget.innerText = output.target;
       if (debugtriggers) {
         let str = 'Triggered ' + output.triggeredResults.length + ' rules.';
         debugtriggers.innerText = 'Triggered ' + output.triggeredResults.length + ' rules.';
@@ -1049,11 +1120,59 @@ export class StyleEditor {
         debugtriggers.innerText = str;i
       }
     }
-    $testbutton.on('click', execute);
+    $testbutton.on('mousedown', execute);
   }
 
   isLoaded(): boolean{
     //todo: carica styleEditor solo quando diventa visibile.
     return true;
   }
+
+  static ruleeditor: HTMLElement = null;
+  static ruleeditorinput: HTMLElement = null;
+  private getRuleEditor(): {editor: HTMLElement, input: HTMLElement} {
+    if (StyleEditor.ruleeditor) return {editor: StyleEditor.ruleeditor, input: StyleEditor.ruleeditorinput};
+    const callforeachkeyrecursive = (obj: object, f: (prePath: string, key: string) => void, pathuntilnow: string) => {
+      let key0: string;
+      let key: string;
+      let val: any;
+      for (key0 in obj) {
+        key = key0;
+        val = obj[key];
+        if (typeof val === TSON_JSTypes.function) { key += U.getFunctionSignatureFromComments(val).signature + ';'; }
+        else if (Array.isArray(val)) { key += '/*array*/'; }
+        else if (typeof val === TSON_JSTypes.object) { key += '.'; /*no post comment*/}
+        else key += '; /*' + typeof val + '*/';
+        U.pe(key === 'vertex', 'key:', key, 'obj[key]:', obj[key], 'val:', val, 'cond:', (val instanceof Object && !(val instanceof Function)));
+        f(pathuntilnow + '.', key);
+        // console.log(pathuntilnow, val);
+        if (val instanceof Element) return;
+        if (val instanceof Object) callforeachkeyrecursive(val, f, pathuntilnow + '.' + key0);
+      }
+    }
+    let i: number;
+    // let preChars = ' ';
+    let spaceUsed = ' '; // String.fromCharCode(160);
+    let preChars = '};' + spaceUsed + '*/+-';
+    let autocompletekeys: AutocompleteMatch[] = [];
+
+    let addmanyv2 = (prechars: string, prePath: string, key: string) => {
+      if (prePath.charAt(0) === '.') prePath = prePath.substr(1);
+      for (i = 0; i < preChars.length; i++) { autocompletekeys.push( new AutocompleteMatch(prechars[i] + prePath, key) ); }
+    }
+    let contextobj: MeasurableEvalContext = MeasurableEvalContext.fillFake();
+    let obj = {'this': contextobj};
+    callforeachkeyrecursive(obj, (prePath: string, key: string) => { addmanyv2(preChars, prePath, key); }, '');
+    let inputcontainer: HTMLElement = document.createElement('div');
+    let input: HTMLElement = document.createElement('div');
+    let suggestionlist: HTMLUListElement = document.createElement('ul');
+    inputcontainer.append(input);
+    inputcontainer.append(suggestionlist);
+    inputcontainer.setAttribute('style', "width: calc(75vw - 152px); height: auto;");
+    input.setAttribute('style', "border: 1px solid #ced4da; border-radius: .25rem; padding: 1rem;");
+    input.setAttribute('contenteditable', 'true');
+    U.autocompleteInputSetup(inputcontainer, autocompletekeys);
+    StyleEditor.ruleeditor = inputcontainer;
+    StyleEditor.ruleeditorinput = input;
+    return this.getRuleEditor(); }
 }

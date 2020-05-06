@@ -18166,7 +18166,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           v = new VersionUpload(new Date('2020/5/6'), '', '');
           v.addf('Layoutable:', 'Improved the rule editor with code autocompletion, providing dynamic suggestions and information about types of available variables, function\'s parameters and return values. With a link to documentation.');
           v.addi('Optimization:', 'Reduced redundant calls during MClass creation and loading.');
-          var searchterm = 'clog cls addbf'; // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
+          var searchterm = 'clog cls addbf '; // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
           // v.addf('fakegfeat', 'kkk');
           // v = new VersionUpload('v3'...);
         }

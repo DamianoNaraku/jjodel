@@ -7,7 +7,7 @@
     "build": "ng build",
     "deploygh": "ng build --base-href \"/jjodel/dist/jjodel/\"",
     "deployghclean": "rd .\\dist\\ /S /Q && rd .\\out.tsc\\ /S /Q",
-    "deployghComment": "after that command need to manually change dist/index.html <base> to '/jjodel/dist/jjodel/' (not anymore)",
+    "deployghComment": "to force update: deployghclean, github push, deploygh, github push",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

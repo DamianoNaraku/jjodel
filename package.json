@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "deploygh": "ng build --base-href \"/jjodel/dist/jjodel/\"",
-    "deployghComment": "after that command need to manually change dist/index.html <base> to '/jjodel/dist/jjodel/'",
+    "deployghclean": "rd .\\dist\\ /S && rd .\\out.tsc\\ /S && ng build --base-href \"/jjodel/dist/jjodel/\"",
+    "deployghComment": "after that command need to manually change dist/index.html <base> to '/jjodel/dist/jjodel/' (not anymore)",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

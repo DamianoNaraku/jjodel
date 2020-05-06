@@ -321,7 +321,7 @@ export class InputPopup {
     if (this.txtPost) this.html.appendChild(this.txtPost);
     this.html.appendChild(this.buttonContainer);
     this.$container.slideDown(400);
-    this.input.focus(); }
+    if(this.input) this.input.focus(); }
 
   hide(): void {
     this.container.style.display = 'block';

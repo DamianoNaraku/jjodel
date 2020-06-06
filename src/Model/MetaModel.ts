@@ -27,8 +27,8 @@ import {
   M3Reference,
   Status,
   ViewPoint,
-  Type, Dictionary
-}                    from '../common/Joiner';
+  Type, Dictionary, IClass
+} from '../common/Joiner';
 import {EAnnotation} from './EAnnotation';
 
 
@@ -52,8 +52,8 @@ export class MetaModel extends IModel {
 
   getAllClasses(): M2Class[] { return super.getAllClasses() as M2Class[]; }
   getAllReferences(): M2Reference[] { return super.getAllReferences() as M2Reference[]; }
-  getClass(fullname: string, throwErr: boolean = true, debug: boolean = true): M2Class {
-    return super.getClass(fullname, throwErr, debug) as M2Class; }
+  getClass(fullname: string, caseSensitive: boolean = false, throwErr: boolean = true, debug: boolean = true): M2Class {
+    return super.getClass(fullname, caseSensitive,  throwErr, debug) as M2Class; }
 
   getClassFromEcoreStr(targetstr: string): M2Class {
     U.pe(!targetstr || targetstr.indexOf(Type.classTypePrefix) !== 0, 'getClassFromString(): not a ecore class name:', targetstr);

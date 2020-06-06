@@ -31,6 +31,7 @@ import EventBase = JQuery.EventBase;
 import KeyPressEvent = JQuery.KeyPressEvent;
 import {split} from 'ts-node';
 import KeyUpEvent = JQuery.KeyUpEvent;
+import {isNewLine} from '@angular/compiler/src/chars';
 
   export class myFileReader {
   private static input: HTMLInputElement;
@@ -168,8 +169,8 @@ export class InputPopup {
   onCloseButton(onclick: ((e:ClickEvent, value: string, input: HTMLElement, btn: HTMLButtonElement) => any)[]) {
     let i: number;
     for (i = 0; i < onclick.length; i++) {
-      let evt = onclick[i];
-      this.$xbutton.on('click.customhandler', (e: ClickEvent) => { evt(e, U.getValue(this.input), this.input, this.xbutton); });
+      let func = onclick[i];
+      this.$xbutton.on('click.customhandler', (e: ClickEvent) => { func(e, U.getValue(this.input), this.input, this.xbutton); });
     }
   }
 
@@ -321,7 +322,6 @@ export class InputPopup {
     if (this.txtPost) this.html.appendChild(this.txtPost);
     this.html.appendChild(this.buttonContainer);
     this.$container.slideDown(400);
-    console.log('6x', this.input, !!this.input);
     if (this.input) this.input.focus(); }
 
   hide(): void {
@@ -512,6 +512,7 @@ export class U {
     // first 2 entries are "Erorr" and "getStackTrace()"
     return sliceThisCall ? arr.slice(2) : arr; }
 
+  static getID(): string { return this.genID(); }
   static genID(): string { return '#tìmèdkéy_' + new Date().valueOf(); }
   static getCaller(stacksToSkip: number = 1): string {
     const stack: string[] = this.getStackTrace(false);
@@ -536,9 +537,7 @@ export class U {
     if (!b) { return null; }
     if (restArgs === null || restArgs === undefined) { restArgs = []; }
     let str = 'Error:' + s + '';
-    for (let i = 0; i < restArgs.length; i++) {
-      s = restArgs[i];
-      str += '' + s + '\t\r\n'; }
+    for (let i = 0; i < restArgs.length; i++) { str += '' + restArgs[i] + '\t\r\n'; }
     console.error(s, ...restArgs);
     if (!U.production && false) { alert(str); } else { U.bootstrapPopup(str, 'danger', 5000); }
     return (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash']; }
@@ -547,9 +546,7 @@ export class U {
     if (!b) { return null; }
     if (restArgs === null || restArgs === undefined) { restArgs = []; }
     let str = 'Warning:' + s + '';
-    for (let i = 0; i < restArgs.length; i++) {
-      s = restArgs[i];
-      str += '' + s + '\t\r\n'; }
+    for (let i = 0; i < restArgs.length; i++) { str += '' + restArgs[i] + '\t\r\n'; }
     console.trace();
     console.warn(s, ...restArgs);
     U.bootstrapPopup(str, 'warning', 5000);
@@ -559,9 +556,7 @@ export class U {
     if (!b) { return null; }
     if (restArgs === null || restArgs === undefined) { restArgs = []; }
     let str = s + '';
-    for (let i = 0; i < restArgs.length; i++) {
-      s = restArgs[i];
-      str += '' + s + '\t\t\r\n'; }
+    for (let i = 0; i < restArgs.length; i++) { str += '' + restArgs[i] + '\t\t\r\n'; }
     console.info(s, ...restArgs);
     U.bootstrapPopup(str, 'success', 3000);
     return str; }
@@ -571,14 +566,13 @@ export class U {
   static p(s: any, ...restArgs: any[]): string {
     if (restArgs === null || restArgs === undefined) { restArgs = []; }
     let str = '' + s;
-    for (let i = 0; i < restArgs.length; i++) {
-      s = restArgs[i];
-      str += '' + s + '\t\r\n'; }
+    for (let i = 0; i < restArgs.length; i++) { str += '' + restArgs[i] + '\t\r\n'; }
     console.info(s, ...restArgs);
     return str; }
 
   static $alertcontainer: JQuery<HTMLElement> = null;
   static alertcontainer: HTMLElement = null;
+  static displayedTexts: Dictionary<string, Element> = {};
   static bootstrapPopup(innerhtmlstr: string, color: 'success' | 'warning' | 'danger', timer: number): void {
     const div = document.createElement('div');
     if (!U.$alertcontainer) {
@@ -589,15 +583,36 @@ export class U {
     const container: HTMLElement = U.alertcontainer;
     const $container = U.$alertcontainer;
     const $div = $(div);
-    container.appendChild(div);
     div.classList.add('alertshell', 'alert_' + color);
     div.setAttribute('role', 'alert');
     const alertMargin: HTMLElement = document.createElement('div');
     alertMargin.innerHTML = innerhtmlstr;
+    if (U.displayedTexts[innerhtmlstr]) return;
+    U.displayedTexts[alertMargin.innerHTML] = div;
+    container.appendChild(div);
     alertMargin.classList.add('alert', 'alert-' + color);
     div.appendChild(alertMargin);
-    const end = () => { $div.slideUp(400, () => { div.parentElement && container.removeChild(div); }); }; // div.parentElement: nel caso non sia stato manualmente rimosso.
-    $div.on('click', (e: ClickEvent) => { $('.alert_' + color).remove(); U.clipboardCopy(innerhtmlstr); });
+    const end = () => { $div.slideUp(400, () => {
+      delete U.displayedTexts[innerhtmlstr];
+      div.parentElement && container.removeChild(div);
+    }); }; // div.parentElement: nel caso non sia stato manualmente rimosso.
+    $div.on('mousedown', (e: MouseDownEvent) => {
+      U.clipboardCopy(innerhtmlstr);
+      e.preventDefault();
+      e.stopPropagation();
+      if (U.mouseRightButton === e.button) {
+        let i: number;
+        let $popups = $('.alertshell.alert_' + color);
+        for (i = 0; i < $popups.length; i++) { delete U.displayedTexts[$popups[i].innerHTML]; }
+        $popups.remove();
+        return; }
+      if (U.mouseWheelButton === e.button) {
+        U.displayedTexts = [];
+        $('.alertshell').remove();
+        return; }
+      delete U.displayedTexts[innerhtmlstr];
+      div.parentElement && container.removeChild(div);
+    });
     $div.hide().slideDown(200, () => setTimeout(end, timer));
   }
 
@@ -644,7 +659,7 @@ export class U {
   static newSvg<T extends SVGElement>(type: string): T {
     return document.createElementNS('http://www.w3.org/2000/svg', type) as T; }
 
-  static replaceVars<T extends Element>(obj: object, html0: T, cloneHtml = true, debug: boolean = false): T {
+  public static replaceVars<T extends Element>(obj: object, html0: T, cloneHtml = true, debug: boolean = false): T {
     const html: T = cloneHtml ? U.cloneHtml<T>(html0) : html0;
     /// see it in action & parse or debug at
     // v1) perfetto ma non supportata in jscript https://regex101.com/r/Do2ndU/1
@@ -656,7 +671,7 @@ export class U {
     U.pif(debug, 'ReplaceVars() return = ', html.innerHTML);
     return html; }
 
-  static replaceVarsString0(obj: object, str: string, escapeC: string[] = null, replacer: string[] = null, debug: boolean = false): string {
+  private static replaceVarsString0(obj: object, str: string, escapeC: string[] = null, replacer: string[] = null, debug: boolean = false): string {
     U.pe(escapeC && !replacer, 'replacer cannot be null if escapeChar is defined.');
     U.pe(replacer && !escapeC, 'escapeChar cannot be null if replacer is defined');
     if (!escapeC && !replacer) { escapeC = replacer = []; }
@@ -687,11 +702,12 @@ export class U {
       });
     return str; }
 
-  static replaceVarsString(obj: object, htmlStr: string, debug: boolean = false): string {
+  public static replaceVarsString(obj: object, htmlStr: string, debug: boolean = false): string {
     U.pe(!obj || !htmlStr, 'parameters cannot be null. obj:', obj, ', htmlString:', htmlStr);
     //  https://stackoverflow.com/questions/38563414/javascript-regex-to-select-quoted-string-but-not-escape-quotes
     //  good regex fatto da me https://regex101.com/r/bmWVrp/4
 
+    if (U.isFunction((obj as any).preReplace)) (obj as any).preReplace();
     // only replace content inside " quotes. (eventually escaping ")
     htmlStr = U.QuoteReplaceVarString(obj, htmlStr, '"', debug);
     // only replace content inside ' quotes. (eventually escaping ')
@@ -700,7 +716,7 @@ export class U {
     htmlStr = U.replaceVarsString0(obj, htmlStr, ['<', '>'], ['&lt;', '&gt;']); // check here aaaaaaaaaaaaaa $$$$$$$$$$$
     return htmlStr; }
 
-  static QuoteReplaceVarString(obj: object, htmlStr: string, quote: string, debug: boolean = false): string {
+  private static QuoteReplaceVarString(obj: object, htmlStr: string, quote: string, debug: boolean = false): string {
     U.pe(quote !== '"' && quote !== '\'', 'the only quote supported are single chars " and \'.');
     const quoteEscape = quote === '&quot;' ? '' : '&#39;'; // '\\' + quote;
     // todo: dovrei anche rimpiazzare & with &amp; per consentire input &something; trattati come stringhe.
@@ -753,7 +769,14 @@ export class U {
     const debug = false;
     const showErrors = false;
     let debugPathOk = '';
-    if (isBase64) { varname = atob(varname); }
+    /////////////////// debug start
+    if (isBase64) {
+      isBase64 = false;
+      // varname = 'name';
+    }
+
+    /////////////////////// debug end
+    if (isBase64) { U.pe(true, 'base64 unimplemented, varname:', varname); varname = atob(varname); }
     let requestedValue: any = obj;
     const fullpath: string = varname;
     const tokens: string[] = varname.split('.'); // varname.split(/\.,/);
@@ -1886,14 +1909,23 @@ export class U {
     }
     return ret; }
 
-  static ArrayMerge(arr1: any[], arr2: any[]): void {
-    if (!arr1 || !arr2) return;
-    Array.prototype.push.apply(arr1, arr2); }
+  static SetMerge<T>(modifyFirst: boolean = true, ...iterables: Iterable<T>[]): Set<T> {
+    const set: Set<T> = modifyFirst ? iterables[0] as Set<T>: new Set<T>();
+    U.pe(!(set instanceof Set), 'U.SetMerge() used with modifyFirst = true requires the first argument to be a set');
+    for (let iterable of iterables) { for (let item of iterable) { set.add(item); } }
+    return set; }
 
-  static ArrayMergeUnique(arr1: any[], arr2: any[]): void {
-    if (!arr1 || !arr2) return;
+  static MapMerge<K, V>(modifyFirst: boolean = true, ...maps: Map<K, V>[]): Map<K, V> {
+    const ret: Map<K, V> = modifyFirst ? maps[0] : new Map<K, V>();
     let i: number;
-    for( i = 0; i < arr2.length; i++) { U.ArrayAdd(arr1, arr2[i]); } }
+    for (i = 0; i < maps.length; i++) { maps[i].forEach(function(value, key){ ret.set(key, value); }) }
+    return ret; }
+
+  static ArrayMerge(arr1: any[], arr2: any[], unique: boolean = false): void {
+    if (!arr1 || !arr2) return;
+    if (!unique) Array.prototype.push.apply(arr1, arr2);
+    let i: number;
+    for (i = 0; i < arr2.length; i++) { U.ArrayAdd(arr1, arr2[i]); } }
 
   static ArrayAdd<T>(arr: Array<T>, elem: T, unique: boolean = true, throwIfContained: boolean = false): boolean {
     U.pe(!arr || !Array.isArray(arr), 'arr null or not array:', arr);
@@ -2108,7 +2140,13 @@ export class U {
     return false; }
 
   static toBoolString(bool: boolean): string { return bool ? "true" : "false"; }
-  static fromBoolString(str: string): boolean { return str === "true" || str === 't' || +str === 1; }
+  static fromBoolString(str: string | boolean, defaultVal: boolean = false, allowNull: boolean = false, allowUndefined: boolean = false): boolean {
+    str = str && ('' + str).toLowerCase();
+    if (allowNull && (str === 'null')) return null;
+    if (allowUndefined && (str === 'undefined')) return undefined;
+    if (defaultVal === false) return str === "true" || str === 't' || str === '1'; // true solo se è esplicitamente true, false se ambiguo.
+    if (defaultVal === true) return str === "false" || str === 'f' || str === '0'; // false solo se è esplicitamente false, true se ambiguo.
+  }
 
   static parseSvgPath(str: string): {assoc: {letter: string, pt: Point}[], pts: Point[]} {
     let i: number;
@@ -2238,6 +2276,7 @@ export class U {
     return false;
   }
   static getValue(input0: Element): string {
+    if (!input0) return null;
     const input: HTMLInputElement = (input0 instanceof HTMLInputElement) ? input0 : null;
     if (input) return input.value;
     const textarea: HTMLTextAreaElement = (input0 instanceof HTMLTextAreaElement) ? input0 : null;
@@ -2824,6 +2863,15 @@ export class U {
       input.value = value;
     } else input.innerText = value;
   }
+
+  static hasFocus(elem: Element): boolean { return window.document.activeElement === elem; }
+  static hasFocusWithin(elem: Element, includeSelf: boolean = true): boolean {
+    if (!elem) return false;
+    const active = window.document.activeElement;
+    // console.log('hasFocus1:', includeSelf, ' && ', elem === active);
+    if (includeSelf && elem === active) return true;
+    // console.log('hasFocus2:', active, 'contains', elem, ' = ', active.contains(elem));
+    return elem.contains(active); }
 }
 export enum Keystrokes {
   escape = 'Escape',

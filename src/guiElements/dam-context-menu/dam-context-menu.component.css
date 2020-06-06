@@ -18,8 +18,9 @@
 .refli .firstempty{
   width: 100%;
 }
-.refli .byindex {
-  width: 35px;
+
+.refli button.byindex {
+  margin-left: 5px;
 }
 .reflistparent{
   position: relative;

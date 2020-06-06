@@ -32,10 +32,14 @@
   flex-shrink: 0;
   width: auto;
 }
+.input:focus{
+  outline: none;
+}
 .suggestion{
   flex-grow: 1;
   width: auto;
   padding-left: 0;
+  cursor: text;
 }
 .inputEcho{
   font-style: italic;
@@ -46,6 +50,8 @@
   vertical-align: top; }
 .input:before {
   color: #FC3565;
+  margin-left: -1rem;
+  cursor: text;
 }
 .output:before {
   color: #5F8787;

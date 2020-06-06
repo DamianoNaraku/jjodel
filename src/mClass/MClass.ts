@@ -26,7 +26,7 @@ import {
   IModel,
   Size,
   EdgeStyle, MFeature, M2Attribute, M3Class, IClass,
-  Dictionary, GraphSize, MPackage, MReference, MAttribute, M2Reference, M2Feature,
+  Dictionary, GraphSize, MPackage, MReference, MAttribute, M2Reference, M2Feature, EOperation,
 } from '../common/Joiner';
 
 export class MClass extends IClass {
@@ -49,17 +49,80 @@ export class MClass extends IClass {
   referencesIN: MReference[];
 */
 
-  static getArrayIndex_ByMetaParentName(name: string, array: ModelPiece[]): number {
-    let i = -1;
-    while (++i < array.length) { if (name === array[i].metaParent.name) { return i; } }
-    return -1; }
-
   constructor(pkg: MPackage, json: Json, metaVersion: M2Class) {
     super(pkg, metaVersion);
     if (!pkg && !json && !metaVersion) { return; } // empty constructor for .duplicate();
     U.pe(!metaVersion, 'null metaparent?');
     this.parse(json, true);
   }
+  unsetExtends(superclass: M2Class): void {
+    if (!superclass) return;
+    let i: number;
+    let j: number;
+    let inheritablefeatures: Dictionary<number, M2Feature> = {};
+    // prendo la lista di tutte le m2-feature che dovrei istanziare, direttamente o per eredità.
+    for (i = -1; i < this.metaParent.extends.length; i++) {
+      let m2class = i === -1? this.metaParent : this.metaParent.extends[i];
+      if (m2class == superclass) continue;
+      for (j = 0; j < m2class.childrens.length; j++) {
+        let m2feature = m2class.childrens[j];
+        inheritablefeatures[m2feature.id] = m2feature;
+      }
+    }
+    // cancello le m2-feature presenti ma fuori dalla lista di quelle che dovrebbero esserci.
+    let childrens: MFeature[] = U.shallowArrayCopy(this.childrens);
+    for (i = 0; i < childrens.length; i++) {
+      const feature: MFeature = childrens[i];
+      if (inheritablefeatures[feature.metaParent.id]) continue;
+      // if (superclass.childrens.indexOf(feature.metaParent) < 0) continue; OLD System was wrong:
+      // se un attributo lo estendo da due classi diverse, il delete di un extend non deve cancellarlo.
+      // es: B1 extends A; B2 extends A; C extends B1, B2; C eredita 2 volte le cose di A, una le cose di B1 e una le cose di B2,
+      // se tolgo l'extend a B1 devo tenere quelle di A.
+      feature.delete(); }
+    this.refreshGUI_Alone(); }
+
+  //todo: fai getByName con prefisso della classe inherited per console. tipo:  ClassC.ClassB1:samenamefeature vs ClassC.ClassB2:samenamefeature
+  setExtends(superclass: M2Class, refresh: boolean = false): boolean {
+    if (!superclass) return false;
+    const attributes: M2Attribute[] = [...superclass.getAllAttributes()];
+    const references: M2Reference[] = [...superclass.getAllReferences()];
+    let i: number;
+    let tmp: any;
+    // exclude the ones already instantiated.
+    for (i = 0; i < this.attributes.length; i++) { U.arrayRemoveAll(attributes, this.attributes[i].metaParent); }
+    for (i = 0; i < this.references.length; i++) { U.arrayRemoveAll(references, this.references[i].metaParent); }
+    // create the missing ones.
+    for (i = 0; i < attributes.length; i++) { new MAttribute(this, null, attributes[i]); }
+    for (i = 0; i < references.length; i++) { new MReference(this, null, references[i]); }
+
+    if (refresh) this.refreshGUI_Alone(); }
+
+  // getAllChildrens(): MFeature[] { return (this.childrens); }
+  getAllAttributes(): Set<MAttribute> { return new Set(this.attributes); }
+  getAllReferences(): Set<MReference> { return new Set(this.references); }
+  /*getDisplayedChildrens(): Set<EOperation | MFeature> {
+    const arr: Set<EOperation|MFeature> = new Set<EOperation|MFeature>(this.getAllChildrens());
+    U.SetMerge(true, arr, this.getAllOperations());
+    return arr; }
+  getDisplayedOperations(): Set<EOperation> { return this.getAllOperations(); }
+  getDisplayedAttributes(): Set<MAttribute> { return this.getAllAttributes(); }
+  getDisplayedReferences(): Set<MReference> { return this.getAllReferences(); }*/
+  /*getBasicChildrens(): Set<MFeature> {
+    const ret: Set<MFeature> = new Set();
+    let i: number;
+    for (i = 0; i < this.childrens.length; i++) { if (this.childrens[i].metaParent.parent === this.metaParent) ret.add(this.childrens[i]); }
+    return ret; }*/
+  getBasicAttributes(): Set<MAttribute> {
+    const ret: Set<MAttribute> = new Set();
+    let i: number;
+    for (i = 0; i < this.attributes.length; i++) { if (this.attributes[i].metaParent.parent === this.metaParent) ret.add(this.attributes[i]); }
+    return ret; }
+  getBasicReferences(): Set<MReference> {
+    const ret: Set<MReference> = new Set();
+    let i: number;
+    for (i = 0; i < this.references.length; i++) { if (this.references[i].metaParent.parent === this.metaParent) ret.add(this.references[i]); }
+    return ret; }
+  getBasicOperations(): Set<EOperation> { return this.metaParent.getBasicOperations(); }
 
   endingName(valueMaxLength: number = 10): string {
     if (this.attributes.length > 0) { return this.attributes[0].endingName(valueMaxLength); }
@@ -108,45 +171,32 @@ export class MClass extends IClass {
       json[inlineMarker + 'xmi:version'] =  '2.0'; }
     let outi: number;
     let i: number;
-    const set = (k: string, v: Json) => { json[k] = v; };
-    const arr: ModelPiece[][] = [this.attributes, this.references];
+    const arr: MFeature[][] = [this.attributes, this.references];
     for (outi = 0; outi < arr.length; outi++) {
       for (i = 0; i < arr[outi].length; i++) {
-        const child = arr[outi][i];
+        const child: MFeature = arr[outi][i];
+        if (child.isShadowed(this)) continue;
         const value: Json | string = (child).generateModel();
-        U.pe(value instanceof ModelPiece, 'value returned is modelpiece.', child);
         // some error here, il value = ELIteral viene assegnato alla key .nome
         if (value === '' || value === null || value === undefined || U.isEmptyObject(value)) { continue; }
         const key: string = (U.isPrimitive(value) ? inlineMarker : '') + child.metaParent.name;
+        U.pe(json[key], 'overriding value inside MClass.generateModel()',
+          ', key:', key, ', newVal:', value, ', json:', json, ', MClass:', this, ', feature:', child);
+        /*let wind = window as any;
+        if (!wind.json) wind.json = {};
+        if (!wind.json[key]) wind.json[key] = [];
+        wind.json[key].push({value: value, m1id: child.id, m2id: child.metaParent.id, index: i + '/' + arr[outi].length, m2name: child.metaParent.name, setter: child});*/
         json[key] = value; }
     }
     return json; }
 
   parse(json: Json, destructive: boolean = true): void {
-    const attributes: M2Attribute[] = (this.metaParent).attributes;
-    const references: M2Reference[] = (this.metaParent).references;
-    // const childrens: M2Feature[] = (this.metaParent).childrens;
-    let i = -1;
-    if (destructive) {
-      this.attributes = [];
-      this.references = [];
-      this.childrens = [];
-      this.referencesIN = [];
-      while (++i < attributes.length) {
-        const attr: MAttribute = new MAttribute(this, null, attributes[i]);
-        /*U.ArrayAdd(this.childrens, attr);*/
-        U.ArrayAdd(this.attributes, attr);
-        console.trace();
-        console.log('add[' + i + '/' + this.metaParent.attributes.length + ']:', attr, this.attributes, this.attributes.length, this);
-      }
-      i = -1;
-      if (window['debug']) console.log('5xd', references, references.length, this);
-      while (++i < references.length) {
-        const ref: MReference = new MReference(this, null, references[i]);
-        /*U.ArrayAdd(this.childrens, ref);*/
-        U.ArrayAdd(this.references, ref); }
-    }
-    U.pe(this.attributes.length > 4, this, this.attributes.length);
+  if (destructive) {
+    this.attributes = [];
+    this.references = [];
+    this.childrens = [];
+    this.referencesIN = []; }
+    this.setExtends(this.metaParent, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
 
     /*{                                                           <--- classRoot
         "-xmlns:xmi": "http://www.omg.org/XMI",
@@ -191,13 +241,11 @@ export class MClass extends IClass {
             this.references[rindex].parse(value, true);
 
           } else {
-            U.pe(true, 'model attribute-or-reference type not found. class:', this, ', json:', json,
+            U.pe(true, 'm1 model attribute-or-reference type not found. class:', this, ', json:', json,
               'key/name:', key, ', Iclass:', this.metaParent); }
           break;
       }
     }
-    console.log('here2', this, this.attributes.length);
-    U.pe(this.attributes.length > 4, this, this.attributes.length);
   }
   modify_Old(json: Json, destructive: boolean = true): void {
     /*{                                                                                           <-- :classroot
@@ -247,8 +295,13 @@ export class MClass extends IClass {
   }
 
 
-  getChildrenIndex_ByMetaParent(meta: ModelPiece): number { return MClass.getArrayIndex_ByMetaParentName(meta.name, this.childrens); }
-  getAttributeIndex_ByMetaParent(meta: IAttribute): number { return MClass.getArrayIndex_ByMetaParentName(meta.name, this.attributes); }
-  getReferenceIndex_ByMetaParent(meta: IReference): number { return MClass.getArrayIndex_ByMetaParentName(meta.name, this.references); }
+  getChildrenIndex_ByMetaParent(meta: ModelPiece): number { return MClass.getArrayIndex_ByMetaParentID(meta.id, this.childrens); }
+  getAttributeIndex_ByMetaParent(meta: IAttribute): number { return MClass.getArrayIndex_ByMetaParentID(meta.id, this.attributes); }
+  getReferenceIndex_ByMetaParent(meta: IReference): number { return MClass.getArrayIndex_ByMetaParentID(meta.id, this.references); }
+
+  static getArrayIndex_ByMetaParentID(id: number, array: ModelPiece[]): number {
+    let i = -1;
+    while (++i < array.length) { if (id === array[i].metaParent.id) { return i; } }
+    return -1; }
 
 }

@@ -95,8 +95,4 @@ export class EAnnotation extends ModelPiece {
     for (let i = 0; i < details.length; i++) { new EAnnotationDetail(this, details[i]); }
   }
 
-  refreshGUI_Alone(debug?: boolean): void {
-    const v: IVertex = this.getVertex();
-    if (v) v.refreshGUI(); }
-
 }

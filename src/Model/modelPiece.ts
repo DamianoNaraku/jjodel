@@ -41,7 +41,7 @@ import {
   IGraph,
   Typedd,
   IField,
-  TSON_JSTypes
+  TSON_JSTypes, ViewPoint, Size, ISize
 } from '../common/Joiner';
 
 import ClickEvent = JQuery.ClickEvent;
@@ -51,7 +51,18 @@ import MouseUpEvent = JQuery.MouseUpEvent;
 import {ViewRule} from '../GuiStyles/viewpoint';
 import {deserializeSummaries} from '@angular/compiler/src/aot/summary_serializer';
 import {FunctionCall} from '@angular/compiler';
-export type StyleComplexEntry = {html: Element, htmlobj:ViewHtmlSettings, view: ViewRule, ownermp: ModelPiece, isownhtml: boolean, isinstanceshtml: boolean, isGlobalhtml: boolean};
+import {Mark} from '../guiElements/mGraph/Vertex/Mark';
+export class StyleComplexEntry {
+  html: Element;
+  htmlobj: ViewHtmlSettings;
+  view: ViewRule;
+  ownermp: ModelPiece;
+  isownhtml: boolean = false;
+  isinstanceshtml: boolean = false;
+  isCustomGlobalhtml: boolean = false;
+  isGlobalhtml: boolean = false;
+}
+
 export class Info {
   static forConsole(obj: any): any {}
 
@@ -113,6 +124,7 @@ export abstract class ModelPiece {
   views: ViewRule[] = null;
   annotations: EAnnotation[] = [];
   detachedViews: ViewRule[] = []; // required to delete modelpiece
+  private className: string;
 
   static GetStyle(model: IModel, tsClass: string, checkCustomizedFirst: boolean = true): Element {
     let rootSelector: string;
@@ -156,7 +168,7 @@ export abstract class ModelPiece {
   public static getByKeyStr(key: string, realindexfollowed: {indexFollowed: string[] | number[], debugArr: {index: string | number, elem: any}[]} = null): ModelPiece {
     return ModelPiece.getByKey(JSON.parse(key), realindexfollowed); }
 
-  static get(e: JQuery.ChangeEvent | ClickEvent | MouseMoveEvent | MouseDownEvent | MouseUpEvent): ModelPiece {
+  static get(e: JQuery.ChangeEvent | ClickEvent | MouseMoveEvent | MouseDownEvent | MouseUpEvent | Event): ModelPiece {
     return ModelPiece.getLogic(e.target); }
 
   public static getLogicalRootOfHtml(html0: Element): Element {
@@ -227,9 +239,12 @@ export abstract class ModelPiece {
     U.pe(!p  || !(p instanceof IModel), 'failed to get model root:', this, 'm lastParent:', p);
     return p as any as IModel; }
 
-  isChildNameTaken(s: string): boolean {
+  isChildNameTaken(s: string, caseSensitive: boolean = false): boolean {
     let i;
-    for (i = 0; i < this.childrens.length; i++) { if (s === this.childrens[i].name) { return true; } }
+    s = s && s.toLowerCase();
+    for (i = 0; i < this.childrens.length; i++) {
+      let f: ModelPiece = this.childrens[i];
+      if (s === (caseSensitive ? f.name : f.name && f.name.toLowerCase())) { return true; } }
     return false; }
 
   shouldBeDisplayedAsEdge(set: boolean = null): boolean {
@@ -289,24 +304,51 @@ export abstract class ModelPiece {
     }
   }
 
-  mark(markb: boolean, key: string, color: string = 'red', radiusX: number = 10, radiusY: number = 10,
-       width: number = 5, backColor: string = 'none', extraOffset: GraphSize = null): void {
-    const vertex: IVertex = this.getVertex();
-    // const edge: IEdge[] = (this as any as IReference | IClass).getEdges();
-    if (vertex && vertex.isDrawn()) { vertex.mark(markb, key, color, radiusX, radiusY, width, backColor, extraOffset); }
-    let edges: IEdge[] = null;
-    if (this instanceof IClass && this.shouldBeDisplayedAsEdge()) { edges = (this as IClass).getEdges(); }
-    if (this instanceof IReference) { edges = (this as IReference).getEdges(); }
-    let i: number;
-    for (i = 0; edges && i < edges.length; i++) { edges[i].mark(markb, key, color); }
+
+  Vmarks: Dictionary<string, Mark> = {};
+  static allmarks: Dictionary<string, Mark> = {} as any;/*
+  static updateMarkings(): void {
+    // cannot achieve perfection but can call it when:
+    // resizeobserver on html + callback on vertexmove + callback on graph move or zoom and set big setinterval
+    per ora fallo solo con setinterval dal main e check on ModelPiece.allmarks;
+  }*/
+
+  unmarkAll(condition: (key: string) => boolean = null): void{
+    // console.log('unmarkAll()', this.Vmarks, condition);
+    for (let key in this.Vmarks) {
+      // console.log('unmarkAll() key:' + key + ', conditionCheck: ', condition && condition(key), this.Vmarks[key]);
+      if (condition && !condition(key)) continue;
+      const mark: Mark = this.Vmarks[key];
+      mark.mark(false); }
   }
+
+  mark(markb: boolean, paired: ModelPiece, key: string, color: string = null, radiusX: number = 10, radiusY: number = 10,
+       width: number = 5, backColor: string = null, extraOffset: ISize = null): void {
+    if (markb) new Mark(this, paired, key, color, radiusX, radiusY, width, backColor, extraOffset).mark(true);
+    else this.Vmarks[key] && (this.Vmarks[key] as Mark).mark(false);
+    return; }
+
   generateModelString(): string {
     const json: Json = this.generateModel();
     // console.log('genmodelstring:', json, 'this:',  this);
-    return JSON.stringify(json, null, 4);
-  }
+    return JSON.stringify(json, null, 4); }
 
-  abstract refreshGUI_Alone(debug?: boolean): void;
+  refreshGUI_Alone(debug?: boolean): void {
+    if (!Status.status.loadedLogic) { return; }
+    let v: IVertex = this.getVertex();
+    v.refreshGUI();
+    console.log('pbar selected:', v.owner.propertyBar.selectedModelPiece.name, 'me:', this.name);
+    if (this.isChildrenOf(v.owner.propertyBar.selectedModelPiece, true, true)) v.owner.propertyBar.refreshGUI(); }
+
+  isChildrenOf(parent: ModelPiece, includeEqual: boolean = false, includeGrandChildren: boolean = false): boolean {
+    if (includeEqual && parent == this) return true;
+    if (parent.childrens.indexOf(this) >= 0) return true;
+    if (!includeGrandChildren) return false;
+    let child: ModelPiece = this;
+    while ((child = child.parent)) {
+      if (parent.childrens.indexOf(this) >= 0) return true; }
+    return false; }
+
   abstract fullname(): string;
   endingName(valueMaxLength: number = 10): string { return ''; }
 
@@ -326,12 +368,10 @@ export abstract class ModelPiece {
   abstract duplicate(nameAppend?: string, newParent?: ModelPiece): ModelPiece;
   // abstract conformability(metaparent: ModelPiece, outObj?: any/*.refPermutation, .attrPermutation*/, debug?: boolean): number;
   setName0(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true, key: string, allowEmpty: boolean): string {
-    if (value === this.name) return this.name;
+    if (value === this['' + key]) return this['' + key];
     const valueOld: string = this['' + key];
     const valueInputError = value;
     value = value !== null && value !== undefined ? '' + value.trim() : null;
-    if (!allowEmpty && (!value || value === '')) { U.pw(true, key + ' cannot be empty.'); return valueOld; }
-    if (value === valueOld) { return valueOld; }
     const regexp: RegExp = new RegExp((allowEmpty ? '^$|' : '') + '^[a-zA-Z_$][a-zA-Z_$0-9]*$');
 //    console.log('set' + key + '.valid ? ' + regexp.test(value) + ' |' + value + '|');
     if (!regexp.test(value)) {
@@ -340,7 +380,7 @@ export abstract class ModelPiece {
       while (value[i] && value[i] >= '0' && value[i] <= '9') i++;
       value = value.substr(i);
       let remainder: string = value;
-      let firstChar: string = '' || '';
+      let firstChar: string = '';
       while (remainder.length > 0 && firstChar === '') {
         firstChar = remainder[0].replace('[^a-zA-Z_$]', '');
         remainder = remainder.substring(1); }
@@ -349,15 +389,21 @@ export abstract class ModelPiece {
         + '; trying autofix: |' + valueInputError + '| --> + |' + value + '|');
       return this['set' + U.firstToUpper(key)](value, true || refreshGUI); }
 
+    if (!allowEmpty && (!value || value === '')) { U.pw(true, key + ' cannot be empty.'); return valueOld; }
+    if (value === valueOld) { return valueOld; }
 
-    if (value !== '') {
-      let nameFixed: boolean = false;
-      while (this.parent && this.parent['isChild' +  U.firstToUpper(key) + 'Taken'](value)) {
-        nameFixed = true;
-        value = U.increaseEndingNumber(value, false, false); }
-      U.pe(nameFixed && (valueInputError === value), 'increaseEningNumber failed:', value, this, this.parent ? this.parent.childrens : null);
-      U.pw(nameFixed && warnDuplicateFix, 'that ' + key + ' is already used in this context, trying autofix: |'
-        + valueInputError + '| --> + |' + value + '|'); }
+    let nameFixed: boolean = false;
+    let i: number;
+    if (this instanceof EOperation) {
+      const op = this as EOperation;
+      this['' + key] = value;
+      op.parent.checkViolations(true);
+    } else while (this.parent && this.parent['isChild' +  U.firstToUpper(key) + 'Taken'](value)) {
+      nameFixed = true;
+      value = U.increaseEndingNumber(value, false, false); }
+    U.pe(nameFixed && (valueInputError === value), 'increaseEningNumber failed:', value, this, this.parent ? this.parent.childrens : null);
+    U.pw(nameFixed && warnDuplicateFix, 'that ' + key + ' is already used in this context, trying autofix: |'
+      + valueInputError + '| --> + |' + value + '|');
 
     this['' + key] = value;
     if (refreshGUI) { this.refreshGUI(); }
@@ -378,8 +424,10 @@ export abstract class ModelPiece {
     }
     return null; }
 
+  preReplace(): void { this.className = this.getFriendlyClassName(); }
+
   setName(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true): string { return this.setName0(value, refreshGUI, warnDuplicateFix, 'name', false); }
-  setNameOld(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true): string {
+/*  setNameOld(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true): string {
     const valueOld: string = this.name;
     const valueInputError = value;
     value = value ? '' + value.trim() : null;
@@ -387,8 +435,7 @@ export abstract class ModelPiece {
     if (value === valueOld) { return valueOld; }
     const regexp: RegExp = /^[a-zA-Z_$][a-zA-Z_$0-9]*$/;
     // console.log('setName.valid ? ' + regexp.test(value) + ' |' + value + '|');
-    if (!regexp.test(value)) {
-      value = value.replace(/([^a-zA-Z_$0-9])/g, '');
+    if (!regexp.test(value)) { value = value.replace(/([^a-zA-Z_$0-9])/g, '');
       let i: number = 0;
       while (value[i] && value[i] >= '0' && value[i] <= '9') i++;
       value = value.substr(i);
@@ -402,21 +449,32 @@ export abstract class ModelPiece {
         + '; trying autofix: |' + valueInputError + '| --> + |' + value + '|');
       return this.setName(value, true || refreshGUI); }
 
-    let nameFixed: boolean = false && false;
-    while (this.parent && this.parent.isChildNameTaken(value)) {
-      nameFixed = true;
-      value = U.increaseEndingNumber(value, false, false); }
-    U.pe(nameFixed && (valueInputError === value), 'increaseEningNumber failed:', value, this, this.parent ? this.parent.childrens : null);
-    U.pw(nameFixed && warnDuplicateFix, 'that name is already used in this context, trying autofix: |'
-      + valueInputError + '| --> + |' + value + '|');
+    let nameFixed: boolean = false;
+    let i: number;
+    if (this instanceof EOperation) {
+      const op = this as EOperation;
+      let omonimi: EOperation[] = op.parent.getOperations(value, false);
+      op.unmarkIncompatibility();
+      for (i = 0; i < omonimi.length; i++) {
+        const other: EOperation = omonimi[i];
+        if (!op.isCompatible(other)) { op.markIncompatibility(other); }
+      }
+    }
+    else {
+      while (this.parent && this.parent.isChildNameTaken(value)) {
+        nameFixed = true;
+        value = U.increaseEndingNumber(value, false, false); }
+      U.pe(nameFixed && (valueInputError === value), 'increaseEndingNumber failed:', value, this, this.parent ? this.parent.childrens : null);
+      U.pw(nameFixed && warnDuplicateFix, 'that name is already used in this context, trying autofix: |'
+        + valueInputError + '| --> + |' + value + '|', this);
+    }
     this.name = value;
     const model: IModel = this.parent ? this.getModelRoot() : null;
-    let i: number;
     // for (i = 0; model && i < model.instances.length; i++) { model.instances[i].sidebar.fullnameChanged(valueOld, this.name); }
     if (refreshGUI) { this.refreshGUI(); }
     Type.updateTypeSelectors(null, false, false, true);
     return this.name; }
-
+*/
   fieldChanged(e: JQuery.ChangeEvent): void {
     // todo: fix for m2 too. i need to enable custom input in custom viewpoints.
     // U.pe(true, U.getTSClassName(this) + '.fieldChanged() should never be called.');
@@ -447,6 +505,7 @@ export abstract class ModelPiece {
     if (this.metaParent) {
       U.arrayRemoveAll(this.metaParent.instances, this);
       this.metaParent = null; }
+    this.unmarkAll();
     let i: number;
     let arr: any = U.shallowArrayCopy<ViewRule>(this.views);
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
@@ -459,17 +518,19 @@ export abstract class ModelPiece {
     if (refreshgui) this.refreshGUI();
   }
 
-  validate(): boolean {
+  validate(isDeprecated: boolean = true): boolean {
     const names: Dictionary<string, ModelPiece> = {};
     let i: number;
-    if (!U.isValidName(name)) { this.mark(true, 'Invalid name'); return false; }
+    if (!U.isValidName(name)) { this.mark(true, null, 'Invalid name'); return false; }
     for (i = 0; i < this.childrens.length; i++) {
       const child: ModelPiece = this.childrens[i];
       const name: string = child.name;
-      if (names.hasOwnProperty(name)) { child.mark(true, 'Duplicate children name'); return false; }
+      if (names.hasOwnProperty(name)) { child.mark(true, names[name], 'Duplicate children name'); return false; }
+      else child.mark(false, null, 'Duplicate children name');
       child.validate();
       names[name] = child; }
     return true; }
+
   /*
     setStyle_SelfLevel_1(html: Element): void { this.customStyleToErase = html; }
     setStyle_InstancesLevel_2(html: Element): void { this.styleOfInstances = html; }
@@ -507,7 +568,7 @@ export abstract class ModelPiece {
 
   getInheritableStyle(): StyleComplexEntry {
     let i: number;
-    const ret: StyleComplexEntry = {html:null, htmlobj:null, view:null, ownermp:null, isownhtml:null, isinstanceshtml:null, isGlobalhtml:null};
+    const ret: StyleComplexEntry = new StyleComplexEntry();
     for (i = this.views.length; --i >= 0;) {
       let v: ViewRule = this.views[i];
       // if (!v.viewpoint.isApplied) continue;
@@ -516,9 +577,7 @@ export abstract class ModelPiece {
       ret.htmlobj = v.htmli;
       ret.view = v;
       ret.ownermp = this;
-      ret.isGlobalhtml = false;
       ret.isinstanceshtml = true;
-      ret.isownhtml = false;
       return ret; }
     return null; }
 
@@ -526,27 +585,42 @@ export abstract class ModelPiece {
   getStyle(): StyleComplexEntry {
     let j: number;
     let i: number;
-    const ret: StyleComplexEntry = {html:null, htmlobj:null, view:null, ownermp:null, isownhtml:null, isinstanceshtml:null, isGlobalhtml:null};
-    for (j = this.views.length; --j >=0 ;){
+    const ret: StyleComplexEntry = new StyleComplexEntry();
+    // level 1: own style
+    for (j = this.views.length; --j >= 0;){
       const v: ViewRule = this.views[j];
       if (!v.htmlo || !v.htmlo.getHtml()) continue;
       ret.html = v.htmlo.getHtml();
       ret.htmlobj = v.htmlo;
       ret.view = v;
       ret.ownermp = this;
-      ret.isGlobalhtml = false;
-      ret.isinstanceshtml = false;
       ret.isownhtml = true;
       return ret; }
+
+    // level 2: inherited style
     const tmpret = this.getInheritedStyle();
     if (tmpret) return tmpret;
+
+    // level 3: prendo lo stile default user-made
+    const model: IModel = this.getModelRoot();
+    for (j = model.viewpoints.length; --j >= 0;) {
+      const vp: ViewPoint = model.viewpoints[j];
+      if (!vp.isApplied) continue;
+      const v: ViewRule = vp.getDefault(this, false);
+      if (!v) continue;
+      ret.html = v.htmlo.getHtml();
+      ret.htmlobj = v.htmlo;
+      ret.view = v;
+      ret.ownermp = this;
+      ret.isCustomGlobalhtml = true;
+      return ret; }
+
+    // level 4: se fallisce tutto, prendo lo stile statico default
     ret.html = this.getGlobalLevelStyle();
     ret.htmlobj = null;
     ret.view = null;
     ret.ownermp = null;
     ret.isGlobalhtml = true;
-    ret.isinstanceshtml = false;
-    ret.isownhtml = false;
     return ret; }
 
   /*
@@ -627,9 +701,10 @@ export abstract class ModelPiece {
       U.ArrayAdd(this.views, v); }
     resetViews(): void { this.views = []; }
   */
-  getClassName(): string {
+  getClassName(): string { return this.className = this.getClassName0(); }
+  getClassName0(): string {
     if(this instanceof M3Class) { return 'm3Class'; }
-    if(this instanceof M2Class) { return 'm2Class'; }
+    if(this instanceof M2Class) { return this.isInterface ? 'Interface' : ( this.isAbstract ? 'Abstract' : 'm2Class'); }
     if(this instanceof MClass) { return 'm1Class'; }
     if(this instanceof EEnum) { return 'EEnum'; }
     if(this instanceof M3Attribute) { return 'm3Attribute'; }
@@ -648,6 +723,10 @@ export abstract class ModelPiece {
     if(this instanceof EParameter) { return 'EParameter'; }
     if(this instanceof ELiteral) { return 'ELiteral'; }
     U.pe(true, 'failed to find class:', this);
+  }
+
+  getFriendlyClassName(): string {
+    return U.replaceAll(U.replaceAll(U.replaceAll(this.getClassName(), 'm1', ''), 'm2', ''), 'm3', '');
   }
   getInstanceClassName(): string {
     let ret = this.getClassName();
@@ -959,8 +1038,8 @@ export class ProtectedModelPiece {/* implements MReference {
     if (F.alse()) this.unsafemp.duplicate(nameAppend, newParent); // just to trigger errors if the source is modified
     this.pendingChanges.add('delete', [true]); return null; }
 
-  mark(markb: boolean, key: string, color?: string, radiusX?: number, radiusY?: number, width?: number, backColor?: string, extraOffset?: GraphSize): void{
-    if (F.alse()) this.unsafemp.mark(markb, key, color, radiusX, radiusY, width, backColor, extraOffset); // just to trigger errors if the source is modified
+  mark(markb: boolean, paired: ModelPiece = null, key: string, color?: string, radiusX?: number, radiusY?: number, width?: number, backColor?: string, extraOffset?: GraphSize): void{
+    if (F.alse()) this.unsafemp.mark(markb, null, key, color, radiusX, radiusY, width, backColor, extraOffset); // just to trigger errors if the source is modified
     this.pendingChanges.add('mark', [...arguments]); }
 
   pushDown(untilStartOrEnd: boolean): void{

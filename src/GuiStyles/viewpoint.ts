@@ -20,7 +20,7 @@ import {
   // Options,
   Point,
   GraphPoint,
-  IVertex, GraphSize, EdgeStyle, Json, StyleComplexEntry, IClassifier,
+  IVertex, GraphSize, EdgeStyle, Json, StyleComplexEntry, IClassifier, ELiteral, MReference, EEnum,
 } from '../common/Joiner';
 import ChangeEvent = JQuery.ChangeEvent;
 import BlurEvent = JQuery.BlurEvent;
@@ -169,6 +169,7 @@ export class ViewRule {
   /// for classes or references
   public edgeViews: EdgeViewRule[] = [];
   protected viewpointstr: string;
+  isDefault: boolean = false;
 
   static getbyID(id: number): ViewRule { return ViewRule.allByID[id]; }
   static getbyHtml(html0: Element): ViewRule {
@@ -221,12 +222,13 @@ export class ViewRule {
       U.pw(true, 'unable to find target of view:', this, ' search output:', realindexfollowed);
       this.target = null; }
   }
+
   clone(json: ViewRule): void {
     if(json.setViewpointStr) { json.setViewpointStr(); }
     for(let key in json) {
       switch (key){
         default: U.pe(true, 'unexpected key', key, json); break;
-        case 'id': case 'target': break;
+        case 'id': case 'target': case 'isDefault': break;
         case 'targetStr': this.targetStr = json[key]; break;
         case 'htmlo':
           if (!json.htmlo) { this.htmlo = null; break; }
@@ -250,8 +252,8 @@ export class ViewRule {
     }
     this.updateViewpoint();
     this.updateTarget();
+    this.setDefault(json.isDefault);
   }
-
   duplicate(): ViewRule {
     const duplicate = new ViewRule(null);
     duplicate.clone(this);
@@ -279,19 +281,46 @@ export class ViewRule {
   getViewPoint(): ViewPoint { return this.viewpoint; }
 
   delete(): void {
+    this.setDefault(false);
     this.detach();
     U.arrayRemoveAll(this.viewpoint.views, this);
-
     U.arrayRemoveAll(this.target.detachedViews, this);
-    console.log('modelview.delete() todo.' +
-      'non posso invece di implementarla lasciarla "orfana" senza target e la faccio ignorare dal loader.' +
-      'altrimenti non potrei cancellare la view senza cancellare il modelpiece, o forse basta settare tutto a null e mollarla lì?');
   }
+
+  unsetDefault(): ViewRule {
+    this.isDefault = false;
+    const vp: ViewPoint = this.getViewPoint();
+    let defaultvr: ViewRule = vp.getDefault(this.target, false);
+    if (defaultvr !== this) return defaultvr;
+    const m: ModelPiece = this.target;
+    const asEdge: boolean = this instanceof EdgeViewRule;
+    return vp.setDefault(false, this); }
+
+  setDefault(isDefault: boolean = false): ViewRule {
+    console.log('setDefault()', isDefault, this.target);
+    if (this.isDefault === isDefault) return this;
+    if (!isDefault) return this.unsetDefault();
+    this.isDefault = true;
+    const vp: ViewPoint = this.getViewPoint();
+    let defaultvr: ViewRule = vp.getDefault(this.target, false);
+    if (defaultvr === this) return this;
+    return vp.setDefault(true, this); }
+
 }
-//todo: nuova idea:
-//  creo un set di View[] dentro un ViewPoint.
-//  ogni View ha un target: ModelPiece, e un private targetStr: string usato solo per la serializzazione e de-serializzazione.
-//  la targetStr deve essere presa da ModelPiece.getKey()
+
+export class DefaultStyleMap {
+  // model: ViewRule;
+  // package: ViewRule;
+  class: ViewRule;
+  enum: ViewRule;
+  literal: ViewRule;
+  attribute: ViewRule;
+  reference: ViewRule;
+  operation: ViewRule;
+  parameter: ViewRule;
+  edge: EdgeViewRule;
+  extEdge: EdgeViewRule;
+}
 export class ViewPoint extends ViewRule{
   static allnames: Dictionary<string, ViewPoint> = {};
   target: IModel;
@@ -303,7 +332,8 @@ export class ViewPoint extends ViewRule{
   gridShow: boolean;
   grid: GraphPoint;
   isApplied: boolean = false;
-
+  defaultStyleMap: DefaultStyleMap;
+/*
   static getAppliedViews_TOMOVE(m: ModelPiece): ViewRule[] {
     let i: number;
     const arr: ViewRule[] = [];
@@ -312,7 +342,7 @@ export class ViewPoint extends ViewRule{
       const v: ViewRule = vp.getMpStyle(m);
       if (v) arr.push(v);
     }
-    return arr; }
+    return arr; }*/
 
   static get(value: string): ViewPoint {
     return ViewPoint.allnames[value];
@@ -325,12 +355,55 @@ export class ViewPoint extends ViewRule{
     this.grid = new Point(20, 20);
     this.viewsDictionary = {};
     this.views = [];
+    this.defaultStyleMap = new DefaultStyleMap();
     this.setname(name);
     this.updateTarget(target); }
 
   updateTarget(m: IModel = null): void { this.apply(m, true); }
 
   getMpStyle(m: ModelPiece): ViewRule { return this.viewsDictionary[m.id]; }
+
+  setDefault(set: boolean, vr: ViewRule = null): ViewRule {
+    const asEdge: boolean = vr instanceof EdgeViewRule;
+    const m: ModelPiece = vr.target;
+    const val: ViewRule = set ? vr : null;
+    const end = () => {
+      this.target.refreshGUI_Alone();
+      this.target.refreshInstancesGUI();
+      return vr; }
+
+    if (asEdge) {
+      if (m instanceof IClass) {
+        if (m.shouldBeDisplayedAsEdge()) { this.defaultStyleMap.edge = val as EdgeViewRule; }
+        else { this.defaultStyleMap.extEdge = val as EdgeViewRule; }
+        return end(); }
+      if (m instanceof IReference) { this.defaultStyleMap.edge = val as EdgeViewRule; return end(); }
+        U.pe(true, 'ViewPoint.getDefaultMpStyle() unexpected edge style: ', m, asEdge);
+    }
+    if (m instanceof ELiteral) this.defaultStyleMap.literal = val; else
+    if (m instanceof EParameter) this.defaultStyleMap.parameter = val; else
+    if (m instanceof EOperation) this.defaultStyleMap.operation = val; else
+    if (m instanceof IReference) this.defaultStyleMap.reference = val; else
+    if (m instanceof IAttribute) this.defaultStyleMap.attribute = val; else
+    if (m instanceof IClass) this.defaultStyleMap.class = val; else
+    if (m instanceof EEnum) this.defaultStyleMap.enum = val; else
+    U.pe(true, 'ViewPoint.getDefaultMpStyle() unexpected MP style: ', m, asEdge, vr);
+    return end(); }
+
+  getDefault(m: ModelPiece, asEdge: boolean = false): ViewRule {
+    if (asEdge) {
+      if (m instanceof IClass) return m.shouldBeDisplayedAsEdge() ? this.defaultStyleMap.edge : this.defaultStyleMap.extEdge;
+      if (m instanceof IReference) return this.defaultStyleMap.edge;
+      U.pe(true, 'ViewPoint.getDefaultMpStyle() unexpected edge style: ', m, asEdge); }
+    if (m instanceof ELiteral) return this.defaultStyleMap.literal;
+    if (m instanceof EParameter) return this.defaultStyleMap.parameter;
+    if (m instanceof EOperation) return this.defaultStyleMap.operation;
+    if (m instanceof IReference) return this.defaultStyleMap.reference;
+    if (m instanceof IAttribute) return this.defaultStyleMap.attribute;
+    if (m instanceof IClass) return this.defaultStyleMap.class;
+    if (m instanceof EEnum) return this.defaultStyleMap.enum;
+    U.pe(true, 'ViewPoint.getDefaultMpStyle() unexpected MP style: ', m, asEdge); }
+
   setname(s: string) {
     if (!s) s = 'ViewPoint 1';
     if (s === this.name) return;
@@ -391,14 +464,15 @@ export class ViewPoint extends ViewRule{
     U.arrayRemoveAll(this.target.viewpoints, this);
     this.target = null;
   }
-
+// anche quando il viewpoint contenente il default style non è attivo, quello parte lo stesso sopra il default nativo
+ // quando cancello lo stile che è diventato il default, tutti continuano ad avere lo stile default
   clone(json: ViewPoint): void {
     if (json.target && json.setTargetStr) json.setTargetStr();
     let i: number;
     for(let key in json) {
       switch (key){
         default: U.pe(true, 'unexpected key:', key, json); break;
-        case 'id': case 'target': case 'viewpoint': break;
+        case 'id': case 'target': case 'viewpoint': case 'isDefault': case 'defaultStyleMap': break;
         case 'htmlo':
           if (!json.htmlo) { this.htmlo = null; continue; }
           if (!this.htmlo) this.htmlo = new ViewHtmlSettings();

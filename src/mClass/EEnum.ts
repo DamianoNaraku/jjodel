@@ -28,8 +28,6 @@ export class EEnum extends IClassifier {
 
   fullname(): string { return this.parent.name + '.' + this.name; }
 
-  refreshGUI_Alone(debug: boolean = false): void { this.getVertex().refreshGUI(); }
-
   addLiteral(literal: string = null): ELiteral {
     const attr: ELiteral = new ELiteral(this, null);
     if (literal) attr.literal = literal;

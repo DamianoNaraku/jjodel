@@ -42,19 +42,20 @@ export class DamContextMenuComponent implements OnInit {
   constructor() {
     this.$html = $('#damContextMenuTemplateContainer');
     this.html = this.$html[0];
-    $(document).off('mousedown.hideContextMenu').on('mousedown.hideContextMenu', (e: MouseDownEvent) => this.checkIfHide(e));
+    $(document).off('mouseup.hideContextMenu').on('mouseup.hideContextMenu', (e: MouseDownEvent) => this.checkIfHide(e));
     this.$vertexcontext = this.$html.find('ul.vertex') as JQuery<HTMLUListElement>;
     this.$edgecontext = this.$html.find('ul.edge') as JQuery<HTMLUListElement>;
     this.$extedgecontext = this.$html.find('ul.extedge') as JQuery<HTMLUListElement>;
     this.vertexcontext = this.$vertexcontext[0];
     this.edgecontext = this.$edgecontext[0];
     this.extedgecontext = this.$extedgecontext[0];
+    // no contextmenù allowed inside my contextmenù
     this.$html.on('contextmenu', (e: ContextMenuEvent): boolean => { e.preventDefault(); e.stopPropagation(); return false; });
   }
 
   ngOnInit() { }
 
-  show(location: Point, classSelector: string, target: SVGElement) {
+  show(location: Point, classSelectorUseless: string, target: SVGElement) {
     U.pe(!target, 'target is null.');
     this.clickTarget = target;
     this.html.style.display = 'none'; // if was already displaying, start the scrollDown animation without doing the scrollUp()
@@ -89,13 +90,13 @@ export class DamContextMenuComponent implements OnInit {
     this.$vertexcontext.find('.refli.dynamic').remove();
     const mp: ModelPiece = ModelPiece.getLogic(target);
     const model: IModel = mp.getModelRoot();
-    if (vertex) {
+    if (vertex) {/*
       if (model.isM1()) {
         this.$vertexcontext.find('.m1hide').hide();
         this.$vertexcontext.find('.m2hide').show(); }
       else {
         this.$vertexcontext.find('.m1hide').show();
-        this.$vertexcontext.find('.m2hide').hide(); }
+        this.$vertexcontext.find('.m2hide').hide(); }*/
 
       if (mp instanceof IClassifier) {
         this.$vertexcontext.find('.Feature').hide();
@@ -128,40 +129,66 @@ export class DamContextMenuComponent implements OnInit {
         else $indexinput[0].setAttribute('max', '' + upperbound);
       } else $indexinput[0].setAttribute('max', '-999');
     }
-    this.addEventListeners(location); // [??? what?] must be done here, per facilità di fare binding usando variabili esterne agli eventi.
+    if (model.isM1()) {
+      this.$html.find('.m1hide').hide();
+      this.$html.find('.m2hide').show();
+    }
+    else {
+      this.$html.find('.m1hide').show();
+      this.$html.find('.m2hide').hide();
+    }
+    this.addEventListeners(location, vertex, mp); // [??? what?] must be done here, per facilità di fare binding usando variabili esterne agli eventi.
 
   }
   hide(): void {
     this.$html.slideUp();
   }
 
-  private addEventListeners(location: Point) {
+  private addEventListeners(location: Point, v: IVertex, m: ModelPiece) {
     const graphLocation: GraphPoint = Status.status.getActiveModel().graph.toGraphCoord(location);
     const html = this.html;
     const $html = $(html);
-    const v: IVertex = IVertex.getvertexByHtml(this.clickTarget);
-    const m: ModelPiece = ModelPiece.getLogic(this.clickTarget);
+    // const v: IVertex = IVertex.getvertexByHtml(this.clickTarget);
+    // const m: ModelPiece = ModelPiece.getLogic(this.clickTarget);
     console.log('contextMenu target:', this.clickTarget, 'modelPiece:', m);
     const mr: MReference = m instanceof MReference ? m : null;
-    const $indexinput = +$html.find('input.byindex');
-    const upperbound = mr ? mr.metaParent.upperbound : null;
-    U.pe(!v, 'vertex null:', v);
+    const $indexinput: JQuery<HTMLInputElement> = $html.find('input.byindex') as JQuery<HTMLInputElement>;
+    const upperbound = mr ? mr.getUpperbound() : null;
+    U.pe(!v, 'vertex null:', v, this.clickTarget);
+
+    const $firstempty = $html.find('.refli .firstempty') as JQuery<HTMLButtonElement>;
+    let $byindexInputAndButton = ($html.find('.refli .byindex') as JQuery<HTMLButtonElement>);
+    console.log($byindexInputAndButton);
+    $byindexInputAndButton.each(
+      (index: number, el: HTMLButtonElement): false | void => { el.disabled = mr && upperbound === 0});
+    $firstempty[0].disabled = mr && upperbound === 0;
+
     $html.find('.refli .firstempty').off('click.setref').on('click.setref', (e: ClickEvent) => {
       let index = mr.getfirstEmptyTarget();
       if (index === -1) { U.pw(true, 'This reference is already filled to his upperbound.'); e.preventDefault(); e.stopPropagation(); return; }
-      IVertex.linkVertexMouseDown(null, mr.edges[index], graphLocation);
+      U.pw(upperbound === 0, 'Before setting a reference change set an Upperbound != 0 for his m2 counterpart.');
+      if(upperbound === 0) return;
+      const edge: IEdge = mr.edges[index];
+      if (!edge) {
+        const tmpend: GraphPoint = GraphPoint.fromEvent(e);
+        new IEdge(mr, index, v, null, tmpend);
+        return; }
+      IVertex.linkVertexMouseDown(null, edge, graphLocation);
     });
     $html.find('.refli button.byindex').off('click.setref').on('click.setref', (e: ClickEvent) => {
       let index: number = +$indexinput[0].value;
-      if (index < 0 || index >= upperbound) {
-        U.pw(true, 'invalid reference index. It must be a value inside the [0,' + upperbound+'] interval.');
+      if (index < 0 || ( upperbound > 0 && index >= upperbound)) {
+        U.pw(true, 'invalid reference index. It must be a value inside the [0,' + upperbound + '] interval.');
         return; }
-      IVertex.linkVertexMouseDown(null, mr.edges[index], graphLocation);
+      const edge: IEdge = mr.edges[index] ? mr.edges[index] : new IEdge(mr, index, v, null, null);
+      IVertex.linkVertexMouseDown(null, edge, graphLocation);
     });
+    console.log('refli dynamic setup', $html.find('li.refli.dynamic').length);
     $html.find('li.refli.dynamic').off('click.setref').on('click.setref', (e: ClickEvent) => {
       const index: number = +e.currentTarget.dataset.index;
+      console.log('refli dynamic click');
       console.log('setting reference[' + index + '] = ', mr.mtarget[index], mr);
-      const edge = mr.edges[index] ? mr.edges[index] : new IEdge(mr, index, v);
+      const edge: IEdge = mr.edges[index] ? mr.edges[index] : new IEdge(mr, index, v, null, null);
       IVertex.linkVertexMouseDown(null, edge, graphLocation);
     });
     // U.pe(true, $html.find('li.refli.dynamic'), $html);
@@ -180,7 +207,7 @@ export class DamContextMenuComponent implements OnInit {
     $html.find('.Vertex.minimize').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { v.minimize(); });
     $html.find('.Vertex.extend').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => {
-      new ExtEdge(m as M2Class, m.getVertex(), null);
+      new ExtEdge(m as M2Class, m.getVertex(), null, GraphPoint.fromEvent(e));
     });
     $html.find('.Vertex.up').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { m.pushDown(true); m.getModelRoot().refreshGUI_Alone(); }); // must be the opposite of the text
@@ -203,17 +230,22 @@ export class DamContextMenuComponent implements OnInit {
       (e: ClickEvent) => { m.pushUp(false); v.refreshGUI(); });
     $html.find('.Feature.down').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { m.pushDown(false); v.refreshGUI(); });
-    $html.find('.Feature.link').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => {
-      let index: number = e.currentTarget.dataset.edgeindex;
-      let r: IReference | IClass = m as IReference | IClass;
-      let edge = r.edges[index];
-      if (!edge) new IEdge(r, index, null, null);
-      IVertex.linkVertexMouseDown(null, edge, graphLocation); /*StyleEditor.editor.show(m); */});
 
   }
   private checkIfHide(e: MouseEventBase) {
-    // const originalTarget: Node = e.target;
-    const cond: boolean = true; // !U.isParentOf(this.html, originalTarget);
-    if (cond) { this.hide(); }
+    const originalTarget: Element = e.target;
+    const isInput: boolean = U.isInput(originalTarget, true);
+    const isDisabled: boolean = (originalTarget as any).disabled;
+    const focused: boolean = this.html.contains(document.activeElement);
+    const isButton: boolean = (originalTarget.tagName.toLowerCase() === 'button')
+      && !(originalTarget as HTMLButtonElement).disabled
+      && originalTarget === document.activeElement;// se la selezione non è sul bottone, per me non l'ho premuto,
+    // magari era un mousedown di selezione su un input terminato con mouseup su un button
+
+    const clickedOutside = !U.isParentOf(this.html, originalTarget);
+    console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
+
+    if (isButton || clickedOutside || !isInput && !isDisabled && !focused) { this.hide(); }
+
   }
 }

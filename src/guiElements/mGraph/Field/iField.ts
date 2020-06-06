@@ -24,7 +24,7 @@ export class IField {
 
   getHtml(): Element { return this.html; }
 
-  refreshGUI(debug: boolean = true): void { }
+  // refreshGUI(debug: boolean = true): void { }
 
   remove(): void {
     if (this.html && this.html.parentNode) { this.html.parentNode.removeChild(this.html); }

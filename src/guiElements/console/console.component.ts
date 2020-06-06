@@ -41,6 +41,10 @@ export class MyConsole {
     this.suggestion = $consoleRoot.find('.suggestion')[0];
     $inputLine.off('keydown.input').on('keydown.input', (e: KeyDownEvent) => { this.onKeyDown(e); });
     $inputLine.off('keyup.input').on('keyup.input', (e: KeyUpEvent) => { this.onKeyUp(e); });
+    $(this.suggestion).off('mousedown.focus').on('mousedown.focus', (e: KeyUpEvent) => {
+      console.log(this.input, '.focus()');
+      e.preventDefault();
+      this.input.focus(); });
   }
   onKeyUp(e: KeyUpEvent): void {
     switch (e.key) {

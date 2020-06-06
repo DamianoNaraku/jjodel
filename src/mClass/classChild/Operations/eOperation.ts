@@ -9,9 +9,10 @@ import {
   M2Class, M3Class,
   ModelPiece,
   ShortAttribETypes, Type,
-  U, ELiteral
+  U, ELiteral, GraphSize, IVertex, IEdge, IReference
 } from '../../../common/Joiner';
 import {ViewRule} from '../../../GuiStyles/viewpoint';
+import {Mark} from '../../../guiElements/mGraph/Vertex/Mark';
 // export abstract class EOperation extends Typedd {}
 /*
 export class OperationVisibility {
@@ -37,9 +38,10 @@ export class EOperation extends Typedd {
   // metaParent: Typedd = undefined;
   parent: M2Class | M3Class;
   childrens: EParameter[];
-  exceptionsStr: string; // classlist to be latera processed and linked.
+  exceptionsStr: string = ''; // classlist to be later processed and linked.
   visibility: OperationVisibility = OperationVisibility.private;
   detailIsOpened: boolean = false && false;
+  type: Type;
   // exceptions: IClass[];
   // todo: ha davvero senso processarli e creare anche IClass.Object etc? mi conviene tenerli a stringa.
 
@@ -48,6 +50,22 @@ export class EOperation extends Typedd {
     if (parent instanceof M2Class) parent.operations.push(this);
     this.parse(json); }
 
+  isInherited(forClass: IClass): boolean { if (this.parent !== forClass) return true; }
+
+  canOverride(other: EOperation): boolean {
+    // NB: se A.a(Object): Object e B.a(String):String lo tratta come polimorfismo. se A.a(String): Object e B.a(String):String lo tratta come override valido.
+    return this.name === other.name && this.parent !== other.parent && this.getSignature() == other.getSignature() && this.getReturnType().canOverride(other.getReturnType()); }
+  canPolymorph(other: EOperation): boolean {
+    // todo: hide shadowed features
+    return this.name === other.name && this.getSignature() != other.getSignature(); }
+  isCompatible(other: EOperation, allowMark: boolean = false): boolean {
+    let ret = this === other || (this.name !== other.name) || this.canOverride(other) || this.canPolymorph(other);
+    if (allowMark) {
+      if (!ret) this.markIncompatibility(other); else this.unmarkIncompatibility(other);
+    }
+    return ret; }
+
+  getReturnType(): Type { return this.getType(); }
 
   getChildrenParameter(index: number): EParameter { return this.childrens[index]; }
   getChildrenParameterSelector(index: number): string { return this.getChildrenParameter(index).getSelector(); }
@@ -162,8 +180,7 @@ export class EOperation extends Typedd {
 				],*/
   }
 
-private static counter = 0;
-  private getSignature(maxarguments: number = Number.POSITIVE_INFINITY): string {
+  public getSignature(maxarguments: number = Number.POSITIVE_INFINITY): string {
     let parameterStr = '';
     maxarguments = Math.min(maxarguments, this.childrens.length);
     let i: number;
@@ -195,6 +212,12 @@ private static counter = 0;
     html.dataset.visibility = this.visibility;
     html.dataset.exceptions = this.exceptionsStr; }
 
+  setType(ecoreTypeString: string, throwError: boolean = true, refreshGui: boolean = true): boolean{
+    let ret = super.setType(ecoreTypeString, throwError, refreshGui);
+    if (!ret) return false;
+    this.parent.calculateInheritanceViolations(true);
+    return true; }
+
   // getReturnType(): EParameter { return this.getFakeReturnTypeParameter(); }
 /*
   getFakeReturnTypeParameter(): EParameter {
@@ -215,4 +238,24 @@ private static counter = 0;
     U.ArrayAdd(this.childrens, p);
     return p; }
 
+  markIncompatibility(other: EOperation){
+    U.pw(true, 'Marked operations are incompatible toghether.');
+    this.mark(true, other, 'incompatibility:' + this.id + '_' + other.id, null); }
+
+  unmarkIncompatibility(other: EOperation): void{
+    console.log('mark: unmark:', this.id + '_' + other.id, this);
+    this.mark(false, other, 'incompatibility:' + this.id + '_' + other.id, null); }
+
+  unmarkAllIncompatibility(): void{
+    return;
+    // super.unmarkAll((key: string) => { return key.indexOf('incompatibility') === 0; });
+  }
+
+
+
+  delete(refreshgui: boolean = true): void{
+    super.delete(refreshgui);
+  }
+
+  markedCompatibility: {key: string, target: EOperation}[] = [];
 }

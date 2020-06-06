@@ -187,7 +187,61 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addf('Layoutable:', 'Improved the rule editor with code autocompletion, providing dynamic suggestions and information about types of available variables, function\'s parameters and return values. With a link to documentation.');
     v.addi('Optimization:', 'Reduced redundant calls during MClass creation and loading.');
 
+    v = new VersionUpload(new Date('2020/6/6'), 'Generalization / Inheritance system', 'Huge update with many features and bugfixes.');
+    v.addf('Generalization / Inheritance:', 'Can be added through vertex contextmenù.\n'
+      + 'Like all edges, you can change their endpoint by selecting the edge and dragging the dot near the target vertex, and you can delete them by pressing CANC/DEL key.\n' +
+      'By default inherited features are hidden in m2 and displayed in m1, this behaviour can be changed using the new filtering feature described in a following point.\n' +
+      'Chain of inheritances are supported. (ClassA can extend ClassB and ClassB will extend classC, so ClassA indirectly extends classC).\n' +
+      'Multiple inheritance is allowed. (ClassA can directly extend ClassB and ClassC at the same time)\n' +
+      'The setup of circular inheritances will be prevented, either directly or indirectly and a popup will warn the user.\n' +
+      'E.g. If ClassA extends ClassB, and ClassB extends ClassC, you cannot make classC extend classA.');
+    v.addf('Overriding / Polymorphism', 'Operations can now violate name uniqueness constraint to allow overriding and polymorphism.\n' +
+      'If two functions are homonym and cannot be in a polymorphism or overriding relationship they will be marked in pairs as invalid with the same dynamic color until the user makes a change to fix the violation.');
+    v.addf('Shadowing',
+      'Features shadowed by redeclaration on subclasses are now detected and hidden.\n' +
+      'Shadowed variables can be displayed in M1 for informative purpose, but their value will not be saved (on purpose).');
+    v.addf('Style editor: ', 'Inserted "Use as default style" checkbox which can only be used on customized elements.\n' +
+      'When marked the customized style of this element will be inherited by all other elements of the same type (Class, Enum, Attribute, Reference...) with the least priority.\n' +
+      'A reminder on style priorities:' +
+      '<ul>' +
+      '<li>1) "Own html" customized style attached to the element itself.</li>' +
+      '<li>2) "Inherited html" customized style attached to the meta-parent of the element (eg: a M1-class instance inheriting his style from his M2-class type).</li>' +
+      '<li>3) User-defined "default html", eg: a M1-class instance inheriting his style from another M1-class peer marked as default style with this brand new feature.</li>' +
+      '<li>4) Hardcoded, static "default html", the one you see on "default" viewpoint.</li>' +
+      '</ul>' +
+      'If one of those style throws an exception while rendering or executing custom code injected inside the style,' +
+      ' that faulty style will be automatically removed and the next style in priority order will be applied.' +
+      'Until eventually the fourth level is reached, which has been broadly tested and should never fail.', null, true);
+    v.addf('Vertex gui customization:', 'It is now possible to set up a custom filter and condition to select which childrens of a classifier / operation should be displayed.' +
+      'There are shortcuts to filter children based on their type or whether they are inherited or not. <a href="https://github.com/DamianoNaraku/jjodel/wiki/Display-and-filter-sub-features-inside-a-vertex">More info here.</a>', null, true)
+    v.addf('Text popup', '' +
+      'Textual popup notifying the user about invalid actions, errors, tooltip or automatic fixing invalid user input now cannot show duplicates at the same time.' +
+      'Clicking a popup will make it disappear instantly while copying his text to the clipboard (copy-paste, old feature reminder).\n' +
+      'Right-clicking a popup will now hide all same-colored notifications.' +
+      'Wheel-clicking a popup will now hide all notifications.');
+    v.addf('Usability: mouse shortcuts', '' +
+      '<ul>' +
+      '<li>Rightclicking a vertex will make it follow the cursor until released, ignoring measurables.\n' +
+      'Can be useful if the only visible part of a vertex / feature is a input or a measurable, as left-clicking them will not drag the vertex.</li>'+
+      '<li>MouseWheel-clicking anywhere on the graph and start dragging will ignore any vertexes and make the graph offset follow the cursor.\n' +
+      'Can be useful on high zoom levels, huge vertexes or densely populated graph.</li></ul>', null, true);
+    v.addf('ContextMenu:', 'User right-clicking input elements inside vertexes might desire both native contextmenù or customized contextmenù.\n' +
+      'To access the native context menù, the user must rightclicking a input field inside the currently selected feature / vertex or do a slow right-click.\n' +
+      'Here are detailed rules to check which one will appear: '+
+    '<ul>' +
+      '<li>RightClick and drag on any child of a vertex / feature: no custom menù, the whole vertex will be dragged, measurables and inputs will be ignored.</li>' +
+      '<li>still RightClick on a input child of a selected vertex / feature: native context menù.</li>' +
+      '<li>still RightClick on any child of a un-selected vertex / feature: custom context menù.</li>' +
+      '<li>still, slow (hold for 1 sec) RightClick a input child of vertex / feature: native menù</li></ul>', null, true);
+    v.addb('Bug:', 'The usage of the $ and £ characters outside variable templates ($##likeThis$) and inside the html of custom styles might cause errors, html entities like &#36; are troublesome too.\n' +
+      'Until bugfix use the unicode combination \\u0024 for $ and &#163; and \\u00A3 for £ when possible. This bugfix will have low priority.');
+
+    v.addbf('Edge:', 'Fixed an error that was preventing to insert the first mid-points to an edge when his style was "straight".');
+    v.addbf('PropertyBar:', 'Automatized update of structured view, style editor and raw viewer when visualized html node in graph or his parents are updated.\n');
+    v.addbf('ContextMenu:', 'Was not appearing.');
+
     let searchterm = 'clog cls addbf ';
+
     // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
     // v.addf('fakegfeat', 'kkk');
     // v = new VersionUpload('v3'...);

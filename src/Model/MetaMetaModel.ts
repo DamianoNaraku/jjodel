@@ -1,7 +1,7 @@
 import {
   AttribETypes,
   Dictionary, EOperation, EParameter,
-  IAttribute,
+  IAttribute, IClass,
   IModel,
   Json, M3Attribute,
   M3Class,
@@ -40,8 +40,6 @@ export class MetaMetaModel extends IModel {
     this.name = 'Meta-Metamodel';
     const useless = new M3Package(this, null); }
 
-  refreshGUI_Alone(debug: boolean = true): void { }
-
   getDefaultPackage(): M3Package {
     if (this.childrens.length !== 0) { return this.childrens[0]; }
     U.ArrayAdd(this.childrens, new M3Package(this, null));
@@ -49,11 +47,14 @@ export class MetaMetaModel extends IModel {
 
   getPackage(): M3Package { return this.getDefaultPackage(); }
 
-  getClass(fullname: string = null, throwErr: boolean = true, debug: boolean = true): M3Class { return this.getDefaultPackage().classes[0]; }
+  getClass(fullname: string = null, caseSensitive: boolean = false, throwErr: boolean = true, debug: boolean = true): M3Class {
+    return this.getDefaultPackage().classes[0]; }
 
   getAttribute(): M3Attribute { return this.getClass().attributes[0]; }
   getReference(): M3Reference { return this.getClass().references[0]; }
-  getOperation(): EOperation { return this.getClass().getOperations()[0]; }
+  getOperation(): EOperation { return this.getClass().getBasicOperations()[0]; }
   getParameter(): EParameter { return this.getOperation().childrens[0]; }
   duplicate(nameAppend: string = '_Copy'): MetaMetaModel { U.pe(true, 'invalid operation: m3.duplicate();'); return this; }
+  refreshGUI(debug: boolean = false): void{ }
+  refreshGUI_Alone(debug: boolean = true): void{ }
 }

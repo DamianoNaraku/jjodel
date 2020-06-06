@@ -77,5 +77,4 @@ export class EAnnotationDetail extends ModelPiece {
     this.setName(Json.read(json, ECoreDetail.key, 'DetailKey1'));
   }
 
-  refreshGUI_Alone(debug?: boolean): void { return this.parent.refreshGUI_Alone(); }
 }

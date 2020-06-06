@@ -144,15 +144,20 @@ export class StyleEditor {
   }
 
   private getCopyOfTemplate(m: ModelPiece, s: string, appendTo: HTMLElement, clear: boolean): HTMLElement {
-    let $html: JQuery<HTMLElement> = this.$templates.find('.template' + s);
-    const html: HTMLElement = U.cloneHtml<HTMLElement>($html[0]);
+    let $tmp: JQuery<HTMLElement> = this.$templates.find('.template' + s);
+    const html: HTMLElement = U.cloneHtml<HTMLElement>($tmp[0]);
+    const $html = $(html);
     html.classList.remove('template');
     html.dataset.modelpieceid = '' + m.id;
     html.style.display = 'block';
     if (appendTo) {
       if (clear) U.clear(appendTo);
       appendTo.appendChild(html); }
-    $html = $(html).find('.' + (m.getModelRoot().isM() ? 'm1' : 'm2') + 'hide').hide();
+    let model: IModel = m.getModelRoot();
+    $html.find('.' + (model.isM1() ? 'm1' : 'm2') + 'hide').hide();
+    // eccezione: se rimane esistente ma invisibile il pulsante affianco mantiene i bordi spigolosi e non si allinea al centro.
+    // cancellare gli elementi è problematico perchè alcuni gli setto eventi, valori e ci interagisco anche se non servirebbe, solo per non mettere mille IF
+    // if (model.isM2()) { $html.find('.detailButtonContainer button.detail.inherited').remove(); }
     if (!(m instanceof IClass)) $(html).find('.iclass.show').hide();
     return html; }
 
@@ -271,7 +276,7 @@ export class StyleEditor {
     const lastvp: ViewPoint = model.getLastView();
     U.pif(debug, 'isOwn && !style.isownhtml || isInherited && !inheritedStyle.html || isInheritable && !inheritableStyle.html)', style);
     U.pif(debug, !style ? '' : isOwn + ' && ' + style.isownhtml + ' || ' + isInherited + ' && ' + style.html + ' || ' + isInheritable + ' && ' + style.html);
-    if (!!style && !(isOwn && !style.isownhtml || isInherited && !style.html || isInheritable && !style.html)) {
+    if (style && !(isOwn && !style.isownhtml || isInherited && !style.html || isInheritable && !style.html)) {
       $(obj.editLabel).hide();
     } else {
       obj.input.setAttribute('disabled', 'true');
@@ -284,17 +289,19 @@ export class StyleEditor {
         $(obj.editAllowed).on('click', (e: ClickEvent) => {
           const mptarget: ModelPiece = isInherited ? mp.metaParent : mp;
           let v: ViewRule = lastvp.viewsDictionary[mptarget.id];
-          if (!v) v = new ViewRule(lastvp);
           if (isOwn) {
+            if (!v) v = new ViewRule(lastvp);
             U.pe(!!v.htmlo, 'htmlo should be undefined at this point.');
             v.htmlo = new ViewHtmlSettings();
             v.htmlo.setHtmlStr( (style ? style.html : mptarget.getStyle().html).outerHTML ); }
           if (isInheritable) {
+            if (!v) v = new ViewRule(lastvp);
             U.pe(!!v.htmli, 'htmli should be undefined at this point.');
             v.htmli = new ViewHtmlSettings();
             const instanceCurrentStyle: Element = ModelPiece.GetStyle(Status.status.m, mp.getInstanceClassName());
             v.htmli.setHtmlStr( instanceCurrentStyle.outerHTML ); }
           if (isInherited) {
+            if (!v) v = new ViewRule(lastvp);
             U.pe(!!v.htmli, 'htmli should be undefined at this point.');
             v.htmli = new ViewHtmlSettings();
             v.htmli.setHtmlStr( (style ? style.html : mp.getStyle().html).outerHTML );
@@ -319,9 +326,9 @@ export class StyleEditor {
     $styleown.find('.htmllevel').html((isInherited ? 'Instances Html' : 'Own html')
       + ' (' + (indexedPath && indexedPath.length ? 'Level&nbsp;' + indexedPath.length : 'Root&nbsp;level') + ')');
     let graphRoot: Element = mp.getHtmlOnGraph();
-    context.graphLevel = U.followIndexesPath(graphRoot, indexedPath, 'childNodes');
-    U.pe(!graphRoot, 'failed to get graphroot', graphRoot, indexedPath, mp);
-    U.pe(!context.graphLevel, 'failed to get graphlv', graphRoot, indexedPath, mp);
+    context.graphLevel = graphRoot && insideOwnSection && U.followIndexesPath(graphRoot, indexedPath, 'childNodes');
+    // just not displayed U.pe(!graphRoot, 'failed to get graphroot', graphRoot, indexedPath, mp);
+    // U.pe(insideOwnSection && !context.graphLevel, 'failed to get graphlv', graphRoot, indexedPath, mp);
     context.applyNodeChangesToInput = (): void => {
       // console.log(templateLevel.outerHTML);
       obj.input.innerText = context.templateLevel.outerHTML;
@@ -340,7 +347,7 @@ export class StyleEditor {
         context.templateLevel.parentElement.removeChild(context.templateLevel);
         context.templateLevel = inputHtml;
       } else {
-        U.pe(!style.view || style.isGlobalhtml, 'default html cannot be modified.', style, 'todo: automatically make new ClassVieww');
+        U.pe(!style.view || style.isGlobalhtml || style.isCustomGlobalhtml, (style.isGlobalhtml ? 'native default html cannot be modified.' : 'overriden default html cannot be modified here. Change it from the element marked with "asDefault".') + ' default', style, 'todo: automatically make new ClassVieww');
         // ??old message?: se tutto va bene qui deve dare errore, crea una nuova ClassVieww e applicalo al modelpiece ed edita quello.
         style.htmlobj.setHtml(context.templateLevel = inputHtml);
         U.pif(debug,'*** setting inheritable POST. style.htmlobj', style.htmlobj, 'style:', style);
@@ -350,8 +357,10 @@ export class StyleEditor {
       if (isInherited) { mp.metaParent.refreshInstancesGUI(); }
       if (!isInheritable && indexedPath) this.clickedLevel = U.followIndexesPath(mp.getHtmlOnGraph(), indexedPath, 'childNodes');
       graphRoot = mp.getHtmlOnGraph();
-      context.graphLevel = U.followIndexesPath(graphRoot, indexedPath, 'childNodes');
-      this.updateClickedGUIHighlight();
+      if (insideOwnSection) {
+        context.graphLevel = graphRoot && U.followIndexesPath(graphRoot, indexedPath, 'childNodes');
+        this.updateClickedGUIHighlight();
+      }
       // obj.input.innerText = inputHtml.outerHTML;
       // DANGER: se lo fai con l'evento onchange() ti sposta il cursore all'inizio e finisci per scrivere rawtext prima dell'html invalidandolo.
       // tenendolo dovresti scrivere i caratteri uno alla volta riposizionando il cursore nel punto giusto ogni volta.
@@ -377,7 +386,7 @@ export class StyleEditor {
     const $measurableCheckbox: JQuery<HTMLInputElement> = $measurableRoot.find('input.ismeasurable') as JQuery<HTMLInputElement>;
     const measurableCheckbox = obj.measurableCheckbox = $measurableCheckbox[0];
     measurableCheckbox.disabled = obj.input.getAttribute('disabled') === 'true';
-    measurableCheckbox.checked = (context.templateLevel.classList.contains('measurable') || context.graphLevel.classList.contains('measurable'));
+    measurableCheckbox.checked = (context.templateLevel.classList.contains('measurable') || insideOwnSection && context.graphLevel && context.graphLevel.classList.contains('measurable'));
     const $measurableTitle = $measurableRoot.find('.meas_acc0 > .maintitle');
     $measurableTitle.on('click', (e: ClickEvent) => {
       const $innerroot = $measurableBody;
@@ -398,6 +407,7 @@ export class StyleEditor {
     $measurableCheckbox.on('mousedown', (e: MouseDownEvent) => {e.stopPropagation(); });
     $measurableCheckbox.on('mouseup', (e: MouseUpEvent) => { e.stopPropagation(); });
     if (!$measurableCheckbox[0].checked) $measurableTitle.hide();
+    let templateParent = context.templateLevel && context.templateLevel.parentElement;
     $measurableCheckbox.off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e: ChangeEvent) => {
       context.templateLevel.classList.remove('measurable');
       if (measurableCheckbox.checked) {
@@ -405,16 +415,20 @@ export class StyleEditor {
         if (context.templateLevel instanceof HTMLElement) context.templateLevel.style.position = 'absolute';
         $measurableTitle.slideDown();
         if (!$measurableBody[0].classList.contains('show')) { $measurableTitle.trigger('click'); }
-        console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', context.templateLevel.parentElement && context.templateLevel.parentElement.style.position);
-        if (context.templateLevel.parentElement && context.templateLevel.parentElement.style.position !== 'relative') {
-          U.ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was'
-            + (context.templateLevel.parentElement.style.position === '' ? ' unset.' : ': ' + context.templateLevel.parentElement.style.position)
-          );
-          context.templateLevel.parentElement.style.position = 'relative'; }
+        console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', templateParent.style.position);
+        if (templateParent) {
+          if (templateParent.style.position !== 'relative'){
+            U.ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was'
+              + (templateParent.style.position === '' ? ' unset.' : ' \'' + templateParent.style.position + '\'.')
+            );
+            templateParent.style.position = 'relative';
+          }
+        }
       }
       else {
         if (context.templateLevel instanceof HTMLElement) context.templateLevel.style.position = ''; // restore default
-        context.templateLevel.parentElement.style.position = '';
+        console.log(context.templateLevel, context);
+        if (templateParent) templateParent.style.position = '';
         if ($measurableBody[0].classList.contains('show')) { $measurableTitle.trigger('click'); }
         $measurableTitle.slideUp(); }
       if (U.isTriggered(e)) return;
@@ -444,7 +458,7 @@ export class StyleEditor {
     const styleinheritable: StyleComplexEntry = m.getInheritableStyle();
     const styleinherited: StyleComplexEntry = m.getInheritedStyle();
     const clickedRoot: Element = ModelPiece.getLogicalRootOfHtml(clickedLevel);
-    const templateRoot: Element = style.html;// m.styleobj.html;// m.getStyle();
+    const templateRoot: Element = style.html;
     // let templateLevel: Element = templateRoot;
     let indexedPath: number[] = U.getIndexesPath(clickedLevel, 'parentNode', 'childNodes', clickedRoot);
     // console.log('clickedRoot', clickedRoot, 'clickedLevel', clickedLevel, 'path:', indexedPath);
@@ -462,12 +476,16 @@ export class StyleEditor {
     if (asEdge && (m instanceof IClass || m instanceof IReference) && m.shouldBeDisplayedAsEdge()) { return this.showE(m, asEdge); }
     const html: HTMLElement = this.getCopyOfTemplate(m, '.modelpiece', this.display, true);
     const $html = $(html);
+    const $asDefault = $html.find('.asDefault') as JQuery<HTMLInputElement>;
+    const asDefault = $asDefault[0];
+    asDefault.checked = style.isownhtml && style.view.isDefault;
+    asDefault.disabled = !style.isownhtml;
+    $asDefault.on('change', (e: ChangeEvent) => { style.view.setDefault(asDefault.checked); });
     const showAsEdge: HTMLInputElement = $html.find('.showAsEdge')[0] as HTMLInputElement;
     const showAsEdgeText: HTMLElement = $html.find('.showAsEdgeText')[0] as HTMLElement;
     const $styleown = $html.find('.style.own');
     const $styleInherited = $html.find('.style.inherited');
     const $styleInheritable = $html.find('.style.inheritable');
-    //const ownhtml = m.getStyle();
     const htmlPath: number[] = this.setStyleEditor($styleown, model, m, style, context, indexedPath, true);
     // U.pe(!style.html, $styleown, m, clickedLevel, model, style, instanceshtml);
     // const clickedonStyle: Element = U.followIndexesPath(style.html, htmlPath) as Element;
@@ -480,12 +498,13 @@ export class StyleEditor {
       // se ho cliccato su un non-radice non-ereditato, non posso prendere un frammento dell'ereditato, sarebbe un frammento diverso.
       if (inheritedcontext.templateLevel !== context.templateLevel) { inheritedcontext.templateLevel = inheritedTemplateRoot; }
     }
-    this.setStyleEditor($styleInherited, model, m, styleinherited, inheritedcontext);
+    if (!model.isM2()) { this.setStyleEditor($styleInherited, model, m, styleinherited, inheritedcontext); }
+    else { $styleInherited[0].innerHTML = '<h5 class="text-danger">Cannot get inheritance from M3 elements.</h5>'}
     // console.log('setStyleEditor inheritable, ', styleinheritable);
     let inheritablecontext: editorcontext = new editorcontext();
     inheritablecontext.templateLevel = styleinheritable ? styleinheritable.html : null;
     if (!model.isM1()) { this.setStyleEditor($styleInheritable, model, m, styleinheritable, inheritablecontext); }
-    else {$styleInheritable[0].innerHTML = '<h5 class="text-danger">M1 elements cannot give inheritance.</h5>'}
+    else { $styleInheritable[0].innerHTML = '<h5 class="text-danger">M1 elements cannot give inheritance.</h5>'}
     U.detailButtonSetup($html);
     /// start autosize
     const v: IVertex = m instanceof IClassifier ? m.getVertex() : null;
@@ -566,7 +585,6 @@ export class StyleEditor {
 
   }
   public showE(m: IClass | IReference, edge: IEdge) {
-    const index = edge.getIndex();
     console.log('styleShowE(', m, ')');
     const html: HTMLElement = this.getCopyOfTemplate(m as any, '.edge', this.display, true);
     const $html = $(html);
@@ -1104,6 +1122,7 @@ export class StyleEditor {
     if (!target) { U.remove(debugtarget.parentElement); debugtarget = null; }
     if (!isEventTriggerRule) { U.remove(debugtriggers.parentElement); debugtriggers = null; }
     let execute = () => {
+      if (!context.graphLevel) { U.ps(true, 'Rules cannot be executed on elements not displayed on the graph.'); return; }
       const attr: Attr = context.graphLevel.attributes.getNamedItem(generateRuleName().toLowerCase());
       let parts: MeasurableRuleParts = new MeasurableRuleParts(attr, null, false);
       U.pe(!parts.prefix, 'unexpected rule: ' + parts, this, attr, generateRuleName());

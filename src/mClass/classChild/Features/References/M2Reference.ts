@@ -77,7 +77,7 @@ export class M2Reference extends IReference {
 
   generateEdges(): IEdge[] {
     if (!this.edges) this.edges = [null]; // size must be 1
-    const e: IEdge = new IEdge(this, 0, this.parent.getVertex(), this.type.classType.getVertex());
+    const e: IEdge = new IEdge(this, 0, this.parent.getVertex(), this.type.classType.getVertex(), null);
     return [e]; }
 
   useless(): void {}
@@ -106,11 +106,12 @@ export class M2Reference extends IReference {
       mref.delete(true, n, Number.POSITIVE_INFINITY); } }
 
   delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
-    super.delete(false, linkStart, linkEnd);
+    let oldParent = this.parent;
     // total deletion
     if (linkStart === null && linkEnd === null) {
       if (this.type.classType) U.arrayRemoveAll(this.type.classType.referencesIN, this);}
-    if (refreshgui) this.refreshGUI();
+    super.delete(false, linkStart, linkEnd);
+    if (refreshgui) { oldParent.refreshGUI(); oldParent.refreshInstancesGUI(); }
   }
 /*
   getStyle(debug: boolean = true): HTMLElement | SVGElement {
@@ -152,9 +153,8 @@ export class M2Reference extends IReference {
 
 
    canBeLinkedTo(hoveringTarget: M2Class): boolean {
-    return (hoveringTarget instanceof M2Class);
-  //  return (this.type.classType === hoveringTarget || this.type.classType.isExtending(hoveringTarget));
-  }// && !(hoveringTarget instanceof EEnum); }
+    // todo: se è un override devo assicurarmi che non invalidi l'override
+    return (hoveringTarget instanceof M2Class); }
 
   getTarget(): M2Class { return this.type.classType; }
 }

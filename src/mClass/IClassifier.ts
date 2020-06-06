@@ -36,7 +36,7 @@ import {
   M3Attribute,
   M3Feature,
   EdgeModes,
-  EdgePointStyle, EOperation, EParameter, Typedd, Type, EEnum, GraphSize, ViewRule,
+  EdgePointStyle, EOperation, EParameter, Typedd, Type, EEnum, GraphSize, ViewRule, ExtEdge, IClass,
 } from '../common/Joiner';
 
 
@@ -50,6 +50,9 @@ export abstract class IClassifier extends ModelPiece{
 
   static defaultSidebarHtml(): HTMLElement {
     return U.toHtml<HTMLElement>('<div class="sidebarNode class"><p class="sidebarNodeName">$##name$</p></div>'); }
+
+
+
 
   generateVertex(): IVertex {
     if (this.vertex) return;
@@ -75,15 +78,16 @@ export abstract class IClassifier extends ModelPiece{
     if (!displayAsEdge && this.vertex === null && Status.status.loadedLogic) { this.generateVertex(); }
     return this.vertex; }
 
-
-  refreshGUI_Alone(debug?: boolean): void {
-    if (!Status.status.loadedLogic) { return; }
-    this.getVertex().refreshGUI();
-  }
-
   getEcoreTypeName(): string {
     if (this instanceof EEnum || M2Class) return Type.classTypePrefix + this.name;
     return Type.classTypePrefix + this.parent.name;
   }
 
+  delete(refreshgui: boolean = true): void {
+    super.delete(false);
+    // todo: che fare con le reference a quella classe? per ora cancello i campi.
+    let i;
+    if (!this.shouldBeDisplayedAsEdge()){ this.getVertex().remove(); }
+    if (refreshgui) this.refreshGUI();
+  }
 }

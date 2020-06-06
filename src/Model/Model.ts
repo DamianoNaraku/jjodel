@@ -11,7 +11,7 @@ import {
   IVertex,
   IEdge,
   EdgeStyle, MPackage,
-  ModelPiece, Status, MClass, ECoreClass, ModelNone, M3Class, M3Reference, M2Package, MReference
+  ModelPiece, Status, MClass, ECoreClass, ModelNone, M3Class, M3Reference, M2Package, MReference, IClass
 } from '../common/Joiner';
 
 export class Model extends IModel {
@@ -71,8 +71,8 @@ export class Model extends IModel {
 
   getAllClasses(): MClass[] { return super.getAllClasses() as MClass[]; }
   getAllReferences(): MReference[] { return super.getAllReferences() as MReference[]; }
-  getClass(fullname: string, throwErr: boolean = true, debug: boolean = true): MClass {
-    return super.getClass(fullname, throwErr, debug) as MClass; }
+  getClass(fullname: string, caseSensitive: boolean = false, throwErr: boolean = true, debug: boolean = true): MClass {
+    return super.getClass(fullname, caseSensitive, throwErr, debug) as MClass; }
 
   generateModel(): Json {
     const json: Json =  {};
@@ -91,8 +91,7 @@ export class Model extends IModel {
 
   conformability(metaparent: MetaModel, outObj?: any, debug?: boolean): number {
     U.pw(true, 'm1.conformability(): to do.');
-    return 1;
-  }
+    return 1; }
 
 
   getPrefix(): string { return 'm'; }

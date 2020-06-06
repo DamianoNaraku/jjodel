@@ -6,8 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "deploygh": "ng build --base-href \"/jjodel/dist/jjodel/\"",
-    "deployghclean": "rd .\\dist\\ /S /Q && rd .\\out.tsc\\ /S /Q",
-    "deployghComment": "to force update: deployghclean, github push, deploygh, github push",
+    "deployghclean": "rd .\\dist\\ /S /Q && rd .\\out-tsc\\ /S /Q",
+    "deployghComment": "to force update: deployghclean, github push, deploygh, github push, wait 2 min",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

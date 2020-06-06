@@ -59,14 +59,22 @@ input[type="color"]::-webkit-color-swatch {
   /*border-radius: 100%;*/
   border: none;
 }
-
-label > input[type="number"][digit="3"]{
+input[type="number"]{
+  width: 0;
+}
+input[type="number"][digit="1"]{
+  min-width: 30px;
+}
+input[type="number"][digit="2"]{
+  min-width: 38px;
+}
+input[type="number"][digit="3"]{
   min-width: 40px;
 }
-label > input[type="number"][digit="4"]{
+input[type="number"][digit="4"]{
   min-width: 50px;
 }
-label > input[type="number"][digit="5"]{
+input[type="number"][digit="5"]{
   min-width: 60px;
 }
 
@@ -172,14 +180,35 @@ h1, h2, h3, h4, h5, h6{
   text-align: center;
 }
 button.duplicate:not(.btn), button.delete:not(.btn), button.remove:not(.btn), button.copy:not(.btn), button.paste:not(.btn), button.edit:not(.btn){
-  border-radius: 50%;
   border: none;
   background-size: cover;
-  background-color: black;
+  background-color: var(--mainBackgroundColor);
 }
-button.delete:not(.btn), button.remove:not(.btn) { background-image: url(../img/black/delete.png); }
-button.duplicate:not(.btn), button.copy:not(.btn) { background-image: url(../img/black/duplicate.png); }
-button.edit:not(.btn) { background-image: url(../img/black/edit.png); }
+body.Dark button.delete:not(.btn),
+body.Dark button.remove:not(.btn) { background-image: url(../img/black/delete.png); }
+body.Dark button.duplicate:not(.btn),
+body.Dark button.copy:not(.btn) { background-image: url(../img/black/duplicate.png); }
+body.Dark button.edit:not(.btn) { background-image: url(../img/black/edit.png); }
+
+body.Light button.delete:not(.btn),
+body.Light button.remove:not(.btn) { background-image: url(../img/white/deletew.png); }
+body.Light button.duplicate:not(.btn),
+body.Light button.copy:not(.btn) { background-image: url(../img/white/duplicatew.png); }
+body.Light button.edit:not(.btn) { background-image: url(../img/white/editw.png); }
+
+#metamodel_editor .allVertexContainer button.delete, #model_editor .allVertexContainer button.delete {
+  padding: 0 5px;
+  border: 1px solid black;
+  font-size: small;
+  background-image: unset;
+  background-color: unset;
+  border-radius: 10%;
+}
+
+#metamodel_editor .allVertexContainer button.delete:hover, #model_editor .allVertexContainer button.delete:hover {
+  background-color: red;
+}
+
 .horizontalFillingContainer, .horizontalContainer {
   display: flex;
   flex-flow: row;
@@ -391,7 +420,7 @@ button.edit:not(.btn) { background-image: url(../img/black/edit.png); }
 }
 .changelog .description, .changelog .title {
   /* white-space: pre; */
-  white-space: normal;
+  white-space: break-spaces;
 }
 .changelog .title {
   font-weight: bolder;

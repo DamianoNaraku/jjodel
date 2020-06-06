@@ -1,8 +1,8 @@
 <div class="verticalFillingContainer">
   <div class="verticalFiller horizontalFillingContainer">
     <div class="sidebarShell resizableBorder" data-resizableRight="true">
-    <div id='metamodel_sidebar'></div>
-  </div>
+      <div id='metamodel_sidebar'></div>
+    </div>
     <div class="editorShell horizontalFiller">
       <ul class ="viewpointShell">
         <h6>Viewpoints</h6>
@@ -31,30 +31,30 @@
     </div>
     <!-- style of propertybar must be inline for resizableBorder js -->
     <div class="UtabContainer propertyBarContainer resizableBorder" data-resizableLeft="true" data-selectedTab="2" style="width: 283px;">
-    <ul class="UtabHeaderContainer">
-      <li class="UtabHeader" data-target="1">Style</li>
-      <li class="UtabHeader" data-target="2">Structured</li>
-      <li class="UtabHeader" data-target="3">Raw</li>
-    </ul>
-    <div class="UtabContentContainer">
-      <div class="UtabContent" data-target="1"><app-style-editor></app-style-editor></div>
-      <div class="UtabContent" data-target="2"><app-property-barr></app-property-barr></div>
-      <div class="UtabContent" data-target="3">
-        <div class="rawContainer">
-          <h2 class="rawTitle">Raw eCore fragment</h2>
-          <textarea class="rawecore"></textarea>
+      <ul class="UtabHeaderContainer">
+        <li class="UtabHeader" data-target="1">Style</li>
+        <li class="UtabHeader" data-target="2">Structured</li>
+        <li class="UtabHeader" data-target="3">Raw</li>
+      </ul>
+      <div class="UtabContentContainer">
+        <div class="UtabContent" data-target="1"><app-style-editor></app-style-editor></div>
+        <div class="UtabContent" data-target="2"><app-property-barr></app-property-barr></div>
+        <div class="UtabContent" data-target="3">
+          <div class="rawContainer">
+            <h2 class="rawTitle">Raw eCore fragment</h2>
+            <textarea class="rawecore"></textarea>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <div class="MMDefaultStyles customized"></div>
   <div class="MMDefaultStyles immutable">
     <foreignobject class="template Class" x="0" y="0" width="200" height="40" style="border: 1px solid black; background:white; color:black;">
       <div class="Class Vertex vertexShell" style="background:transparent; height:auto; width:100%; overflow: auto;" data-autosizey="1">
         <div class="VertexHeader" style="height:20px; width:100%; text-align:center; display:flex;">
-          <input value="$##name$" placeholder="Object name" pattern="[A-Za-z0-9_$]+" style="background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;">
-          <div style="text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;">(Class)</div>
+          <input value="$##name$" placeholder="Object name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" style="background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;">
+          <div style="text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;">($##className$)</div>
         </div>
         <div class="specialjs AttributeContainer" style="display: flex; flex-direction: column;"></div>
         <div class="specialjs ReferenceContainer" style="display: flex; flex-direction: column;"></div>
@@ -82,7 +82,7 @@
     <foreignobject class="template EEnum" x="0" y="0" width="200" height="40" style="border: 1px solid black; background:white; color:black;">
       <div class="Class Vertex vertexShell EEnum" style="background:transparent; height:auto; width:100%; overflow: auto;" data-autosizey="1">
         <div class="VertexHeader" style="height:20px; width:100%; text-align:center; display:flex;">
-          <input value="$##name$" placeholder="Object name" pattern="[A-Za-z0-9_$]+" style="background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;">
+          <input value="$##name$" placeholder="Object name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" style="background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;">
           <div style="text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;">(Enum)</div>
         </div>
         <div class="specialjs LiteralContainer" style="display: flex; flex-direction: column;"></div>
@@ -106,17 +106,17 @@
 
     <div class="template Reference" style="width:100%; height: 22px; padding-left:5px; display:flex;">
       <select data-class="true" style="background:transparent; color:inherit; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;"></select>
-      <input type="text" placeholder="Reference Name" pattern="[A-Za-z0-9_$]+" value="$##name$" style="background:transparent; color:inherit; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;">
+      <input type="text" placeholder="Reference Name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" value="$##name$" style="background:transparent; color:inherit; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;">
     </div>
 
     <div class="template Attribute EString EInteger" style="width:100%; height:22px; padding-left:5px; display:flex;">
       <select data-primitive="true" data-enum="true" style="background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
-      <input type="text" placeholder="Attribute Name" pattern="[A-Za-z0-9_$]+" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+      <input type="text" placeholder="Attribute Name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
     </div>
 
     <div class="template ELiteral" style="width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;">
       <input class="value" type="number" placeholder="auto" value="$##ordinal$" style="background:transparent; border:none; display: flex; width: 30px;">
-      <input class="name" type="text" placeholder="name" value="$##name$" pattern="[A-Za-z0-9_$]+" style="background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;">
+      <input class="name" type="text" placeholder="name" value="$##name$" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" style="background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;">
       <input class="literal" type="text" placeholder="literal" value="$$#literal$" style="background:transparent; color:inherit; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;">
     </div>
 
@@ -125,7 +125,7 @@
       <div class="specialjs operationDetail" style="margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;">
         <div style="display: flex; width: 100%;">
           <select data-primitive="true" data-enum="true" data-class="true" data-void="true" style="background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
-          <input disabled type="text" placeholder="Return Type" pattern="[A-Za-z0-9_$]+" value="Return type" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+          <input disabled type="text" placeholder="Return Type" value="Return type" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
         </div>
         <div class="parameterList" style="display: flex; width: 100%; flex-flow:column;">
           <button class="addParameterButton btn btn-sm btn-success" style="width: 100%; height: 22px; padding:0; text-align: center">+</button>
@@ -134,9 +134,11 @@
     </div>
 
     <div class="template Parameter" style="width: 100%; height: 22px; border-bottom:1px solid lightgray; display:flex;">
-       <select data-primitive="true" data-enum="true" data-class="true" style="background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;"></select>
-       <input type="text" placeholder="Parameter Name" pattern="[A-Za-z0-9_$]*" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;">
-       <button style="order: 3; padding:0 5px;">X</button>
+      <select data-primitive="true" data-enum="true" data-class="true" style="background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;"></select>
+      <input type="text" placeholder="Parameter Name" pattern="[a-zA-Z_\u0024]*[a-zA-Z\d_\u0024]+" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;">
+      <button class="delete" style="order: 3; padding:0 5px;">X</button>
+      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\d_$]+$   ==    [a-zA-Z_\u0024][a-zA-Z\d_\u0024]*
+       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \u0024 might not work for end of line $ substitute -->
     </div>
   </div>
 </div>

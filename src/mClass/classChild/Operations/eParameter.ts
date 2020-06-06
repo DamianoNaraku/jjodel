@@ -34,6 +34,14 @@ export class EParameter extends Typedd {
     if (!parent) { return; } // fake constructor will allow to travel fake -> original. can't original -> fake.
     this.parse(json); }
 
+  isInherited(forClass: IClass): boolean { return false; }
+
+  setType(ecoreTypeString: string, throwError: boolean = true, refreshGui: boolean = true): boolean{
+    let ret = super.setType(ecoreTypeString, throwError, refreshGui);
+    if (!ret) return false;
+    this.parent.parent.calculateInheritanceViolations(true);
+    return true; }
+
   fullname(): string { return super.fullname() + ':' + this.name; }
   getField(): IField { return this.parent ? this.parent.getField() : null; }
   getClass(): IClass { return this.parent ? this.parent.parent : null; }

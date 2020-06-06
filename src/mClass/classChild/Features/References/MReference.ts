@@ -110,15 +110,14 @@ export class MReference extends IReference {
     return info; }
 
   delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
-    super.delete(false, linkStart, linkEnd);
-    // total deletion
+    let oldParent = this.parent;
     let i: number;
-    // if (linkStart === null && linkEnd === null) { completely delete? or it is already done by super()? }
-    // just cut some edges
+    super.delete(false, linkStart, linkEnd);
+    // remove edges
     linkEnd = Math.min(this.mtarget.length, linkEnd);
     linkStart = Math.max(0, linkStart);
     for (i = linkStart; i < linkEnd; i++) { this.setTarget(i, null); }
-    if (refreshgui) this.refreshGUI();
+    if (refreshgui) { oldParent.refreshGUI(); }
   }
 
   getType(): Type { return (this.metaParent ? this.metaParent.getType() : null); }
@@ -126,7 +125,7 @@ export class MReference extends IReference {
   canBeLinkedTo(hoveringTarget: MClass): boolean {
     const c1: M2Class = this.getType().classType;
     const c2: M2Class = hoveringTarget.metaParent;
-    return c1 === c2 || c1.isExtending(c2); }
+    return c1.isExtending(c2, true); }
 
   // link(targetStr?: string, debug?: boolean): void { throw new Error('mreference.linkByStr() should never be called'); }
 
@@ -157,7 +156,7 @@ export class MReference extends IReference {
     // while (this.edges && this.edges.length > 0) { this.edges[0].remove(); U.arrayRemoveAll(this.edges, this.edges[0]); }
     for (i = 0; i < this.mtarget.length; i++) {
       if (this.edges[i] || !this.mtarget[i]) continue;
-      this.edges[i] = (new IEdge(this, i, this.parent.getVertex(), this.mtarget[i].getVertex())); }
+      this.edges[i] = (new IEdge(this, i, this.parent.getVertex(), this.mtarget[i].getVertex(), null)); }
     return this.edges; }
 
   parse(json0: Json, destructive: boolean = true): void {

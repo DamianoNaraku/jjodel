@@ -13,8 +13,21 @@ import {
   IModel,
   Status,
   Size,
-  IReference, GraphPoint, GraphSize,
-  PropertyBarr, Dictionary, IClass, ViewPoint, EOperation, EParameter, Point, EEnum, ExtEdge, measurableRules
+  IReference,
+  GraphPoint,
+  GraphSize,
+  PropertyBarr,
+  Dictionary,
+  IClass,
+  ViewPoint,
+  EOperation,
+  EParameter,
+  Point,
+  EEnum,
+  ExtEdge,
+  measurableRules,
+  DamContextMenuComponent,
+  Model
 } from '../../common/Joiner';
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
@@ -24,6 +37,7 @@ import KeyDownEvent = JQuery.KeyDownEvent;
 import BlurEvent = JQuery.BlurEvent;
 import ChangeEvent = JQuery.ChangeEvent;
 import {StartDragContext} from './Vertex/iVertex';
+import ContextMenuEvent = JQuery.ContextMenuEvent;
 
 
 export class ViewPointShell {
@@ -335,6 +349,13 @@ export class IGraph {
     U.pif(debug, 'fitToGrid(', pt0, '); this.grid:', this.grid, ' = ', pt);
     return pt; }
 
+  graphContextMenu(e: ContextMenuEvent): boolean {
+    // console.log('passedThroughVertex', e, e['passedThroughVertex']);
+    // if (e['passedThroughVertex'] !== undefined) return e['passedThroughVertex'];
+    e.preventDefault();
+    e.stopPropagation();
+    return false; }
+
   addGraphEventListeners() {
     const $graph = $(this.container);
     const thiss: IGraph = this;
@@ -346,6 +367,7 @@ export class IGraph {
     // $graph.off('click.mark').on('click.mark', (e: ClickEvent) => { thiss.markClick(e, true); } );
     $graph.off('mousedown.move').on('mousedown.move', (e: MouseDownEvent) => this.onMouseDown(e, false));
     $graph.off('mouseup.move').on('mouseup.move', (e: MouseUpEvent) => this.onMouseUp(e));
+    $graph.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.graphContextMenu(e); });
     // @ts-ignore
     if (!!ResizeObserver) { // not supported by edge, android firefox.
       if (!window['' + 'resizeobservers']) window['' + 'resizeobservers'] = [];
@@ -373,9 +395,17 @@ export class IGraph {
     // PROBLEMA: potrebbe avvenire un resize dovuto a serverEvents, keyboardEvents, timers.
   }
 
+  printClickedMP(e: Event | MouseDownEvent) {
+    let mp: ModelPiece = ModelPiece.get(e);
+    let name: string =  mp.printableName(20, true);
+    console.log('clicked mp:', mp.id, name, mp);
+    console.info('clicked mp:', mp.id, name, mp);
+  }
   onMouseDown(evt: MouseDownEvent, isTrigger: boolean): void {
     // console.log('graphONMouseDown', evt);
     isTrigger = isTrigger || !evt || evt['' + 'isTrigger'] || !evt.originalEvent;
+    console.log('GraphMouseDown:', evt, evt.button, U.mouseWheelButton);
+    if (evt && evt.button === U.mouseWheelButton) { evt.preventDefault(); evt.target.blur(); }
     switch (this.cursorAction) {
       default: U.pe(true, 'unexpected cursorAction:', this.cursorAction); break;
       case CursorAction.drag:
@@ -396,16 +426,20 @@ export class IGraph {
     const v: IVertex = IVertex.selected;
     const vcontext: StartDragContext = IVertex.startDragContext;
     if (!v) return;
+    const afterContextMenu = () => { IVertex.startDragContext = null; }
     IVertex.selected = null;
-    IVertex.startDragContext = null;
     v.owner.grid.x = IVertex.selectedGridWasOn.x;
     v.owner.grid.y = IVertex.selectedGridWasOn.y;
     IVertex.selectedGridWasOn.x = 'prevent_doublemousedowncheck' as any;
     IVertex.selectedGridWasOn.y = 'prevent_doublemousedowncheck' as any;
+    const afterContextMenuTimeout = () => setTimeout(afterContextMenu, 0);
+    afterContextMenuTimeout(); // do it regardless of moved or not.
     const gotMoved = !vcontext.size.tl().equals(v.size.tl(), 0);
     if (!gotMoved) return;
     v.owner.fitToGridS(v.size, false);
     v.setSize(v.size, false, true, measurableRules.onDragEnd);
+    //NB: Ivertex.selected va cancellato per forza prima di gotMoved e setSize, perchè crea casini con dragEnd.
+    // Dopo il contextmenù deve tornare nonsettato. se potessi spotare il tempo di esecuzione di contextmenù risolverei tutto... ma è impossibile.
   }
 
   onMouseMoveSetReference(evt: MouseMoveEvent, edge: IEdge): void {
@@ -449,10 +483,12 @@ export class IGraph {
     if (IVertex.selected) return this.onMouseMoveVertexMove(evt, IVertex.selected);
     if (this.isMoving) return this.onMouseMoveDrag(evt);
   }
-  edgeChangingAbort(e: KeyDownEvent | MouseDownEvent): void {
+  edgeChangingAbort(e: KeyDownEvent | MouseDownEvent | ClickEvent): void {
     const edge: IEdge = IEdge.edgeChanging;
     if (!edge) { return; }
     IEdge.edgeChanging = null;
+    edge.shell.blur();
+    edge.isSelected = false;
 
     // unmark hovering vertex
     const hoveringVertex: IVertex[] = IVertex.GetMarkedWith('refhover');
@@ -461,13 +497,16 @@ export class IGraph {
     for (i = 0; i < hoveringVertex.length; i++) { hoveringVertex[i].mark(false, 'refhover'); }
 
     // restore previous endTarget or delete edge.
-    console.log('edgeChange abort');
+    console.log('edgeChange abort', edge);
     if (!edge.end) { edge.remove(); return; }
     edge.useMidNodes = true;
     edge.useRealEndVertex = true;
     edge.tmpEnd = null;
+    edge.onBlur(); // will refreshgui too
     edge.refreshGui();
-    edge.refreshGui(); }
+    // double refresh on purpose, to fix imprecision on huge sudden movement possibly caused by blur (startpoint must keep up)
+    // todo: aggiusta dentro refreshgui e reitera solo quella parte interna così posso chiamarlo 1 volta e stare safe e ottimizzato
+  }
 
 
   toGraphCoordS(s: Size): GraphSize {

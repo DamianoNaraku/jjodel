@@ -230,6 +230,7 @@ export class Type {
     if (this.primitiveType) return '' + this.primitiveType.name;
     return null; }
 
+  canOverride(other: Type): boolean { return this.classType && this.classType.isExtending(other.classType); }
 }
 
 

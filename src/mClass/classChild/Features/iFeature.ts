@@ -18,12 +18,37 @@ export abstract class IFeature extends Typedd {
   metaParent: IFeature;
   instances: IFeature[];
   parent: IClass;
+  // isShadowed: boolean = false;
 
   // linkToMetaParent<T extends IFeature>(feature: T) { this.metaParent = feature; }
   getClass(): IClass { return this.parent; }
 
   // must be overriden for m1-elements
   setValues(values: any[] | any = null, index: number = null, autofix: boolean = true, debug: boolean = false): void {}
+/*
+  setShadowed(mapElement: boolean): void {
+    U.pe(!this.getModelRoot().isM2(), 'setShadowed() must be called from M2.', this);
+    this.isShadowed = mapElement; }*/
+
+  isInherited(forClass: IClass): boolean {
+    if (this.parent !== forClass) return true; // for m2
+    let m2classContaining: IClass = this.metaParent.parent;
+    let m2classOfParent: IClass = forClass.metaParent;
+    if (m2classContaining !== m2classOfParent) return true; // for m1
+    return false; }
+
+  isShadowed(forClass: IClass): boolean {
+    if (!this.isInherited(forClass)) return false;
+    if (this.getModelRoot().isM1()) return this.metaParent.isShadowed(forClass);
+    if (forClass.getModelRoot().isM1()) forClass = forClass.metaParent;
+    let superclasses: IClass[] = forClass.getAllSuperClasses();
+    let i: number;
+    for (i = 0; i < superclasses.length; i++) {
+      let sc: IClass = superclasses[i];
+      let tmp = sc.isChildNameTaken(this.name);
+      if (tmp) return true; }
+    return false; }
+
 }
 
 export type M3Feature = M3Reference | M3Attribute;

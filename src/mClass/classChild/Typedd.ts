@@ -14,7 +14,7 @@ import {
   MReference,
   ShortAttribETypes,
   Status, Type, IClassifier,
-  U, EEnum
+  U, EEnum, EParameter
 } from '../../common/Joiner';
 
 export type M1ClassChild = MAttribute | MReference;
@@ -38,6 +38,8 @@ export abstract class Typedd extends ModelPiece {
   constructor(parent: ModelPiece, metaVersion: ModelPiece){
     super(parent, metaVersion);
     this.type = this.getModelRoot().isM2() || this.getModelRoot().isM3() ? new Type(this) : null; }
+
+  abstract isInherited(forClass: IClassifier): boolean;
   // typeClassFullnameStr: string = null;
 /*
   parsePrintableTypeName(eTypeLongStr: string): void {
@@ -121,23 +123,29 @@ export abstract class Typedd extends ModelPiece {
   generateField(): IField { return this.field = new IField(this); }
   getField(): IField { return this.field ? this.field : this.generateField(); }
 
-  refreshGUI_Alone(debug: boolean = true): void { this.getField().refreshGUI(true); }
+  // refreshGUI_Alone(debug: boolean = true): void { this.getField().refreshGUI(true); }
 
   delete(refreshgui: boolean = true): void {
-    const oldparent = this.parent;
+    let oldparent = this.parent;
     super.delete(false);
     if (oldparent) {
       if (oldparent instanceof IClass) {
         U.arrayRemoveAll(oldparent.attributes, this as any);
         U.arrayRemoveAll(oldparent.references, this as any);
-        U.arrayRemoveAll(oldparent.getOperations(), this as any); }
+        U.arrayRemoveAll(oldparent.operations, this as any); }
       else if (oldparent instanceof EEnum) {
         // U.arrayRemoveAll(oldparent.childrens, this as any); done in modelpiece.delete()
       }
       else if (oldparent instanceof EOperation) { }
       else { U.pe(true, 'unrecognized parent class of typed modelpiece:' + U.getTSClassName(oldparent) + ':', this); }
     }
-    if (refreshgui) oldparent.refreshGUI();
+    if (refreshgui) { oldparent.refreshGUI(); oldparent.refreshInstancesGUI(); }
+    while (oldparent && !(oldparent instanceof IClassifier)) { oldparent = oldparent.parent; }
+    let classe: IClass = oldparent instanceof IClass ? oldparent : null;
+    if (classe) {
+      if (this instanceof EParameter || this instanceof EOperation) classe.checkViolations(true);
+      else classe.checkViolations(true);
+    }
   }
 
   // getClassType(): M2Class { return this.type.classType; }
@@ -145,4 +153,5 @@ export abstract class Typedd extends ModelPiece {
   getLowerbound(): number { return this.lowerbound; }
   setUpperbound(val: number): void { this.upperbound = isNaN(+val) ? -1 : +val; }
   setLowerbound(val: number): void { this.lowerbound = isNaN(+val) || +val < 0 ? 0 : +val; }
+
 }

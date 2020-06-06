@@ -6,7 +6,8 @@ export class WebsiteTheme{
 
   static setTheme(checkbox: HTMLInputElement = null) {
     let s: string = checkbox && checkbox.value;
-    if (!s) { s = localStorage.getItem(ReservedStorageKey.userTheme); }
+    let oldTheme = localStorage.getItem(ReservedStorageKey.userTheme);
+    if (!s) { s = oldTheme; }
     if (!s) {
       let radio: HTMLInputElement = TopBar.topbar.$topbar.find('input.themename:checked')[0] as HTMLInputElement;
       U.pe(!radio, 'a theme must be selected');
@@ -23,6 +24,8 @@ export class WebsiteTheme{
     change('popupBackgroundColor');
     change('altBackgroundColor');
     change('altFontColor');
+    document.body.classList.remove(oldTheme);
+    document.body.classList.add(s);
   }
 
   static get(): string { return (TopBar.topbar.$topbar.find('input.themename:checked')[0] as HTMLInputElement).value; }

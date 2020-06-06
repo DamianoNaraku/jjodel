@@ -1,8 +1,8 @@
 <div class="verticalFillingContainer">
   <div class="verticalFiller horizontalFillingContainer">
     <div class="sidebarShell resizableBorder" data-resizableRight="true">
-    <div id='model_sidebar'></div>
-  </div>
+      <div id='model_sidebar'></div>
+    </div>
     <div class="editorShell horizontalFiller">
       <ul class ="viewpointShell">
         <h6>Viewpoints</h6>
@@ -31,22 +31,22 @@
     </div>
     <!-- style of propertybar must be inline for resizableBorder js -->
     <div class="UtabContainer propertyBarContainer resizableBorder" data-resizableLeft="true" data-selectedTab="2" style="width: 283px;">
-    <ul class="UtabHeaderContainer">
-      <li class="UtabHeader" data-target="1">Style</li>
-      <li class="UtabHeader" data-target="2">Structured</li>
-      <li class="UtabHeader" data-target="3">Raw</li>
-    </ul>
-    <div class="UtabContentContainer">
-      <div class="UtabContent" data-target="1"><app-style-editor></app-style-editor></div>
-      <div class="UtabContent" data-target="2"><app-property-barr></app-property-barr></div>
-      <div class="UtabContent" data-target="3">
-        <div class="rawContainer">
-          <h2 class="rawTitle">Raw eCore fragment</h2>
-          <textarea class="rawecore"></textarea>
+      <ul class="UtabHeaderContainer">
+        <li class="UtabHeader" data-target="1">Style</li>
+        <li class="UtabHeader" data-target="2">Structured</li>
+        <li class="UtabHeader" data-target="3">Raw</li>
+      </ul>
+      <div class="UtabContentContainer">
+        <div class="UtabContent" data-target="1"><app-style-editor></app-style-editor></div>
+        <div class="UtabContent" data-target="2"><app-property-barr></app-property-barr></div>
+        <div class="UtabContent" data-target="3">
+          <div class="rawContainer">
+            <h2 class="rawTitle">Raw eCore fragment</h2>
+            <textarea class="rawecore"></textarea>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <div class="MDefaultStyles customized"></div>
   <div class="MDefaultStyles immutable">
@@ -78,7 +78,7 @@
       <div class="specialjs operationDetail" style="margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color:transparent; margin-top:0;">
         <div style="display: flex; width: 100%;">
           <select disabled data-primitive="true" data-enum="true" data-class="true" data-void="true" style="background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
-          <input disabled type="text" placeholder="Operation Name" pattern="[A-Za-z0-9_$]+" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+          <input disabled type="text" placeholder="Operation Name" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
         </div>
         <div class="parameterList" style="display: flex; width: 100%;"></div>
       </div>
@@ -86,8 +86,7 @@
 
     <div class="template Parameter" style="width:100%; height:22px; padding-left: 5px; display:flex;">
       <select disabled data-primitive="true" data-enum="true" data-class="true" style="background:transparent; color:inherit; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
-      <input disabled type="text" placeholder="Parameter Name" pattern="[A-Za-z0-9_$]*" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+      <input disabled type="text" placeholder="Parameter Name" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
     </div>
   </div>
 </div>
-

@@ -78,7 +78,7 @@ export class M2Package extends IPackage {
       }
     }
   }
-
+// fatto tutta la validazione credo, ora basta vedere se quando aggiungo un extend che viola gli override e polimorfismi mi avvisa dell'operazione invalida'
   /*parse(deep) {
     let i;
     if (deep) {

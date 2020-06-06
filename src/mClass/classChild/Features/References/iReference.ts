@@ -62,6 +62,7 @@ export abstract class IReference extends IFeature {
   abstract duplicate(nameAppend?: string, newParent?: IClass): IReference;
 
   delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
+    let oldParent = this.parent;
     if (linkStart === null && linkEnd === null) {
       super.delete(false);
       linkStart = 0;
@@ -70,8 +71,8 @@ export abstract class IReference extends IFeature {
     let i: number;
     linkEnd = Math.min(edges.length, linkEnd);
     linkStart = Math.max(0, linkStart);
-    for (i = linkStart; i < linkEnd; i++) { edges[i].remove(); }
-    if (refreshgui) this.refreshGUI();
+    for (i = linkStart; i < linkEnd; i++) { if(edges[i]) edges[i].remove(); }
+    if (refreshgui) oldParent.refreshGUI();
   }
 
   // abstract linkClass(classe?: IClass): void;

@@ -12,7 +12,7 @@ import {
   IGraph,
   IModel,
   Status, IReference, CursorFollowerEP, EdgePointFittizio,
-  Point, GraphPoint, Size, GraphSize, EdgeStyle, PropertyBarr, Dictionary, IClass, ExtEdge, MAttribute, MReference, IClassifier
+  Point, GraphPoint, Size, GraphSize, EdgeStyle, PropertyBarr, Dictionary, IClass, ExtEdge, MAttribute, MReference, IClassifier, M2Reference
 } from '../../../common/Joiner';
 import ClickEvent = JQuery.ClickEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
@@ -23,6 +23,8 @@ import MouseEnterEvent = JQuery.MouseEnterEvent;
 import MouseLeaveEvent = JQuery.MouseLeaveEvent;
 import {EdgeHeadStyle} from './edgeStyle';
 import KeyDownEvent = JQuery.KeyDownEvent;
+import {Keystrokes} from '../../../common/util';
+import BlurEvent = JQuery.BlurEvent;
 
 enum EdgeDecoratorType {
   containment = 'containment',
@@ -69,6 +71,7 @@ export enum EdgeModes {
   useMidNodes: boolean = true || true;
   useRealEndVertex: boolean = true || true;
   id: number = null;
+  private isDeleted: number = 0;
 
   static staticInit(): IEdge[] {
     IEdge.all = [];
@@ -76,13 +79,13 @@ export enum EdgeModes {
     // todo: prevent propagation on click on edges.
     U.eventiDaAggiungereAlBody('trigger onBlur of all IEdge.selecteds.');
     $(document.body).off('click.blurEdgeSelection').on('click.blurEdgeSelection',
-      (ee: ClickEvent) => {
+      (ee: ClickEvent) => {/*
         const debug = false;
         U.pif(debug, 'body.click(): clear All Edge Selections');
         let i: number;
         let arr: IEdge[] = U.shallowArrayCopy(IEdge.selecteds);
         for (i = 0; i < arr.length; i++) { arr[i].onBlur(); }
-        U.pif(debug, 'graph clicked:', ee);
+         U.pif(debug, 'graph clicked:', ee);
         const modelPieceClicked: ModelPiece = ModelPiece.get(ee);
         const edgeClicked: IEdge = IEdge.get(ee);
         U.pif(debug, 'modelPieceClicked ? ', modelPieceClicked);
@@ -93,8 +96,9 @@ export enum EdgeModes {
         // const edgeClicked: IEdge = (parent && parent.classList) ? edge : null;
         U.pif(debug, 'edgeClicked ? ', edgeClicked);
         if (!edgeClicked) { return; }
-        edgeClicked.onClick(ee);
+        edgeClicked.onClick(ee);*/
       });
+
     $(document.body).off('keydown.deletethings').on('keydown.deletethings', (evt: KeyDownEvent) => {
       let i: number;
       const target: Element = document.activeElement; // evt.target;
@@ -162,7 +166,8 @@ export enum EdgeModes {
 
   static getByID(id: number): IEdge { return IEdge.idToEdge[id]; }
 
-  constructor(logic: IClass | IReference, index: number, startv: IVertex = null, end: IVertex = null) {
+  constructor(logic: IClass | IReference, index: number, startv: IVertex, end: IVertex, tmpend: GraphPoint) {
+    this.tmpEnd = tmpend;
     if (!startv) {
       if (logic instanceof IClass) { startv = (logic as IClass).getVertex(); }
       if (logic instanceof IReference) { startv = (logic as IReference).getVertex(); } }
@@ -177,7 +182,7 @@ export enum EdgeModes {
     this.logic = logic;
     if (!(this instanceof ExtEdge)) {
       U.pe(index === null || index === undefined, 'index must be set.');
-      this.logic.edges[index] = this; }
+      this.getContainedArray()[index] = this; }
     this.shell = document.createElementNS('http://www.w3.org/2000/svg', 'g'); // U.newSvg<SVGGElement>('g');
     this.html = document.createElementNS('http://www.w3.org/2000/svg', 'path'); // U.newSvg<SVGPathElement>('Path');
     this.shadow = U.newSvg<SVGPathElement>('path');
@@ -191,7 +196,7 @@ export enum EdgeModes {
     this.midNodes = [];
     this.endNode = new EdgePoint(this, new GraphPoint(0, 0), this.end);
     this.owner = this.start.owner;
-    this.isSelected = false;
+    this.isSelected = !!tmpend; // if created with no target, it will be selected and follow cursor.
     this.isHighlighted = false;
     this.edgeHead = null;
     this.edgeTail = null;
@@ -417,7 +422,7 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
 
   }
   private static midPointMouseUp(e: JQuery.MouseUpEvent) { }*/
-  canBeLinkedTo(target: IClass): boolean { return this.logic.canBeLinkedTo(target); }
+    canBeLinkedTo(target: IClass): boolean { return this.logic.canBeLinkedTo(target); }
 
   refreshGui(debug: boolean = false, useRealEndVertex: boolean = null, usemidnodes: boolean = null) {
     debug = false;
@@ -428,6 +433,9 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     if (!this.midNodes.length && (this.start === this.end)) { //this.start.size.intersection(this.end.size))) {
       $(this.shell).hide();
       return; } else $(this.shell).show();
+
+    // if (this.tmpEnd && !this.end) { this.shell.focus(); }
+    this.isSelected = U.hasFocusWithin(this.shell);
     U.pe(!this.logic, 'IEdge.logic is null:', this);
     if (useRealEndVertex === null) { useRealEndVertex = this.useRealEndVertex; }
     if (usemidnodes === null) { usemidnodes = this.useMidNodes; }
@@ -438,7 +446,7 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     let endVertexSize: GraphSize = null;
     let allRealPt: EdgePoint[] = this.getAllRealMidPoints();
     if (!usemidnodes) { allRealPt = [allRealPt[0], allRealPt[allRealPt.length - 1]]; }
-    if (useRealEndVertex) {
+    if (useRealEndVertex && this.end) {
       endVertex = this.end;
       endVertexSize = endVertex.getSize();
       this.startNode.moveTo(startVertex.getStartPoint(allRealPt[1].getEndPoint()), false);
@@ -447,7 +455,11 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
       endVertex = this.tmpEndVertex;
       endVertexSize = endVertex ? endVertex.getSize() : null;
       this.startNode.moveTo(startVertex.getStartPoint(allRealPt[1].getEndPoint()), false);
-      this.endNode.moveTo(endVertex ? endVertex.getEndPoint(allRealPt[allRealPt.length - 2].getStartPoint()) : this.tmpEnd, false);
+
+      // console.log('3x moveto() endvertex:', endVertex, 'endvertexpos:',
+      // endVertex && endVertex.getEndPoint(allRealPt[allRealPt.length - 2].getStartPoint()).duplicate(),  'tmpend:', this.tmpEnd);
+      const endpos = endVertex ? endVertex.getEndPoint(allRealPt[allRealPt.length - 2].getStartPoint()) : this.tmpEnd;
+      if (endpos) this.endNode.moveTo(endpos, false);
     }
     if (debugi === 2) return;
     U.pif(debug, 'allRealPt:', allRealPt);
@@ -546,7 +558,10 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
   addEventListeners(foredge: boolean, forheadtail: boolean): void {
     const $edgetail: JQuery<Element> = forheadtail ? $(this.headShell).add(this.tailShell) : $();
     const $shell: JQuery<Element> = foredge ? $(this.shell) : $();
-    const $edgeparts = $shell.find('.Edge').add($edgetail as any as JQuery<HTMLElement>);
+    const $edgeparts = $(this.shell);// .find('>*');
+    console.log('EdgeParts:', $edgeparts);
+    // $edgetail.attr('tabindex', '-1');
+    $shell.attr('tabindex', '-1');
     // U.pe(!$shell.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail);
     //  U.pe(!$edgetail.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail, 'head-tail:', this.edgeHead, this.edgeTail);
     // $shell.off('click.pbar').on('click.pbar', (e: ClickEvent) => IVertex.ChangePropertyBarContentClick(e, this) );
@@ -565,15 +580,30 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
         // U.pe( ownermp === null || ownermp === undefined, 'unable to get logic of:', e.currentTarget);
         const edge: IEdge = IEdge.getByHtml(e.target, true);
         edge.onMouseMove(e); } );
-    $shell.off('click.addEdgePoint').on('click.addEdgePoint', (e: ClickEvent) => { IEdge.get(e).onClick(e); });
+    // $shell.off('click.addEdgePoint').on('click.addEdgePoint', (e: ClickEvent) => { IEdge.get(e).onClick(e); });
     $edgeparts.off('mouseover.cursor').on('mouseover.cursor', (e: MouseOverEvent) => { IEdge.get(e).onMouseOver(e); });
     $edgeparts.off('mouseenter.cursor').on('mouseenter.cursor', (e: MouseEnterEvent) => { IEdge.get(e).onMouseEnter(e); });
     $edgeparts.off('mouseleave.cursor').on('mouseleave.cursor', (e: MouseLeaveEvent) => { IEdge.get(e).onMouseLeave(e); });
+    $edgeparts.off('keydown.delete').on('keydown.delete', (e: KeyDownEvent) => this.keydown(e));
+    $shell.off('blur').on('blur', (e: BlurEvent) => { this.onBlur(e); });
+    $shell.off('focus').on('focus', (e: Event) => { this.onFocus(e); });
+    }
 
-  }
-  onBlur() {
-    this.isSelected = false;
-    this.html.classList.remove('selected_debug');
+  keydown(e: KeyDownEvent): void {
+    e.stopPropagation();
+    console.log('keydown:', e.key);
+    if (e.key == Keystrokes.escape) {
+      // console.log('focused0:', document.activeElement);
+      // if (U.isFunction((document.activeElement as any).blur)) this.shell.blur();
+      Status.status.getActiveModel().graph.edgeChangingAbort(e);
+      }
+    if (e.key !== Keystrokes.delete) return;
+    this.remove(); }
+
+  onBlur(e: BlurEvent = null) {
+    if (this.isDeleted) return;// check dopo aver fatto edgeabort se continua a dare errore quando deselezioni premendo altrove.
+    // this.isSelected = false;
+    // this.html.classList.remove('selected_debug');
     U.arrayRemoveAll(IEdge.selecteds, this);
     let i;
     for (i = 0; i < this.midNodes; i++) { this.midNodes[i].hide(); }
@@ -650,12 +680,12 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     const allNodes: EdgePoint[] =  this.getAllRealMidPoints();
     const fittizi: EdgePointFittizio[] = arrFittizi ? arrFittizi : this.getAllFakePoints();
 
-    let i = 0;
+    let i: number;
     let closestPrev: EdgePointFittizio = null;
     let closestNext: EdgePointFittizio = null;
     let closestDistance: number = Number.POSITIVE_INFINITY;
-    if (fittizi.length <= 2) return null;
-    while (++i < fittizi.length) {
+    if (fittizi.length < 2) return null;
+    for (i = 1; i < fittizi.length; i++) {
       const prev: EdgePointFittizio = fittizi[i - 1];
       const next: EdgePointFittizio = fittizi[i];
       const currentDistance = clickedPt.distanceFromLine(prev.pos, next.pos);
@@ -727,8 +757,9 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     const nextFake: EdgePointFittizio = tmp[1];
     const pre: EdgePoint = preFake.getPreviousRealPt(fakePoints);
     const next: EdgePoint = nextFake.getNextRealPt(fakePoints);
-    U.pe(!pre, 'failed to get previousRealPt of point:', preFake, ', all fakePoints:', fakePoints);
-    U.pe(!next, 'failed to get nextRealPt of point:', nextFake, ', all fakePoints:', fakePoints);
+    if (!pre || !next) return; // for some reason it does not detect start and endpoint, but it's fine ignoring them here.
+    // U.pe(!pre, 'failed to get previousRealPt of point:', preFake, ', all fakePoints:', fakePoints);
+    // U.pe(!next, 'failed to get nextRealPt of point:', nextFake, ', all fakePoints:', fakePoints);
     let i = -1;
     this.startNode.refreshGUI(null, false);
     this.endNode.refreshGUI(null, false);
@@ -752,25 +783,15 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     pre.refreshGUI(null, true);
     next.refreshGUI(null, true); }
 
-  onClick(e: ClickEvent): void {
-    // console.log('IEdge.clicked:', this);
-    const debug = false;
+  onFocus(e: Event = null): void {
     this.isSelected = true;
     IEdge.selecteds.push(this);
-    let i;
-    this.html.setAttributeNS(null, 'stroke-width', '' + 5);
-    this.html.classList.add('selected_debug');
-    this.startNode.show();
-    if (debug) { U.cclear(); }
-    U.pif(debug, 'midnodes:', this.midNodes);
-    for (i = 0; i < this.midNodes; i++) { this.midNodes[i].show(debug); }
-    this.endNode.show();
-    // if (!triggered) { Status.status.getActiveModel().graph.propertyBar.styleEditor.showE(this.logic); }
-    this.refreshGui();
-    IVertex.ChangePropertyBarContentClick(e, this);
-    e.stopPropagation(); }
+    this.refreshGui(); }
 
   onMouseDown(e: MouseDownEvent): void {
+    IVertex.ChangePropertyBarContentClick(e, this);
+    e.stopPropagation();
+    // attach midpoint mouse follower
     if (!this.isSelected) { return; }
     const tmp = this.getBoundingMidPoints(e);
     const pos: GraphPoint = this.owner.toGraphCoord(new Point(e.pageX, e.pageY));
@@ -791,17 +812,21 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
 
   remove() {
     console.log('edge.remove()');
-    this['' + 'removedtwice'] = 1 + (+this['' + 'removedtwice'] || 0);
-    if (this['' + 'removedtwice'] > 1) { U.pw(true, 'edge removed ' + this['' + 'removedtwice'] + ' times.', this); return; }
+    this.isDeleted++;
+    if (this.isDeleted > 1) {
+      if (!(this instanceof M2Reference)) U.pw(true, 'edge removed ' + this.isDeleted + ' times.', this);
+      return; }
     U.arrayRemoveAll(this.start.edgesStart, this);
-    U.arrayRemoveAll(this.end.edgesEnd, this);
+    if (this.end) U.arrayRemoveAll(this.end.edgesEnd, this);
     U.arrayRemoveAll(IEdge.all, this);
     U.arrayRemoveAll(IEdge.selecteds, this);
     const index = this.getIndex();
-    this.logic.edges[index] = null;
-    if (this.logic instanceof MReference) this.logic.mtarget[index] = null;
-    if (this instanceof ExtEdge) U.arrayRemoveAll((this.logic as M2Class).extends, this.end.logic() as M2Class);
+    this.getContainedArray()[index] = null;
+    if (this.logic && this.logic.edges) U.arrayRemoveAll(this.logic.edges, this);
+    if (this.logic instanceof MReference) { this.logic.mtarget[index] = null; }
+    if (this.logic instanceof M2Reference) { (this.logic as M2Reference).delete(true, null, null); }
     this.shell.parentNode.removeChild(this.shell);
+
     // gc helper
     this.end = null;
     this.logic = null;
@@ -943,6 +968,6 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     (svg).setAttributeNS(null, 'x', '' + (center.x - HeadSize.w / 2));
     (svg).setAttributeNS(null, 'y', '' + (center.y - HeadSize.h / 2));
   }
-
-  getIndex(): number { return this.logic.edges.indexOf(this); }
+  getContainedArray(): IEdge[] { return this.logic.edges; }
+  getIndex(): number { return this.getContainedArray().indexOf(this); }
 }

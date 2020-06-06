@@ -126,7 +126,8 @@ export class PropertyBarr {
         input.value = o.setName(input.value, true);
       });
     $html.find('.replaceVarOn').each( (i: number, elem: HTMLElement) => { U.replaceVars(o, elem, false); });
-    $html.find((model.isM() ? '.m1' : '.m2') + 'disable').attr('disabled');
+    console.log('7x', $html, $html.find('.m1disable'), model.isM(), (model.isM() ? '.m1' : '.m2') + 'disable', $html.find((model.isM() ? '.m1' : '.m2') + 'disable'));
+    $html.find((model.isM() ? '.m1' : '.m2') + 'disable').attr('disabled', 'true');
     $html.find((model.isM() ? '.m1' : '.m2') + 'hide').remove();
     return $html; }
 
@@ -247,10 +248,15 @@ export class PropertyBarr {
     const attribListHtml: HTMLElement = ($html.find('.attributeList')[0]);
     const refListHtml: HTMLElement = ($html.find('.referenceList')[0]);
     const opListHtml: HTMLElement = ($html.find('.operationList')[0]);
-    for (i = 0; i < o.attributes.length; i++) { attribListHtml.appendChild(this.getA_I(o.attributes[i])); }
-    for (i = 0; i < o.references.length; i++) { refListHtml.appendChild(this.getR_I(o.references[i])); }
-    const operations: EOperation[] = o.getOperations();
+    const attributes: IAttribute[] = [...o.getAllChildrens(false, false, true, false, false)] as any;
+    for (i = 0; i < attributes.length; i++) { attribListHtml.appendChild(this.getA_I(attributes[i])); }
+    const references: IReference[] = [...o.getAllChildrens(false, false, false, true, false)] as any;
+    for (i = 0; i < references.length; i++) { refListHtml.appendChild(this.getR_I(references[i])); }
+    const operations: EOperation[] = [...o.getAllChildrens(true, false, false, false)] as any;
     for (i = 0; i < operations.length; i++) { opListHtml.appendChild(this.getO(operations[i])); }
+    $html.find('.attributeCount')[0].innerHTML = '' + attributes.length;
+    $html.find('.referenceCount')[0].innerHTML = '' + references.length;
+    $html.find('.operationCount')[0].innerHTML = '' + operations.length;
     if (!(o instanceof MClass)) { return $html[0]; }
     /// Se MClass
     const classe: MClass = o as MClass;
@@ -394,7 +400,7 @@ export class PropertyBarr {
     return $html[0];
   }
 
-  public refreshGUI() { this.show(this.selectedModelPiece, this.clickedLevel, this.selectedModelPieceIsEdge); }
+  public refreshGUI() { this.show(this.selectedModelPiece, this.clickedLevel, this.selectedModelPieceIsEdge, true); }
 
   private getParam(o: EParameter | EOperation, asReturnType: boolean = false) {
     const $html: JQuery<HTMLElement> = this.getTemplate(o);

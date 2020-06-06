@@ -43,6 +43,7 @@ export class M2Class extends IClass {
   metaParent: M3Class;
   instances: MClass[];
   extends: M2Class[] = [];
+  gotExtendedBy: M2Class[] = [];
   isAbstract: boolean;
   isInterface: boolean;
   private extendsStr: string[];
@@ -108,6 +109,17 @@ export class M2Class extends IClass {
     if (!pkg && !json) { return; } // empty constructor for .duplicate();
     this.parse(json, true);
   }
+
+
+  setExtends(superClass: M2Class, refreshGUI: boolean = true, force: boolean = false): boolean {
+    return super.setExtends(superClass, refreshGUI, force); }
+
+  // getDisplayedChildrens(): Set<EOperation | M2Feature> { return this.getBasicChildrens(); }
+  //getBasicChildrens(): Set<M2Feature | EOperation> { return super.getBasicChildrens() as Set<M2Feature | EOperation>; }
+  // getAllChildrens(): (M2Feature | EOperation)[] { return super.getAllChildrens() as (M2Feature | EOperation)[]; }
+  getAllAttributes(): Set<M2Attribute> { return super.getAllAttributes() as Set<M2Attribute>; }
+  getAllReferences(): Set<M2Reference> { return super.getAllReferences() as Set<M2Reference>; }
+  getBasicOperations(): Set<EOperation> { return new Set(this.operations); }
 
   getModelRoot(): MetaModel { return super.getModelRoot() as MetaModel; }
 
@@ -182,7 +194,7 @@ export class M2Class extends IClass {
     let supertypesstr = '';
     const key: any = U.getStartSeparatorKey();
     let i: number;
-    for(i = 0; i < this.extends.length; i++) { supertypesstr += U.startSeparator(key, ' ') + this.extends[i].getEcoreTypeName(); }
+    for (i = 0; i < this.extends.length; i++) { supertypesstr += U.startSeparator(key, ' ') + this.extends[i].getEcoreTypeName(); }
     for (i = 0; i < this.attributes.length; i++) { featurearr.push(this.attributes[i].generateModel()); }
     for (i = 0; i < this.references.length; i++) { featurearr.push(this.references[i].generateModel()); }
     for (i = 0; i < this.operations.length; i++) { operationsarr.push(this.operations[i].generateModel()); }
@@ -264,7 +276,7 @@ export class M2Class extends IClass {
     Type.updateTypeSelectors(null, false, false, true);
     c.refreshGUI();
     return c; }
-
+/*
   getExtendedClassArray(levelDeep: number = Number.POSITIVE_INFINITY, out: M2Class[] = []): M2Class[] {
     let i: number;
     for (i = 0; i < this.extends.length; i++ ) {
@@ -272,13 +284,13 @@ export class M2Class extends IClass {
       U.ArrayAdd(out, curr);
       if (levelDeep > 0) { curr.getExtendedClassArray(levelDeep--, out); }
     }
-    return out; }
+    return out; }*/
 
   // linkToMetaParent(meta: M3Class): void { return super.linkToMetaParent(meta); }
   getReferencePointingHere(): M2Reference[] { return super.getReferencePointingHere() as M2Reference[]; }
   getAttribute(name: string, caseSensitive: boolean = false): M2Attribute { return super.getAttribute(name, caseSensitive) as M2Attribute; }
   getReference(name: string, caseSensitive: boolean = false): M2Reference { return super.getReference(name, caseSensitive) as M2Reference; }
-
+/*
   isExtending(subclass: M2Class): boolean {
     if (!subclass) return false;
     const extendedTargetClasses: M2Class[] = subclass.getExtendedClassArray();
@@ -287,7 +299,7 @@ export class M2Class extends IClass {
       if (this === extendedTargetClasses[i]) { return true; }
     }
     return false;
-  }
+  }*/
 
   static updateSuperClasses() {
     const dictionary: Dictionary<string, M2Class> = Status.status.mm.getEcoreStr_Class_Dictionary();
@@ -300,11 +312,12 @@ export class M2Class extends IClass {
         const target: M2Class = dictionary[classe.extendsStr[j]];
         U.pe(!target, 'e1, failed to find extended class.extendsStr[' + j + ']:', classe.extendsStr[j], 'in classList:', classes,
           'classe to extend:', classe, 'dictionary:', dictionary);
-        classe.extendClass(null, target);
+        classe.setExtends(target, false, true);
       }
       classe.extendsStr = [];
     }
   }
+  /*
   public extendClass(targetstr: string, target: M2Class): void {
     if (!target) target = this.getModelRoot().getClassFromEcoreStr(targetstr);
     U.pe(!target, 'e2, failed to find extended class:', targetstr, 'in classList:', Status.status.mm.getAllClasses(), 'this:', this);
@@ -314,10 +327,10 @@ export class M2Class extends IClass {
     if (!target) target = this.getModelRoot().getClassFromEcoreStr(targetstr);
     U.pe(!target, 'e3, failed to find extended class:', targetstr, 'in classList:', Status.status.mm.getAllClasses(), 'this:', this);
     U.arrayRemoveAll(this.extends, target);
-  }
+  }*/
 
   makeExtendEdge(target: M2Class): ExtEdge {
-    const ret: ExtEdge = new ExtEdge(this, this.getVertex(), target.getVertex());
+    const ret: ExtEdge = new ExtEdge(this, this.getVertex(), target.getVertex(), null);
     this.extendEdges.push(ret);
     return ret; }
 }

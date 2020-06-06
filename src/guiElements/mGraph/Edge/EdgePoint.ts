@@ -153,7 +153,7 @@ export class EdgePoint implements IEdgePoint {
     if (!this.edge) { return; }
     const r: number = centra ? 0 : (isNaN(-this.html.r) ? 0 : -this.html.r);
     U.pe(!this.pos || this.pos.x === null || this.pos.x === undefined, 'this.pos.x undefined', this.pos);
-    U.pe(!pos || pos.x === null || pos.x === undefined, 'pos.x undefined', pos);
+    //U.pe(!pos || pos.x === null || pos.x === undefined, 'pos.x undefined', pos); sometime happens at start of new ExtEdge setup and it's better if it fails silently throwing error
     this.pos.x = (pos.x + r);
     this.pos.y = (pos.y + r);
     this.html.setAttribute('cx', '' + this.pos.x);

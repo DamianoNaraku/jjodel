@@ -1,13 +1,29 @@
-import {IClass, IEdge, IReference, IVertex, M2Class} from '../../../common/Joiner';
+import {GraphPoint, IClass, IClassifier, IEdge, IReference, IVertex, M2Class, MReference, U} from '../../../common/Joiner';
+import KeyDownEvent = JQuery.KeyDownEvent;
+import {Keystrokes} from '../../../common/util';
 
 export class ExtEdge extends IEdge{
   logic: M2Class;
 
-  constructor(logic: M2Class, startv: IVertex = null, end: IVertex = null) {
-    super(logic, null, startv, end);
-  }
+  constructor(logic: M2Class, startv: IVertex, end: IVertex, tmpend: GraphPoint) { super(logic, null, startv, end, tmpend); }
+
   canBeLinkedTo(target0: IClass): boolean {
-    const target: M2Class = target0 as M2Class;
-    return target && this.logic !== target && target.extends.indexOf(this.logic) === -1;
+    let out: {reason: string, indirectExtendChain: IClass[]} = {reason: '', indirectExtendChain: null};
+    if (!this.logic.canExtend(target0, out)) { U.ps(true, out.reason); return false; }
+    return true; }
+
+  addEventListeners(foredge: boolean, forheadtail: boolean): void {
+    super.addEventListeners(foredge, forheadtail);
+    const $edgetail: JQuery<Element> = forheadtail ? $(this.headShell).add(this.tailShell) : $();
+    const $shell: JQuery<Element> = foredge ? $(this.shell) : $();
+    $edgetail.off('keydown.delete').on('keydown.delete', (e: KeyDownEvent) => this.keydown(e));
+    $shell.off('keydown.delete').on('keydown.delete', (e: KeyDownEvent) => this.keydown(e)); }
+
+
+  getContainedArray(): ExtEdge[] { return this.logic.extendEdges; }
+  remove(): void {
+    if (this.end) this.logic.unsetExtends(this.end.logic() as IClass, false);
+    super.remove();
   }
 }
+

@@ -76,6 +76,7 @@ import { ConsoleComponent }        from '../guiElements/console/console.componen
 import {MeasurabletemplateComponent} from './measurabletemplate/measurabletemplate.component';
 import KeyDownEvent = JQuery.KeyDownEvent;
 import {AutocompleteMatch} from '../common/util';
+import MouseDownEvent = JQuery.MouseDownEvent;
 
 // @ts-ignore
 @NgModule({
@@ -186,7 +187,9 @@ export function main0(loadEvent: Event, tentativi: number = 0) {
     // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.js');
     // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.structure.js');
     // U.loadScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js');
-    main(); }
+    main();
+    setTimeout(() => delayedMain(), 1);
+  }
     catch (e) {
       const errormsg = 'initialization failed, this is likely caused by a failure on connection while downloading libraries or by unsupported browser.';
       console.log('first error:', e);
@@ -231,8 +234,15 @@ function globalevents(): void {
   globalNativeFunctionOverride();
   // Prevent the backspace key from navigating back.
   const $document = $(document);
-  $document.off('keydown').on('keydown', U.preventBackSlashHistoryNavigation);
-  $document.on('keydown', (e: KeyDownEvent): void  => {
+  $document.off('mousedown.print').on('mousedown.print', (e: MouseDownEvent) => {
+    let mp: ModelPiece = ModelPiece.get(e);
+    if (!mp) return;
+    let name: string =  mp.printableName(20, true);
+    console.log('clicked mp:', mp.id, name, mp);
+    console.info('clicked mp:', mp.id, name, mp);
+  });
+  $document.off('keydown.preventBackslash').on('keydown.preventBackslash', U.preventBackSlashHistoryNavigation);
+  $document.off('keydown.abortEdgeChange').on('keydown.abortEdgeChange', (e: KeyDownEvent): void  => {
     console.log('documentKeyDown: ', e.key, e.keyCode);
     if (e.key === 'Escape') { Status.status.getActiveModel().graph.edgeChangingAbort(e); }
   });
@@ -397,6 +407,8 @@ function main() {
   // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m); return;
   Type.linkAll();
   M2Class.updateSuperClasses();
+  let m2classes: M2Class[] = Status.status.mm.getAllClasses();
+  // m2classes.forEach((classe: M2Class) => { classe.calculateShadowings(false); });
   try {
     Status.status.m = new Model(JSON.parse(savem1.model), Status.status.mm);
   } catch(e) {
@@ -412,9 +424,11 @@ function main() {
   useless = new ISidebar(Status.status.mm, document.getElementById('model_sidebar'));
   useless = new IGraph(Status.status.mm, document.getElementById('metamodel_editor') as unknown as SVGSVGElement);
   useless = new IGraph(Status.status.m, document.getElementById('model_editor') as unknown as SVGSVGElement);
+  m2classes.forEach((classe: M2Class) => { classe.checkViolations(false); });
   Status.status.mm.graph.setGrid(20, 20, true);
   Status.status.m.graph.setGrid(20, 20, true);
   Status.status.loadedGUI = true;
+  IEdge.all.forEach((e: IEdge) => { e.refreshGui();  e.refreshGui(); });
   Status.status.mm.graph.propertyBar.show(Status.status.mm, null, null);
   Status.status.m.graph.propertyBar.show(Status.status.m, null, null);
   PropertyBarr.staticinit();
@@ -449,7 +463,7 @@ function main() {
       const mp: IClassifier = ModelPiece.getByKeyStr(key) as IClassifier;
       const size: GraphSize = new GraphSize().clone(vdic[key]);
       if (!mp || !(mp instanceof IClassifier)) {
-        U.cclear();
+        // U.cclear();
         U.pw(true, 'invalid vertexposition save, failed to get classifier:', key, vdic); continue; }
       mp.getVertex().setSize(size);
     }
@@ -477,12 +491,13 @@ function main() {
     m.graph.viewPointShell.refreshApplied(); // STEP 3: qui vedo che non è stato applicato, ma è stato ordinato dalla gui di applicarlo -> lo applico.
   }
 
-  IEdge.all.forEach((e: IEdge) => { e.refreshGui(); });
   // setTimeout( () => { Status.status.mm.graph.setGrid0(); Status.status.m.graph.setGrid0(); }, 1);
   // Imposto un autosave raramente (minuti) giusto nel caso di crash improvvisi o disconnessioni
   // per evitare di perdere oltre X minuti di lavoro.
   // In condizioni normali non è necessario perchè il salvataggio è effettuato al cambio di pagina asincronamente
   // e con consegna dei dati garantita dal browser anche a pagina chiusa (navigator.beacon)
+
+  IEdge.all.forEach((e: IEdge) => { e.refreshGui(); });
   ChangelogRoot.CheckUpdates();
   fakemain();
   return;
@@ -490,6 +505,8 @@ function main() {
   //Options.enableAutosave(2 * 60 * 1000);
   // Options.Load(Status.status);
 
+}
+function delayedMain(): void {
 }
 
 function fakemain() {

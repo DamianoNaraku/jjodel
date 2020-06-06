@@ -46,7 +46,7 @@ import {
   Resizableoptions,
   Rotatableoptions,
   DraggableOptionsImpl,
-  ResizableOptionsImpl, StyleEditor, ReservedClasses,
+  ResizableOptionsImpl, StyleEditor, ReservedClasses, EAnnotation,
 } from '../../../common/Joiner';
 import MouseMoveEvent = JQuery.MouseMoveEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
@@ -68,10 +68,12 @@ import {RotatableOptions} from '../../../common/measurable';
 
 export class StartDragContext {
   size: GraphSize;
+  vertex: IVertex;
   // time: Date;
   // grid: GraphPoint;
   constructor(v: IVertex) {
     this.size = v.size.duplicate();
+    this.vertex = v;
     // this.time = new Date();
     // this.grid = v.owner.grid.duplicate();
   }
@@ -127,7 +129,7 @@ export class IVertex {
       if (!edge) edge = new IEdge(ref);
       IVertex.linkVertexMouseDown(e, edge); }*/
 
-  static linkVertexMouseDown(e: MouseDownEvent, edge: IEdge = null, location: GraphPoint = null): void {
+  static linkVertexMouseDown(e: MouseDownEvent | ClickEvent, edge: IEdge = null, location: GraphPoint = null): void {
     if (e) { e.stopPropagation(); }
     if (IEdge.edgeChanging) { IEdge.edgeChanging.owner.edgeChangingAbort(e); }
     edge = edge ? edge : IEdge.get(e);
@@ -150,11 +152,13 @@ export class IVertex {
     return IVertex.getvertexByHtml(e.currentTarget as Element); }
 
   static getvertexByHtml(node0: Element): IVertex {
-    let node: HTMLElement = node0 as HTMLElement
+    const logic: ModelPiece = ModelPiece.getLogic(node0);
+    return logic && logic.getVertex(); }
+    /*let node: HTMLElement = node0 as HTMLElement
     U.pe(!node, 'getVertexByHtml: parameter is not a DOM node:', node);
     while (node && node.dataset && !node.dataset.vertexID) { node = node.parentElement; }
     // console.log('getVertex by id:' + node.dataset.vertexID, 'all:', IVertex.all);
-    return node && node.dataset ? IVertex.getByID(+(node.dataset.vertexID)) : null; }
+    return node && node.dataset ? IVertex.getByID(+(node.dataset.vertexID)) : null; }*/
 
   static getByID(id: number): IVertex { return IVertex.all[id]; }
 
@@ -249,11 +253,6 @@ export class IVertex {
     size.w += extraOffset.x + extraOffset.w;
     size.h += extraOffset.y + extraOffset.h;
     U.setSvgSize(mark, size, null);
-    /*
-    mark.setAttributeNS(null, 'x', '' + size.x);
-    mark.setAttributeNS(null, 'y', '' + size.y);
-    mark.setAttributeNS(null, 'width', '' + (size.w));
-    mark.setAttributeNS(null, 'height', '' + (size.h));*/
     mark.setAttributeNS(null, 'rx', '' + (radiusX));
     mark.setAttributeNS(null, 'ry', '' + (radiusY));
     mark.setAttributeNS(null, 'stroke', '' + (color));
@@ -420,37 +419,40 @@ export class IVertex {
     catch(e) {
       if (!canfail) { throw e; }
       const style = data.getStyle();
-      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : (style.isGlobalhtml ? 'native' : 'user-made') + ' default');
       U.pw(true, 'failed to draw ' + styletype + ' style of enum "' + data.printableNameshort() + '", his style will be resetted.', e);
       if (style.isinstanceshtml) style.view.htmli = null;
       if (style.isownhtml) style.view.htmlo = null;
+      if (style.isCustomGlobalhtml) style.view.unsetDefault();
       this.htmlForeign = null;
       this.drawE(data, false); }
   }
   private drawC(data: IClass, canfail: boolean = true): void {
-    canfail = false;
     try { this.drawC0(data); }
     catch(e) {
       if (!canfail) { throw e; }
       const m: IModel = data.getModelRoot();
       const style = data.getStyle();
-      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : (style.isGlobalhtml ? 'native' : 'user-made') + ' default');
       U.pw(true, 'failed to draw ' + styletype + ' style of ' + (m.isM() ? 'm1-object' : 'class') + ' "' + data.printableNameshort() + '", his style will be resetted.', e);
       if (style.isinstanceshtml) style.view.htmli = null;
       if (style.isownhtml) style.view.htmlo = null;
+      if (style.isCustomGlobalhtml) style.view.unsetDefault();
       this.htmlForeign = null;
       this.drawC(data, false); }
   }
+
   drawO(data: EOperation, canfail: boolean = true): Element {
     try { return this.drawO0(data); }
     catch(e) {
       if (!canfail) { throw e; }
       const m: IModel = data.getModelRoot();
       const style = data.getStyle();
-      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : (style.isGlobalhtml ? 'native' : 'user-made') + ' default');
       U.pw(true, 'failed to draw ' + styletype + ' style of ' + m.getPrefix() + '-operation "' + data.printableNameshort() + '", his style will be resetted.', e);
       if (style.isinstanceshtml) style.view.htmli = null;
       if (style.isownhtml) style.view.htmlo = null;
+      if (style.isCustomGlobalhtml) style.view.unsetDefault();
       return this.drawO(data, false); }
   }
   drawParam(data: EParameter, canfail: boolean = true): Element {
@@ -459,13 +461,14 @@ export class IVertex {
       if (!canfail) { throw e; }
       const m: IModel = data.getModelRoot();
       const style = data.getStyle();
-      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : (style.isGlobalhtml ? 'native' : 'user-made') + ' default');
       U.pw(true, 'failed to draw ' + styletype + ' style of ' + m.getPrefix() + '-parameter "' + data.printableNameshort() + '", his style will be resetted.', e);
       if (style.isinstanceshtml) style.view.htmli = null;
       if (style.isownhtml) style.view.htmlo = null;
+      if (style.isCustomGlobalhtml) style.view.unsetDefault();
       return this.drawParam(data, false); }
   }
-  drawEChild(data: ELiteral): Element { return this.drawTerminal(data); }
+  drawL(data: ELiteral): Element { return this.drawTerminal(data); }
   drawA(data: IAttribute): Element { return this.drawTerminal(data); }
   drawR(data: IReference): Element { return this.drawTerminal(data); }
   drawTerminal(data: Typedd, canfail: boolean = true): Element {
@@ -474,10 +477,11 @@ export class IVertex {
       if (!canfail) { throw e; }
       const m: IModel = data.getModelRoot();
       const style = data.getStyle();
-      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : 'default');
+      const styletype = style.isinstanceshtml ? 'inherited' : ( style.isownhtml ? 'personal' : (style.isGlobalhtml ? 'native' : 'user-made') + ' default');
       U.pw(true, 'failed to draw ' + styletype + ' style of ' + m.getPrefix() + '"' + data.printableNameshort() + '", his style will be resetted.', e);
       if (style.isinstanceshtml) style.view.htmli = null;
       if (style.isownhtml) style.view.htmlo = null;
+      if (style.isCustomGlobalhtml) style.view.unsetDefault();
       return this.drawTerminal(data, false); }
   }
   private drawE0(logic: EEnum): void {
@@ -489,7 +493,7 @@ export class IVertex {
     const $eContainer = $(html).find('.LiteralContainer');
     let i: number;
     for (i = 0; i < logic.childrens.length; i++) {
-      const field = this.drawEChild(logic.childrens[i]);
+      const field = this.drawL(logic.childrens[i]);
       $eContainer.append(field); }
   }
   private drawC0(data: IClass): void {
@@ -499,9 +503,9 @@ export class IVertex {
       this.htmlForeign = style.html as SVGForeignObjectElement; }
     const html: SVGForeignObjectElement = this.htmlForeign;
     /// append childrens:
-    const $attContainer = $(html).find('.AttributeContainer');
-    const $refContainer = $(html).find('.ReferenceContainer');
-    const $opContainer = $(html).find('.OperationContainer');
+    const $childContainer = $(html).find('.ChildrenContainer, .ChildContainer, .AttributeContainer, .ReferenceContainer, .OperationContainer, .ParameterContainer');
+    const childContainer = $childContainer[0];
+
 
     // U.pe($attContainer.length !== 1, 'there must be exactly one element with class "AttributeContainer".', $attContainer);
     // U.pe($refContainer.length !== 1, 'there must be exactly one element with class "ReferenceContainer".', $refContainer);
@@ -511,27 +515,54 @@ export class IVertex {
     // const opContainer = $opContainer[0];
 
     let i: number;
+    let j: number;
+    const childs: Typedd[] = data.getAllChildrens(true, true, true, true, null);
+    let validator: (children: ModelPiece, index: number, list: ModelPiece[]) => boolean;
+    let getValidator = (container): (children: ModelPiece, index: number, list: ModelPiece[]) => boolean => {
+      let validatorStr: string = container && container.getAttribute('filter');
+      let validator0: (children: ModelPiece, index: number, list: ModelPiece[]) => boolean;
+      try {
+        validator0 = eval(validatorStr);
+        if (!U.isFunction(validator0)) throw new Error(); } catch(e) { validator0 = () => true; }
+        return validator0; }
 
-    for (i = 0; i < data.attributes.length; i++) {
-      const field = this.drawA(data.attributes[i]);
-      field.id = 'ID' + data.attributes[i].id;
-      $attContainer.append(field);
+
+    for (j = 0; j < $childContainer.length; j++) {
+      let childContainer = $childContainer[j];
+      validator = getValidator(childContainer);
+      let allowAttributes = childContainer.classList.contains('AttributeContainer') || U.fromBoolString(childContainer.getAttribute('attributes'), true);
+      let allowReferences = childContainer.classList.contains('ReferenceContainer') || U.fromBoolString(childContainer.getAttribute('references'), true);
+      let allowOperations = childContainer.classList.contains('OperationContainer') || U.fromBoolString(childContainer.getAttribute('operations'), true);
+      let allowParameters = childContainer.classList.contains('ParameterContainer') || U.fromBoolString(childContainer.getAttribute('parameters'), true);
+      let allowLiterals = childContainer.classList.contains('LiteralContainer') || U.fromBoolString(childContainer.getAttribute('literals'), true);
+      let allowAnnotations = childContainer.classList.contains('AnnotationContainer') || U.fromBoolString(childContainer.getAttribute('annotations'), true);
+      let allowInheritance = U.fromBoolString(childContainer.getAttribute('inherited'), data.getModelRoot().isM1());
+      let shadowedVal: string = childContainer.getAttribute('inherited');
+      let allowShadowed: boolean = shadowedVal === null ? false : U.fromBoolString(shadowedVal, false, true);
+      for (i = 0; i < childs.length; i++) {
+        let child = childs[i];
+        let field;
+        if (validator && !validator(childs[i], i, childs)) continue;
+        if (!allowInheritance && child.parent !== data) continue;
+        if (child instanceof IFeature) {
+          // error: when i delete extedge shadowed attr will disappear
+          console.log('allowShadowed:', allowShadowed, child.isShadowed(data), child);
+          if (allowShadowed !== null && child.isShadowed(data) !== allowShadowed) continue;
+          if (allowAttributes && child instanceof IAttribute) field = this.drawA(child); else
+          if (allowReferences && child instanceof IReference) field = this.drawR(child); else
+            continue;
+        } else
+        if (allowOperations && child instanceof EOperation) field = this.drawO(child); else
+        if (allowLiterals && child instanceof ELiteral) field = this.drawL(child); else
+        if (allowParameters && child instanceof EParameter) field = this.drawParam(child); else
+        if (allowAnnotations && child instanceof EAnnotation) field = this.drawAnnotation(child); else continue;
+        U.pe(!field, 'failed to get html of:', child);
+        // field.id = 'ID' + childs[i].id;
+        childContainer.append(field); }
     }
 
-    console.trace('4x', 'data.references:', data.references, data.references.length);
-    for (i = 0; i < data.references.length; i++) {
-      const field = this.drawR(data.references[i]);
-      field.id = 'ID' + data.references[i].id;
-      $refContainer.append(field);
-    }
-
-    const operations: EOperation[] = data.getOperations();
-    for (i = 0; i < operations.length; i++) {
-      // console.log('append ref:', data.references[i]);
-      const field = this.drawO(operations[i]);
-      field.id = 'ID' + operations[i].id;
-      $opContainer.append(field); }
   }
+
   getStartPointHtml(): Element {
     const html: HTMLElement = this.getHtmlFirstChild();
     const $start = $(html).find('.StartPoint');
@@ -578,7 +609,7 @@ export class IVertex {
   drawO0(data: EOperation): Element {
     const html: Element =  this.drawTerminal(data);
     const $html = $(html);
-    const $signature = $html.find('.specialjs.signature');
+    const $signature = $html.find('.signature');
     let i: number;
     for (i = 0; i < $signature.length; i++) {
       const htmldataset: HTMLElement = $signature[0] as HTMLElement;
@@ -626,6 +657,8 @@ export class IVertex {
     $nameHtml.val(data.name);
     return html; }
 
+  drawAnnotation(data: EAnnotation): Element {
+    return null; }
 
   drawTerminal0(data: Typedd): Element {
     data.replaceVarsSetup();
@@ -657,6 +690,7 @@ export class IVertex {
   private addEventListeners(): void {
     let i: number;
     const $html = $(this.htmlg);
+    $html.find('.delete').off('click.delete').on('click.delete', (e: ClickEvent) => { ModelPiece.get(e).delete(true); });
     $html.find('.addFieldButton').off('click.addField').on('click.addField', (e: ClickEvent) => { this.addFieldClick(e); });
     $html.find('.AddFieldSelect').off('change.addField').on('change.addField',  (e: ChangeEvent) => { this.addFieldClick(e as any); });
     $html.find('input, select, textarea').off('change.fieldchange').on('change.fieldchange', (e: ChangeEvent) => IVertex.FieldNameChanged(e));
@@ -756,8 +790,8 @@ export class IVertex {
     if (edge.logic instanceof MReference) edge.logic.linkClass(vertexLogic as MClass, edge.getIndex(), true);
     if (edge.logic instanceof M2Reference) edge.logic.setType((vertexLogic as M2Class).getEcoreTypeName());
     if (edge instanceof ExtEdge) {
-      if (edge.end) U.arrayRemoveAll(edge.logic.extends,edge.end.logic() as M2Class);
-      U.ArrayAdd(edge.logic.extends, this.logic() as M2Class);
+      if (edge.end) edge.logic.unsetExtends(edge.end.logic() as IClass, false); // unset old extend without removing this vertex
+      edge.logic.setExtends(this.logic() as M2Class); // extend the newly clicked vertex (this)
     } else {
       U.pe(edge.logic instanceof MClass, 'cst: class edges are currently not supported');
     }
@@ -780,18 +814,28 @@ export class IVertex {
   featureContextMenu(evt: ContextMenuEvent): boolean { return this.onContextMenuInner(evt,  '.Feature'); }
 
   private onContextMenuInner(evt: ContextMenuEvent, classSelector: string): boolean {
+    // evt.preventDefault(); evt.stopPropagation(); return false;
+    evt.stopPropagation();
     DamContextMenuComponent.contextMenu.hide();
     // only if is focused input
     const lastSelected: FocusHistoryEntry = U.focusHistoryEntries[U.focusHistoryElements.length - 1];
     const gotSelectedNow: boolean = lastSelected && U.isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
     const isInput = U.isInput(evt.target, true, false) && !gotSelectedNow;
-    const pixelMoved = this.size.tl().subtract(IVertex.startDragContext.size.tl(), false).absolute();
-    const gotMoved = pixelMoved >= this.tolleranzaRightClickMove;
+
+    let clickStartedOutsideVertex = IVertex.startDragContext == null;
+    // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato = male
+    // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input = male
+    if (isInput && clickStartedOutsideVertex) evt.target.focus();
+    if (!isInput && gotSelectedNow) evt.target.blur();
+    // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
+    const pixelMoved = !clickStartedOutsideVertex && this.size.tl().subtract(IVertex.startDragContext.size.tl(), false).absolute();
+    const gotMoved = !clickStartedOutsideVertex && pixelMoved >= this.tolleranzaRightClickMove;
     const ret: boolean = isInput && !gotMoved;
-    if (ret) return true; else { evt.preventDefault(); evt.stopPropagation(); }
+    // evt['passedThroughVertex'] = ret;
+    if (ret) return true; else { evt.preventDefault();  }
     if (gotMoved) return ret;
     DamContextMenuComponent.contextMenu.show(new Point(evt.pageX, evt.pageY), classSelector, evt.currentTarget);
-    return false; }
+    return ret; }
 
   onMouseDown(e: MouseDownEvent): void {
     if (IEdge.edgeChanging) { this.clickSetReference(e); return; }

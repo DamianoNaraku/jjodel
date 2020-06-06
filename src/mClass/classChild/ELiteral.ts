@@ -37,7 +37,7 @@ import {
   M3Feature,
   EdgeModes,
   EdgePointStyle, EOperation, EParameter, Typedd, Type, Dictionary, EEnum,
-  IClassifier, ECoreEnum, EcoreLiteral, EType, ShortAttribETypes
+  IClassifier, ECoreEnum, EcoreLiteral, EType, ShortAttribETypes, IClass
 } from '../../common/Joiner';
 
 import ChangeEvent = JQuery.ChangeEvent;
@@ -54,6 +54,8 @@ export class ELiteral extends Typedd {
   duplicate(nameAppend?: string, newParent?: ModelPiece): ModelPiece {
     return undefined; //todo
   }
+
+  isInherited(forClass: EEnum): boolean { if (this.parent !== forClass) return true; }
 
   generateModel(): Json {
     const model: Json = {};

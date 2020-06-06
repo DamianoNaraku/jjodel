@@ -169,6 +169,4 @@ export class M3Package extends IPackage {
     this.enums[0].setName('Enumeration');
   }
 
-  refreshGUI_Alone(debug: boolean = true): void { }
-
 }

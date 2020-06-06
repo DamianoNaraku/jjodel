@@ -106,33 +106,23 @@ export abstract class IModel extends ModelPiece {
     }
     return arr; }
 
-  getPackage(fullname: string, throwErr: boolean = true): IPackage {
+  getPackage(fullname: string, caseSensitive: boolean = false, throwErr: boolean = true, debug: boolean = true): IPackage {
     if (fullname.indexOf('.') !== -1) { U.pe(throwErr, 'not a package name:', fullname); return null; }
     let i;
     for ( i = 0; i < this.childrens.length; i++) { if (this.childrens[i].name === fullname) { return this.childrens[i]; } }
-    if (fullname.indexOf('.') !== -1) { U.pe(throwErr, 'valid a package name, but package does not exist:', fullname); return null; }
+    U.pe(throwErr, 'Package does not exist:', fullname);
     return null; }
 
-  getClass(fullname: string, throwErr: boolean = true, debug: boolean = true): IClass {
-    const tks: string[] = fullname.split('.');
-    if (tks.length !== 2) { U.pe(throwErr, 'not a full class name:', fullname); return null; }
-    const classes: IClass[] = this.getAllClasses();
-    let i = -1;
-    while (++i < classes.length) {
-      const currentFname = classes[i].fullname();
-      U.pif(debug, 'fllname: |' + fullname + '| =?= |' + currentFname + '| = ' + currentFname === fullname);
-      if (currentFname === fullname) { return classes[i]; }
+  getClass(fullname: string, caseSensitive: boolean = false, throwErr: boolean = true, debug: boolean = true): IClass {
+    let tks: string[] = fullname.split('.');
+    if (tks.length !== 2) {
+      tks[1] = tks[0];
+      tks[0] = null;
+      // U.pe(throwErr, 'not a full class name:', fullname); return null;
     }
-    const name: string = fullname.substr(fullname.indexOf('.') + 1);
-    i = -1;
-    while (++i < classes.length) {
-      U.pif(debug, 'name: |' + name + '| =?= |' + classes[i].name + '| = ' + classes[i].name === name);
-      if (classes[i].name === name) { return classes[i]; }
-    }
-    U.pe(throwErr, 'valid name but unable to find it. fullname:', fullname, 'classes:', classes);
-    return null;
-    // let i;
-    // for ( i = 0; i < pkg.childrens.length; i++) { if (pkg.childrens[i].name === fullname) { return pkg.childrens[i] as M2Class; } }
+    const name: string = tks[1];
+    const pkg: IPackage = tks[0] ? this.getPackage(tks[0], caseSensitive, throwErr, debug) : this.getDefaultPackage();
+    return pkg.getClass(name, caseSensitive, throwErr, debug);
   }
 
 

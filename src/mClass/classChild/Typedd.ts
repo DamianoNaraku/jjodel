@@ -14,7 +14,7 @@ import {
   MReference,
   ShortAttribETypes,
   Status, Type, IClassifier,
-  U, EEnum, EParameter
+  U, EEnum, EParameter, IModel
 } from '../../common/Joiner';
 
 export type M1ClassChild = MAttribute | MReference;
@@ -71,6 +71,8 @@ export abstract class Typedd extends ModelPiece {
   }
 
   setType(ecoreTypeString: string, throwError: boolean = true, refreshGui: boolean = true): boolean {
+    const root: IModel = this.getModelRoot();
+    //  U.pe(!root.isM2(), 'only m2 model piece features, operations and parameters can change type', this);
     const type: Type = this.getType();
     U.pe(type !== this.type, 'attempting to change parent type!', this, type);
     type.changeType(ecoreTypeString);
@@ -111,7 +113,7 @@ export abstract class Typedd extends ModelPiece {
   abstract getClass(): IClassifier;
   getPackage(): IPackage { return this.parent ? this.getClass().parent : null; }
   graph(): IGraph { return this.getVertex().owner; }
-  getVertex(): IVertex { return this.parent ? this.getClass().getVertex() : null; }
+  getVertex(canMakeIt: boolean = true): IVertex { return this.parent ? this.getClass().getVertex(canMakeIt) : null; }
 
   /*linkToMetaParent<T extends Typedd>(classChild: T) {
     U.pe(true, 'linkToMetaPrent: todo();');

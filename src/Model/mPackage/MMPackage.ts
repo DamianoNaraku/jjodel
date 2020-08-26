@@ -24,7 +24,7 @@ import {
   M3Package,
   M3Reference,
   M3Class,
-  ViewPoint, EEnum, Type
+  ViewPoint, EEnum, Type, Dictionary
 } from '../../common/Joiner';
 
 export class M2Package extends IPackage {
@@ -123,12 +123,12 @@ export class M2Package extends IPackage {
     return v; }
     */
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json {
     const classarr = [];
     const enumarr = [];
     let i: number;
-    for (i = 0; i < this.classes.length; i++) { classarr.push(this.classes[i].generateModel()); }
-    for (i = 0; i < this.enums.length; i++) { enumarr.push(this.enums[i].generateModel()); }
+    for (i = 0; i < this.classes.length; i++) { classarr.push(this.classes[i].generateModel(loopDetectionObj)); }
+    for (i = 0; i < this.enums.length; i++) { enumarr.push(this.enums[i].generateModel(loopDetectionObj)); }
     const classifiers: Json[] = Array.prototype.concat.call(classarr, enumarr);
     const model = new Json(null);
     model[ECorePackage.xmiversion] = '2.0';

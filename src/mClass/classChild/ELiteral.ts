@@ -57,7 +57,7 @@ export class ELiteral extends Typedd {
 
   isInherited(forClass: EEnum): boolean { if (this.parent !== forClass) return true; }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MClass id*/, MClass> = null): Json {
     const model: Json = {};
     model[EcoreLiteral.value] = this.ordinal;
     model[EcoreLiteral.literal] = this.literal;
@@ -105,5 +105,5 @@ export class ELiteral extends Typedd {
     super.fieldChanged(e, true);
   }
 
-  generateModelM1(): string { return this.name; }
+  generateModelM1(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): string { return this.name; }
 }

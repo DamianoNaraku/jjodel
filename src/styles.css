@@ -5,7 +5,7 @@
   width: 10px;  /* Remove scrollbar space */
   /* background: transparent;  /* Optional: just make scrollbar invisible */
 }
-*{
+body{
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -365,11 +365,24 @@ body.Light button.edit:not(.btn) { background-image: url(../img/white/editw.png)
 }
 
 
+.colContainer, .columnContainer {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+.colChild, .columnChild {
+  display: inline-flex;
+  flex-flow: wrap;
+  flex-grow: 1;
+  max-width: 100%;
+  min-width: 0;
+}
 
 /****** changelog style *******/
 .changelog{
   width: 60vw;
   list-style: none;
+  user-select: text;
 }
 
 .changelog li.version::before,

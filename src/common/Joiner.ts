@@ -5,7 +5,6 @@
 // /*new*/export {Styles, ModelPieceStyleEntry, SortType, StyleVisibility} from '../GuiStyles/styles';
 // /*new*/export {ViewHtmlSettings, ViewPoint, ViewRule, ModelView, PackageView, ClassView, AttributeView, EdgeViewRule, ReferenceView, OperationView,
 // ParameterView} from '../GuiStyles/viewpoint';
-import {measurableRules} from './measurable';
 
 export type MyException = any;
 import { default as AnsiUp } from 'ansi_up';
@@ -19,6 +18,9 @@ import * as $$ from 'jquery';
 export const $ = window['' + '$'] = $$;
 import * as $bb from 'bootstrap';
 export const $b = $bb;
+
+import Swal0 from 'sweetalert2'
+export const Swal = Swal0;
 /*
 import * as JQueryUII        from '../../node_modules/jqueryui';
 export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/
@@ -86,12 +88,15 @@ export {EAnnotation} from '../Model/EAnnotation';
 export {EAnnotationDetail} from '../Model/EAnnotationDetail';
 /*new*/export {Database} from '../common/Database';
 export {DamContextMenuComponent} from '../guiElements/dam-context-menu/dam-context-menu.component';
-export {EOperation, OperationVisibility} from '../mClass/classChild/Operations/eOperation';
+export {EOperation, AccessModifier} from '../mClass/classChild/Operations/eOperation';
 export {EParameter} from '../mClass/classChild/Operations/eParameter';
 export {Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH,
   DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent} from '../app/measurabletemplate/measurabletemplate.component';
 export {ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix} from '../guiElements/changelog/ChangelogEntry';
 export {WebsiteTheme} from '../GuiStyles/global';
+export {ModelUpdateMessage} from '../ServerCommunication/Synchronization/ModelUpdateMessage';
+export {SendManager} from '../ServerCommunication/Synchronization/SendManager';
+
 
 
 

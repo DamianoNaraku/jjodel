@@ -533,6 +533,11 @@ export class U {
 
   static petmp(b: boolean, s: any, ...restArgs: any[]): null { return U.pe(b, s, restArgs); }
 
+  static pedev(b: boolean, s: any, ...restArgs: any[]): null {
+    // todo: questi sono gli errori che dovrebbero verificarsi solo in caso di errori nel codice, mai in seguito ad azioni utente invalide.
+    // quindi dovrebbero avere un sistema di error reporting verso un server con ajax request.
+    return U.pe(b, s, ...restArgs); }
+
   static pe(b: boolean, s: any, ...restArgs: any[]): null {
     if (!b) { return null; }
     if (restArgs === null || restArgs === undefined) { restArgs = []; }
@@ -1095,6 +1100,7 @@ export class U {
   */
   static arrayRemoveAll<T>(arr: Array<T>, elem: T, debug: boolean = false): void {
     let index;
+    if (!arr) return;
     while (true) {
       index = arr.indexOf(elem);
       U.pif (debug, 'ArrayRemoveAll: index: ', index, '; arr:', arr, '; elem:', elem);
@@ -2141,11 +2147,13 @@ export class U {
 
   static toBoolString(bool: boolean): string { return bool ? "true" : "false"; }
   static fromBoolString(str: string | boolean, defaultVal: boolean = false, allowNull: boolean = false, allowUndefined: boolean = false): boolean {
-    str = str && ('' + str).toLowerCase();
+    str = ('' + str).toLowerCase();
     if (allowNull && (str === 'null')) return null;
     if (allowUndefined && (str === 'undefined')) return undefined;
+
     if (defaultVal === false) return str === "true" || str === 't' || str === '1'; // true solo se è esplicitamente true, false se ambiguo.
-    if (defaultVal === true) return str === "false" || str === 'f' || str === '0'; // false solo se è esplicitamente false, true se ambiguo.
+    // if (defaultVal === true) return str === "false" || str === 'f' || str === '0'; // false solo se è esplicitamente false, true se ambiguo.
+    if (defaultVal === true) return !(str === "false" || str === 'f' || str === '0'); // false solo se è esplicitamente false, true se ambiguo.
   }
 
   static parseSvgPath(str: string): {assoc: {letter: string, pt: Point}[], pts: Point[]} {
@@ -2872,6 +2880,107 @@ export class U {
     if (includeSelf && elem === active) return true;
     // console.log('hasFocus2:', active, 'contains', elem, ' = ', active.contains(elem));
     return elem.contains(active); }
+
+  static $makeSelect($root: JQuery<HTMLSelectElement>, entries: Dictionary<string, string>, optgrplabel: string = '', selectedVal: string = ''): void {
+    $root.each((i: number, e: HTMLSelectElement) => U.makeSelect(e, entries, optgrplabel, selectedVal));
+  }
+
+  // used to convert type from string to some enum checking after validation
+  static getEnumValByVal<T>(val: string, enumDeclaration:object): T {
+    for (let key in enumDeclaration) {
+      if (enumDeclaration[key] === val) return val as any;
+    }
+    return null; }
+
+  static getEnumValByKey<T>(key: string, enumDeclaration:object): T {
+    if (enumDeclaration && enumDeclaration.hasOwnProperty(key)) return enumDeclaration[key] as T;
+    return null; }
+
+  static getEnumKeyByVal<T>(val: string | T, enumDeclaration:object): string {
+    for (let key in enumDeclaration) {
+      if (enumDeclaration[key] === val) return key;
+    }
+    return null;
+  }
+
+  static makeSelect(select: HTMLSelectElement, entries: Dictionary<string, string>, optgrplabel: string = '', selectedVal: string = ''): void {
+    const grp: HTMLOptGroupElement = document.createElement('optgroup');
+    U.clear(select);
+    select.append(grp);
+    grp.label = optgrplabel;
+    for (let key in entries) {
+      const opt: HTMLOptionElement = document.createElement('option');
+      opt.setAttribute('value', key);
+      opt.innerText = entries[key];
+      if (entries[key] === selectedVal) opt.selected = true;
+      grp.append(opt);
+    }
+  }
+
+  static computeConditionalHides($root: JQuery<Element>, obj: Dictionary<string, boolean>, caseSensitive: boolean = false, cascadeOnChildrens: boolean = true,
+                                 displayFunction: (e: Element) => void = null, hideFunction: (e: Element) => void = null)
+                                 : {show: Element[], hide: Element[], inaltered: Element[]}  {
+    if (!displayFunction) displayFunction = (e: Element) => $(e).show();
+    if (!hideFunction) hideFunction = (e: Element) => $(e).hide();
+    if (cascadeOnChildrens) $root = $root.find('[uif]').addBack('[uif]');
+    else $root.filter('[uif]');
+    let ret: {show: Element[], hide: Element[], inaltered: Element[]} =
+      {hide: [], show: [],  inaltered: []};
+    $root.each((i: number, e: Element) => {
+      let b: boolean = U.checkConditionalHide(e, obj, caseSensitive);
+      switch (b) {
+        case true: ret.show.push(e); displayFunction(e); break;
+        case false: ret.hide.push(e); hideFunction(e); break;
+        default:
+        case null: ret.inaltered.push(e); break;
+      }
+    });
+    return ret;
+  }
+
+  static checkConditionalHide(html: Element, obj: Dictionary<string, boolean>, caseSensitive: boolean = false): boolean {
+    let attrstr: string = html.getAttribute('uif');
+    if (!attrstr) return null;
+    attrstr = attrstr.replace('|+', ' || ').replace('&+', ' && '); // .replace('\s+', ' ');
+    let i: number;
+    let key: string;
+    let tokens: string[] = attrstr.split(' ');
+    if (!caseSensitive) {
+      for (key in obj) {
+        const lckey: string = key.toLowerCase();
+        if (lckey === key) continue;
+        const val: boolean = obj[key];
+        delete obj[key];
+        obj[lckey] = obj[key];
+      }
+    }
+
+    for (i = 0; i < tokens.length; i++) {
+      const token: string = caseSensitive ? tokens[i] : tokens[i].toLowerCase();
+      // ricorda di non salvare in lowercase i token non sostituiti, altrimenti rimpiazza Math.abs() o altre funzioni java native.
+      if (obj.hasOwnProperty(token)) tokens[i] = obj[token];
+    }
+    let ret: boolean;
+    try {
+      ret = eval(tokens.join(' '));
+    } catch (e) {
+      U.pw(true, 'Invalid conditional attribute (UIF), error:', e, 'html:', html, 'attrStr:', attrstr, 'tokens:', tokens, 'dic:', obj, 'caseSensitive:', caseSensitive);
+      ret = null;
+    }
+    // if (ret === null) console.log('rrer', tokens);
+    return ret;
+    // ipotesi 1:
+    //   computa hide = concatenazione hide1 || hide2 || hide3.... (es: m1hide || m1hideifclass), simile per "show"
+    // se ottengo:
+    // hide = null, show = null --> non computato, com'era rimane.
+    // hide = null  --> valueof(showif)
+    // show = null  --> valueof(hideif)
+
+    // hide = true, show = true    --> hide
+    // hide = true, show = false   --> hide
+    // hide = false, show = false  --> hide
+    // hide = false, show = true   --> show
+  }
 }
 export enum Keystrokes {
   escape = 'Escape',

@@ -55,7 +55,7 @@ export abstract class IModel extends ModelPiece {
   static isValidURI(str: string): boolean { return str.indexOf(' ') !== -1 && true; }
   static removeInvalidNameChars(name: string): string { return U.multiReplaceAll(name, [' '], ['']); }
   // abstract conformsTo(meta: IModel): boolean;
-  abstract generateModel(): Json;
+  abstract generateModel(loopDetectionObj?: Dictionary<number /*MClass id*/, MClass>): Json;
   abstract conformability(metaparent: IModel, outObj?: any/*.refPermutation, .attrPermutation*/, debug?: boolean): number;
 
   constructor(metaVersion?: IModel) {
@@ -95,7 +95,7 @@ export abstract class IModel extends ModelPiece {
 
   fullname(): string { return this.name; }
 
-  getVertex(): IVertex { U.pe(true, 'IModel.getVertex();', this); return undefined; }
+  getVertex(canMakeIt: boolean = null): IVertex { return null; }
 
   getAllReferences(): IReference[] {
     const arr: IReference[] = [];

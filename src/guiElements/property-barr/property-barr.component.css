@@ -94,16 +94,23 @@ label{
   line-height: 24px;
   white-space: nowrap;
 }
-label > input, label > select{
+label > input:not([type]), label > input[type=""], label > input[type="text"], label > input[type="number"],
+label > input[type="checkbox"], label > select{
   display: flex;
   margin: auto;
   margin-right: 0;
   margin-left: 20px;
   width: inherit;
   min-width: 60px;
-  /* float: right; */
-  /*margin-right: 0;*/
 }
+/*
+label > input[type="checkbox"]{
+   display: flex;
+   margin: auto;
+   margin-left: 0;
+   margin-right: 20px;
+   min-width: 20px;
+ }*/
 label > input[type="number"] {
   min-width: 30px;
 }

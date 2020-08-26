@@ -348,14 +348,14 @@ export class IGraph {
     if (fitVertical && !isNaN(this.grid.y) && this.grid.y > 0) { pt.y = Math.round(pt.y / this.grid.y) * this.grid.y; }
     U.pif(debug, 'fitToGrid(', pt0, '); this.grid:', this.grid, ' = ', pt);
     return pt; }
-
+/*
   graphContextMenu(e: ContextMenuEvent): boolean {
     // console.log('passedThroughVertex', e, e['passedThroughVertex']);
     // if (e['passedThroughVertex'] !== undefined) return e['passedThroughVertex'];
     e.preventDefault();
     e.stopPropagation();
     return false; }
-
+*/
   addGraphEventListeners() {
     const $graph = $(this.container);
     const thiss: IGraph = this;
@@ -367,7 +367,7 @@ export class IGraph {
     // $graph.off('click.mark').on('click.mark', (e: ClickEvent) => { thiss.markClick(e, true); } );
     $graph.off('mousedown.move').on('mousedown.move', (e: MouseDownEvent) => this.onMouseDown(e, false));
     $graph.off('mouseup.move').on('mouseup.move', (e: MouseUpEvent) => this.onMouseUp(e));
-    $graph.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.graphContextMenu(e); });
+    // $graph.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.graphContextMenu(e); });
     // @ts-ignore
     if (!!ResizeObserver) { // not supported by edge, android firefox.
       if (!window['' + 'resizeobservers']) window['' + 'resizeobservers'] = [];

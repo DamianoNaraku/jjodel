@@ -9,7 +9,7 @@ import {
   M2Class, M3Class,
   ModelPiece,
   ShortAttribETypes, Type,
-  U, ELiteral, GraphSize, IVertex, IEdge, IReference
+  U, ELiteral, GraphSize, IVertex, IEdge, IReference, Status, Dictionary, MClass
 } from '../../../common/Joiner';
 import {ViewRule} from '../../../GuiStyles/viewpoint';
 import {Mark} from '../../../guiElements/mGraph/Vertex/Mark';
@@ -23,7 +23,7 @@ export class OperationVisibility {
   static protectedinternal = 'protected internal';
   static protectedprivate = 'protected private'; }*/
 
-export enum OperationVisibility {
+export enum AccessModifier {
   public = 'public',
   private = 'private',
   protected = 'protected',
@@ -39,7 +39,7 @@ export class EOperation extends Typedd {
   parent: M2Class | M3Class;
   childrens: EParameter[];
   exceptionsStr: string = ''; // classlist to be later processed and linked.
-  visibility: OperationVisibility = OperationVisibility.private;
+  visibility: AccessModifier = AccessModifier.private;
   detailIsOpened: boolean = false && false;
   type: Type;
   // exceptions: IClass[];
@@ -53,11 +53,21 @@ export class EOperation extends Typedd {
   isInherited(forClass: IClass): boolean { if (this.parent !== forClass) return true; }
 
   canOverride(other: EOperation): boolean {
+    console.log('CanOverride(', this, ', ', other, ') ? ',
+      this.name === other.name,
+      this.parent !== other.parent,
+      this.getSignature() == other.getSignature(),
+      this.getReturnType().canOverride(other.getReturnType()));
+
     // NB: se A.a(Object): Object e B.a(String):String lo tratta come polimorfismo. se A.a(String): Object e B.a(String):String lo tratta come override valido.
     return this.name === other.name && this.parent !== other.parent && this.getSignature() == other.getSignature() && this.getReturnType().canOverride(other.getReturnType()); }
   canPolymorph(other: EOperation): boolean {
+    console.log('canPolymorph(', this, ', ', other, ') ? ',
+      this.name === other.name,
+      this.getSignature() != other.getSignature());
     // todo: hide shadowed features
     return this.name === other.name && this.getSignature() != other.getSignature(); }
+
   isCompatible(other: EOperation, allowMark: boolean = false): boolean {
     let ret = this === other || (this.name !== other.name) || this.canOverride(other) || this.canPolymorph(other);
     if (allowMark) {
@@ -72,13 +82,13 @@ export class EOperation extends Typedd {
 
   getVisibilityChar(): string {
     switch (this.visibility) {
-      case OperationVisibility.public: return '+';
-      case OperationVisibility.private: return '-';
-      case OperationVisibility.protected: return '#';
-      case OperationVisibility.internal:
-      case OperationVisibility.package: return '~';
-      case OperationVisibility.protectedinternal: return '#~';
-      case OperationVisibility.protectedprivate: return '#-';
+      case AccessModifier.public: return '+';
+      case AccessModifier.private: return '-';
+      case AccessModifier.protected: return '#';
+      case AccessModifier.internal:
+      case AccessModifier.package: return '~';
+      case AccessModifier.protectedinternal: return '#~';
+      case AccessModifier.protectedprivate: return '#-';
       default: return '?'; } }
 
   getClass(): IClass { return this.parent; }
@@ -95,7 +105,7 @@ export class EOperation extends Typedd {
     // this.arguments = []; for (i = 0; i < this.childrens.length; i++) { U.ArrayAdd(this.arguments, this.childrens[i]); }
     this.refreshGUI(); }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MClass id*/, MClass> = null): Json {
     const parameters: Json[] = [];
     const json: Json = {};
     json[ECoreOperation.eParameters] = parameters;
@@ -116,7 +126,7 @@ export class EOperation extends Typedd {
     Json.write(json, ECoreOperation.ordered, '' + this.ordered);
     Json.write(json, ECoreOperation.unique, '' + this.unique);
     let i: number;
-    for (i = 0; i < this.childrens.length; i++) { parameters.push(this.childrens[i].generateModel()); }
+    for (i = 0; i < this.childrens.length; i++) { parameters.push(this.childrens[i].generateModel(loopDetectionObj)); }
     return json; }
 
   getInfo(toLower: boolean = false): any {
@@ -134,7 +144,7 @@ export class EOperation extends Typedd {
     this.exceptionsStr = Json.read<string>(json, ECoreOperation.eexceptions, '');
     this.ordered = 'true' === '' + Json.read<boolean>(json, ECoreOperation.ordered, 'false');
     this.unique = 'true ' === '' + Json.read<boolean>(json, ECoreOperation.unique, 'false');
-    this.visibility = OperationVisibility.package;
+    this.visibility = AccessModifier.package;
     const parameters: Json[] = Json.getChildrens(json, false);
     let i: number;
     for (i = 0; i < parameters.length; i++) {
@@ -215,7 +225,7 @@ export class EOperation extends Typedd {
   setType(ecoreTypeString: string, throwError: boolean = true, refreshGui: boolean = true): boolean{
     let ret = super.setType(ecoreTypeString, throwError, refreshGui);
     if (!ret) return false;
-    this.parent.calculateInheritanceViolations(true);
+    if (this.parent instanceof M2Class) this.parent.calculateInheritanceViolations(true);
     return true; }
 
   // getReturnType(): EParameter { return this.getFakeReturnTypeParameter(); }
@@ -254,7 +264,7 @@ export class EOperation extends Typedd {
 
 
   delete(refreshgui: boolean = true): void{
-    super.delete(refreshgui);
+    super.delete(false);
   }
 
   markedCompatibility: {key: string, target: EOperation}[] = [];

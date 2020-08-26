@@ -36,8 +36,8 @@ import {
   M3Attribute,
   M3Feature,
   EdgeModes,
-  EdgePointStyle, EOperation, EParameter, Typedd, Type, IClassifier, ECoreAnnotation, EAnnotation
-}                    from '../common/Joiner';
+  EdgePointStyle, EOperation, EParameter, Typedd, Type, IClassifier, ECoreAnnotation, EAnnotation, Dictionary
+} from '../common/Joiner';
 import {ECoreDetail} from './iModel';
 
 export class EAnnotationDetail extends ModelPiece {
@@ -54,13 +54,13 @@ export class EAnnotationDetail extends ModelPiece {
 
   fullname(): string { return this.parent.fullname() + '.' + this.name; }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MClass id*/, MClass> = null): Json {
     const json: Json = {};
     if (this.name !== null) Json.write(json, ECoreDetail.key, this.name);
     if (this.value !== null) Json.write(json, ECoreDetail.value, this.value);
     return json; }
 
-  getVertex(): IVertex { return this.parent.getVertex(); }
+  getVertex(canMakeIt: boolean = true): IVertex { return this.parent.getVertex(canMakeIt); }
 
   parse(json: Json, destructive?: boolean): void {
     let key: string;

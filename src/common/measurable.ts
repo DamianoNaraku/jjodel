@@ -61,11 +61,11 @@ export class ConstraintLeftAdmittedsStatic {
   static readonly targetabsoluteDocPosY: 'target.absoluteDocPos.y' = 'target.absoluteDocPos.y';
 }
 export class UnsafeMeasurableEvalContext {
-  model: ModelPiece;
-  node: Element;
-  vertex: IVertex;
-  graph: IGraph;
-  modelRoot: IModel;
+  model: /*ModelPiece*/ModelPiece;
+  node: /*HtmlElement*/Element;
+  vertex: /*Vertex*/IVertex;
+  graph: /*Graph*/IGraph;
+  modelRoot: /*Model*/IModel;
 }
 export class MeasurableEvalContext {
   unsafec: UnsafeMeasurableEvalContext
@@ -95,8 +95,8 @@ export class MeasurableEvalContext {
 
   static isVertex(context: MeasurableEvalContext): boolean { return context.unsafec.vertex.getHtmlRawForeign() === context.unsafec.node; }
   setSize = (w: number = null/*number*/, h: number = null/*number*/): void => /*void*/{
-    if (U.isNumerizable(w)) { this.width = w; }
-    if (U.isNumerizable(h)) { this.height = h; }
+    if (U.isNumerizable(w)) { this.width = +w; }
+    if (U.isNumerizable(h)) { this.height = +h; }
   };
   setAbsoluteGPos = (x: number = null/*number*/, y: number = null/*number*/): void=>/*void*/ {
     const isVertex: boolean = MeasurableEvalContext.isVertex(this);
@@ -104,8 +104,8 @@ export class MeasurableEvalContext {
       this.absoluteGPos.x = +x;
       if (isVertex) {
         this.vertexSize.x = this.absoluteGPos.x;
-        this.relativeVPos.x = 0;
-        this.relativeVPos.y = 0; }
+        this.relativeVPos.y = 0; //y intenzionale
+        this.relativeVPos.x = 0; }
       else { this.relativeVPos.x = this.absoluteGPos.x - this.vertexSize.x; }
       if (this.target) { this.relativePos.x = this.absoluteGPos.x - this.target.absoluteGPos.x; }
       this.absoluteDocPos.x = this.graphSize.x + (this.absoluteGPos.x - this.graphScroll.x) / this.graphZoom.x;
@@ -114,7 +114,7 @@ export class MeasurableEvalContext {
       this.absoluteGPos.y = +y;
       if (isVertex) {
         this.vertexSize.y = this.absoluteGPos.y;
-        this.relativeVPos.x = 0;
+        this.relativeVPos.x = 0; //x intenzionale
         this.relativeVPos.y = 0; }
       else { this.relativeVPos.y = this.absoluteGPos.y - this.vertexSize.y; }
       if (this.target) { this.relativePos.y = this.absoluteGPos.y - this.target.absoluteGPos.y; }
@@ -125,14 +125,14 @@ export class MeasurableEvalContext {
   setRelativePos = (x: number = null/*number*/, y: number = null/*number*/): void=>/*void*/ {
     if (!this.target) return;
     //const isVertex: boolean = MeasurableEvalContext.isVertex(this);
-    if (U.isNumerizable(x)) { this.absoluteGPos.x = this.target.absoluteGPos.x + x; }
-    if (U.isNumerizable(y)) { this.absoluteGPos.y = this.target.absoluteGPos.y + y; }
+    if (U.isNumerizable(x)) { this.absoluteGPos.x = this.target.absoluteGPos.x + +x; }
+    if (U.isNumerizable(y)) { this.absoluteGPos.y = this.target.absoluteGPos.y + +y; }
     this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
   };
   setRelativeVPos = (x: number = null/*number*/, y: number = null/*number*/): void=>/*void*/ {
     //const isVertex: boolean = MeasurableEvalContext.isVertex(this); should not be used at all in vertexes.
-    if (U.isNumerizable(x)) { this.absoluteGPos.x = this.vertexSize.x + x; }
-    if (U.isNumerizable(y)) { this.absoluteGPos.y = this.vertexSize.y + y; }
+    if (U.isNumerizable(x)) { this.absoluteGPos.x = this.vertexSize.x + +x; }
+    if (U.isNumerizable(y)) { this.absoluteGPos.y = this.vertexSize.y + +y; }
     this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
   };
   setVertexSize = (x: number = null/*number*/, y: number = null/*number*/, w: number = null/*number*/, h: number = null/*number*/): void=>/*void*/ {
@@ -143,18 +143,18 @@ export class MeasurableEvalContext {
     console.log('vsize mid:', this.vertexSize.duplicate());
     if (isVertex) { this.setAbsoluteGPos(x, y); }
     else {
-      if (U.isNumerizable(x)) { this.absoluteGPos.x = x + this.relativeVPos.x; }
-      if (U.isNumerizable(y)) { this.absoluteGPos.y = y + this.relativeVPos.y; }
+      if (U.isNumerizable(x)) { this.absoluteGPos.x = +x + this.relativeVPos.x; }
+      if (U.isNumerizable(y)) { this.absoluteGPos.y = +y + this.relativeVPos.y; }
       this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y); }
     console.log('vsize post:', this.vertexSize.duplicate());
   };
   // può servire a tenere qualcosa fisso al centro del grafo anche se faccio panning
   setAbsoluteDocPos = (x: number = null/*number */, y: number = null/*number*/): void=>/*void*/ {
     if (U.isNumerizable(x)) {
-      this.absoluteDocPos.x = x;
+      this.absoluteDocPos.x = +x;
       this.absoluteGPos.x = this.graphScroll.x + this.graphZoom.x * (this.absoluteDocPos.x - this.graphSize.x); }
     if (U.isNumerizable(y)) {
-      this.absoluteDocPos.y = y;
+      this.absoluteDocPos.y = +y;
       this.absoluteGPos.y = this.graphScroll.y + this.graphZoom.y * (this.absoluteDocPos.y - this.graphSize.y); }
     this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y); };
 
@@ -177,7 +177,7 @@ export class MeasurableEvalContext {
   setWidth = (w: number/*number*/ = null): void=>/*void*/ { return this.setSize(w, null); };
   setHeight = (h: number/*number*/ = null): void=>/*void*/ { return this.setSize(null, h); };
 
-
+  // serve a dare un oggetto verosimile da cui poter generare i suggerimenti dei nomi e tipi per l'editor delle measurableRule
   static fillFake(filltarget: boolean = true): MeasurableEvalContext {
     let thiss: MeasurableEvalContext = new MeasurableEvalContext();
     thiss.isFilled = false;
@@ -198,7 +198,7 @@ export class MeasurableEvalContext {
 
     thiss.attributes = thiss.a = []; // not an array but i want [] suggestions. todo: se è oggetto suggerisci "." se è array suggerisci "["
     // approximation tricks
-    if(filltarget) thiss.target = MeasurableEvalContext.fillFake(false);
+    if (filltarget) thiss.target = MeasurableEvalContext.fillFake(false);
     thiss.model.unsafemp = thiss.unsafec.model = thiss.model as any as ModelPiece;
     return thiss; }
 
@@ -306,20 +306,25 @@ export class MeasurableRuleParts {
       let backupcontext = 'do not use here, keep changes on the real backupcontext, never write on the mock disposable object.';
       let $tmpjq: JQuery<Element>;
       if (targetquery) try { $tmpjq = $(graph.container).find(targetquery); }
-      catch (e) { console.log('exception:', e); return e; }
+      catch (e) { console.error('exception:', e); return e; }
       U.pif(true, '1.context:', evalContext, 'target:', $tmpjq, evalContext.target);
       if ($tmpjq && $tmpjq.length) {
         evalContext.target = new MeasurableEvalContext();
         backupcontext0.target = backupcontext0.target || new MeasurableEvalContext();
         let exception = MeasurableRuleParts.fillEvalContext(evalContext.target, backupcontext0.target, $tmpjq[0], null);
-        if (exception) { exception['mysource'] = ['occurred inside this.target']; return exception; }
+        if (exception) { console.error('exception2:', exception); exception['mysource'] = ['occurred inside this.target']; return exception; }
       }
       U.pif(true, '2.context:', evalContext, 'target:', $tmpjq, evalContext.target);
       U.pe(debug && !evalContext.target, '!target');
     };
 
     if (targetquery && !backupContext.target) { filltarget(); }
-    if (evalContext.isFilled) { return null; } // must be after filltarget
+    if (evalContext.isFilled) {
+      evalContext.setAbsoluteDocPos(evalContext.absoluteDocPos.x, evalContext.absoluteDocPos.y);// non ho capito perchè ma rel.pos và in casino, quindi rifaccio la set absolutepos che reinizializza tutte a catena
+      U.pe (evalContext.target && (evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y),
+      'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos)
+
+      return null; } // must call filltarget() (at least to check if target is filled) even if the main context is already filled. so it's placed below.
     backupContext.isFilled = true; // avoid dual fill, se ci sono due eval() questo rollbackerebbe alla scorsa esecuzione.
     evalContext.isFilled = true;
 
@@ -368,8 +373,12 @@ export class MeasurableRuleParts {
     backupContext.absoluteGPos = new GraphPoint();
     backupContext.absoluteDocPos = new Point();
 
+    // if (evalContext.target) evalContext.relativePos.y = null; // debug
     evalContext.setAbsoluteDocPos(size.x, size.y);
     backupContext.setAbsoluteDocPos(size.x, size.y);
+
+    U.pe (evalContext.target && (evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y),
+      'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos)
 
     return null; };
 
@@ -451,7 +460,6 @@ export class MeasurableRuleParts {
       let ermsg: string;
       let rollbackContext = 'donotuse';
       let evalContext = 'donotusetoo'
-      console.log('000exportchanges part 1', outcontext.vertexSize.y);
       const vertex: IVertex = safeContextRollback.unsafec.vertex;
       const graph: IGraph = vertex.owner;
       graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y);
@@ -460,20 +468,16 @@ export class MeasurableRuleParts {
       // U.pe(true, 'meastest');
       // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
       const isVertex = (vertex.getMeasurableNode() === safeContextRollback.unsafec.node);
-      console.log('3xd finalize set vertexsize:', outcontext.vertexSize, outcontext.relativeVPos, outcontext.relativePos, outcontext);
       vertex.setSize(outcontext.vertexSize, false, true);
-      console.log('000exportchanges part 2', outcontext.vertexSize.y);
       if (!outcontext.model && outcontext !== safeContextRollback) {
         out.right += 'invalid final value for this.model = ' + outcontext.model + ', please do not overwrite context variables.';
         doRollback(); return; }
       if (!isVertex){
-        console.log('000exportchanges part 3', !isVertex, outcontext.vertexSize.y);
         const html: HTMLElement = safeContextRollback.unsafec.node instanceof HTMLElement || safeContextRollback.unsafec.node instanceof SVGSVGElement ? safeContextRollback.unsafec.node as any : null;
         const svgSubElement: SVGElement = !html ? safeContextRollback.unsafec.node as any : null;
         if (!outcontext.relativeVPos || !U.isNumerizable(safeContextRollback.relativeVPos.x) || !U.isNumerizable(outcontext.relativeVPos.y)) {
           out.right+= '\nAn error inside a measurable condition has happened, an invalid value has been wrote inside the variable "relativeVPos".';
           doRollback();  return; }
-        console.log('000exportchanges part 4', !isVertex, outcontext.vertexSize.y);
         if (!html) { out.right += 'inner svg\'s are currently not supported'; doRollback(); return; }
         if (html.style.position !== 'absolute') html.style.position = 'absolute';
         let relativeParentNode: Element = U.getRelativeParentNode(safeContextRollback.unsafec.node);
@@ -489,7 +493,6 @@ export class MeasurableRuleParts {
         if (U.isNumerizable(outcontext.width)) html.style.width = (+outcontext.width) + 'px';
         if (U.isNumerizable(outcontext.height)) html.style.height = (+outcontext.height) + 'px';
       }
-      console.log('000exportchanges part 5', !isVertex, outcontext.vertexSize.y);
       if (!isRollback) {
         // called by rollbackContext because evalContext got the method deleted.
         try {
@@ -589,7 +592,10 @@ export class MeasurableRuleParts {
           out.right += '\ninvalid target selector: ' + exception.toString();
           return out; }
           vertex = rollbackContext.unsafec.vertex;
-          evalOutput = U.evalInContext(evalContext, this.left);
+          U.pe (evalContext.target && (evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y),
+          'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos)
+
+        evalOutput = U.evalInContext(evalContext, this.left);
           if (evalOutput.exception) {
             out.left += '' + evalOutput.exception;
             out.right += 'not executed.';

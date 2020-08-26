@@ -1,8 +1,9 @@
 import {
+  Dictionary,
   IClass,
   IFeature,
   Json,
-  M2Attribute, M3Class, M3Feature, M3Reference, PropertyBarr,
+  M2Attribute, M3Class, M3Feature, M3Reference, ModelPiece, PropertyBarr,
   ShortAttribETypes,
   Status, Type,
   U
@@ -65,7 +66,7 @@ export class M3Attribute extends IAttribute {
 
   duplicate(nameAppend: string = '_', newParent: M3Class = null): M3Attribute { U.pe(true, 'Invalid operation: m3Attr.duplicate()'); return this; }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json {
     U.pe(true, 'm3Attr.generateModel()');
     return {}; }
 

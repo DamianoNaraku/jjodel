@@ -26,7 +26,7 @@ import {
   IModel,
   Size,
   EdgeStyle, MFeature, M2Attribute, M3Class, IClass,
-  Dictionary, GraphSize, MPackage, MReference, MAttribute, M2Reference, M2Feature, EOperation,
+  Dictionary, GraphSize, MPackage, MReference, MAttribute, M2Reference, M2Feature, EOperation, Typedd, EAnnotation,
 } from '../common/Joiner';
 
 export class MClass extends IClass {
@@ -55,7 +55,8 @@ export class MClass extends IClass {
     U.pe(!metaVersion, 'null metaparent?');
     this.parse(json, true);
   }
-  unsetExtends(superclass: M2Class): void {
+
+  public doUnsetExtends(superclass: M2Class): void {
     if (!superclass) return;
     let i: number;
     let j: number;
@@ -82,22 +83,54 @@ export class MClass extends IClass {
     this.refreshGUI_Alone(); }
 
   //todo: fai getByName con prefisso della classe inherited per console. tipo:  ClassC.ClassB1:samenamefeature vs ClassC.ClassB2:samenamefeature
-  setExtends(superclass: M2Class, refresh: boolean = false): boolean {
-    if (!superclass) return false;
-    const attributes: M2Attribute[] = [...superclass.getAllAttributes()];
-    const references: M2Reference[] = [...superclass.getAllReferences()];
+  public changeMetaParent(newMetaParent: M2Class, allowFeatureRemoval: boolean = false, refreshGui: boolean = false): void {
+    if (!newMetaParent) return;
+    if (this.metaParent) U.arrayRemoveAll(this.metaParent.instances, this);
+    this.metaParent = newMetaParent;
+    this.metaParent.instances.push(this);
+    const attributes: M2Attribute[] = [...newMetaParent.getAllAttributes()]; // need shallow copy
+    const references: M2Reference[] = [...newMetaParent.getAllReferences()];
     let i: number;
-    let tmp: any;
-    // exclude the ones already instantiated.
+    // exclude the ones already instantiated (intersection)
     for (i = 0; i < this.attributes.length; i++) { U.arrayRemoveAll(attributes, this.attributes[i].metaParent); }
     for (i = 0; i < this.references.length; i++) { U.arrayRemoveAll(references, this.references[i].metaParent); }
+
+    if (allowFeatureRemoval) { // remove the exceeding ones
+      let thisAttrs: MAttribute[] = [... this.attributes];
+      let thisRefs: MReference[] = [... this.references];
+      for (i = 0; i < thisAttrs.length; i++) {
+        const elem: MAttribute = thisAttrs[i];
+        if (attributes.indexOf(elem.metaParent) >= 0) { refreshGui = true; console.log("7x removing attr", elem.metaParent); elem.delete(false); }
+      }
+      for (i = 0; i < thisRefs.length; i++) {
+        const elem: MReference = thisRefs[i];
+        if (references.indexOf(elem.metaParent) >= 0) { refreshGui = true; console.log("7x removing ref", elem.metaParent); elem.delete(false); }
+      }
+    }
     // create the missing ones.
     for (i = 0; i < attributes.length; i++) { new MAttribute(this, null, attributes[i]); }
     for (i = 0; i < references.length; i++) { new MReference(this, null, references[i]); }
 
-    if (refresh) this.refreshGUI_Alone(); }
+    if (refreshGui) this.refreshGUI_Alone();
+  }
 
   // getAllChildrens(): MFeature[] { return (this.childrens); }
+  getAllChildrens(includeOperations: boolean = true,
+                    includeAnnotations: boolean = true, includeAttributes: boolean = true, includeReferences: boolean = true,
+                    includeShadowed: boolean | null = false/*null = both shadow and unshadow, true = onlyshadowed*/): ModelPiece[] {
+    const arr: ModelPiece[] = [];
+    let j: number;
+    const extChildrens: ModelPiece[] = [...this.childrens, ...this.metaParent.annotations, ...this.metaParent.operations];
+    for (j = 0; j < extChildrens.length; j++) {
+      const child: ModelPiece = extChildrens[j];
+      console.log(child.metaParent, this.metaParent, child, this);
+      if (includeAttributes && child instanceof IAttribute) { arr.push(child); continue; }
+      if (includeReferences && child instanceof IReference) { arr.push(child); continue; }
+      if (includeOperations && child instanceof EOperation) { arr.push(child); continue; }
+      if (includeAnnotations && child instanceof EAnnotation) { arr.push(child); continue; }
+    }
+    return arr; }
+
   getAllAttributes(): Set<MAttribute> { return new Set(this.attributes); }
   getAllReferences(): Set<MReference> { return new Set(this.references); }
   /*getDisplayedChildrens(): Set<EOperation | MFeature> {
@@ -123,6 +156,7 @@ export class MClass extends IClass {
     for (i = 0; i < this.references.length; i++) { if (this.references[i].metaParent.parent === this.metaParent) ret.add(this.references[i]); }
     return ret; }
   getBasicOperations(): Set<EOperation> { return this.metaParent.getBasicOperations(); }
+  getBasicAnnotations(): EAnnotation[] { return this.metaParent.getBasicAnnotations(); }
 
   endingName(valueMaxLength: number = 10): string {
     if (this.attributes.length > 0) { return this.attributes[0].endingName(valueMaxLength); }
@@ -149,7 +183,8 @@ export class MClass extends IClass {
     return c; }
 
   // linkToMetaParent(meta: M2Class): void { return super.linkToMetaParent(meta); }
-  generateModel(root: boolean = false): Json {
+
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null, root: boolean = false): Json {
     /*
        { "-name": "tizio", "attrib2": value2, ...}
     OR:
@@ -163,6 +198,8 @@ export class MClass extends IClass {
         ]
       }
     */
+
+    U.pe(!U.isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj, loopDetectionObj || {});
     const inlineMarker: string = Status.status.XMLinlineMarker;
     const json: Json = {};
     if (root) {
@@ -176,7 +213,7 @@ export class MClass extends IClass {
       for (i = 0; i < arr[outi].length; i++) {
         const child: MFeature = arr[outi][i];
         if (child.isShadowed(this)) continue;
-        const value: Json | string = (child).generateModel();
+        const value: Json | string = (child).generateModel(loopDetectionObj);
         // some error here, il value = ELIteral viene assegnato alla key .nome
         if (value === '' || value === null || value === undefined || U.isEmptyObject(value)) { continue; }
         const key: string = (U.isPrimitive(value) ? inlineMarker : '') + child.metaParent.name;
@@ -196,7 +233,7 @@ export class MClass extends IClass {
     this.references = [];
     this.childrens = [];
     this.referencesIN = []; }
-    this.setExtends(this.metaParent, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
+    this.changeMetaParent(this.metaParent, true, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
 
     /*{                                                           <--- classRoot
         "-xmlns:xmi": "http://www.omg.org/XMI",
@@ -304,4 +341,18 @@ export class MClass extends IClass {
     while (++i < array.length) { if (id === array[i].metaParent.id) { return i; } }
     return -1; }
 
+    delete(refreshgui: boolean = true): void{
+      super.delete(false);
+      // NB: gli m1-link a questo oggetto sono già stati rimossi da setType in m2 o da delete vertex in IClass
+    }
+
+  convertTo(classe: M2Class): void{
+    this.changeMetaParent(classe, true, true);
+  }
+  /*
+  canConvertTo(classe: M2Class): boolean{
+    if (!classe) return true;
+    if (classe.getInterface() || classe.getAbstract()) return false;
+    return this.metaParent.isExtending(classe) || classe.isExtending(this.metaParent);
+  }*/
 }

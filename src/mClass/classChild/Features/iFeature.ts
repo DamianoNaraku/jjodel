@@ -31,15 +31,40 @@ export abstract class IFeature extends Typedd {
     this.isShadowed = mapElement; }*/
 
   isInherited(forClass: IClass): boolean {
-    if (this.parent !== forClass) return true; // for m2
+    let thismr: IModel = this.getModelRoot();
+    let targetmr: IModel = forClass.getModelRoot();
+    U.pe(thismr !== targetmr, 'dev error isInherited(): cannot compare object from different models:', this, forClass);
+    U.pe(thismr.isM3(), 'dev error isInherited(): cannot compare object from m3:', this, forClass);
+    if (thismr.isM2()) return this.parent !== forClass; // for m2
     let m2classContaining: IClass = this.metaParent.parent;
     let m2classOfParent: IClass = forClass.metaParent;
     if (m2classContaining !== m2classOfParent) return true; // for m1
     return false; }
 
   isShadowed(forClass: IClass): boolean {
-    if (!this.isInherited(forClass)) return false;
-    if (this.getModelRoot().isM1()) return this.metaParent.isShadowed(forClass);
+    const myroot: IModel = this.getModelRoot();
+    const targetRoot: IModel = forClass.getModelRoot();
+    U.pe(myroot !== targetRoot, 'error: called isShadowed with subject and parameters on different models:', this, forClass);
+    if (myroot.isM1()) return this.metaParent.isShadowed(forClass.metaParent);
+    let childs = forClass.getAllChildrens(false, false, true, true, false);
+    let myIndex = childs.indexOf(this);
+    for (let i = 0; i < myIndex; i++) {
+      if (childs[i].name === this.name) {
+
+        console.log (forClass.id + '_' + this.id + ' true 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map((e)=> e.parent.name + '.' + e.name));
+        return true;
+      }
+    }
+    console.log (forClass.id + '_' + this.id + ' false 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map((e)=> e.parent.name + '.' + e.name));
+
+    return false;
+  }
+
+
+
+/*  isShadowedOld(forClass: IClass): boolean {
+    if (forClass !== this.parent && !this.isInherited(forClass)) return false;
+    if (this.getModelRoot().isM1()) return this.metaParent.isShadowed(forClass.metaParent);
     if (forClass.getModelRoot().isM1()) forClass = forClass.metaParent;
     let superclasses: IClass[] = forClass.getAllSuperClasses();
     let i: number;
@@ -48,7 +73,7 @@ export abstract class IFeature extends Typedd {
       let tmp = sc.isChildNameTaken(this.name);
       if (tmp) return true; }
     return false; }
-
+*/
 }
 
 export type M3Feature = M3Reference | M3Attribute;

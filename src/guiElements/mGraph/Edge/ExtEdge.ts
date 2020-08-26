@@ -7,7 +7,7 @@ export class ExtEdge extends IEdge{
 
   constructor(logic: M2Class, startv: IVertex, end: IVertex, tmpend: GraphPoint) { super(logic, null, startv, end, tmpend); }
 
-  canBeLinkedTo(target0: IClass): boolean {
+  canBeLinkedTo(target0: M2Class): boolean {
     let out: {reason: string, indirectExtendChain: IClass[]} = {reason: '', indirectExtendChain: null};
     if (!this.logic.canExtend(target0, out)) { U.ps(true, out.reason); return false; }
     return true; }
@@ -22,7 +22,7 @@ export class ExtEdge extends IEdge{
 
   getContainedArray(): ExtEdge[] { return this.logic.extendEdges; }
   remove(): void {
-    if (this.end) this.logic.unsetExtends(this.end.logic() as IClass, false);
+    if (this.end) this.logic.unsetExtends(this.end.logic() as M2Class, false);
     super.remove();
   }
 }

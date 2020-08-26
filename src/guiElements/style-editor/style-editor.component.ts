@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {
+  AccessModifier, DamContextMenuComponent,
   Draggableoptions,
   DraggableOptionsPH,
   EdgeModes,
@@ -10,7 +11,7 @@ import {
   IModel, InputPopup,
   IPackage,
   IReference,
-  IVertex,
+  IVertex, M2Class,
   Measurable, MeasurableEvalContext,
   MeasurableRuleLists,
   MeasurableRuleParts,
@@ -37,6 +38,8 @@ import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
 import {AutocompleteMatch} from '../../common/util';
 import {Style} from '@angular/cli/lib/config/schema';
+import Swal from 'sweetalert2';
+import ContextMenuEvent = JQuery.ContextMenuEvent;
 
 @Component({
   selector: 'app-style-editor',
@@ -74,6 +77,8 @@ type ownStyleContext = {
   saveasName: HTMLInputElement,
   styledelete: HTMLButtonElement,
   measurableCheckbox: HTMLInputElement,
+  interfaceCheckbox: HTMLInputElement,
+  abstractCheckbox: HTMLInputElement,
 };
 
 export class StyleEditor {
@@ -129,6 +134,7 @@ export class StyleEditor {
     // if (m instanceof IPackage) { this.showP(m); return; }
     this.clickedLevel = clickedLevel = clickedLevel || m.getHtmlOnGraph();
     this.showMP(m, null, false, null);
+    this.addEventListeners();
     this.updateClickedGUIHighlight();
     return;/*
     if (m instanceof IClass) { this.showC(m); }
@@ -138,6 +144,10 @@ export class StyleEditor {
     if (m instanceof EParameter) { this.showParam(m); }*/
   }
 
+  addEventListeners(): void {
+    // this.$root.find('[data-modelpieceid]').off('contextmenu')
+    // .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
+  }
   updateClickedGUIHighlight() {
     $(this.propertyBar.model.graph.container).find('.styleEditorSelected').removeClass('styleEditorSelected');
     if (this.isVisible() && this.clickedLevel) { this.clickedLevel.classList.add('styleEditorSelected'); }
@@ -248,6 +258,8 @@ export class StyleEditor {
       saveasName: null,
       styledelete: null,
       measurableCheckbox: null,
+      interfaceCheckbox: null,
+      abstractCheckbox: null
     };
     if (insideOwnSection) this.ownstylecontext = obj;
     //// setting up labelAllowEdit (checking if the (own, inherited or inheritable) style exist or a modelpiece local copy is needed.)
@@ -271,6 +283,7 @@ export class StyleEditor {
     obj.saveasName = $detail.find('input.saveas')[0] as HTMLInputElement;
     obj.delete = $detail.find('button.delete')[0] as HTMLButtonElement;
     obj.forkButton = $detail.find('button.saveas')[0] as HTMLButtonElement;
+
     // let inheritableStyle: StyleComplexEntry = isInheritable ? mp.getInheritableStyle() : null;
     // let inheritedStyle: StyleComplexEntry = isInherited ? mp.getInheritedStyle() : null;
     const lastvp: ViewPoint = model.getLastView();
@@ -403,19 +416,18 @@ export class StyleEditor {
       e.stopImmediatePropagation();
     });
     $(obj.styledelete).on('click', () => { style.view.delete(); mp.refreshGUI(); this.show(mp, mp.getHtmlOnGraph()); });
-    $measurableCheckbox.on('click', (e: ClickEvent) => { e.stopPropagation(); });
-    $measurableCheckbox.on('mousedown', (e: MouseDownEvent) => {e.stopPropagation(); });
-    $measurableCheckbox.on('mouseup', (e: MouseUpEvent) => { e.stopPropagation(); });
+    let stopPropagation = (e: ClickEvent | MouseDownEvent | MouseUpEvent) => { e.stopPropagation(); };
     if (!$measurableCheckbox[0].checked) $measurableTitle.hide();
     let templateParent = context.templateLevel && context.templateLevel.parentElement;
-    $measurableCheckbox.off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e: ChangeEvent) => {
+    $measurableCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation)
+      .off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e: ChangeEvent) => {
       context.templateLevel.classList.remove('measurable');
       if (measurableCheckbox.checked) {
         context.templateLevel.classList.add('measurable');
         if (context.templateLevel instanceof HTMLElement) context.templateLevel.style.position = 'absolute';
         $measurableTitle.slideDown();
         if (!$measurableBody[0].classList.contains('show')) { $measurableTitle.trigger('click'); }
-        console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', templateParent.style.position);
+        // console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', templateParent.style.position);
         if (templateParent) {
           if (templateParent.style.position !== 'relative'){
             U.ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was'
@@ -1126,7 +1138,13 @@ export class StyleEditor {
       const attr: Attr = context.graphLevel.attributes.getNamedItem(generateRuleName().toLowerCase());
       let parts: MeasurableRuleParts = new MeasurableRuleParts(attr, null, false);
       U.pe(!parts.prefix, 'unexpected rule: ' + parts, this, attr, generateRuleName());
-      let output: MeasurableRuleParts = parts.process(false);
+      let output: MeasurableRuleParts = new MeasurableRuleParts(null, null, true);
+      try { output = parts.process(false); }
+      catch (exception) {
+        output = new MeasurableRuleParts(null, null, true);
+        console.error('testing the execution caused exception:', exception);
+        output.right = 'Exception:' + exception;
+      }
       console.log('execution output:', output);
       if (debugleft) debugleft.innerText = output.left;
       if (debugoperator) debugoperator.innerText = output.operator;

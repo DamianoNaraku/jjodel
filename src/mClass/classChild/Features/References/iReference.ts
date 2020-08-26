@@ -1,4 +1,5 @@
 import {
+  Dictionary,
   EdgeModes,
   EdgePointStyle,
   EdgeStyle,
@@ -8,7 +9,7 @@ import {
   Json,
   M2Class,
   M2Reference,
-  M3Class, MAttribute, MetaMetaModel, MetaModel,
+  M3Class, MAttribute, MetaMetaModel, MetaModel, ModelPiece,
   MReference,
   U, WebsiteTheme
 } from '../../../../common/Joiner';
@@ -202,7 +203,7 @@ export class M3Reference extends IReference {
 
   generateEdges(): IEdge[] { U.pe(true, 'Invalid operation: m3Reference.generateEdges()'); return []; }
 
-  generateModel(): Json { U.pe(true, 'Invalid operation: m3Reference.generateModel()'); return {}; }
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json { U.pe(true, 'Invalid operation: m3Reference.generateModel()'); return {}; }
 
   parse(json: Json, destructive?: boolean): void { this.name = 'Reference'; }
 

@@ -13,7 +13,7 @@ import {
   ISidebar,
   IGraph,
   IModel, MetaMetaModel,
-  Status, IReference, IClass, ModelNone, M3Class, M2Package, EEnum, Type
+  Status, IReference, IClass, ModelNone, M3Class, M2Package, EEnum, Type, Dictionary
 } from '../../common/Joiner';
 import {IClassifier} from '../../mClass/IClassifier';
 
@@ -48,7 +48,7 @@ export abstract class IPackage extends ModelPiece {
 
   // conformability(metaparent: IPackage, outObj?: any, debug?: boolean): number { return 1; }
   fullname(): string { return this.name; }
-  getVertex(): IVertex { return undefined; }
+  getVertex(canMakeIt: boolean = null): IVertex { return undefined; }
 
 
   getEnum(name: string, caseSensitive: boolean = false, throwErr: boolean = true, debug: boolean = true): EEnum {
@@ -157,7 +157,7 @@ export class M3Package extends IPackage {
     const c = new M3Class(this, null);
     return c; }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json {
     return undefined;
   }
 

@@ -28,7 +28,7 @@ export class MetaMetaModel extends IModel {
   getAllReferences(): M3Reference[] { return super.getAllReferences() as M3Reference[]; }
 
 
-  generateModel(): Json { return undefined; }
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json { return undefined; }
 
   getPrefix(): string { return 'mmm'; }
   getPrefixNum(): string { return 'm3'; }

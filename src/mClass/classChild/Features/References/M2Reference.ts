@@ -25,7 +25,7 @@ import {
   M3Reference,
   EdgeStyle,
   EdgeModes,
-  EdgePointStyle, MetaModel, Info, IClass, Type, EEnum,
+  EdgePointStyle, MetaModel, Info, IClass, Type, EEnum, Dictionary,
 } from '../../../../common/Joiner';
 
 export class M2Reference extends IReference {
@@ -65,7 +65,7 @@ export class M2Reference extends IReference {
       pv.referenceViews.push(v); }*/
   }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json {
     const model = new Json(null);
     model[ECoreReference.xsitype] = 'ecore:EReference';
     model[ECoreReference.eType] = this.type.toEcoreString();

@@ -5,7 +5,12 @@
     <div class="content">
       <label class="model todo">URI:<input class = "uri m1disable" pattern="^[a-zA-Z_$][a-zA-Z_$0-9]*$"></label>
       <label class="model todo">Namespace:<input class = "namespace m1disable" pattern="^[a-zA-Z_$][a-zA-Z_$0-9]*$"></label>
-      <label class="class m2hide">Is Root<input type="checkbox" class="isRoot"></label>
+      <label class="class m2hide"><span>Is Root</span><input type="checkbox" class="isRoot"></label>
+
+      <label class="class m1hide">is interface <input class="isinterface" type="checkbox"></label>
+      <label class="class m1hide">is abstract <input class="isabstract" type="checkbox"></label>
+      <label class="class">Access <select class="m1disable accessModifier"></select></label>
+
       <label class="operation todo">Access modifier:<select class="specialjs visibilitySelector m1disable"></select></label>
       <label class="literal">Ordinal:<input class="value" type="number"></label>
       <label>Name:<input class="name m1disable" placeholder="nameless" pattern="^[a-zA-Z_$][a-zA-Z_$0-9]*$"></label>

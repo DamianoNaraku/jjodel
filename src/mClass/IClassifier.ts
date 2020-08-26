@@ -72,10 +72,11 @@ export abstract class IClassifier extends ModelPiece{
     Type.updateTypeSelectors(null, false, true, true);
     return this.name; }
 
-  getVertex(): IVertex {
+
+  getVertex(canMakeIt: boolean = true): IVertex {
     const displayAsEdge: boolean = this.shouldBeDisplayedAsEdge();
     // U.pw(displayAsEdge, 'getvertex called on a class that should not have a vertex.', this);
-    if (!displayAsEdge && this.vertex === null && Status.status.loadedLogic) { this.generateVertex(); }
+    if (canMakeIt && !displayAsEdge && this.vertex === null && Status.status.loadedLogic) { this.generateVertex(); }
     return this.vertex; }
 
   getEcoreTypeName(): string {
@@ -84,10 +85,7 @@ export abstract class IClassifier extends ModelPiece{
   }
 
   delete(refreshgui: boolean = true): void {
-    super.delete(false);
-    // todo: che fare con le reference a quella classe? per ora cancello i campi.
-    let i;
     if (!this.shouldBeDisplayedAsEdge()){ this.getVertex().remove(); }
-    if (refreshgui) this.refreshGUI();
+    super.delete(false);
   }
 }

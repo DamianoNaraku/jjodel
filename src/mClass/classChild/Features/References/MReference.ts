@@ -32,7 +32,7 @@ import {
 
 export class MReference extends IReference {
   static stylesDatalist: HTMLDataListElement;
-  private static loopDetection: Dictionary<number /*MClass id*/, MClass> = {};
+  // private static loopDetection: Dictionary<number /*MClass id*/, MClass> = {};
 
   parent: MClass;
   metaParent: M2Reference;
@@ -131,20 +131,25 @@ export class MReference extends IReference {
 
 
   // LinkToMetaParent(ref: MReference): void { super.LinkToMetaParent(ref); }
-  generateModel(): Json { MReference.loopDetection = {}; return this.generateModelLoop(); }
-  generateModelLoop(): Json {
+  generateModel(loopDetectionObj0: Dictionary<number /*MClass id*/, ModelPiece> = null): Json {
+    const loopDetectionObj = loopDetectionObj0 || {};
+    console.log("loopdetect isobject?", U.isObject(loopDetectionObj), " param:", loopDetectionObj0, loopDetectionObj0 || {});
+    U.pe(!U.isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj0, loopDetectionObj0 || {});
+    return this.generateModelLoop(loopDetectionObj); }
+
+  generateModelLoop(loopDetectionObj: Dictionary<number /*MClass id*/, MClass>): Json {
     const ret: Json[] = [];
     let i: number;
     for (i = 0; i < this.mtarget.length; i++) {
       if (!this.mtarget[i]) continue;
       const mclass: MClass = this.mtarget[i];
-      if (MReference.loopDetection[mclass.id]) {
+      if (loopDetectionObj[mclass.id]) {
         // todo: in caso di loop cosa ci devo mettere nel modello?
         ret.push('LoopingReference');
         U.pw(true, 'looping reference in model');
       } else {
-        MReference.loopDetection[mclass.id] = mclass;
-        ret.push(mclass.generateModel());
+        loopDetectionObj[mclass.id] = mclass;
+        ret.push(mclass.generateModel(loopDetectionObj, false));
       }
     }
     return ret;

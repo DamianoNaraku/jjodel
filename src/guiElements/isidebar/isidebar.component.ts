@@ -30,6 +30,7 @@ export class IsidebarComponent implements OnInit {
   }
 
 }
+
 export class ISidebar {
   // mm: boolean = null;
   model: IModel;

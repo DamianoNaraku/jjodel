@@ -11,7 +11,7 @@ import {
   IVertex,
   IEdge,
   EdgeStyle, MPackage,
-  ModelPiece, Status, MClass, ECoreClass, ModelNone, M3Class, M3Reference, M2Package, MReference, IClass
+  ModelPiece, Status, MClass, ECoreClass, ModelNone, M3Class, M3Reference, M2Package, MReference, IClass, Dictionary
 } from '../common/Joiner';
 
 export class Model extends IModel {
@@ -74,11 +74,13 @@ export class Model extends IModel {
   getClass(fullname: string, caseSensitive: boolean = false, throwErr: boolean = true, debug: boolean = true): MClass {
     return super.getClass(fullname, caseSensitive, throwErr, debug) as MClass; }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json {
     const json: Json =  {};
     const classRoot: MClass = this.getClassRoot();
     if (!classRoot) return Model.emptyModel;
-    json[classRoot.metaParent.getNamespaced()] = classRoot.generateModel(true);
+
+    // U.pe(!U.isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj, loopDetectionObj || {});
+    json[classRoot.metaParent.getNamespaced()] = classRoot.generateModel(loopDetectionObj, true);
     return json; }
 
   // namespace(set: string = null): string { return this.metaParent.namespace(set); }

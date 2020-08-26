@@ -8,7 +8,7 @@ import {
   ShortAttribETypes,
   U,
   MetaModel,
-  AttribETypes, Status,
+  AttribETypes, Status, Dictionary, ModelPiece,
 } from '../../../../common/Joiner';
 
 export class M2Attribute extends IAttribute {
@@ -37,7 +37,7 @@ export class M2Attribute extends IAttribute {
       pv.attributeViews.push(v); }*/
   }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MClass id*/, ModelPiece> = null): Json {
     const model = new Json(null);
     Json.write(model, ECoreAttribute.xsitype, 'ecore:EAttribute');
     Json.write(model, ECoreAttribute.eType, this.type.toEcoreString());

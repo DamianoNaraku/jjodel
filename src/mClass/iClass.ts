@@ -36,10 +36,11 @@ import {
   M3Attribute,
   M3Feature,
   EdgeModes,
-  EdgePointStyle, EOperation, EParameter, Typedd, Type, EEnum, WebsiteTheme, M2Feature, ExtEdge, GraphSize, EAnnotation,
+  EdgePointStyle, EOperation, EParameter, Typedd, Type, EEnum, WebsiteTheme, M2Feature, ExtEdge, GraphSize, EAnnotation, Dictionary,
 } from '../common/Joiner';
 import {IClassifier} from './IClassifier';
 import {EdgeHeadStyle} from '../guiElements/mGraph/Edge/edgeStyle';
+import {LocalStorageM1} from '../Database/LocalStorage';
 export abstract class ClassInheritance{
   attributes: IAttribute[];
   references: IReference[];
@@ -56,8 +57,8 @@ export abstract class IClass extends IClassifier {
   referencesIN: IReference[] = []; // external pointers to this class.
   shouldBeDisplayedAsEdgeVar: boolean = false && false;
 
-  extends: IClass[] = [];
-  gotExtendedBy: IClass[] = [];
+  extends: M2Class[] = [];
+  gotExtendedBy: M2Class[] = [];
 
   edges: IEdge[] = [];
   edgeStyleCommon: EdgeStyle;
@@ -123,15 +124,14 @@ export abstract class IClass extends IClassifier {
     const oldparent = this.parent;
     super.delete(false);
     if (oldparent) U.arrayRemoveAll(oldparent.classes, this);
-    // todo: che fare con le reference a quella classe? per ora cancello i campi.
-    const pointers: IReference[] = this.getReferencePointingHere();
+
+
+    /*
+    che fare con le reference a quella classe? così cancello i campi.
+    const pointers: IReference[] = U.shallowArrayCopy(this.getReferencePointingHere());
     let i;
     for (i = 0; i < pointers.length; i++) { pointers[i].delete(); }
-    if (this.shouldBeDisplayedAsEdge()) {
-      const edges: IEdge[] = U.ArrayCopy(this.getEdges(), false);
-      for (i = 0; i < edges.length; i++) { edges[i].remove(); }
-    }
-    Type.updateTypeSelectors(null, false, false, true);
+    */
     if (refreshgui) this.refreshGUI();
   }
 
@@ -312,167 +312,39 @@ export abstract class IClass extends IClassifier {
     return ret; }*/
   // todo: typescript proposal: insert type "this.field[]" così posso specificare il tipo di ritorno della funzione uguale a quello di quel campo.
 
-  getAllSuperClasses(plusThis: boolean = false): IClass[] {
-    // :this sembra buggato come parametro input: se gli passo un parametro stesso tipo mi da comunque errore, ma accetta letteralmente "this"...
-    let i: number;
-    const set: Set<IClass> = plusThis ? new Set<IClass>([this as any]) : new Set();
-    for (i = 0; i < this.extends.length; i++) {
-      U.SetMerge(true, set, this.extends[i].getAllSuperClasses(true)); }
-    return [...set]; }
+  public abstract getAllChildrens(includeOperations?: boolean,
+                  includeAnnotations?: boolean, includeAttributes?: boolean, includeReferences?: boolean,
+                  includeShadowed?: boolean | null): ModelPiece[]; // null = both shadow and unshadow, true = onlyshadowed
 
-  getAllSubClasses(plusThis: boolean = false): IClass[] {
-    let i: number;
-    const set: Set<IClass> = plusThis ? new Set<IClass>([this as any]) : new Set();
-    for (i = 0; i < this.gotExtendedBy.length; i++) {
-      U.SetMerge(true, set, this.gotExtendedBy[i].getAllSubClasses(true)); }
-    return [...set]; }
 
-  getBasicExtends(plusThis: boolean = false): IClass[] { return plusThis ? [this, ...this.extends] : this.extends; }
-
-  canExtend(superclass: IClass, output: {reason: string, indirectExtendChain: IClass[]} = {reason: '', indirectExtendChain: null}): boolean {
-    if (!superclass)  { output.reason = 'Invalid extend target: ' + superclass; return false; }
-    if (superclass === this) { output.reason = 'Classifiers cannot extend themself.'; return false; }
-    if (this.extends.indexOf(superclass) >= 0) { output.reason = 'Target class is already directly extended.'; return false; }
-    if(!this.getModelRoot().isM2()) { output.reason = 'Only a M2 IClassifier can extend other IClassifiers.'; return false; }
-    output.indirectExtendChain = output.indirectExtendChain || superclass.getAllSuperClasses(false);
-    if (this.getAllSuperClasses(false).indexOf(superclass) >= 0) { output.reason = 'Target class is already indirectly extended.'; return false; }
-    if (output.indirectExtendChain.indexOf(this) >= 0) { output.reason = 'Cannot set this extend, it would cause a inheritance loop.'; return false; }
-    // ora verifico se causa delle violazioni di override (attibuti omonimi string e boolean non possono overridarsi)
-    let i: number;
-    let j: number;
-    let childrens: EOperation[] = [...this.getBasicOperations()];
-    let superchildrens: EOperation[] = [...superclass.getBasicOperations()];
-    for (i = 0; i < childrens.length; i++) {
-      let op: EOperation = childrens[i];
-      for (j = 0; j < superchildrens.length; j++){
-        let superchildren: EOperation = superchildrens[j];
-        if (op.name !== superchildren.name) continue;
-        if (op.canOverride(superchildren) || op.canPolymorph(superchildren)) continue;
-        output.reason = 'Marked homonymous operations cannot override nor polymorph each others.';
-        setTimeout( () => {
-          op.mark(true, superchildren, 'override');
-          setTimeout( () => { op.mark(false, superchildren, 'override'); }, 1000);
-          }, Status.status.loadedGUI ? 0 : 2);
-        return false;
-      }
-    }
-    return true; }
-
-  isExtending(superclass: M2Class, orEqual: boolean = true): boolean {
-    if (!superclass) return false;
-    const extendss: IClass[] = this.getAllSuperClasses(orEqual);
-    let i: number;
-    for (i = 0; i < extendss.length; i++) {
-      if (superclass === extendss[i]) { return true; }
-    }
-    return false; }
-
-  setExtends(superclass: IClass, refreshGUI: boolean = true, force: boolean = false): boolean {
-    let out: {reason: string, indirectExtendChain: IClass[]} = {reason: '', indirectExtendChain: null};
-    if (!this.canExtend(superclass, out)) {
-      U.pw(true, out.reason);
-      if (!force) return false; }
-    this.extends.push(superclass);
-    U.ArrayAdd(superclass.gotExtendedBy, this);
-    let i: number;
-    if (this instanceof M2Class) for (i = 0; i < this.instances.length; i++) { (this).instances[i].setExtends(superclass as M2Class); }
-    if (refreshGUI) this.refreshGUI_Alone();
-    const extendChildrens: IClass[] = this.getAllSuperClasses(true);
-
-    console.log('calculateViolationsExtend childrens:'  + extendChildrens, this);
-    if (refreshGUI) for (i = 0; i < extendChildrens.length; i++) {
-      let extChild: IClass = extendChildrens[i];
-      console.log('calculateViolationsExtend');
-      extChild.checkViolations(false);
-    }
-    // if (this.vertex) this.vertex.owner.propertyBar.refreshGUI();
-    // if (this.vertex) this.vertex.owner.propertyBar.show(this,null, true, true);
-    return true; }
-
-  unsetExtends(superclass: IClass, removeEdge: boolean = true): void {
-    if (!superclass) return;
-    console.log('UnsetExtend:', this, this.name);
-    U.pe(!this.getModelRoot().isM2(), 'Only m2 IClassifier can un-extend other IClassifiers.');
-    let index: number = this.extends.indexOf(superclass);
-    if (index < 0) return;
-    let i: number;
-    this.extends.splice(index, 1);
-    U.arrayRemoveAll(superclass.gotExtendedBy, this);
-    this.refreshGUI_Alone();
-    if (this instanceof M2Class) {
-      for (i = 0; i < this.instances.length; i++) { (this).instances[i].unsetExtends(superclass as M2Class); }
-      if (removeEdge) for (i = 0; i < this.extendEdges.length; i++) {
-        let extedge: ExtEdge = this.extendEdges[i];
-        if (extedge.end.logic() == superclass) { extedge.remove(); }
-      }
-    }
-    const extendChildrens: IClass[] = this.getAllSubClasses(true);
-    for (i = -1; i < extendChildrens.length; i++) {
-      let extChild: IClass = i === -1 ? this : extendChildrens[i];
-      extChild.checkViolations(true); }
-  }
-
-  getAllChildrens(includeOperations: boolean = true,
-                  includeAnnotations: boolean = true, includeAttributes: boolean = true, includeReferences: boolean = true, includeShadowed: boolean = true): Typedd[] {
-    //todo: actually since getAllExtends returns an array made from a set, and a class cannot contain duplicates, it cannot contain duplicates. sets here are redundant.
-    const extendchain: IClass[] = this.getBasicExtends(true);// this.getAllExtends(true);
-    let i: number;
-    let j: number;
-    const ret: Typedd[] = [];
-    const features: Map<string, Typedd> = new Map();
-    const operations: Map<string, Typedd> = new Map();
-    // features and operations can share names
-    // features with same name on different classes will just shadow each other without overriding
-    // override solo se signature identica.
-    // se signature identica e return primitivo diverso: invalido.
-    // se signature identica e return Object più specifico: valido.
-    for (i = 0; i < extendchain.length; i++) {
-      ret.push(...extendchain[i].getBasicChildrens(includeOperations, includeAnnotations, includeAttributes, includeReferences, includeShadowed));
-    }
-    return ret; }
-
-  getAllAttributes(): Set<IAttribute> {
-    const extendchain: IClass[] = this.getAllSuperClasses(true);
-    let i: number;
-    const ret: Set<IAttribute> = new Set<IAttribute>();
-    for (i = 0; i < extendchain.length; i++) {
-      U.SetMerge(true, ret, extendchain[i].getBasicAttributes()); }
-    return ret; }
-  getAllReferences(): Set<IReference> {
-    const extendchain: IClass[] = this.getAllSuperClasses(true);
-    let i: number;
-    const ret: Set<IReference> = new Set<IReference>();
-    for (i = 0; i < extendchain.length; i++) {
-      U.SetMerge(true, ret, extendchain[i].getBasicReferences()); }
-    return ret; }
-
-  getAllOperations(): Set<EOperation> {
-    const extendchain: IClass[] = this.getAllSuperClasses(true);
-    let i: number;
-    const ret: Set<EOperation> = new Set<EOperation>();
-    for (i = 0; i < extendchain.length; i++) {
-      U.SetMerge(true, ret, extendchain[i].getBasicOperations()); }
-    return ret; }
+  public abstract getAllAttributes(): Set<IAttribute>;
+  public abstract getAllReferences(): Set<IReference>;
+  public getAllOperations(): Set<EOperation> {
+    return new Set<EOperation> (this.getAllChildrens(true, false, false, false) as EOperation[]); }
+  public getAllAnnotations(): EAnnotation[] {
+    return this.getAllChildrens(false, true, false, false) as EAnnotation[]; }
 /*
   getDisplayedChildrens(): Set<Typedd> { return this.getBasicChildrens(); }
   getDisplayedOperations(): Set<EOperation> { return this.getBasicOperations(); }
   getDisplayedAttributes(): Set<IAttribute> { return this.getBasicAttributes(); }
   getDisplayedReferences(): Set<IReference> { return this.getBasicReferences(); }*/
 
-  getBasicChildrens(includeOperations: boolean = true,
+  public getBasicChildrens(includeOperations: boolean = true,
                     includeAnnotations: boolean = true, includeAttributes: boolean = true, includeReferences: boolean = true,
-                    includeShadowed: boolean = false/*null = both shadow and unshadow, true = onlyshadowed*/): Set<Typedd> {
-    if (includeOperations && includeAnnotations) return new Set(this.childrens);
+                    includeShadowed: boolean | null = false/*null = both shadow and unshadow, true = onlyshadowed*/): Set<Typedd> {
+    // if (includeOperations && includeAnnotations) return new Set(this.childrens);
     const arr: Typedd[] = [];
     let j: number;
+    const isM2 = this.getModelRoot().isM2();
     for (j = 0; j < this.childrens.length; j++) {
       const child: Typedd = this.childrens[j];
       console.log(child.metaParent, this.metaParent, child, this);
       if (child instanceof IFeature && child.isInherited(this)) continue; // for m1
 
-      if (includeAttributes && child instanceof IAttribute) {
+      if (!isM2 && (includeAttributes || includeReferences) && child instanceof IFeature) {
         if (includeShadowed !== null && child.isShadowed(this) !== includeShadowed) continue;
-        arr.push(child); continue; }
+      }
+      if (includeAttributes && child instanceof IAttribute) { arr.push(child); continue; }
       if (includeReferences && child instanceof IReference) { arr.push(child); continue; }
       if (includeOperations && child instanceof EOperation) { arr.push(child); continue; }
       if (includeAnnotations && child instanceof EAnnotation) { arr.push(child); continue; }
@@ -480,13 +352,14 @@ export abstract class IClass extends IClassifier {
     }
     return new Set<Typedd>(arr); }
 
-  getBasicAttributes(): Set<IAttribute> { return new Set(this.attributes); }
-  getBasicReferences(): Set<IReference> { return new Set(this.references); }
-  abstract getBasicOperations(): Set<EOperation>;
+  public abstract getBasicAttributes(): Set<IAttribute>;
+  public abstract getBasicReferences(): Set<IReference>;
+  public abstract getBasicOperations(): Set<EOperation>;
+  public abstract getBasicAnnotations(): EAnnotation[];
 
   checkViolations(toAllChain: boolean = true): void {
     if (!Status.status.mm) return;
-    this.calculateInheritanceViolations(toAllChain);
+    if (this instanceof M2Class) this.calculateInheritanceViolations(toAllChain);
     // this.calculateShadowings(toAllChain);
   }
 /*
@@ -517,31 +390,7 @@ export abstract class IClass extends IClassifier {
     }
   }
 */
-  calculateInheritanceViolations(toAllChain: boolean = false): void {
-    let i: number;
-    let j: number;
-    if (toAllChain) {
-      let classes: IClass[] = [this];
-      U.ArrayMerge(classes, this.getAllSubClasses(false));
-      U.ArrayMerge(classes, this.getAllSuperClasses(false));
-      for (i = 0; i < classes.length; i++) {
-        classes[i].checkViolations(false);
-      }
-    }
-    let operations: EOperation[] = [...this.getAllOperations()];
 
-    console.log('3x operation: ', this, operations);
-    for (j = 0; j < operations.length; j++) {
-      let op1: EOperation = operations[j];
-      op1.unmarkAllIncompatibility();
-      for (i = 0; i < operations.length; i++) {
-        let op2: EOperation = operations[i];
-        let ret = op1.isCompatible(op2, true);
-        console.log('3x operation[' + j + '] = ', ret, op1.name, op2.name, op1, op2, this, operations);
-
-      }
-    }
-  }
 }
 export class M3Class extends IClass {
   parent: M3Package;
@@ -558,14 +407,7 @@ export class M3Class extends IClass {
 
   duplicate(nameAppend?: string, newParent?: ModelPiece): ModelPiece { U.pe(true, 'Invalid operation: m3Class.duplicate()'); return this; }
 
-  generateModel(): Json { U.pe(true, 'Invalid operation: m3Class.generateModel()'); return this; }
-  getBasicOperations(): Set<EOperation> {
-    let i: number;
-    for (i = 0; i < this.childrens.length; i++) {
-      const c: Typedd = this.childrens[i];
-      if (c instanceof EOperation) return new Set([c]); }
-    U.pe(true, 'failed to find m3Operation');
-    return null; }
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json { U.pe(true, 'Invalid operation: m3Class.generateModel()'); return this; }
 
   parse(json: Json, destructive?: boolean): void {
     this.name = 'Class';
@@ -578,5 +420,21 @@ export class M3Class extends IClass {
     const o: EOperation = new EOperation(this, null);
     const p: EParameter = new EParameter(o, null);
   }
+
+  getAllChildrens(includeOperations?: boolean,
+                           includeAnnotations?: boolean, includeAttributes?: boolean, includeReferences?: boolean,
+                           /*null = both shadow and unshadow, true = onlyshadowed*/ includeShadowed?: boolean | null): ModelPiece[]{
+    U.pe(true, "m3.getallchildrens()");
+    return null; }
+
+  getAllAttributes(): Set<M3Attribute>{ return new Set<M3Attribute>(this.attributes); }
+  getAllReferences(): Set<M3Reference>{ return new Set<M3Reference>(this.references); }
+  getAllOperations(): Set<EOperation>{ return new Set<EOperation>(this.operations); }
+
+
+  getBasicAttributes(): Set<M3Attribute>{ return this.getAllAttributes(); }
+  getBasicReferences(): Set<M3Reference>{ return this.getAllReferences(); }
+  getBasicOperations(): Set<EOperation>{ return this.getAllOperations(); }
+  getBasicAnnotations(): EAnnotation[]{ return this.getAllAnnotations(); }
 
 }

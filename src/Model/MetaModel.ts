@@ -115,12 +115,12 @@ export class MetaModel extends IModel {
     }
   }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json {
     const packageArr = [];
     let i;
     for (i = 0; i < this.childrens.length; i++) {
       const pkg = this.childrens[i];
-      packageArr.push(pkg.generateModel());
+      packageArr.push(pkg.generateModel(loopDetectionObj));
     }
     const model = new Json(null);
     model[ECoreRoot.ecoreEPackage] = packageArr;
@@ -145,4 +145,10 @@ export class MetaModel extends IModel {
     m.refreshGUI();
     return m; }
 
+  calculateViolations(){
+    let classes: M2Class[] = this.getAllClasses();
+    for (let i = 0; i < classes.length; i++) {
+      classes[i].calculateInheritanceViolations(true);
+    }
+  }
 }

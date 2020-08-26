@@ -8,7 +8,7 @@ import {
   MClass,
   ModelPiece,
   ShortAttribETypes, M2Attribute,
-  U, M3Attribute, IVertex, IField, MetaModel, Model, Status, Info, Type, EEnum, ELiteral,
+  U, M3Attribute, IVertex, IField, MetaModel, Model, Status, Info, Type, EEnum, ELiteral, Dictionary,
 } from '../../../../common/Joiner';
 import {del}   from 'selenium-webdriver/http';
 import {EType} from '../../Type';
@@ -111,7 +111,7 @@ export class MAttribute extends IAttribute {
     super.copy(other, nameAppend, newParent);
     this.setValueStr(other.getValueStr()); }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json {
     if (this.values.length === 0) { return null; }
     let values: Json[] = this.values;
     if (this.values[0] instanceof ELiteral) {
@@ -119,7 +119,7 @@ export class MAttribute extends IAttribute {
       let i: number;
       for (i = 0; i < this.values.length; i++) {
         const v = this.values[i];
-        if (v instanceof ELiteral) { values.push(v.generateModelM1()); }
+        if (v instanceof ELiteral) { values.push(v.generateModelM1(loopDetectionObj)); }
       }
     }
     if (values.length === 1) { return values[0]; }

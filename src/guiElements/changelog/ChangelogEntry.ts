@@ -214,10 +214,10 @@ export class ChangelogRoot extends ChangelogEntry {
       'Until eventually the fourth level is reached, which has been broadly tested and should never fail.', null, true);
     v.addf('Vertex gui customization:', 'It is now possible to set up a custom filter and condition to select which childrens of a classifier / operation should be displayed.' +
       'There are shortcuts to filter children based on their type or whether they are inherited or not. <a href="https://github.com/DamianoNaraku/jjodel/wiki/Display-and-filter-sub-features-inside-a-vertex">More info here.</a>', null, true)
-    v.addf('Text popup', '' +
-      'Textual popup notifying the user about invalid actions, errors, tooltip or automatic fixing invalid user input now cannot show duplicates at the same time.' +
+    v.addf('Text popup improved:', '' +
+      'Textual popup notifying the user about invalid actions, errors, tooltip or automatic fixing invalid user input now cannot show duplicates at the same time.\n' +
       'Clicking a popup will make it disappear instantly while copying his text to the clipboard (copy-paste, old feature reminder).\n' +
-      'Right-clicking a popup will now hide all same-colored notifications.' +
+      'Right-clicking a popup will now hide all same-colored notifications.\n' +
       'Wheel-clicking a popup will now hide all notifications.');
     v.addf('Usability: mouse shortcuts', '' +
       '<ul>' +
@@ -233,12 +233,22 @@ export class ChangelogRoot extends ChangelogEntry {
       '<li>still RightClick on a input child of a selected vertex / feature: native context menù.</li>' +
       '<li>still RightClick on any child of a un-selected vertex / feature: custom context menù.</li>' +
       '<li>still, slow (hold for 1 sec) RightClick a input child of vertex / feature: native menù</li></ul>', null, true);
-    v.addb('Bug:', 'The usage of the $ and £ characters outside variable templates ($##likeThis$) and inside the html of custom styles might cause errors, html entities like &#36; are troublesome too.\n' +
-      'Until bugfix use the unicode combination \\u0024 for $ and &#163; and \\u00A3 for £ when possible. This bugfix will have low priority.');
+    v.addb('Bug:', 'The usage of the $ and £ characters outside variable templates ($##likeThis$) and inside the html of custom styles might cause errors.\n' +
+      'Until bugfix use the unicode combination \\u0024 for $ and \\u00A3 for £ when possible. This bugfix will have low priority.');
 
     v.addbf('Edge:', 'Fixed an error that was preventing to insert the first mid-points to an edge when his style was "straight".');
     v.addbf('PropertyBar:', 'Automatized update of structured view, style editor and raw viewer when visualized html node in graph or his parents are updated.\n');
     v.addbf('ContextMenu:', 'Was not appearing.');
+
+    v = new VersionUpload(new Date('2020/7/31'), 'small bugfix release while WIP on other features', '');
+    v.addf('Class conversion:',
+      'It is now possible to change type of a single M1-class, or of all instances of a target M2-class. (<a href="https://github.com/DamianoNaraku/jjodel/wiki/Class-deletion-&-Class-type-conversion">Full guide here</a>)\n' +
+      'For example converting all "Date" instances to "DateTime" instances, adding a "time" attribute to all of them without changing the definition of the "Date" class.', null, true);
+    v.addbf('children filtering:', 'was not working properly only on his generic version (childrenContainer) and not on AttributeContainer');
+    v.addbf('validation:', 'was working on run-time edits, but not on the initial load of the model');
+    v.addbf('class deletion:', 'When a class was used as function parameter, the removal was causing exceptions.' +
+      '\nNow it will change the parmaeter\'s type using class conversion, or removing it if conversion is impossible.');
+    v.addbf('firefox', 'default style of vertex had transparent background.');
 
     let searchterm = 'clog cls addbf ';
 

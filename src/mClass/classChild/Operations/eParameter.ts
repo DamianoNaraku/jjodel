@@ -22,7 +22,7 @@ import {
   Typedd,
   IClass,
   Info,
-  M3Class,
+  M3Class, Dictionary,
 } from '../../../common/Joiner';
 // export abstract class EParameter extends Typedd {}
 export class EParameter extends Typedd {
@@ -39,7 +39,7 @@ export class EParameter extends Typedd {
   setType(ecoreTypeString: string, throwError: boolean = true, refreshGui: boolean = true): boolean{
     let ret = super.setType(ecoreTypeString, throwError, refreshGui);
     if (!ret) return false;
-    this.parent.parent.calculateInheritanceViolations(true);
+    if (this.parent.parent instanceof M2Class) this.parent.parent.calculateInheritanceViolations(true);
     return true; }
 
   fullname(): string { return super.fullname() + ':' + this.name; }
@@ -63,7 +63,7 @@ export class EParameter extends Typedd {
     Info.unset(info, 'instances');
     return info; }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MClass id*/, ModelPiece> = null): Json {
     const json: Json = {};
     Json.write(json, ECoreOperation.lowerBound, '' + this.lowerbound);
     Json.write(json, ECoreOperation.upperBound, '' + this.upperbound);

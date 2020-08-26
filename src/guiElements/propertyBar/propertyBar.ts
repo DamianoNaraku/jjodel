@@ -18,7 +18,7 @@ import {
   ModelPiece,
   MPackage,
   MReference,
-  OperationVisibility,
+  AccessModifier,
   ShortAttribETypes,
   Status,
   StyleEditor, Type,
@@ -26,6 +26,9 @@ import {
 } from '../../common/Joiner';
 import ClickEvent = JQuery.ClickEvent;
 import ContextMenuEvent = JQuery.ContextMenuEvent;
+import MouseDownEvent = JQuery.MouseDownEvent;
+import MouseUpEvent = JQuery.MouseUpEvent;
+import ChangeEvent = JQuery.ChangeEvent;
 export enum PropertyBarTabs {style = 'Style', structured = 'Structured', raw = 'Raw' }
 export class PropertyBarr {
   model: IModel = null;
@@ -58,23 +61,23 @@ export class PropertyBarr {
     const template: HTMLElement = e.currentTarget;
     template.classList.remove('minimized'); }
 
-  private static makeVisibilitySelector(selectHtml: HTMLSelectElement, visibility: OperationVisibility): HTMLSelectElement {
+  private static makeVisibilitySelector(selectHtml: HTMLSelectElement, visibility: AccessModifier): HTMLSelectElement {
     if (selectHtml === null) { selectHtml = document.createElement('select'); }
     U.clear(selectHtml);
     const optgrp: HTMLOptGroupElement = document.createElement('optgroup');
     optgrp.label = 'Access Modifier';
     selectHtml.appendChild(optgrp);
     let optionFound = false;
-    for (const key in OperationVisibility) {
-      if (!OperationVisibility[key]) { continue; }
-      const access: string = OperationVisibility[key];
+    for (const key in AccessModifier) {
+      if (!AccessModifier[key]) { continue; }
+      const access: string = AccessModifier[key];
       const opt: HTMLOptionElement = document.createElement('option');
       opt.value = access;
       opt.innerHTML = access;
       if (visibility === access) { opt.selected = true; optionFound = true; }
       optgrp.appendChild(opt); }
     U.pe(visibility && !optionFound, 'OperationVisibility selected option not found; optgrp:', optgrp,
-      'OperationVisibility:', OperationVisibility, ', searchedVal:', visibility);
+      'OperationVisibility:', AccessModifier, ', searchedVal:', visibility);
     return selectHtml; }
 
   constructor(model: IModel) {
@@ -242,7 +245,12 @@ export class PropertyBarr {
 
   private getC_I(o: IClass): HTMLElement {
     const $html: JQuery<HTMLElement> = this.getTemplate(o);
+    let model: IModel = o.getModelRoot();
     this.removeOthers($html, '.class');
+    const m1class: MClass = model.isM1() ? o as MClass: null;
+    const m2class: M2Class = model.isM2() ? o as M2Class: null;
+
+
     // $html.find('.class').show();
     let i: number;
     const attribListHtml: HTMLElement = ($html.find('.attributeList')[0]);
@@ -257,18 +265,47 @@ export class PropertyBarr {
     $html.find('.attributeCount')[0].innerHTML = '' + attributes.length;
     $html.find('.referenceCount')[0].innerHTML = '' + references.length;
     $html.find('.operationCount')[0].innerHTML = '' + operations.length;
-    if (!(o instanceof MClass)) { return $html[0]; }
+    let stopPropagation = (e: ClickEvent | MouseDownEvent | MouseUpEvent) => { e.stopPropagation(); };
+    if (m2class) {
+      const $interfaceCheckbox: JQuery<HTMLInputElement> = $html.find('input.isinterface') as JQuery<HTMLInputElement>;
+      const interfaceCheckbox = $interfaceCheckbox[0];
+      const $abstractCheckbox: JQuery<HTMLInputElement> = $html.find('input.isabstract') as JQuery<HTMLInputElement>;
+      const abstractCheckbox = $abstractCheckbox[0];
+      const $accessModifierHtml: JQuery<HTMLSelectElement> = $html.find('select.accessModifier') as JQuery<HTMLSelectElement>;
+      const accessModifierHtml = $accessModifierHtml[0];
+      abstractCheckbox.checked = m2class.getAbstract();
+      interfaceCheckbox.checked = m2class.getInterface();
+
+      U.$makeSelect($accessModifierHtml, AccessModifier, 'Access modifier', m2class.visibility.toString());
+      $accessModifierHtml.on('change', (e: ChangeEvent) => {
+        m2class.setAccessModifier(U.getEnumValByVal<AccessModifier>(accessModifierHtml.value, AccessModifier));
+      });
+
+      $abstractCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation)
+      .on('change', (e: ChangeEvent) => {
+        m2class.setAbstract(abstractCheckbox.checked, true);
+        abstractCheckbox.checked = m2class.getAbstract(); // they are linked, editing abstract could unset interface
+        interfaceCheckbox.checked = m2class.getInterface();
+      });
+      $interfaceCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation)
+      .on('change', (e: ChangeEvent) => {
+        m2class.setInterface(interfaceCheckbox.checked, true);
+        abstractCheckbox.checked = m2class.getAbstract(); // setting interface could remove abstract
+        interfaceCheckbox.checked = m2class.getInterface();
+      });
+    }
+
+    if (!m1class) { return $html[0]; }
     /// Se MClass
-    const classe: MClass = o as MClass;
     const isRoot: HTMLInputElement = ($html.find('input.isRoot')[0]) as HTMLInputElement;
-    console.log('this:', o);
-    isRoot.disabled = isRoot.checked = classe.isRoot();
+    console.log('this:', m1class);
+    isRoot.disabled = isRoot.checked = m1class.isRoot();
     $(isRoot).off('change.pbar').on('change.pbar',
       (evt: Event) => {
         const input: HTMLInputElement = evt.currentTarget as HTMLInputElement;
         if (!input.checked) { input.checked = true; return $html[0]; }
-        classe.setRoot(input.checked);
-        classe.refreshGUI();
+        m1class.setRoot(input.checked);
+        m1class.refreshGUI();
         this.refreshGUI();
       });
     return $html[0]; }

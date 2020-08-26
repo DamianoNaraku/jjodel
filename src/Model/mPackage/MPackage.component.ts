@@ -53,7 +53,7 @@ export class MPackage extends IPackage {
     console.log('addEmptyClass(); package:', this, '; metaVersion: ', metaVersion, 'classe:', c);
     return c; }
 
-  generateModel(): Json { return this.parent.generateModel(); }
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json { return this.parent.generateModel(loopDetectionObj); }
   /*
   generateModel(rootClass: MClass): Json {
     const key: string = U.toDottedURI(this.uri) + ':' + rootClass.name;

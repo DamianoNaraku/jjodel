@@ -148,12 +148,23 @@ export class IVertex {
     edge.refreshGui(); }
 
   static getvertex(e: Event | MouseEvent | MouseDownEvent | MouseUpEvent | MouseMoveEvent | MouseEnterEvent | MouseLeaveEvent | ClickEvent
-    | KeyDownEvent | KeyUpEvent | KeyPressEvent | ChangeEvent): IVertex {
-    return IVertex.getvertexByHtml(e.currentTarget as Element); }
+    | KeyDownEvent | KeyUpEvent | KeyPressEvent | ChangeEvent, canUseMp: boolean = true): IVertex {
+      return IVertex.getvertexByHtml(e.currentTarget as Element, canUseMp);
+  }
 
-  static getvertexByHtml(node0: Element): IVertex {
-    const logic: ModelPiece = ModelPiece.getLogic(node0);
-    return logic && logic.getVertex(); }
+  static getvertexByHtml(node0: Element, canUseMp: boolean = true): IVertex {
+    if (canUseMp) {
+      const logic: ModelPiece = ModelPiece.getLogic(node0);
+      return logic && logic.getVertex();
+    }
+
+    let node: HTMLElement = node0 as any;
+    while (node) {
+       if (node.dataset && node.dataset.vertexID) return IVertex.getByID(+node.dataset.vertexID);
+       node = node.parentNode as any;
+    }
+    return null;
+  }
     /*let node: HTMLElement = node0 as HTMLElement
     U.pe(!node, 'getVertexByHtml: parameter is not a DOM node:', node);
     while (node && node.dataset && !node.dataset.vertexID) { node = node.parentElement; }
@@ -504,7 +515,7 @@ export class IVertex {
     const html: SVGForeignObjectElement = this.htmlForeign;
     /// append childrens:
     const $childContainer = $(html).find('.ChildrenContainer, .ChildContainer, .AttributeContainer, .ReferenceContainer, .OperationContainer, .ParameterContainer');
-    const childContainer = $childContainer[0];
+
 
 
     // U.pe($attContainer.length !== 1, 'there must be exactly one element with class "AttributeContainer".', $attContainer);
@@ -516,7 +527,7 @@ export class IVertex {
 
     let i: number;
     let j: number;
-    const childs: Typedd[] = data.getAllChildrens(true, true, true, true, null);
+    const childs: ModelPiece[] = data.getAllChildrens(true, true, true, true, null);
     let validator: (children: ModelPiece, index: number, list: ModelPiece[]) => boolean;
     let getValidator = (container): (children: ModelPiece, index: number, list: ModelPiece[]) => boolean => {
       let validatorStr: string = container && container.getAttribute('filter');
@@ -526,28 +537,35 @@ export class IVertex {
         if (!U.isFunction(validator0)) throw new Error(); } catch(e) { validator0 = () => true; }
         return validator0; }
 
-
     for (j = 0; j < $childContainer.length; j++) {
       let childContainer = $childContainer[j];
       validator = getValidator(childContainer);
-      let allowAttributes = childContainer.classList.contains('AttributeContainer') || U.fromBoolString(childContainer.getAttribute('attributes'), true);
-      let allowReferences = childContainer.classList.contains('ReferenceContainer') || U.fromBoolString(childContainer.getAttribute('references'), true);
-      let allowOperations = childContainer.classList.contains('OperationContainer') || U.fromBoolString(childContainer.getAttribute('operations'), true);
-      let allowParameters = childContainer.classList.contains('ParameterContainer') || U.fromBoolString(childContainer.getAttribute('parameters'), true);
-      let allowLiterals = childContainer.classList.contains('LiteralContainer') || U.fromBoolString(childContainer.getAttribute('literals'), true);
-      let allowAnnotations = childContainer.classList.contains('AnnotationContainer') || U.fromBoolString(childContainer.getAttribute('annotations'), true);
+      let specific = !childContainer.classList.contains('ChildrenContainer') && !childContainer.classList.contains('ChildContainer');
+      let allowAttributes = childContainer.classList.contains('AttributeContainer') || !specific && U.fromBoolString(childContainer.getAttribute('attributes'), true);
+      let allowReferences = childContainer.classList.contains('ReferenceContainer') || !specific && U.fromBoolString(childContainer.getAttribute('references'), true);
+      let allowOperations = childContainer.classList.contains('OperationContainer') || !specific && U.fromBoolString(childContainer.getAttribute('operations'), true);
+      let allowParameters = childContainer.classList.contains('ParameterContainer') || !specific && U.fromBoolString(childContainer.getAttribute('parameters'), true);
+      let allowLiterals = childContainer.classList.contains('LiteralContainer') || !specific && U.fromBoolString(childContainer.getAttribute('literals'), true);
+      let allowAnnotations = childContainer.classList.contains('AnnotationContainer') || !specific && U.fromBoolString(childContainer.getAttribute('annotations'), true);
       let allowInheritance = U.fromBoolString(childContainer.getAttribute('inherited'), data.getModelRoot().isM1());
-      let shadowedVal: string = childContainer.getAttribute('inherited');
-      let allowShadowed: boolean = shadowedVal === null ? false : U.fromBoolString(shadowedVal, false, true);
+      let allowOnlyShadowed: boolean = childContainer.hasAttribute('shadowed') && U.fromBoolString(childContainer.getAttribute('shadowed'), false, true);
+
+      // U.pe(allowShadowed === false, childContainer.getAttribute('shadowed'), U.fromBoolString(childContainer.getAttribute('shadowed'), false, true));
       for (i = 0; i < childs.length; i++) {
+
+        console.log('mx ' + data.id + ' filtering children [' + i + " / " + childs.length + ']', childs);
         let child = childs[i];
         let field;
         if (validator && !validator(childs[i], i, childs)) continue;
+        console.log('mx ' + data.id + ' validator ok ');
         if (!allowInheritance && child.parent !== data) continue;
+        console.log('mx ' + data.id + ' allowInheritance ok ');
         if (child instanceof IFeature) {
           // error: when i delete extedge shadowed attr will disappear
-          console.log('allowShadowed:', allowShadowed, child.isShadowed(data), child);
-          if (allowShadowed !== null && child.isShadowed(data) !== allowShadowed) continue;
+          console.log('allowShadowed:', allowOnlyShadowed, child.isShadowed(data), child);
+          console.log('shadowed mx ' + data.id + '? ', allowOnlyShadowed, child.isShadowed(data), child, data);
+          if (allowOnlyShadowed !== null && child.isShadowed(data) !== allowOnlyShadowed) continue;
+          console.log('mx ' + data.id + ' shadowed ok');
           if (allowAttributes && child instanceof IAttribute) field = this.drawA(child); else
           if (allowReferences && child instanceof IReference) field = this.drawR(child); else
             continue;
@@ -572,6 +590,7 @@ export class IVertex {
     const $start = $(html).find('.EndPoint');
     if ($start.length > 0) { return $start[0]; }
     return (html.tagName.toLowerCase() === 'foreignobject') ? html.firstChild as Element : html; }
+
   public getMeasurableNode(): Element { return this.htmlForeign; }
   private setHtmls(data: IClassifier, htmlRaw: SVGForeignObjectElement): SVGForeignObjectElement {
     // console.log('drawCV()');
@@ -683,20 +702,20 @@ export class IVertex {
     $html.off('mouseenter.vertex').on('mouseenter.vertex', (e: MouseEnterEvent) => { this.onMouseEnter(e); });
     $html.off('mouseleave.vertex').on('mouseleave.vertex', (e: MouseLeaveEvent) => { this.onMouseLeave(e); });
     $html.off('click').on('click', (e: ClickEvent) => { this.onClick(e); });
-    $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.vertexContextMenu(e); });
+    // $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
     // const $addFieldButtonContainer: JQuery<HTMLElement> = $html.find('.addFieldButtonContainer') as any as JQuery<HTMLElement>;
     // this.setAddButtonContainer($addFieldButtonContainer[0]);
    }
   private addEventListeners(): void {
     let i: number;
     const $html = $(this.htmlg);
+//    $html.find('.Attribute, .Reference, .ELiteral, .Operation, .Parameter').off('contextmenu').on('contextmenu',
+//      (e: ContextMenuEvent): boolean => { return this.featureContextMenu(e); });
     $html.find('.delete').off('click.delete').on('click.delete', (e: ClickEvent) => { ModelPiece.get(e).delete(true); });
     $html.find('.addFieldButton').off('click.addField').on('click.addField', (e: ClickEvent) => { this.addFieldClick(e); });
     $html.find('.AddFieldSelect').off('change.addField').on('change.addField',  (e: ChangeEvent) => { this.addFieldClick(e as any); });
     $html.find('input, select, textarea').off('change.fieldchange').on('change.fieldchange', (e: ChangeEvent) => IVertex.FieldNameChanged(e));
-    // NB: deve essere solo un off, oppure metti selettore .NOT(class) nel selettore dei 'select' di sopra
-    // if (!IVertex.contextMenu) { IVertex.contextMenu = new MyContextMenuClass(new ContextMenuService()); }
-    $html.find('.Attribute, .Reference, .ELiteral, .Operation, .Parameter').off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.featureContextMenu(e); });
+
 
     // todo: viene chiamato 1 volta per ogni elementNode con modelID, ma io eseguo tutto dalla radice.
     // quindi viene eseguito N +1 volte per ogni vertice dove N sono i suoi (attributes + references)
@@ -790,7 +809,7 @@ export class IVertex {
     if (edge.logic instanceof MReference) edge.logic.linkClass(vertexLogic as MClass, edge.getIndex(), true);
     if (edge.logic instanceof M2Reference) edge.logic.setType((vertexLogic as M2Class).getEcoreTypeName());
     if (edge instanceof ExtEdge) {
-      if (edge.end) edge.logic.unsetExtends(edge.end.logic() as IClass, false); // unset old extend without removing this vertex
+      if (edge.end) edge.logic.unsetExtends(edge.end.logic() as M2Class, false); // unset old extend without removing this vertex
       edge.logic.setExtends(this.logic() as M2Class); // extend the newly clicked vertex (this)
     } else {
       U.pe(edge.logic instanceof MClass, 'cst: class edges are currently not supported');
@@ -810,32 +829,6 @@ export class IVertex {
     // IVertex.ChangePropertyBarContentClick(e);
   }
 
-  vertexContextMenu(evt: ContextMenuEvent): boolean { return this.onContextMenuInner(evt,  '.Vertex'); }
-  featureContextMenu(evt: ContextMenuEvent): boolean { return this.onContextMenuInner(evt,  '.Feature'); }
-
-  private onContextMenuInner(evt: ContextMenuEvent, classSelector: string): boolean {
-    // evt.preventDefault(); evt.stopPropagation(); return false;
-    evt.stopPropagation();
-    DamContextMenuComponent.contextMenu.hide();
-    // only if is focused input
-    const lastSelected: FocusHistoryEntry = U.focusHistoryEntries[U.focusHistoryElements.length - 1];
-    const gotSelectedNow: boolean = lastSelected && U.isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
-    const isInput = U.isInput(evt.target, true, false) && !gotSelectedNow;
-
-    let clickStartedOutsideVertex = IVertex.startDragContext == null;
-    // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato = male
-    // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input = male
-    if (isInput && clickStartedOutsideVertex) evt.target.focus();
-    if (!isInput && gotSelectedNow) evt.target.blur();
-    // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
-    const pixelMoved = !clickStartedOutsideVertex && this.size.tl().subtract(IVertex.startDragContext.size.tl(), false).absolute();
-    const gotMoved = !clickStartedOutsideVertex && pixelMoved >= this.tolleranzaRightClickMove;
-    const ret: boolean = isInput && !gotMoved;
-    // evt['passedThroughVertex'] = ret;
-    if (ret) return true; else { evt.preventDefault();  }
-    if (gotMoved) return ret;
-    DamContextMenuComponent.contextMenu.show(new Point(evt.pageX, evt.pageY), classSelector, evt.currentTarget);
-    return ret; }
 
   onMouseDown(e: MouseDownEvent): void {
     if (IEdge.edgeChanging) { this.clickSetReference(e); return; }
@@ -920,7 +913,7 @@ export class IVertex {
     Status.status.debug = true;
     const html = this.getHtmlFirstChild();
     let select: HTMLSelectElement;
-    // const debugOldJson = U.cloneObj(modelPiece.generateModel());
+    // const debugOldJson = U.cloneObj(modelPiece.generateModel({}));
     select = $(html).find('.AddFieldSelect')[0] as unknown as HTMLSelectElement;
     switch (select.value.toLowerCase()) {
       default: U.pe(true, 'unexpected select value for addField:' + select.value + ' allowed values are: ["Reference", "Attribute", "Operation", "Literal"]'); break;

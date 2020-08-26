@@ -29,6 +29,18 @@ export class Type {
   public owner: ModelPiece = null; // todo: cambia to Typedd
   private id: number;
   public printablename: string;
+// change owner type. check invalid comparisons like type === othertype to see if sametype
+  static getAllTypedMP(): Typedd[] {
+    return Type.all.map( (t: Type) => t.owner as Typedd);
+    return Object.keys(Type.allByID).map((key: string) => { return ModelPiece.getByID(+key); } ) as Typedd[]; }
+
+  static getAllWithClassType(searchType: M2Class): Typedd[]{
+    if (!searchType) return [];
+    // const typestr = searchType.getEcoreTypeName();
+    // return Type.getAllTypedMP().filter((t:Typedd)=> (t.type && t.type.classType && t.type.classType.getEcoreTypeName() === typestr));
+    return Type.getAllTypedMP().filter(
+      (typed: Typedd) => { return typed.type && typed.type.classType && typed.type.classType.id === searchType.id; }
+      ); }
 
   static updateTypeSelectors($searchRoot: JQuery<HTMLElement>, primitives: boolean = true, enums: boolean = true, classes: boolean = true): void{
     if (!$searchRoot) { $searchRoot = $(document.body); }
@@ -134,7 +146,11 @@ export class Type {
   }
 
 
-  public static linkAll(): void { for (let i: number = 0; i < Type.all.length; i++) { Type.all[i].applyTypeStr(); } }
+  public static linkAll(): void {
+
+    for (let i: number = 0; i < Type.all.length; i++) { Type.all[i].applyTypeStr(); }
+
+  }
 
   private static get(id: number): Type { return Type.allByID[id]; }
   constructor(owner: ModelPiece, typestr: string = null) {
@@ -230,7 +246,14 @@ export class Type {
     if (this.primitiveType) return '' + this.primitiveType.name;
     return null; }
 
-  canOverride(other: Type): boolean { return this.classType && this.classType.isExtending(other.classType); }
+  canOverride(other: Type): boolean {
+    // i primitivi identici sono compatibili
+    if (this === other) return true;
+    // i primitivi diversi sono sempre incompatibili
+    if (!this.classType) return false;
+    // per le classi
+    if (other.classType === other.classType) return true;
+    return this.classType.isExtending(other.classType); }
 }
 
 

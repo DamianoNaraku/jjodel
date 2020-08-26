@@ -402,6 +402,7 @@ function main() {
   } catch(e) {
     U.pw(true, 'Failed to load the metamodel.');
     console.log(e, savem2.model);
+    Type.all = [];// reset invalid old parsed types, enums... they are no longer defined in the empty metamodel
     Status.status.mm = new MetaModel(JSON.parse(MetaModel.emptyModel), Status.status.mmm);
   }
   // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m); return;
@@ -428,6 +429,7 @@ function main() {
   Status.status.mm.graph.setGrid(20, 20, true);
   Status.status.m.graph.setGrid(20, 20, true);
   Status.status.loadedGUI = true;
+  Status.status.mm.calculateViolations();
   IEdge.all.forEach((e: IEdge) => { e.refreshGui();  e.refreshGui(); });
   Status.status.mm.graph.propertyBar.show(Status.status.mm, null, null);
   Status.status.m.graph.propertyBar.show(Status.status.m, null, null);

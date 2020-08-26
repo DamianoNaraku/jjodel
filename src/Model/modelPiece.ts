@@ -52,6 +52,7 @@ import {ViewRule} from '../GuiStyles/viewpoint';
 import {deserializeSummaries} from '@angular/compiler/src/aot/summary_serializer';
 import {FunctionCall} from '@angular/compiler';
 import {Mark} from '../guiElements/mGraph/Vertex/Mark';
+import ContextMenuEvent = JQuery.ContextMenuEvent;
 export class StyleComplexEntry {
   html: Element;
   htmlobj: ViewHtmlSettings;
@@ -168,7 +169,7 @@ export abstract class ModelPiece {
   public static getByKeyStr(key: string, realindexfollowed: {indexFollowed: string[] | number[], debugArr: {index: string | number, elem: any}[]} = null): ModelPiece {
     return ModelPiece.getByKey(JSON.parse(key), realindexfollowed); }
 
-  static get(e: JQuery.ChangeEvent | ClickEvent | MouseMoveEvent | MouseDownEvent | MouseUpEvent | Event): ModelPiece {
+  static get(e: JQuery.ChangeEvent | ClickEvent | MouseMoveEvent | MouseDownEvent | MouseUpEvent | Event | ContextMenuEvent): ModelPiece {
     return ModelPiece.getLogic(e.target); }
 
   public static getLogicalRootOfHtml(html0: Element): Element {
@@ -329,7 +330,7 @@ export abstract class ModelPiece {
     return; }
 
   generateModelString(): string {
-    const json: Json = this.generateModel();
+    const json: Json = this.generateModel({});
     // console.log('genmodelstring:', json, 'this:',  this);
     return JSON.stringify(json, null, 4); }
 
@@ -358,13 +359,28 @@ export abstract class ModelPiece {
     return (full ? this.metaParent.fullname() : this.metaParent.name) + ':' + this.id + (ending && ending !== '' ? ':' + ending : ''); }
 
   public printableNameshort(valueMaxLength: number = 5): string {
-    if (this.name !== null) { return this.fullname(); }
+    if (this.name !== null) { return this.name; }
     const ending: String = this.endingName(valueMaxLength);
     return this.metaParent.name + ':' + this.id + (ending && ending !== '' ? ':' + ending : ''); }
 
   abstract parse(json: Json, destructive?: boolean): void;
-  abstract getVertex(): IVertex;
-  abstract generateModel(): Json;
+  abstract getVertex(canMakeIt?: boolean): IVertex;
+  abstract generateModel(loopDetectionObj: Dictionary<number /*MClass id*/, ModelPiece>): Json;
+  toJSON(loopDetectionObj: Dictionary<number /*MClass id*/, ModelPiece>): Json{
+    let ret = {} as any;
+    ret.id = this.id;
+    ret.name = this.name;
+    ret.parent = this.parent.id;
+    ret.metaParent = this.metaParent.id;
+    ret.annotations = this.annotations.map( (e) => e.id);
+    ret.childrens = this.childrens.map( (e) => e.id);
+    ret.detachedViews = this.detachedViews.map( (e) => e.id);
+    ret.views = this.views.map( (e) => e.id);
+    // ret.instances = this.instances.map( (e) => e.id); not a permanent stored data, le istanze sono solo quelle disegnate al momento, non TUTTE,
+    // se un M2 è collegato a più M1 crea problemi serializzare anche questo.
+    // M1 può avere reference a M2 che viene caricato, M2 non può avere reference persistenti a M1, altrimenti caricherebbe tutti i suoi M1.
+    return ret; }
+
   abstract duplicate(nameAppend?: string, newParent?: ModelPiece): ModelPiece;
   // abstract conformability(metaparent: ModelPiece, outObj?: any/*.refPermutation, .attrPermutation*/, debug?: boolean): number;
   setName0(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true, key: string, allowEmpty: boolean): string {
@@ -498,14 +514,15 @@ export abstract class ModelPiece {
     this.instances = [];
     this.refreshGUI(); }
 
+  // nb: le sottoclassi lo devono sempre chiamare con refreshgui = false
   delete(refreshgui: boolean = true): void {
+    this.unmarkAll();
     if (this.parent) {
       U.arrayRemoveAll(this.parent.childrens, this);
       this.parent = null; }
     if (this.metaParent) {
       U.arrayRemoveAll(this.metaParent.instances, this);
       this.metaParent = null; }
-    this.unmarkAll();
     let i: number;
     let arr: any = U.shallowArrayCopy<ViewRule>(this.views);
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
@@ -513,10 +530,27 @@ export abstract class ModelPiece {
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
     arr = U.shallowArrayCopy<ModelPiece>(this.childrens);
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
+
     arr = U.shallowArrayCopy<ModelPiece>(this.instances);
-    for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
+    if (this instanceof M2Class){
+      const instances: MClass[] = arr as any;
+      const scores = this.getTypeConversionScores();
+      const newType: M2Class = scores.length && scores[0].class;
+      if (!newType){
+        for (i = 0; instances && i < instances.length; i++) { instances[i].delete(false); }
+      }
+      else {
+        for (i = 0; instances && i < instances.length; i++) { instances[i].convertTo(newType); }
+      }
+      // posso promuovere le istanze ad una sottoclasse o superclasse di quella cancellata invece di eliminarle.
+
+    } else {
+      // not m2-class.
+      for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
+    }
     if (refreshgui) this.refreshGUI();
   }
+
 
   validate(isDeprecated: boolean = true): boolean {
     const names: Dictionary<string, ModelPiece> = {};
@@ -702,9 +736,11 @@ export abstract class ModelPiece {
     resetViews(): void { this.views = []; }
   */
   getClassName(): string { return this.className = this.getClassName0(); }
-  getClassName0(): string {
+  getClassName0(allowInterfaceAbstract: boolean = false): string {
     if(this instanceof M3Class) { return 'm3Class'; }
-    if(this instanceof M2Class) { return this.isInterface ? 'Interface' : ( this.isAbstract ? 'Abstract' : 'm2Class'); }
+    if(this instanceof M2Class) {
+      if (!allowInterfaceAbstract) return 'm2Class';
+      return this.isInterface ? 'Interface' : ( this.isAbstract ? 'Abstract' : 'm2Class'); }
     if(this instanceof MClass) { return 'm1Class'; }
     if(this instanceof EEnum) { return 'EEnum'; }
     if(this instanceof M3Attribute) { return 'm3Attribute'; }
@@ -968,7 +1004,7 @@ export class ProtectedModelPiece {/* implements MReference {
 
   fullname(): string { return this.unsafemp.fullname(); }
 
-  generateModel(): Json { return this.unsafemp.generateModel(); }
+  generateModel(): Json { return this.unsafemp.generateModel({}); }
 
   generateModelString(): string { return this.unsafemp.generateModelString(); }
 

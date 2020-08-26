@@ -6,7 +6,7 @@ import {
   IAttribute,
   IClassifier,
   IPackage, IReference,
-  Json,
+  Json, MClass,
   ModelPiece,
   ShortAttribETypes,
   Type,
@@ -82,7 +82,7 @@ export class EEnum extends IClassifier {
     }
   }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MClass id*/, MClass> = null): Json {
     const arr: Json[] = [];
     const model: Json = {};
     model[ECoreEnum.xsitype] = 'ecore:EEnum';
@@ -91,7 +91,7 @@ export class EEnum extends IClassifier {
     if (this.instanceTypeName) model[ECoreEnum.instanceTypeName] = this.instanceTypeName;
     model[ECoreEnum.eLiterals] = arr;
     let i;
-    for (i = 0; i < this.childrens.length; i++) { arr.push(this.childrens[i].generateModel()); }
+    for (i = 0; i < this.childrens.length; i++) { arr.push(this.childrens[i].generateModel(loopDetectionObj)); }
     return model; }
 
   /*must remain private*/ private autofixEnumValues(): void {
@@ -128,9 +128,7 @@ export class EEnum extends IClassifier {
     for (i = 0; i < Type.all.length; i++) {
       if (Type.all[i].enumType !== this) continue;
       Type.all[i].changeType(null, EType.get(ShortAttribETypes.EString), null, null); }
-    Type.updateTypeSelectors(null, false, false, true);
-    this.getVertex().remove();
-    if (refreshgui) this.refreshGUI();
+    Type.updateTypeSelectors(null, false, true, false);
   }
 
   getDefaultValueStr(): string { return this.childrens[0].name; }

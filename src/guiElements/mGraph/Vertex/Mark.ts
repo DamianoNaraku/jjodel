@@ -73,8 +73,8 @@ export class Mark {
   private setHtml(markhtml: Element, mp: ModelPiece, css: HTMLStyleElement, markb: boolean): void {
     if (this.style.color === null) { this.style.color = Mark.colorCycle.get(); }
     let html: HTMLElement = this.mp1.getHtmlOnGraph() as HTMLElement;
-    let i: number;/*
-    if (this.key === 'refhover') { // crosshair (+), alias (default+link), cell (excel)ù
+    let i: number;
+    /*if (this.key === 'refhover') { // crosshair (+), alias (default+link), cell (excel)ù
       const $inputs = $(html).find('input, textarea, select, button');
       let cursor: string = null;
       if (markb) {
@@ -140,7 +140,7 @@ export class Mark {
     if (this.mp2 && !this.html2) { this.html2 = document.createElement('div'); }
     if (this.mp1 && !this.css1) { this.css1 = document.createElement('style'); }
     if (this.mp2 && !this.css2) { this.css2 = document.createElement('style'); }
-    if (this.mp1) this.setHtml(this.html1, this.mp1, this.css1, set);
-    if (this.mp2) this.setHtml(this.html2, this.mp2, this.css2, set);
+    if (this.mp1 && this.mp1.getVertex(false)) this.setHtml(this.html1, this.mp1, this.css1, set);
+    if (this.mp2 && this.mp2.getVertex(false)) this.setHtml(this.html2, this.mp2, this.css2, set);
   }
 }

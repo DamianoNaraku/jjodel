@@ -26,8 +26,9 @@ import {
   Size,
   MAttribute,
   MReference, MClass, IClass, M2Reference, M2Feature, M3Class, M2Package, M2Attribute, M3Reference, M3Attribute, M3Feature, MetaModel,
-  EOperation, EParameter, Typedd, Type, Dictionary, ExtEdge,
-}                from '../common/Joiner';
+  EOperation, EParameter, Typedd, Type, Dictionary, ExtEdge, ShortAttribETypes, EAnnotation, AccessModifier,
+} from '../common/Joiner';
+import Swal from "sweetalert2";
 
 
 export class M2Class extends IClass {
@@ -46,10 +47,23 @@ export class M2Class extends IClass {
   gotExtendedBy: M2Class[] = [];
   isAbstract: boolean;
   isInterface: boolean;
+  visibility: AccessModifier = AccessModifier.package;
   private extendsStr: string[];
   public extendEdges: ExtEdge[];
 
+  getAccessModifier(): AccessModifier { return this.visibility; }
+  getVisibility(): AccessModifier { return this.getAccessModifier(); }
+  setAccessModifier(a: AccessModifier): void {
+    const output: {reason: string} = {reason: ''};
+    if (!this.canChangeAccessModifierValidityTo(a, output, true)) {
+      U.pe(true, 'cannot set visibility scope to "' + a.toString() + '" because ' + output.reason);
+    }
+    this.visibility = a; }
 
+  public canChangeAccessModifierValidityTo(a: AccessModifier, {reason: string}, allowMark: boolean = false): boolean {
+    //todo: controlla che le m2-reference e utilizzo nei parametri rispettino il visibility scope
+    return true;
+  }
   /*
     static updateAllMMClassSelectors(root0: Element = null, updateModel: boolean = false, updateSidebar: boolean = true): void {
       let root: Element = root0;
@@ -110,16 +124,234 @@ export class M2Class extends IClass {
     this.parse(json, true);
   }
 
+  getAllSuperClasses(plusThis: boolean = false): M2Class[] {
+    // :this sembra buggato come parametro input: se gli passo un parametro stesso tipo mi da comunque errore, ma accetta letteralmente "this"...
+    let i: number;
+    /*
+    const set: Set<IClass> = plusThis ? new Set<IClass>([this as any]) : new Set();
+    for (i = 0; i < this.extends.length; i++) {
+      U.SetMerge(true, set, this.extends[i].getAllSuperClasses(true)); }
+    return [...set];*/
 
-  setExtends(superClass: M2Class, refreshGUI: boolean = true, force: boolean = false): boolean {
-    return super.setExtends(superClass, refreshGUI, force); }
+    // deve fare una ricerca per ordini dell'albero (width, non per depth nel grafo)
+    const visited: Map<number, M2Class> = new Map();
+    const queue: M2Class[] = plusThis ? [this, ...this.extends] : [ ...this.extends];
+    const ret: M2Class[] = [];
+    for (i = 0; i < queue.length; i++) {
+      let elem: M2Class = queue[i];
+      if (visited[elem.id]) continue;
+      visited[elem.id] = elem;
+      ret.push(elem);
+      queue.push(...elem.extends);
+    }
+    return ret;
+  }
+
+  getAllSubClasses(plusThis: boolean = false): M2Class[] {
+    let i: number;
+    const set: Set<M2Class> = plusThis ? new Set<M2Class>([this as any]) : new Set();
+    for (i = 0; i < this.gotExtendedBy.length; i++) {
+      U.SetMerge(true, set, this.gotExtendedBy[i].getAllSubClasses(true)); }
+    return [...set]; }
+
+  getBasicExtends(plusThis: boolean = false): M2Class[] { return plusThis ? [this, ...this.extends] : this.extends; }
+
+  canExtend(superclass: M2Class, output: {reason: string, indirectExtendChain: IClass[]} = {reason: '', indirectExtendChain: null}): boolean {
+    if (!superclass)  { output.reason = 'Invalid extend target: ' + superclass; return false; }
+    if (superclass === this) { output.reason = 'Classifiers cannot extend themself.'; return false; }
+    if (this.extends.indexOf(superclass) >= 0) { output.reason = 'Target class is already directly extended.'; return false; }
+    if(!this.getModelRoot().isM2()) { output.reason = 'Only a M2 IClassifier can extend other IClassifiers.'; return false; }
+    output.indirectExtendChain = output.indirectExtendChain || superclass.getAllSuperClasses(false);
+    if (this.getAllSuperClasses(false).indexOf(superclass) >= 0) { output.reason = 'Target class is already indirectly extended.'; return false; }
+    if (output.indirectExtendChain.indexOf(this) >= 0) { output.reason = 'Cannot set this extend, it would cause a inheritance loop.'; return false; }
+    // ora verifico se causa delle violazioni di override (attibuti omonimi string e boolean non possono overridarsi)
+    let i: number;
+    let j: number;
+    let childrens: EOperation[] = [...this.getBasicOperations()];
+    let superchildrens: EOperation[] = [...superclass.getBasicOperations()];
+    for (i = 0; i < childrens.length; i++) {
+      let op: EOperation = childrens[i];
+      for (j = 0; j < superchildrens.length; j++){
+        let superchildren: EOperation = superchildrens[j];
+        if (op.name !== superchildren.name) continue;
+        if (op.canOverride(superchildren) || op.canPolymorph(superchildren)) continue;
+        output.reason = 'Marked homonymous operations cannot override nor polymorph each others.';
+        setTimeout( () => {
+          op.mark(true, superchildren, 'override');
+          setTimeout( () => { op.mark(false, superchildren, 'override'); }, 3000);
+        }, 1);
+        return false;
+      }
+    }
+    return true; }
+
+  isExtending(superclass: M2Class, orEqual: boolean = true): boolean {
+    if (!superclass) return false;
+    const extendss: M2Class[] = this.getAllSuperClasses(orEqual);
+    let i: number;
+    for (i = 0; i < extendss.length; i++) {
+      if (superclass === extendss[i]) { return true; }
+    }
+    return false; }
+
+  setExtends(superclass: M2Class, refreshGUI: boolean = true, force: boolean = false): boolean {
+    let out: {reason: string, indirectExtendChain: IClass[]} = {reason: '', indirectExtendChain: null};
+    if (!this.canExtend(superclass, out)) {
+      U.pw(true, out.reason);
+      if (!force) return false; }
+    this.extends.push(superclass);
+    U.ArrayAdd(superclass.gotExtendedBy, this);
+    let i: number;
+    if (this instanceof M2Class) for (i = 0; i < this.instances.length; i++) { (this).instances[i].changeMetaParent(this, true, true); }
+    if (refreshGUI) this.refreshGUI_Alone();
+    const extendChildrens: IClass[] = this.getAllSuperClasses(true);
+
+    console.log('calculateViolationsExtend childrens:'  + extendChildrens, this);
+    if (refreshGUI) for (i = 0; i < extendChildrens.length; i++) {
+      let extChild: IClass = extendChildrens[i];
+      console.log('calculateViolationsExtend');
+      extChild.checkViolations(false);
+    }
+    // if (this.vertex) this.vertex.owner.propertyBar.refreshGUI();
+    // if (this.vertex) this.vertex.owner.propertyBar.show(this,null, true, true);
+    return true; }
+
+  unsetExtends(superclass: M2Class, removeEdge: boolean = true): void {
+    if (!superclass) return;
+    console.log('UnsetExtend:', this, this.name);
+    U.pe(!this.getModelRoot().isM2(), 'Only m2 IClassifier can un-extend other IClassifiers.');
+    let index: number = this.extends.indexOf(superclass);
+    if (index < 0) return;
+    let i: number;
+    this.extends.splice(index, 1);
+    U.arrayRemoveAll(superclass.gotExtendedBy, this);
+    this.refreshGUI_Alone();
+    if (this instanceof M2Class) {
+      for (i = 0; i < this.instances.length; i++) { (this).instances[i].doUnsetExtends(superclass as M2Class); }
+      if (removeEdge) for (i = 0; i < this.extendEdges.length; i++) {
+        let extedge: ExtEdge = this.extendEdges[i];
+        if (extedge.end.logic() == superclass) { extedge.remove(); }
+      }
+    }
+    const extendChildrens: IClass[] = this.getAllSubClasses(true);
+    for (i = -1; i < extendChildrens.length; i++) {
+      let extChild: IClass = i === -1 ? this : extendChildrens[i];
+      extChild.checkViolations(true); }
+  }
+
+  calculateInheritanceViolations(toAllChain: boolean = false): void {
+    if (!Status.status.loadedGUI) return;
+    let i: number;
+    let j: number;
+    if (toAllChain) {
+      let classes: IClass[] = [this];
+      U.ArrayMerge(classes, this.getAllSubClasses(false));
+      U.ArrayMerge(classes, this.getAllSuperClasses(false));
+      for (i = 0; i < classes.length; i++) {
+        classes[i].checkViolations(false);
+      }
+    }
+    let operations: EOperation[] = [...this.getAllOperations()];
+
+    console.log('3x operation: ', this, operations);
+    for (j = 0; j < operations.length; j++) {
+      let op1: EOperation = operations[j];
+      op1.unmarkAllIncompatibility();
+      for (i = 0; i < operations.length; i++) {
+        let op2: EOperation = operations[i];
+        let ret = op1.isCompatible(op2, true);
+        console.log('3x operation[' + j + '] = ', ret, op1.name, op2.name, op1, op2, this, operations);
+
+      }
+    }
+  }
+
+  getTypeConversionScores(allowSuperClass: boolean = true, allowSubClass: boolean = true): {class: M2Class, features: number, operations: number, annotations: number}[]{
+    const map: Dictionary<string, M2Class> = {};
+    const ret: {class: M2Class, features: number, operations: number, annotations: number}[] = [];
+    const sortingFunction =
+      (e1: {class: M2Class, features: number, operations: number, annotations: number}, e2: {class: M2Class, features: number, operations: number, annotations: number}
+      ): number => {
+      let s1: string = (e1 as any).order;//  (e1.features + "." + e1.operations + "." + e1.annotations).replace("-", "Z");
+      let s2: string = (e2 as any).order;// (e2.features + "." + e2.operations + "." + e2.annotations).replace("-", "Z");
+      return s1.localeCompare(s2);
+      /*
+        // confronto feature number
+        if (e1.features !== e2.features) {
+          if (e1.features < 0) return e1.features + e2.features;// -1 + -5 = -6 (e1 prima di e2),  -1 + -5 = +4 (e1 dopo e2)
+          else return e1.features - e2.features;// +1 - -5 = +6 (e1 dopo di e2),  +1 - 5 = -4 (e1 prima di e2)
+        }
+        // confronto operations number
+        if (e1.operations !== e2.operations) {
+          if (e1.operations < 0) return e1.operations + e2.operations;
+          else return e1.operations - e2.operations;
+        }
+        // confronto annotations number
+        if (e1.annotations !== e2.annotations) {
+          if (e1.annotations < 0) return e1.annotations + e2.annotations;
+          else return e1.annotations - e2.annotations;
+        }
+        return 0;*/
+      };
+    let candidateClasses = [];
+    if (allowSuperClass) U.ArrayMerge(candidateClasses, this.getAllSuperClasses(false));
+    if (allowSubClass) U.ArrayMerge(candidateClasses, this.getAllSubClasses(false));
+    candidateClasses = candidateClasses.filter((c)=> !c.getInterface() && !c.getAbstract());
+    const myFeatures = this.getAllChildrens(false, false);
+    const myOperations = this.getAllChildrens(true, false, false, false);
+    const myAnnotations = this.getAllChildrens(false, true, false, false);
+    for (let i = 0; i < candidateClasses.length ; i++) {
+      const candidate: M2Class = candidateClasses[i];
+      let featureAdd: number = candidate.getAllChildrens(false, false).length - myFeatures.length;
+      let operationsAdd: number = candidate.getAllChildrens(
+        true, false, false, false).length - myOperations.length;
+      let annotationsAdd: number = candidate.getAllChildrens(
+        false, true, false, false).length - myAnnotations.length;
+      let elem = {class: candidate, features: featureAdd, operations: operationsAdd, annotations: annotationsAdd};
+      ret.push(elem);
+      const order: string = (featureAdd + "." + operationsAdd + "." + annotationsAdd).replace("-", "Z");
+      (elem as any).order = order;
+      // if (map[order]) continue;
+      // map[order] = candidate;
+    }
+    // let lowestKey: string = Object.keys(map).sort()[0];
+    // return map[lowestKey];
+    return ret.sort(sortingFunction);
+  }
+
 
   // getDisplayedChildrens(): Set<EOperation | M2Feature> { return this.getBasicChildrens(); }
   //getBasicChildrens(): Set<M2Feature | EOperation> { return super.getBasicChildrens() as Set<M2Feature | EOperation>; }
   // getAllChildrens(): (M2Feature | EOperation)[] { return super.getAllChildrens() as (M2Feature | EOperation)[]; }
-  getAllAttributes(): Set<M2Attribute> { return super.getAllAttributes() as Set<M2Attribute>; }
-  getAllReferences(): Set<M2Reference> { return super.getAllReferences() as Set<M2Reference>; }
+
+  getAllChildrens(includeOperations: boolean = true,
+                  includeAnnotations: boolean = true, includeAttributes: boolean = true, includeReferences: boolean = true,
+                  /*null = both shadow and unshadow, true = onlyshadowed*/ includeShadowed: boolean | null = true): Typedd[] {
+    //todo: actually since getAllExtends returns an array made from a set, and a class cannot contain duplicates, it cannot contain duplicates.
+    // sets here are redundant.
+    const extendchain: M2Class[] = this.getAllSuperClasses(true);// this.getAllExtends(true);
+    let i: number;
+    const ret: Typedd[] = [];
+    // features and operations can share names
+    // features with same name on different classes will just shadow each other without overriding
+    // override solo se signature identica.
+    // se signature identica e return primitivo diverso: invalido.
+    // se signature identica e return Object più specifico: valido.
+    for (i = 0; i < extendchain.length; i++) {
+      ret.push(...extendchain[i].getBasicChildrens(includeOperations, includeAnnotations, includeAttributes, includeReferences, includeShadowed));
+    }
+    return ret; }
+
+  getAllAttributes(): Set<M2Attribute> {
+    return new Set<M2Attribute> (this.getAllChildrens(false, false, true, false) as M2Attribute[]); }
+  getAllReferences(): Set<M2Reference> {
+    return new Set<M2Reference> (this.getAllChildrens(false, false, false, true) as M2Reference[]); }
+
+
+  getBasicAttributes(): Set<M2Attribute> { return new Set(this.attributes); }
+  getBasicReferences(): Set<M2Reference> { return new Set(this.references); }
   getBasicOperations(): Set<EOperation> { return new Set(this.operations); }
+  getBasicAnnotations(): EAnnotation[] { return (this.annotations); }
 
   getModelRoot(): MetaModel { return super.getModelRoot() as MetaModel; }
 
@@ -187,7 +419,7 @@ export class M2Class extends IClass {
     }
   }
 
-  generateModel(): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json {
     const featurearr: Json[] = [];
     const operationsarr: Json[] = [];
     const model: Json = {};
@@ -195,9 +427,9 @@ export class M2Class extends IClass {
     const key: any = U.getStartSeparatorKey();
     let i: number;
     for (i = 0; i < this.extends.length; i++) { supertypesstr += U.startSeparator(key, ' ') + this.extends[i].getEcoreTypeName(); }
-    for (i = 0; i < this.attributes.length; i++) { featurearr.push(this.attributes[i].generateModel()); }
-    for (i = 0; i < this.references.length; i++) { featurearr.push(this.references[i].generateModel()); }
-    for (i = 0; i < this.operations.length; i++) { operationsarr.push(this.operations[i].generateModel()); }
+    for (i = 0; i < this.attributes.length; i++) { featurearr.push(this.attributes[i].generateModel(loopDetectionObj)); }
+    for (i = 0; i < this.references.length; i++) { featurearr.push(this.references[i].generateModel(loopDetectionObj)); }
+    for (i = 0; i < this.operations.length; i++) { operationsarr.push(this.operations[i].generateModel(loopDetectionObj)); }
 
     model[ECoreClass.xsitype] = 'ecore:EClass';
     model[ECoreClass.namee] = this.name;
@@ -300,6 +532,34 @@ export class M2Class extends IClass {
     }
     return false;
   }*/
+  delete(refreshgui: boolean = true): void{
+    const scores = this.getTypeConversionScores(true, true);
+    const newType: M2Class = scores.length > 0 && scores[0].class;
+    if (newType) this.convertInstancesTo(newType);
+    this.forceChangeType(newType);
+    super.delete(false); // will remove remaining unconverted instances
+    Status.status.mm.refreshGUI();
+    Status.status.mm.refreshInstancesGUI();
+    Type.updateTypeSelectors(null, false, false, true);
+}
+
+  private forceChangeType(newType: M2Class = null): void {
+    let i: number;
+    let typeds: Typedd[] = Type.getAllWithClassType(this);
+    // NB: esistono ancora m1-object che puntano a m1-object istanze di questo oggetto, perchè le istanze vengono cancellate in super.delete() (MP level)
+    // e quando cancelli il vertice di una istanza a catena cancelli prima gli edge e quindi resetti le references attive,
+    // però il tipo puntato rimarrebbe a questa classe.
+    const newTypeStr = newType && newType.getEcoreTypeName() || AttribETypes.EString;
+    for (i = 0; i < typeds.length; i++) {
+      let typed: Typedd = typeds[i];
+      typed.setType(newTypeStr);
+    }
+    typeds = Type.getAllWithClassType(this);
+    console.log('wew', "failed to change all types:", typeds, this,
+      Type.all.map((t)=> t.printablename +'_' + (t.classType && t.classType.getEcoreTypeName())),
+      Type.all.filter((t)=> (t.classType && t.classType.getEcoreTypeName() === this.getEcoreTypeName())));
+    U.pe(!!typeds.length, "failed to change all types:", typeds, this);
+  }
 
   static updateSuperClasses() {
     const dictionary: Dictionary<string, M2Class> = Status.status.mm.getEcoreStr_Class_Dictionary();
@@ -333,4 +593,176 @@ export class M2Class extends IClass {
     const ret: ExtEdge = new ExtEdge(this, this.getVertex(), target.getVertex(), null);
     this.extendEdges.push(ret);
     return ret; }
+
+  getAbstract(): boolean { return this.isAbstract; }
+  getInterface(): boolean { return this.isInterface; }
+
+
+
+  public canBeInterface(value: boolean, outputReason: { text: string }): boolean{
+    let i: number;
+    if (!value) {
+      const subclasses: M2Class[] = this.getAllSubClasses(false);
+      for (i = 0; i < subclasses.length; i++) {
+        const ext: M2Class = subclasses[i] as M2Class;
+        if (ext.getInterface()) {
+          // no interfacce sotto questa classe
+          if (outputReason) outputReason.text = '"' + this.name + '" cannot cease to be an interface because it is extended by "'
+            + ext.name + '" wich is an interface.' + ' Update their relationship befor proceeding.';
+          return false;
+        }
+      }
+      return true;
+    }
+
+    if (this.instances.length) {
+      if (outputReason) outputReason.text =
+        'The class "' + this.name + '" have ' + this.instances.length + ' instances, convert or delete them before proceeding.';
+      return false; }
+
+    const superclasses: M2Class[] = this.getAllSuperClasses(false);
+    for (i = 0; i < superclasses.length; i++) {
+      const ext: M2Class = superclasses[i] as M2Class;
+      if (!ext.getInterface()) {
+        // no classi sopra questa interfaccia
+        if (outputReason) outputReason.text = '"' + this.name + '" cannot be an interface because it cannot extend "'
+          + ext.name + '" wich is a class.' + ' Update their relationship befor proceeding.';
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public canBeAbstract(value: boolean, outputReason: { text: string }): boolean {
+    if (!value) return true;
+    if (this.instances.length) {
+      if (outputReason) outputReason.text =
+        'The class "' + this.name + '" have ' + this.instances.length + ' instances.\n<br>Convert or delete them by right-clicking his vertex before proceeding.';
+      return false; }
+
+    if (this.getInterface() && !this.canBeInterface(false, outputReason)) {
+      if (outputReason) outputReason.text = 'Interfaces cannot be abstract.\n<br>' + outputReason.text;
+      return false;
+    }
+    return true;
+  }
+
+  setInterface(value: boolean, canPrintError: boolean = true): void {
+    if (this.isInterface === value) return;
+    let reason = {text: ''};
+    if (!this.canBeInterface(value, reason)) {
+      // U.pw(canPrintError, reason.text);
+      if (canPrintError) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid operation',
+          html: reason.text
+        });
+      }
+      return; }
+    if (value) { this.setInterfaceTrue(); }
+    else { this.unsetInterface(); }
+  }
+
+  private setInterfaceTrue(): void {
+    this.unsetAbstract();
+    this.isInterface = true; }
+
+  private unsetInterface(): void { this.isInterface = false; }
+
+  public setAbstract(value: boolean, canPrintError: boolean = true): void {
+    if (this.isAbstract === value) return;
+    let reason = {text: ''};
+    if (!this.canBeAbstract(value, reason)) {
+      if (canPrintError) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid operation',
+          html: reason.text
+        });
+      }
+      // U.pw(canPrintError, reason.text);
+      return; }
+    /*
+    obj.abstractCheckbox.checked = false; // do not accept the change until conversion
+    // actually do the thing transforming instances
+    if (convertableChoices_AddField.length + convertableChoices_RemoveField.length === 0) {
+      let options = {
+          'By adding features': { },
+          'By removing features': { },
+        };
+      for(let ii = 0; ii < convertableChoices_AddField.length; ii++) {
+        options['By adding features'][convertableChoices_AddField[ii].id] = convertableChoices_AddField[ii].name;
+      }
+      for(let ii = 0; ii < convertableChoices_RemoveField.length; ii++) {
+        options['By removing features'][convertableChoices_RemoveField[ii].id] = convertableChoices_RemoveField[ii].name;
+      }
+      Swal.fire({
+        title: 'What about his instances?',
+        html:
+          "There are " + classe.instances.length + " instances of this class wich need to be converted to some other class" +
+          " by adding or removing features." +
+          "<br>You can convert them or undo this operation." +
+          "<br><br>Convert them to:",
+        icon: 'warning',
+        input: 'select',
+        inputOptions: options,
+        inputPlaceholder: 'Convert them',
+        showCancelButton: true,
+        inputValidator: (value) => {
+          return new Promise((resolve) => {
+            if (value === '') {
+              resolve()
+            } else {
+              resolve('You need to select a class for conversion.')
+            }
+          })
+        }
+      }).then(function (data) {
+        const targetClass: M2Class = ModelPiece.getByID(+data.value) as M2Class;
+        classe.setAbstract(targetClass);
+        obj.abstractCheckbox.checked = true;
+        Swal.fire(
+          'Done',
+          classe.instances.length + " instances converted.",
+          'success'
+        )
+      });
+    }
+    */
+    if (value) { this.setAbstractTrue(); }
+    else { this.unsetAbstract(); }
+  }
+
+  public setAbstractTrue(): boolean{
+    this.unsetInterface();
+    return this.isAbstract = true; }
+
+  public unsetAbstract(): boolean{
+    return this.isAbstract = false; }
+
+
+  /*
+  public canConvertInstancesTo(classe: M2Class): boolean {
+    const instances: MClass[] = this.instances;
+    let i: number;
+    for (i = 0; i < instances.length; i++) {
+      const instance: MClass = instances[i];
+      if (instance.metaParent !== this) continue;
+      if (!instance.canConvertTo(classe)) return false;
+    }
+    return true;
+  }*/
+  public convertInstancesTo(classe: M2Class): void {
+    let i: number;
+    let convertCount = 0;
+    const instances: MClass[] = U.shallowArrayCopy(this.instances);
+    for (i = 0; i < instances.length; i++) {
+      const instance: MClass = instances[i];
+      U.pe(instance.metaParent !== this, "invalid state: mismatch on instances and metaParent:", instance, this);
+      instance.convertTo(classe);
+      convertCount++;
+    }
+    U.ps(!!convertCount, convertCount + " subclasses converted to " + classe.name);
+  }
 }

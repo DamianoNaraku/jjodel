@@ -1,3 +1,11 @@
+.labelmeasurable{
+  margin-left:auto;
+  margin-right:auto
+}
+
+.meas_acc0{
+  width: 100%;
+}
 .meas_acc0 .measurableSettingRoot{
   width: 100%;
   display: block;

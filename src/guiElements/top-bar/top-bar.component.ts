@@ -123,7 +123,7 @@ export class TopBar {
     const model: IModel = Status.status[modelstr];
     U.pe(!model, 'invalid modelStr in export-save_json_file: |' + modelstr + '|, status:', status);
     const savetxt: string = model.generateModelString();
-    U.download(model.name, savetxt); }
+    U.download((model.name || (model.isM1() ? 'M1' : 'M2') + '_unnamed') + '.json', savetxt); }
 
   static download_XMI_File(e: ClickEvent, modelstr: string): void {
     const model: IModel = Status.status[modelstr];

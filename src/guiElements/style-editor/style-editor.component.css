@@ -245,18 +245,7 @@ label>input[type="color"] {
   flex-wrap: wrap;
   width: 100%;
 }
-.colContainer, .columnContainer {
-  display: flex;
-  flex-flow: nowrap;
-  flex-flow: row;
-}
-.colChild, .columnChild {
-  display: inline-flex;
-  flex-flow: wrap;
-  flex-grow: 1;
-  max-width: 100%;
-  min-width: 0;
-}
+
 .separator {
   margin: auto;
   display: inline-block;
@@ -440,9 +429,9 @@ input.name:focus {
 label.allowEdit > span {
   margin-left:0;
 }
-label > input ~ * {
-  margin: 0;
-  margin-right: 5px;
+label > * {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 label > input[type="checkbox"] ~ * {
   margin-left: 0;
@@ -520,17 +509,7 @@ input[type="checkbox"].arrow {
   flex-grow: 1;
   flex-flow: column;
 }
-.meas_acc0 .columncontainer {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: nowrap;
-}
 
-.meas_acc0 .rowcontainer {
-  display: flex;
-  flex-flow: column;
-  flex-wrap: nowrap;
-}
 .meas_acc0 .column, .meas_acc0 .row{
   display: flex;
   flex-wrap: nowrap;
@@ -746,3 +725,6 @@ input[type="checkbox"].arrow {
 .meas_acc0 .collapse:not(.show) { display: none; }
 .meas_acc0 .selected { background-color: #37ff66 !important; }
 /***********              Measurable editor v2 end                   ********/
+.isinterface, .isabstract{
+  margin-right: 5px;
+}

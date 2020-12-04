@@ -101,7 +101,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div id=\"measurableTemplateGeneratorShell\" class=\"template\">\n  <label><input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span></label>\n  <div class=\"meas_acc0\">\n    <h7 class=\"ruletitle btn btn-link collapsed maintitle\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">\n      <span class=\"innertitle\">Measurable Settings</span>\n    </h7>\n    <div class=\"measurableSettingRoot collapse\">\n      <div class=\"boxesroot\">\n        <div class=\"resizable boxroot\">\n          <h6 class=\"boxtitle\">Resizable handles</h6>\n          <div class=\"rectangledrawing outer\">\n            <div class=\"top row\">\n              <input type=\"checkbox\" class=\"arrow corner top left\" direction=\"nw\">\n              <input type=\"checkbox\" class=\"arrow side top\" direction=\"n\">\n              <input type=\"checkbox\" class=\"arrow corner top right\" direction=\"ne\">\n            </div>\n            <div class=\"mid row\">\n              <input type=\"checkbox\" class=\"arrow side left\" direction=\"w\">\n              <div class=\"middle\">\n                <div class=\"rectangledrawing inner\">\n                  <div class=\"top row\">\n                    <div class=\"corner top left\" direction=\"nw\"></div>\n                    <div class=\"side top\" direction=\"n\"></div>\n                    <div class=\"corner top right\" direction=\"ne\"></div>\n                  </div>\n                  <div class=\"mid row\">\n                    <div class=\"side left\" direction=\"w\"></div>\n                    <div class=\"middle\">\n                    </div>\n                    <div class=\"side right\" direction=\"e\"></div>\n                  </div>\n                  <div class=\"bot row\">\n                    <div class=\"corner bot left\" direction=\"sw\"></div>\n                    <div class=\"side bot\" direction=\"s\"></div>\n                    <div class=\"corner bot right\" direction=\"se\"></div>\n                  </div>\n                </div>\n              </div>\n              <input type=\"checkbox\" class=\"arrow side right\" direction=\"e\">\n            </div>\n            <div class=\"bot row\">\n              <input type=\"checkbox\" class=\"arrow corner bot left\" direction=\"sw\">\n              <input type=\"checkbox\" class=\"arrow side bot\" direction=\"s\">\n              <input type=\"checkbox\" class=\"arrow corner bot right\" direction=\"se\">\n            </div>\n          </div>\n        </div>\n        <div class=\"draggable boxroot\">\n          <h6 class=\"boxtitle\">Draggable directions</h6>\n          <div class=\"rectangledrawing directions\">\n            <input type=\"checkbox\" class=\"arrow arrowh drag\" direction=\"x\">\n            <input type=\"checkbox\" class=\"arrow arrowv drag\" direction=\"y\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"meas_acc\">\n        <input class=\"form-control rulesearch\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\n        <!-- dynamically generated accordions will be placed below -->\n      </div>\n\n      <div class=\"rule template\">\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\n        <div class=\"rulecontainer columncontainer collapse template\">\n\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\n          </div>\n          <div class=\"rightx column rowcontainer fill break mb-3\">\n            <div class=\"row break\">\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\n                <span class=\"prefix form-control\">_</span>\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\n                <select class=\"operator trigger\">\n                  <optgroup label=\"When\">\n                    <option>Start</option>\n                    <option>ing</option>\n                    <option selected>End</option>\n                  </optgroup>\n                </select>\n              </label>\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\n            </div>\n            <div class=\"row break\">\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\n              <span class=\"eventsplitpoint operatorcontainer\">\n                <span class=\"operator\">=</span>\n                <select class=\"operator relational\">\n                  <optgroup label=\"Operator\">\n                    <option>&lt;=</option>\n                    <option selected>=</option>\n                    <option>&gt;=</option>\n                  </optgroup>\n                </select></span>\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\n            <div class=\"measurabledebug rowcontainer\">\n              <button class=\"btn btn-primary executedebug\">Test it!</button>\n              <span class=\"debugrows\" tabindex=\"-1\">\n                <span class=\"measurableoktext\"><span>Debug output: </span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Left: </span><span class=\"measurableoutputtext debugleft\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Operator: </span><span class=\"measurableoutputtext debugoperator\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Right: </span><span class=\"measurableoutputtext debugright\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Target: </span><span class=\"measurableoutputtext debugtarget\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Triggered: </span><span class=\"measurableoutputtext debugtriggers\"></span></span>\n                <!--\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\n                <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\n                -->\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--\n\n\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\n  _target1=\"positionX\"\n  relativetargetof_target1=\"#leftside\"\n  _target2=\"positionX\"\n  relativetargetof_target2=\"#rightside\"\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\n\n  angle:false,\n  class Rotatableoptions {\n  degrees: string = 'false | number';\n  radians: string = 'false | number';\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\n  handleOffsetX: string = 'width / 2';\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\n  rotationCenterOffsetX: string = 'width / 2';\n  rotationCenterOffsetY: string = 'height / 2';\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\n  onRotationStart: string = same as above // in realtà è \"start\"\n  onRotationEnd: string = same as above // in realtà è \"stop\"\n  }\n\n--->\n";
+    __webpack_exports__["default"] = "<div id=\"measurableTemplateGeneratorShell\" class=\"template colChild\">\n  <label class=\"labelmeasurable\">\n    <input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span>\n  </label>\n  <div class=\"meas_acc0\">\n    <h7 class=\"ruletitle btn btn-link collapsed maintitle\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">\n      <span class=\"innertitle\">Measurable Settings</span>\n    </h7>\n    <div class=\"measurableSettingRoot collapse\">\n      <div class=\"boxesroot\">\n        <div class=\"resizable boxroot\">\n          <h6 class=\"boxtitle\">Resizable handles</h6>\n          <div class=\"rectangledrawing outer\">\n            <div class=\"top row\">\n              <input type=\"checkbox\" class=\"arrow corner top left\" direction=\"nw\">\n              <input type=\"checkbox\" class=\"arrow side top\" direction=\"n\">\n              <input type=\"checkbox\" class=\"arrow corner top right\" direction=\"ne\">\n            </div>\n            <div class=\"mid row\">\n              <input type=\"checkbox\" class=\"arrow side left\" direction=\"w\">\n              <div class=\"middle\">\n                <div class=\"rectangledrawing inner\">\n                  <div class=\"top row\">\n                    <div class=\"corner top left\" direction=\"nw\"></div>\n                    <div class=\"side top\" direction=\"n\"></div>\n                    <div class=\"corner top right\" direction=\"ne\"></div>\n                  </div>\n                  <div class=\"mid row\">\n                    <div class=\"side left\" direction=\"w\"></div>\n                    <div class=\"middle\">\n                    </div>\n                    <div class=\"side right\" direction=\"e\"></div>\n                  </div>\n                  <div class=\"bot row\">\n                    <div class=\"corner bot left\" direction=\"sw\"></div>\n                    <div class=\"side bot\" direction=\"s\"></div>\n                    <div class=\"corner bot right\" direction=\"se\"></div>\n                  </div>\n                </div>\n              </div>\n              <input type=\"checkbox\" class=\"arrow side right\" direction=\"e\">\n            </div>\n            <div class=\"bot row\">\n              <input type=\"checkbox\" class=\"arrow corner bot left\" direction=\"sw\">\n              <input type=\"checkbox\" class=\"arrow side bot\" direction=\"s\">\n              <input type=\"checkbox\" class=\"arrow corner bot right\" direction=\"se\">\n            </div>\n          </div>\n        </div>\n        <div class=\"draggable boxroot\">\n          <h6 class=\"boxtitle\">Draggable directions</h6>\n          <div class=\"rectangledrawing directions\">\n            <input type=\"checkbox\" class=\"arrow arrowh drag\" direction=\"x\">\n            <input type=\"checkbox\" class=\"arrow arrowv drag\" direction=\"y\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"meas_acc\">\n        <input class=\"form-control rulesearch\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\n        <!-- dynamically generated accordions will be placed below -->\n      </div>\n\n      <div class=\"rule template\">\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\n        <div class=\"rulecontainer columncontainer collapse template\">\n\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\n          </div>\n          <div class=\"rightx column rowcontainer fill break mb-3\">\n            <div class=\"row break\">\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\n                <span class=\"prefix form-control\">_</span>\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\n                <select class=\"operator trigger\">\n                  <optgroup label=\"When\">\n                    <option>Start</option>\n                    <option>ing</option>\n                    <option selected>End</option>\n                  </optgroup>\n                </select>\n              </label>\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\n            </div>\n            <div class=\"row break\">\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\n              <span class=\"eventsplitpoint operatorcontainer\">\n                <span class=\"operator\">=</span>\n                <select class=\"operator relational\">\n                  <optgroup label=\"Operator\">\n                    <option>&lt;=</option>\n                    <option selected>=</option>\n                    <option>&gt;=</option>\n                  </optgroup>\n                </select></span>\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\n            <div class=\"measurabledebug rowcontainer\">\n              <button class=\"btn btn-primary executedebug\">Test it!</button>\n              <span class=\"debugrows\" tabindex=\"-1\">\n                <span class=\"measurableoktext\"><span>Debug output: </span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Left: </span><span class=\"measurableoutputtext debugleft\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Operator: </span><span class=\"measurableoutputtext debugoperator\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Right: </span><span class=\"measurableoutputtext debugright\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Target: </span><span class=\"measurableoutputtext debugtarget\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Triggered: </span><span class=\"measurableoutputtext debugtriggers\"></span></span>\n                <!--\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\n                <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\n                -->\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--\n\n\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\n  _target1=\"positionX\"\n  relativetargetof_target1=\"#leftside\"\n  _target2=\"positionX\"\n  relativetargetof_target2=\"#rightside\"\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\n\n  angle:false,\n  class Rotatableoptions {\n  degrees: string = 'false | number';\n  radians: string = 'false | number';\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\n  handleOffsetX: string = 'width / 2';\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\n  rotationCenterOffsetX: string = 'width / 2';\n  rotationCenterOffsetY: string = 'height / 2';\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\n  onRotationStart: string = same as above // in realtà è \"start\"\n  onRotationEnd: string = same as above // in realtà è \"stop\"\n  }\n\n--->\n";
     /***/
   },
 
@@ -141,7 +141,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot\">\r\n    <ul class=\"vertex contextMenu\">\r\n      <li class=\"Vertex delete\">Delete Vertex</li>\r\n      <li class=\"todo Vertex duplicate\">Duplicate Vertex</li>\r\n      <li class=\"m1hide Vertex extend\">Extend</li>\r\n      <li class=\"Feature delete\">Delete Feature</li>\r\n      <li class=\"todo Feature duplicate\">Duplicate Feature</li>\r\n      <li class=\"Reference reflistparent\">References\r\n        <ul class=\"reflist\">\r\n          <li class=\"refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n          <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n          <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n        </ul>\r\n      </li>\r\n      <li class=\"separator\"></li>\r\n      <li class=\"Vertex up\">Push vertex Up (Z-order)</li>\r\n      <li class=\"Vertex down\">Push vertex Down (Z-order)</li>\r\n      <li class=\"todo Feature autofixinstances m2hide\">Autofix instances</li>\r\n      <li class=\"todo Feature autofix\">Autofix conformity</li>\r\n      <li class=\"Feature up\">Move feature Up</li>\r\n      <li class=\"Feature down\">Move feature Down</li>\r\n    </ul>\r\n    <ul class=\"extedge contextMenu\">\r\n      <li class=\"edge delete\">Delete generalization</li>\r\n      <li class=\"edge change\">Edit generalization</li>\r\n    </ul>\r\n    <ul class=\"edge contextMenu\">\r\n      <li class=\"edge delete\">Delete reference</li>\r\n      <li class=\"edge change\">Edit reference</li>\r\n    </ul>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot\">\r\n    <ul class=\"vertex contextMenu\">\r\n      <li class=\"Vertex changeType popupRightParent\" uif=\"classifier\">\r\n        <span>Change type</span>\r\n        <ul class=\"typelist popupRight\">\r\n          <li class=\"typeli fallback unclickable\" style=\"cursor: no-drop; color: red;\">##ERROR MSG TO FILL##</li>\r\n          <li class=\"typeli description unclickable\"><span>Best match:</span></li>\r\n          <li class=\"typeli separator unclickable\"></li>\r\n          <li class=\"typeli description unclickable\"><span>Other options</span></li>\r\n          <li class=\"typeli template\" data-index=\"-1\">\r\n            <span class=\"typeli change text\"></span>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Vertex delete\" uif=\"classifier\">Delete classifier</li>\r\n\r\n      <li class=\"Vertex todo duplicate\" uif=\"classifier\">Duplicate classifier</li>\r\n      <li class=\"Vertex extend\" uif=\"m2 && class\">Extend class</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && feature\">Delete feature</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && feature\">Duplicate feature</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && operation\">Delete operation</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && operation\">Duplicate operation</li>\r\n      <li class=\"Reference popupRightParent\" uif=\"reference\">References\r\n        <ul class=\"reflist popupRight\">\r\n          <li class=\"refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n          <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n          <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Feature todo autofixinstances\" uif=\"m2 && feature\">Autofix instances</li>\r\n      <li class=\"Feature todo autofix\" uif=\"m1 && feature\">Autofix conformity</li>\r\n      <li class=\"separator\"  uif=\"classifier || m2 && feature || m2 && operation || m2 && annotation\"></li>\r\n      <li class=\"Vertex up\" uif=\"classifier\">Push vertex Up (Z-order)</li>\r\n      <li class=\"Vertex down\" uif=\"classifier\">Push vertex Down (Z-order)</li>\r\n      <li class=\"Feature up\" uif=\"m2 && feature\">Move feature Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && feature\">Move feature Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && operation\">Move operation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && operation\">Move operation Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && annotation\">Move annotation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && annotation\">Move annotation Down</li>\r\n    </ul>\r\n    <ul class=\"extedge contextMenu\" uif=\"extedge\">\r\n      <li class=\"edge delete\">Delete generalization</li>\r\n      <li class=\"edge change\">Edit generalization</li>\r\n    </ul>\r\n    <ul class=\"edge contextMenu\" uif=\"edge\">\r\n      <li class=\"edge delete\">Delete reference</li>\r\n      <li class=\"edge change\">Edit reference</li>\r\n    </ul>\r\n</div>\r\n";
     /***/
   },
 
@@ -201,7 +201,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:transparent; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Attribute\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; color:inherit; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color:transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"false\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"false\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Attribute\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; color:inherit; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color:transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:0px; display: none;\">\r\n  <div id=\"m_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"m_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
     /***/
   },
 
@@ -221,7 +221,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:transparent; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##className$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell EEnum\" style=\"background:transparent; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height: 22px; padding-left:5px; display:flex;\">\r\n      <select data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Attribute EString EInteger\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template ELiteral\" style=\"width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; color:inherit; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm btn-success\" style=\"width: 100%; height: 22px; padding:0; text-align: center\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width: 100%; height: 22px; border-bottom:1px solid lightgray; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"true\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"true\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##className$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell EEnum\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height: 22px; padding-left:5px; display:flex;\">\r\n      <select data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Attribute EString EInteger\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template ELiteral\" style=\"width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; color:inherit; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm btn-success\" style=\"width: 100%; height: 22px; padding:0; text-align: center\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width: 100%; height: 22px; border-bottom:1px solid lightgray; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:40px; display: none;\">\r\n  <div id=\"mm_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"mm_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
     /***/
   },
 
@@ -301,7 +301,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"property_sidebar\">\r\n  <div class=\"propertySidebarCurrentContent\"></div>\r\n  <div class=\"propertySidebarTemplates template\">\r\n    <div class=\"minimizer single\"></div>\r\n    <div class=\"content\">\r\n      <label class=\"model todo\">URI:<input class = \"uri m1disable\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"model todo\">Namespace:<input class = \"namespace m1disable\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"class m2hide\">Is Root<input type=\"checkbox\" class=\"isRoot\"></label>\r\n      <label class=\"operation todo\">Access modifier:<select class=\"specialjs visibilitySelector m1disable\"></select></label>\r\n      <label class=\"literal\">Ordinal:<input class=\"value\" type=\"number\"></label>\r\n      <label>Name:<input class=\"name m1disable\" placeholder=\"nameless\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"literal\">Literal:<input class=\"literal\" placeholder=\"will inherit from name\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"parameter\">Type:<select class=\"m1disable\" data-primitive=\"true\" data-enum=\"true\" data-class=\"true\"></select></label>\r\n      <label class=\"attribute\">Type:<select class=\"m1disable\" data-primitive=\"true\" data-enum=\"true\"></select></label>\r\n      <label class=\"reference\">Target Type:<select class=\"m1disable\" data-class=\"true\"></select></label>\r\n      <label class=\"attribute m2hide\">Value:<input type=\"text\" class=\"attributeValue\" placeholder=\"[ empty ]\"></label>\r\n      <label class=\"reference\">Is containment:<input type=\"checkbox\" class=\"referenceContainment m1disable\"></label>\r\n      <label class=\"parameter todo\">Is ordered:<input type=\"checkbox\" class=\"ordered m1disable\"></label>\r\n      <label class=\"parameter todo\">Values are unique:<input type=\"checkbox\" class=\"unique m1disable\"></label>\r\n      <label class=\"attribute reference parameter\">LowerBound:<input type=\"number\" step=\"1\" min=\"-1\" class=\"lowerbound m1disable\" placeholder=\"-1\"></label>\r\n      <label class=\"attribute reference parameter\">UpperBound:<input type=\"number\" step=\"1\" min=\"-1\" class=\"upperbound m1disable\" placeholder=\"-1\"></label>\r\n      <label class=\"operation todo\">Exceptions:<input class=\"exceptions\" placeholder=\"throwable exceptions, comma-separated.\"></label>\r\n      <div class=\"replaceVarOn model\"><label>Packages: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content list packageList\"></div></div></div>\r\n      <div class=\"replaceVarOn package\"><label>Classes / Interfaces: ($##classes.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content classList\"></div></div></div>\r\n      <div class=\"replaceVarOn package\"><label>Enumerations: ($##enums.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content enumList\"></div></div></div>\r\n      <div class=\"class\"><label>Attributes: <span class=\"attributeCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content attributeList\"></div></div></div>\r\n      <div class=\"class\"><label>References: <span class=\"referenceCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content referenceList\"></div></div></div>\r\n      <div class=\"class\"><label>Operations: <span class=\"operationCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content operationList\"></div></div></div>\r\n      <div class=\"replaceVarOn operation\"><label>Parameters: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content parameterList\"></div></div></div>\r\n      <div class=\"replaceVarOn enum\"><label>Literals: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content literalList\"></div></div></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"property_sidebar\">\r\n  <div class=\"propertySidebarCurrentContent\"></div>\r\n  <div class=\"propertySidebarTemplates template\">\r\n    <div class=\"minimizer single\"></div>\r\n    <div class=\"content\">\r\n      <label class=\"model todo\">URI:<input class = \"uri m1disable\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"model todo\">Namespace:<input class = \"namespace m1disable\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"class m2hide\"><span>Is Root</span><input type=\"checkbox\" class=\"isRoot\"></label>\r\n\r\n      <label class=\"class m1hide\">is interface <input class=\"isinterface\" type=\"checkbox\"></label>\r\n      <label class=\"class m1hide\">is abstract <input class=\"isabstract\" type=\"checkbox\"></label>\r\n      <label class=\"class\">Access <select class=\"m1disable accessModifier\"></select></label>\r\n\r\n      <label class=\"operation todo\">Access modifier:<select class=\"specialjs visibilitySelector m1disable\"></select></label>\r\n      <label class=\"literal\">Ordinal:<input class=\"value\" type=\"number\"></label>\r\n      <label>Name:<input class=\"name m1disable\" placeholder=\"nameless\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"literal\">Literal:<input class=\"literal\" placeholder=\"will inherit from name\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"parameter\">Type:<select class=\"m1disable\" data-primitive=\"true\" data-enum=\"true\" data-class=\"true\"></select></label>\r\n      <label class=\"attribute\">Type:<select class=\"m1disable\" data-primitive=\"true\" data-enum=\"true\"></select></label>\r\n      <label class=\"reference\">Target Type:<select class=\"m1disable\" data-class=\"true\"></select></label>\r\n      <label class=\"attribute m2hide\">Value:<input type=\"text\" class=\"attributeValue\" placeholder=\"[ empty ]\"></label>\r\n      <label class=\"reference\">Is containment:<input type=\"checkbox\" class=\"referenceContainment m1disable\"></label>\r\n      <label class=\"parameter todo\">Is ordered:<input type=\"checkbox\" class=\"ordered m1disable\"></label>\r\n      <label class=\"parameter todo\">Values are unique:<input type=\"checkbox\" class=\"unique m1disable\"></label>\r\n      <label class=\"attribute reference parameter\">LowerBound:<input type=\"number\" step=\"1\" min=\"-1\" class=\"lowerbound m1disable\" placeholder=\"-1\"></label>\r\n      <label class=\"attribute reference parameter\">UpperBound:<input type=\"number\" step=\"1\" min=\"-1\" class=\"upperbound m1disable\" placeholder=\"-1\"></label>\r\n      <label class=\"operation todo\">Exceptions:<input class=\"exceptions\" placeholder=\"throwable exceptions, comma-separated.\"></label>\r\n      <div class=\"replaceVarOn model\"><label>Packages: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content list packageList\"></div></div></div>\r\n      <div class=\"replaceVarOn package\"><label>Classes / Interfaces: ($##classes.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content classList\"></div></div></div>\r\n      <div class=\"replaceVarOn package\"><label>Enumerations: ($##enums.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content enumList\"></div></div></div>\r\n      <div class=\"class\"><label>Attributes: <span class=\"attributeCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content attributeList\"></div></div></div>\r\n      <div class=\"class\"><label>References: <span class=\"referenceCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content referenceList\"></div></div></div>\r\n      <div class=\"class\"><label>Operations: <span class=\"operationCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content operationList\"></div></div></div>\r\n      <div class=\"replaceVarOn operation\"><label>Parameters: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content parameterList\"></div></div></div>\r\n      <div class=\"replaceVarOn enum\"><label>Literals: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content literalList\"></div></div></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
     /***/
   },
 
@@ -321,7 +321,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <!--\r\n      <label>\r\n        <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid X</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid Y</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom</span>\r\n      </label>\r\n      <label display = \"none\">\r\n        <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom Y</span>\r\n      </label>\r\n      <label><input type=\"checkbox\" class=\"showGrid\"><span>Show grid</span></label>\r\n      <label><input type=\"color\" class=\"graphColor\"><span>Background color</span></label>\r\n      -->\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid X</td>\r\n        <td><input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Grid Y</td>\r\n        <td><input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"graphColor\">Background color</label></td></tr>\r\n      </tbody></table>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n      <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n      <!-- start of new measurable -->\r\n\r\n      <div class=\"measurablePlaceholder\"></div>\r\n\r\n      <!-- end of new measurable -->\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"iclass show\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <label class=\"\">\r\n        <input type=\"checkbox\" class=\"asDefault\">\r\n        <span>Use as default style</span>\r\n      </label>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <!--\r\n      <label>\r\n        <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid X</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid Y</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom</span>\r\n      </label>\r\n      <label display = \"none\">\r\n        <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom Y</span>\r\n      </label>\r\n      <label><input type=\"checkbox\" class=\"showGrid\"><span>Show grid</span></label>\r\n      <label><input type=\"color\" class=\"graphColor\"><span>Background color</span></label>\r\n      -->\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid X</td>\r\n        <td><input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Grid Y</td>\r\n        <td><input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"useGrid\">Use grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor1\">Grid color 1</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor2\">Grid color 2</label></td></tr>\r\n      </tbody></table>\r\n\r\n      <label class=\"onlyVerticalContainer\" uif=\"!running\">\r\n        <button class=\"btn btn-primary layout start dynamic_uif\">Start auto-layouting</button></label>\r\n\r\n\r\n      <div class=\"layoutingRoot\" uif=\"running\">\r\n        <h5>Auto-layout options</h5>\r\n        <label class=\"onlyVerticalContainer\">\r\n          <button class=\"btn btn-primary layout stabilize\">Stabilize</button>\r\n          <span style=\"margin:auto 0.5rem\">in</span>\r\n          <input type=\"number\" class=\"stabilizeSteps lopt\" min=\"0\" step=\"1\" placeholder=\"off\" value=\"10\" data-key=\"custom.stabilizeSteps\">\r\n          <span style=\"margin-left: 0.5rem\">steps</span>\r\n        </label>\r\n        <label class=\"onlyVerticalContainer\"><button class=\"btn btn-primary layout stop\">Stop</button></label>\r\n\r\n        <label>How to manage edge points?\r\n          <select class=\"edgePointTreatment form-group\"><optgroup label=\"How to manage edge points?\">\r\n            <option value=\"delete\">Remove them</option>\r\n            <option value=\"vertex\" selected>Treat them as vertexes</option>\r\n            <option value=\"ignore\">Keep absolute position (ignore)<option>\r\n            <option value=\"relative\">Keep relative position between source & target</option>\r\n            <!--\r\n              1) treat them as vertex (default)\r\n              2) keep absolute position (ignore) (might cause a mess because they stand still)\r\n              3) keep relative position. Rimane a (x%, y%) distanza tra source e target, memorizzo un vettore direzione\r\n                 con modulo in percentuale sulla distanza tra i 2 vertici,\r\n                 così rispetto ai vertici rimane statico, anche se in realtà si è mosso assieme a loro.\r\n            -->\r\n          </optgroup></select>\r\n        </label>\r\n        <div>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"layout.hierarchical.enabled\">Hierarchical\r\n          </label>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"physics.enabled\">\r\n            Physics\r\n          </label>\r\n          <div uif=\"physics\">\r\n            <label>Simulation mode\r\n              <select class=\"dynamic_uif lopt\" data-key=\"physics.solver\">\r\n                <optgroup label=\"Simulation\">\r\n                  <option value=\"barnesHut\">BarnesHut</option>\r\n                  <option value=\"forceAtlas2Based\">Force Atlas 2</option>\r\n                  <option value=\"repulsion\">Repulsion</option>\r\n                  <option value=\"hierarchicalRepulsion\">hierarchicalRepulsion</option>\r\n                </optgroup>\r\n              </select>\r\n            </label>\r\n\r\n            <div uif=\"hr\">\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.blockShifting\">\r\n                Block shifting\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.edgeMinimization\">\r\n                Edge minimization\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.parentCentralization\">\r\n                Parent centralization\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.levelSeparation\" min=\"0\" step=\"1\">\r\n                Level separation\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.nodeSpacing\" min=\"0\" step=\"1\">\r\n                Node spacing\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.treeSpacing\" min=\"0\" step=\"1\">\r\n                Tree spacing\r\n              </label>\r\n              <label>Direction\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.direction\">\r\n                  <optgroup label=\"Direction\">\r\n                    <option value=\"UD\">Up - Down</option>\r\n                    <option value=\"DU\">Down - Up</option>\r\n                    <option value=\"LR\">Left - Right</option>\r\n                    <option value=\"RL\">Right - Left</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Sort method\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.sortMethod\">\r\n                  <optgroup label=\"Sort method\">\r\n                    <option value=\"hubsize\">hubsize</option>\r\n                    <option value=\"directed\">directed</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Shake towards\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.shakeTowards\">\r\n                  <optgroup label=\"Shake towards\">\r\n                    <option value=\"leaves\">leaves</option>\r\n                    <option value=\"roots\">roots</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n            </div>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.theta\"> Theta\r\n            </label>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" min=\"any\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.gravitationalConstant\"> Gravitational constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.centralGravity\"> Central gravity\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springLength\"> Spring length\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springConstant\"> Spring constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.damping\"> Damping\r\n            </label>\r\n            <label uif=\"atl || bar || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.avoidOverlap\"> Avoid overlap\r\n            </label>\r\n            <label uif=\"rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.nodeDistance\"> Node distance\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.minVelocity\"> Min velocity\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.maxVelocity\"> Max velocity\r\n            </label>\r\n\r\n            <label>\r\n              <input type=\"checkbox\" step=\"any\" class=\"dynamic_uif lopt\" data-key=\"physics.stabilization.enabled\"> Stabilization\r\n            </label>\r\n            <div uif=\"stabilization\">\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.iterations\"> Iterations\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.updateInterval\"> Update interval (ms)\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"custom.scale_factor\"> Scale factor\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.onlyDynamicEdges\"> onlyDynamicEdges???\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.fit\"> Fit??\r\n              </label>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n      <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n\r\n      <!-- start of new measurable -->\r\n\r\n      <div class=\"columnContainer\"><div class=\"measurablePlaceholder\"></div></div>\r\n\r\n\r\n      <!-- end of new measurable -->\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"iclass show\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autolayout\"><span>Include in Auto-layout</span></label>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <label class=\"\">\r\n        <input type=\"checkbox\" class=\"asDefault\">\r\n        <span>Use as default style</span>\r\n      </label>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/guiElements/top-bar/m2tcreator/m2tcreator.component.html":
+  /*!************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/guiElements/top-bar/m2tcreator/m2tcreator.component.html ***!
+    \************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcGuiElementsTopBarM2tcreatorM2tcreatorComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "DROPPED: dovrei trovare una implementazione dello standard MTL in js (model to text standard)\ndovrei salvare la regola usando m2t, con l'aggiunta di variabili pre-esistenti definite qui.\nal momento della chiamata della trasformazione m2t prima dell'esecuzione si apre un popup su come assegnare eventuali parametri.\nes per mysql: [checkbox] Ignore duplicates, [checkbox]remove old value... [textarea (array of json strings)] GenerateRedundantKeysFor... (classlist)\nse chiamo mysql in m2 mi genero bd, tabella e vincoli, se chiamo in s1 genero \"insert into\"...\n\n\n\n\n\n\n\n\n\n\n<p>m2tcreator works!</p>\n<h3>M2T creation</h3>\n<span>M2T Options as json</span>\n<textarea class=\"m2t-options\"></textarea>\n\n\n\n\n\n\n<label>M2T help text<textarea [(ngModel)]=\"helptext\"></textarea></label>\n\n<label>name <input></label>\n<label>min values count<input type=\"number\" min=\"0\" value=\"1\"></label>\n<label>max values count<input type=\"number\" min=\"1\" value=\"1\"></label>\n<h3>Paramater list</h3>\n<label>Parameter type\n  <select>\n  <option>enum</option>\n  <option>string</option>\n  <option>number</option>\n  <option>boolean</option>\n</select></label>\n<div uif=\"type-enum\">\n  <label>Enumeration allowed values (as json array)<textarea>[\"example1\", \"example2\"]</textarea></label>\n  <label>Default value<input type=\"text\">example1</label>\n</div>\n\n<label uif=\"type-number\">numeric min value<input step=\"any\" value=\"0\"></label>\n<label uif=\"type-number\">numeric max value<input step=\"any\" value=\"100\"></label>\n<label uif=\"type-number\">user help text<input step=\"any\" value=\"100\"></label>\n";
     /***/
   },
 
@@ -341,7 +361,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div id='topbarShell'>\r\n  <div id='topbar'>\r\n    <div class=\"dropdownContainer user\">\r\n      <button class=\"todo dropdownTitle\">User</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Logout</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Preferences</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Account</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer metametamodel\">\r\n      <button class=\"dropdownTitle\">Meta-Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding TypeMapping\">Type mapping</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding VertexStyle\">Vertex Style</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding EdgeStyle\">Edge Style</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer metamodel\">\r\n      <button class=\"dropdownTitle\">Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer model\">\r\n      <button class=\"dropdownTitle\">Model</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty model</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer themes\">\r\n      <button class=\"dropdownTitle\">Themes</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Dark\">\r\n            <span>Dark</span>\r\n          </label>\r\n        </div></li>\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Light\" checked>\r\n            <span>Light</span>\r\n          </label>\r\n        </div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer Changelog\">\r\n      <button class=\"dropdownTitle changelogbutton\">Changelog</button>\r\n    </div>\r\n  <div id=\"TypeMapper\" class=\"screenWideShadow\" data-closebuttontarget=\"1\" style=\"display: none;\">\r\n    <div id=\"TypeMapperContent\" class=\"popupContent\">\r\n      <h1>M3 Type mapping</h1>\r\n      <button class=\"closeButton\" data-closebuttontarget=\"1\">X</button>\r\n      <br>\r\n      <div class=\"TypeList\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n  <div class=\"changelogRoot\" style=\"display: none\">\r\n\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div id='topbarShell'>\r\n  <div id='topbar'>\r\n    <div class=\"dropdownContainer root user\">\r\n      <button class=\"todo dropdownTitle\">User</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Logout</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Preferences</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Account</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root metametamodel\">\r\n      <button class=\"dropdownTitle\">Meta-Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding TypeMapping\">Type mapping</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding VertexStyle\">Vertex Style</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding EdgeStyle\">Edge Style</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root metamodel\">\r\n      <button class=\"dropdownTitle\">Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset vertex position</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (.jv)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset viewpoints</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Model To Text</div>\r\n            <ul class=\"dropdownContent right m2t-m2-list\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\" (click)=\"createM2T_Rule('m2')\">Create M2T rule</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\">Import M2T rule</div></li>\r\n              <li class=\"dropdownContent right separator\"></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('byText', m2t_byText_m2())\">By text</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('MySQL', m2t_mysql_m2())\">MySQL</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root model\">\r\n      <button class=\"dropdownTitle\">Model</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (XMI)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (JSON)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset vertex position</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (.jv)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset viewpoints</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Model To Text</div>\r\n            <ul class=\"dropdownContent right m2t-m2-list\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\" (click)=\"createM2T_Rule('m1')\">Create M2T rule</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\">Import M2T rule</div></li>\r\n              <li class=\"dropdownContent right separator\"></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('MySQL', m2t_mysql_m1())\">MySQL</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root themes\">\r\n      <button class=\"dropdownTitle\">Themes</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Dark\">\r\n            <span>Dark</span>\r\n          </label>\r\n        </div></li>\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Light\" checked>\r\n            <span>Light</span>\r\n          </label>\r\n        </div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root Changelog\">\r\n      <button class=\"dropdownTitle changelogbutton\">Changelog</button>\r\n    </div>\r\n  <div id=\"TypeMapper\" class=\"screenWideShadow\" data-closebuttontarget=\"1\" style=\"display: none;\">\r\n    <div id=\"TypeMapperContent\" class=\"popupContent\">\r\n      <h1>Type mapping</h1>\r\n      <button class=\"closeButton\" data-closebuttontarget=\"1\">X</button>\r\n      <br>\r\n      <div class=\"typemaprow columnContainer\">\r\n        <select class=\"typemapselector btn-sm\" (change)=\"topbar.changeTypeMap()\" style=\"margin: auto; margin-left:0;\">\r\n          <optgroup label=\"Predefined type mappings\">\r\n            <option value=\"predefined.java\">Java (default)</option>\r\n            <option value=\"predefined.c89\">C 89</option>\r\n            <option value=\"predefined.MySQL\">MySQL</option>\r\n          </optgroup>\r\n          <optgroup label=\"Customized type mappings\">\r\n            <option *ngFor=\"let typemap of topbar?.typemapArr\" value=\"{{typemap}}\">{{typemap.substring(typemap.indexOf('.') + 1)}}</option>\r\n          </optgroup>\r\n        </select>\r\n        <button style=\"margin:auto; margin-right: 0;\" class=\"btn btn-primary addcustomtypmap\"\r\n                (click)=\"topbar.createTypeMap($event)\">Add custom mapping</button>\r\n      </div>\r\n      <div class=\"TypeList\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n  <div class=\"changelogRoot\" style=\"display: none\">\r\n\r\n  </div>\r\n</div>\r\n";
     /***/
   },
 
@@ -2448,13 +2468,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var json = {};
           this.prepareSerialize();
           var i;
           var childarr = [];
 
           for (i = 0; i < this.childrens.length; i++) {
-            childarr.push(this.childrens[i].generateModel());
+            childarr.push(this.childrens[i].generateModel(loopDetectionObj));
           }
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAnnotation"].source, this.name);
@@ -2468,7 +2489,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getVertex",
         value: function getVertex() {
-          return this.parent.getVertex();
+          var canMakeIt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          return this.parent.getVertex(canMakeIt);
         }
       }, {
         key: "parse",
@@ -2585,6 +2607,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var json = {};
           if (this.name !== null) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _iModel__WEBPACK_IMPORTED_MODULE_2__["ECoreDetail"].key, this.name);
           if (this.value !== null) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _iModel__WEBPACK_IMPORTED_MODULE_2__["ECoreDetail"].value, this.value);
@@ -2593,7 +2616,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getVertex",
         value: function getVertex() {
-          return this.parent.getVertex();
+          var canMakeIt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          return this.parent.getVertex(canMakeIt);
         }
       }, {
         key: "parse",
@@ -2702,6 +2726,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           return undefined;
         }
       }, {
@@ -3004,12 +3029,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var packageArr = [];
           var i;
 
           for (i = 0; i < this.childrens.length; i++) {
             var pkg = this.childrens[i];
-            packageArr.push(pkg.generateModel());
+            packageArr.push(pkg.generateModel(loopDetectionObj));
           }
 
           var model = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"](null);
@@ -3065,6 +3091,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           m.copy(this);
           m.refreshGUI();
           return m;
+        }
+      }, {
+        key: "calculateViolations",
+        value: function calculateViolations() {
+          var classes = this.getAllClasses();
+
+          for (var i = 0; i < classes.length; i++) {
+            classes[i].calculateInheritanceViolations(true);
+          }
         }
       }]);
 
@@ -3215,10 +3250,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var json = {};
           var classRoot = this.getClassRoot();
-          if (!classRoot) return Model.emptyModel;
-          json[classRoot.metaParent.getNamespaced()] = classRoot.generateModel(true);
+          if (!classRoot) return Model.emptyModel; // U.pe(!U.isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj, loopDetectionObj || {});
+
+          json[classRoot.metaParent.getNamespaced()] = classRoot.generateModel(loopDetectionObj, true);
           return json;
         } // namespace(set: string = null): string { return this.metaParent.namespace(set); }
 
@@ -3493,9 +3530,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getVertex",
         value: function getVertex() {
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'IModel.getVertex();', this);
-
-          return undefined;
+          var canMakeIt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+          return null;
         }
       }, {
         key: "getAllReferences",
@@ -4072,16 +4108,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var classarr = [];
           var enumarr = [];
           var i;
 
           for (i = 0; i < this.classes.length; i++) {
-            classarr.push(this.classes[i].generateModel());
+            classarr.push(this.classes[i].generateModel(loopDetectionObj));
           }
 
           for (i = 0; i < this.enums.length; i++) {
-            enumarr.push(this.enums[i].generateModel());
+            enumarr.push(this.enums[i].generateModel(loopDetectionObj));
           }
 
           var classifiers = Array.prototype.concat.call(classarr, enumarr);
@@ -4184,7 +4221,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
-          return this.parent.generateModel();
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+          return this.parent.generateModel(loopDetectionObj);
         }
         /*
         generateModel(rootClass: MClass): Json {
@@ -4340,6 +4378,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getVertex",
         value: function getVertex() {
+          var canMakeIt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           return undefined;
         }
       }, {
@@ -4453,6 +4492,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           return undefined;
         }
       }, {
@@ -5022,7 +5062,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModelString",
         value: function generateModelString() {
-          var json = this.generateModel(); // console.log('genmodelstring:', json, 'this:',  this);
+          var json = this.generateModel({}); // console.log('genmodelstring:', json, 'this:',  this);
 
           return JSON.stringify(json, null, 4);
         }
@@ -5079,11 +5119,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var valueMaxLength = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 5;
 
           if (this.name !== null) {
-            return this.fullname();
+            return this.name;
           }
 
           var ending = this.endingName(valueMaxLength);
           return this.metaParent.name + ':' + this.id + (ending && ending !== '' ? ':' + ending : '');
+        }
+      }, {
+        key: "toJSON",
+        value: function toJSON(loopDetectionObj) {
+          var ret = {};
+          ret.id = this.id;
+          ret.name = this.name;
+          ret.parent = this.parent.id;
+          ret.metaParent = this.metaParent.id;
+          ret.annotations = this.annotations.map(function (e) {
+            return e.id;
+          });
+          ret.childrens = this.childrens.map(function (e) {
+            return e.id;
+          });
+          ret.detachedViews = this.detachedViews.map(function (e) {
+            return e.id;
+          });
+          ret.views = this.views.map(function (e) {
+            return e.id;
+          }); // ret.instances = this.instances.map( (e) => e.id); not a permanent stored data, le istanze sono solo quelle disegnate al momento, non TUTTE,
+          // se un M2 è collegato a più M1 crea problemi serializzare anche questo.
+          // M1 può avere reference a M2 che viene caricato, M2 non può avere reference persistenti a M1, altrimenti caricherebbe tutti i suoi M1.
+
+          return ret;
         } // abstract conformability(metaparent: ModelPiece, outObj?: any/*.refPermutation, .attrPermutation*/, debug?: boolean): number;
 
       }, {
@@ -5280,11 +5345,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.instances = [];
           this.refreshGUI();
-        }
+        } // nb: le sottoclassi lo devono sempre chiamare con refreshgui = false
+
       }, {
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          this.unmarkAll();
 
           if (this.parent) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.parent.childrens, this);
@@ -5298,7 +5365,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.metaParent = null;
           }
 
-          this.unmarkAll();
           var i;
 
           var arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.views);
@@ -5321,8 +5387,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.instances);
 
-          for (i = 0; arr && i < arr.length; i++) {
-            arr[i].delete(false);
+          if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
+            var instances = arr;
+            var scores = this.getTypeConversionScores();
+            var newType = scores.length && scores[0].class;
+
+            if (!newType) {
+              for (i = 0; instances && i < instances.length; i++) {
+                instances[i].delete(false);
+              }
+            } else {
+              for (i = 0; instances && i < instances.length; i++) {
+                instances[i].convertTo(newType);
+              }
+            } // posso promuovere le istanze ad una sottoclasse o superclasse di quella cancellata invece di eliminarle.
+
+          } else {
+            // not m2-class.
+            for (i = 0; arr && i < arr.length; i++) {
+              arr[i].delete(false);
+            }
           }
 
           if (refreshgui) this.refreshGUI();
@@ -5584,11 +5668,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getClassName0",
         value: function getClassName0() {
+          var allowInterfaceAbstract = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
           if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M3Class"]) {
             return 'm3Class';
           }
 
           if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
+            if (!allowInterfaceAbstract) return 'm2Class';
             return this.isInterface ? 'Interface' : this.isAbstract ? 'Abstract' : 'm2Class';
           }
 
@@ -6029,7 +6116,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function ProtectedModelPiece(original, createdBy) {
         _classCallCheck(this, ProtectedModelPiece);
 
-        this.subChanges = [];
+        this.subChanges = []
+        /*private object*/
+        ;
         if (createdBy) createdBy.subChanges.push(this);
         this.unsafemp = original;
         this.pendingChanges = new PendingMeasurableChanges(original);
@@ -6222,7 +6311,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
-          return this.unsafemp.generateModel();
+          return this.unsafemp.generateModel({});
         }
       }, {
         key: "generateModelString",
@@ -6454,6 +6543,204 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./src/ServerCommunication/Synchronization/ModelUpdateMessage.ts":
+  /*!***********************************************************************!*\
+    !*** ./src/ServerCommunication/Synchronization/ModelUpdateMessage.ts ***!
+    \***********************************************************************/
+
+  /*! exports provided: ModelUpdateMessage */
+
+  /***/
+  function srcServerCommunicationSynchronizationModelUpdateMessageTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ModelUpdateMessage", function () {
+      return ModelUpdateMessage;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+
+    var ModelUpdateMessage = function ModelUpdateMessage(uid, fieldName, newValue) {
+      _classCallCheck(this, ModelUpdateMessage);
+
+      this.targetObj = uid;
+      this.targetField = fieldName;
+      this.newValue = newValue;
+    };
+    /***/
+
+  },
+
+  /***/
+  "./src/ServerCommunication/Synchronization/SendManager.ts":
+  /*!****************************************************************!*\
+    !*** ./src/ServerCommunication/Synchronization/SendManager.ts ***!
+    \****************************************************************/
+
+  /*! exports provided: SendManager */
+
+  /***/
+  function srcServerCommunicationSynchronizationSendManagerTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SendManager", function () {
+      return SendManager;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../../common/Joiner */
+    "./src/common/Joiner.ts"); // NB: se nel receiveManager ricevo un ordine di update di un ModelPieceID non esistente, devo bufferarlo.
+    // potrebbe essere una inversione di ordine dei messaggi nello strato di rete.
+    // NB: se al server arrivano 2 renameModelPiece nell'ordine inverso, devo tenere traccia del timestamp,
+    // e se l'ultimo rename sul mp è più recente di quello appena arrivato lo ignoro. (idempotenza, non cambia l'ordine dei messaggi)
+    // todo: perdi la compatibilità con eCore nel salvataggio. permetterebbe di inserire commenti, riferimenti circolari in m1 e altro.
+    //  poi posso sempre salvare sia in eCore che nel mio nuovo formato.
+
+
+    var SendManager =
+    /*#__PURE__*/
+    function () {
+      function SendManager(serverAdress, timeout) {
+        _classCallCheck(this, SendManager);
+
+        // U.pe(!serverAdress, "fill server adress before testing");
+        this.serverAdress = serverAdress;
+        this.timeout = timeout;
+      }
+
+      _createClass(SendManager, [{
+        key: "update",
+        value: function update(uid, fieldName, newValue) {
+          var msg = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelUpdateMessage"](uid, fieldName, newValue);
+
+          var callback = function callback() {};
+
+          var request = $.post(this.serverAdress, msg, callback);
+          request = $.ajax({
+            url: this.serverAdress,
+            type: "POST",
+            dataType: "json",
+            timeout: this.timeout,
+            success: function success(response) {
+              setTimeout(function () {
+                return SendManager.manager.update(uid, fieldName, newValue);
+              });
+            },
+            error: function error(xmlhttprequest, textstatus, message) {
+              // 'success' | 'notmodified' | 'nocontent';
+              switch (textstatus) {
+                default:
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected return code from ajax request:', textstatus, msg);
+
+                  break;
+
+                case 'timeout':
+                  break;
+
+                case 'error':
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'undefined error after synch server request send', msg);
+
+                  break;
+
+                case 'abort':
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'undefined abort after synch server request send', msg);
+
+                  break;
+
+                case 'parsererror':
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'undefined abort after synch server request send', msg);
+
+                  break;
+              }
+
+              if (textstatus === "timeout") {
+                alert("got timeout");
+              } else {
+                alert(textstatus);
+              }
+            }
+          });
+          request.state();
+        }
+      }]);
+
+      return SendManager;
+    }();
+
+    SendManager.manager = new SendManager("", 5000);
+    /***/
+  },
+
+  /***/
+  "./src/app/User.ts":
+  /*!*************************!*\
+    !*** ./src/app/User.ts ***!
+    \*************************/
+
+  /*! exports provided: User */
+
+  /***/
+  function srcAppUserTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "User", function () {
+      return User;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+
+    var User =
+    /*#__PURE__*/
+    function () {
+      // todo
+      function User(key) {
+        _classCallCheck(this, User);
+
+        this.key = key;
+      }
+
+      _createClass(User, [{
+        key: "getID",
+        value: function getID() {
+          return this.key;
+        }
+      }]);
+
+      return User;
+    }();
+    /***/
+
+  },
+
+  /***/
   "./src/app/app.component.css":
   /*!***********************************!*\
     !*** ./src/app/app.component.css ***!
@@ -6503,11 +6790,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js"); // @ts-ignore
+    "./node_modules/@angular/core/fesm2015/core.js");
 
-
-    var AppComponent = // @ts-ignore
-    function AppComponent() {
+    var AppComponent = function AppComponent() {
       _classCallCheck(this, AppComponent);
 
       this.title = 'untitled';
@@ -6669,7 +6954,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
     /*! ./measurabletemplate/measurabletemplate.component */
-    "./src/app/measurabletemplate/measurabletemplate.component.ts"); // @ts-ignore
+    "./src/app/measurabletemplate/measurabletemplate.component.ts");
+    /* harmony import */
+
+
+    var vis_network__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    /*! vis-network */
+    "./node_modules/vis-network/peer/umd/vis-network.min.js");
+    /* harmony import */
+
+
+    var vis_network__WEBPACK_IMPORTED_MODULE_19___default =
+    /*#__PURE__*/
+    __webpack_require__.n(vis_network__WEBPACK_IMPORTED_MODULE_19__);
+    /* harmony import */
+
+
+    var _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! ../guiElements/mGraph/Layouting */
+    "./src/guiElements/mGraph/Layouting.ts");
+    /* harmony import */
+
+
+    var _guiElements_top_bar_m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    /*! ../guiElements/top-bar/m2tcreator/m2tcreator.component */
+    "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _User__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+    /*! ./User */
+    "./src/app/User.ts"); // @ts-ignore
 
 
     var AppModule = function AppModule() {
@@ -6677,8 +6998,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _guiElements_mminput_mminput_component__WEBPACK_IMPORTED_MODULE_5__["MminputComponent"], _guiElements_mmsidebar_mmsidebar_component__WEBPACK_IMPORTED_MODULE_6__["MmsidebarComponent"], _guiElements_msidebar_msidebar_component__WEBPACK_IMPORTED_MODULE_7__["MsidebarComponent"], _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_8__["IsidebarComponent"], _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBarComponent"], _guiElements_graph_tab_html_graph_tab_html_component__WEBPACK_IMPORTED_MODULE_10__["GraphTabHtmlComponent"], _guiElements_mm_graph_html_mm_graph_html_component__WEBPACK_IMPORTED_MODULE_11__["MmGraphHtmlComponent"], _guiElements_property_barr_property_barr_component__WEBPACK_IMPORTED_MODULE_13__["PropertyBarrComponent"], _guiElements_m_graph_html_m_graph_html_component__WEBPACK_IMPORTED_MODULE_14__["MGraphHtmlComponent"], _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_15__["DamContextMenuComponent"], _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_16__["StyleEditorComponent"], _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBarComponent"], _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_17__["ConsoleComponent"], _measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_18__["MeasurabletemplateComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _guiElements_mminput_mminput_component__WEBPACK_IMPORTED_MODULE_5__["MminputComponent"], _guiElements_mmsidebar_mmsidebar_component__WEBPACK_IMPORTED_MODULE_6__["MmsidebarComponent"], _guiElements_msidebar_msidebar_component__WEBPACK_IMPORTED_MODULE_7__["MsidebarComponent"], _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_8__["IsidebarComponent"], _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBarComponent"], _guiElements_graph_tab_html_graph_tab_html_component__WEBPACK_IMPORTED_MODULE_10__["GraphTabHtmlComponent"], _guiElements_mm_graph_html_mm_graph_html_component__WEBPACK_IMPORTED_MODULE_11__["MmGraphHtmlComponent"], _guiElements_property_barr_property_barr_component__WEBPACK_IMPORTED_MODULE_13__["PropertyBarrComponent"], _guiElements_m_graph_html_m_graph_html_component__WEBPACK_IMPORTED_MODULE_14__["MGraphHtmlComponent"], _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_15__["DamContextMenuComponent"], _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_16__["StyleEditorComponent"], _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBarComponent"], _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_17__["ConsoleComponent"], _measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_18__["MeasurabletemplateComponent"], _guiElements_top_bar_m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_21__["M2tcreatorComponent"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_22__["FormsModule"]],
       providers: [],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _guiElements_mminput_mminput_component__WEBPACK_IMPORTED_MODULE_5__["MminputComponent"], _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_15__["DamContextMenuComponent"], _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBarComponent"], _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_17__["ConsoleComponent"], _guiElements_graph_tab_html_graph_tab_html_component__WEBPACK_IMPORTED_MODULE_10__["GraphTabHtmlComponent"], _measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_18__["MeasurabletemplateComponent"]],
       // aggiunto da me
@@ -6688,31 +7009,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var Status =
     /*#__PURE__*/
     function () {
-      // modelMatTab: MatTabGroup = null;
-
-      /*showMMGrid = true;
-      showMGrid = true;
-      mmGrid = new GraphPoint(20, 20);
-      mGrid = new GraphPoint(20, 20);*/
       function Status() {
         _classCallCheck(this, Status);
 
         this.mm = null;
         this.m = null;
-        this.typeAliasDictionary = {};
-        this.aliasTypeDictionary = {};
+        this.typeAliasDictionary = {}; // aliasTypeDictionary: Dictionary<string, ShortAttribETypes> = {};
+
         this.debug = false;
         this.loadedLogic = false;
         this.loadedGUI = false;
         this.XMLinlineMarker = '' + '@'; // todo: consenti di customizzare il marker, (in m3options?)
 
-        this.refreshModeAll = true || false;
-        this.refreshModelAndInstances = false && false;
-        this.refreshModelAndParent = false && false;
-        this.refreshInstancesToo = false && false;
-        this.refreshModel = false && false;
-        this.refreshMetaParentToo = false && false;
-        this.refreshParentToo = false && false;
+        this.refreshModeAll = true;
+        this.refreshModelAndInstances = false;
+        this.refreshModelAndParent = false;
+        this.refreshInstancesToo = false;
+        this.refreshModel = false;
+        this.refreshMetaParentToo = false;
+        this.refreshParentToo = false; // modelMatTab: MatTabGroup = null;
+
+        /*showMMGrid = true;
+        showMGrid = true;
+        mmGrid = new GraphPoint(20, 20);
+        mGrid = new GraphPoint(20, 20);*/
+
+        this.user = new _User__WEBPACK_IMPORTED_MODULE_23__["User"]('mock_user');
       }
 
       _createClass(Status, [{
@@ -6802,7 +7124,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, 1);
       } catch (e) {
         var errormsg = 'initialization failed, this is likely caused by a failure on connection while downloading libraries or by unsupported browser.';
-        console.log('first error:', e);
+        console.error('first error:', e);
 
         try {
           _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, errormsg);
@@ -6901,6 +7223,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       window['TSON'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["TSON"];
       window['TSON_JSTypes'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["TSON_JSTypes"];
       window['TSON_UnsupportedTypes'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["TSON_UnsupportedTypes"];
+      window['Network'] = vis_network__WEBPACK_IMPORTED_MODULE_19__["Network"];
+      window['Layouting'] = _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_20__["Layouting"];
+      window['TopBar'] = _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"];
       window['' + 'help'] = ['setBackup (backup <= saveToDB)', 'backupSave (saveToDB <= backup)', 'destroy (the backup)', 'discardSave (stop autosave)'];
 
       window['' + 'destroy'] = function () {
@@ -6994,6 +7319,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       globalevents();
 
+      _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["EType"].LoadTypeMaps();
+
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MeasurableRuleParts"].staticinit();
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IVertex"].staticinit();
@@ -7003,18 +7330,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MyConsole"]();
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw((tmp = +_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["DetectZoom"].device()) !== 1, 'Current zoom level is different from 100%.', 'The graph part of this website may be graphically misplaced due to a bug with Svg\'s <foreignObject> content.', 'current zoom:' + +tmp * 100 + '%', 'The bug happens in: Chrome.', 'The bug does NOT happen in: Firefox.', 'Behaviour is unknown for other browsers.');
-
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].void] = 'void';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EChar] = 'char';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EString] = 'string';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EDate] = 'date';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EFloat] = 'float';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EDouble] = 'double';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EBoolean] = 'bool';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EByte] = 'byte';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EShort] = 'short';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EInt] = 'int';
-      Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].ELong] = 'long';
       /*
       Status.status.typeAliasDictionary[ShortAttribETypes.ECharObj] = 'ECharObj';
       Status.status.typeAliasDictionary[ShortAttribETypes.EStringObj] = 'EStringObj';
@@ -7026,6 +7341,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       Status.status.typeAliasDictionary[ShortAttribETypes.EIntObj] = 'EIntObj';
       Status.status.typeAliasDictionary[ShortAttribETypes.ELongObj] = 'ELongObj';
       Status.status.typeAliasDictionary[ShortAttribETypes.EELIST] = 'EELIST';*/
+
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["EType"].staticInit();
 
@@ -7045,7 +7361,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       savem2.model = validate(savem2.model, _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"].emptyModel);
       savem1.model = validate(savem1.model, _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Model"].emptyModel);
-      useless = new _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"]();
+
+      _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"].staticInit();
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["WebsiteTheme"].setTheme();
 
@@ -7059,6 +7376,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, 'Failed to load the metamodel.');
 
         console.log(e, savem2.model);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Type"].all = []; // reset invalid old parsed types, enums... they are no longer defined in the empty metamodel
+
         Status.status.mm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"](JSON.parse(_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"].emptyModel), Status.status.mmm);
       } // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m); return;
 
@@ -7092,6 +7411,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       Status.status.mm.graph.setGrid(20, 20, true);
       Status.status.m.graph.setGrid(20, 20, true);
       Status.status.loadedGUI = true;
+      Status.status.mm.calculateViolations();
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IEdge"].all.forEach(function (e) {
         e.refreshGui();
@@ -7227,7 +7547,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n  min-width: 0;\r\n}\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border: 2px solid transparent;\r\n  border-radius: 22.5px 0 0 22.5px;\r\n}\r\n.meas_acc0 .maintitle{\r\n  border-radius: 5px;\r\n}\r\n.meas_acc0 .ruletitle:hover{\r\n  border-color: gray;\r\n  background-color: rgba(127, 127, 127, 0.2); }\r\n.meas_acc0 .ruletitle:hover.ruletitle[counter]:not([counter=\"0\"]), .meas_acc0 .ruletitle[counter]:not([counter=\"0\"]):not(.collapsed),\r\n.meas_acc0 .maintitle:hover,  .meas_acc0 .maintitle:not(.collapsed){\r\n  border-color: dodgerblue;\r\n  background-color: rgba(30, 144, 255, 0.2); }\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n/* dynamically added*/\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n.meas_acc0 .measurableoktext{\r\n  margin-left: 5px;\r\n  color: var(--success);\r\n}\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n.meas_acc0 .measurabledebug { display: none; }\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n.meas_acc0 .measurabledebug .debugrows { display: none; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-flow: column; }\r\n.meas_acc0 .measurabledebug:focus-within .debugrows { display: -webkit-box; display: flex; }\r\n.meas_acc0 .countershell { float: right; }\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n.meas_acc0 .directions > * { margin: auto; }\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n.meas_acc0 .rule.template { display: none !important; }\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n.meas_acc .rulesearch:focus {\r\n  border: 1px solid dodgerblue;\r\n  box-shadow: 0 0 0 1px dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsY0FBYztFQUNkLFVBQVU7RUFDVixjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBQ0Esc0JBQXNCLGlCQUFpQixFQUFFO0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTtBQUN6QyxzQkFBc0Isa0JBQWtCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDekQ7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDtBQUNBLG9CQUFvQixlQUFlLEVBQUU7QUFDckMsd0JBQXdCLGtCQUFrQixFQUFFO0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTtBQUNqQyx1QkFBdUIsY0FBYyxFQUFFLGtCQUFrQixFQUFFLG1CQUFtQixFQUFFO0FBQ2hGLG1CQUFtQixvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNsQyxnREFBZ0QsV0FBVyxFQUFFO0FBQzdELDZDQUE2QyxZQUFZLEVBQUUsd0JBQXdCLEVBQUU7QUFDckYscUJBQXFCLG9CQUFhLEVBQWIsYUFBYSxFQUFFLFdBQVcsRUFBRSxZQUFZLEVBQUU7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2pFLDZCQUE2QixZQUFZLEVBQUUsWUFBWSxFQUFFO0FBQ3pEO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLGNBQWM7RUFDZCxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsVUFBVTtFQUNWLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QsMEJBQXFCO09BQXJCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7QUFDQSxzQ0FBc0MsWUFBWSxFQUFFO0FBQ3BEO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQiw2QkFBNkI7RUFDN0IsMEJBQWtCO0VBQWxCLHVCQUFrQjtFQUFsQixrQkFBa0I7QUFDcEI7QUFDQSxnREFBZ0QsZ0JBQWdCLEVBQUU7QUFDbEU7RUFDRSxxQkFBcUI7RUFDckIsZ0RBQWdEO0FBQ2xEO0FBRUEsMEVBQTBFLDJCQUEyQixFQUFFO0FBQ3ZHLHlDQUF5QztBQUN6QztFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLG1CQUFtQjtBQUNyQjtBQUNBO0dBQ0csZ0JBQWdCO0NBQ2xCO0FBQ0Q7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLDRCQUF1QjtPQUF2Qix1QkFBdUI7QUFDekI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtBQUNkO0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFO0FBQ2pELCtCQUErQixnQkFBZ0IsRUFBRTtBQUNqRCx3Q0FBd0MsZUFBZSxFQUFFO0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0FBQ25FO0FBQ0E7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixvQkFBYTtFQUFiLGFBQWE7RUFDYiw2QkFBNkI7RUFDN0IsZ0NBQWdDO0FBQ2xDO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQiwwQ0FBMEMsRUFBRTtBQUU5Qzs7RUFFRSx3QkFBd0I7RUFDeEIseUNBQXlDLEVBQUU7QUFFN0MsbUNBQW1DLFlBQVksRUFBRTtBQUFFLHFCQUFxQjtBQUN4RSxrQ0FBa0MsMkJBQTJCLEVBQUU7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFLHFCQUFxQixFQUFFLGlCQUFpQixFQUFFO0FBQ3BHO0VBQ0UsNkJBQTZCO0VBQzdCLDBCQUEwQjtBQUM1QjtBQUNBOzs7RUFHRTtvQkFDa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixvQkFBb0I7QUFDdEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7QUFDekI7QUFDQSwyQkFBMkIsa0JBQWtCLEVBQUU7QUFDL0MsOEJBQThCLGFBQWEsRUFBRTtBQUM3QyxrREFBa0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUseUNBQXlDLGFBQWEsRUFBRSw0QkFBaUIsRUFBakIsNkJBQWlCLEVBQWpCLGlCQUFpQixFQUFFO0FBQzNFLHNEQUFzRCxvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNyRSwyQkFBMkIsWUFBWSxFQUFFO0FBQ3pDO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7QUFDQTtFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEO0FBQ0E7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTtBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7QUFDbkI7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCLEVBQUU7QUFDckI7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTtBQUMxRDtFQUNFLHNEQUFzRCxFQUFFO0FBRTFEO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFFZixvQkFBb0IsMkJBQTJCLEVBQUU7QUFDakQ7RUFDRSxXQUFXO0VBQ1gsWUFBWSxFQUFFO0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7QUFDeEM7RUFDRSw0RkFBb0Y7VUFBcEYsb0ZBQW9GLEVBQUU7QUFFeEY7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsWUFBWSxFQUFFO0FBQ2hCLDZCQUE2QixZQUFZLEVBQUU7QUFDM0M7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7QUFDQSxrQ0FBa0MsYUFBYSxFQUFFO0FBQ2pELDRCQUE0Qix3QkFBd0IsRUFBRTtBQUN0RCx1QkFBdUIsb0NBQW9DLEVBQUU7QUFFN0Q7RUFDRSw0QkFBNEI7RUFDNUIsZ0NBQWdDO0FBQ2xDIiwiZmlsZSI6InNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lYXNfYWNjMCAubWVhc3VyYWJsZVNldHRpbmdSb290e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAucHJlbGVmdCwgLm1lYXNfYWNjMCAucG9zdE5hbWUge1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBiYWNrZ3JvdW5kOiBub25lO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbiAgcGFkZGluZzogMDtcclxuICBjb2xvcjogaW5oZXJpdDtcclxuICBoZWlnaHQ6IHVuc2V0O1xyXG59XHJcbi5tZWFzX2FjYzAgLnByZWxlZnQgeyBtYXJnaW4tcmlnaHQ6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5wb3N0TmFtZSB7IG1hcmdpbi1sZWZ0OiA1cHg7IH1cclxuLm1lYXNfYWNjMCAuYm90bWFyZyB7IG1hcmdpbi1ib3R0b206IDVweDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5tb3ZlbWVudGJveHJvb3QsIC5tZWFzX2FjYzAgLnJlc2l6ZWJveHJvb3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHJvdztcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucm93Y29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAucm93IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcclxuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XHJcbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5maWxsIHsgZmxleC1ncm93OiAxOyB9XHJcbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLmxlZnQsIC5tZWFzX2FjYzAgLnNpZGUucmlnaHQgeyB3aWR0aDogMTBweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxyXG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSB7IGJhY2tncm91bmQtY29sb3I6IGdvbGRlbnJvZDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbn1cclxuLm1lYXNfYWNjMCAuYm94cm9vdCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGV7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgYnV0dG9uLnJ1bGVkZWxldGUge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICB3aWR0aDogMzBweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDI1cHggMCAwIDI1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCB7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGZsZXgtZ3JvdzogMCAhaW1wb3J0YW50O1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGZsZXgtYmFzaXM6IGF1dG8gIWltcG9ydGFudDtcclxuICBmbGV4LXNocmluazogMCAhaW1wb3J0YW50O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXIge1xyXG4gIG9yZGVyOiAyO1xyXG4gIG1hcmdpbjogYXV0byAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAtNHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6IGluaGVyaXQ7XHJcbiAgdGV4dC1hbGlnbi1sYXN0OiBsZWZ0O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbmRyYWcgLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDU2cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29ucmVzaXplIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA2NHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbnJvdGF0aW9uIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA3N3B4O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXI6Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xyXG4gIG9yZGVyOiAzO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XHJcbiAgbWluLXdpZHRoOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqIHsgYm9yZGVyOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcclxuICBtYXJnaW4tdG9wOiAxcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICB3aWR0aDogbWluLWNvbnRlbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0OmZvY3VzIHsgYm94LXNoYWRvdzogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4OmZvY3VzLXdpdGhpbiB7XHJcbiAgYm9yZGVyLWNvbG9yOiAjODBiZGZmO1xyXG4gIGJveC1zaGFkb3c6IDAgMCAwIDAuMnJlbSByZ2JhKDAsIDEyMywgMjU1LCAwLjI1KTtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5yaWdodHgsIC5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAubGVmdHggeyBtYXJnaW4tYm90dG9tOiAwICFpbXBvcnRhbnQ7IH1cclxuLyogLm1lYXNfYWNjMCAucmlnaHR4IHsgbWluLXdpZHRoOiAwOyB9ICovXHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yIHtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxuICAvKm1hcmdpbi10b3A6IDhweDsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yLmFwcGx5IHtcclxuICAgbWFyZ2luLWxlZnQ6IDBweDtcclxuIH1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3Jjb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgc2VsZWN0Lm9wZXJhdG9yIHtcclxuICB3aWR0aDogNDVweDtcclxuICBtYXJnaW46IGF1dG8gNXB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yaWdodHggLmNvbXBvdW5kSW5wdXRwcmVmaXgsIC5tZWFzX2FjYzAgLnJpZ2h0eCBpbnB1dC5yaWdodHNpZGUsIC5tZWFzX2FjYzAgaW5wdXQubGVmdHNpZGUsIC5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQge1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxuICBtaW4td2lkdGg6IDEyMHB4O1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgeyBtYXJnaW4tYm90dG9tOiAxcmVtOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQgeyBtYXJnaW4tYm90dG9tOiAwOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC5tZWFzdXJhYmxlZGVidWcgeyBtYXJnaW4tdG9wOiA1cHg7IH1cclxuLm1lYXNfYWNjMCAuYXR0cm5hbWUge1xyXG4gIG1heC13aWR0aDogMjAwcHggIWltcG9ydGFudDsgLyogdG9kbzogcmVtb3ZlIHdoZW4gaXMgYXV0b3NpemluZyAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmFkZHJ1bGUge1xyXG4gIGZsb2F0OiByaWdodDtcclxuICBtYXJnaW4tdG9wOiAtNHB4O1xyXG4gIHBhZGRpbmc6IDRweCAxMHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XHJcbiAgcGFkZGluZy1yaWdodDogNHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIHRyYW5zcGFyZW50O1xyXG4gIGJvcmRlci1yYWRpdXM6IDIyLjVweCAwIDAgMjIuNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLm1haW50aXRsZXtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbn1cclxuXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlcntcclxuICBib3JkZXItY29sb3I6IGdyYXk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxMjcsIDEyNywgMTI3LCAwLjIpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGU6aG92ZXIucnVsZXRpdGxlW2NvdW50ZXJdOm5vdChbY291bnRlcj1cIjBcIl0pLCAubWVhc19hY2MwIC5ydWxldGl0bGVbY291bnRlcl06bm90KFtjb3VudGVyPVwiMFwiXSk6bm90KC5jb2xsYXBzZWQpLFxyXG4ubWVhc19hY2MwIC5tYWludGl0bGU6aG92ZXIsICAubWVhc19hY2MwIC5tYWludGl0bGU6bm90KC5jb2xsYXBzZWQpe1xyXG4gIGJvcmRlci1jb2xvcjogZG9kZ2VyYmx1ZTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDMwLCAxNDQsIDI1NSwgMC4yKTsgfVxyXG5cclxuOjpuZy1kZWVwIC5tZWFzX2FjYzAgLmlubmVydGl0bGUgeyBtYXJnaW46IGF1dG87IH0gLyogZHluYW1pY2FsbHkgYWRkZWQqL1xyXG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlciB7IC13ZWJraXQtYXBwZWFyYW5jZTogYnV0dG9uOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGNvbG9yOiBkb2RnZXJibHVlOyB9XHJcbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogdW5zZXQ7XHJcbiAgLyogZGlzYWJsZSBib290c3RyYXAgcnVsZSovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW91dHB1dHRleHQ6Zm9jdXMsXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHQ6Zm9jdXMsXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dDpmb2N1c3tcclxuICAvKm91dGxpbmU6IG5vbmU7XHJcbiAgYm94LXNoYWRvdzogbm9uZTsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVva3RleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tc3VjY2Vzcyk7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1kYW5nZXIpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS13YXJuaW5nKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXJ7IG1hcmdpbi1ib3R0b206IDVweDsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgeyBkaXNwbGF5OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eDpmb2N1cy13aXRoaW4gLm1lYXN1cmFibGVkZWJ1Z3sgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgLmRlYnVncm93cyB7IGRpc3BsYXk6IG5vbmU7IGZsZXgtZmxvdzogY29sdW1uOyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1Zzpmb2N1cy13aXRoaW4gLmRlYnVncm93cyB7IGRpc3BsYXk6IGZsZXg7IH1cclxuLm1lYXNfYWNjMCAuY291bnRlcnNoZWxsIHsgZmxvYXQ6IHJpZ2h0OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAqIHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gKiwgLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAubGVmdCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby90cXhYaGs0L3RsLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZ3ZweXd6L3RsbC5wbmcpO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnNpZGUudG9wIHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9NOWZDN0RQL3QucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5yaWdodCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9QenNtanhmL3RyLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9TTjJUSEx0L3RybC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvLzdqbTlCQlEvbC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9SWVpuVk41L3IucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3FyWVdkcEgvYmwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2dES0ZyeTUvYmxsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAuc2lkZS5ib3Qge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2NYYzBubVMvYi5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL0swcFZWVDcvYnIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1Fwd1JTc1QvYnJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnRvcCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xyXG4gIG1hcmdpbi10b3A6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmJvdCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogLTNweDtcclxuICBtYXJnaW4tdG9wOiAzcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmxlZnQge1xyXG4gIG1hcmdpbi1yaWdodDogM3B4O1xyXG4gIG1hcmdpbi1sZWZ0OiAtM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5yaWdodCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAtM3B4O1xyXG4gIG1hcmdpbi1sZWZ0OiAzcHg7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3doIHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZDNqdGJjL2xyLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3d2IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9qSFR0UER4L3RiLnBuZyk7IH1cclxuXHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgaGVpZ2h0OiA1MHB4O1xyXG4gIG1pbi13aWR0aDogNTBweDtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+ICoge1xyXG4gIGhlaWdodDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+ICoge1xyXG4gIGhlaWdodDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd2lkdGg6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG5cclxuLm1lYXNfYWNjMCAuYXJyb3cgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Z7XHJcbiAgd2lkdGg6IDc1cHg7XHJcbiAgaGVpZ2h0OiA3NXB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdzpmb2N1c3sgb3V0bGluZTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xyXG4gIGZpbHRlcjogc2VwaWEoODIlKSBzYXR1cmF0ZSgzOTI1JSkgaHVlLXJvdGF0ZSg1NWRlZykgYnJpZ2h0bmVzcygxMjUlKSBjb250cmFzdCgxMjAlKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luOiBhdXRvOyB9XHJcbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMgPiAqIHsgbWFyZ2luOiBhdXRvOyB9XHJcbi5tZWFzX2FjYzAgLmRyYWdnYWJsZS5ib3hyb290e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgLypoZWlnaHQ6IDIzN3B4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAuY29sbGFwc2U6bm90KC5zaG93KSB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAucnVsZS50ZW1wbGF0ZSB7IGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDsgfVxyXG4ubWVhc19hY2MwIC5zZWxlY3RlZCB7IGJhY2tncm91bmQtY29sb3I6ICMzN2ZmNjYgIWltcG9ydGFudDsgfVxyXG5cclxuLm1lYXNfYWNjIC5ydWxlc2VhcmNoOmZvY3VzIHtcclxuICBib3JkZXI6IDFweCBzb2xpZCBkb2RnZXJibHVlO1xyXG4gIGJveC1zaGFkb3c6IDAgMCAwIDFweCBkb2RnZXJibHVlO1xyXG59XHJcbiJdfQ== */";
+    __webpack_exports__["default"] = ".labelmeasurable{\r\n  margin-left:auto;\r\n  margin-right:auto\r\n}\r\n\r\n.meas_acc0{\r\n  width: 100%;\r\n}\r\n\r\n.meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n  min-width: 0;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border: 2px solid transparent;\r\n  border-radius: 22.5px 0 0 22.5px;\r\n}\r\n\r\n.meas_acc0 .maintitle{\r\n  border-radius: 5px;\r\n}\r\n\r\n.meas_acc0 .ruletitle:hover{\r\n  border-color: gray;\r\n  background-color: rgba(127, 127, 127, 0.2); }\r\n\r\n.meas_acc0 .ruletitle:hover.ruletitle[counter]:not([counter=\"0\"]), .meas_acc0 .ruletitle[counter]:not([counter=\"0\"]):not(.collapsed),\r\n.meas_acc0 .maintitle:hover,  .meas_acc0 .maintitle:not(.collapsed){\r\n  border-color: dodgerblue;\r\n  background-color: rgba(30, 144, 255, 0.2); }\r\n\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n\r\n/* dynamically added*/\r\n\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }\r\n\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n\r\n.meas_acc0 .measurableoktext{\r\n  margin-left: 5px;\r\n  color: var(--success);\r\n}\r\n\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n\r\n.meas_acc0 .measurabledebug { display: none; }\r\n\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .measurabledebug .debugrows { display: none; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-flow: column; }\r\n\r\n.meas_acc0 .measurabledebug:focus-within .debugrows { display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .countershell { float: right; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n\r\n.meas_acc0 .directions > * { margin: auto; }\r\n\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n\r\n.meas_acc0 .rule.template { display: none !important; }\r\n\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n\r\n.meas_acc .rulesearch:focus {\r\n  border: 1px solid dodgerblue;\r\n  box-shadow: 0 0 0 1px dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0VBQ2hCO0FBQ0Y7O0FBRUE7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsY0FBYztBQUNoQjs7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7O0FBQ0E7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGNBQWM7RUFDZCxVQUFVO0VBQ1YsY0FBYztFQUNkLGFBQWE7QUFDZjs7QUFDQSxzQkFBc0IsaUJBQWlCLEVBQUU7O0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTs7QUFDekMsc0JBQXNCLGtCQUFrQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUN6RDtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0FBQ25COztBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDs7QUFDQSxvQkFBb0IsZUFBZSxFQUFFOztBQUNyQyx3QkFBd0Isa0JBQWtCLEVBQUU7O0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTs7QUFDakMsdUJBQXVCLGNBQWMsRUFBRSxrQkFBa0IsRUFBRSxtQkFBbUIsRUFBRTs7QUFDaEYsbUJBQW1CLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNsQyxnREFBZ0QsV0FBVyxFQUFFOztBQUM3RCw2Q0FBNkMsWUFBWSxFQUFFLHdCQUF3QixFQUFFOztBQUNyRixxQkFBcUIsb0JBQWEsRUFBYixhQUFhLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTs7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNqRSw2QkFBNkIsWUFBWSxFQUFFLFlBQVksRUFBRTs7QUFDekQ7RUFDRSx1QkFBdUI7QUFDekI7O0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7O0FBQ0E7RUFDRSxjQUFjO0VBQ2Qsa0JBQWtCO0FBQ3BCOztBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5Qjs7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7O0FBQ0E7RUFDRSw0QkFBUTtVQUFSLFFBQVE7RUFDUixjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLFVBQVU7RUFDVix1QkFBdUI7RUFDdkIsY0FBYztFQUNkLDBCQUFxQjtPQUFyQixxQkFBcUI7QUFDdkI7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7O0FBQ0Esc0NBQXNDLFlBQVksRUFBRTs7QUFDcEQ7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDZCQUE2QjtFQUM3QiwwQkFBa0I7RUFBbEIsdUJBQWtCO0VBQWxCLGtCQUFrQjtBQUNwQjs7QUFDQSxnREFBZ0QsZ0JBQWdCLEVBQUU7O0FBQ2xFO0VBQ0UscUJBQXFCO0VBQ3JCLGdEQUFnRDtBQUNsRDs7QUFFQSwwRUFBMEUsMkJBQTJCLEVBQUU7O0FBQ3ZHLHlDQUF5Qzs7QUFDekM7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7O0FBQ0E7R0FDRyxnQkFBZ0I7Q0FDbEI7O0FBQ0Q7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQiw0QkFBdUI7T0FBdkIsdUJBQXVCO0FBQ3pCOztBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7O0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFOztBQUNqRCwrQkFBK0IsZ0JBQWdCLEVBQUU7O0FBQ2pELHdDQUF3QyxlQUFlLEVBQUU7O0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0FBQ25FOztBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDZCQUE2QjtFQUM3QixnQ0FBZ0M7QUFDbEM7O0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsMENBQTBDLEVBQUU7O0FBRTlDOztFQUVFLHdCQUF3QjtFQUN4Qix5Q0FBeUMsRUFBRTs7QUFFN0MsbUNBQW1DLFlBQVksRUFBRTs7QUFBRSxxQkFBcUI7O0FBQ3hFLGtDQUFrQywyQkFBMkIsRUFBRTs7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFLHFCQUFxQixFQUFFLGlCQUFpQixFQUFFOztBQUNwRztFQUNFLDZCQUE2QjtFQUM3QiwwQkFBMEI7QUFDNUI7O0FBQ0E7OztFQUdFO29CQUNrQjtBQUNwQjs7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7O0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQW9CO0FBQ3RCOztBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2Qjs7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7QUFDekI7O0FBQ0EsMkJBQTJCLGtCQUFrQixFQUFFOztBQUMvQyw4QkFBOEIsYUFBYSxFQUFFOztBQUM3QyxrREFBa0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7O0FBQ2pFLHlDQUF5QyxhQUFhLEVBQUUsNEJBQWlCLEVBQWpCLDZCQUFpQixFQUFqQixpQkFBaUIsRUFBRTs7QUFDM0Usc0RBQXNELG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNyRSwyQkFBMkIsWUFBWSxFQUFFOztBQUN6QztFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDOztBQUNBO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7O0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEOztBQUNBO0VBQ0UscURBQXFELEVBQUU7O0FBQ3pEO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RCxFQUFFOztBQUMzRDtFQUNFLHFEQUFxRCxFQUFFOztBQUN6RDtFQUNFLHFEQUFxRCxFQUFFOztBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTs7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTs7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7O0FBQzNEO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQixFQUFFOztBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7O0FBQ25CO0VBQ0UsaUJBQWlCO0VBQ2pCLGlCQUFpQixFQUFFOztBQUNyQjtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTs7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTs7QUFDMUQ7RUFDRSxzREFBc0QsRUFBRTs7QUFFMUQ7RUFDRSxZQUFZO0VBQ1osZUFBZTtBQUNqQjs7QUFDQTtFQUNFLFlBQVksRUFBRTs7QUFDaEI7RUFDRSxZQUFZLEVBQUU7O0FBQ2hCO0VBQ0UsWUFBWTtFQUNaLFdBQVcsRUFBRTs7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7O0FBRWYsb0JBQW9CLDJCQUEyQixFQUFFOztBQUNqRDtFQUNFLFdBQVc7RUFDWCxZQUFZLEVBQUU7O0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7O0FBQ3hDO0VBQ0UsNEZBQW9GO1VBQXBGLG9GQUFvRixFQUFFOztBQUV4RjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixZQUFZLEVBQUU7O0FBQ2hCLDZCQUE2QixZQUFZLEVBQUU7O0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25COztBQUNBLGtDQUFrQyxhQUFhLEVBQUU7O0FBQ2pELDRCQUE0Qix3QkFBd0IsRUFBRTs7QUFDdEQsdUJBQXVCLG9DQUFvQyxFQUFFOztBQUU3RDtFQUNFLDRCQUE0QjtFQUM1QixnQ0FBZ0M7QUFDbEMiLCJmaWxlIjoic3JjL2FwcC9tZWFzdXJhYmxldGVtcGxhdGUvbWVhc3VyYWJsZXRlbXBsYXRlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubGFiZWxtZWFzdXJhYmxle1xyXG4gIG1hcmdpbi1sZWZ0OmF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OmF1dG9cclxufVxyXG5cclxuLm1lYXNfYWNjMHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlU2V0dGluZ1Jvb3R7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLm1lYXNfYWNjMCAuYm94ZXNyb290IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1iYXNpczogMDtcclxufVxyXG4ubWVhc19hY2MwIC5wcmVsZWZ0LCAubWVhc19hY2MwIC5wb3N0TmFtZSB7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG8gMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGNvbG9yOiBpbmhlcml0O1xyXG4gIGhlaWdodDogdW5zZXQ7XHJcbn1cclxuLm1lYXNfYWNjMCAucHJlbGVmdCB7IG1hcmdpbi1yaWdodDogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLnBvc3ROYW1lIHsgbWFyZ2luLWxlZnQ6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5ib3RtYXJnIHsgbWFyZ2luLWJvdHRvbTogNXB4OyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1vdmVtZW50Ym94cm9vdCwgLm1lYXNfYWNjMCAucmVzaXplYm94cm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbn1cclxuLm1lYXNfYWNjMCAuY29sdW1uY29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogcm93O1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5yb3djb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29sdW1uLCAubWVhc19hY2MwIC5yb3d7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5yb3cge1xyXG4gIG1heC13aWR0aDogMTAwJTtcclxuICBtYXJnaW4tcmlnaHQ6IHVuc2V0O1xyXG4gIG1hcmdpbi1sZWZ0OiB1bnNldDsgLyogZHVtYiBfZ3JpZC5zY3NzIGZpeGVyICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYnJlYWsgeyBmbGV4LXdyYXA6IHdyYXA7IH1cclxuLm1lYXNfYWNjMCAuYXV0b2JyZWFrIHsgZmxleC13cmFwOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLmZpbGwgeyBmbGV4LWdyb3c6IDE7IH1cclxuLm1lYXNfYWNjMCAuYm94dGl0bGUgeyBkaXNwbGF5OiBibG9jazsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUgeyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUubGVmdCwgLm1lYXNfYWNjMCAuc2lkZS5yaWdodCB7IHdpZHRoOiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUudG9wLCAubWVhc19hY2MwIC5zaWRlLmJvdCB7IGhlaWdodDogMTBweDsgd2lkdGg6IGNhbGMoMTAwJSAtIDIwcHgpOyB9XHJcbi5tZWFzX2FjYzAgLmNvcm5lciB7IGRpc3BsYXk6IGZsZXg7IHdpZHRoOiAxMHB4OyBoZWlnaHQ6IDEwcHg7IH1cclxuLm1lYXNfYWNjMCAubWlkZGxlIHsgYmFja2dyb3VuZC1jb2xvcjogZ29sZGVucm9kOyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSAubWlkZGxlIHsgd2lkdGg6IDEyMHB4OyBoZWlnaHQ6IDkwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuc2lkZSwgLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcclxufVxyXG4ubWVhc19hY2MwIC5ib3hyb290IHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAzMHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweCAwIDAgMjVweDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgZmxleC1iYXNpczogYXV0byAhaW1wb3J0YW50O1xyXG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3IudHJpZ2dlciB7XHJcbiAgb3JkZXI6IDI7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbiAgbWFyZ2luLWxlZnQ6IC00cHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBjb2xvcjogaW5oZXJpdDtcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGxlZnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29uZHJhZyAub3BlcmF0b3IudHJpZ2dlcntcclxuICB3aWR0aDogNTZweDtcclxufVxyXG4ubWVhc19hY2MwIC5fb25yZXNpemUgLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDY0cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29ucm90YXRpb24gLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDc3cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3IudHJpZ2dlcjpmb2N1c3tcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJveC1zaGFkb3c6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dC5hdHRybmFtZSB7XHJcbiAgb3JkZXI6IDM7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgcGFkZGluZy1sZWZ0OiAwO1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDA7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcclxuICBtaW4td2lkdGg6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICo6Zmlyc3QtY2hpbGQge1xyXG4gIG1hcmdpbi10b3A6IDFweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHdpZHRoOiBtaW4tY29udGVudDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcclxuICBib3JkZXItY29sb3I6ICM4MGJkZmY7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxyXG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3Ige1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIC8qbWFyZ2luLXRvcDogOHB4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3IuYXBwbHkge1xyXG4gICBtYXJnaW4tbGVmdDogMHB4O1xyXG4gfVxyXG4ubWVhc19hY2MwIC5vcGVyYXRvcmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIG1hcmdpbjogYXV0byA1cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIG1pbi13aWR0aDogMTIwcHg7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLm1lYXN1cmFibGVkZWJ1ZyB7IG1hcmdpbi10b3A6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XHJcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYWRkcnVsZSB7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIG1hcmdpbi10b3A6IC00cHg7XHJcbiAgcGFkZGluZzogNHB4IDEwcHg7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlIHtcclxuICBwYWRkaW5nLXJpZ2h0OiA0cHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgYm9yZGVyLXJhZGl1czogMjIuNXB4IDAgMCAyMi41cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAubWFpbnRpdGxle1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVye1xyXG4gIGJvcmRlci1jb2xvcjogZ3JheTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDEyNywgMTI3LCAxMjcsIDAuMik7IH1cclxuXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3Zlci5ydWxldGl0bGVbY291bnRlcl06bm90KFtjb3VudGVyPVwiMFwiXSksIC5tZWFzX2FjYzAgLnJ1bGV0aXRsZVtjb3VudGVyXTpub3QoW2NvdW50ZXI9XCIwXCJdKTpub3QoLmNvbGxhcHNlZCksXHJcbi5tZWFzX2FjYzAgLm1haW50aXRsZTpob3ZlciwgIC5tZWFzX2FjYzAgLm1haW50aXRsZTpub3QoLmNvbGxhcHNlZCl7XHJcbiAgYm9yZGVyLWNvbG9yOiBkb2RnZXJibHVlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMzAsIDE0NCwgMjU1LCAwLjIpOyB9XHJcblxyXG46Om5nLWRlZXAgLm1lYXNfYWNjMCAuaW5uZXJ0aXRsZSB7IG1hcmdpbjogYXV0bzsgfSAvKiBkeW5hbWljYWxseSBhZGRlZCovXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZS5jb2xsYXBzZWQgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVyIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBidXR0b247IHRleHQtZGVjb3JhdGlvbjogbm9uZTsgY29sb3I6IGRvZGdlcmJsdWU7IH1cclxuLm1lYXNfYWNjMCAuZm9ybS1jb250cm9sID4gLmZvcm0tY29udHJvbDpub3QoOmZpcnN0LWNoaWxkKXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiB1bnNldDtcclxuICAvKiBkaXNhYmxlIGJvb3RzdHJhcCBydWxlKi9cclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dDpmb2N1cyxcclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dDpmb2N1cyxcclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0OmZvY3Vze1xyXG4gIC8qb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lOyovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW9rdGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1zdWNjZXNzKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZXJyb3J0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLWRhbmdlcik7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXdhcm5pbmcpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lcnsgbWFyZ2luLWJvdHRvbTogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4OmZvY3VzLXdpdGhpbiAubWVhc3VyYWJsZWRlYnVneyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyAuZGVidWdyb3dzIHsgZGlzcGxheTogbm9uZTsgZmxleC1mbG93OiBjb2x1bW47IH1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnOmZvY3VzLXdpdGhpbiAuZGVidWdyb3dzIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5jb3VudGVyc2hlbGwgeyBmbG9hdDogcmlnaHQ7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+ICoge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAqLCAubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93diB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3RxeFhoazQvdGwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pndnB5d3ovdGxsLnBuZyk7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAuc2lkZS50b3Age1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL005ZkM3RFAvdC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1B6c21qeGYvdHIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1NOMlRITHQvdHJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vN2ptOUJCUS9sLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLmxlZnQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vcXJZV2RwSC9ibC5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5zaWRlLmJvdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vY1hjMG5tUy9iLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vSzBwVlZUNy9ici5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUXB3UlNzVC9icmwucG5nKTsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcclxuICBtYXJnaW4tYm90dG9tOiAzcHg7XHJcbiAgbWFyZ2luLXRvcDogLTNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcclxuICBtYXJnaW4tYm90dG9tOiAtM3B4O1xyXG4gIG1hcmdpbi10b3A6IDNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcclxuICBtYXJnaW4tcmlnaHQ6IC0zcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDNweDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pkM2p0YmMvbHIucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgbWluLXdpZHRoOiA1MHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA1MHB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdyB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93dntcclxuICB3aWR0aDogNzVweDtcclxuICBoZWlnaHQ6IDc1cHg7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmFycm93OmZvY3VzeyBvdXRsaW5lOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93OmNoZWNrZWR7XHJcbiAgZmlsdGVyOiBzZXBpYSg4MiUpIHNhdHVyYXRlKDM5MjUlKSBodWUtcm90YXRlKDU1ZGVnKSBicmlnaHRuZXNzKDEyNSUpIGNvbnRyYXN0KDEyMCUpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBtYXJnaW46IGF1dG87IH1cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyA+ICogeyBtYXJnaW46IGF1dG87IH1cclxuLm1lYXNfYWNjMCAuZHJhZ2dhYmxlLmJveHJvb3R7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICAvKmhlaWdodDogMjM3cHg7Ki9cclxufVxyXG4ubWVhc19hY2MwIC5jb2xsYXBzZTpub3QoLnNob3cpIHsgZGlzcGxheTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5ydWxlLnRlbXBsYXRlIHsgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50OyB9XHJcbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XHJcblxyXG4ubWVhc19hY2MgLnJ1bGVzZWFyY2g6Zm9jdXMge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGRvZGdlcmJsdWU7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMXB4IGRvZGdlcmJsdWU7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -8096,7 +8416,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/common/Joiner.ts ***!
     \******************************/
 
-  /*! exports provided: ansiUp, StringSimilarity, $, $b, prjson2xml, prxml2json, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, StyleComplexEntry, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, OperationVisibility, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
+  /*! exports provided: ansiUp, StringSimilarity, $, $b, Swal, prjson2xml, prxml2json, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, StyleComplexEntry, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, AccessModifier, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ModelUpdateMessage, SendManager, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
 
   /***/
   function srcCommonJoinerTs(module, __webpack_exports__, __webpack_require__) {
@@ -8126,6 +8446,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     __webpack_require__.d(__webpack_exports__, "$b", function () {
       return $b;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Swal", function () {
+      return Swal;
     });
     /* harmony export (binding) */
 
@@ -8226,1035 +8552,1080 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! sweetalert2 */
+    "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+    /* harmony import */
+
+
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default =
+    /*#__PURE__*/
+    __webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
+    /* harmony import */
+
+
+    var _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ../common/prj_json2xml.js */
     "./src/common/prj_json2xml.js");
     /* harmony import */
 
 
-    var _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ../common/prj_xml2json.js */
     "./src/common/prj_xml2json.js");
     /* harmony import */
 
 
-    var _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ../GuiStyles/viewpoint */
     "./src/GuiStyles/viewpoint.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ViewHtmlSettings", function () {
-      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__["ViewHtmlSettings"];
+      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["ViewHtmlSettings"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ViewPoint", function () {
-      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__["ViewPoint"];
+      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["ViewPoint"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ViewRule", function () {
-      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__["ViewRule"];
+      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["ViewRule"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgeViewRule", function () {
-      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__["EdgeViewRule"];
+      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["EdgeViewRule"];
     });
     /* harmony import */
 
 
-    var _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ../Database/LocalStorage */
     "./src/Database/LocalStorage.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "LocalStorage", function () {
-      return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_9__["LocalStorage"];
+      return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_10__["LocalStorage"];
     });
     /* harmony import */
 
 
-    var _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ../Model/modelPiece */
     "./src/Model/modelPiece.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ModelPiece", function () {
-      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__["ModelPiece"];
+      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["ModelPiece"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Info", function () {
-      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__["Info"];
+      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["Info"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ModelNone", function () {
-      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__["ModelNone"];
+      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["ModelNone"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "StyleComplexEntry", function () {
-      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__["StyleComplexEntry"];
+      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["StyleComplexEntry"];
     });
     /* harmony import */
 
 
-    var _Model_iModel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _Model_iModel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ../Model/iModel */
     "./src/Model/iModel.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreEnum", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreEnum"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreEnum"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EcoreLiteral", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["EcoreLiteral"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["EcoreLiteral"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreParameter", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreParameter"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreParameter"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreOperation", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreOperation"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreOperation"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreAttribute", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreAttribute"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreAttribute"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreReference", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreReference"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreReference"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreClass", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreClass"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreClass"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECorePackage", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECorePackage"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECorePackage"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreRoot", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreRoot"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreRoot"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreAnnotation", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreAnnotation"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreAnnotation"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreDetail", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreDetail"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreDetail"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "XMIModel", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["XMIModel"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["XMIModel"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IModel", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["IModel"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["IModel"];
     });
     /* harmony import */
 
 
-    var _util__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _util__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./util */
     "./src/common/util.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ShortAttribETypes", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["ShortAttribETypes"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "U", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["U"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["U"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Json", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["Json"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["Json"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "AttribETypes", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["AttribETypes"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["AttribETypes"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "InputPopup", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["InputPopup"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["InputPopup"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "DetectZoom", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["DetectZoom"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["DetectZoom"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Dictionary", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["Dictionary"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["Dictionary"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IPoint", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["IPoint"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["IPoint"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Point", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["Point"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["Point"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "GraphPoint", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["GraphPoint"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["GraphPoint"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ISize", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["ISize"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["ISize"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Size", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["Size"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["Size"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "GraphSize", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["GraphSize"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["GraphSize"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "myFileReader", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["myFileReader"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["myFileReader"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "FocusHistoryEntry", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["FocusHistoryEntry"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["FocusHistoryEntry"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "FileReadTypeEnum", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["FileReadTypeEnum"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["FileReadTypeEnum"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EvalOutput", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["EvalOutput"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["EvalOutput"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "SelectorOutput", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["SelectorOutput"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["SelectorOutput"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "TSON_JSTypes", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["TSON_JSTypes"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["TSON_JSTypes"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "TSON", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["TSON"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["TSON"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "TSON_UnsupportedTypes", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_12__["TSON_UnsupportedTypes"];
+      return _util__WEBPACK_IMPORTED_MODULE_13__["TSON_UnsupportedTypes"];
     });
     /* harmony import */
 
 
-    var _measurable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _measurable__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ./measurable */
     "./src/common/measurable.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableRuleParts", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableRuleParts"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableRuleParts"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Measurable", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["Measurable"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["Measurable"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableEvalContext", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableEvalContext"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableEvalContext"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "measurableRules", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["measurableRules"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["measurableRules"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableRuleLists", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableRuleLists"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableRuleLists"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableOperators", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableOperators"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableOperators"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "DraggableOptionsImpl", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["DraggableOptionsImpl"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["DraggableOptionsImpl"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ResizableOptionsImpl", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["ResizableOptionsImpl"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["ResizableOptionsImpl"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "RotatableOptions", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["RotatableOptions"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["RotatableOptions"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "UnsafeMeasurableEvalContext", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["UnsafeMeasurableEvalContext"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["UnsafeMeasurableEvalContext"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmittedsStatic", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_13__["ConstraintLeftAdmittedsStatic"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_14__["ConstraintLeftAdmittedsStatic"];
     });
     /* harmony import */
 
 
-    var _src_app_app_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _src_app_app_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ../../src/app/app.module */
     "./src/app/app.module.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Status", function () {
-      return _src_app_app_module__WEBPACK_IMPORTED_MODULE_14__["Status"];
+      return _src_app_app_module__WEBPACK_IMPORTED_MODULE_15__["Status"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    var _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
     /*! ../guiElements/mGraph/iGraph */
     "./src/guiElements/mGraph/iGraph.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IGraph", function () {
-      return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_15__["IGraph"];
+      return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_16__["IGraph"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ViewPointShell", function () {
-      return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_15__["ViewPointShell"];
+      return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_16__["ViewPointShell"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    var _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! ../guiElements/mGraph/Vertex/iVertex */
     "./src/guiElements/mGraph/Vertex/iVertex.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IVertex", function () {
-      return _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_16__["IVertex"];
+      return _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_17__["IVertex"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    var _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
     /*! ../guiElements/mGraph/Field/iField */
     "./src/guiElements/mGraph/Field/iField.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IField", function () {
-      return _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_17__["IField"];
+      return _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_18__["IField"];
     });
     /* harmony import */
 
 
-    var _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    var _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ../guiElements/isidebar/isidebar.component */
     "./src/guiElements/isidebar/isidebar.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ISidebar", function () {
-      return _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_18__["ISidebar"];
+      return _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_19__["ISidebar"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    var _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
     /*! ../guiElements/mGraph/Edge/iEdge */
     "./src/guiElements/mGraph/Edge/iEdge.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IEdge", function () {
-      return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_19__["IEdge"];
+      return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_20__["IEdge"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgeModes", function () {
-      return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_19__["EdgeModes"];
+      return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_20__["EdgeModes"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    var _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
     /*! ../guiElements/mGraph/Edge/ExtEdge */
     "./src/guiElements/mGraph/Edge/ExtEdge.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ExtEdge", function () {
-      return _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_20__["ExtEdge"];
+      return _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_21__["ExtEdge"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    var _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
     /*! ../guiElements/mGraph/Edge/EdgePoint */
     "./src/guiElements/mGraph/Edge/EdgePoint.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgePoint", function () {
-      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_21__["EdgePoint"];
+      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__["EdgePoint"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgePointFittizio", function () {
-      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_21__["EdgePointFittizio"];
+      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__["EdgePointFittizio"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "CursorFollowerEP", function () {
-      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_21__["CursorFollowerEP"];
+      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__["CursorFollowerEP"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+    var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
     /*! ../guiElements/mGraph/Edge/edgeStyle */
     "./src/guiElements/mGraph/Edge/edgeStyle.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgeStyle", function () {
-      return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_22__["EdgeStyle"];
+      return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_23__["EdgeStyle"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgePointStyle", function () {
-      return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_22__["EdgePointStyle"];
+      return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_23__["EdgePointStyle"];
     });
     /* harmony import */
 
 
-    var _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+    var _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
     /*! ../guiElements/propertyBar/propertyBar */
     "./src/guiElements/propertyBar/propertyBar.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "PropertyBarr", function () {
-      return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_23__["PropertyBarr"];
+      return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_24__["PropertyBarr"];
     });
     /* harmony import */
 
 
-    var _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+    var _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
     /*! ../guiElements/top-bar/top-bar.component */
     "./src/guiElements/top-bar/top-bar.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "TopBar", function () {
-      return _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_24__["TopBar"];
+      return _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_25__["TopBar"];
     });
     /* harmony import */
 
 
-    var _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+    var _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
     /*! ../guiElements/style-editor/style-editor.component */
     "./src/guiElements/style-editor/style-editor.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "StyleEditor", function () {
-      return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_25__["StyleEditor"];
+      return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_26__["StyleEditor"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "SaveListEntry", function () {
-      return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_9__["SaveListEntry"];
+      return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_10__["SaveListEntry"];
     });
     /* harmony import */
 
 
-    var _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
+    var _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
     /*! ../guiElements/console/console.component */
     "./src/guiElements/console/console.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MyConsole", function () {
-      return _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_26__["MyConsole"];
+      return _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_27__["MyConsole"];
     });
     /* harmony import */
 
 
-    var _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
+    var _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
     /*! ../Model/MetaMetaModel */
     "./src/Model/MetaMetaModel.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MetaMetaModel", function () {
-      return _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_27__["MetaMetaModel"];
+      return _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_28__["MetaMetaModel"];
     });
     /* harmony import */
 
 
-    var _Model_MetaModel__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
+    var _Model_MetaModel__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
     /*! ../Model/MetaModel */
     "./src/Model/MetaModel.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MetaModel", function () {
-      return _Model_MetaModel__WEBPACK_IMPORTED_MODULE_28__["MetaModel"];
+      return _Model_MetaModel__WEBPACK_IMPORTED_MODULE_29__["MetaModel"];
     });
     /* harmony import */
 
 
-    var _Model_Model__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
+    var _Model_Model__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
     /*! ../Model/Model */
     "./src/Model/Model.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Model", function () {
-      return _Model_Model__WEBPACK_IMPORTED_MODULE_29__["Model"];
+      return _Model_Model__WEBPACK_IMPORTED_MODULE_30__["Model"];
     });
     /* harmony import */
 
 
-    var _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
+    var _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
     /*! ../Model/mPackage/iPackage */
     "./src/Model/mPackage/iPackage.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IPackage", function () {
-      return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_30__["IPackage"];
+      return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_31__["IPackage"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M3Package", function () {
-      return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_30__["M3Package"];
+      return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_31__["M3Package"];
     });
     /* harmony import */
 
 
-    var _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
+    var _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
     /*! ../Model/mPackage/MMPackage */
     "./src/Model/mPackage/MMPackage.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M2Package", function () {
-      return _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_31__["M2Package"];
+      return _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_32__["M2Package"];
     });
     /* harmony import */
 
 
-    var _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
+    var _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
     /*! ../Model/mPackage/MPackage.component */
     "./src/Model/mPackage/MPackage.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MPackage", function () {
-      return _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_32__["MPackage"];
+      return _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_33__["MPackage"];
     });
     /* harmony import */
 
 
-    var _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
+    var _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
     /*! ../mClass/IClassifier */
     "./src/mClass/IClassifier.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IClassifier", function () {
-      return _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_33__["IClassifier"];
+      return _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_34__["IClassifier"];
     });
     /* harmony import */
 
 
-    var _mClass_iClass__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
+    var _mClass_iClass__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
     /*! ../mClass/iClass */
     "./src/mClass/iClass.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IClass", function () {
-      return _mClass_iClass__WEBPACK_IMPORTED_MODULE_34__["IClass"];
+      return _mClass_iClass__WEBPACK_IMPORTED_MODULE_35__["IClass"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M3Class", function () {
-      return _mClass_iClass__WEBPACK_IMPORTED_MODULE_34__["M3Class"];
+      return _mClass_iClass__WEBPACK_IMPORTED_MODULE_35__["M3Class"];
     });
     /* harmony import */
 
 
-    var _mClass_m2Class__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
+    var _mClass_m2Class__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(
     /*! ../mClass/m2Class */
     "./src/mClass/m2Class.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M2Class", function () {
-      return _mClass_m2Class__WEBPACK_IMPORTED_MODULE_35__["M2Class"];
+      return _mClass_m2Class__WEBPACK_IMPORTED_MODULE_36__["M2Class"];
     });
     /* harmony import */
 
 
-    var _mClass_MClass__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(
+    var _mClass_MClass__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(
     /*! ../mClass/MClass */
     "./src/mClass/MClass.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MClass", function () {
-      return _mClass_MClass__WEBPACK_IMPORTED_MODULE_36__["MClass"];
+      return _mClass_MClass__WEBPACK_IMPORTED_MODULE_37__["MClass"];
     });
     /* harmony import */
 
 
-    var _mClass_EEnum__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(
+    var _mClass_EEnum__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(
     /*! ../mClass/EEnum */
     "./src/mClass/EEnum.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EEnum", function () {
-      return _mClass_EEnum__WEBPACK_IMPORTED_MODULE_37__["EEnum"];
+      return _mClass_EEnum__WEBPACK_IMPORTED_MODULE_38__["EEnum"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(
+    var _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
     /*! ../mClass/classChild/Type */
     "./src/mClass/classChild/Type.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Type", function () {
-      return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_38__["Type"];
+      return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_39__["Type"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EType", function () {
-      return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_38__["EType"];
+      return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_39__["EType"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
+    var _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(
     /*! ../mClass/classChild/Typedd */
     "./src/mClass/classChild/Typedd.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Typedd", function () {
-      return _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_39__["Typedd"];
+      return _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_40__["Typedd"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(
+    var _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(
     /*! ../mClass/classChild/ELiteral */
     "./src/mClass/classChild/ELiteral.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ELiteral", function () {
-      return _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_40__["ELiteral"];
+      return _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_41__["ELiteral"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(
+    var _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(
     /*! ../mClass/classChild/Features/iFeature */
     "./src/mClass/classChild/Features/iFeature.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IFeature", function () {
-      return _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_41__["IFeature"];
+      return _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_42__["IFeature"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(
+    var _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(
     /*! ../mClass/classChild/Features/References/iReference */
     "./src/mClass/classChild/Features/References/iReference.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IReference", function () {
-      return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_42__["IReference"];
+      return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_43__["IReference"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M3Reference", function () {
-      return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_42__["M3Reference"];
+      return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_43__["M3Reference"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(
+    var _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(
     /*! ../mClass/classChild/Features/References/M2Reference */
     "./src/mClass/classChild/Features/References/M2Reference.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M2Reference", function () {
-      return _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_43__["M2Reference"];
+      return _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_44__["M2Reference"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(
+    var _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(
     /*! ../mClass/classChild/Features/References/MReference */
     "./src/mClass/classChild/Features/References/MReference.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MReference", function () {
-      return _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_44__["MReference"];
+      return _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_45__["MReference"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(
+    var _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
     /*! ../mClass/classChild/Features/Attributes/iAttribute */
     "./src/mClass/classChild/Features/Attributes/iAttribute.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IAttribute", function () {
-      return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_45__["IAttribute"];
+      return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_46__["IAttribute"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M3Attribute", function () {
-      return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_45__["M3Attribute"];
+      return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_46__["M3Attribute"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
+    var _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
     /*! ../mClass/classChild/Features/Attributes/mmAttribute */
     "./src/mClass/classChild/Features/Attributes/mmAttribute.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M2Attribute", function () {
-      return _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_46__["M2Attribute"];
+      return _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_47__["M2Attribute"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
+    var _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
     /*! ../mClass/classChild/Features/Attributes/MAttribute */
     "./src/mClass/classChild/Features/Attributes/MAttribute.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MAttribute", function () {
-      return _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_47__["MAttribute"];
+      return _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_48__["MAttribute"];
     });
     /* harmony import */
 
 
-    var _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
+    var _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
     /*! ../Model/EAnnotation */
     "./src/Model/EAnnotation.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EAnnotation", function () {
-      return _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_48__["EAnnotation"];
+      return _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_49__["EAnnotation"];
     });
     /* harmony import */
 
 
-    var _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
+    var _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
     /*! ../Model/EAnnotationDetail */
     "./src/Model/EAnnotationDetail.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EAnnotationDetail", function () {
-      return _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_49__["EAnnotationDetail"];
+      return _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_50__["EAnnotationDetail"];
     });
     /* harmony import */
 
 
-    var _common_Database__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
+    var _common_Database__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(
     /*! ../common/Database */
     "./src/common/Database.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Database", function () {
-      return _common_Database__WEBPACK_IMPORTED_MODULE_50__["Database"];
+      return _common_Database__WEBPACK_IMPORTED_MODULE_51__["Database"];
     });
     /* harmony import */
 
 
-    var _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(
+    var _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(
     /*! ../guiElements/dam-context-menu/dam-context-menu.component */
     "./src/guiElements/dam-context-menu/dam-context-menu.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "DamContextMenuComponent", function () {
-      return _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_51__["DamContextMenuComponent"];
+      return _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_52__["DamContextMenuComponent"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(
+    var _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(
     /*! ../mClass/classChild/Operations/eOperation */
     "./src/mClass/classChild/Operations/eOperation.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EOperation", function () {
-      return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_52__["EOperation"];
+      return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_53__["EOperation"];
     });
     /* harmony reexport (safe) */
 
 
-    __webpack_require__.d(__webpack_exports__, "OperationVisibility", function () {
-      return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_52__["OperationVisibility"];
+    __webpack_require__.d(__webpack_exports__, "AccessModifier", function () {
+      return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_53__["AccessModifier"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(
+    var _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(
     /*! ../mClass/classChild/Operations/eParameter */
     "./src/mClass/classChild/Operations/eParameter.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EParameter", function () {
-      return _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_53__["EParameter"];
+      return _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_54__["EParameter"];
     });
     /* harmony import */
 
 
-    var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(
+    var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(
     /*! ../app/measurabletemplate/measurabletemplate.component */
     "./src/app/measurabletemplate/measurabletemplate.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Draggableoptions", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["Draggableoptions"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["Draggableoptions"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Resizableoptions", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["Resizableoptions"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["Resizableoptions"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Rotatableoptions", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["Rotatableoptions"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["Rotatableoptions"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ResizableoptionsPH", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["ResizableoptionsPH"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["ResizableoptionsPH"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "DraggableOptionsPH", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["DraggableOptionsPH"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["DraggableOptionsPH"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "RotatableoptionsPH", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["RotatableoptionsPH"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["RotatableoptionsPH"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableTemplateGenerator", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["MeasurableTemplateGenerator"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["MeasurableTemplateGenerator"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurabletemplateComponent", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["MeasurabletemplateComponent"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["MeasurabletemplateComponent"];
     });
     /* harmony import */
 
 
-    var _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(
+    var _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(
     /*! ../guiElements/changelog/ChangelogEntry */
     "./src/guiElements/changelog/ChangelogEntry.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ChangelogRoot", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["ChangelogRoot"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["ChangelogRoot"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ChangelogEntry", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["ChangelogEntry"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["ChangelogEntry"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "VersionUpload", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["VersionUpload"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["VersionUpload"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Feature", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["Feature"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["Feature"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Bug", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["Bug"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["Bug"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "BugFix", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["BugFix"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["BugFix"];
     });
     /* harmony import */
 
 
-    var _GuiStyles_global__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(
+    var _GuiStyles_global__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(
     /*! ../GuiStyles/global */
     "./src/GuiStyles/global.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "WebsiteTheme", function () {
-      return _GuiStyles_global__WEBPACK_IMPORTED_MODULE_56__["WebsiteTheme"];
+      return _GuiStyles_global__WEBPACK_IMPORTED_MODULE_57__["WebsiteTheme"];
     });
+    /* harmony import */
+
+
+    var _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(
+    /*! ../ServerCommunication/Synchronization/ModelUpdateMessage */
+    "./src/ServerCommunication/Synchronization/ModelUpdateMessage.ts");
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ModelUpdateMessage", function () {
+      return _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_58__["ModelUpdateMessage"];
+    });
+    /* harmony import */
+
+
+    var _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(
+    /*! ../ServerCommunication/Synchronization/SendManager */
+    "./src/ServerCommunication/Synchronization/SendManager.ts");
+    /* harmony reexport (safe) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SendManager", function () {
+      return _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_59__["SendManager"];
+    });
+    /* NOTE: error in module.extends: devi importare i file rispettando l'ordine di dichiarazioni delle classi, se dichiaro class A nel file A, e class
+     B extensa A nel file B, il file B non può essere importato prima del file A*/
+
+    /* this is undefined in constructors or method calls: likely caused by a reserved class name that is listed in config.ts and is behaving
+     differently.*/
+    // /*new*/export {Styles, ModelPieceStyleEntry, SortType, StyleVisibility} from '../GuiStyles/styles';
+    // /*new*/export {ViewHtmlSettings, ViewPoint, ViewRule, ModelView, PackageView, ClassView, AttributeView, EdgeViewRule, ReferenceView, OperationView,
+    // ParameterView} from '../GuiStyles/viewpoint';
+
 
     var ansiUp = new ansi_up__WEBPACK_IMPORTED_MODULE_1___default.a(); // https://github.com/drudru/ansi_up // ansi color formatter.
 
@@ -9262,12 +9633,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var $ = window['' + '$'] = jquery__WEBPACK_IMPORTED_MODULE_4__;
     var $b = bootstrap__WEBPACK_IMPORTED_MODULE_5__;
+    var Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a;
     /*
     import * as JQueryUII        from '../../node_modules/jqueryui';
     export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/
 
-    var prjson2xml = _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_6__;
-    var prxml2json = _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_7__;
+    var prjson2xml = _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_7__;
+    var prxml2json = _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_8__;
     /*export const $$$: JQueryStatic = require('jquery-ui');
     export const $ui: JQueryStatic = $$$;*/
 
@@ -9637,11 +10009,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var h = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
           if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(w)) {
-            _this15.width = w;
+            _this15.width = +w;
           }
 
           if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(h)) {
-            _this15.height = h;
+            _this15.height = +h;
           }
         };
 
@@ -9659,8 +10031,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             if (isVertex) {
               _this15.vertexSize.x = _this15.absoluteGPos.x;
+              _this15.relativeVPos.y = 0; //y intenzionale
+
               _this15.relativeVPos.x = 0;
-              _this15.relativeVPos.y = 0;
             } else {
               _this15.relativeVPos.x = _this15.absoluteGPos.x - _this15.vertexSize.x;
             }
@@ -9677,7 +10050,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             if (isVertex) {
               _this15.vertexSize.y = _this15.absoluteGPos.y;
-              _this15.relativeVPos.x = 0;
+              _this15.relativeVPos.x = 0; //x intenzionale
+
               _this15.relativeVPos.y = 0;
             } else {
               _this15.relativeVPos.y = _this15.absoluteGPos.y - _this15.vertexSize.y;
@@ -9701,11 +10075,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (!_this15.target) return; //const isVertex: boolean = MeasurableEvalContext.isVertex(this);
 
           if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
-            _this15.absoluteGPos.x = _this15.target.absoluteGPos.x + x;
+            _this15.absoluteGPos.x = _this15.target.absoluteGPos.x + +x;
           }
 
           if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(y)) {
-            _this15.absoluteGPos.y = _this15.target.absoluteGPos.y + y;
+            _this15.absoluteGPos.y = _this15.target.absoluteGPos.y + +y;
           }
 
           _this15.setAbsoluteGPos(_this15.absoluteGPos.x, _this15.absoluteGPos.y);
@@ -9721,11 +10095,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           //const isVertex: boolean = MeasurableEvalContext.isVertex(this); should not be used at all in vertexes.
           if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
-            _this15.absoluteGPos.x = _this15.vertexSize.x + x;
+            _this15.absoluteGPos.x = _this15.vertexSize.x + +x;
           }
 
           if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(y)) {
-            _this15.absoluteGPos.y = _this15.vertexSize.y + y;
+            _this15.absoluteGPos.y = _this15.vertexSize.y + +y;
           }
 
           _this15.setAbsoluteGPos(_this15.absoluteGPos.x, _this15.absoluteGPos.y);
@@ -9750,11 +10124,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this15.setAbsoluteGPos(x, y);
           } else {
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
-              _this15.absoluteGPos.x = x + _this15.relativeVPos.x;
+              _this15.absoluteGPos.x = +x + _this15.relativeVPos.x;
             }
 
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(y)) {
-              _this15.absoluteGPos.y = y + _this15.relativeVPos.y;
+              _this15.absoluteGPos.y = +y + _this15.relativeVPos.y;
             }
 
             _this15.setAbsoluteGPos(_this15.absoluteGPos.x, _this15.absoluteGPos.y);
@@ -9773,12 +10147,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
           if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
-            _this15.absoluteDocPos.x = x;
+            _this15.absoluteDocPos.x = +x;
             _this15.absoluteGPos.x = _this15.graphScroll.x + _this15.graphZoom.x * (_this15.absoluteDocPos.x - _this15.graphSize.x);
           }
 
           if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(y)) {
-            _this15.absoluteDocPos.y = y;
+            _this15.absoluteDocPos.y = +y;
             _this15.absoluteGPos.y = _this15.graphScroll.y + _this15.graphZoom.y * (_this15.absoluteDocPos.y - _this15.graphSize.y);
           }
 
@@ -9918,7 +10292,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "isVertex",
         value: function isVertex(context) {
           return context.unsafec.vertex.getHtmlRawForeign() === context.unsafec.node;
-        }
+        } // serve a dare un oggetto verosimile da cui poter generare i suggerimenti dei nomi e tipi per l'editor delle measurableRule
+
       }, {
         key: "fillFake",
         value: function fillFake() {
@@ -10173,7 +10548,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var ermsg;
             var rollbackContext = 'donotuse';
             var evalContext = 'donotusetoo';
-            console.log('000exportchanges part 1', outcontext.vertexSize.y);
             var vertex = safeContextRollback.unsafec.vertex;
             var graph = vertex.owner;
             graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y); // graph.setScroll(500, 500);//  error here??? questo mi cambia vpos.y
@@ -10183,9 +10557,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
 
             var isVertex = vertex.getMeasurableNode() === safeContextRollback.unsafec.node;
-            console.log('3xd finalize set vertexsize:', outcontext.vertexSize, outcontext.relativeVPos, outcontext.relativePos, outcontext);
             vertex.setSize(outcontext.vertexSize, false, true);
-            console.log('000exportchanges part 2', outcontext.vertexSize.y);
 
             if (!outcontext.model && outcontext !== safeContextRollback) {
               out.right += 'invalid final value for this.model = ' + outcontext.model + ', please do not overwrite context variables.';
@@ -10194,7 +10566,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
 
             if (!isVertex) {
-              console.log('000exportchanges part 3', !isVertex, outcontext.vertexSize.y);
               var html = safeContextRollback.unsafec.node instanceof HTMLElement || safeContextRollback.unsafec.node instanceof SVGSVGElement ? safeContextRollback.unsafec.node : null;
               var svgSubElement = !html ? safeContextRollback.unsafec.node : null;
 
@@ -10203,8 +10574,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 doRollback();
                 return;
               }
-
-              console.log('000exportchanges part 4', !isVertex, outcontext.vertexSize.y);
 
               if (!html) {
                 out.right += 'inner svg\'s are currently not supported';
@@ -10229,8 +10598,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.width)) html.style.width = +outcontext.width + 'px';
               if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.height)) html.style.height = +outcontext.height + 'px';
             }
-
-            console.log('000exportchanges part 5', !isVertex, outcontext.vertexSize.y);
 
             if (!isRollback) {
               // called by rollbackContext because evalContext got the method deleted.
@@ -10369,6 +10736,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
 
               vertex = rollbackContext.unsafec.vertex;
+
+              _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(evalContext.target && evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y, 'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos);
+
               evalOutput = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].evalInContext(evalContext, this.left);
 
               if (evalOutput.exception) {
@@ -10538,13 +10908,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               this.left = this.left.trim();
 
               if (!_Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableTemplateGenerator"].constraintMap[this.left]) {
+                console.trace('icr ');
+                console.error('irc: invalid constraint rule, found:', this.left, 'not in: ', _Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableTemplateGenerator"].constraintMap); //
+
                 out.left += 'invalid.';
                 out.right += 'not processed.';
                 return out;
-              } //console.log('preconstraint1');
+              }
+
+              console.trace('icr ');
+              console.info('irc: valid constraint rule, found:', this.left, ' in: ', _Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableTemplateGenerator"].constraintMap); //console.log('preconstraint1');
               //        const preLeft: number = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]
               //U.pe(!rollbackContext.target, '!starget1', evalOutput.outContext.target);
-
 
               if (!executeRight()) return out; //U.pe(!rollbackContext.target, '!starget2', evalOutput.outContext.target);
               //console.log('preconstraint2', evalOutput.outContext, rollbackContext);
@@ -10570,9 +10945,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var oc0 = evalOutput.outContext;
               var rc0 = rollbackContext;
               var oc = isTargeting ? evalOutput.outContext.target : evalOutput.outContext;
-              var rc = isTargeting ? rollbackContext.target : rollbackContext;
-
-              _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!isTargeting, 'left side is not targeting');
+              var rc = isTargeting ? rollbackContext.target : rollbackContext; // U.pe(!isTargeting, 'left side is not targeting');
 
               if (isTargeting && (!oc || !rc)) {
                 out.left = 'this kind of rule cannot be executed without a target.';
@@ -10729,7 +11102,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (targetquery) try {
               $tmpjq = $(graph.container).find(targetquery);
             } catch (e) {
-              console.log('exception:', e);
+              console.error('exception:', e);
               return e;
             }
 
@@ -10741,6 +11114,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var exception = MeasurableRuleParts.fillEvalContext(evalContext.target, backupcontext0.target, $tmpjq[0], null);
 
               if (exception) {
+                console.error('exception2:', exception);
                 exception['mysource'] = ['occurred inside this.target'];
                 return exception;
               }
@@ -10756,8 +11130,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (evalContext.isFilled) {
+            evalContext.setAbsoluteDocPos(evalContext.absoluteDocPos.x, evalContext.absoluteDocPos.y); // non ho capito perchè ma rel.pos và in casino, quindi rifaccio la set absolutepos che reinizializza tutte a catena
+
+            _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(evalContext.target && evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y, 'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos);
+
             return null;
-          } // must be after filltarget
+          } // must call filltarget() (at least to check if target is filled) even if the main context is already filled. so it's placed below.
 
 
           backupContext.isFilled = true; // avoid dual fill, se ci sono due eval() questo rollbackerebbe alla scorsa esecuzione.
@@ -10809,9 +11187,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           backupContext.relativePos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"]();
           backupContext.relativeVPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"]();
           backupContext.absoluteGPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"]();
-          backupContext.absoluteDocPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"]();
+          backupContext.absoluteDocPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](); // if (evalContext.target) evalContext.relativePos.y = null; // debug
+
           evalContext.setAbsoluteDocPos(size.x, size.y);
           backupContext.setAbsoluteDocPos(size.x, size.y);
+
+          _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(evalContext.target && evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y, 'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos);
+
           return null;
         }
       }]);
@@ -12493,7 +12875,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "genID",
         value: function genID() {
-          return '#tìmèdkéy_' + new Date().valueOf();
+          return 'timedkey_' + new Date().valueOf() + '_' + this.sequenceNumber++;
+        }
+      }, {
+        key: "setID",
+        value: function setID(key, value) {
+          U.idMap[key] = value;
+        }
+      }, {
+        key: "unsetID",
+        value: function unsetID(key) {
+          delete U.idMap[key];
+        }
+      }, {
+        key: "isSetID",
+        value: function isSetID(key) {
+          return U.idMap.hasOwnProperty(key);
+        }
+      }, {
+        key: "getByID",
+        value: function getByID(key) {
+          return U.idMap[key];
         }
       }, {
         key: "getCaller",
@@ -12542,12 +12944,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return U.pe(b, s, restArgs);
         }
       }, {
+        key: "pedev",
+        value: function pedev(b, s) {
+          for (var _len4 = arguments.length, restArgs = new Array(_len4 > 2 ? _len4 - 2 : 0), _key6 = 2; _key6 < _len4; _key6++) {
+            restArgs[_key6 - 2] = arguments[_key6];
+          }
+
+          // todo: questi sono gli errori che dovrebbero verificarsi solo in caso di errori nel codice, mai in seguito ad azioni utente invalide.
+          // quindi dovrebbero avere un sistema di error reporting verso un server con ajax request.
+          return U.pe.apply(U, [b, s].concat(restArgs));
+        }
+      }, {
         key: "pe",
         value: function pe(b, s) {
           var _console;
 
-          for (var _len4 = arguments.length, restArgs = new Array(_len4 > 2 ? _len4 - 2 : 0), _key6 = 2; _key6 < _len4; _key6++) {
-            restArgs[_key6 - 2] = arguments[_key6];
+          for (var _len5 = arguments.length, restArgs = new Array(_len5 > 2 ? _len5 - 2 : 0), _key7 = 2; _key7 < _len5; _key7++) {
+            restArgs[_key7 - 2] = arguments[_key7];
           }
 
           if (!b) {
@@ -12579,8 +12992,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function pw(b, s) {
           var _console2;
 
-          for (var _len5 = arguments.length, restArgs = new Array(_len5 > 2 ? _len5 - 2 : 0), _key7 = 2; _key7 < _len5; _key7++) {
-            restArgs[_key7 - 2] = arguments[_key7];
+          for (var _len6 = arguments.length, restArgs = new Array(_len6 > 2 ? _len6 - 2 : 0), _key8 = 2; _key8 < _len6; _key8++) {
+            restArgs[_key8 - 2] = arguments[_key8];
           }
 
           if (!b) {
@@ -12609,8 +13022,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ps(b, s) {
           var _console3;
 
-          for (var _len6 = arguments.length, restArgs = new Array(_len6 > 2 ? _len6 - 2 : 0), _key8 = 2; _key8 < _len6; _key8++) {
-            restArgs[_key8 - 2] = arguments[_key8];
+          for (var _len7 = arguments.length, restArgs = new Array(_len7 > 2 ? _len7 - 2 : 0), _key9 = 2; _key9 < _len7; _key9++) {
+            restArgs[_key9 - 2] = arguments[_key9];
           }
 
           if (!b) {
@@ -12638,14 +13051,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (!b) {
             return null;
           }
+
+          for (var _len8 = arguments.length, restArgs = new Array(_len8 > 2 ? _len8 - 2 : 0), _key10 = 2; _key10 < _len8; _key10++) {
+            restArgs[_key10 - 2] = arguments[_key10];
+          }
+
+          return U.p.apply(U, [s].concat(restArgs));
         }
       }, {
         key: "p",
         value: function p(s) {
           var _console4;
 
-          for (var _len7 = arguments.length, restArgs = new Array(_len7 > 1 ? _len7 - 1 : 0), _key9 = 1; _key9 < _len7; _key9++) {
-            restArgs[_key9 - 1] = arguments[_key9];
+          for (var _len9 = arguments.length, restArgs = new Array(_len9 > 1 ? _len9 - 1 : 0), _key11 = 1; _key11 < _len9; _key11++) {
+            restArgs[_key11 - 1] = arguments[_key11];
           }
 
           if (restArgs === null || restArgs === undefined) {
@@ -12761,6 +13180,93 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           for (j = 0; j < node.attributes.length; j++) {
             node.removeAttribute(node.attributes[j].name);
           }
+        } // safe con SVG, input, select, textarea.
+
+      }, {
+        key: "copyVisibleText",
+        value: function copyVisibleText(element0) {
+          var element = element0.cloneNode(true);
+          var $element = $(element);
+          $element.remove(':hidden');
+          $element.remove('.addFieldButtonContainer');
+          $element.find('input, textarea').addBack('input, textarea').each(function (i, e) {
+            var replacement = document.createElement('div');
+            replacement.dataset.replacement = "1";
+            replacement.innerText = e.value;
+            U.swap(e, replacement);
+          });
+          $element.find('select').addBack('select').each(function (i, e) {
+            var replacement = document.createElement('div');
+            replacement.dataset.replacement = "1";
+            replacement.innerText = e.selectedIndex >= 0 ? e.options[e.selectedIndex].text : '';
+            U.swap(e, replacement);
+          });
+          U.pe(!!$element.find('select, input, textarea').length, 'input remaining:', $element.find('select, input, textarea').addBack('select, input, textarea')); // console.log('copyVisibleText() textcontent of:', element, U.getRawInnerText(element));
+
+          return U.getRawInnerText(element);
+        } // safe con SVG, !! NON safe con input, textarea e select
+
+      }, {
+        key: "getRawInnerText",
+        value: function getRawInnerText(element) {
+          var win = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+          var userselect, msuserselect, wkuserselect;
+
+          if (element['style']) {
+            var e = element;
+            userselect = e.style.userSelect;
+            msuserselect = e.style.msUserSelect;
+            wkuserselect = e.style.webkitUserSelect;
+            e.style.userSelect = 'all'; // text
+
+            e.style.msUserSelect = 'all';
+            e.style.webkitUserSelect = 'all';
+          }
+
+          win = win || window;
+          var doc = win.document;
+          var wasInDocument = U.isChildrenOf(element, doc.body);
+
+          if (!wasInDocument) {
+            doc.body.appendChild(element);
+          }
+
+          var sel, range, prevRange, selString;
+          sel = win.getSelection();
+
+          if (sel.rangeCount) {
+            prevRange = sel.getRangeAt(0);
+          }
+
+          range = doc.createRange();
+          range.selectNodeContents(element);
+          sel.removeAllRanges();
+          sel.addRange(range);
+          selString = sel.toString();
+          sel.removeAllRanges();
+          prevRange && sel.addRange(prevRange);
+
+          if (!wasInDocument) {
+            doc.body.removeChild(element);
+          }
+
+          if (element['style']) {
+            var _e = element;
+
+            if (userselect) {
+              _e.style.userSelect = userselect;
+            }
+
+            if (msuserselect) {
+              _e.style.msUserSelect = userselect;
+            }
+
+            if (wkuserselect) {
+              _e.style.webkitUserSelect = userselect;
+            }
+          }
+
+          return selString;
         }
       }, {
         key: "cloneObj",
@@ -13013,10 +13519,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (requestedValue instanceof _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"]) {
               var info = requestedValue.getInfo(true);
 
-              var _key10 = token.toLowerCase();
+              var _key12 = token.toLowerCase();
 
-              if (_key10 in info) {
-                requestedValue = info[_key10];
+              if (_key12 in info) {
+                requestedValue = info[_key12];
               } else {
                 requestedValue = requestedValue[token];
               }
@@ -13072,10 +13578,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (requestedValue instanceof _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"]) {
               var info = requestedValue.getInfo(true);
 
-              var _key11 = token.toLowerCase();
+              var _key13 = token.toLowerCase();
 
-              if (_key11 in info) {
-                requestedValue = info[_key11];
+              if (_key13 in info) {
+                requestedValue = info[_key13];
               } else {
                 requestedValue = requestedValue[token];
               }
@@ -13502,6 +14008,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function arrayRemoveAll(arr, elem) {
           var debug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
           var index;
+          if (!arr) return;
 
           while (true) {
             index = arr.indexOf(elem);
@@ -13534,52 +14041,71 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "isOnEdge",
         value: function isOnEdge(pt, shape) {
-          return U.isOnHorizontalEdges(pt, shape) || U.isOnVerticalEdges(pt, shape);
+          var tolerance = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          return U.isOnHorizontalEdges(pt, shape, tolerance) || U.isOnVerticalEdges(pt, shape, tolerance);
         }
       }, {
         key: "isOnVerticalEdges",
         value: function isOnVerticalEdges(pt, shape) {
-          return U.isOnLeftEdge(pt, shape) || U.isOnRightEdge(pt, shape);
+          var tolerance = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          return U.isOnLeftEdge(pt, shape, tolerance) || U.isOnRightEdge(pt, shape, tolerance);
         }
       }, {
         key: "isOnHorizontalEdges",
         value: function isOnHorizontalEdges(pt, shape) {
-          return U.isOnTopEdge(pt, shape) || U.isOnBottomEdge(pt, shape);
+          var tolerance = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          return U.isOnTopEdge(pt, shape, tolerance) || U.isOnBottomEdge(pt, shape, tolerance);
         }
       }, {
         key: "isOnRightEdge",
         value: function isOnRightEdge(pt, shape) {
+          var tolerance = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
           if (!pt || !shape) {
             return null;
           }
 
+          if (tolerance === null) tolerance = U.GeomTolerance;
+          if (tolerance) return Math.abs(pt.x - (shape.x + shape.w)) < tolerance && pt.y - shape.y > tolerance && pt.y - (shape.y + shape.h) < tolerance;
           return pt.x === shape.x + shape.w && pt.y >= shape.y && pt.y <= shape.y + shape.h;
         }
       }, {
         key: "isOnLeftEdge",
         value: function isOnLeftEdge(pt, shape) {
+          var tolerance = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
           if (!pt || !shape) {
             return null;
           }
 
+          if (tolerance === null) tolerance = U.GeomTolerance;
+          if (tolerance) return Math.abs(pt.x - shape.x) < tolerance && pt.y - shape.y > tolerance && pt.y - (shape.y + shape.h) < tolerance;
           return pt.x === shape.x && pt.y >= shape.y && pt.y <= shape.y + shape.h;
         }
       }, {
         key: "isOnTopEdge",
         value: function isOnTopEdge(pt, shape) {
+          var tolerance = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
           if (!pt || !shape) {
             return null;
           }
 
+          if (tolerance === null) tolerance = U.GeomTolerance;
+          if (tolerance) return Math.abs(pt.y - shape.y) < tolerance && pt.x - shape.x > tolerance && pt.x - (shape.x + shape.w) < tolerance;
           return pt.y === shape.y && pt.x >= shape.x && pt.x <= shape.x + shape.w;
         }
       }, {
         key: "isOnBottomEdge",
         value: function isOnBottomEdge(pt, shape) {
+          var tolerance = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
           if (!pt || !shape) {
             return null;
           }
 
+          if (tolerance === null) tolerance = U.GeomTolerance;
+          if (tolerance) return Math.abs(pt.y - shape.y + shape.h) < tolerance && pt.x - shape.x > tolerance && pt.x - (shape.x + shape.w) < tolerance;
           return pt.y === shape.y + shape.h && pt.x >= shape.x && pt.x <= shape.x + shape.w;
         } // usage: var scope1 = makeEvalContext("variable declariation list"); scope1("another eval like: x *=3;");
         // remarks: variable can be declared only on the first call, further calls on a created context can only modify the context without expanding it.
@@ -14773,6 +15299,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getTSClassName",
         value: function getTSClassName(thing) {
+          if (!thing || !thing.constructor) return typeof thing;
           return thing.constructor.name + '';
         }
       }, {
@@ -14870,8 +15397,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function SetMerge() {
           var modifyFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
-          for (var _len8 = arguments.length, iterables = new Array(_len8 > 1 ? _len8 - 1 : 0), _key12 = 1; _key12 < _len8; _key12++) {
-            iterables[_key12 - 1] = arguments[_key12];
+          for (var _len10 = arguments.length, iterables = new Array(_len10 > 1 ? _len10 - 1 : 0), _key14 = 1; _key14 < _len10; _key14++) {
+            iterables[_key14 - 1] = arguments[_key14];
           }
 
           var set = modifyFirst ? iterables[0] : new Set();
@@ -14911,8 +15438,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function MapMerge() {
           var modifyFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
-          for (var _len9 = arguments.length, maps = new Array(_len9 > 1 ? _len9 - 1 : 0), _key13 = 1; _key13 < _len9; _key13++) {
-            maps[_key13 - 1] = arguments[_key13];
+          for (var _len11 = arguments.length, maps = new Array(_len11 > 1 ? _len11 - 1 : 0), _key15 = 1; _key15 < _len11; _key15++) {
+            maps[_key15 - 1] = arguments[_key15];
           }
 
           var ret = modifyFirst ? maps[0] : new Map();
@@ -14963,8 +15490,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function fieldCount(obj) {
           var counter = 1 - 1;
 
-          for (var _key14 in obj) {
-            if (!(_key14 in obj)) {
+          for (var _key16 in obj) {
+            if (!(_key16 in obj)) {
               continue;
             }
 
@@ -15275,7 +15802,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           U.pe(childKey && childKey !== '' + childKey, 'U.followIndexesPath() childkey must be a string or a null:', childKey, 'root:', root);
 
           for (j = 0; j < indexedPath.length; j++) {
-            var _key15 = indexedPath[j];
+            var _key17 = indexedPath[j];
             var childArr = childKey ? ret[childKey] : ret;
             U.pif(debug, 'path ' + j + ') = elem.' + childKey + ' = ', childArr);
 
@@ -15284,15 +15811,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return oldret;
             }
 
-            ret = childArr[_key15];
+            ret = childArr[_key17];
 
-            if (_key15 >= childArr.length) {
-              _key15 = 'Key out of boundary: ' + _key15 + '/' + childArr.length + '.';
+            if (_key17 >= childArr.length) {
+              _key17 = 'Key out of boundary: ' + _key17 + '/' + childArr.length + '.';
             }
 
-            U.pif(debug, 'path ' + j + ') = elem.' + childKey + '[ ' + _key15 + '] = ', ret);
+            U.pif(debug, 'path ' + j + ') = elem.' + childKey + '[ ' + _key17 + '] = ', ret);
             if (outArr) outArr.debugArr.push({
-              index: _key15,
+              index: _key17,
               elem: ret
             });
 
@@ -15301,7 +15828,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return oldret;
             }
 
-            if (outArr) outArr.indexFollowed.push(_key15);
+            if (outArr) outArr.indexFollowed.push(_key17);
             oldret = ret;
           }
 
@@ -15388,12 +15915,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var defaultVal = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           var allowNull = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
           var allowUndefined = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-          str = str && ('' + str).toLowerCase();
+          str = ('' + str).toLowerCase();
           if (allowNull && str === 'null') return null;
           if (allowUndefined && str === 'undefined') return undefined;
           if (defaultVal === false) return str === "true" || str === 't' || str === '1'; // true solo se è esplicitamente true, false se ambiguo.
+          // if (defaultVal === true) return str === "false" || str === 'f' || str === '0'; // false solo se è esplicitamente false, true se ambiguo.
 
-          if (defaultVal === true) return str === "false" || str === 'f' || str === '0'; // false solo se è esplicitamente false, true se ambiguo.
+          if (defaultVal === true) return !(str === "false" || str === 'f' || str === '0'); // false solo se è esplicitamente false, true se ambiguo.
         }
       }, {
         key: "parseSvgPath",
@@ -15768,8 +16296,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "varname2",
         value: function varname2(parentObject, variable) {
-          for (var _key16 in parentObject) {
-            if (parentObject[_key16] === variable) return _key16;
+          for (var _key18 in parentObject) {
+            if (parentObject[_key18] === variable) return _key18;
           }
 
           U.pe(true, 'not a valid parent:', parentObject, variable);
@@ -16420,20 +16948,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var keys = U.getAllProperties(o);
 
           for (var index in keys) {
-            var _key17 = keys[index];
-            var val = o[_key17];
+            var _key19 = keys[index];
+            var val = o[_key19];
 
             if (val instanceof Function) {
-              ret[_key17] = allowFunctions ? val : null;
+              ret[_key19] = allowFunctions ? val : null;
               continue;
             }
 
             if (val instanceof Object) {
-              ret[_key17] = allowObject ? val : null;
+              ret[_key19] = allowObject ? val : null;
               continue;
             }
 
-            ret[_key17] = allowPrimitive ? val : null;
+            ret[_key19] = allowPrimitive ? val : null;
           }
 
           return ret;
@@ -16545,6 +17073,165 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return elem.contains(active);
         }
+      }, {
+        key: "$makeSelect",
+        value: function $makeSelect($root, entries) {
+          var optgrplabel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+          var selectedVal = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+          $root.each(function (i, e) {
+            return U.makeSelect(e, entries, optgrplabel, selectedVal);
+          });
+        } // used to convert type from string to some enum checking after validation
+
+      }, {
+        key: "getEnumValByVal",
+        value: function getEnumValByVal(val, enumDeclaration) {
+          for (var _key20 in enumDeclaration) {
+            if (enumDeclaration[_key20] === val) return val;
+          }
+
+          return null;
+        }
+      }, {
+        key: "getEnumValByKey",
+        value: function getEnumValByKey(key, enumDeclaration) {
+          if (enumDeclaration && enumDeclaration.hasOwnProperty(key)) return enumDeclaration[key];
+          return null;
+        }
+      }, {
+        key: "getEnumKeyByVal",
+        value: function getEnumKeyByVal(val, enumDeclaration) {
+          for (var _key21 in enumDeclaration) {
+            if (enumDeclaration[_key21] === val) return _key21;
+          }
+
+          return null;
+        }
+      }, {
+        key: "makeSelect",
+        value: function makeSelect(select, entries) {
+          var optgrplabel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+          var selectedVal = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+          var grp = document.createElement('optgroup');
+          U.clear(select);
+          select.append(grp);
+          grp.label = optgrplabel;
+
+          for (var _key22 in entries) {
+            var opt = document.createElement('option');
+            opt.setAttribute('value', _key22);
+            opt.innerText = entries[_key22];
+            if (entries[_key22] === selectedVal) opt.selected = true;
+            grp.append(opt);
+          }
+        }
+      }, {
+        key: "computeConditionalHides",
+        value: function computeConditionalHides($root, obj) {
+          var caseSensitive = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+          var cascadeOnChildrens = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+          var displayFunction = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+          var hideFunction = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+          if (!displayFunction) displayFunction = function displayFunction(e) {
+            return $(e).show();
+          };
+          if (!hideFunction) hideFunction = function hideFunction(e) {
+            return $(e).hide();
+          };
+          if (cascadeOnChildrens) $root = $root.find('[uif]').addBack('[uif]');else $root.filter('[uif]');
+          var ret = {
+            hide: [],
+            show: [],
+            inaltered: []
+          };
+          $root.each(function (i, e) {
+            var b = U.checkConditionalHide(e, obj, caseSensitive);
+
+            switch (b) {
+              case true:
+                ret.show.push(e);
+                displayFunction(e);
+                break;
+
+              case false:
+                ret.hide.push(e);
+                hideFunction(e);
+                break;
+
+              default:
+              case null:
+                ret.inaltered.push(e);
+                break;
+            }
+          });
+          return ret;
+        }
+      }, {
+        key: "checkConditionalHide",
+        value: function checkConditionalHide(html, obj) {
+          var caseSensitive = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+          var attrstr = html.getAttribute('uif');
+          if (!attrstr) return null;
+          attrstr = attrstr.replace(/\|+/, ' || ').replace(/&+/, ' && ').replace('+', ' + ').replace('-', ' - ').replace('*', ' * ').replace('/', ' / ').replace('!', ' ! ').replace(/\s+/, ' ');
+          var i;
+          var key;
+          var tokens = attrstr.split(' ');
+
+          if (!caseSensitive) {
+            for (key in obj) {
+              var lckey = key.toLowerCase();
+              if (lckey === key) continue;
+              var val = obj[key];
+              delete obj[key];
+              obj[lckey] = val;
+            }
+          }
+
+          for (i = 0; i < tokens.length; i++) {
+            var token = caseSensitive ? tokens[i] : tokens[i].toLowerCase(); // ricorda di non salvare in lowercase i token non sostituiti, altrimenti rimpiazza Math.abs() o altre funzioni java native.
+
+            if (obj.hasOwnProperty(token)) tokens[i] = obj[token];
+          }
+
+          var ret;
+
+          try {
+            ret = eval(tokens.join(' '));
+          } catch (e) {
+            U.pw(true, 'Invalid conditional attribute (UIF), error:', e, 'html:', html, 'attrStr:', attrstr, 'tokens:', tokens, 'dic:', obj, 'caseSensitive:', caseSensitive);
+            ret = null;
+          } // if (ret === null) console.log('rrer', tokens);
+
+
+          return ret; // ipotesi 1:
+          //   computa hide = concatenazione hide1 || hide2 || hide3.... (es: m1hide || m1hideifclass), simile per "show"
+          // se ottengo:
+          // hide = null, show = null --> non computato, com'era rimane.
+          // hide = null  --> valueof(showif)
+          // show = null  --> valueof(hideif)
+          // hide = true, show = true    --> hide
+          // hide = true, show = false   --> hide
+          // hide = false, show = false  --> hide
+          // hide = false, show = true   --> show
+        }
+      }, {
+        key: "deserialize",
+        value: function deserialize(value) {
+          if (value === '') return ''; // json.parse fail on ''
+
+          if (value == 'undefined') return undefined; // json.parse fail on undefined and 'undefined' too
+
+          var ret;
+
+          try {
+            ret = JSON.parse(value);
+          } catch (e) {
+            // U.pe(true, 'failed to deserialize: |', value, '|', e);
+            return value; // means it's a raw string different from 'true', 'null', ...
+          }
+
+          return ret;
+        }
       }]);
 
       return U;
@@ -16579,10 +17266,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     U.mouseBackButtons = 8;
     U.mouseForwardButtons = 16;
     U.oneTimeMap = {};
+    U.sequenceNumber = 0;
+    U.idMap = {};
     U.gotcalledby = {};
     U.$alertcontainer = null;
     U.alertcontainer = null;
     U.displayedTexts = {};
+    U.GeomTolerance = 0; // 0.001;
+
     U.startSeparatorKeys = {};
     U.startSeparatorKeyMax = -1;
     U.focusHistoryEntriesAndIdleTimes = undefined;
@@ -18444,17 +19135,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           v.addf('Shadowing', 'Features shadowed by redeclaration on subclasses are now detected and hidden.\n' + 'Shadowed variables can be displayed in M1 for informative purpose, but their value will not be saved (on purpose).');
           v.addf('Style editor: ', 'Inserted "Use as default style" checkbox which can only be used on customized elements.\n' + 'When marked the customized style of this element will be inherited by all other elements of the same type (Class, Enum, Attribute, Reference...) with the least priority.\n' + 'A reminder on style priorities:' + '<ul>' + '<li>1) "Own html" customized style attached to the element itself.</li>' + '<li>2) "Inherited html" customized style attached to the meta-parent of the element (eg: a M1-class instance inheriting his style from his M2-class type).</li>' + '<li>3) User-defined "default html", eg: a M1-class instance inheriting his style from another M1-class peer marked as default style with this brand new feature.</li>' + '<li>4) Hardcoded, static "default html", the one you see on "default" viewpoint.</li>' + '</ul>' + 'If one of those style throws an exception while rendering or executing custom code injected inside the style,' + ' that faulty style will be automatically removed and the next style in priority order will be applied.' + 'Until eventually the fourth level is reached, which has been broadly tested and should never fail.', null, true);
           v.addf('Vertex gui customization:', 'It is now possible to set up a custom filter and condition to select which childrens of a classifier / operation should be displayed.' + 'There are shortcuts to filter children based on their type or whether they are inherited or not. <a href="https://github.com/DamianoNaraku/jjodel/wiki/Display-and-filter-sub-features-inside-a-vertex">More info here.</a>', null, true);
-          v.addf('Text popup', '' + 'Textual popup notifying the user about invalid actions, errors, tooltip or automatic fixing invalid user input now cannot show duplicates at the same time.' + 'Clicking a popup will make it disappear instantly while copying his text to the clipboard (copy-paste, old feature reminder).\n' + 'Right-clicking a popup will now hide all same-colored notifications.' + 'Wheel-clicking a popup will now hide all notifications.');
+          v.addf('Text popup improved:', '' + 'Textual popup notifying the user about invalid actions, errors, tooltip or automatic fixing invalid user input now cannot show duplicates at the same time.\n' + 'Clicking a popup will make it disappear instantly while copying his text to the clipboard (copy-paste, old feature reminder).\n' + 'Right-clicking a popup will now hide all same-colored notifications.\n' + 'Wheel-clicking a popup will now hide all notifications.');
           v.addf('Usability: mouse shortcuts', '' + '<ul>' + '<li>Rightclicking a vertex will make it follow the cursor until released, ignoring measurables.\n' + 'Can be useful if the only visible part of a vertex / feature is a input or a measurable, as left-clicking them will not drag the vertex.</li>' + '<li>MouseWheel-clicking anywhere on the graph and start dragging will ignore any vertexes and make the graph offset follow the cursor.\n' + 'Can be useful on high zoom levels, huge vertexes or densely populated graph.</li></ul>', null, true);
           v.addf('ContextMenu:', 'User right-clicking input elements inside vertexes might desire both native contextmenù or customized contextmenù.\n' + 'To access the native context menù, the user must rightclicking a input field inside the currently selected feature / vertex or do a slow right-click.\n' + 'Here are detailed rules to check which one will appear: ' + '<ul>' + '<li>RightClick and drag on any child of a vertex / feature: no custom menù, the whole vertex will be dragged, measurables and inputs will be ignored.</li>' + '<li>still RightClick on a input child of a selected vertex / feature: native context menù.</li>' + '<li>still RightClick on any child of a un-selected vertex / feature: custom context menù.</li>' + '<li>still, slow (hold for 1 sec) RightClick a input child of vertex / feature: native menù</li></ul>', null, true);
-          v.addb('Bug:', 'The usage of the $ and £ characters outside variable templates ($##likeThis$) and inside the html of custom styles might cause errors, html entities like &#36; are troublesome too.\n' + "Until bugfix use the unicode combination \\u0024 for $ and &#163; and \\u00A3 for \xA3 when possible. This bugfix will have low priority.");
+          v.addb('Bug:', 'The usage of the $ and £ characters outside variable templates ($##likeThis$) and inside the html of custom styles might cause errors.\n' + "Until bugfix use the unicode combination \\u0024 for $ and \\u00A3 for \xA3 when possible. This bugfix will have low priority.");
           v.addbf('Edge:', 'Fixed an error that was preventing to insert the first mid-points to an edge when his style was "straight".');
           v.addbf('PropertyBar:', 'Automatized update of structured view, style editor and raw viewer when visualized html node in graph or his parents are updated.\n');
           v.addbf('ContextMenu:', 'Was not appearing.');
-          var searchterm = 'clog cls addbf '; // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
+          v = new VersionUpload(new Date('2020/7/31'), '', '');
+          v.addf('Interface and Abstract classes support', 'Accessible through the structured tree view on the right bar.');
+          v.addf('Class conversion:', 'It is now possible to change type of a single M1-class, or of all instances of a target M2-class. (<a href="https://github.com/DamianoNaraku/jjodel/wiki/Class-deletion-&-Class-type-conversion">Full guide here</a>)\n' + 'For example converting all "Date" instances to "DateTime" instances, adding a "time" attribute to all of them without changing the definition of the "Date" class.', null, true);
+          v.addbf('children filtering:', 'was not working properly only on his generic version (childrenContainer) and not on AttributeContainer');
+          v.addbf('validation:', 'was working on run-time edits, but not on the initial load of the model');
+          v.addbf('class deletion:', 'When a class was used as function parameter, the removal was causing exceptions.' + '\nNow it will change the parmaeter\'s type using class conversion, or removing it if conversion is impossible.');
+          v.addbf('firefox', 'default style of vertex had transparent background.');
+          v.addbf('Edges', 'Trying to delete the mandatory start and end-point of a edge would cause visual errors.');
+          v.addbf('Edges', 'Edges changing his target by dragging where not following his new target vertex when dragged.');
+          v = new VersionUpload(new Date('2020/10/26'), 'M2T groundwork, Type mapping improvement', '');
+          v.addf('Type mapping', 'Accessible through the topbar, it allows now to define sets of typing aliases.\n' + 'Once a set of aliases is created you can give it a name to switch between saved alias sets, changing multiple aliases with one action.');
+          v.addf('M2T', 'Can be done in 2 ways.<br>' + '<ul>' + '<li>Through style editor: Code will be produced according to nodes content, node content can become shards of code through style editor.<br>' + 'Combined style overriding it is extremely easy to customize code generation for specific cases or single classes / objects.<br>' + 'The final output will be obtained through the "By text" predefined transformation.<br>' + 'Users will be able to use pre-existing transformations by importing a viewpoint from the store.</li>' + '<li>In future through the MTL standard (not yet supported)<br>' + 'Users will be able to create their own M2T transformation and share them on a public store.</li>' + '</ul>', null, true);
+          v = new VersionUpload(new Date('2020/12/05'), 'Auto-layouting', '');
+          v.addf('Auto-layout', 'Accessible through the style editor of a graph, guide on the <a href="https://github.com/DamianoNaraku/jjodel/wiki/Auto-Layout">wiki page</a>.', null, true);
+          v.addbf('zoom & pan', 'Zoom and pan weren\'t combining well, panning with a zoom level used to cause calculation error leading to graphical mismatch.');
+          v.addf('Import / Export / Reset of viewpoint and vertices positions', 'Accessible through the top-bar, can be used to share a viewpoint while waiting for the store.\n' + 'Resetting the viewpoint might fix errors caused by a wrong customization of a viewpoint.', null, true);
+          var searchterm = 'clog addbf '; // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
           // v.addf('fakegfeat', 'kkk');
           // v = new VersionUpload('v3'...);
         }
+      }, {
+        key: "clog",
+        value: function clog() {}
       }, {
         key: "generate",
         value: function generate() {
@@ -19199,7 +19909,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "#damContextMenuTemplateContainer{\r\n  display: none;\r\n}\r\n.contextMenuRoot{\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n}\r\n.reflist{ display: none; }\r\n.reflistparent:hover > .reflist { display: block; }\r\n.refli {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.reflistparent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.reflist {\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli:hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:hover li:hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBLFVBQVUsYUFBYSxFQUFFO0FBQ3pCLGtDQUFrQyxjQUFjLEVBQUU7QUFDbEQ7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQixFQUFFO0FBQ3ZCO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7QUFDZjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixpQkFBaUI7RUFDakIsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLE1BQU07QUFDUjtBQUNBO0VBQ0UsdUJBQXVCO0VBQ3ZCLHVCQUF1QjtFQUN2QixhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixXQUFXO0VBQ1gsVUFBVTtFQUNWLHNCQUFzQjtFQUN0QixZQUFZO0FBQ2Q7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCO0FBQzdCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCLEVBQUU7QUFFL0I7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtBQUNuQiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvZGFtLWNvbnRleHQtbWVudS9kYW0tY29udGV4dC1tZW51LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjZGFtQ29udGV4dE1lbnVUZW1wbGF0ZUNvbnRhaW5lcntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi5jb250ZXh0TWVudVJvb3R7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXgtaGVpZ2h0OiAxMDB2aDtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG92ZXJmbG93OiB2aXNpYmxlO1xyXG59XHJcbi5yZWZsaXN0eyBkaXNwbGF5OiBub25lOyB9XHJcbi5yZWZsaXN0cGFyZW50OmhvdmVyID4gLnJlZmxpc3QgeyBkaXNwbGF5OiBibG9jazsgfVxyXG4ucmVmbGkge1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4OyB9XHJcbi5yZWZsaSAuZmlyc3RlbXB0eXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnJlZmxpIGJ1dHRvbi5ieWluZGV4IHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG59XHJcbi5yZWZsaXN0cGFyZW50e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4ucmVmbGkgLmluZGV4IHtcclxuICBwYWRkaW5nLWxlZnQ6IDNweDtcclxuICBjb2xvcjogb3JhbmdlO1xyXG59XHJcbi5yZWZsaSAudGV4dHtcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbn1cclxuYnV0dG9uLnJlZmxpLmRlbGV0ZXtcclxuICBwYWRkaW5nOiAwIDRweDtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5yZWZsaXN0IHtcclxuICBsZWZ0OiBjYWxjKDEwMCUpO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICBib3JkZXItbGVmdDogbm9uZTtcclxuICBwYWRkaW5nOiAycHggNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDA7XHJcbiAgdG9wOiAwO1xyXG59XHJcbnVsLmNvbnRleHRNZW51e1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gIHBhZGRpbmc6IDEwcHg7XHJcbiAgcGFkZGluZy10b3A6IDZweDtcclxuICBwYWRkaW5nLWJvdHRvbTogOHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDA7XHJcbn1cclxubGk6Zmlyc3QtY2hpbGR7XHJcbiAgcGFkZGluZy10b3A6IDA7XHJcbn1cclxubGkuc2VwYXJhdG9ye1xyXG4gIG1hcmdpbi10b3A6IDJweDtcclxuICBoZWlnaHQ6IDFweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XHJcbiAgb3BhY2l0eTogMC40O1xyXG59XHJcbmxpOmxhc3QtY2hpbGR7XHJcbiAgYm9yZGVyLWJvdHRvbTogbm9uZTtcclxufVxyXG5saTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgY29sb3I6IGRvZGdlcmJsdWU7XHJcbn1cclxubGl7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG4gIGZvbnQtc2l6ZTogMC43NXJlbTtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpO1xyXG59XHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG4gIGZvbnQtc2l6ZTogMC43NXJlbTtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpOyB9XHJcblxyXG5saTpob3ZlciBsaTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgY29sb3I6IGRvZGdlcmJsdWU7XHJcbn1cclxuIl19 */";
+    __webpack_exports__["default"] = "#damContextMenuTemplateContainer{\r\n  display: none;\r\n}\r\n.contextMenuRoot{\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n}\r\n.popupRight{ display: none; }\r\n.popupRightParent:hover > .popupRight { display: block; }\r\n.popupRight {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.popupRightParent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.popupRight {\r\n  display: none;\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*cursor: default;*/\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:hover li:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\n.typeli.dynamic, .refli.dynamic{\r\n  cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBLGFBQWEsYUFBYSxFQUFFO0FBQzVCLHdDQUF3QyxjQUFjLEVBQUU7QUFDeEQ7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQixFQUFFO0FBQ3ZCO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7QUFDZjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixNQUFNO0FBQ1I7QUFDQTtFQUNFLHVCQUF1QjtFQUN2Qix1QkFBdUI7RUFDdkIsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsV0FBVztFQUNYLFVBQVU7RUFDVixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFFQTtFQUNFLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCO0FBQzdCO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLDJCQUEyQixFQUFFO0FBRS9CO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL2RhbS1jb250ZXh0LW1lbnUvZGFtLWNvbnRleHQtbWVudS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2RhbUNvbnRleHRNZW51VGVtcGxhdGVDb250YWluZXJ7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uY29udGV4dE1lbnVSb290e1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgbWF4LWhlaWdodDogMTAwdmg7XHJcbiAgbWF4LXdpZHRoOiAxMDB2dztcclxuICBvdmVyZmxvdzogdmlzaWJsZTtcclxufVxyXG4ucG9wdXBSaWdodHsgZGlzcGxheTogbm9uZTsgfVxyXG4ucG9wdXBSaWdodFBhcmVudDpob3ZlciA+IC5wb3B1cFJpZ2h0IHsgZGlzcGxheTogYmxvY2s7IH1cclxuLnBvcHVwUmlnaHQge1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4OyB9XHJcbi5yZWZsaSAuZmlyc3RlbXB0eXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnJlZmxpIGJ1dHRvbi5ieWluZGV4IHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG59XHJcbi5wb3B1cFJpZ2h0UGFyZW50e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4ucmVmbGkgLmluZGV4IHtcclxuICBwYWRkaW5nLWxlZnQ6IDNweDtcclxuICBjb2xvcjogb3JhbmdlO1xyXG59XHJcbi5yZWZsaSAudGV4dHtcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbn1cclxuYnV0dG9uLnJlZmxpLmRlbGV0ZXtcclxuICBwYWRkaW5nOiAwIDRweDtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5wb3B1cFJpZ2h0IHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIGxlZnQ6IGNhbGMoMTAwJSk7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmc6IDJweCA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICB0b3A6IDA7XHJcbn1cclxudWwuY29udGV4dE1lbnV7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBwYWRkaW5nLXRvcDogNnB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiA4cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxufVxyXG5saTpmaXJzdC1jaGlsZHtcclxuICBwYWRkaW5nLXRvcDogMDtcclxufVxyXG5saS5zZXBhcmF0b3J7XHJcbiAgbWFyZ2luLXRvcDogMnB4O1xyXG4gIGhlaWdodDogMXB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcclxuICBvcGFjaXR5OiAwLjQ7XHJcbn1cclxubGk6bGFzdC1jaGlsZHtcclxuICBib3JkZXItYm90dG9tOiBub25lO1xyXG59XHJcblxyXG5saXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBjdXJzb3I6IGRlZmF1bHQ7XHJcbiAgZm9udC1zaXplOiAwLjc1cmVtO1xyXG4gIHBhZGRpbmctdG9wOiAycHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDtcclxuICBjb2xvcjogdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbn1cclxubGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiBkb2RnZXJibHVlO1xyXG59XHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLypjdXJzb3I6IGRlZmF1bHQ7Ki9cclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTsgfVxyXG5cclxubGk6aG92ZXIgbGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiBkb2RnZXJibHVlO1xyXG59XHJcblxyXG4udHlwZWxpLmR5bmFtaWMsIC5yZWZsaS5keW5hbWlje1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4iXX0= */";
     /***/
   },
 
@@ -19276,16 +19986,88 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "ngOnInit",
         value: function ngOnInit() {}
       }, {
+        key: "onContextMenu",
+        value: function onContextMenu(evt) {
+          console.log('sinit click contextmenu'); // evt.preventDefault(); evt.stopPropagation(); return false;
+
+          var vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(evt.target, false); // evt.stopPropagation();
+
+
+          DamContextMenuComponent_1.contextMenu.hide(); // only if is focused input
+
+          var lastSelected = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].focusHistoryEntries[_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].focusHistoryElements.length - 1];
+          var gotSelectedNow = lastSelected && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(lastSelected.element, evt.target) && new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000;
+          var isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(evt.target, true, false) && !gotSelectedNow;
+          var clickStartedOutsideVertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext === null; // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato --> non triggerare contextmenu
+          // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input --> non triggerare contextmenu
+
+          if (isInput && clickStartedOutsideVertex) evt.target.focus();
+          if (!isInput && gotSelectedNow) evt.target.blur(); // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
+
+          var pixelMoved = !clickStartedOutsideVertex ? 0 : vertex && vertex.size.tl().subtract(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext.size.tl(), false).absolute();
+          var gotMoved = vertex && !clickStartedOutsideVertex && pixelMoved >= vertex.tolleranzaRightClickMove;
+
+          var mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].get(evt);
+
+          var ret = !mp || isInput && !gotMoved; // evt['passedThroughVertex'] = ret;
+
+          console.log('ret:', ret, 'mp:', mp, 'moved:', gotMoved, 'isInput:', isInput);
+          if (ret) return true;else {
+            evt.preventDefault();
+          }
+          if (gotMoved) return ret;
+          DamContextMenuComponent_1.contextMenu.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Point"](evt.pageX, evt.pageY), evt.target);
+          return ret;
+        }
+      }, {
+        key: "checkIfHide",
+        value: function checkIfHide(e) {
+          var originalTarget = e.target;
+
+          var isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(originalTarget, true);
+
+          var isDisabled = originalTarget.disabled;
+          var focused = this.html.contains(document.activeElement);
+          var isButton = originalTarget.tagName.toLowerCase() === 'button' && !originalTarget.disabled && originalTarget === document.activeElement; // se la selezione non è sul bottone, per me non l'ho premuto,
+          // magari era un mousedown di selezione su un input terminato con mouseup su un button
+
+          var clickedOutside = !_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(this.html, originalTarget);
+          console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
+
+          if (isButton || clickedOutside || !isInput && !isDisabled && !focused) {
+            this.hide();
+          }
+        }
+      }, {
+        key: "computePosition",
+        value: function computePosition(location) {
+          var templateSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].sizeof(this.html);
+
+          var viewPortSize = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Size"](0, 0, window.innerWidth, window.innerHeight);
+          location.x = Math.max(0, location.x);
+          location.y = Math.max(0, location.y);
+          location.x = Math.min(viewPortSize.w - templateSize.w, location.x);
+          console.log('vp.w:', viewPortSize.w, ' - t.w:', templateSize.w, ', loc.x', location.x, ', t.size:', templateSize, this.html);
+          console.log('vp.h:', viewPortSize.h, ' - t.h:', templateSize.h, ', loc.y', location.y, ', t.size:', templateSize, this.html);
+          location.y = Math.min(viewPortSize.h - templateSize.h, location.y);
+          this.html.style.position = 'absolute';
+          this.html.style.zIndex = '1000';
+          this.html.style.left = '' + location.x + 'px';
+          this.html.style.top = '' + location.y + 'px';
+        }
+      }, {
         key: "show",
-        value: function show(location, classSelectorUseless, target) {
+        value: function show(location, target) {
+          var mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].getLogic(target);
+
           _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!target, 'target is null.');
 
+          if (!mp) return;
+          console.log('contextmenu target:', this.clickTarget);
+          var model = mp.getModelRoot();
           this.clickTarget = target;
           this.html.style.display = 'none'; // if was already displaying, start the scrollDown animation without doing the scrollUp()
-
-          this.$html.slideDown();
-
-          var vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(target);
+          // const vertex: IVertex = IVertex.getvertexByHtml(target);
 
           var edge = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"].getByHtml(target);
 
@@ -19296,89 +20078,104 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             edge = null;
           }
 
-          console.log('contextmenu target:', this.clickTarget);
-
-          var templateSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].sizeof(this.html); // todo:
-
-
-          var viewPortSize = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Size"](0, 0, window.innerWidth, window.innerHeight);
-          location.x = Math.max(0, location.x);
-          location.y = Math.max(0, location.y);
-          location.x = Math.min(viewPortSize.w - templateSize.w, location.x);
-          console.log('vp.w:', viewPortSize.w, ' - t.w:', templateSize.w, ', loc.x', location.x, ', t.size:', templateSize, this.html);
-          location.y = Math.min(viewPortSize.h - templateSize.h, location.y);
-          this.html.style.position = 'absolute';
-          this.html.style.zIndex = '1000';
-          this.html.style.left = '' + location.x + 'px';
-          this.html.style.top = '' + location.y + 'px';
           this.extedgecontext.style.display = 'none';
           this.edgecontext.style.display = 'none';
           this.vertexcontext.style.display = 'none';
           this.edgecontext.style.display = edge ? '' : 'none';
           this.extedgecontext.style.display = extedge ? '' : 'none';
-          this.vertexcontext.style.display = vertex ? '' : 'none';
-          this.$vertexcontext.find('.Reference').hide();
+          this.vertexcontext.style.display = !edge && !extedge ? '' : 'none'; // this.$vertexcontext.find('.Reference').hide();
+
           this.$vertexcontext.find('.refli.dynamic').remove();
+          this.$vertexcontext.find('.typeli.dynamic').remove();
+          var i; //   if (vertex) {
 
-          var mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].getLogic(target);
-
-          var model = mp.getModelRoot();
-
-          if (vertex) {
-            /*
-            if (model.isM1()) {
+          /*
+          if (model.isM1()) {
             this.$vertexcontext.find('.m1hide').hide();
             this.$vertexcontext.find('.m2hide').show(); }
-            else {
+          else {
             this.$vertexcontext.find('.m1hide').show();
             this.$vertexcontext.find('.m2hide').hide(); }*/
-            if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClassifier"]) {
-              this.$vertexcontext.find('.Feature').hide();
-              this.$vertexcontext.find('.Vertex').show();
-            } else {
-              if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MReference"]) {
-                var i;
-                var $refli = this.$vertexcontext.find('.refli.template');
 
-                for (i = 0; i < mp.mtarget.length; i++) {
-                  var _target = mp.mtarget[i];
+          if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClassifier"]) {
+            var lishow = function lishow($jq) {
+              return $jq.each(function (i, e) {
+                e.style.display = '';
+              });
+            }; // this.$vertexcontext.find('.Feature').hide();
+            // this.$vertexcontext.find('.Vertex').show();
 
-                  var li = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneHtml($refli[0], true);
 
-                  li.classList.remove('template');
-                  li.classList.add('dynamic');
-                  li.dataset.index = '' + i;
-                  var $li = $(li);
-                  $li.find('.index').text('' + i);
-                  $li.find('.text').text(_target ? _target.printableNameshort() : 'Empty');
-                  $refli[0].parentNode.appendChild(li);
-                }
-
-                this.$vertexcontext.find('.Reference').show();
-              }
-
-              this.$vertexcontext.find('.Feature').show();
-              this.$vertexcontext.find('.Vertex').hide();
+            if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"]) {
+              this.fillTypeLi(mp, lishow);
             }
+          } else {
+            if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MReference"]) {
+              var $refli = this.$vertexcontext.find('.refli.template');
 
-            var mr = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MReference"] ? mp : null;
-            var $indexinput = this.$vertexcontext.find('input.byindex');
-            var upperbound = mr ? mr.metaParent.upperbound : null;
+              for (i = 0; i < mp.mtarget.length; i++) {
+                var _target = mp.mtarget[i];
 
-            if (mr) {
-              if (upperbound === -1) $indexinput[0].removeAttribute('max');else $indexinput[0].setAttribute('max', '' + upperbound);
-            } else $indexinput[0].setAttribute('max', '-999');
+                var li = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneHtml($refli[0], true);
+
+                li.classList.remove('template');
+                li.classList.add('dynamic');
+                li.dataset.index = '' + i;
+                var $li = $(li);
+                $li.find('.index').text('' + i);
+                $li.find('.text').text(_target ? _target.printableNameshort() : 'Empty');
+                $refli[0].parentNode.appendChild(li);
+              } // this.$vertexcontext.find('.Reference').show();
+
+            }
+            /*this.$vertexcontext.find('.Feature').show();
+            this.$vertexcontext.find('.Vertex').hide();*/
+
           }
 
+          var mr = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MReference"] ? mp : null;
+          var $indexinput = this.$vertexcontext.find('input.byindex');
+          var upperbound = mr ? mr.metaParent.upperbound : null;
+
+          if (mr) {
+            if (upperbound === -1) $indexinput[0].removeAttribute('max');else $indexinput[0].setAttribute('max', '' + upperbound);
+          } else $indexinput[0].setAttribute('max', '-999'); //
+
+          /*
           if (model.isM1()) {
             this.$html.find('.m1hide').hide();
             this.$html.find('.m2hide').show();
-          } else {
+          }
+          else {
             this.$html.find('.m1hide').show();
             this.$html.find('.m2hide').hide();
-          }
+          }*/
 
-          this.addEventListeners(location, vertex, mp); // [??? what?] must be done here, per facilità di fare binding usando variabili esterne agli eventi.
+
+          var dic = {};
+          dic['m1'] = model.isM1();
+          dic['m2'] = model.isM2();
+          dic['class'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"];
+          dic['classifier'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClassifier"];
+          dic['feature'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IFeature"];
+          dic['attribute'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IAttribute"];
+          dic['reference'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IReference"];
+          dic['operation'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EOperation"];
+          dic['param'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EParameter"];
+          dic['annotation'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EAnnotation"];
+          dic['edge'] = !!edge;
+          dic['extedge'] = !!extedge;
+
+          var ret = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].computeConditionalHides(this.$html, dic);
+
+          console.log('rrer', ret);
+          if (ret.show.length + ret.inaltered.length === 0) return;
+          this.addEventListeners(location, mp); // [??? what?] must be done here, per facilità di fare binding usando variabili esterne agli eventi.
+
+          this.computePosition(location); // computePosition() needs to be after deciding sub-elements visibility and before sliding down, because needs to compute
+          // the final height with correct children display and without slideDown temporary height hard-limiter with inline css.
+
+          this.$html.slideDown();
         }
       }, {
         key: "hide",
@@ -19386,8 +20183,56 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.$html.slideUp();
         }
       }, {
+        key: "fillTypeLi",
+        value: function fillTypeLi(mp, lishow) {
+          var i;
+          var $typeli = this.$vertexcontext.find('.typeli.template');
+          var $fallback = this.$vertexcontext.find('.typeli.fallback').hide();
+          var containerli = $typeli[0].parentElement;
+          var isM2 = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["M2Class"];
+          var m2Class = isM2 ? mp : mp.metaParent;
+
+          if (isM2 && mp.instances.length === 0) {
+            $(containerli).find('.typeli').hide();
+            lishow($fallback.text("This class does not have any instances to convert."));
+            return;
+          }
+
+          var separator = $(containerli).find('.separator')[0];
+          var arr = m2Class.getTypeConversionScores(true, true);
+
+          if (arr.length === 0) {
+            $(containerli).find('.typeli').hide();
+            lishow($fallback.text("This class does not have any super or subclass available for conversion."));
+            return;
+          } else if (arr.length === 1) {
+            lishow($(containerli).find('.typeli'));
+            $(containerli).find('.typeli.description, .typeli.separator').hide();
+          } else lishow($(containerli).find('.typeli'));
+
+          $fallback.hide();
+
+          for (i = 0; i < arr.length; i++) {
+            var li = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneHtml($typeli[0], true);
+
+            var element = arr[i];
+            var popuptxt = "Features: " + (element.features >= 0 ? "+" : "") + element.features + "; Operations: " + (element.operations >= 0 ? "+" : "") + element.operations + "; Annotations: " + (element.annotations >= 0 ? "+" : "") + element.annotations + ";";
+            li.classList.remove('template');
+            li.classList.add('dynamic');
+            li.setAttribute("title", popuptxt);
+            li.dataset.index = '' + i;
+            li.dataset.classID = '' + element.class.getID();
+            var $li = $(li); // $li.find('.index').text('' + i);
+
+            $li.find('.text').text(element.class.printableNameshort());
+            if (i === 0) containerli.insertBefore(li, separator);else containerli.appendChild(li);
+          }
+        }
+      }, {
         key: "addEventListeners",
-        value: function addEventListeners(location, v, m) {
+        value: function addEventListeners(location, m) {
+          var _this27 = this;
+
           var graphLocation = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.getActiveModel().graph.toGraphCoord(location);
 
           var html = this.html;
@@ -19399,7 +20244,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var $indexinput = $html.find('input.byindex');
           var upperbound = mr ? mr.getUpperbound() : null;
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!v, 'vertex null:', v, this.clickTarget);
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!m, 'mp null:', m, this.clickTarget);
 
           var $firstempty = $html.find('.refli .firstempty');
           var $byindexInputAndButton = $html.find('.refli .byindex');
@@ -19427,7 +20272,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (!edge) {
               var tmpend = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphPoint"].fromEvent(e);
 
-              new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, v, null, tmpend);
+              new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, m.getVertex(), null, tmpend);
               return;
             }
 
@@ -19442,7 +20287,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return;
             }
 
-            var edge = mr.edges[index] ? mr.edges[index] : new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, v, null, null);
+            var edge = mr.edges[index] ? mr.edges[index] : new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, m.getVertex(), null, null);
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].linkVertexMouseDown(null, edge, graphLocation);
           });
@@ -19451,9 +20296,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var index = +e.currentTarget.dataset.index;
             console.log('refli dynamic click');
             console.log('setting reference[' + index + '] = ', mr.mtarget[index], mr);
-            var edge = mr.edges[index] ? mr.edges[index] : new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, v, null, null);
+            var edge = mr.edges[index] ? mr.edges[index] : new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, m.getVertex(), null, null);
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].linkVertexMouseDown(null, edge, graphLocation);
+          });
+          $html.find('li.typeli.dynamic').off('click.changetype').on('click.changetype', function (e) {
+            var newType = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].getByID(+e.currentTarget.dataset.classID);
+
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!(m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"]), "tryed to change type of non-class element.", m, e);
+
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!(newType instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["M2Class"]), "tryed to change type into non-class element.", newType, e);
+
+            console.log('typeli dynamic click, changing type of: ', m, ' into: ', newType, _this27);
+            if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["M2Class"]) m.convertInstancesTo(newType);
+            if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MClass"]) m.convertTo(newType);
           }); // U.pe(true, $html.find('li.refli.dynamic'), $html);
 
           $html.find('button.refli.delete').off('click.setref').on('click.setref', function (e) {
@@ -19475,7 +20331,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             m.delete(true);
           });
           $html.find('.Vertex.minimize').off('click.ctxMenu').on('click.ctxMenu', function (e) {
-            v.minimize();
+            m.getVertex().minimize();
           });
           $html.find('.Vertex.extend').off('click.ctxMenu').on('click.ctxMenu', function (e) {
             new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ExtEdge"](m, m.getVertex(), null, _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphPoint"].fromEvent(e));
@@ -19503,46 +20359,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           $html.find('.Feature.duplicate').off('click.ctxMenu').on('click.ctxMenu', function (e) {
             m.duplicate('_Copy', m.parent);
-            v.refreshGUI();
+            m.refreshGUI();
           });
           $html.find('.Feature.delete').off('click.ctxMenu').on('click.ctxMenu', function (e) {
             m.delete(true);
           });
           $html.find('.Feature.minimize').off('click.ctxMenu').on('click.ctxMenu', function (e) {
-            v.minimize();
+            m.getVertex().minimize();
           });
           $html.find('.Feature.up').off('click.ctxMenu').on('click.ctxMenu', function (e) {
             m.pushUp(false);
-            v.refreshGUI();
+            m.refreshGUI();
           });
           $html.find('.Feature.down').off('click.ctxMenu').on('click.ctxMenu', function (e) {
             m.pushDown(false);
-            v.refreshGUI();
+            m.refreshGUI();
           });
-        }
-      }, {
-        key: "checkIfHide",
-        value: function checkIfHide(e) {
-          var originalTarget = e.target;
-
-          var isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(originalTarget, true);
-
-          var isDisabled = originalTarget.disabled;
-          var focused = this.html.contains(document.activeElement);
-          var isButton = originalTarget.tagName.toLowerCase() === 'button' && !originalTarget.disabled && originalTarget === document.activeElement; // se la selezione non è sul bottone, per me non l'ho premuto,
-          // magari era un mousedown di selezione su un input terminato con mouseup su un button
-
-          var clickedOutside = !_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(this.html, originalTarget);
-          console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
-
-          if (isButton || clickedOutside || !isInput && !isDisabled && !focused) {
-            this.hide();
-          }
         }
       }], [{
         key: "staticInit",
         value: function staticInit() {
           DamContextMenuComponent_1.contextMenu = new DamContextMenuComponent_1();
+          console.log('sinit contextmenu');
+          $(document).off('contextmenu').on('contextmenu', function (e) {
+            return DamContextMenuComponent_1.contextMenu.onContextMenu(e);
+          });
         }
       }]);
 
@@ -20125,7 +20966,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addEventListeners",
         value: function addEventListeners() {
-          var _this27 = this;
+          var _this28 = this;
 
           var $html = $(this.html); // $html.off('click.ep').on('click.ep', (e: ClickEvent) => { EdgePoint.getFromHtml(e.currentTarget).onClick(e); });
 
@@ -20144,7 +20985,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }); // $html.off('mouseover.ep').on('mouseover.ep', (e: MouseLeaveEvent) => { EdgePoint.getFromHtml(e.currentTarget).onMouseOver(e); });
 
           $html.off('contextmenu.deleteEdgePoint').on('contextmenu.deleteEdgePoint', function (e) {
-            _this27.detach();
+            _this28.detach();
 
             return false;
           });
@@ -20159,9 +21000,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function detach() {
           var refreshGUI = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
+          //    big: quando attacco un extend, l'endVertex non ha la reference all'edge input,
+          //      quindi se muovo l'endVertex, l'ìedge non si muove.
           if (!this.isAttached()) {
             return;
           }
+
+          if (this.edge && this.edge.startNode == this || this.edge.endNode === this) return;
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.edge.midNodes, this);
 
@@ -20296,26 +21141,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.isHighlighted = highlight;
           }
 
-          if (this.isSelected) {
-            this.styleSelected();
-          } else if (this.isHighlighted) {
-            this.styleHighlight();
-          } else {
-            this.styleCommon(debug);
-          }
+          this.applyStyle(false);
         }
       }, {
-        key: "styleCommon",
-        value: function styleCommon() {
+        key: "getCurrentStyle",
+        value: function getCurrentStyle() {
+          if (this.isSelected) {
+            return this.edge.logic.edgeStyleSelected.edgePointStyle;
+          }
+
+          if (this.isHighlighted) {
+            return this.edge.logic.edgeStyleHighlight.edgePointStyle;
+          }
+
+          return this.edge.logic.edgeStyleCommon.edgePointStyle;
+        }
+      }, {
+        key: "applyStyle",
+        value: function applyStyle() {
           var debug = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
           if (!this.isAttached()) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'not attached', this);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'called EdgePoint.applyStyle() while not attached', this);
 
             return;
           }
 
-          var eps = this.edge.logic.edgeStyleCommon.edgePointStyle;
+          var eps = this.getCurrentStyle();
 
           if (debug) {
             this.html.setAttributeNS(null, 'debug', 'styleCommon');
@@ -20327,35 +21179,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.html.setAttributeNS(null, 'fill', eps.fillColor);
         }
       }, {
-        key: "styleHighlight",
-        value: function styleHighlight() {
-          if (!this.isAttached()) {
-            return;
-          }
-
-          var eps = this.edge.logic.edgeStyleHighlight.edgePointStyle;
-          this.html.setAttributeNS(null, 'r', '' + eps.radius);
-          this.html.setAttributeNS(null, 'stroke-width', '' + eps.strokeWidth);
-          this.html.setAttributeNS(null, 'stroke', eps.strokeColor);
-          this.html.setAttributeNS(null, 'fill', eps.fillColor);
-        }
-      }, {
-        key: "styleSelected",
-        value: function styleSelected() {
-          if (!this.isAttached()) {
-            return;
-          }
-
-          var eps = this.edge.logic.edgeStyleSelected.edgePointStyle;
-          this.html.setAttributeNS(null, 'r', '' + eps.radius);
-          this.html.setAttributeNS(null, 'stroke-width', '' + eps.strokeWidth);
-          this.html.setAttributeNS(null, 'stroke', eps.strokeColor);
-          this.html.setAttributeNS(null, 'fill', eps.fillColor);
+        key: "getSize",
+        value: function getSize() {
+          var style = this.getCurrentStyle();
+          var radius = style.radius + style.strokeWidth;
+          return new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](this.pos.x, this.pos.y, radius * 2, radius * 2);
         }
       }], [{
         key: "getFromHtml",
         value: function getFromHtml(html) {
-          return EdgePoint.all[html.dataset.EdgePointID];
+          return EdgePoint.getByID(+html.dataset.EdgePointID);
+        }
+      }, {
+        key: "getByID",
+        value: function getByID(id) {
+          return EdgePoint.all[id];
         }
       }]);
 
@@ -20371,18 +21209,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(CursorFollowerEP, _EdgePoint);
 
       function CursorFollowerEP() {
-        var _this28;
+        var _this29;
 
         _classCallCheck(this, CursorFollowerEP);
 
-        _this28 = _possibleConstructorReturn(this, _getPrototypeOf(CursorFollowerEP).call(this, null, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0)));
-        _this28.endPointOfVertex = undefined;
+        _this29 = _possibleConstructorReturn(this, _getPrototypeOf(CursorFollowerEP).call(this, null, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0)));
+        _this29.endPointOfVertex = undefined;
 
-        _this28.html.setAttributeNS(null, 'fill', 'purple');
+        _this29.html.setAttributeNS(null, 'fill', 'purple');
 
-        _this28.html.setAttributeNS(null, 'stroke', 'purple');
+        _this29.html.setAttributeNS(null, 'stroke', 'purple');
 
-        _this28.html.setAttributeNS(null, 'r', '5');
+        _this29.html.setAttributeNS(null, 'r', '5');
 
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].eventiDaAggiungereAlBody('cursor follower');
 
@@ -20408,9 +21246,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           f.detach();
         });
 
-        _this28.addEventListeners();
+        _this29.addEventListeners();
 
-        return _this28;
+        return _this29;
       }
 
       _createClass(CursorFollowerEP, [{
@@ -20571,17 +21409,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addEventListeners",
         value: function addEventListeners(foredge, forheadtail) {
-          var _this29 = this;
+          var _this30 = this;
 
           _get(_getPrototypeOf(ExtEdge.prototype), "addEventListeners", this).call(this, foredge, forheadtail);
 
           var $edgetail = forheadtail ? $(this.headShell).add(this.tailShell) : $();
           var $shell = foredge ? $(this.shell) : $();
           $edgetail.off('keydown.delete').on('keydown.delete', function (e) {
-            return _this29.keydown(e);
+            return _this30.keydown(e);
           });
           $shell.off('keydown.delete').on('keydown.delete', function (e) {
-            return _this29.keydown(e);
+            return _this30.keydown(e);
           });
         }
       }, {
@@ -21045,8 +21883,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (debugi === 3) return;
 
           if (debug) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
-
+            // U.cclear();
             if (startVertexSize) {
               graph.markgS(startVertexSize, true, 'blue');
             }
@@ -21068,9 +21905,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var currPt = curr.getEndPoint(!nextVertexSize, !nextVertexSize); // console.log(prevVertexSize, new GraphSize());
 
             var intersection = nextVertexSize && prevVertexSize ? nextVertexSize.intersection(prevVertexSize) : null;
-            if (intersection) console.log('midenodes.length:', !this.midNodes.length, '&&', prevPt, currPt, ' contained in ', intersection, intersection.contains(prevPt), intersection.contains(currPt));
 
-            if (debug) {
+            if (debug && false) {
+              if (intersection) console.log('midenodes.length:', !this.midNodes.length, '&&', prevPt, currPt, ' contained in ', intersection, intersection.contains(prevPt), intersection.contains(currPt));
               if (intersection) this.owner.markgS(intersection, true, 'black');
               this.owner.markg(prevPt, true, 'orange');
               this.owner.markg(currPt, false, 'yellow');
@@ -21101,7 +21938,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr: RealPts:' + '[' + i + '] = ' + currPt.toString() + '; prev:' + prevPt.toString());
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr[' + i + '/' + allRealPt.length + ']: ' + oldpathStr + ' --> ' + pathStr);
+
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(pathStr.lastIndexOf('L') === -1, '0: the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
           }
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(pathStr.lastIndexOf('L') === -1, 'the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
 
           if (debugi === 3) return;
           this.setPath(pathStr, debug);
@@ -21181,7 +22022,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addEventListeners",
         value: function addEventListeners(foredge, forheadtail) {
-          var _this30 = this;
+          var _this31 = this;
 
           var $edgetail = forheadtail ? $(this.headShell).add(this.tailShell) : $();
           var $shell = foredge ? $(this.shell) : $();
@@ -21222,13 +22063,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             IEdge.get(e).onMouseLeave(e);
           });
           $edgeparts.off('keydown.delete').on('keydown.delete', function (e) {
-            return _this30.keydown(e);
+            return _this31.keydown(e);
           });
           $shell.off('blur').on('blur', function (e) {
-            _this30.onBlur(e);
+            _this31.onBlur(e);
           });
           $shell.off('focus').on('focus', function (e) {
-            _this30.onFocus(e);
+            _this31.onFocus(e);
           });
         }
       }, {
@@ -21780,7 +22621,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             endsub = pathStr.length;
             startsub = pathStr.lastIndexOf('L');
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(startsub === -1, 'the pathString have no L (but should have at least 2 points)');
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(startsub === -1, 'the pathString have no L (but should have at least 2 points)', pathStr);
 
             startsub = pathStr.lastIndexOf('L', startsub - 1);
 
@@ -22043,13 +22884,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markg(prevPt, true, 'green');
 
             if (prevVertexSize) {
-              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markgS(prevVertexSize, false, 'white');
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markgS(prevVertexSize, false, 'green');
             }
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markg(nextPt, false, 'green');
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markg(nextPt, false, 'blue');
 
             if (nextVertexSize) {
-              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markgS(nextVertexSize, false);
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markgS(nextVertexSize, false, 'blue');
             }
           }
 
@@ -22059,31 +22900,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'directions:', pt1IsOnHorizontalSide, pt2IsOnHorizontalSide);
 
           if (prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'prev not on border');
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'prev not on border', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge, prevPt, prevVertexSize); // return '';  può causare path di un solo punto (origine)
 
-            return '';
           }
 
           if (nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'next not on border');
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'next not on border', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge, nextPt, nextVertexSize); // return '';  può causare path di un solo punto (origine)
 
-            return '';
-          }
+          } // U.pe(prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize), 'not on border');
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize), 'not on border');
 
-          if (prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize)) {
-            /*console.clear();
-            const g = Status.status.getActiveModel().graph;
-            g.markg(prevPt, false, 'green');
+          if (debug && prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize)) {
+            var g = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph;
+
+            g.markg(prevPt, true, 'green');
             g.markgS(prevVertexSize, false, 'green');
             g.markg(prevPt, false);
             g.markgS(prevVertexSize, false);
-            console.log('not on vertex border. pt:', prevPt, 'vertex:', prevVertexSize);
-            console.log('not on vertex border. nextpt:', nextPt, 'nextvertex:', nextVertexSize);
-            U.pw(true, (!U.isOnEdge(prevPt, prevVertexSize) ? 'prev' : 'next') + ' not on vertex border.');
-            return '';
-            */
           }
 
           var mode = mode0;
@@ -22312,6 +23145,633 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./src/guiElements/mGraph/Layouting.ts":
+  /*!*********************************************!*\
+    !*** ./src/guiElements/mGraph/Layouting.ts ***!
+    \*********************************************/
+
+  /*! exports provided: Layouting */
+
+  /***/
+  function srcGuiElementsMGraphLayoutingTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Layouting", function () {
+      return Layouting;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var vis_network__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! vis-network */
+    "./node_modules/vis-network/peer/umd/vis-network.min.js");
+    /* harmony import */
+
+
+    var vis_network__WEBPACK_IMPORTED_MODULE_1___default =
+    /*#__PURE__*/
+    __webpack_require__.n(vis_network__WEBPACK_IMPORTED_MODULE_1__);
+    /* harmony import */
+
+
+    var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../common/Joiner */
+    "./src/common/Joiner.ts");
+
+    var Layouting =
+    /*#__PURE__*/
+    function () {
+      function Layouting(graph) {
+        var _this32 = this;
+
+        _classCallCheck(this, Layouting);
+
+        this.isRunning = false;
+        this.id = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getID();
+
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].setID(this.id, this);
+
+        this.graph = graph;
+        this.stabilizationSteps = 10;
+        this.data = {
+          nodes: [],
+          edges: []
+        };
+        this.myOptions = {
+          edgePointMode: 'vertex'
+        };
+        this.optionsDefault = {
+          layout: {
+            randomSeed: undefined,
+            improvedLayout: true,
+            clusterThreshold: 1,
+            // clusterThreshold: 150 è il limite default per applicare improvedLayout
+            // (pre-algoritmo per trovare un buon punto di partenza da cui uscirà un miglior minimo locale)
+            hierarchical: {
+              enabled: false,
+              levelSeparation: 150,
+              nodeSpacing: 100,
+              treeSpacing: 200,
+              blockShifting: true,
+              edgeMinimization: true,
+              parentCentralization: true,
+              direction: 'UD',
+              sortMethod: 'hubsize',
+              shakeTowards: 'leaves'
+            }
+          },
+          interaction: {
+            dragNodes: true,
+            dragView: true,
+            hideEdgesOnDrag: false,
+            hideEdgesOnZoom: false,
+            hideNodesOnDrag: false,
+            hover: false,
+            hoverConnectedEdges: true,
+            keyboard: {
+              enabled: false,
+              speed: {
+                x: 10,
+                y: 10,
+                zoom: 0.02
+              },
+              bindToWindow: true
+            },
+            multiselect: false,
+            navigationButtons: false,
+            selectable: true,
+            selectConnectedEdges: true,
+            tooltipDelay: 300,
+            zoomView: true
+          },
+          manipulation: {
+            enabled: false,
+            initiallyActive: false,
+            addNode: true,
+            addEdge: true,
+            editNode: undefined,
+            editEdge: true,
+            deleteNode: true,
+            deleteEdge: true,
+            controlNodeStyle: {// all node options are valid (WTF THAT MEANS???)
+            }
+          },
+          physics: {
+            enabled: true,
+            barnesHut: {
+              theta: 0.5,
+              gravitationalConstant: -1,
+              centralGravity: 1000,
+              springLength: 10,
+              springConstant: 0.04,
+              damping: 0.2,
+              avoidOverlap: 1
+            },
+            forceAtlas2Based: {
+              theta: 0.5,
+              gravitationalConstant: -100,
+              centralGravity: 0.01,
+              springConstant: 0.08,
+              springLength: 100,
+              damping: 0.4,
+              avoidOverlap: 0
+            },
+            repulsion: {
+              centralGravity: 0.2,
+              springLength: 200,
+              springConstant: 0.05,
+              nodeDistance: 100,
+              damping: 0.09
+            },
+            hierarchicalRepulsion: {
+              centralGravity: 0.0,
+              springLength: 100,
+              springConstant: 0.01,
+              nodeDistance: 120,
+              damping: 100,
+              avoidOverlap: 0
+            },
+            maxVelocity: 0.001,
+            minVelocity: 0.0001,
+            solver: 'forceAtlas2Based',
+            stabilization: {
+              enabled: true,
+              iterations: Number.MAX_SAFE_INTEGER,
+              updateInterval: 15,
+              onlyDynamicEdges: false,
+              fit: true
+            },
+            timestep: 0.5,
+            adaptiveTimestep: true,
+            wind: {
+              x: 0,
+              y: 0
+            }
+          }
+        };
+        delete this.optionsDefault.manipulation; // editNode is giving problems
+
+        this.optionsDefault.configure = {
+          filter: function filter(option, path) {
+            if (path.indexOf("physics") !== -1) return true;
+            if (path.indexOf("smooth") !== -1 || option === "smooth") return true;
+            return false;
+          },
+          container: $('#visOptions')[0]
+        };
+        var container = this.htmlg = $('#' + this.graph.model.getPrefix() + '_visGraph')[0];
+        this.net = new vis_network__WEBPACK_IMPORTED_MODULE_1__["Network"](container, {}, {});
+        this.net.on('stabilized', function () {
+          _this32.onLayoutEnd();
+        }); // this.net.on('stabilizationIterationsDone', () => { this.onStabilizationStep(); } );
+
+        this.net.on('stabilizationProgress', function () {
+          _this32.onStabilizationStep();
+        });
+        /*
+        this.net.startSimulation();
+        this.net.stopSimulation();// ferma senza stabilizzare?, ma chiama l'evento stabilized.
+        this.net.stabilize(); // stabilizza entro N iterazioni
+        */
+      }
+
+      _createClass(Layouting, [{
+        key: "setStyleEditorBackEvents",
+        value: function setStyleEditorBackEvents(styleEditorOnLayoutStart, styleEditorOnLayoutEnd) {
+          this.styleEditorOnLayoutStart = styleEditorOnLayoutStart;
+          this.styleEditorOnLayoutEnd = styleEditorOnLayoutEnd;
+        }
+      }, {
+        key: "onLayoutEnd",
+        value: function onLayoutEnd() {
+          var positions = this.onStabilizationStep();
+          var manualStop = !this.isRunning;
+          if (!manualStop) return;
+          if (this.styleEditorOnLayoutEnd) this.styleEditorOnLayoutEnd();
+          console.log('vis layout stopped:', positions);
+        }
+      }, {
+        key: "positionScaleFactor",
+        value: function positionScaleFactor(p) {
+          var clone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          p = clone ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneObj(p) : p;
+          p.x = p.x * Layouting.scaleFactor;
+          p.y = p.y * Layouting.scaleFactor;
+          return p;
+        }
+      }, {
+        key: "onStabilizationStep",
+        value: function onStabilizationStep() {
+          //    console.log('vis stabilization step');
+          var positions = this.net.getPositions();
+          var key;
+
+          for (key in positions) {
+            var vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getByID(+key);
+
+            var position = positions[key];
+            position = this.positionScaleFactor(position);
+
+            var ep = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EdgePoint"].getByID(+key);
+
+            var newPos = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphPoint"](position.x, position.y); // U.pe ( !!(ep && vertex), 'duplicate id', key, ep, vertex);
+            // U.pe (!ep && !vertex, 'invalid id', key);
+            /// todo: digli che l'evento viene da autolayout e setta onvertexmove se non viene da autolayout
+
+            if (vertex) vertex.moveTo(newPos, false, false, true);
+            if (!vertex && ep) ep.moveTo(newPos, false, true);
+          } // todo: springlength e grav constant devi precompilarle in base alla size del grafo.
+          // poi devi capire se cresce lineare, al quadrato, o come...
+
+
+          return positions;
+        }
+      }, {
+        key: "onVertexMove",
+        value: function onVertexMove(v) {
+          // todo: che devo fare con edge che creano nuovi edgepoint dopo set data? mi sa che devo settare gli edge dinamicamente e tenermi i vertici selezionati al momento dello start
+          if (!this.isRunning) return;
+          var node = this.vertexToVis(v);
+          if (!node) return;
+          this.stop();
+          this.start();
+          return;
+          var size = v.getSize();
+          node.size = size.w * size.h === 0 ? 0 : size.w; // Math.max(size.w, size.h);
+
+          node['heightConstraint'] = size.h;
+          node.x = size.x;
+          node.y = size.y;
+        }
+      }, {
+        key: "prepareStartData",
+        value: function prepareStartData() {
+          var vertexes = this.graph.getVertexSelection();
+          if (!vertexes || !vertexes.length) vertexes = this.graph.getAllVertex();
+          this.clearLayout();
+          this.addToLayout(vertexes, false);
+          this.data.edges = this.prepareEdgeData(); // setta edge ed edgepoint nel data.nodes
+
+          this.data = this.applyScaleFactor(Layouting.scaleFactor, false);
+        }
+      }, {
+        key: "linkVisVertex",
+        value: function linkVisVertex(v, node) {
+          this.vertexMap[v.id] = {
+            vertex: v,
+            visNode: node
+          };
+        }
+      }, {
+        key: "vertexToVis",
+        value: function vertexToVis(v) {
+          return this.vertexMap[v.id] && this.vertexMap[v.id].visNode;
+        }
+      }, {
+        key: "visToVertex",
+        value: function visToVertex(v) {
+          return this.vertexMap[v.id] && this.vertexMap[v.id].vertex;
+        }
+      }, {
+        key: "clearLayout",
+        value: function clearLayout() {
+          this.vertexMap = {};
+          this.data.nodes = [];
+        }
+      }, {
+        key: "addToLayout",
+        value: function addToLayout(vertexes, restart) {
+          if (restart) return this.restart();
+          var _iteratorNormalCompletion2 = true;
+          var _didIteratorError2 = false;
+          var _iteratorError2 = undefined;
+
+          try {
+            for (var _iterator2 = vertexes[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+              var v = _step2.value;
+              if (!v.autoLayout) continue;
+              var node = this.vertexToVis(v);
+              if (node) return; // already exists
+
+              node = {};
+              node.id = v.id;
+              this.linkVisVertex(v, node);
+              var size = v.getSize(); // https://almende.github.io/vis/docs/network/nodes.html deprecated, but best documentation
+
+              node.label = v.logic().name; // v.logic().printableNameshort(10);
+
+              node.shape = 'square'; // esiste anche "box" ma solo con label inside, e prende la size dalla label...
+
+              node.size = size.w * size.h === 0 ? 0 : size.w; // Math.max(size.w, size.h);
+
+              node['heightConstraint'] = size.h;
+              node.x = size.x;
+              node.y = size.y;
+              node.font = {};
+              node.font.size = 100;
+              node.font.face = 'arial';
+              node.font.color = '#000000';
+              this.data.nodes.push(node);
+            }
+          } catch (err) {
+            _didIteratorError2 = true;
+            _iteratorError2 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+                _iterator2.return();
+              }
+            } finally {
+              if (_didIteratorError2) {
+                throw _iteratorError2;
+              }
+            }
+          }
+
+          this.prepareEdgeData();
+        }
+      }, {
+        key: "restart",
+        value: function restart() {
+          this.start();
+          this.stop();
+        }
+      }, {
+        key: "removeFromLayout",
+        value: function removeFromLayout(vertexes, restart) {
+          if (restart) return this.restart();
+          var _iteratorNormalCompletion3 = true;
+          var _didIteratorError3 = false;
+          var _iteratorError3 = undefined;
+
+          try {
+            for (var _iterator3 = vertexes[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+              var v = _step3.value;
+              if (v.autoLayout) continue;
+              var node = this.vertexToVis(v);
+
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].arrayRemoveAll(this.data.nodes, node);
+
+              delete this.vertexMap[v.id];
+            }
+          } catch (err) {
+            _didIteratorError3 = true;
+            _iteratorError3 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
+                _iterator3.return();
+              }
+            } finally {
+              if (_didIteratorError3) {
+                throw _iteratorError3;
+              }
+            }
+          }
+
+          this.prepareEdgeData();
+        }
+      }, {
+        key: "getCurrentVertexes",
+        value: function getCurrentVertexes() {
+          var v = [];
+
+          for (var id in this.vertexMap) {
+            v.push(this.vertexMap[id].vertex);
+          }
+
+          return v;
+        }
+      }, {
+        key: "applyScaleFactor",
+        value: function applyScaleFactor(factor) {
+          var clone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          var data = clone ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneObj(this.data) : this.data;
+          var _iteratorNormalCompletion4 = true;
+          var _didIteratorError4 = false;
+          var _iteratorError4 = undefined;
+
+          try {
+            for (var _iterator4 = data.nodes[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+              var node = _step4.value;
+              console.log('vis node loop', node, data); // node.scaling ??
+
+              node.x = node.x && node.x / factor;
+              node.y = node.y && node.y / factor;
+              node.size = node.size && node.size / factor;
+              node['heightConstraint'] = node['heightConstraint'] && node['heightConstraint'] / factor;
+
+              if (node.font) {
+                node.font['size'] = node.font['size'] && node.font['size'] / factor;
+              }
+            }
+          } catch (err) {
+            _didIteratorError4 = true;
+            _iteratorError4 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
+                _iterator4.return();
+              }
+            } finally {
+              if (_didIteratorError4) {
+                throw _iteratorError4;
+              }
+            }
+          }
+
+          var _iteratorNormalCompletion5 = true;
+          var _didIteratorError5 = false;
+          var _iteratorError5 = undefined;
+
+          try {
+            for (var _iterator5 = data.edges[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+              var edge = _step5.value;
+              edge.length = edge.length && edge.length / factor;
+              edge.width = edge.width && edge.width / factor;
+              edge.hoverWidth = edge.hoverWidth && edge.hoverWidth / factor;
+              edge.selectionWidth = edge.selectionWidth && edge.selectionWidth / factor;
+            }
+          } catch (err) {
+            _didIteratorError5 = true;
+            _iteratorError5 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
+                _iterator5.return();
+              }
+            } finally {
+              if (_didIteratorError5) {
+                throw _iteratorError5;
+              }
+            }
+          }
+
+          return data;
+        }
+      }, {
+        key: "prepareEdgeData",
+        value: function prepareEdgeData() {
+          var _this33 = this;
+
+          var visedges;
+          var vertexes = this.getCurrentVertexes();
+          var edgesArr = null; // this.graph.getEdgeSelection();
+
+          if (!edgesArr || !edgesArr.length) {
+            var edgeset = new Set();
+            vertexes.forEach(function (v) {
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].SetMerge(true, edgeset, v.edgesEnd, v.edgesStart);
+            });
+            edgesArr = _toConsumableArray(edgeset);
+          } // accetto solo edge che hanno start ed end nella selezione, e che NON hanno length 0 (start = end senza midpoint forzati)
+
+
+          edgesArr = edgesArr.filter(function (e) {
+            return _this33.vertexMap[e.start.id] && _this33.vertexMap[e.end.id] && !(e.midNodes.length === 0 && e.start === e.end);
+          });
+          visedges = edgesArr.map(function (e) {
+            return {
+              from: e.start.id,
+              to: e.end.id,
+              id: e.id
+            };
+          });
+
+          switch (this.myOptions.edgePointMode) {
+            default:
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'unexpected switch layouting.edgepointMode:', this.myOptions.edgePointMode);
+
+              break;
+
+            case 'ignore':
+            case 'relative':
+              break;
+
+            case 'vertex':
+              var midPoints = [];
+              edgesArr.forEach(function (e) {
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ArrayMerge(midPoints, e.midNodes);
+              });
+              var midPointsvis = midPoints.map(function (ep) {
+                var node = {};
+                var size = ep.getSize(); // https://almende.github.io/vis/docs/network/nodes.html deprecated, but best documentation
+
+                node.id = ep.id;
+                node.shape = 'square'; // esiste anche "box" ma solo con label inside, e prende la size dalla label...
+
+                node.label = '°';
+                node.size = size.w * size.h === 0 ? 0 : size.w; // Math.max(size.w, size.h);
+
+                node['heightConstraint'] = size.h;
+                node.x = size.x;
+                node.y = size.y;
+                return node;
+              });
+
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ArrayMerge(this.data.nodes, midPointsvis);
+
+              break;
+
+            case 'delete':
+              Object.values(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EdgePoint"].all).forEach(function (ep) {
+                ep.detach();
+              });
+              break;
+          }
+
+          return visedges;
+        }
+      }, {
+        key: "start",
+        value: function start() {
+          this.prepareStartData(); // this.nodeExampleCompiler.shape;
+          // this.nodeExampleCompiler.shapeProperties.
+
+          this.net.setOptions(this.optionsDefault);
+          console.log('vis.data:', this.data);
+          this.net.setData(this.data);
+          this.isRunning = true;
+          if (this.styleEditorOnLayoutStart) this.styleEditorOnLayoutStart(); // this.net.startSimulation();
+        }
+      }, {
+        key: "stop",
+        value: function stop() {
+          this.net.stopSimulation();
+        }
+      }, {
+        key: "stabilize",
+        value: function stabilize() {
+          var steps = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+          var renewData = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+          if (renewData) {
+            this.net.setOptions(this.optionsDefault);
+            this.prepareStartData();
+            this.net.setData(this.data);
+          }
+
+          this.net.stabilize(steps === null ? steps : this.stabilizationSteps);
+        }
+      }, {
+        key: "setOption",
+        value: function setOption(key, value) {
+          var keypath = key.split('.');
+          var opt = this.optionsDefault;
+
+          switch (key) {
+            default:
+              for (var i = 0; i < keypath.length - 1; i++) {
+                opt = opt[keypath[i]];
+                console.log('key2 subpart: ', keypath[i], '->', opt);
+              }
+
+              opt[keypath[keypath.length - 1]] = value;
+              console.log('key2 END: setting ', keypath[keypath.length - 1], '->', value);
+              break;
+          }
+        }
+      }, {
+        key: "getOption",
+        value: function getOption(key) {
+          var keypath = key.split('.');
+          var opt = this.optionsDefault;
+          var ret;
+
+          switch (key) {
+            default:
+              for (var i = 0; i < keypath.length - 1; i++) {
+                opt = opt[keypath[i]]; // console.log('key2 subpart: ', keypath[i], '->', opt);
+              }
+
+              ret = opt[keypath[keypath.length - 1]]; //console.log('key2 END: ', keypath[keypath.length - 1], '->', ret);
+
+              break;
+          }
+
+          return ret;
+        }
+      }]);
+
+      return Layouting;
+    }();
+
+    Layouting.maxID = 1;
+    Layouting.scaleFactor = 1;
+    /***/
+  },
+
+  /***/
   "./src/guiElements/mGraph/Vertex/Mark.ts":
   /*!***********************************************!*\
     !*** ./src/guiElements/mGraph/Vertex/Mark.ts ***!
@@ -22481,17 +23941,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var html = this.mp1.getHtmlOnGraph();
           var i;
-          /*
-          if (this.key === 'refhover') { // crosshair (+), alias (default+link), cell (excel)ù
-          const $inputs = $(html).find('input, textarea, select, button');
-          let cursor: string = null;
-          if (markb) {
-          html.style.cursor = cursor = (this.style.color === 'red' ? 'no-drop' : 'crosshair');
-          } else { html.style.removeProperty('cursor'); }
-          for (i = 0; i < $inputs.length; i++) {
-          if (cursor) { $inputs[i].style.cursor = cursor; }
-          else { $inputs[i].style.removeProperty('cursor'); }
-          }
+          /*if (this.key === 'refhover') { // crosshair (+), alias (default+link), cell (excel)ù
+            const $inputs = $(html).find('input, textarea, select, button');
+            let cursor: string = null;
+            if (markb) {
+              html.style.cursor = cursor = (this.style.color === 'red' ? 'no-drop' : 'crosshair');
+            } else { html.style.removeProperty('cursor'); }
+            for (i = 0; i < $inputs.length; i++) {
+              if (cursor) { $inputs[i].style.cursor = cursor; }
+              else { $inputs[i].style.removeProperty('cursor'); }
+            }
           }*/
           // mark off
 
@@ -22574,8 +24033,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.css2 = document.createElement('style');
           }
 
-          if (this.mp1) this.setHtml(this.html1, this.mp1, this.css1, set);
-          if (this.mp2) this.setHtml(this.html2, this.mp2, this.css2, set);
+          if (this.mp1 && this.mp1.getVertex(false)) this.setHtml(this.html1, this.mp1, this.css1, set);
+          if (this.mp2 && this.mp2.getVertex(false)) this.setHtml(this.html2, this.mp2, this.css2, set);
         }
       }]);
 
@@ -22654,6 +24113,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.edgesStart = [];
         this.edgesEnd = [];
         this.Vmarks = {};
+        this.autoLayout = true;
         if (!logical) return;
         this.id = IVertex.ID++;
         IVertex.all[this.id] = this;
@@ -22823,9 +24283,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return pt;
           }
 
-          pt = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"].closestIntersection(vertexGSize, prevPt, pt, this.owner.grid);
+          pt = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"].closestIntersection(vertexGSize, prevPt, pt, this.owner.grid); // U.pe(!U.isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
 
           return pt;
         }
@@ -22879,7 +24339,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (trigger) {
-            var measnode = this.getMeasurableNode();
+            // todo: problema: un solo measurable node può eseguire gli eventi "on...." (il foreignObject)
+            var measnode = this.getMeasurableNode(); // todo: problema 2: i trigger possono eseguire solo comandi dello stesso nodo che contiene il trigger.
+            // todo problema 3: se imposto on onmove -> move linked object(follow me) && onmove->constraint e sposto in modo da violare il constraint:
+            //  siccome il constraint viene eseguito dopo, il linked object segue il mouse ma non l'oggetto che rimane fisso per il constraint.
+            //  non è un bug, va benissimo e deve funzionare così, però devo anche prevedere un assegnamento di ordine dei comandi
+            //  - fix lessicografico con prefix number: poco user friendly e costringe i nomi
+            //  - fix con pulsanti "sposta regola" su o giù e segui ordine di html (ordine attributi sul nodo in grafo == ordine esecuzione == ordine visualizzazione style editor)
+
             if (measnode.classList.contains('measurable')) this.measuringEventTrigger(null, null, trigger, measnode);
           }
         }
@@ -23191,8 +24658,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var html = this.htmlForeign; /// append childrens:
 
-          var $childContainer = $(html).find('.ChildrenContainer, .ChildContainer, .AttributeContainer, .ReferenceContainer, .OperationContainer, .ParameterContainer');
-          var childContainer = $childContainer[0]; // U.pe($attContainer.length !== 1, 'there must be exactly one element with class "AttributeContainer".', $attContainer);
+          var $childContainer = $(html).find('.ChildrenContainer, .ChildContainer, .AttributeContainer, .ReferenceContainer, .OperationContainer, .ParameterContainer'); // U.pe($attContainer.length !== 1, 'there must be exactly one element with class "AttributeContainer".', $attContainer);
           // U.pe($refContainer.length !== 1, 'there must be exactly one element with class "ReferenceContainer".', $refContainer);
           // U.pe($opContainer.length !== 1, 'there must be exactly one element with class "OperationContainer".', $opContainer);
           // const attContainer = $attContainer[0];
@@ -23221,44 +24687,49 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
 
           for (j = 0; j < $childContainer.length; j++) {
-            var _childContainer = $childContainer[j];
-            validator = getValidator(_childContainer);
+            var childContainer = $childContainer[j];
+            validator = getValidator(childContainer);
+            var specific = !childContainer.classList.contains('ChildrenContainer') && !childContainer.classList.contains('ChildContainer');
 
-            var allowAttributes = _childContainer.classList.contains('AttributeContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(_childContainer.getAttribute('attributes'), true);
+            var allowAttributes = childContainer.classList.contains('AttributeContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('attributes'), true);
 
-            var allowReferences = _childContainer.classList.contains('ReferenceContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(_childContainer.getAttribute('references'), true);
+            var allowReferences = childContainer.classList.contains('ReferenceContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('references'), true);
 
-            var allowOperations = _childContainer.classList.contains('OperationContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(_childContainer.getAttribute('operations'), true);
+            var allowOperations = childContainer.classList.contains('OperationContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('operations'), true);
 
-            var allowParameters = _childContainer.classList.contains('ParameterContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(_childContainer.getAttribute('parameters'), true);
+            var allowParameters = childContainer.classList.contains('ParameterContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('parameters'), true);
 
-            var allowLiterals = _childContainer.classList.contains('LiteralContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(_childContainer.getAttribute('literals'), true);
+            var allowLiterals = childContainer.classList.contains('LiteralContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('literals'), true);
 
-            var allowAnnotations = _childContainer.classList.contains('AnnotationContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(_childContainer.getAttribute('annotations'), true);
+            var allowAnnotations = childContainer.classList.contains('AnnotationContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('annotations'), true);
 
-            var allowInheritance = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(_childContainer.getAttribute('inherited'), data.getModelRoot().isM1());
+            var allowInheritance = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('inherited'), data.getModelRoot().isM1());
 
-            var shadowedVal = _childContainer.getAttribute('inherited');
+            var allowOnlyShadowed = childContainer.hasAttribute('shadowed') && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('shadowed'), false, true); // U.pe(allowShadowed === false, childContainer.getAttribute('shadowed'), U.fromBoolString(childContainer.getAttribute('shadowed'), false, true));
 
-            var allowShadowed = shadowedVal === null ? false : _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(shadowedVal, false, true);
 
             for (i = 0; i < childs.length; i++) {
+              console.log('mx ' + data.id + ' filtering children [' + i + " / " + childs.length + ']', childs);
               var child = childs[i];
               var field = void 0;
               if (validator && !validator(childs[i], i, childs)) continue;
+              console.log('mx ' + data.id + ' validator ok ');
               if (!allowInheritance && child.parent !== data) continue;
+              console.log('mx ' + data.id + ' allowInheritance ok ');
 
               if (child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]) {
                 // error: when i delete extedge shadowed attr will disappear
-                console.log('allowShadowed:', allowShadowed, child.isShadowed(data), child);
-                if (allowShadowed !== null && child.isShadowed(data) !== allowShadowed) continue;
+                console.log('allowShadowed:', allowOnlyShadowed, child.isShadowed(data), child);
+                console.log('shadowed mx ' + data.id + '? ', allowOnlyShadowed, child.isShadowed(data), child, data);
+                if (allowOnlyShadowed !== null && child.isShadowed(data) !== allowOnlyShadowed) continue;
+                console.log('mx ' + data.id + ' shadowed ok');
                 if (allowAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"]) field = this.drawA(child);else if (allowReferences && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"]) field = this.drawR(child);else continue;
               } else if (allowOperations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]) field = this.drawO(child);else if (allowLiterals && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ELiteral"]) field = this.drawL(child);else if (allowParameters && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EParameter"]) field = this.drawParam(child);else if (allowAnnotations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EAnnotation"]) field = this.drawAnnotation(child);else continue;
 
               _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!field, 'failed to get html of:', child); // field.id = 'ID' + childs[i].id;
 
 
-              _childContainer.append(field);
+              childContainer.append(field);
             }
           }
         }
@@ -23343,7 +24814,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "drawO0",
         value: function drawO0(data) {
-          var _this31 = this;
+          var _this34 = this;
 
           var html = this.drawTerminal(data);
           var $html = $(html);
@@ -23379,7 +24850,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             data.detailIsOpened = !data.detailIsOpened;
             data.detailIsOpened ? $detailHtml.show() : $detailHtml.hide();
 
-            _this31.autosizeNew(false, true);
+            _this34.autosizeNew(false, true);
           });
           data.detailIsOpened ? $detailHtml.show() : $detailHtml.hide();
           $html.find('input.name').val(data.name);
@@ -23403,7 +24874,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $addParamButton.off('click.add').on('click.add', function (e) {
             data.addParameter();
 
-            _this31.refreshGUI();
+            _this34.refreshGUI();
           });
           return html;
         }
@@ -23449,55 +24920,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addRootEventListeners",
         value: function addRootEventListeners() {
-          var _this32 = this;
+          var _this35 = this;
 
           var $html = $(this.htmlg);
           $html.off('mousedown.vertex').on('mousedown.vertex', function (e) {
-            _this32.onMouseDown(e);
+            _this35.onMouseDown(e);
           });
           $html.off('mouseup.vertex').on('mouseup.vertex', function (e) {
-            _this32.onMouseUp(e);
+            _this35.onMouseUp(e);
           });
           $html.off('mousemove.vertex').on('mousemove.vertex', function (e) {
-            _this32.onMouseMove(e);
+            _this35.onMouseMove(e);
           });
           $html.off('mouseenter.vertex').on('mouseenter.vertex', function (e) {
-            _this32.onMouseEnter(e);
+            _this35.onMouseEnter(e);
           });
           $html.off('mouseleave.vertex').on('mouseleave.vertex', function (e) {
-            _this32.onMouseLeave(e);
+            _this35.onMouseLeave(e);
           });
           $html.off('click').on('click', function (e) {
-            _this32.onClick(e);
-          });
-          $html.off('contextmenu').on('contextmenu', function (e) {
-            return _this32.vertexContextMenu(e);
-          }); // const $addFieldButtonContainer: JQuery<HTMLElement> = $html.find('.addFieldButtonContainer') as any as JQuery<HTMLElement>;
+            _this35.onClick(e);
+          }); // $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
+          // const $addFieldButtonContainer: JQuery<HTMLElement> = $html.find('.addFieldButtonContainer') as any as JQuery<HTMLElement>;
           // this.setAddButtonContainer($addFieldButtonContainer[0]);
         }
       }, {
         key: "addEventListeners",
         value: function addEventListeners() {
-          var _this33 = this;
+          var _this36 = this;
 
           var i;
-          var $html = $(this.htmlg);
+          var $html = $(this.htmlg); //    $html.find('.Attribute, .Reference, .ELiteral, .Operation, .Parameter').off('contextmenu').on('contextmenu',
+          //      (e: ContextMenuEvent): boolean => { return this.featureContextMenu(e); });
+
           $html.find('.delete').off('click.delete').on('click.delete', function (e) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].get(e).delete(true);
           });
           $html.find('.addFieldButton').off('click.addField').on('click.addField', function (e) {
-            _this33.addFieldClick(e);
+            _this36.addFieldClick(e);
           });
           $html.find('.AddFieldSelect').off('change.addField').on('change.addField', function (e) {
-            _this33.addFieldClick(e);
+            _this36.addFieldClick(e);
           });
           $html.find('input, select, textarea').off('change.fieldchange').on('change.fieldchange', function (e) {
             return IVertex.FieldNameChanged(e);
-          }); // NB: deve essere solo un off, oppure metti selettore .NOT(class) nel selettore dei 'select' di sopra
-          // if (!IVertex.contextMenu) { IVertex.contextMenu = new MyContextMenuClass(new ContextMenuService()); }
-
-          $html.find('.Attribute, .Reference, .ELiteral, .Operation, .Parameter').off('contextmenu').on('contextmenu', function (e) {
-            return _this33.featureContextMenu(e);
           }); // todo: viene chiamato 1 volta per ogni elementNode con modelID, ma io eseguo tutto dalla radice.
           // quindi viene eseguito N +1 volte per ogni vertice dove N sono i suoi (attributes + references)
           // console.log(html.tagName, html.dataset.modelpieceid);
@@ -23513,40 +24979,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           // defaultResizeConfig.create = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
 
           defaultResizeConfig.start = function (e, ui) {
-            return _this33.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onResizeStart);
+            return _this36.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onResizeStart);
           };
 
           defaultResizeConfig.resize = function (e, ui) {
-            return _this33.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileResizing);
+            return _this36.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileResizing);
           };
 
           defaultResizeConfig.stop = function (e, ui) {
-            return _this33.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onResizeEnd);
+            return _this36.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onResizeEnd);
           }; // defaultDragConfig.create = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
 
 
           defaultDragConfig.start = function (e, ui) {
-            return _this33.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragStart);
+            return _this36.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragStart);
           };
 
           defaultDragConfig.drag = function (e, ui) {
-            return _this33.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileDragging);
+            return _this36.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileDragging);
           };
 
           defaultDragConfig.stop = function (e, ui) {
-            return _this33.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
+            return _this36.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
           };
 
           defaultRotConfig.start = function (e, ui) {
-            return _this33.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationStart);
+            return _this36.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationStart);
           };
 
           defaultRotConfig.rotate = function (e, ui) {
-            return _this33.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileRotating);
+            return _this36.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileRotating);
           };
 
           defaultRotConfig.stop = function (e, ui) {
-            return _this33.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationEnd);
+            return _this36.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationEnd);
           };
 
           this.dragConfig = null; //     console.log('measurableElementSetup:', defaultResizeConfig, defaultDragConfig);
@@ -23627,25 +25093,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'setreferenceClick success!');
 
-          var vertexLogic = this.logic();
-          if (!(vertexLogic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"])) return;
+          var newTargetVertex = this;
+          var oldTargetVertex = edge.end;
+          var newTargetLogic = newTargetVertex.logic();
+          var oldTargetLogic = oldTargetVertex && oldTargetVertex.logic();
+          if (!(newTargetLogic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"])) return;
 
-          if (!edge.canBeLinkedTo(vertexLogic)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'edge ', edge.logic, 'cannot be linked to ', vertexLogic, 'hoveringvertex:', this);
+          if (!edge.canBeLinkedTo(newTargetLogic)) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'edge ', edge.logic, 'cannot be linked to ', newTargetLogic, 'hoveringvertex:', newTargetVertex);
 
             return;
           }
 
-          if (edge.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"]) edge.logic.linkClass(vertexLogic, edge.getIndex(), true);
-          if (edge.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Reference"]) edge.logic.setType(vertexLogic.getEcoreTypeName());
+          if (edge.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"]) edge.logic.linkClass(newTargetLogic, edge.getIndex(), true);
+          if (edge.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Reference"]) edge.logic.setType(newTargetLogic.getEcoreTypeName());
 
           if (edge instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"]) {
-            if (edge.end) edge.logic.unsetExtends(edge.end.logic(), false); // unset old extend without removing this vertex
+            if (edge.end && oldTargetLogic) edge.logic.unsetExtends(oldTargetLogic, false); // unset old extend without removing this vertex
 
             edge.logic.setExtends(this.logic()); // extend the newly clicked vertex (this)
           } else {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(edge.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"], 'cst: class edges are currently not supported');
           }
+
+          if (oldTargetVertex) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldTargetVertex.edgesEnd, edge);
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(newTargetVertex.edgesEnd, edge);
 
           this.mark(false, 'refhover'); // altrimenti parte l'onClick su AddFieldButton quando fissi la reference.
           // setTimeout( () => { IEdge.edgeChanging = null; }, 1);
@@ -23661,47 +25134,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onClick",
         value: function onClick(e) {// IVertex.ChangePropertyBarContentClick(e);
-        }
-      }, {
-        key: "vertexContextMenu",
-        value: function vertexContextMenu(evt) {
-          return this.onContextMenuInner(evt, '.Vertex');
-        }
-      }, {
-        key: "featureContextMenu",
-        value: function featureContextMenu(evt) {
-          return this.onContextMenuInner(evt, '.Feature');
-        }
-      }, {
-        key: "onContextMenuInner",
-        value: function onContextMenuInner(evt, classSelector) {
-          // evt.preventDefault(); evt.stopPropagation(); return false;
-          evt.stopPropagation();
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DamContextMenuComponent"].contextMenu.hide(); // only if is focused input
-
-
-          var lastSelected = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].focusHistoryEntries[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].focusHistoryElements.length - 1];
-          var gotSelectedNow = lastSelected && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isParentOf(lastSelected.element, evt.target) && new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000;
-          var isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isInput(evt.target, true, false) && !gotSelectedNow;
-          var clickStartedOutsideVertex = IVertex.startDragContext == null; // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato = male
-          // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input = male
-
-          if (isInput && clickStartedOutsideVertex) evt.target.focus();
-          if (!isInput && gotSelectedNow) evt.target.blur(); // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
-
-          var pixelMoved = !clickStartedOutsideVertex && this.size.tl().subtract(IVertex.startDragContext.size.tl(), false).absolute();
-          var gotMoved = !clickStartedOutsideVertex && pixelMoved >= this.tolleranzaRightClickMove;
-          var ret = isInput && !gotMoved; // evt['passedThroughVertex'] = ret;
-
-          if (ret) return true;else {
-            evt.preventDefault();
-          }
-          if (gotMoved) return ret;
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DamContextMenuComponent"].contextMenu.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](evt.pageX, evt.pageY), classSelector, evt.currentTarget);
-
-          return ret;
         }
       }, {
         key: "onMouseDown",
@@ -23840,7 +25272,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.debug = true;
           var html = this.getHtmlFirstChild();
-          var select; // const debugOldJson = U.cloneObj(modelPiece.generateModel());
+          var select; // const debugOldJson = U.cloneObj(modelPiece.generateModel({}));
 
           select = $(html).find('.AddFieldSelect')[0];
 
@@ -23929,11 +25361,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "moveTo",
         value: function moveTo(graphPoint) {
           var gridIgnore = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          var center = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+          var fromAutoLayouting = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
 
           // console.log('moveTo(', graphPoint, '), gridIgnore:', gridIgnore, ', grid:');
           // const oldsize: GraphSize = this.size; // U.getSvgSize(this.logic().html as SVGForeignObjectElement);
+          if (center) {
+            var size = this.getSize();
+            graphPoint.x -= size.w / 2;
+            graphPoint.y += size.h / 2;
+          }
+
           if (!gridIgnore) {
             graphPoint = this.owner.fitToGrid(graphPoint);
+          }
+
+          if (!fromAutoLayouting) {
+            this.owner.layouting.onVertexMove(this);
           }
 
           this.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](graphPoint.x, graphPoint.y, null, null), false, true, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileDragging);
@@ -24006,12 +25450,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           html.parentNode.removeChild(html);
           delete IVertex.all[this.id];
 
-          for (var _key18 in this.Vmarks) {
-            if (this.Vmarks[_key18]) {
+          for (var _key23 in this.Vmarks) {
+            if (this.Vmarks[_key23]) {
               continue;
             }
 
-            var mark = this.Vmarks[_key18];
+            var mark = this.Vmarks[_key23];
 
             if (mark.parentNode) {
               mark.parentNode.removeChild(mark);
@@ -24071,6 +25515,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var markRect = this.Vmarks[markKey];
           return markRect.getAttributeNS(null, 'stroke') === colorFilter;
+        }
+      }, {
+        key: "setAutolayout",
+        value: function setAutolayout(checked) {
+          this.autoLayout = checked;
+
+          if (this.autoLayout) {
+            this.owner.layouting.addToLayout([this], true);
+          } else {
+            this.owner.layouting.removeFromLayout([this], true);
+          }
         }
       }], [{
         key: "staticinit",
@@ -24132,14 +25587,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getvertex",
         value: function getvertex(e) {
-          return IVertex.getvertexByHtml(e.currentTarget);
+          var canUseMp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+          return IVertex.getvertexByHtml(e.currentTarget, canUseMp);
         }
       }, {
         key: "getvertexByHtml",
         value: function getvertexByHtml(node0) {
-          var logic = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(node0);
+          var canUseMp = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
-          return logic && logic.getVertex();
+          if (canUseMp) {
+            var logic = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(node0);
+
+            return logic && logic.getVertex();
+          }
+
+          var node = node0;
+
+          while (node) {
+            if (node.dataset && node.dataset.vertexID) return IVertex.getByID(+node.dataset.vertexID);
+            node = node.parentNode;
+          }
+
+          return null;
         }
         /*let node: HTMLElement = node0 as HTMLElement
         U.pe(!node, 'getVertexByHtml: parameter is not a DOM node:', node);
@@ -24258,12 +25727,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! ../../common/Joiner */
     "./src/common/Joiner.ts");
+    /* harmony import */
+
+
+    var _Layouting__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./Layouting */
+    "./src/guiElements/mGraph/Layouting.ts");
 
     var ViewPointShell =
     /*#__PURE__*/
     function () {
       function ViewPointShell(g) {
-        var _this34 = this;
+        var _this37 = this;
 
         _classCallCheck(this, ViewPointShell);
 
@@ -24284,10 +25759,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var i; // this.ignoreEvents = false;
 
         $defaultCheckbox.on('click', function (e) {
-          _this34.undoAll(true);
+          _this37.undoAll(true);
         });
         $checkboxlidefault.find('button.duplicate').on('click', function (e) {
-          return _this34.duplicateEvent(e, null, _this34.defaultCheckbox);
+          return _this37.duplicateEvent(e, null, _this37.defaultCheckbox);
         });
       }
       /*undoAllOld(model :IModel): void {
@@ -24427,7 +25902,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "add",
         value: function add(v, allowApply) {
-          var _this35 = this;
+          var _this38 = this;
 
           var $li = this.$template.clone();
           var li = $li[0];
@@ -24441,14 +25916,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var $delete = $li.find('button.remove');
           var $rename = $li.find('button.edit');
           $duplicate.on('click', function (e) {
-            return _this35.duplicateEvent(e, v, checkbox);
+            return _this38.duplicateEvent(e, v, checkbox);
           });
           $delete.on('click', function (e) {
-            _this35.html.removeChild(li);
+            _this38.html.removeChild(li);
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(_this35.checkboxes, checkbox);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(_this38.checkboxes, checkbox);
 
-            delete _this35.getViewpointGUI[v.id];
+            delete _this38.getViewpointGUI[v.id];
             v.delete();
           });
           $rename.on('click', function (e) {
@@ -24488,12 +25963,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           input.value = v.name;
           checkbox.checked = v.isApplied;
           $checkbox.on('change', function (e) {
-            if (_this35.ignoreEvents) {
+            if (_this38.ignoreEvents) {
               e.preventDefault();
               return false;
             }
 
-            _this35.refreshApplied();
+            _this38.refreshApplied();
 
             return true;
           });
@@ -24556,9 +26031,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.propertyBar = null;
         this.zoom = null;
         this.grid = null;
-        this.gridDisplay = false && false; // campi per robe di debug
+        this.gridDisplay = false && false;
+        this.gridColor1 = '#808080';
+        this.gridColor2 = '#808080'; // campi per robe di debug
 
         this.allMarkgp = [];
+        this.useGrid = true;
         this.oldGridX = null;
         this.oldGridY = null;
 
@@ -24567,6 +26045,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.id = IGraph.ID++;
         IGraph.all[this.id + ''] = this;
         this.model = model;
+        this.layouting = new _Layouting__WEBPACK_IMPORTED_MODULE_2__["Layouting"](this);
         this.model.graph = this;
         this.container = container;
         this.container.dataset.graphID = '' + this.id;
@@ -24647,6 +26126,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var debug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
           var fitHorizontal = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
           var fitVertical = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+          if (!this.useGrid) return pt0;
           var pt = clone ? pt0.duplicate() : pt0;
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.grid, 'grid not initialized.');
@@ -24670,6 +26150,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var debug = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
           var fitHorizontal = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
           var fitVertical = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+          if (!this.useGrid) return pt0;
           var pt = clone ? pt0.duplicate() : pt0;
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.grid, 'grid not initialized.');
@@ -24686,19 +26167,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return pt;
         }
-      }, {
-        key: "graphContextMenu",
-        value: function graphContextMenu(e) {
-          // console.log('passedThroughVertex', e, e['passedThroughVertex']);
-          // if (e['passedThroughVertex'] !== undefined) return e['passedThroughVertex'];
-          e.preventDefault();
-          e.stopPropagation();
-          return false;
-        }
+        /*
+          graphContextMenu(e: ContextMenuEvent): boolean {
+            // console.log('passedThroughVertex', e, e['passedThroughVertex']);
+            // if (e['passedThroughVertex'] !== undefined) return e['passedThroughVertex'];
+            e.preventDefault();
+            e.stopPropagation();
+            return false; }
+        */
+
       }, {
         key: "addGraphEventListeners",
         value: function addGraphEventListeners() {
-          var _this36 = this;
+          var _this39 = this;
 
           var $graph = $(this.container);
           var thiss = this;
@@ -24706,26 +26187,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           // $graph.off('mouseup.graph').on('mouseup.graph', (evt: MouseUpEvent) => { thiss.onMouseUp(evt); });
 
           $graph.off('mousemove.graph').on('mousemove.graph', function (evt) {
-            _this36.onMouseMove(evt);
+            _this39.onMouseMove(evt);
           }); // $graph.off('keydown.graph').on('keydown.graph', (evt: KeyDownEvent) => { thiss.onKeyDown(evt); }); non triggerabile, non ha focus.
           // $graph.off('click.mark').on('click.mark', (e: ClickEvent) => { thiss.markClick(e, true); } );
 
           $graph.off('mousedown.move').on('mousedown.move', function (e) {
-            return _this36.onMouseDown(e, false);
+            return _this39.onMouseDown(e, false);
           });
           $graph.off('mouseup.move').on('mouseup.move', function (e) {
-            return _this36.onMouseUp(e);
-          });
-          $graph.off('contextmenu').on('contextmenu', function (e) {
-            return _this36.graphContextMenu(e);
-          }); // @ts-ignore
+            return _this39.onMouseUp(e);
+          }); // $graph.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.graphContextMenu(e); });
+          // @ts-ignore
 
           if (!!ResizeObserver) {
             // not supported by edge, android firefox.
             if (!window['' + 'resizeobservers']) window['' + 'resizeobservers'] = []; // @ts-ignore
 
             var tmp = new ResizeObserver(function (entryes, observer) {
-              _this36.onResize();
+              _this39.onResize();
             });
             window['' + 'resizeobservers'] = tmp;
             tmp.observe(this.container.parentElement);
@@ -24737,9 +26216,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             setInterval(function () {
               _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(true, 'setinterval graphsize checker');
 
-              var size = _this36.getSize();
+              var size = _this39.getSize();
 
-              if (!size.equals(oldSize)) _this36.onResize(size);
+              if (!size.equals(oldSize)) _this39.onResize(size);
             }, 100);
           } // altre opzioni:
           // 1) MutationObserver (detect dom changes (attributes like "style" too)),
@@ -24954,15 +26433,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var debug = true;
           ret.x -= graphSize.x;
           ret.y -= graphSize.y;
-          ret.x += this.scroll.x;
-          ret.y += this.scroll.y;
           ret.x /= this.zoom.x;
-          ret.y /= this.zoom.y; // console.log('toGraph()  - graphSize:', graphSize, ' + scroll: ', this.scroll, ' / zoom', this.zoom);
+          ret.y /= this.zoom.y;
+          ret.x += this.scroll.x;
+          ret.y += this.scroll.y; // console.log('toGraph()  - graphSize:', graphSize, ' + scroll: ', this.scroll, ' / zoom', this.zoom);
 
           if (debug) {
             var ver = this.toHtmlCoord(ret);
+            var tolerance = 0.001;
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(ver.x !== p.x || ver.y !== p.y, 'error in toGraphCoord or toHtmlCoord: inputPt:', p, ', result: ', ret, 'verify:', ver, 'point:', p, 'scroll:', this.scroll, 'zoom:', this.zoom, 'GraphHtmlSize:', graphSize);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(Math.abs(ver.x - p.x) > tolerance || Math.abs(ver.y - p.y) > tolerance, 'error in toGraphCoord or toHtmlCoord: inputPt:', p, ', result: ', ret, 'verify:', ver, 'point:', p, 'scroll:', this.scroll, 'zoom:', this.zoom, 'GraphHtmlSize:', graphSize);
           }
 
           return ret;
@@ -24984,13 +26464,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var graphSize = this.getSize();
           var ret = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](p.x, p.y); // console.log('toHtml()', ' * zoom', this.zoom, ' - scroll: ', this.scroll, ' + graphSize:', graphSize);
 
-          ret.x *= this.zoom.x;
-          ret.y *= this.zoom.y;
           ret.x -= this.scroll.x;
           ret.y -= this.scroll.y;
+          ret.x *= this.zoom.x;
+          ret.y *= this.zoom.y;
           ret.x += graphSize.x;
           ret.y += graphSize.y;
           return ret;
+        }
+      }, {
+        key: "getAllVertex",
+        value: function getAllVertex() {
+          return [].concat(_toConsumableArray(this.model.getAllClasses()), _toConsumableArray(this.model.getAllEnums())).map(function (c) {
+            return c.getVertex(false);
+          });
         }
       }, {
         key: "getAllVertexIsBroke",
@@ -25097,6 +26584,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.refreshGridGUI();
         }
       }, {
+        key: "setUseGrid",
+        value: function setUseGrid(b) {
+          if (this.useGrid === b) return;
+          this.useGrid = b;
+          this.fitVertexToGrid(false);
+        }
+      }, {
         key: "setScroll",
         value: function setScroll(x, y) {
           var old = this.scroll.duplicate();
@@ -25170,7 +26664,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return;
           var drawx = this.grid.x === null || !(isNaN(this.grid.x) || this.grid.x <= 0 || this.grid.x >= maxSquareSize);
           var drawy = this.grid.x === null || !(isNaN(this.grid.y) || this.grid.y <= 0 || this.grid.x >= maxSquareSize);
-          this.gridDefsHtml.innerHTML = '<pattern id="smallGrid_' + this.id + '" width="' + x + '" height="' + y + '" patternUnits="userSpaceOnUse">\n' + (!drawx && !drawy ? '<!-- no grid -->' : '  <path d="m 0 0' + (drawy ? ' l' : ' m') + x + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + y + '" fill="none" stroke="gray" stroke-width="0.5"/>\n') + '</pattern>\n' + '<pattern id="grid_' + this.id + '" width="' + x * 10 + '" height="' + y * 10 + '" patternUnits="userSpaceOnUse">\n' + (!drawx && !drawy ? '<!-- no grid -->' : '  <rect width="' + x * 10 + '" height="' + y * 10 + '" fill="url(#smallGrid_' + this.id + ')"/>\n' + '  <path d="m 0 0' + (drawy ? ' l' : ' m') + x * 10 + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + y * 10 + '" fill="none" stroke="gray" stroke-width="1"/>\n') + '</pattern>';
+          this.gridDefsHtml.innerHTML = '<pattern id="smallGrid_' + this.id + '" width="' + x + '" height="' + y + '" patternUnits="userSpaceOnUse">\n' + (!drawx && !drawy ? '<!-- no grid -->' : '  <path d="m 0 0' + (drawy ? ' l' : ' m') + x + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + y + '" fill="none" stroke="' + this.gridColor1 + '" stroke-width="0.5"/>\n') + '</pattern>\n' + '<pattern id="grid_' + this.id + '" width="' + x * 10 + '" height="' + y * 10 + '" patternUnits="userSpaceOnUse">\n' + (!drawx && !drawy ? '<!-- no grid -->' : '  <rect width="' + x * 10 + '" height="' + y * 10 + '" fill="url(#smallGrid_' + this.id + ')"/>\n' + '  <path d="m 0 0' + (drawy ? ' l' : ' m') + x * 10 + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + y * 10 + '" fill="none" stroke="' + this.gridColor2 + '" stroke-width="1"/>\n') + '</pattern>';
           this.setGridPos(); // $grid[0].setAttributeNS(null, 'justForRefreshingIt', 'true');
           // $grid.x
 
@@ -25187,6 +26681,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.vertex, v); // todo: aggiungi edges tra i vertici. in matrix edgeMatrix[vertex][vertex] = edge
 
+        }
+        /*
+          setGrid(grid: GraphPoint): void {
+            this.grid = grid;
+            this.model.refreshGUI_Alone(); // reallinea tutti i vertici.
+          }*/
+
+      }, {
+        key: "getVertexSelection",
+        value: function getVertexSelection() {
+          return [];
+        }
+      }, {
+        key: "getEdgeSelection",
+        value: function getEdgeSelection() {
+          return [];
+        }
+      }, {
+        key: "getSelection",
+        value: function getSelection() {
+          return [];
+        }
+      }, {
+        key: "fitVertexToGrid",
+        value: function fitVertexToGrid() {
+          var _this40 = this;
+
+          var force = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          var vertexes = this.getAllVertex();
+          vertexes.forEach(function (v, i) {
+            v.setSize(_this40.fitToGridS(v.getSize()), false, true, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
+          });
         }
       }], [{
         key: "getByID",
@@ -25579,7 +27105,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\r\ninput, select {\r\n  height: 21px;\r\n  border-radius: 5px;\r\n  border-bottom-right-radius: 12px; }\r\ninput:hover, select:hover, input:focus, select:focus {\r\n  outline: none;\r\n  border: 2px solid dodgerblue;\r\n  height: 22px;\r\n}\r\n/* label > input[type='checkbox']{ height: 21px; } */\r\n/* input[type='checkbox']:hover, input[type='checkbox']:focus { height: 23px; }*/\r\ninput[disabled]:hover, select[disabled]:hover{\r\n  outline: none;\r\n  border: 2px solid gray;\r\n  /* height: auto; */\r\n}\r\n/*propertyBar*/\r\n#modelTemplate, #packageTemplate, #classTemplate, #attributeTemplate, #referenceTemplate{\r\n  width: 100%;\r\n}\r\n.propertySidebarTemplates{\r\n  display: none;\r\n}\r\n.wastemplate {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.wastemplate > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate > *{\r\n  width: 100%;\r\n}\r\n.minimizer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-left: 2px dashed dodgerblue;\r\n  border-bottom: 2px dashed dodgerblue;\r\n  min-width: 8px !important;\r\n  height: auto;\r\n  width: 8px !important;\r\n}\r\n.wastemplate.minimized > *{\r\n  display: none;\r\n}\r\n.wastemplate.minimized:hover {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-color: var(--secondary);\r\n}\r\n.wastemplate.minimized:before {\r\n  color: dodgerblue;\r\n  content: '+';\r\n  font-size: 20px;\r\n  margin: auto;\r\n  line-height: 0;\r\n}\r\n.wastemplate.minimized:hover:before {\r\n  color: var(--secondary);\r\n}\r\n.minimizer:hover, .attributeMinimizer:hover{\r\n  border-left: 2px dashed var(--secondary);\r\n  border-bottom: 2px dashed var(--secondary);\r\n}\r\n.wastemplate.minimized{\r\n  border: 2px solid dodgerblue;\r\n  height: 20px;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate.minimized.list{\r\n  border-style: dashed;\r\n}\r\n.minimizer.single {\r\n  border-style: solid;\r\n  border-right: none;\r\n  border-top: none;\r\n}\r\n.content {\r\n  margin-left: 8px;\r\n  width: 100%;\r\n  height: -webkit-min-content;\r\n  height: -moz-min-content;\r\n  height: min-content;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*width: calc(100% - 16px);*/\r\n\r\n}\r\nlabel{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 24px;\r\n  line-height: 24px;\r\n  white-space: nowrap;\r\n}\r\nlabel > input, label > select{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n  margin-right: 0;\r\n  margin-left: 20px;\r\n  width: inherit;\r\n  min-width: 60px;\r\n  /* float: right; */\r\n  /*margin-right: 0;*/\r\n}\r\nlabel > input[type=\"number\"] {\r\n  min-width: 30px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9wcm9wZXJ0eS1iYXJyL3Byb3BlcnR5LWJhcnIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGdDQUFnQyxFQUFFO0FBQ3BDO0VBQ0UsYUFBYTtFQUNiLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7QUFFQSxvREFBb0Q7QUFFcEQsZ0ZBQWdGO0FBQ2hGO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7QUFDQSxjQUFjO0FBQ2Q7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGtDQUFrQztFQUNsQyxvQ0FBb0M7RUFDcEMseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQThCO0FBQ2hDO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUNBO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsMENBQTBDO0FBQzVDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQiw0QkFBNEI7O0FBRTlCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixXQUFXO0VBQ1gsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvcHJvcGVydHktYmFyci9wcm9wZXJ0eS1iYXJyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuaW5wdXQsIHNlbGVjdCB7XHJcbiAgaGVpZ2h0OiAyMXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMTJweDsgfVxyXG5pbnB1dDpob3Zlciwgc2VsZWN0OmhvdmVyLCBpbnB1dDpmb2N1cywgc2VsZWN0OmZvY3VzIHtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGRvZGdlcmJsdWU7XHJcbiAgaGVpZ2h0OiAyMnB4O1xyXG59XHJcblxyXG4vKiBsYWJlbCA+IGlucHV0W3R5cGU9J2NoZWNrYm94J117IGhlaWdodDogMjFweDsgfSAqL1xyXG5cclxuLyogaW5wdXRbdHlwZT0nY2hlY2tib3gnXTpob3ZlciwgaW5wdXRbdHlwZT0nY2hlY2tib3gnXTpmb2N1cyB7IGhlaWdodDogMjNweDsgfSovXHJcbmlucHV0W2Rpc2FibGVkXTpob3Zlciwgc2VsZWN0W2Rpc2FibGVkXTpob3ZlcntcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGdyYXk7XHJcbiAgLyogaGVpZ2h0OiBhdXRvOyAqL1xyXG59XHJcbi8qcHJvcGVydHlCYXIqL1xyXG4jbW9kZWxUZW1wbGF0ZSwgI3BhY2thZ2VUZW1wbGF0ZSwgI2NsYXNzVGVtcGxhdGUsICNhdHRyaWJ1dGVUZW1wbGF0ZSwgI3JlZmVyZW5jZVRlbXBsYXRle1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5wcm9wZXJ0eVNpZGViYXJUZW1wbGF0ZXN7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4ud2FzdGVtcGxhdGUge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcbi53YXN0ZW1wbGF0ZSA+ICoge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luLWJvdHRvbTogOHB4O1xyXG59XHJcblxyXG4ud2FzdGVtcGxhdGUgPiAqe1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5taW5pbWl6ZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyLWxlZnQ6IDJweCBkYXNoZWQgZG9kZ2VyYmx1ZTtcclxuICBib3JkZXItYm90dG9tOiAycHggZGFzaGVkIGRvZGdlcmJsdWU7XHJcbiAgbWluLXdpZHRoOiA4cHggIWltcG9ydGFudDtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd2lkdGg6IDhweCAhaW1wb3J0YW50O1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQgPiAqe1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuLndhc3RlbXBsYXRlLm1pbmltaXplZDpob3ZlciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLndhc3RlbXBsYXRlLm1pbmltaXplZDpiZWZvcmUge1xyXG4gIGNvbG9yOiBkb2RnZXJibHVlO1xyXG4gIGNvbnRlbnQ6ICcrJztcclxuICBmb250LXNpemU6IDIwcHg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGxpbmUtaGVpZ2h0OiAwO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6aG92ZXI6YmVmb3JlIHtcclxuICBjb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcclxufVxyXG4ubWluaW1pemVyOmhvdmVyLCAuYXR0cmlidXRlTWluaW1pemVyOmhvdmVye1xyXG4gIGJvcmRlci1sZWZ0OiAycHggZGFzaGVkIHZhcigtLXNlY29uZGFyeSk7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IGRhc2hlZCB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWR7XHJcbiAgYm9yZGVyOiAycHggc29saWQgZG9kZ2VyYmx1ZTtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogOHB4O1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQubGlzdHtcclxuICBib3JkZXItc3R5bGU6IGRhc2hlZDtcclxufVxyXG4ubWluaW1pemVyLnNpbmdsZSB7XHJcbiAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcclxuICBib3JkZXItcmlnaHQ6IG5vbmU7XHJcbiAgYm9yZGVyLXRvcDogbm9uZTtcclxufVxyXG4uY29udGVudCB7XHJcbiAgbWFyZ2luLWxlZnQ6IDhweDtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IG1pbi1jb250ZW50O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIC8qd2lkdGg6IGNhbGMoMTAwJSAtIDE2cHgpOyovXHJcblxyXG59XHJcbmxhYmVse1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAyNHB4O1xyXG4gIGxpbmUtaGVpZ2h0OiAyNHB4O1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbn1cclxubGFiZWwgPiBpbnB1dCwgbGFiZWwgPiBzZWxlY3R7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xyXG4gIHdpZHRoOiBpbmhlcml0O1xyXG4gIG1pbi13aWR0aDogNjBweDtcclxuICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbiAgLyptYXJnaW4tcmlnaHQ6IDA7Ki9cclxufVxyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xyXG4gIG1pbi13aWR0aDogMzBweDtcclxufVxyXG4iXX0= */";
+    __webpack_exports__["default"] = "\r\ninput, select {\r\n  height: 21px;\r\n  border-radius: 5px;\r\n  border-bottom-right-radius: 12px; }\r\ninput:hover, select:hover, input:focus, select:focus {\r\n  outline: none;\r\n  border: 2px solid dodgerblue;\r\n  height: 22px;\r\n}\r\n/* label > input[type='checkbox']{ height: 21px; } */\r\n/* input[type='checkbox']:hover, input[type='checkbox']:focus { height: 23px; }*/\r\ninput[disabled]:hover, select[disabled]:hover{\r\n  outline: none;\r\n  border: 2px solid gray;\r\n  /* height: auto; */\r\n}\r\n/*propertyBar*/\r\n#modelTemplate, #packageTemplate, #classTemplate, #attributeTemplate, #referenceTemplate{\r\n  width: 100%;\r\n}\r\n.propertySidebarTemplates{\r\n  display: none;\r\n}\r\n.wastemplate {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.wastemplate > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate > *{\r\n  width: 100%;\r\n}\r\n.minimizer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-left: 2px dashed dodgerblue;\r\n  border-bottom: 2px dashed dodgerblue;\r\n  min-width: 8px !important;\r\n  height: auto;\r\n  width: 8px !important;\r\n}\r\n.wastemplate.minimized > *{\r\n  display: none;\r\n}\r\n.wastemplate.minimized:hover {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-color: var(--secondary);\r\n}\r\n.wastemplate.minimized:before {\r\n  color: dodgerblue;\r\n  content: '+';\r\n  font-size: 20px;\r\n  margin: auto;\r\n  line-height: 0;\r\n}\r\n.wastemplate.minimized:hover:before {\r\n  color: var(--secondary);\r\n}\r\n.minimizer:hover, .attributeMinimizer:hover{\r\n  border-left: 2px dashed var(--secondary);\r\n  border-bottom: 2px dashed var(--secondary);\r\n}\r\n.wastemplate.minimized{\r\n  border: 2px solid dodgerblue;\r\n  height: 20px;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate.minimized.list{\r\n  border-style: dashed;\r\n}\r\n.minimizer.single {\r\n  border-style: solid;\r\n  border-right: none;\r\n  border-top: none;\r\n}\r\n.content {\r\n  margin-left: 8px;\r\n  width: 100%;\r\n  height: -webkit-min-content;\r\n  height: -moz-min-content;\r\n  height: min-content;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*width: calc(100% - 16px);*/\r\n\r\n}\r\nlabel{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 24px;\r\n  line-height: 24px;\r\n  white-space: nowrap;\r\n}\r\nlabel > input:not([type]), label > input[type=\"\"], label > input[type=\"text\"], label > input[type=\"number\"],\r\nlabel > input[type=\"checkbox\"], label > select{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n  margin-right: 0;\r\n  margin-left: 20px;\r\n  width: inherit;\r\n  min-width: 60px;\r\n}\r\n/*\r\nlabel > input[type=\"checkbox\"]{\r\n   display: flex;\r\n   margin: auto;\r\n   margin-left: 0;\r\n   margin-right: 20px;\r\n   min-width: 20px;\r\n }*/\r\nlabel > input[type=\"number\"] {\r\n  min-width: 30px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9wcm9wZXJ0eS1iYXJyL3Byb3BlcnR5LWJhcnIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGdDQUFnQyxFQUFFO0FBQ3BDO0VBQ0UsYUFBYTtFQUNiLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7QUFFQSxvREFBb0Q7QUFFcEQsZ0ZBQWdGO0FBQ2hGO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7QUFDQSxjQUFjO0FBQ2Q7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGtDQUFrQztFQUNsQyxvQ0FBb0M7RUFDcEMseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQThCO0FBQ2hDO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUNBO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsMENBQTBDO0FBQzVDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQiw0QkFBNEI7O0FBRTlCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixXQUFXO0VBQ1gsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7QUFDQTs7RUFFRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QsZUFBZTtBQUNqQjtBQUNBOzs7Ozs7O0dBT0c7QUFDSDtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3Byb3BlcnR5LWJhcnIvcHJvcGVydHktYmFyci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbmlucHV0LCBzZWxlY3Qge1xyXG4gIGhlaWdodDogMjFweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDEycHg7IH1cclxuaW5wdXQ6aG92ZXIsIHNlbGVjdDpob3ZlciwgaW5wdXQ6Zm9jdXMsIHNlbGVjdDpmb2N1cyB7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDJweCBzb2xpZCBkb2RnZXJibHVlO1xyXG4gIGhlaWdodDogMjJweDtcclxufVxyXG5cclxuLyogbGFiZWwgPiBpbnB1dFt0eXBlPSdjaGVja2JveCddeyBoZWlnaHQ6IDIxcHg7IH0gKi9cclxuXHJcbi8qIGlucHV0W3R5cGU9J2NoZWNrYm94J106aG92ZXIsIGlucHV0W3R5cGU9J2NoZWNrYm94J106Zm9jdXMgeyBoZWlnaHQ6IDIzcHg7IH0qL1xyXG5pbnB1dFtkaXNhYmxlZF06aG92ZXIsIHNlbGVjdFtkaXNhYmxlZF06aG92ZXJ7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDJweCBzb2xpZCBncmF5O1xyXG4gIC8qIGhlaWdodDogYXV0bzsgKi9cclxufVxyXG4vKnByb3BlcnR5QmFyKi9cclxuI21vZGVsVGVtcGxhdGUsICNwYWNrYWdlVGVtcGxhdGUsICNjbGFzc1RlbXBsYXRlLCAjYXR0cmlidXRlVGVtcGxhdGUsICNyZWZlcmVuY2VUZW1wbGF0ZXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ucHJvcGVydHlTaWRlYmFyVGVtcGxhdGVze1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuLndhc3RlbXBsYXRlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG4ud2FzdGVtcGxhdGUgPiAqIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbi1ib3R0b206IDhweDtcclxufVxyXG5cclxuLndhc3RlbXBsYXRlID4gKntcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ubWluaW1pemVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGJvcmRlci1sZWZ0OiAycHggZGFzaGVkIGRvZGdlcmJsdWU7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IGRhc2hlZCBkb2RnZXJibHVlO1xyXG4gIG1pbi13aWR0aDogOHB4ICFpbXBvcnRhbnQ7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA4cHggIWltcG9ydGFudDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkID4gKntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6aG92ZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6YmVmb3JlIHtcclxuICBjb2xvcjogZG9kZ2VyYmx1ZTtcclxuICBjb250ZW50OiAnKyc7XHJcbiAgZm9udC1zaXplOiAyMHB4O1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBsaW5lLWhlaWdodDogMDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkOmhvdmVyOmJlZm9yZSB7XHJcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLm1pbmltaXplcjpob3ZlciwgLmF0dHJpYnV0ZU1pbmltaXplcjpob3ZlcntcclxuICBib3JkZXItbGVmdDogMnB4IGRhc2hlZCB2YXIoLS1zZWNvbmRhcnkpO1xyXG4gIGJvcmRlci1ib3R0b206IDJweCBkYXNoZWQgdmFyKC0tc2Vjb25kYXJ5KTtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVke1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGRvZGdlcmJsdWU7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDhweDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkLmxpc3R7XHJcbiAgYm9yZGVyLXN0eWxlOiBkYXNoZWQ7XHJcbn1cclxuLm1pbmltaXplci5zaW5nbGUge1xyXG4gIGJvcmRlci1zdHlsZTogc29saWQ7XHJcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG4gIGJvcmRlci10b3A6IG5vbmU7XHJcbn1cclxuLmNvbnRlbnQge1xyXG4gIG1hcmdpbi1sZWZ0OiA4cHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBtaW4tY29udGVudDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICAvKndpZHRoOiBjYWxjKDEwMCUgLSAxNnB4KTsqL1xyXG5cclxufVxyXG5sYWJlbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMjRweDtcclxuICBsaW5lLWhlaWdodDogMjRweDtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcbmxhYmVsID4gaW5wdXQ6bm90KFt0eXBlXSksIGxhYmVsID4gaW5wdXRbdHlwZT1cIlwiXSwgbGFiZWwgPiBpbnB1dFt0eXBlPVwidGV4dFwiXSwgbGFiZWwgPiBpbnB1dFt0eXBlPVwibnVtYmVyXCJdLFxyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJjaGVja2JveFwiXSwgbGFiZWwgPiBzZWxlY3R7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xyXG4gIHdpZHRoOiBpbmhlcml0O1xyXG4gIG1pbi13aWR0aDogNjBweDtcclxufVxyXG4vKlxyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJjaGVja2JveFwiXXtcclxuICAgZGlzcGxheTogZmxleDtcclxuICAgbWFyZ2luOiBhdXRvO1xyXG4gICBtYXJnaW4tbGVmdDogMDtcclxuICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG4gICBtaW4td2lkdGg6IDIwcHg7XHJcbiB9Ki9cclxubGFiZWwgPiBpbnB1dFt0eXBlPVwibnVtYmVyXCJdIHtcclxuICBtaW4td2lkdGg6IDMwcHg7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -25630,6 +27156,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return PropertyBarrComponent;
     }();
 
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], PropertyBarrComponent.prototype, "isM2", void 0);
     PropertyBarrComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-property-barr',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -25712,7 +27239,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(PropertyBarr, [{
         key: "templateMinimizerClick",
         value: function templateMinimizerClick(e) {
-          var _this37 = this;
+          var _this41 = this;
 
           var minimizer = e.currentTarget;
           var templatee = minimizer;
@@ -25725,7 +27252,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $(templatee).off('click.maximizeTemplate').on('click.maximizeTemplate', function (ee) {
             PropertyBarr.templateMaximizerClick(ee);
           }).on('contextmenu', function (e) {
-            _this37.subTemplateShow(e);
+            _this41.subTemplateShow(e);
           });
           e.stopImmediatePropagation();
           e.stopPropagation();
@@ -25831,7 +27358,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "show",
         value: function show() {
-          var _this38 = this;
+          var _this42 = this;
 
           var o = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var clickedLevel = arguments.length > 1 ? arguments[1] : undefined;
@@ -25901,7 +27428,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors($container);
 
           $container.find('.minimizer').off('click.minimizeTemplate').on('click.minimizeTemplate', function (e) {
-            _this38.templateMinimizerClick(e);
+            _this42.templateMinimizerClick(e);
           }); /// ottimizzazioni di stile.
 
           while ($container.find('.wastemplate:has(>.content:not(:has(*)))').remove().length) {} // remove empty minimizer-content.
@@ -25934,7 +27461,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
           $container.find('.minimizer.single').on('contextmenu', function (e) {
-            _this38.subTemplateShow(e);
+            _this42.subTemplateShow(e);
           });
           var contentRoot = $container.find('>.wastemplate>.content')[0];
 
@@ -25993,10 +27520,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getC_I",
         value: function getC_I(o) {
-          var _this39 = this;
+          var _this43 = this;
 
           var $html = this.getTemplate(o);
-          this.removeOthers($html, '.class'); // $html.find('.class').show();
+          var model = o.getModelRoot();
+          this.removeOthers($html, '.class');
+          var m1class = model.isM1() ? o : null;
+          var m2class = model.isM2() ? o : null; // $html.find('.class').show();
 
           var i;
           var attribListHtml = $html.find('.attributeList')[0];
@@ -26025,15 +27555,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $html.find('.referenceCount')[0].innerHTML = '' + references.length;
           $html.find('.operationCount')[0].innerHTML = '' + operations.length;
 
-          if (!(o instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"])) {
+          var stopPropagation = function stopPropagation(e) {
+            e.stopPropagation();
+          };
+
+          if (m2class) {
+            var $interfaceCheckbox = $html.find('input.isinterface');
+            var interfaceCheckbox = $interfaceCheckbox[0];
+            var $abstractCheckbox = $html.find('input.isabstract');
+            var abstractCheckbox = $abstractCheckbox[0];
+            var $accessModifierHtml = $html.find('select.accessModifier');
+            var accessModifierHtml = $accessModifierHtml[0];
+            abstractCheckbox.checked = m2class.getAbstract();
+            interfaceCheckbox.checked = m2class.getInterface();
+
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].$makeSelect($accessModifierHtml, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"], 'Access modifier', m2class.visibility.toString());
+
+            $accessModifierHtml.on('change', function (e) {
+              m2class.setAccessModifier(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getEnumValByVal(accessModifierHtml.value, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"]));
+            });
+            $abstractCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation).on('change', function (e) {
+              m2class.setAbstract(abstractCheckbox.checked, true);
+              abstractCheckbox.checked = m2class.getAbstract(); // they are linked, editing abstract could unset interface
+
+              interfaceCheckbox.checked = m2class.getInterface();
+            });
+            $interfaceCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation).on('change', function (e) {
+              m2class.setInterface(interfaceCheckbox.checked, true);
+              abstractCheckbox.checked = m2class.getAbstract(); // setting interface could remove abstract
+
+              interfaceCheckbox.checked = m2class.getInterface();
+            });
+          }
+
+          if (!m1class) {
             return $html[0];
           } /// Se MClass
 
 
-          var classe = o;
           var isRoot = $html.find('input.isRoot')[0];
-          console.log('this:', o);
-          isRoot.disabled = isRoot.checked = classe.isRoot();
+          console.log('this:', m1class);
+          isRoot.disabled = isRoot.checked = m1class.isRoot();
           $(isRoot).off('change.pbar').on('change.pbar', function (evt) {
             var input = evt.currentTarget;
 
@@ -26042,10 +27604,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return $html[0];
             }
 
-            classe.setRoot(input.checked);
-            classe.refreshGUI();
+            m1class.setRoot(input.checked);
+            m1class.refreshGUI();
 
-            _this39.refreshGUI();
+            _this43.refreshGUI();
           });
           return $html[0];
         }
@@ -26270,12 +27832,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           selectHtml.appendChild(optgrp);
           var optionFound = false;
 
-          for (var _key19 in _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["OperationVisibility"]) {
-            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["OperationVisibility"][_key19]) {
+          for (var _key24 in _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"]) {
+            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"][_key24]) {
               continue;
             }
 
-            var access = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["OperationVisibility"][_key19];
+            var access = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"][_key24];
             var opt = document.createElement('option');
             opt.value = access;
             opt.innerHTML = access;
@@ -26288,7 +27850,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             optgrp.appendChild(opt);
           }
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(visibility && !optionFound, 'OperationVisibility selected option not found; optgrp:', optgrp, 'OperationVisibility:', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["OperationVisibility"], ', searchedVal:', visibility);
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(visibility && !optionFound, 'OperationVisibility selected option not found; optgrp:', optgrp, 'OperationVisibility:', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"], ', searchedVal:', visibility);
 
           return selectHtml;
         }
@@ -26366,7 +27928,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n.styleContainer{\n  /*position: relative;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: auto;\n  padding: 17px;\n  padding-right: calc(17px - 10px);*/\n}\n.template{\n  display: none;\n}\n.StyleEditorDisplay .template{\n  display: unset;\n}\n.preview{\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 10px;\n  border: 1px solid red;\n  background-color: transparent;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.preview:blank{\n  background-color: gray;\n  opacity: 0.4;\n}\n.separatorShell.top{\n  margin-top: 30px;\n}\ndiv[contenteditable=\"true\"]:focus {\n  max-height: unset;\n}\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\n  overflow: auto;\n  display: -webkit-box;\n  display: flex;\n  color: black;\n  border: 1px solid black;\n  min-height: 100px;\n  max-height: 100px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\ndiv[contenteditable=\"true\"] {\n  background-color: white;\n  cursor: text;\n}\ndiv[contenteditable=\"false\"] {\n  background-color: gray;\n  cursor: no-drop;\n  opacity: 0.4;\n}\nlabel.allowEdit {\n  color: goldenrod;\n}\nbutton {\n  margin: 5px;\n}\n.style.own, .style.instances{\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.detail{\n  border: 3px solid var(--bluebordercolor);\n  background: var(--);\n  color: var(--altFontColor);\n}\nbutton.detail {\n  margin: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  display: -webkit-box;\n  display: flex;\n  height: auto;\n  border-top-left-radius: 17px;\n  border-top-right-radius: 17px;\n  z-index: 1;\n }\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  margin-right: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\nbutton.detail:last-child:not(:only-child){\n  margin-left: -3px;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\nbutton.detail:focus {\n  box-shadow: none !important;\n  outline: none !important;\n}\ndiv.detail{\n  padding: 5px;\n  margin-top: -3px;\n  width: calc(100%);\n}\n.saveasrow{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n}\nbutton.delete{\n  margin: auto;\n  margin-bottom: 5px;\n}\nbutton.saveas{\n  margin: auto;\n  margin-bottom: 5px;\n}\ninput.saveas {\n  margin: auto;\n  margin-bottom: 5px;\n  flex-basis: 100px;\n  -webkit-box-flex: 0.6;\n          flex-grow: 0.6;\n  width: 0;\n}\n.compatibleRow > label > span{\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n  margin-left: 0;\n}\n.saveasrow, .compatibleRow{\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.compatibleRow > label > input {\n  -webkit-box-ordinal-group: 2;\n          order: 1;\n  margin-left: 0;\n  margin-right: 5px;\n}\n.detail > label {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  flex-wrap: nowrap;\n}\nbutton.detail > .opened, button.detail > .closed{\n  margin: auto;\n}\ntable {\n  width: 100%;\n}\ntd.title {\n  font-weight: bold;\n  padding-top: 10px;\n  text-align: center;\n}\nh1 {\n  text-align: center;\n}\nselect{\n  /* background: inherit;\n  border: none;\n  color: inherit;\n  font: inherit; */\n  /*flex-basis: 0;*/\n  flex-shrink: 1;\n  -webkit-box-flex: 0.9;\n          flex-grow: 0.9;\n  max-width: -webkit-max-content;\n  max-width: -moz-max-content;\n  max-width: max-content;\n  min-width: 0;\n}\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\nlabel > *:not(input), h6 > * {\n  display: -webkit-box;\n  display: flex;\n  /* flex-grow: 1;*/\n  margin: auto;\n  flex-wrap: wrap;\n}\nh6{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n\n}\n.separator > * {\n  text-align: center;\n}\n/*\nbutton {\n  background: #0084ff;\n  border: none;\n  border-radius: 5px;\n  padding: 8px 14px;\n  font-size: 15px;\n  color: #fff;\n}\n\nbutton:disabled{\n  background: gray;\n}*/\ninput[type=\"number\"] {\n  width: 40px;\n  margin-right: 5px;\n}\n.zoomX, .zoomY, .gridX, .gridY {\n  margin-left: 5px;\n  margin-right: 15px;}\nlabel>input[type=\"checkbox\"],\nlabel>input[type=\"color\"] {\n  margin-bottom: 3px;\n}\n#primary_color {\n  border-radius: 100%;\n  height: 60px;\n  width: 60px;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n}\n[contenteditable=true]:empty:before {\n  content: attr(placeholder);\n  display: block;\n  /* For Firefox */\n  cursor: text;\n  vertical-align: middle;\n  color: darkgray;\n  text-align: center;\n  margin: auto;\n}\n.separatorShell {\n  min-height: 33px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n  margin: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100%;\n}\n.roww {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.colContainer, .columnContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-flow: nowrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n}\n.colChild, .columnChild {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-flow: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  max-width: 100%;\n  min-width: 0;\n}\n.separator {\n  margin: auto;\n  display: inline-block;\n}\n.stylelabel{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  margin-right: 5px;\n}\nselect.stylename{\n  display: -webkit-box;\n  display: flex;\n  margin: auto;\n  margin-left: 0;\n}\n.HorizontalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.HorizontalChild{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n}\n.opened{\n  display: none;\n}\n.helpButton, .styledelete {\n  display: -webkit-box;\n  display: flex;\n  width: 35px;\n  height: 35px;\n  margin: auto;\n  margin-right: 0;\n}\n.styledelete {\n  margin-right: 5px;\n  margin-left: 5px;\n}\n.helpButton {\n  background: rgb(0, 62, 127);\n  border-color: rgb(0, 62, 127); }\n.htmlstyle > .top {\n  display: -webkit-box;\n  display: flex;\n}\n.expressionRoot {\n  flex-wrap: nowrap !important;\n  max-width: 100%;\n}\ninput.fill{\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n  margin-left: 7px;\n}\n.leftside{\n  -webkit-box-flex: 3;\n          flex-grow: 3;\n  flex-basis: 0;\n  min-width: 0;\n  max-width: 150px;\n}\n.rightside{\n  -webkit-box-flex: 7;\n          flex-grow: 7;\n  flex-basis: 0;\n  min-width: 0;\n}\n.arrowContainer{\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 10px;\n}\nbutton.arrow{\n  display: -webkit-box;\n  display: flex;\n  line-height: unset;\n  padding: 0 6px;\n}\n.tsclass{\n  margin: auto;\n  display: inline;\n  text-align: center;\n}\n/* */\n/*\npre {\n  background:#EEE;\n  padding:5px;\n  width: 290px;\n}*/\n.addHeader{\n  display: -webkit-box;\n  display: flex;\n}\n.addHeader > button {\n  margin-left: 0;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n}\nselect.attributetypeadd{\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  min-width: 0;\n  margin-right: 10px;\n}\n.previewselector{\n  height: 23px;\n  outline: none;\n  border: 2px dashed #666666;\n}\n.showAsEdge{\n  margin-right: 5px !important;\n}\nbutton.delete, button.saveas{\n  font-size: 0.8rem;\n}\nbutton.deleteRule{\n  -webkit-box-flex: 0;\n          flex-grow: 0;\n  flex-basis: auto;\n  min-width: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  padding: 5px;\n}\n.nowrap{\n  flex-wrap: nowrap;\n}\n._root {\n  margin-bottom: 5px;\n}\ndiv.detail.measurable > div.template {\n  display: none;\n}\n.graphColor, .showGrid{\n  margin-left: 0;\n}\nselect.operator{\n  -moz-text-align-last: center;\n       text-align-last: center;\n  margin-left: 5px;\n  margin-right: 5px;\n  width: 25px;\n}\nspan.operatortext{\n  margin-left: 5px;\n  margin-right: 5px;\n}\nselect.operator:disabled{\n  display: none;\n  /*\n  background: inherit;\n  border: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  margin: 0;*/\n}\nspan.nameprefix {\n  margin-left: 7px;\n  background: white;\n  border: 2px inset rgb(238, 238, 238);\n  height: 21px;\n  border-right: none;\n  color: black;\n  line-height: 16px;\n}\ninput.name {\n  margin-left: 0;\n  border-left: none;\n  padding-left: 0;\n}\nlabel:focus > input.name {\n  outline: none;\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\n}\ninput.name:focus {\n  outline: none;\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\n}\n.htmlstyle {\n  width: 100%;\n}\nlabel.allowEdit > span {\n  margin-left:0;\n}\nlabel > input ~ * {\n  margin: 0;\n  margin-right: 5px;\n}\nlabel > input[type=\"checkbox\"] ~ * {\n  margin-left: 0;\n}\n.html[contenteditable] {\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\n  overflow-wrap: anywhere;\n  word-wrap: anywhere;\n  white-space: break-spaces;\n}\n.autosizecontainer{\n  display: inline-block;\n}\n.autosizecontainer > *{\n  display: inline-block;\n  margin-right: 5px;\n}\n.sizeContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap; }\n.sizeContainerHalf {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.sizelabel {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n          flex-flow: column-reverse;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 700px) {\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\n  .sizelabel{\n    display: inline-block;\n  }\n}\n.sizelabel > *{\n  display: inline;\n  margin: auto; }\n/* they fix outer css influence on measurable section. */\ninput[type=\"checkbox\"].arrow {\n  margin: 0; }\n.meas_acc0 button { margin: 0; }\n/***********              Measurable editor v2 start                 ********/\n.meas_acc0 .measurableSettingRoot{\n  width: 100%;\n  display: block;\n}\n.meas_acc0 .boxesroot {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n}\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n}\n.meas_acc0 .columncontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .rowcontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .column, .meas_acc0 .row{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .row {\n  max-width: 100%;\n  margin-right: unset;\n  margin-left: unset; /* dumb _grid.scss fixer */\n}\n.meas_acc0 .break { flex-wrap: wrap; }\n.meas_acc0 .autobreak { flex-wrap: initial; }\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\n.meas_acc0 .side { display: -webkit-box; display: flex; }\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\n  background-color: dimgray;\n}\n.meas_acc0 .boxroot {\n  display: block;\n  margin: auto;\n  flex-wrap: wrap;\n}\n.meas_acc0 .ruletitle{\n  display: block;\n  text-align: center;\n}\n.meas_acc0 button.ruledelete {\n  height: 100%;\n  width: 30px;\n  padding: 0;\n  margin-right: 5px;\n  border-radius: 25px 0 0 25px;\n}\n.meas_acc0 .compoundInputprefix {\n  max-width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 0;\n  padding: 0;\n  -webkit-box-flex: 0 !important;\n          flex-grow: 0 !important;\n  width: auto;\n  flex-basis: auto !important;\n  flex-shrink: 0 !important;\n}\n.meas_acc0 .compoundInputprefix > input.attrname {\n  border-left: none;\n  padding-left: 0;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.meas_acc0 .compoundInputprefix > * { border: none; }\n.meas_acc0 .compoundInputprefix > *:first-child {\n  margin-top: 1px;\n  padding-right: 0;\n  background-color: transparent;\n}\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\n.meas_acc0 .compoundInputprefix:focus-within {\n  border-color: #80bdff;\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\n/* .meas_acc0 .rightx { min-width: 0; } */\n.meas_acc0 .rightx span.operator {\n  margin: auto;\n  margin-left: 5px;\n  margin-right: 5px;\n  margin-top: 8px;\n}\n.meas_acc0 .operatorcontainer {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 5px;\n}\n.meas_acc0 select.operator {\n  width: 45px;\n  margin: auto 5px;\n  text-align: center;\n  -moz-text-align-last: center;\n       text-align-last: center;\n}\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\n  margin-bottom: 5px;\n  min-width: 120px;\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\n.meas_acc0 .attrname {\n  max-width: 200px !important; /* todo: remove when is autosizing */\n  min-width: 0;\n}\n.meas_acc0 .addrule {\n  float: right;\n  margin-top: -4px;\n  padding: 4px 10px;\n}\n.meas_acc0 .ruletitle {\n  padding-right: 4px;\n  margin-bottom: 5px;\n}\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\n.meas_acc0 .form-control > .form-control:not(:first-child){\n  border-top-left-radius: unset;\n  /* disable bootstrap rule*/\n}\n.meas_acc0 .measurableerrortext{\n  margin-left: 5px;\n  color: var(--danger);\n}\n.meas_acc0 .measurablewarningtext{\n  margin-left: 5px;\n  color: var(--warning);\n}\n.meas_acc0 .measurableoutputtext{\n  margin-left: 5px;\n  color: var(--secondary);\n}\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\n.meas_acc0 .measurabledebug { display: none; }\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\n.meas_acc0 .countershell { float: right; }\n.meas_acc0 .rectangledrawing.outer > * {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .top > .left {\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\n}\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\n.meas_acc0 .rectangledrawing.outer > .top > .right {\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\n.meas_acc0 input.side.top {\n  margin-bottom: 3px;\n  margin-top: -3px; }\n.meas_acc0 input.side.bot {\n  margin-bottom: -3px;\n  margin-top: 3px; }\n.meas_acc0 input.side.left {\n  margin-right: 3px;\n  margin-left: -3px; }\n.meas_acc0 input.side.right {\n  margin-right: -3px;\n  margin-left: 3px; }\n.meas_acc0 .arrowh {\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\n.meas_acc0 .arrowv {\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\n  height: 50px;\n  min-width: 50px;\n}\n.meas_acc0 .rectangledrawing.outer > .top > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .bot > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .arrow { -webkit-appearance: initial; }\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\n  width: 75px;\n  height: 75px; }\n.meas_acc0 .arrow:focus{ outline: none; }\n.meas_acc0 .arrow:checked{\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\n.meas_acc0 .directions {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto; }\n.meas_acc0 .directions > * { margin: auto; }\n.meas_acc0 .draggable.boxroot{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  /*height: 237px;*/\n}\n.meas_acc0 .collapse:not(.show) { display: none; }\n.meas_acc0 .selected { background-color: #37ff66 !important; }\n/***********              Measurable editor v2 end                   ********/\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0U7Ozs7O29DQUtrQztBQUNwQztBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLDZCQUE2QjtFQUM3QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLHdDQUF3QztFQUN4QyxtQkFBbUI7RUFDbkIsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osNEJBQTRCO0VBQzVCLDZCQUE2QjtFQUM3QixVQUFVO0NBQ1g7QUFDRCw0Q0FBNEMsaURBQWlEO0VBQzNGLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsNkJBQTZCO0FBQy9CO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLHdCQUF3QjtBQUMxQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHFCQUFjO1VBQWQsY0FBYztFQUNkLFFBQVE7QUFDVjtBQUNBO0VBQ0UsMkJBQW1CO0VBQW5CLHdCQUFtQjtFQUFuQixtQkFBbUI7RUFDbkIsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0VBQ1osNEJBQVE7VUFBUixRQUFRO0VBQ1IsY0FBYztBQUNoQjtBQUNBO0VBQ0UsV0FBVztFQUNYLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFOzs7a0JBR2dCO0VBQ2hCLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QscUJBQWM7VUFBZCxjQUFjO0VBQ2QsOEJBQXNCO0VBQXRCLDJCQUFzQjtFQUF0QixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBRUEsT0FBTyxvQkFBYSxDQUFiLGFBQWEsRUFBRSxrQkFBVyxFQUFYLFdBQVcsQ0FBQztBQUNsQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUVBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZOztBQUVkO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTs7Ozs7Ozs7Ozs7O0VBWUU7QUFDRjtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixrQkFBa0IsQ0FBQztBQUdyQjs7RUFFRSxrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osV0FBVztFQUNYLFlBQVk7RUFDWixhQUFhO0VBQ2Isd0JBQXdCO0FBQzFCO0FBRUE7RUFDRSwwQkFBMEI7RUFDMUIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsWUFBWTtBQUNkO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0FBQ2Q7QUFDQTtFQUNFLFlBQVk7RUFDWixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFjO0VBQWQsNkJBQWM7VUFBZCxjQUFjO0VBQ2QsZUFBZTtFQUNmLFdBQVc7QUFDYjtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7RUFDWixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLDZCQUE2QixFQUFFO0FBRWpDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLDRCQUE0QjtFQUM1QixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtFQUNaLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQSxJQUFJO0FBRUo7Ozs7O0VBS0U7QUFDRjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsNEJBQVE7VUFBUixRQUFRO0FBQ1Y7QUFDQTtFQUNFLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLDBCQUEwQjtBQUM1QjtBQUVBO0VBQ0UsNEJBQTRCO0FBQzlCO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDRCQUF1QjtPQUF2Qix1QkFBdUI7RUFDdkIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixXQUFXO0FBQ2I7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGFBQWE7RUFDYjs7Ozs7YUFLVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsZUFBZTtBQUNqQjtBQUVBO0VBQ0UsYUFBYTtFQUNiLDJDQUEyQztBQUM3QztBQUVBO0VBQ0UsYUFBYTtFQUNiLGlGQUFpRjtBQUNuRjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLFNBQVM7RUFDVCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9FQUFvRTtFQUNwRSx1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLHlCQUF5QjtBQUMzQjtBQUVBO0VBQ0UscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlLEVBQUU7QUFDbkI7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQiw0QkFBeUI7RUFBekIsOEJBQXlCO1VBQXpCLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnTEFBZ0w7RUFDaEw7SUFDRSxxQkFBcUI7RUFDdkI7QUFDRjtBQUNBO0VBQ0UsZUFBZTtFQUNmLFlBQVksRUFBRTtBQVdkLHdEQUF3RDtBQUUxRDtFQUNFLFNBQVMsRUFBRTtBQUViLG9CQUFvQixTQUFTLEVBQUU7QUFLL0IsNkVBQTZFO0FBQzdFO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw4QkFBYztFQUFkLDZCQUFjO1VBQWQsY0FBYztFQUNkLGlCQUFpQjtBQUNuQjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGVBQWU7RUFDZixtQkFBbUI7RUFDbkIsa0JBQWtCLEVBQUUsMEJBQTBCO0FBQ2hEO0FBQ0Esb0JBQW9CLGVBQWUsRUFBRTtBQUNyQyx3QkFBd0Isa0JBQWtCLEVBQUU7QUFDNUMsbUJBQW1CLG1CQUFZLEVBQVosWUFBWSxFQUFFO0FBQ2pDLHVCQUF1QixjQUFjLEVBQUUsa0JBQWtCLEVBQUUsbUJBQW1CLEVBQUU7QUFDaEYsbUJBQW1CLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2xDLGdEQUFnRCxXQUFXLEVBQUU7QUFDN0QsNkNBQTZDLFlBQVksRUFBRSx3QkFBd0IsRUFBRTtBQUNyRixxQkFBcUIsb0JBQWEsRUFBYixhQUFhLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTtBQUMvRCxxQkFBcUIsMkJBQTJCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUsNkJBQTZCLFlBQVksRUFBRSxZQUFZLEVBQUU7QUFDekQ7RUFDRSx5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLGNBQWM7RUFDZCxZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsZUFBZTtFQUNmLDJCQUFtQjtFQUFuQix3QkFBbUI7RUFBbkIsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixVQUFVO0VBQ1YsOEJBQXVCO1VBQXZCLHVCQUF1QjtFQUN2QixXQUFXO0VBQ1gsMkJBQTJCO0VBQzNCLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZix5QkFBeUI7RUFDekIsNEJBQTRCO0FBQzlCO0FBQ0Esc0NBQXNDLFlBQVksRUFBRTtBQUNwRDtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsNkJBQTZCO0FBQy9CO0FBQ0EsZ0RBQWdELGdCQUFnQixFQUFFO0FBQ2xFO0VBQ0UscUJBQXFCO0VBQ3JCLGdEQUFnRDtBQUNsRDtBQUVBLDBFQUEwRSwyQkFBMkIsRUFBRTtBQUN2Ryx5Q0FBeUM7QUFDekM7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLDRCQUF1QjtPQUF2Qix1QkFBdUI7QUFDekI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtBQUNkO0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFO0FBQ2pELCtCQUErQixnQkFBZ0IsRUFBRTtBQUNqRCx3Q0FBd0MsZUFBZSxFQUFFO0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0VBQ2pFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQSxrQ0FBa0MsMkJBQTJCLEVBQUU7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFO0FBQzFEO0VBQ0UsNkJBQTZCO0VBQzdCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtBQUN0QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHVCQUF1QjtBQUN6QjtBQUNBLDJCQUEyQixrQkFBa0IsRUFBRTtBQUMvQyw4QkFBOEIsYUFBYSxFQUFFO0FBQzdDLGtEQUFrRCxvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNqRSwyQkFBMkIsWUFBWSxFQUFFO0FBQ3pDO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7QUFDQTtFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEO0FBQ0E7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTtBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7QUFDbkI7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCLEVBQUU7QUFDckI7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTtBQUMxRDtFQUNFLHNEQUFzRCxFQUFFO0FBRTFEO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFFZixvQkFBb0IsMkJBQTJCLEVBQUU7QUFFakQ7RUFDRSxXQUFXO0VBQ1gsWUFBWSxFQUFFO0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7QUFDeEM7RUFDRSw0RkFBb0Y7VUFBcEYsb0ZBQW9GLEVBQUU7QUFFeEY7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsWUFBWSxFQUFFO0FBRWhCLDZCQUE2QixZQUFZLEVBQUU7QUFDM0M7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7QUFDQSxrQ0FBa0MsYUFBYSxFQUFFO0FBQ2pELHVCQUF1QixvQ0FBb0MsRUFBRTtBQUM3RCw2RUFBNkUiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3N0eWxlLWVkaXRvci9zdHlsZS1lZGl0b3IuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLnN0eWxlQ29udGFpbmVye1xuICAvKnBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBvdmVyZmxvdy15OiBhdXRvO1xuICBvdmVyZmxvdy14OiBhdXRvO1xuICBwYWRkaW5nOiAxN3B4O1xuICBwYWRkaW5nLXJpZ2h0OiBjYWxjKDE3cHggLSAxMHB4KTsqL1xufVxuLnRlbXBsYXRle1xuICBkaXNwbGF5OiBub25lO1xufVxuLlN0eWxlRWRpdG9yRGlzcGxheSAudGVtcGxhdGV7XG4gIGRpc3BsYXk6IHVuc2V0O1xufVxuLnByZXZpZXd7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBtaW4taGVpZ2h0OiAxMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCByZWQ7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuLnByZXZpZXc6Ymxhbmt7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbi5zZXBhcmF0b3JTaGVsbC50b3B7XG4gIG1hcmdpbi10b3A6IDMwcHg7XG59XG5cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdOmZvY3VzIHtcbiAgbWF4LWhlaWdodDogdW5zZXQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSwgZGl2W2NvbnRlbnRlZGl0YWJsZT1cImZhbHNlXCJdIHtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGNvbG9yOiBibGFjaztcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xuICBtYXgtaGVpZ2h0OiAxMDBweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBjdXJzb3I6IHRleHQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwiZmFsc2VcIl0ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xuICBjdXJzb3I6IG5vLWRyb3A7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbmxhYmVsLmFsbG93RWRpdCB7XG4gIGNvbG9yOiBnb2xkZW5yb2Q7XG59XG5idXR0b24ge1xuICBtYXJnaW46IDVweDtcbn1cbi5zdHlsZS5vd24sIC5zdHlsZS5pbnN0YW5jZXN7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbn1cbi5kZXRhaWx7XG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLWJsdWVib3JkZXJjb2xvcik7XG4gIGJhY2tncm91bmQ6IHZhcigtLSk7XG4gIGNvbG9yOiB2YXIoLS1hbHRGb250Q29sb3IpO1xufVxuYnV0dG9uLmRldGFpbCB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgZGlzcGxheTogZmxleDtcbiAgaGVpZ2h0OiBhdXRvO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxN3B4O1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMTdweDtcbiAgei1pbmRleDogMTtcbiB9XG5idXR0b24uZGV0YWlsOmZpcnN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7IC8qIGZpcnN0IHZpc2libGUgY2hpbGQgbm90IHBvc3NpYmxlIGljIHB1cmUgY3NzICovXG4gIGZsZXgtZmxvdzogY29sdW1uO1xuICBtYXJnaW4tcmlnaHQ6IDA7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6bGFzdC1jaGlsZDpub3QoOm9ubHktY2hpbGQpe1xuICBtYXJnaW4tbGVmdDogLTNweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6Zm9jdXMge1xuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcbn1cbmRpdi5kZXRhaWx7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXRvcDogLTNweDtcbiAgd2lkdGg6IGNhbGMoMTAwJSk7XG59XG4uc2F2ZWFzcm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG5idXR0b24uZGVsZXRle1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbmJ1dHRvbi5zYXZlYXN7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuaW5wdXQuc2F2ZWFzIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xuICBmbGV4LWdyb3c6IDAuNjtcbiAgd2lkdGg6IDA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gc3BhbntcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgb3JkZXI6IDI7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLnNhdmVhc3JvdywgLmNvbXBhdGlibGVSb3d7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IHdyYXA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gaW5wdXQge1xuICBvcmRlcjogMTtcbiAgbWFyZ2luLWxlZnQ6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLmRldGFpbCA+IGxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG5idXR0b24uZGV0YWlsID4gLm9wZW5lZCwgYnV0dG9uLmRldGFpbCA+IC5jbG9zZWR7XG4gIG1hcmdpbjogYXV0bztcbn1cbnRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbnRkLnRpdGxlIHtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbmgxIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuc2VsZWN0e1xuICAvKiBiYWNrZ3JvdW5kOiBpbmhlcml0O1xuICBib3JkZXI6IG5vbmU7XG4gIGNvbG9yOiBpbmhlcml0O1xuICBmb250OiBpbmhlcml0OyAqL1xuICAvKmZsZXgtYmFzaXM6IDA7Ki9cbiAgZmxleC1zaHJpbms6IDE7XG4gIGZsZXgtZ3JvdzogMC45O1xuICBtYXgtd2lkdGg6IG1heC1jb250ZW50O1xuICBtaW4td2lkdGg6IDA7XG59XG5cbmxhYmVsIHtkaXNwbGF5OiBmbGV4OyBmbGV4LWdyb3c6MTt9XG5sYWJlbCA+ICo6bm90KGlucHV0KSwgaDYgPiAqIHtcbiAgZGlzcGxheTogZmxleDtcbiAgLyogZmxleC1ncm93OiAxOyovXG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuXG5oNntcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcblxufVxuLnNlcGFyYXRvciA+ICoge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKlxuYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDhweCAxNHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG5idXR0b246ZGlzYWJsZWR7XG4gIGJhY2tncm91bmQ6IGdyYXk7XG59Ki9cbmlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xuICB3aWR0aDogNDBweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7fVxuXG5cbmxhYmVsPmlucHV0W3R5cGU9XCJjaGVja2JveFwiXSxcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbn1cblxuI3ByaW1hcnlfY29sb3Ige1xuICBib3JkZXItcmFkaXVzOiAxMDAlO1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcbn1cblxuW2NvbnRlbnRlZGl0YWJsZT10cnVlXTplbXB0eTpiZWZvcmUge1xuICBjb250ZW50OiBhdHRyKHBsYWNlaG9sZGVyKTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIC8qIEZvciBGaXJlZm94ICovXG4gIGN1cnNvcjogdGV4dDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgY29sb3I6IGRhcmtncmF5O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbjogYXV0bztcbn1cblxuLnNlcGFyYXRvclNoZWxsIHtcbiAgbWluLWhlaWdodDogMzNweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnJvd3cge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuLmNvbENvbnRhaW5lciwgLmNvbHVtbkNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogbm93cmFwO1xuICBmbGV4LWZsb3c6IHJvdztcbn1cbi5jb2xDaGlsZCwgLmNvbHVtbkNoaWxkIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1pbi13aWR0aDogMDtcbn1cbi5zZXBhcmF0b3Ige1xuICBtYXJnaW46IGF1dG87XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5zdHlsZWxhYmVse1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbn1cbnNlbGVjdC5zdHlsZW5hbWV7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uSG9yaXpvbnRhbENvbnRhaW5lcntcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgd2lkdGg6IDEwMCU7XG59XG4uSG9yaXpvbnRhbENoaWxke1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuLm9wZW5lZHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmhlbHBCdXR0b24sIC5zdHlsZWRlbGV0ZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAzNXB4O1xuICBoZWlnaHQ6IDM1cHg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiAwO1xufVxuLnN0eWxlZGVsZXRlIHtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG4uaGVscEJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IHJnYigwLCA2MiwgMTI3KTtcbiAgYm9yZGVyLWNvbG9yOiByZ2IoMCwgNjIsIDEyNyk7IH1cblxuLmh0bWxzdHlsZSA+IC50b3Age1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmV4cHJlc3Npb25Sb290IHtcbiAgZmxleC13cmFwOiBub3dyYXAgIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuaW5wdXQuZmlsbHtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xuICBtYXJnaW4tbGVmdDogN3B4O1xufVxuLmxlZnRzaWRle1xuICBmbGV4LWdyb3c6IDM7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIG1pbi13aWR0aDogMDtcbiAgbWF4LXdpZHRoOiAxNTBweDtcbn1cbi5yaWdodHNpZGV7XG4gIGZsZXgtZ3JvdzogNztcbiAgZmxleC1iYXNpczogMDtcbiAgbWluLXdpZHRoOiAwO1xufVxuLmFycm93Q29udGFpbmVye1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuYnV0dG9uLmFycm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBsaW5lLWhlaWdodDogdW5zZXQ7XG4gIHBhZGRpbmc6IDAgNnB4O1xufVxuLnRzY2xhc3N7XG4gIG1hcmdpbjogYXV0bztcbiAgZGlzcGxheTogaW5saW5lO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKiAqL1xuXG4vKlxucHJlIHtcbiAgYmFja2dyb3VuZDojRUVFO1xuICBwYWRkaW5nOjVweDtcbiAgd2lkdGg6IDI5MHB4O1xufSovXG4uYWRkSGVhZGVye1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmFkZEhlYWRlciA+IGJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBvcmRlcjogMjtcbn1cbnNlbGVjdC5hdHRyaWJ1dGV0eXBlYWRke1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG4gIG1pbi13aWR0aDogMDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuLnByZXZpZXdzZWxlY3RvcntcbiAgaGVpZ2h0OiAyM3B4O1xuICBvdXRsaW5lOiBub25lO1xuICBib3JkZXI6IDJweCBkYXNoZWQgIzY2NjY2Njtcbn1cblxuLnNob3dBc0VkZ2V7XG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5idXR0b24uZGVsZXRlLCBidXR0b24uc2F2ZWFze1xuICBmb250LXNpemU6IDAuOHJlbTtcbn1cbmJ1dHRvbi5kZWxldGVSdWxle1xuICBmbGV4LWdyb3c6IDA7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIG1pbi13aWR0aDogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogNXB4O1xufVxuLm5vd3JhcHtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4uX3Jvb3Qge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXYuZGV0YWlsLm1lYXN1cmFibGUgPiBkaXYudGVtcGxhdGUge1xuICBkaXNwbGF5OiBub25lO1xufVxuLmdyYXBoQ29sb3IsIC5zaG93R3JpZHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG5zZWxlY3Qub3BlcmF0b3J7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgd2lkdGg6IDI1cHg7XG59XG5zcGFuLm9wZXJhdG9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Qub3BlcmF0b3I6ZGlzYWJsZWR7XG4gIGRpc3BsYXk6IG5vbmU7XG4gIC8qXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgLW1vei1hcHBlYXJhbmNlOiBub25lO1xuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG4gIG1hcmdpbjogMDsqL1xufVxuXG5zcGFuLm5hbWVwcmVmaXgge1xuICBtYXJnaW4tbGVmdDogN3B4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xuICBoZWlnaHQ6IDIxcHg7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbiAgY29sb3I6IGJsYWNrO1xuICBsaW5lLWhlaWdodDogMTZweDtcbn1cbmlucHV0Lm5hbWUge1xuICBtYXJnaW4tbGVmdDogMDtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbn1cblxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogMCAycHggMnB4IDJweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cblxuaW5wdXQubmFtZTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IDJweCAycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KSwgMnB4IC0ycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cbi5odG1sc3R5bGUge1xuICB3aWR0aDogMTAwJTtcbn1cbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xuICBtYXJnaW4tbGVmdDowO1xufVxubGFiZWwgPiBpbnB1dCB+ICoge1xuICBtYXJnaW46IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxubGFiZWwgPiBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0gfiAqIHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uaHRtbFtjb250ZW50ZWRpdGFibGVdIHtcbiAgLypJREUgZ2l2ZXMgZXJyb3IgYnV0IHRoZXkgYWxsIGFjdHVhbGx5IGV4aXN0LCBhdCBsZWFzdCBvbiBtb3ppbGxhLiovXG4gIG92ZXJmbG93LXdyYXA6IGFueXdoZXJlO1xuICB3b3JkLXdyYXA6IGFueXdoZXJlO1xuICB3aGl0ZS1zcGFjZTogYnJlYWstc3BhY2VzO1xufVxuXG4uYXV0b3NpemVjb250YWluZXJ7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5hdXRvc2l6ZWNvbnRhaW5lciA+ICp7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uc2l6ZUNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDsgfVxuLnNpemVDb250YWluZXJIYWxmIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xufVxuLnNpemVsYWJlbCB7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBmbGV4LWZsb3c6IGNvbHVtbi1yZXZlcnNlO1xuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG59XG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3MDBweCkge1xuICAvKiBzdSB2aWV3cG9ydCB0cm9wcG8gcGljY29saSBjYW1iaW8gbGEgdmlzdWFsaXp6YXppb25lIGRhIGxhYmVsIHNvcHJhIGlsIHRlc3RvIChidW9ubyBwZXIgZmFyZSBtb25vLXJvdykgYSBsYWJlbCBhZmZpYW5jYXRhIGFsIHRlc3RvIChwZXIgZmFyZSA0IHJvdyBlIHNjb3JyZXJlIHZlcnRpY2FsbWVudGUpKi9cbiAgLnNpemVsYWJlbHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cbn1cbi5zaXplbGFiZWwgPiAqe1xuICBkaXNwbGF5OiBpbmxpbmU7XG4gIG1hcmdpbjogYXV0bzsgfVxuXG5cblxuXG5cblxuXG5cblxuXG4gIC8qIHRoZXkgZml4IG91dGVyIGNzcyBpbmZsdWVuY2Ugb24gbWVhc3VyYWJsZSBzZWN0aW9uLiAqL1xuXG5pbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0uYXJyb3cge1xuICBtYXJnaW46IDA7IH1cblxuLm1lYXNfYWNjMCBidXR0b24geyBtYXJnaW46IDA7IH1cblxuXG5cblxuLyoqKioqKioqKioqICAgICAgICAgICAgICBNZWFzdXJhYmxlIGVkaXRvciB2MiBzdGFydCAgICAgICAgICAgICAgICAgKioqKioqKiovXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlU2V0dGluZ1Jvb3R7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbn1cbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xufVxuLm1lYXNfYWNjMCAubW92ZW1lbnRib3hyb290LCAubWVhc19hY2MwIC5yZXNpemVib3hyb290IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbn1cbi5tZWFzX2FjYzAgLmNvbHVtbmNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogcm93O1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbn1cblxuLm1lYXNfYWNjMCAucm93Y29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuLm1lYXNfYWNjMCAuY29sdW1uLCAubWVhc19hY2MwIC5yb3d7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuLm1lYXNfYWNjMCAucm93IHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBtYXJnaW4tcmlnaHQ6IHVuc2V0O1xuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xufVxuLm1lYXNfYWNjMCAuYnJlYWsgeyBmbGV4LXdyYXA6IHdyYXA7IH1cbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxuLm1lYXNfYWNjMCAuZmlsbCB7IGZsZXgtZ3JvdzogMTsgfVxuLm1lYXNfYWNjMCAuYm94dGl0bGUgeyBkaXNwbGF5OiBibG9jazsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9XG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAuc2lkZS5sZWZ0LCAubWVhc19hY2MwIC5zaWRlLnJpZ2h0IHsgd2lkdGg6IDEwcHg7IH1cbi5tZWFzX2FjYzAgLnNpZGUudG9wLCAubWVhc19hY2MwIC5zaWRlLmJvdCB7IGhlaWdodDogMTBweDsgd2lkdGg6IGNhbGMoMTAwJSAtIDIwcHgpOyB9XG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XG4ubWVhc19hY2MwIC5taWRkbGUgeyBiYWNrZ3JvdW5kLWNvbG9yOiBnb2xkZW5yb2Q7IGRpc3BsYXk6IGZsZXg7IH1cbi5tZWFzX2FjYzAgLm1pZGRsZSAubWlkZGxlIHsgd2lkdGg6IDEyMHB4OyBoZWlnaHQ6IDkwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XG4gIGJhY2tncm91bmQtY29sb3I6IGRpbWdyYXk7XG59XG4ubWVhc19hY2MwIC5ib3hyb290IHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxle1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDMwcHg7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xuICBib3JkZXItcmFkaXVzOiAyNXB4IDAgMCAyNXB4O1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCB7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogMDtcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XG4gIHdpZHRoOiBhdXRvO1xuICBmbGV4LWJhc2lzOiBhdXRvICFpbXBvcnRhbnQ7XG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xuICBib3JkZXItbGVmdDogbm9uZTtcbiAgcGFkZGluZy1sZWZ0OiAwO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcbiAgbWFyZ2luLXRvcDogMXB4O1xuICBwYWRkaW5nLXJpZ2h0OiAwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dDpmb2N1cyB7IGJveC1zaGFkb3c6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcbiAgYm9yZGVyLWNvbG9yOiAjODBiZGZmO1xuICBib3gtc2hhZG93OiAwIDAgMCAwLjJyZW0gcmdiYSgwLCAxMjMsIDI1NSwgMC4yNSk7XG59XG5cbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAucmlnaHR4LCAubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLmxlZnR4IHsgbWFyZ2luLWJvdHRvbTogMCAhaW1wb3J0YW50OyB9XG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgbWFyZ2luLXRvcDogOHB4O1xufVxuLm1lYXNfYWNjMCAub3BlcmF0b3Jjb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG4ubWVhc19hY2MwIHNlbGVjdC5vcGVyYXRvciB7XG4gIHdpZHRoOiA0NXB4O1xuICBtYXJnaW46IGF1dG8gNXB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xufVxuLm1lYXNfYWNjMCAucmlnaHR4IC5jb21wb3VuZElucHV0cHJlZml4LCAubWVhc19hY2MwIC5yaWdodHggaW5wdXQucmlnaHRzaWRlLCAubWVhc19hY2MwIGlucHV0LmxlZnRzaWRlLCAubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xuICBtaW4td2lkdGg6IDEyMHB4O1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG59XG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyIHsgbWFyZ2luLWJvdHRvbTogMXJlbTsgfVxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC5tZWFzdXJhYmxlZGVidWcgeyBtYXJnaW4tdG9wOiA1cHg7IH1cbi5tZWFzX2FjYzAgLmF0dHJuYW1lIHtcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXG4gIG1pbi13aWR0aDogMDtcbn1cbi5tZWFzX2FjYzAgLmFkZHJ1bGUge1xuICBmbG9hdDogcmlnaHQ7XG4gIG1hcmdpbi10b3A6IC00cHg7XG4gIHBhZGRpbmc6IDRweCAxMHB4O1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlIHtcbiAgcGFkZGluZy1yaWdodDogNHB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XG4ubWVhc19hY2MwIC5ydWxldGl0bGU6aG92ZXIgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGJ1dHRvbjsgfVxuLm1lYXNfYWNjMCAuZm9ybS1jb250cm9sID4gLmZvcm0tY29udHJvbDpub3QoOmZpcnN0LWNoaWxkKXtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogdW5zZXQ7XG4gIC8qIGRpc2FibGUgYm9vdHN0cmFwIHJ1bGUqL1xufVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgY29sb3I6IHZhcigtLWRhbmdlcik7XG59XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxld2FybmluZ3RleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIGNvbG9yOiB2YXIoLS13YXJuaW5nKTtcbn1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0e1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBjb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbn1cbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXJ7IG1hcmdpbi1ib3R0b206IDVweDsgfVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnIHsgZGlzcGxheTogbm9uZTsgfVxuLm1lYXNfYWNjMCAucmlnaHR4OmZvY3VzLXdpdGhpbiAubWVhc3VyYWJsZWRlYnVneyBkaXNwbGF5OiBmbGV4OyB9XG4ubWVhc19hY2MwIC5jb3VudGVyc2hlbGwgeyBmbG9hdDogcmlnaHQ7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAqIHtcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAqLCAubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93diB7XG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLmxlZnQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3RxeFhoazQvdGwucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZ3ZweXd6L3RsbC5wbmcpO1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAuc2lkZS50b3Age1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9NOWZDN0RQL3QucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAucmlnaHQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1B6c21qeGYvdHIucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9TTjJUSEx0L3RybC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vN2ptOUJCUS9sLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUllablZONS9yLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLmxlZnQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3FyWVdkcEgvYmwucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9nREtGcnk1L2JsbC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5zaWRlLmJvdCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2NYYzBubVMvYi5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5yaWdodCB7XG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vSzBwVlZUNy9ici5wbmcpOyovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1Fwd1JTc1QvYnJsLnBuZyk7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS50b3Age1xuICBtYXJnaW4tYm90dG9tOiAzcHg7XG4gIG1hcmdpbi10b3A6IC0zcHg7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5ib3Qge1xuICBtYXJnaW4tYm90dG9tOiAtM3B4O1xuICBtYXJnaW4tdG9wOiAzcHg7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5sZWZ0IHtcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XG4gIG1hcmdpbi1sZWZ0OiAtM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUucmlnaHQge1xuICBtYXJnaW4tcmlnaHQ6IC0zcHg7XG4gIG1hcmdpbi1sZWZ0OiAzcHg7IH1cbi5tZWFzX2FjYzAgLmFycm93aCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pkM2p0YmMvbHIucG5nKTsgfVxuLm1lYXNfYWNjMCAuYXJyb3d2IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vakhUdFBEeC90Yi5wbmcpOyB9XG5cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gLmNvcm5lciB7XG4gIGhlaWdodDogNTBweDtcbiAgbWluLXdpZHRoOiA1MHB4O1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAqIHtcbiAgaGVpZ2h0OiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+ICoge1xuICBoZWlnaHQ6IDUwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xuICBoZWlnaHQ6IGF1dG87XG4gIHdpZHRoOiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XG4gIGhlaWdodDogYXV0bztcbiAgd2lkdGg6IDUwcHg7IH1cblxuLm1lYXNfYWNjMCAuYXJyb3cgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cblxuLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Z7XG4gIHdpZHRoOiA3NXB4O1xuICBoZWlnaHQ6IDc1cHg7IH1cblxuLm1lYXNfYWNjMCAuYXJyb3c6Zm9jdXN7IG91dGxpbmU6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmFycm93OmNoZWNrZWR7XG4gIGZpbHRlcjogc2VwaWEoODIlKSBzYXR1cmF0ZSgzOTI1JSkgaHVlLXJvdGF0ZSg1NWRlZykgYnJpZ2h0bmVzcygxMjUlKSBjb250cmFzdCgxMjAlKTsgfVxuXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICBtYXJnaW46IGF1dG87IH1cblxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyA+ICogeyBtYXJnaW46IGF1dG87IH1cbi5tZWFzX2FjYzAgLmRyYWdnYWJsZS5ib3hyb290e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbiAgLypoZWlnaHQ6IDIzN3B4OyovXG59XG4ubWVhc19hY2MwIC5jb2xsYXBzZTpub3QoLnNob3cpIHsgZGlzcGxheTogbm9uZTsgfVxuLm1lYXNfYWNjMCAuc2VsZWN0ZWQgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjMzdmZjY2ICFpbXBvcnRhbnQ7IH1cbi8qKioqKioqKioqKiAgICAgICAgICAgICAgTWVhc3VyYWJsZSBlZGl0b3IgdjIgZW5kICAgICAgICAgICAgICAgICAgICoqKioqKioqL1xuIl19 */";
+    __webpack_exports__["default"] = "\n.styleContainer{\n  /*position: relative;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: auto;\n  padding: 17px;\n  padding-right: calc(17px - 10px);*/\n}\n.template{\n  display: none;\n}\n.StyleEditorDisplay .template{\n  display: unset;\n}\n.preview{\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 10px;\n  border: 1px solid red;\n  background-color: transparent;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.preview:blank{\n  background-color: gray;\n  opacity: 0.4;\n}\n.separatorShell.top{\n  margin-top: 30px;\n}\ndiv[contenteditable=\"true\"]:focus {\n  max-height: unset;\n}\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\n  overflow: auto;\n  display: -webkit-box;\n  display: flex;\n  color: black;\n  border: 1px solid black;\n  min-height: 100px;\n  max-height: 200px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\ndiv[contenteditable=\"true\"] {\n  background-color: white;\n  cursor: text;\n}\ndiv[contenteditable=\"false\"] {\n  background-color: gray;\n  cursor: no-drop;\n  opacity: 0.4;\n}\nlabel.allowEdit {\n  color: goldenrod;\n}\nbutton {\n  margin: 5px;\n}\n.style.own, .style.instances{\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.detail{\n  border: 3px solid var(--bluebordercolor);\n  background: var(--);\n  color: var(--altFontColor);\n}\nbutton.detail {\n  margin: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  display: -webkit-box;\n  display: flex;\n  height: auto;\n  border-top-left-radius: 17px;\n  border-top-right-radius: 17px;\n  z-index: 1;\n }\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  margin-right: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\nbutton.detail:last-child:not(:only-child){\n  margin-left: -3px;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\nbutton.detail:focus {\n  box-shadow: none !important;\n  outline: none !important;\n}\ndiv.detail{\n  padding: 5px;\n  margin-top: -3px;\n  width: calc(100%);\n}\n.saveasrow{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n}\nbutton.delete{\n  margin: auto;\n  margin-bottom: 5px;\n}\nbutton.saveas{\n  margin: auto;\n  margin-bottom: 5px;\n}\ninput.saveas {\n  margin: auto;\n  margin-bottom: 5px;\n  flex-basis: 100px;\n  -webkit-box-flex: 0.6;\n          flex-grow: 0.6;\n  width: 0;\n}\n.compatibleRow > label > span{\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n  margin-left: 0;\n}\n.saveasrow, .compatibleRow{\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.compatibleRow > label > input {\n  -webkit-box-ordinal-group: 2;\n          order: 1;\n  margin-left: 0;\n  margin-right: 5px;\n}\n.detail > label {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  flex-wrap: nowrap;\n}\nbutton.detail > .opened, button.detail > .closed{\n  margin: auto;\n}\ntable {\n  width: 100%;\n}\ntd.title {\n  font-weight: bold;\n  padding-top: 10px;\n  text-align: center;\n}\nh1 {\n  text-align: center;\n}\nselect{\n  /* background: inherit;\n  border: none;\n  color: inherit;\n  font: inherit; */\n  /*flex-basis: 0;*/\n  flex-shrink: 1;\n  -webkit-box-flex: 0.9;\n          flex-grow: 0.9;\n  max-width: -webkit-max-content;\n  max-width: -moz-max-content;\n  max-width: max-content;\n  min-width: 0;\n}\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\nlabel > *:not(input), h6 > * {\n  display: -webkit-box;\n  display: flex;\n  /* flex-grow: 1;*/\n  margin: auto;\n  flex-wrap: wrap;\n}\nh6{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n\n}\n.separator > * {\n  text-align: center;\n}\n/*\nbutton {\n  background: #0084ff;\n  border: none;\n  border-radius: 5px;\n  padding: 8px 14px;\n  font-size: 15px;\n  color: #fff;\n}\n\nbutton:disabled{\n  background: gray;\n}*/\ninput[type=\"number\"] {\n  width: 40px;\n  margin-right: 5px;\n}\n.zoomX, .zoomY, .gridX, .gridY {\n  margin-left: 5px;\n  margin-right: 15px;}\nlabel>input[type=\"checkbox\"],\nlabel>input[type=\"color\"] {\n  margin-bottom: 3px;\n}\n#primary_color {\n  border-radius: 100%;\n  height: 60px;\n  width: 60px;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n}\n[contenteditable=true]:empty:before {\n  content: attr(placeholder);\n  display: block;\n  /* For Firefox */\n  cursor: text;\n  vertical-align: middle;\n  color: darkgray;\n  text-align: center;\n  margin: auto;\n}\n.separatorShell {\n  min-height: 33px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n  margin: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100%;\n}\n.roww {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.separator {\n  margin: auto;\n  display: inline-block;\n}\n.stylelabel{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  margin-right: 5px;\n}\nselect.stylename{\n  display: -webkit-box;\n  display: flex;\n  margin: auto;\n  margin-left: 0;\n}\n.HorizontalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.onlyVerticalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n}\n.onlyVerticalContainer > * {\n  margin: auto 0;\n}\n.HorizontalChild{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n}\n.opened{\n  display: none;\n}\n.helpButton, .styledelete {\n  display: -webkit-box;\n  display: flex;\n  width: 35px;\n  height: 35px;\n  margin: auto;\n  margin-right: 0;\n}\n.styledelete {\n  margin-right: 5px;\n  margin-left: 5px;\n}\n.helpButton {\n  background: rgb(0, 62, 127);\n  border-color: rgb(0, 62, 127); }\n.htmlstyle > .top {\n  display: -webkit-box;\n  display: flex;\n}\n.expressionRoot {\n  flex-wrap: nowrap !important;\n  max-width: 100%;\n}\ninput.fill{\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n  margin-left: 7px;\n}\n.leftside{\n  -webkit-box-flex: 3;\n          flex-grow: 3;\n  flex-basis: 0;\n  min-width: 0;\n  max-width: 150px;\n}\n.rightside{\n  -webkit-box-flex: 7;\n          flex-grow: 7;\n  flex-basis: 0;\n  min-width: 0;\n}\n.arrowContainer{\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 10px;\n}\nbutton.arrow{\n  display: -webkit-box;\n  display: flex;\n  line-height: unset;\n  padding: 0 6px;\n}\n.tsclass{\n  margin: auto;\n  display: inline;\n  text-align: center;\n}\n/* */\n/*\npre {\n  background:#EEE;\n  padding:5px;\n  width: 290px;\n}*/\n.addHeader{\n  display: -webkit-box;\n  display: flex;\n}\n.addHeader > button {\n  margin-left: 0;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n}\nselect.attributetypeadd{\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  min-width: 0;\n  margin-right: 10px;\n}\n.previewselector{\n  height: 23px;\n  outline: none;\n  border: 2px dashed #666666;\n}\n.showAsEdge{\n  margin-right: 5px !important;\n}\nbutton.delete, button.saveas{\n  font-size: 0.8rem;\n}\nbutton.deleteRule{\n  -webkit-box-flex: 0;\n          flex-grow: 0;\n  flex-basis: auto;\n  min-width: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  padding: 5px;\n}\n.nowrap{\n  flex-wrap: nowrap;\n}\n._root {\n  margin-bottom: 5px;\n}\ndiv.detail.measurable > div.template {\n  display: none;\n}\n.graphColor, .showGrid{\n  margin-left: 0;\n}\nselect.operator{\n  -moz-text-align-last: center;\n       text-align-last: center;\n  margin-left: 5px;\n  margin-right: 5px;\n  width: 25px;\n}\nspan.operatortext{\n  margin-left: 5px;\n  margin-right: 5px;\n}\nselect.operator:disabled{\n  display: none;\n  /*\n  background: inherit;\n  border: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  margin: 0;*/\n}\nspan.nameprefix {\n  margin-left: 7px;\n  background: white;\n  border: 2px inset rgb(238, 238, 238);\n  height: 21px;\n  border-right: none;\n  color: black;\n  line-height: 16px;\n}\ninput.name {\n  margin-left: 0;\n  border-left: none;\n  padding-left: 0;\n}\nlabel:focus > input.name {\n  outline: none;\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\n}\ninput.name:focus {\n  outline: none;\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\n}\n.htmlstyle {\n  width: 100%;\n}\nlabel.allowEdit > span {\n  margin-left:0;\n}\nlabel > * {\n  margin-top: auto;\n  margin-bottom: auto;\n}\nlabel > input[type=\"checkbox\"] ~ * {\n  margin-left: 0;\n}\n.html[contenteditable] {\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\n  overflow-wrap: anywhere;\n  word-wrap: anywhere;\n  white-space: break-spaces;\n}\n.autosizecontainer{\n  display: inline-block;\n}\n.autosizecontainer > *{\n  display: inline-block;\n  margin-right: 5px;\n}\n.sizeContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap; }\n.sizeContainerHalf {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.sizelabel {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n          flex-flow: column-reverse;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 700px) {\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\n  .sizelabel{\n    display: inline-block;\n  }\n}\n.sizelabel > *{\n  display: inline;\n  margin: auto; }\n/* they fix outer css influence on measurable section. */\ninput[type=\"checkbox\"].arrow {\n  margin: 0; }\n.meas_acc0 button { margin: 0; }\n/***********              Measurable editor v2 start                 ********/\n.meas_acc0 .measurableSettingRoot{\n  width: 100%;\n  display: block;\n}\n.meas_acc0 .boxesroot {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n}\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n}\n.meas_acc0 .column, .meas_acc0 .row{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .row {\n  max-width: 100%;\n  margin-right: unset;\n  margin-left: unset; /* dumb _grid.scss fixer */\n}\n.meas_acc0 .break { flex-wrap: wrap; }\n.meas_acc0 .autobreak { flex-wrap: initial; }\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\n.meas_acc0 .side { display: -webkit-box; display: flex; }\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\n  background-color: dimgray;\n}\n.meas_acc0 .boxroot {\n  display: block;\n  margin: auto;\n  flex-wrap: wrap;\n}\n.meas_acc0 .ruletitle{\n  display: block;\n  text-align: center;\n}\n.meas_acc0 button.ruledelete {\n  height: 100%;\n  width: 30px;\n  padding: 0;\n  margin-right: 5px;\n  border-radius: 25px 0 0 25px;\n}\n.meas_acc0 .compoundInputprefix {\n  max-width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 0;\n  padding: 0;\n  -webkit-box-flex: 0 !important;\n          flex-grow: 0 !important;\n  width: auto;\n  flex-basis: auto !important;\n  flex-shrink: 0 !important;\n}\n.meas_acc0 .compoundInputprefix > input.attrname {\n  border-left: none;\n  padding-left: 0;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.meas_acc0 .compoundInputprefix > * { border: none; }\n.meas_acc0 .compoundInputprefix > *:first-child {\n  margin-top: 1px;\n  padding-right: 0;\n  background-color: transparent;\n}\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\n.meas_acc0 .compoundInputprefix:focus-within {\n  border-color: #80bdff;\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\n/* .meas_acc0 .rightx { min-width: 0; } */\n.meas_acc0 .rightx span.operator {\n  margin: auto;\n  margin-left: 5px;\n  margin-right: 5px;\n  margin-top: 8px;\n}\n.meas_acc0 .operatorcontainer {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 5px;\n}\n.meas_acc0 select.operator {\n  width: 45px;\n  margin: auto 5px;\n  text-align: center;\n  -moz-text-align-last: center;\n       text-align-last: center;\n}\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\n  margin-bottom: 5px;\n  min-width: 120px;\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\n.meas_acc0 .attrname {\n  max-width: 200px !important; /* todo: remove when is autosizing */\n  min-width: 0;\n}\n.meas_acc0 .addrule {\n  float: right;\n  margin-top: -4px;\n  padding: 4px 10px;\n}\n.meas_acc0 .ruletitle {\n  padding-right: 4px;\n  margin-bottom: 5px;\n}\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\n.meas_acc0 .form-control > .form-control:not(:first-child){\n  border-top-left-radius: unset;\n  /* disable bootstrap rule*/\n}\n.meas_acc0 .measurableerrortext{\n  margin-left: 5px;\n  color: var(--danger);\n}\n.meas_acc0 .measurablewarningtext{\n  margin-left: 5px;\n  color: var(--warning);\n}\n.meas_acc0 .measurableoutputtext{\n  margin-left: 5px;\n  color: var(--secondary);\n}\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\n.meas_acc0 .measurabledebug { display: none; }\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\n.meas_acc0 .countershell { float: right; }\n.meas_acc0 .rectangledrawing.outer > * {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .top > .left {\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\n}\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\n.meas_acc0 .rectangledrawing.outer > .top > .right {\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\n.meas_acc0 input.side.top {\n  margin-bottom: 3px;\n  margin-top: -3px; }\n.meas_acc0 input.side.bot {\n  margin-bottom: -3px;\n  margin-top: 3px; }\n.meas_acc0 input.side.left {\n  margin-right: 3px;\n  margin-left: -3px; }\n.meas_acc0 input.side.right {\n  margin-right: -3px;\n  margin-left: 3px; }\n.meas_acc0 .arrowh {\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\n.meas_acc0 .arrowv {\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\n  height: 50px;\n  min-width: 50px;\n}\n.meas_acc0 .rectangledrawing.outer > .top > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .bot > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .arrow { -webkit-appearance: initial; }\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\n  width: 75px;\n  height: 75px; }\n.meas_acc0 .arrow:focus{ outline: none; }\n.meas_acc0 .arrow:checked{\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\n.meas_acc0 .directions {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto; }\n.meas_acc0 .directions > * { margin: auto; }\n.meas_acc0 .draggable.boxroot{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  /*height: 237px;*/\n}\n.meas_acc0 .collapse:not(.show) { display: none; }\n.meas_acc0 .selected { background-color: #37ff66 !important; }\n/***********              Measurable editor v2 end                   ********/\n.isinterface, .isabstract{\n  margin-right: 5px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0U7Ozs7O29DQUtrQztBQUNwQztBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLDZCQUE2QjtFQUM3QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLHdDQUF3QztFQUN4QyxtQkFBbUI7RUFDbkIsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osNEJBQTRCO0VBQzVCLDZCQUE2QjtFQUM3QixVQUFVO0NBQ1g7QUFDRCw0Q0FBNEMsaURBQWlEO0VBQzNGLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsNkJBQTZCO0FBQy9CO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLHdCQUF3QjtBQUMxQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHFCQUFjO1VBQWQsY0FBYztFQUNkLFFBQVE7QUFDVjtBQUNBO0VBQ0UsMkJBQW1CO0VBQW5CLHdCQUFtQjtFQUFuQixtQkFBbUI7RUFDbkIsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0VBQ1osNEJBQVE7VUFBUixRQUFRO0VBQ1IsY0FBYztBQUNoQjtBQUNBO0VBQ0UsV0FBVztFQUNYLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFOzs7a0JBR2dCO0VBQ2hCLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QscUJBQWM7VUFBZCxjQUFjO0VBQ2QsOEJBQXNCO0VBQXRCLDJCQUFzQjtFQUF0QixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBRUEsT0FBTyxvQkFBYSxDQUFiLGFBQWEsRUFBRSxrQkFBVyxFQUFYLFdBQVcsQ0FBQztBQUNsQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUVBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZOztBQUVkO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTs7Ozs7Ozs7Ozs7O0VBWUU7QUFDRjtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixrQkFBa0IsQ0FBQztBQUdyQjs7RUFFRSxrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osV0FBVztFQUNYLFlBQVk7RUFDWixhQUFhO0VBQ2Isd0JBQXdCO0FBQzFCO0FBRUE7RUFDRSwwQkFBMEI7RUFDMUIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsWUFBWTtBQUNkO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsV0FBVztBQUNiO0FBRUE7RUFDRSxZQUFZO0VBQ1oscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw4QkFBYztFQUFkLDZCQUFjO1VBQWQsY0FBYztFQUNkLGVBQWU7RUFDZixXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFjO0VBQWQsNkJBQWM7VUFBZCxjQUFjO0VBQ2QsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7RUFDWixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLDZCQUE2QixFQUFFO0FBRWpDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLDRCQUE0QjtFQUM1QixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtFQUNaLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQSxJQUFJO0FBRUo7Ozs7O0VBS0U7QUFDRjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsNEJBQVE7VUFBUixRQUFRO0FBQ1Y7QUFDQTtFQUNFLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLDBCQUEwQjtBQUM1QjtBQUVBO0VBQ0UsNEJBQTRCO0FBQzlCO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDRCQUF1QjtPQUF2Qix1QkFBdUI7RUFDdkIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixXQUFXO0FBQ2I7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGFBQWE7RUFDYjs7Ozs7YUFLVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsZUFBZTtBQUNqQjtBQUVBO0VBQ0UsYUFBYTtFQUNiLDJDQUEyQztBQUM3QztBQUVBO0VBQ0UsYUFBYTtFQUNiLGlGQUFpRjtBQUNuRjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9FQUFvRTtFQUNwRSx1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLHlCQUF5QjtBQUMzQjtBQUVBO0VBQ0UscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlLEVBQUU7QUFDbkI7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQiw0QkFBeUI7RUFBekIsOEJBQXlCO1VBQXpCLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnTEFBZ0w7RUFDaEw7SUFDRSxxQkFBcUI7RUFDdkI7QUFDRjtBQUNBO0VBQ0UsZUFBZTtFQUNmLFlBQVksRUFBRTtBQVdkLHdEQUF3RDtBQUUxRDtFQUNFLFNBQVMsRUFBRTtBQUViLG9CQUFvQixTQUFTLEVBQUU7QUFLL0IsNkVBQTZFO0FBQzdFO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0FBQ25CO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGVBQWU7RUFDZixtQkFBbUI7RUFDbkIsa0JBQWtCLEVBQUUsMEJBQTBCO0FBQ2hEO0FBQ0Esb0JBQW9CLGVBQWUsRUFBRTtBQUNyQyx3QkFBd0Isa0JBQWtCLEVBQUU7QUFDNUMsbUJBQW1CLG1CQUFZLEVBQVosWUFBWSxFQUFFO0FBQ2pDLHVCQUF1QixjQUFjLEVBQUUsa0JBQWtCLEVBQUUsbUJBQW1CLEVBQUU7QUFDaEYsbUJBQW1CLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2xDLGdEQUFnRCxXQUFXLEVBQUU7QUFDN0QsNkNBQTZDLFlBQVksRUFBRSx3QkFBd0IsRUFBRTtBQUNyRixxQkFBcUIsb0JBQWEsRUFBYixhQUFhLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTtBQUMvRCxxQkFBcUIsMkJBQTJCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUsNkJBQTZCLFlBQVksRUFBRSxZQUFZLEVBQUU7QUFDekQ7RUFDRSx5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLGNBQWM7RUFDZCxZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsZUFBZTtFQUNmLDJCQUFtQjtFQUFuQix3QkFBbUI7RUFBbkIsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixVQUFVO0VBQ1YsOEJBQXVCO1VBQXZCLHVCQUF1QjtFQUN2QixXQUFXO0VBQ1gsMkJBQTJCO0VBQzNCLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZix5QkFBeUI7RUFDekIsNEJBQTRCO0FBQzlCO0FBQ0Esc0NBQXNDLFlBQVksRUFBRTtBQUNwRDtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsNkJBQTZCO0FBQy9CO0FBQ0EsZ0RBQWdELGdCQUFnQixFQUFFO0FBQ2xFO0VBQ0UscUJBQXFCO0VBQ3JCLGdEQUFnRDtBQUNsRDtBQUVBLDBFQUEwRSwyQkFBMkIsRUFBRTtBQUN2Ryx5Q0FBeUM7QUFDekM7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLDRCQUF1QjtPQUF2Qix1QkFBdUI7QUFDekI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtBQUNkO0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFO0FBQ2pELCtCQUErQixnQkFBZ0IsRUFBRTtBQUNqRCx3Q0FBd0MsZUFBZSxFQUFFO0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0VBQ2pFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQSxrQ0FBa0MsMkJBQTJCLEVBQUU7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFO0FBQzFEO0VBQ0UsNkJBQTZCO0VBQzdCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtBQUN0QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHVCQUF1QjtBQUN6QjtBQUNBLDJCQUEyQixrQkFBa0IsRUFBRTtBQUMvQyw4QkFBOEIsYUFBYSxFQUFFO0FBQzdDLGtEQUFrRCxvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNqRSwyQkFBMkIsWUFBWSxFQUFFO0FBQ3pDO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7QUFDQTtFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEO0FBQ0E7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTtBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7QUFDbkI7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCLEVBQUU7QUFDckI7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTtBQUMxRDtFQUNFLHNEQUFzRCxFQUFFO0FBRTFEO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFFZixvQkFBb0IsMkJBQTJCLEVBQUU7QUFFakQ7RUFDRSxXQUFXO0VBQ1gsWUFBWSxFQUFFO0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7QUFDeEM7RUFDRSw0RkFBb0Y7VUFBcEYsb0ZBQW9GLEVBQUU7QUFFeEY7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsWUFBWSxFQUFFO0FBRWhCLDZCQUE2QixZQUFZLEVBQUU7QUFDM0M7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7QUFDQSxrQ0FBa0MsYUFBYSxFQUFFO0FBQ2pELHVCQUF1QixvQ0FBb0MsRUFBRTtBQUM3RCw2RUFBNkU7QUFDN0U7RUFDRSxpQkFBaUI7QUFDbkIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3N0eWxlLWVkaXRvci9zdHlsZS1lZGl0b3IuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLnN0eWxlQ29udGFpbmVye1xuICAvKnBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBvdmVyZmxvdy15OiBhdXRvO1xuICBvdmVyZmxvdy14OiBhdXRvO1xuICBwYWRkaW5nOiAxN3B4O1xuICBwYWRkaW5nLXJpZ2h0OiBjYWxjKDE3cHggLSAxMHB4KTsqL1xufVxuLnRlbXBsYXRle1xuICBkaXNwbGF5OiBub25lO1xufVxuLlN0eWxlRWRpdG9yRGlzcGxheSAudGVtcGxhdGV7XG4gIGRpc3BsYXk6IHVuc2V0O1xufVxuLnByZXZpZXd7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBtaW4taGVpZ2h0OiAxMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCByZWQ7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuLnByZXZpZXc6Ymxhbmt7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbi5zZXBhcmF0b3JTaGVsbC50b3B7XG4gIG1hcmdpbi10b3A6IDMwcHg7XG59XG5cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdOmZvY3VzIHtcbiAgbWF4LWhlaWdodDogdW5zZXQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSwgZGl2W2NvbnRlbnRlZGl0YWJsZT1cImZhbHNlXCJdIHtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGNvbG9yOiBibGFjaztcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xuICBtYXgtaGVpZ2h0OiAyMDBweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBjdXJzb3I6IHRleHQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwiZmFsc2VcIl0ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xuICBjdXJzb3I6IG5vLWRyb3A7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbmxhYmVsLmFsbG93RWRpdCB7XG4gIGNvbG9yOiBnb2xkZW5yb2Q7XG59XG5idXR0b24ge1xuICBtYXJnaW46IDVweDtcbn1cbi5zdHlsZS5vd24sIC5zdHlsZS5pbnN0YW5jZXN7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbn1cbi5kZXRhaWx7XG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLWJsdWVib3JkZXJjb2xvcik7XG4gIGJhY2tncm91bmQ6IHZhcigtLSk7XG4gIGNvbG9yOiB2YXIoLS1hbHRGb250Q29sb3IpO1xufVxuYnV0dG9uLmRldGFpbCB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgZGlzcGxheTogZmxleDtcbiAgaGVpZ2h0OiBhdXRvO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxN3B4O1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMTdweDtcbiAgei1pbmRleDogMTtcbiB9XG5idXR0b24uZGV0YWlsOmZpcnN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7IC8qIGZpcnN0IHZpc2libGUgY2hpbGQgbm90IHBvc3NpYmxlIGljIHB1cmUgY3NzICovXG4gIGZsZXgtZmxvdzogY29sdW1uO1xuICBtYXJnaW4tcmlnaHQ6IDA7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6bGFzdC1jaGlsZDpub3QoOm9ubHktY2hpbGQpe1xuICBtYXJnaW4tbGVmdDogLTNweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6Zm9jdXMge1xuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcbn1cbmRpdi5kZXRhaWx7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXRvcDogLTNweDtcbiAgd2lkdGg6IGNhbGMoMTAwJSk7XG59XG4uc2F2ZWFzcm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG5idXR0b24uZGVsZXRle1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbmJ1dHRvbi5zYXZlYXN7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuaW5wdXQuc2F2ZWFzIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xuICBmbGV4LWdyb3c6IDAuNjtcbiAgd2lkdGg6IDA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gc3BhbntcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgb3JkZXI6IDI7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLnNhdmVhc3JvdywgLmNvbXBhdGlibGVSb3d7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IHdyYXA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gaW5wdXQge1xuICBvcmRlcjogMTtcbiAgbWFyZ2luLWxlZnQ6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLmRldGFpbCA+IGxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG5idXR0b24uZGV0YWlsID4gLm9wZW5lZCwgYnV0dG9uLmRldGFpbCA+IC5jbG9zZWR7XG4gIG1hcmdpbjogYXV0bztcbn1cbnRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbnRkLnRpdGxlIHtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbmgxIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuc2VsZWN0e1xuICAvKiBiYWNrZ3JvdW5kOiBpbmhlcml0O1xuICBib3JkZXI6IG5vbmU7XG4gIGNvbG9yOiBpbmhlcml0O1xuICBmb250OiBpbmhlcml0OyAqL1xuICAvKmZsZXgtYmFzaXM6IDA7Ki9cbiAgZmxleC1zaHJpbms6IDE7XG4gIGZsZXgtZ3JvdzogMC45O1xuICBtYXgtd2lkdGg6IG1heC1jb250ZW50O1xuICBtaW4td2lkdGg6IDA7XG59XG5cbmxhYmVsIHtkaXNwbGF5OiBmbGV4OyBmbGV4LWdyb3c6MTt9XG5sYWJlbCA+ICo6bm90KGlucHV0KSwgaDYgPiAqIHtcbiAgZGlzcGxheTogZmxleDtcbiAgLyogZmxleC1ncm93OiAxOyovXG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuXG5oNntcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcblxufVxuLnNlcGFyYXRvciA+ICoge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKlxuYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDhweCAxNHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG5idXR0b246ZGlzYWJsZWR7XG4gIGJhY2tncm91bmQ6IGdyYXk7XG59Ki9cbmlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xuICB3aWR0aDogNDBweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7fVxuXG5cbmxhYmVsPmlucHV0W3R5cGU9XCJjaGVja2JveFwiXSxcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbn1cblxuI3ByaW1hcnlfY29sb3Ige1xuICBib3JkZXItcmFkaXVzOiAxMDAlO1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcbn1cblxuW2NvbnRlbnRlZGl0YWJsZT10cnVlXTplbXB0eTpiZWZvcmUge1xuICBjb250ZW50OiBhdHRyKHBsYWNlaG9sZGVyKTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIC8qIEZvciBGaXJlZm94ICovXG4gIGN1cnNvcjogdGV4dDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgY29sb3I6IGRhcmtncmF5O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbjogYXV0bztcbn1cblxuLnNlcGFyYXRvclNoZWxsIHtcbiAgbWluLWhlaWdodDogMzNweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnJvd3cge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uc2VwYXJhdG9yIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uc3R5bGVsYWJlbHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Quc3R5bGVuYW1le1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLkhvcml6b250YWxDb250YWluZXJ7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogcm93O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuLm9ubHlWZXJ0aWNhbENvbnRhaW5lcntcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cbi5vbmx5VmVydGljYWxDb250YWluZXIgPiAqIHtcbiAgbWFyZ2luOiBhdXRvIDA7XG59XG4uSG9yaXpvbnRhbENoaWxke1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuLm9wZW5lZHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmhlbHBCdXR0b24sIC5zdHlsZWRlbGV0ZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAzNXB4O1xuICBoZWlnaHQ6IDM1cHg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiAwO1xufVxuLnN0eWxlZGVsZXRlIHtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG4uaGVscEJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IHJnYigwLCA2MiwgMTI3KTtcbiAgYm9yZGVyLWNvbG9yOiByZ2IoMCwgNjIsIDEyNyk7IH1cblxuLmh0bWxzdHlsZSA+IC50b3Age1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmV4cHJlc3Npb25Sb290IHtcbiAgZmxleC13cmFwOiBub3dyYXAgIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuaW5wdXQuZmlsbHtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xuICBtYXJnaW4tbGVmdDogN3B4O1xufVxuLmxlZnRzaWRle1xuICBmbGV4LWdyb3c6IDM7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIG1pbi13aWR0aDogMDtcbiAgbWF4LXdpZHRoOiAxNTBweDtcbn1cbi5yaWdodHNpZGV7XG4gIGZsZXgtZ3JvdzogNztcbiAgZmxleC1iYXNpczogMDtcbiAgbWluLXdpZHRoOiAwO1xufVxuLmFycm93Q29udGFpbmVye1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuYnV0dG9uLmFycm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBsaW5lLWhlaWdodDogdW5zZXQ7XG4gIHBhZGRpbmc6IDAgNnB4O1xufVxuLnRzY2xhc3N7XG4gIG1hcmdpbjogYXV0bztcbiAgZGlzcGxheTogaW5saW5lO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKiAqL1xuXG4vKlxucHJlIHtcbiAgYmFja2dyb3VuZDojRUVFO1xuICBwYWRkaW5nOjVweDtcbiAgd2lkdGg6IDI5MHB4O1xufSovXG4uYWRkSGVhZGVye1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmFkZEhlYWRlciA+IGJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBvcmRlcjogMjtcbn1cbnNlbGVjdC5hdHRyaWJ1dGV0eXBlYWRke1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG4gIG1pbi13aWR0aDogMDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuLnByZXZpZXdzZWxlY3RvcntcbiAgaGVpZ2h0OiAyM3B4O1xuICBvdXRsaW5lOiBub25lO1xuICBib3JkZXI6IDJweCBkYXNoZWQgIzY2NjY2Njtcbn1cblxuLnNob3dBc0VkZ2V7XG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5idXR0b24uZGVsZXRlLCBidXR0b24uc2F2ZWFze1xuICBmb250LXNpemU6IDAuOHJlbTtcbn1cbmJ1dHRvbi5kZWxldGVSdWxle1xuICBmbGV4LWdyb3c6IDA7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIG1pbi13aWR0aDogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogNXB4O1xufVxuLm5vd3JhcHtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4uX3Jvb3Qge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXYuZGV0YWlsLm1lYXN1cmFibGUgPiBkaXYudGVtcGxhdGUge1xuICBkaXNwbGF5OiBub25lO1xufVxuLmdyYXBoQ29sb3IsIC5zaG93R3JpZHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG5zZWxlY3Qub3BlcmF0b3J7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgd2lkdGg6IDI1cHg7XG59XG5zcGFuLm9wZXJhdG9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Qub3BlcmF0b3I6ZGlzYWJsZWR7XG4gIGRpc3BsYXk6IG5vbmU7XG4gIC8qXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgLW1vei1hcHBlYXJhbmNlOiBub25lO1xuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG4gIG1hcmdpbjogMDsqL1xufVxuXG5zcGFuLm5hbWVwcmVmaXgge1xuICBtYXJnaW4tbGVmdDogN3B4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xuICBoZWlnaHQ6IDIxcHg7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbiAgY29sb3I6IGJsYWNrO1xuICBsaW5lLWhlaWdodDogMTZweDtcbn1cbmlucHV0Lm5hbWUge1xuICBtYXJnaW4tbGVmdDogMDtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbn1cblxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogMCAycHggMnB4IDJweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cblxuaW5wdXQubmFtZTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IDJweCAycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KSwgMnB4IC0ycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cbi5odG1sc3R5bGUge1xuICB3aWR0aDogMTAwJTtcbn1cbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xuICBtYXJnaW4tbGVmdDowO1xufVxubGFiZWwgPiAqIHtcbiAgbWFyZ2luLXRvcDogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogYXV0bztcbn1cbmxhYmVsID4gaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdIH4gKiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLmh0bWxbY29udGVudGVkaXRhYmxlXSB7XG4gIC8qSURFIGdpdmVzIGVycm9yIGJ1dCB0aGV5IGFsbCBhY3R1YWxseSBleGlzdCwgYXQgbGVhc3Qgb24gbW96aWxsYS4qL1xuICBvdmVyZmxvdy13cmFwOiBhbnl3aGVyZTtcbiAgd29yZC13cmFwOiBhbnl3aGVyZTtcbiAgd2hpdGUtc3BhY2U6IGJyZWFrLXNwYWNlcztcbn1cblxuLmF1dG9zaXplY29udGFpbmVye1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uYXV0b3NpemVjb250YWluZXIgPiAqe1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLnNpemVDb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7IH1cbi5zaXplQ29udGFpbmVySGFsZiB7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIGZsZXgtZ3JvdzogMTtcbn1cbi5zaXplbGFiZWwge1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW4tcmV2ZXJzZTtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzAwcHgpIHtcbiAgLyogc3Ugdmlld3BvcnQgdHJvcHBvIHBpY2NvbGkgY2FtYmlvIGxhIHZpc3VhbGl6emF6aW9uZSBkYSBsYWJlbCBzb3ByYSBpbCB0ZXN0byAoYnVvbm8gcGVyIGZhcmUgbW9uby1yb3cpIGEgbGFiZWwgYWZmaWFuY2F0YSBhbCB0ZXN0byAocGVyIGZhcmUgNCByb3cgZSBzY29ycmVyZSB2ZXJ0aWNhbG1lbnRlKSovXG4gIC5zaXplbGFiZWx7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG59XG4uc2l6ZWxhYmVsID4gKntcbiAgZGlzcGxheTogaW5saW5lO1xuICBtYXJnaW46IGF1dG87IH1cblxuXG5cblxuXG5cblxuXG5cblxuICAvKiB0aGV5IGZpeCBvdXRlciBjc3MgaW5mbHVlbmNlIG9uIG1lYXN1cmFibGUgc2VjdGlvbi4gKi9cblxuaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLmFycm93IHtcbiAgbWFyZ2luOiAwOyB9XG5cbi5tZWFzX2FjYzAgYnV0dG9uIHsgbWFyZ2luOiAwOyB9XG5cblxuXG5cbi8qKioqKioqKioqKiAgICAgICAgICAgICAgTWVhc3VyYWJsZSBlZGl0b3IgdjIgc3RhcnQgICAgICAgICAgICAgICAgICoqKioqKioqL1xuLm1lYXNfYWNjMCAubWVhc3VyYWJsZVNldHRpbmdSb290e1xuICB3aWR0aDogMTAwJTtcbiAgZGlzcGxheTogYmxvY2s7XG59XG4ubWVhc19hY2MwIC5ib3hlc3Jvb3Qge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIGZsZXgtZ3JvdzogMTtcbiAgZmxleC1iYXNpczogMDtcbn1cbi5tZWFzX2FjYzAgLm1vdmVtZW50Ym94cm9vdCwgLm1lYXNfYWNjMCAucmVzaXplYm94cm9vdCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZ3JvdzogMTtcbiAgZmxleC1mbG93OiBjb2x1bW47XG59XG5cbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbn1cbi5tZWFzX2FjYzAgLnJvdyB7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcbiAgbWFyZ2luLWxlZnQ6IHVuc2V0OyAvKiBkdW1iIF9ncmlkLnNjc3MgZml4ZXIgKi9cbn1cbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XG4ubWVhc19hY2MwIC5hdXRvYnJlYWsgeyBmbGV4LXdyYXA6IGluaXRpYWw7IH1cbi5tZWFzX2FjYzAgLmZpbGwgeyBmbGV4LWdyb3c6IDE7IH1cbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxuLm1lYXNfYWNjMCAuc2lkZSB7IGRpc3BsYXk6IGZsZXg7IH1cbi5tZWFzX2FjYzAgLnNpZGUubGVmdCwgLm1lYXNfYWNjMCAuc2lkZS5yaWdodCB7IHdpZHRoOiAxMHB4OyB9XG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxuLm1lYXNfYWNjMCAuY29ybmVyIHsgZGlzcGxheTogZmxleDsgd2lkdGg6IDEwcHg7IGhlaWdodDogMTBweDsgfVxuLm1lYXNfYWNjMCAubWlkZGxlIHsgYmFja2dyb3VuZC1jb2xvcjogZ29sZGVucm9kOyBkaXNwbGF5OiBmbGV4OyB9XG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLmlubmVyID4gLnJvdyA+IC5zaWRlLCAubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLmlubmVyID4gLnJvdyA+IC5jb3JuZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBkaW1ncmF5O1xufVxuLm1lYXNfYWNjMCAuYm94cm9vdCB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IGF1dG87XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZXtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgYnV0dG9uLnJ1bGVkZWxldGUge1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAzMHB4O1xuICBwYWRkaW5nOiAwO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgYm9yZGVyLXJhZGl1czogMjVweCAwIDAgMjVweDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXgge1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XG4gIG1hcmdpbi1ib3R0b206IDA7XG4gIHBhZGRpbmc6IDA7XG4gIGZsZXgtZ3JvdzogMCAhaW1wb3J0YW50O1xuICB3aWR0aDogYXV0bztcbiAgZmxleC1iYXNpczogYXV0byAhaW1wb3J0YW50O1xuICBmbGV4LXNocmluazogMCAhaW1wb3J0YW50O1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0LmF0dHJuYW1lIHtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqIHsgYm9yZGVyOiBub25lOyB9XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gKjpmaXJzdC1jaGlsZCB7XG4gIG1hcmdpbi10b3A6IDFweDtcbiAgcGFkZGluZy1yaWdodDogMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4OmZvY3VzLXdpdGhpbiB7XG4gIGJvcmRlci1jb2xvcjogIzgwYmRmZjtcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xufVxuXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxuLyogLm1lYXNfYWNjMCAucmlnaHR4IHsgbWluLXdpZHRoOiAwOyB9ICovXG4ubWVhc19hY2MwIC5yaWdodHggc3Bhbi5vcGVyYXRvciB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi10b3A6IDhweDtcbn1cbi5tZWFzX2FjYzAgLm9wZXJhdG9yY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xuICB3aWR0aDogNDVweDtcbiAgbWFyZ2luOiBhdXRvIDVweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbiAgbWluLXdpZHRoOiAxMjBweDtcbiAgZmxleC1iYXNpczogMDtcbiAgZmxleC1ncm93OiAxO1xufVxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQgeyBtYXJnaW4tYm90dG9tOiAwOyB9XG4ubWVhc19hY2MwIC5yaWdodHggPiAubWVhc3VyYWJsZWRlYnVnIHsgbWFyZ2luLXRvcDogNXB4OyB9XG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XG4gIG1heC13aWR0aDogMjAwcHggIWltcG9ydGFudDsgLyogdG9kbzogcmVtb3ZlIHdoZW4gaXMgYXV0b3NpemluZyAqL1xuICBtaW4td2lkdGg6IDA7XG59XG4ubWVhc19hY2MwIC5hZGRydWxlIHtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBtYXJnaW4tdG9wOiAtNHB4O1xuICBwYWRkaW5nOiA0cHggMTBweDtcbn1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XG4gIHBhZGRpbmctcmlnaHQ6IDRweDtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlLmNvbGxhcHNlZCB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVyIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBidXR0b247IH1cbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IHVuc2V0O1xuICAvKiBkaXNhYmxlIGJvb3RzdHJhcCBydWxlKi9cbn1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIGNvbG9yOiB2YXIoLS1kYW5nZXIpO1xufVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0e1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBjb2xvcjogdmFyKC0td2FybmluZyk7XG59XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG59XG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyeyBtYXJnaW4tYm90dG9tOiA1cHg7IH1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyB7IGRpc3BsYXk6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eDpmb2N1cy13aXRoaW4gLm1lYXN1cmFibGVkZWJ1Z3sgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAuY291bnRlcnNoZWxsIHsgZmxvYXQ6IHJpZ2h0OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gKiB7XG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gKiwgLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Yge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby90cXhYaGs0L3RsLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmd2cHl3ei90bGwucG5nKTtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnNpZGUudG9wIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vTTlmQzdEUC90LnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9QenNtanhmL3RyLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vU04yVEhMdC90cmwucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvLzdqbTlCQlEvbC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5sZWZ0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9xcllXZHBIL2JsLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAuc2lkZS5ib3Qge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9jWGMwbm1TL2IucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL0swcFZWVDcvYnIucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9RcHdSU3NUL2JybC5wbmcpOyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xuICBtYXJnaW4tdG9wOiAtM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcbiAgbWFyZ2luLWJvdHRvbTogLTNweDtcbiAgbWFyZ2luLXRvcDogM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XG4gIG1hcmdpbi1yaWdodDogM3B4O1xuICBtYXJnaW4tbGVmdDogLTNweDsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcbiAgbWFyZ2luLXJpZ2h0OiAtM3B4O1xuICBtYXJnaW4tbGVmdDogM3B4OyB9XG4ubWVhc19hY2MwIC5hcnJvd2gge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZDNqdGJjL2xyLnBuZyk7IH1cbi5tZWFzX2FjYzAgLmFycm93diB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxuXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+IC5jb3JuZXIge1xuICBoZWlnaHQ6IDUwcHg7XG4gIG1pbi13aWR0aDogNTBweDtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XG4gIGhlaWdodDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAqIHtcbiAgaGVpZ2h0OiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcbiAgaGVpZ2h0OiBhdXRvO1xuICB3aWR0aDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xuICBoZWlnaHQ6IGF1dG87XG4gIHdpZHRoOiA1MHB4OyB9XG5cbi5tZWFzX2FjYzAgLmFycm93IHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XG5cbi5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2e1xuICB3aWR0aDogNzVweDtcbiAgaGVpZ2h0OiA3NXB4OyB9XG5cbi5tZWFzX2FjYzAgLmFycm93OmZvY3VzeyBvdXRsaW5lOiBub25lOyB9XG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xuICBmaWx0ZXI6IHNlcGlhKDgyJSkgc2F0dXJhdGUoMzkyNSUpIGh1ZS1yb3RhdGUoNTVkZWcpIGJyaWdodG5lc3MoMTI1JSkgY29udHJhc3QoMTIwJSk7IH1cblxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgbWFyZ2luOiBhdXRvOyB9XG5cbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMgPiAqIHsgbWFyZ2luOiBhdXRvOyB9XG4ubWVhc19hY2MwIC5kcmFnZ2FibGUuYm94cm9vdHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIC8qaGVpZ2h0OiAyMzdweDsqL1xufVxuLm1lYXNfYWNjMCAuY29sbGFwc2U6bm90KC5zaG93KSB7IGRpc3BsYXk6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XG4vKioqKioqKioqKiogICAgICAgICAgICAgIE1lYXN1cmFibGUgZWRpdG9yIHYyIGVuZCAgICAgICAgICAgICAgICAgICAqKioqKioqKi9cbi5pc2ludGVyZmFjZSwgLmlzYWJzdHJhY3R7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuIl19 */";
     /***/
   },
 
@@ -26425,6 +27987,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _common_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../common/util */
     "./src/common/util.ts");
+    /* harmony import */
+
+
+    var _mGraph_Layouting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../mGraph/Layouting */
+    "./src/guiElements/mGraph/Layouting.ts");
 
     var StyleEditorComponent =
     /*#__PURE__*/
@@ -26434,13 +28002,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(StyleEditorComponent, [{
+        key: "getModel",
+        value: function getModel() {
+          return this.model = this.isM2 ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm : _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m;
+        }
+      }, {
+        key: "getGraph",
+        value: function getGraph() {
+          return this.graph = this.graph || this.getModel().graph;
+        }
+      }, {
+        key: "get",
+        value: function get() {
+          return this.se = this.se || this.getModel().graph.propertyBar.styleEditor;
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {}
+      }, {
+        key: "changeGridUse",
+        value: function changeGridUse($event) {
+          console.log('change grid use:', $event);
+          this.getGraph().useGrid = $event.currentTarget['checked'];
+        }
       }]);
 
       return StyleEditorComponent;
     }();
 
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], StyleEditorComponent.prototype, "isM2", void 0);
     StyleEditorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-style-editor',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -26527,6 +28117,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.clickedLevel = clickedLevel = clickedLevel || m.getHtmlOnGraph();
           this.showMP(m, null, false, null);
+          this.addEventListeners();
           this.updateClickedGUIHighlight();
           return;
           /*
@@ -26535,6 +28126,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (m instanceof IReference) { this.showR(m); }
           if (m instanceof EOperation) { this.showO(m); }
           if (m instanceof EParameter) { this.showParam(m); }*/
+        }
+      }, {
+        key: "addEventListeners",
+        value: function addEventListeners() {// this.$root.find('[data-modelpieceid]').off('contextmenu')
+          // .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
         }
       }, {
         key: "updateClickedGUIHighlight",
@@ -26581,30 +28177,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var zoomX = $html.find('.zoomX')[0];
           var zoomY = $html.find('.zoomY')[0];
           var showGrid = $html.find('.showGrid')[0];
-          var color = $html.find('.graphColor')[0];
+          var useGrid = $html.find('.useGrid')[0];
+          var gridColor1 = $html.find('.gridColor1')[0];
+          var gridColor2 = $html.find('.gridColor2')[0];
           gridX.value = m.graph.grid ? '' + m.graph.grid.x : '';
           gridY.value = m.graph.grid ? '' + m.graph.grid.y : '';
           zoomX.value = m.graph.zoom.x + '';
           zoomY.value = m.graph.zoom.y + '';
           showGrid.checked = m.graph.gridDisplay;
-          color.value = '#000ff'; // todo.
-          // event listeners:
+          useGrid.checked = m.graph.useGrid;
+          gridColor1.value = m.graph.gridColor1;
+          gridColor2.value = m.graph.gridColor2;
+          $([gridColor1, gridColor2]).on('change', function (e) {
+            m.graph.gridColor1 = gridColor1.value || '#808080';
+            m.graph.gridColor2 = gridColor2.value || '#808080';
+            m.graph.refreshGridGUI();
+          }); // event listeners:
+
+          var changeGrid = function changeGrid(e, coord) {
+            var input = e.currentTarget;
+            if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isNumerizable(input.value)) m.graph.grid[coord] = +input.value; // will be displayed by gridDisplay.trigger
+
+            showGrid.checked = true;
+            $(showGrid).trigger('change');
+            m.graph.fitVertexToGrid(false);
+          };
 
           $(gridX).off('change.set').on('change.set', function (e) {
-            var input = e.currentTarget;
-            if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isNumerizable(input.value)) m.graph.grid.x = +input.value; // will be displayed by gridDisplay.trigger
-
-            showGrid.checked = true;
-            $(showGrid).trigger('change');
-            m.refreshGUI();
+            return changeGrid(e, 'x');
           });
           $(gridY).off('change.set').on('change.set', function (e) {
-            var input = e.currentTarget;
-            if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isNumerizable(input.value)) m.graph.grid.y = +input.value; // will be displayed by gridDisplay.trigger
-
-            showGrid.checked = true;
-            $(showGrid).trigger('change');
-            m.refreshGUI();
+            return changeGrid(e, 'y');
           });
           $(zoomX).off('change.set').on('change.set', function (e) {
             var input = e.currentTarget;
@@ -26618,6 +28221,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var input = e.currentTarget;
             m.graph.setGrid(null, null, input.checked);
           });
+          $(useGrid).off('change.set').on('change.set', function (e) {
+            var input = e.currentTarget;
+            console.log('useGrid changed', m.graph.useGrid, '-->', input.checked);
+            console.log('useGrid changed', m.graph.useGrid, '-->', input.checked);
+            e.preventDefault(); // debug to see if angular change status
+
+            m.graph.setUseGrid(input.checked);
+          });
+          console.log('newk, layouuthtml setup pre');
+          this.layoutHtmlSetup(m);
         }
       }, {
         key: "showP",
@@ -26627,7 +28240,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "setStyleEditor",
         value: function setStyleEditor($styleown, model, mp, style, context) {
-          var _this40 = this;
+          var _this44 = this;
 
           var indexedPath = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
           var insideOwnSection = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : false;
@@ -26675,7 +28288,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             delete: null,
             saveasName: null,
             styledelete: null,
-            measurableCheckbox: null
+            measurableCheckbox: null,
+            interfaceCheckbox: null,
+            abstractCheckbox: null
           };
           if (insideOwnSection) this.ownstylecontext = obj; //// setting up labelAllowEdit (checking if the (own, inherited or inheritable) style exist or a modelpiece local copy is needed.)
 
@@ -26755,7 +28370,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               v.apply(mptarget);
 
-              _this40.showMP(mp); // todo: se stylecomplexEntry è null mostra un altro button.editAllowed per inserire lo stile ereditabile che generi htmli.
+              _this44.showMP(mp); // todo: se stylecomplexEntry è null mostra un altro button.editAllowed per inserire lo stile ereditabile che generi htmli.
 
             });
 
@@ -26826,13 +28441,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               mp.metaParent.refreshInstancesGUI();
             }
 
-            if (!isInheritable && indexedPath) _this40.clickedLevel = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(mp.getHtmlOnGraph(), indexedPath, 'childNodes');
+            if (!isInheritable && indexedPath) _this44.clickedLevel = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(mp.getHtmlOnGraph(), indexedPath, 'childNodes');
             graphRoot = mp.getHtmlOnGraph();
 
             if (insideOwnSection) {
               context.graphLevel = graphRoot && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(graphRoot, indexedPath, 'childNodes');
 
-              _this40.updateClickedGUIHighlight();
+              _this44.updateClickedGUIHighlight();
             } // obj.input.innerText = inputHtml.outerHTML;
             // DANGER: se lo fai con l'evento onchange() ti sposta il cursore all'inizio e finisci per scrivere rawtext prima dell'html invalidandolo.
             // tenendolo dovresti scrivere i caratteri uno alla volta riposizionando il cursore nel punto giusto ogni volta.
@@ -26844,14 +28459,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $(obj.input).off('paste.set').on('paste.set', function (e
           /*ClipboardEvent*/
           ) {
-            _this40.onPaste(e);
+            _this44.onPaste(e);
 
             onStyleChange();
           }) // .off('change.set').on('change.set', onStyleChange)
           // .off('input.set').on('input.set', onStyleChange)
           .off('blur.set').on('blur.set', onStyleChange).off('keydown.set').on('keydown.set', function (e) {
             if (e.key === 'Esc') {
-              _this40.propertyBar.refreshGUI();
+              _this44.propertyBar.refreshGUI();
             }
           }); // setup measurable options.
 
@@ -26896,20 +28511,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             style.view.delete();
             mp.refreshGUI();
 
-            _this40.show(mp, mp.getHtmlOnGraph());
+            _this44.show(mp, mp.getHtmlOnGraph());
           });
-          $measurableCheckbox.on('click', function (e) {
+
+          var stopPropagation = function stopPropagation(e) {
             e.stopPropagation();
-          });
-          $measurableCheckbox.on('mousedown', function (e) {
-            e.stopPropagation();
-          });
-          $measurableCheckbox.on('mouseup', function (e) {
-            e.stopPropagation();
-          });
+          };
+
           if (!$measurableCheckbox[0].checked) $measurableTitle.hide();
           var templateParent = context.templateLevel && context.templateLevel.parentElement;
-          $measurableCheckbox.off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', function (e) {
+          $measurableCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation).off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', function (e) {
             context.templateLevel.classList.remove('measurable');
 
             if (measurableCheckbox.checked) {
@@ -26919,9 +28530,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               if (!$measurableBody[0].classList.contains('show')) {
                 $measurableTitle.trigger('click');
-              }
+              } // console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', templateParent.style.position);
 
-              console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', templateParent.style.position);
 
               if (templateParent) {
                 if (templateParent.style.position !== 'relative') {
@@ -26965,7 +28575,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "showMP",
         value: function showMP(m) {
-          var _this41 = this;
+          var _this45 = this;
 
           var clickedLevel = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
           var asMeasurable = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
@@ -27064,8 +28674,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.sizeInputh = $html.find('input.sizeh')[0];
           var $autosizew = $html.find('input.autowidth');
           var $autosizeh = $html.find('input.autoheight');
+          var $autolayout = $html.find('input.autolayout');
           var autosizew = $autosizew[0];
           var autosizeh = $autosizeh[0];
+          var autolayout = $autolayout[0];
 
           if (v && this.sizeInputx) {
             autosizeh.disabled = autosizew.disabled = this.ownstylecontext.measurableCheckbox.disabled;
@@ -27104,11 +28716,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             $autosizew.on('change', function () {
               setAutosize(autosizew.checked, null);
-              _this41.sizeInputw.disabled = autosizew.checked;
+              _this45.sizeInputw.disabled = autosizew.checked;
             });
             $autosizeh.on('change', function () {
               setAutosize(null, autosizeh.checked);
-              _this41.sizeInputh.disabled = autosizeh.checked;
+              _this45.sizeInputh.disabled = autosizeh.checked;
+            });
+            $autolayout.on('change', function () {
+              v.setAutolayout(autolayout.checked);
             });
             var vSize = v.getSize();
             this.sizeInputx.value = '' + vSize.x;
@@ -27116,32 +28731,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.sizeInputw.value = '' + vSize.w;
             this.sizeInputh.value = '' + vSize.h;
             $(this.sizeInputx).on('change', function () {
-              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](+_this41.sizeInputx.value, null, null, null));
+              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](+_this45.sizeInputx.value, null, null, null));
             });
             $(this.sizeInputy).on('change', function () {
-              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, +_this41.sizeInputy.value, null, null));
+              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, +_this45.sizeInputy.value, null, null));
             });
             $(this.sizeInputw).on('change', function () {
-              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, +_this41.sizeInputw.value, null));
+              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, +_this45.sizeInputw.value, null));
             });
             $(this.sizeInputh).on('change', function () {
-              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, null, +_this41.sizeInputh.value));
+              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, null, +_this45.sizeInputh.value));
             });
           } else {
             $html.find('.sizeContainer').remove();
-          } //// end autosize
+          }
+
+          autolayout.checked = v.autoLayout; //// end autosize
           // <meta>
           //     <dependency><attributes><type>double</ </ </
           //     <preview><img src=imgurl</img> or html diretto.</
           // </meta>
           // pulsanti per settare preview: "takesnapshotOf / set as example... + select vertex with that style"
 
-
           var $arrowupp = $html.find('button.arrow.upp').on('click', function (e) {
-            _this41.propertyBar.show(null, clickedRoot, null, false);
+            _this45.propertyBar.show(null, clickedRoot, null, false);
           });
           var $arrowup = $html.find('button.arrow.up').on('click', function (e) {
-            _this41.propertyBar.show(null, clickedLevel.parentElement, null, false);
+            _this45.propertyBar.show(null, clickedLevel.parentElement, null, false);
           });
           $arrowup[0].disabled = $arrowupp[0].disabled = htmlPath.length === 0 && m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"]; // ($html.find('button.arrow.down') as JQuery<HTMLButtonElement>)[0].disabled = true;
 
@@ -27153,7 +28769,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             $(showAsEdge).off('change.set').on('change.set', function (e) {
               m.shouldBeDisplayedAsEdge(true);
 
-              _this41.showE(m, asEdge);
+              _this45.showE(m, asEdge);
             });
           }
         }
@@ -27342,7 +28958,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "makeMeasurableOptions",
         value: function makeMeasurableOptions(measurableShell, inputuseless, style, context, indexedPath) {
-          var _this42 = this;
+          var _this46 = this;
 
           var $measurableShell = $(measurableShell);
           var $meas_acc = $measurableShell.find('.meas_acc');
@@ -27499,7 +29115,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $measurableShell.find('button.addrule').off('click.addrule').on('click.addrule', function (e) {
             e.stopPropagation();
 
-            _this42.addRule(e, context);
+            _this46.addRule(e, context);
           });
         }
       }, {
@@ -27514,7 +29130,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addRule",
         value: function addRule(e, context) {
-          var _this43 = this;
+          var _this47 = this;
 
           var ruleparts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
           var i;
@@ -27780,15 +29396,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           $(nameinput).off('change.name').on('change.name', nameChanged);
           $(operator).off('change.operator').on('change.operator', operatorChanged);
-          $(left).off('click.leftside').on('click.leftside', leftClicked);
-          $(right).off('click.rightside').on('click.rightside', rightClicked);
-          $(target).off('click.target').on('click.target', targetClicked);
+
+          if (left && (left.list || left instanceof HTMLSelectElement)) {
+            $(left).off('change.leftside').on('change.leftside', leftChanged);
+          } else {
+            $(left).off('click.leftside').on('click.leftside', leftClicked);
+          }
+
+          if (right && (right.list || right instanceof HTMLSelectElement)) {
+            $(right).off('change.rightside').on('change.rightside', rightChanged);
+          } else {
+            $(right).off('click.rightside').on('click.rightside', rightClicked);
+          }
+
+          if (target && (target.list || target instanceof HTMLSelectElement)) {
+            $(target).off('change.target').on('change.target', targetChanged);
+          } else {
+            $(target).off('click.target').on('click.target', targetClicked);
+          }
           /*
           $(nameinput).off('change.name').on('change.name', nameChanged);
           $(left).off('change.leftside').on('change.leftside', leftChanged);
           $(operator).off('change.operator').on('change.operator', operatorChanged);
           $(right).off('change.rightside').on('change.rightside', rightChanged);
           $(target).off('change.target').on('change.target', targetChanged);*/
+
 
           $newtemplate.find('button.ruledelete').off('click.delete').on('click.delete', function () {
             newtemplate.parentNode.removeChild(newtemplate);
@@ -27851,9 +29483,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var attr = context.graphLevel.attributes.getNamedItem(generateRuleName().toLowerCase());
             var parts = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](attr, null, false);
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!parts.prefix, 'unexpected rule: ' + parts, _this43, attr, generateRuleName());
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!parts.prefix, 'unexpected rule: ' + parts, _this47, attr, generateRuleName());
 
-            var output = parts.process(false);
+            var output = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](null, null, true);
+
+            try {
+              output = parts.process(false);
+            } catch (exception) {
+              output = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](null, null, true);
+              console.error('testing the execution caused exception:', exception);
+              output.right = 'Exception:' + exception;
+            }
+
             console.log('execution output:', output);
             if (debugleft) debugleft.innerText = output.left;
             if (debugoperator) debugoperator.innerText = output.operator;
@@ -27885,30 +29526,41 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             input: StyleEditor.ruleeditorinput
           };
 
-          var callforeachkeyrecursive = function callforeachkeyrecursive(obj, f, pathuntilnow) {
+          var callforeachkeyrecursive = function callforeachkeyrecursive(obj, f) {
+            var pathuntilnow = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+            var visited_avoidloop = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
             var key0;
             var key;
-            var val;
+            var val; // U.pif((pathuntilnow + '.' + key).indexOf('model') > 0, 'pre!! autocompletem model,  path:', pathuntilnow, 'obj:', obj);
 
             for (key0 in obj) {
               key = key0;
               val = obj[key];
+              var isArray = Array.isArray(val);
+              var isObject = typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].object;
+
+              if (isObject || isArray) {
+                if (obj === val) continue; // nope, sta cosa dei duplicati così non va bene perchè ho degli alias e soprattutto su model fai la roba grezza if obj === val
+                // if (visited_avoidloop.includes(val)) continue; else visited_avoidloop.push(val);
+              }
 
               if (typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].function) {
                 key += _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getFunctionSignatureFromComments(val).signature + ';';
-              } else if (Array.isArray(val)) {
-                key += '/*array*/';
-              } else if (typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].object) {
-                key += '.';
-                /*no post comment*/
-              } else key += '; /*' + typeof val + '*/';
+              } // else key += '/*' + U.getTSClassName(val) + '*/.';
+              else if (isArray) {
+                  key += '/*array*/';
+                } else if (isObject) {
+                  key += '.';
+                } // no type comment per object, altrimenti il commento invalida la ricerca di next suggestions.
+                else key += '; /*' + typeof val + '*/';
 
               _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(key === 'vertex', 'key:', key, 'obj[key]:', obj[key], 'val:', val, 'cond:', val instanceof Object && !(val instanceof Function));
 
               f(pathuntilnow + '.', key); // console.log(pathuntilnow, val);
 
-              if (val instanceof Element) return;
-              if (val instanceof Object) callforeachkeyrecursive(val, f, pathuntilnow + '.' + key0);
+              if (val instanceof Element) continue; //NB: do not use instanceof Object, might somehow fail on custom classes (ModelProtected)
+
+              if (typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].object) callforeachkeyrecursive(val, f, pathuntilnow + '.' + key0, visited_avoidloop);
             }
           };
 
@@ -27919,22 +29571,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var preChars = '};' + spaceUsed + '*/+-';
           var autocompletekeys = [];
 
-          var addmanyv2 = function addmanyv2(prechars, prePath, key) {
+          var addmanyv2 = function addmanyv2(preChars, prePath, key) {
+            // preChars = spazio, moltiplicazione, addizione...
             if (prePath.charAt(0) === '.') prePath = prePath.substr(1);
 
             for (i = 0; i < preChars.length; i++) {
-              autocompletekeys.push(new _common_util__WEBPACK_IMPORTED_MODULE_4__["AutocompleteMatch"](prechars[i] + prePath, key));
+              autocompletekeys.push(new _common_util__WEBPACK_IMPORTED_MODULE_4__["AutocompleteMatch"](preChars[i] + prePath, key));
             }
           };
 
           var contextobj = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableEvalContext"].fillFake();
 
+          window['autocompletekeys'] = autocompletekeys;
+          window['autocompletesourceobj'] = contextobj;
+          window['autocompletemodel'] = contextobj.model;
           var obj = {
             'this': contextobj
           };
           callforeachkeyrecursive(obj, function (prePath, key) {
             addmanyv2(preChars, prePath, key);
-          }, '');
+          }, '', []);
           var inputcontainer = document.createElement('div');
           var input = document.createElement('div');
           var suggestionlist = document.createElement('ul');
@@ -27950,6 +29606,178 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           StyleEditor.ruleeditorinput = input;
           return this.getRuleEditor();
         }
+      }, {
+        key: "layoutHtmlSetup",
+        value: function layoutHtmlSetup(model) {
+          var _this48 = this;
+
+          var $layout = this.$root.find('.layoutingRoot');
+          var $inputs = $layout.find('.lopt').add(this.$root.find('.lopt.stabilizeSteps'));
+
+          var renew = function renew() {
+            _this48.computeLayoutUIFs(model, _this48.$root);
+
+            _this48.fillLayoutHtmlValues(model, $inputs);
+          }; // timeout necessario, altrimenti onchange fà prima renew() ri-settando il valore logico dentro l'html, e poi esegue
+          // l'uif con il vecchio valore logico, il nuovo valore cambiato dall'utente viene perso.
+
+
+          $('.dynamic_uif').on('change', function (e) {
+            setTimeout(renew, 1);
+          });
+          var $edgePointSelect = $('.edgePointTreatment');
+          var layouting = model.graph.layouting;
+          var myOptions = layouting.myOptions;
+          $edgePointSelect[0].value = myOptions.edgePointMode;
+          $edgePointSelect.on('change', function (e) {
+            switch ($edgePointSelect[0].value) {
+              default:
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'unexpected value of layouting.myoptions.edgePointMode:', $edgePointSelect[0].value);
+
+                break;
+
+              case 'vertex':
+              case 'ignore':
+              case 'relative':
+                myOptions.edgePointMode = $edgePointSelect[0].value;
+                break;
+            }
+          });
+          renew();
+
+          var onRun = function onRun() {
+            renew();
+          };
+
+          var onStop = function onStop() {
+            renew();
+          };
+
+          layouting.setStyleEditorBackEvents(onRun, onStop);
+          $inputs.on('change', function (e) {
+            _this48.setLayoutHtmlValue(layouting, e.currentTarget);
+          });
+          var $start = this.$root.find('.layout.start').on('click', function (e) {
+            layouting.start();
+          });
+          var $stabilize = this.$root.find('.layout.stabilize').on('click', function (e) {
+            layouting.stabilize();
+          });
+          var $stop = this.$root.find('.layout.stop').on('click', function (e) {
+            layouting.isRunning = false;
+            layouting.stop();
+          });
+        }
+      }, {
+        key: "setLayoutHtmlValue",
+        value: function setLayoutHtmlValue(layout, currentTarget) {
+          console.log('key2 optionval:', currentTarget.value, currentTarget);
+          this.setLayoutValue(layout, currentTarget.value, currentTarget.dataset.key);
+        }
+      }, {
+        key: "setLayoutValue",
+        value: function setLayoutValue(layouting, value0, key) {
+          layouting.stop();
+
+          var value = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].deserialize(value0);
+
+          if (key.indexOf('custom.') === 0) {
+            switch (key) {
+              default:
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, "unexpected custom uif key on setlayout value:", key);
+
+                break;
+
+              case 'custom.stabilizeSteps':
+                layouting.stabilizationSteps = value;
+                break;
+
+              case 'custom.scale_factor':
+                _mGraph_Layouting__WEBPACK_IMPORTED_MODULE_5__["Layouting"].scaleFactor = value;
+                break;
+            }
+          } else {
+            key = key.replace(/\.bh\./, '.' + layouting.optionsDefault.physics.solver + '.');
+            layouting.setOption(key, value);
+          }
+
+          layouting.start();
+        }
+      }, {
+        key: "computeLayoutUIFs",
+        value: function computeLayoutUIFs(model, $layout) {
+          var dictionary = {};
+          var graph = model.graph;
+          var layouting = graph.layouting;
+          var options = layouting.optionsDefault;
+          dictionary['atl'] = dictionary['bar'] = dictionary['rep'] = dictionary['hr'] = false;
+
+          switch (options.physics.solver) {
+            default:
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'unexpected switch value solver:', options.physics.solver);
+
+            case 'barnesHut':
+              dictionary['bar'] = true;
+              break;
+
+            case 'repulsion':
+              dictionary['rep'] = true;
+              break;
+
+            case 'hierarchicalRepulsion':
+              dictionary['hr'] = true;
+              break;
+
+            case 'forceAtlas2Based':
+              dictionary['atl'] = true;
+              break;
+          }
+
+          dictionary['stabilization'] = options.physics.stabilization.enabled;
+          dictionary['physics'] = options.physics.enabled;
+          dictionary['running'] = layouting.isRunning;
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].computeConditionalHides($layout, dictionary, false, true, function (e) {
+            return $(e).slideDown();
+          }, function (e) {
+            return $(e).slideUp();
+          });
+        }
+      }, {
+        key: "fillLayoutHtmlValues",
+        value: function fillLayoutHtmlValues(model, $inputs) {
+          var i;
+          var val;
+          var layouting = model.graph.layouting;
+
+          for (i = 0; i < $inputs.length; i++) {
+            var input = $inputs[i];
+            var _key25 = input.dataset.key;
+
+            if (_key25.indexOf('custom.') === 0) {
+              switch (_key25) {
+                default:
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, "unexpected custom uif key:", _key25);
+
+                  break;
+
+                case 'custom.stabilizeSteps':
+                  val = '' + layouting.stabilizationSteps;
+                  break;
+
+                case 'custom.scale_factor':
+                  val = '' + _mGraph_Layouting__WEBPACK_IMPORTED_MODULE_5__["Layouting"].scaleFactor;
+                  break;
+              }
+            } else {
+              // normal keys
+              _key25 = _key25.replace(/\.bh\./, '.' + model.graph.layouting.optionsDefault.physics.solver + '.');
+              val = '' + model.graph.layouting.getOption(_key25);
+            }
+
+            if (input instanceof HTMLSelectElement) _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].selectHtml(input, val, false);else input.value = val; // console.log('newkeyy:', key, input, input.value);
+          }
+        }
       }]);
 
       return StyleEditor;
@@ -27957,6 +29785,88 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     StyleEditor.ruleeditor = null;
     StyleEditor.ruleeditorinput = null;
+    /***/
+  },
+
+  /***/
+  "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.css":
+  /*!*********************************************************************!*\
+    !*** ./src/guiElements/top-bar/m2tcreator/m2tcreator.component.css ***!
+    \*********************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcGuiElementsTopBarM2tcreatorM2tcreatorComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvdG9wLWJhci9tMnRjcmVhdG9yL20ydGNyZWF0b3IuY29tcG9uZW50LmNzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts":
+  /*!********************************************************************!*\
+    !*** ./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts ***!
+    \********************************************************************/
+
+  /*! exports provided: M2tcreatorComponent */
+
+  /***/
+  function srcGuiElementsTopBarM2tcreatorM2tcreatorComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "M2tcreatorComponent", function () {
+      return M2tcreatorComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var M2tcreatorComponent =
+    /*#__PURE__*/
+    function () {
+      function M2tcreatorComponent() {
+        _classCallCheck(this, M2tcreatorComponent);
+      }
+
+      _createClass(M2tcreatorComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }], [{
+        key: "willUseThis",
+        value: function willUseThis() {}
+      }]);
+
+      return M2tcreatorComponent;
+    }();
+
+    M2tcreatorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-m2tcreator',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./m2tcreator.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/guiElements/top-bar/m2tcreator/m2tcreator.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./m2tcreator.component.css */
+      "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.css")).default]
+    })], M2tcreatorComponent);
     /***/
   },
 
@@ -27976,7 +29886,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  color: var(--LightmainFontColor);\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n  max-height: 90vh;\r\n  overflow: auto;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  width: 600px;\r\n  margin-bottom: 5px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLGdDQUFnQztFQUNoQyxtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUIsQ0FBQztBQUN0QjtFQUNFLGtCQUFrQjtFQUNsQixtQkFBbUI7QUFDckI7QUFDQTtBQUNBO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFJQSx1SEFBdUg7QUFFdkg7RUFDRSx5QkFBeUIsRUFBRSw4QkFBOEI7RUFDekQsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGVBQWU7QUFDakI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixxQkFBcUI7RUFDckIsZUFBZTtFQUNmLFdBQVc7RUFDWCxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsNENBQTRDO0VBQzVDLFVBQVU7RUFDViw2Q0FBNkM7RUFDN0MsVUFBVTtFQUNWLFNBQVM7RUFDVCxTQUFTO0FBQ1g7QUFDQTtFQUNFLFFBQVE7RUFDUixNQUFNO0VBQ04sVUFBVTtBQUNaO0FBRUE7RUFDRSxVQUFVO0VBQ1YscUJBQXFCO0VBQ3JCLGNBQWM7QUFDaEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0UsK0JBQStCO0FBQ2pDO0FBQ0Esa0RBQWtELDRCQUE0QixFQUFFO0FBQ2hGLDZHQUE2RztBQUM3RztFQUNFLDZDQUE2QztFQUM3QyxzQkFBc0I7RUFDdEIsZ0NBQWdDO0VBQ2hDLCtCQUErQjtFQUMvQjtpQ0FDK0I7QUFDakM7QUFDQTtFQUNFLDRCQUE0QjtFQUM1Qiw2QkFBNkIsQ0FBQztBQUNoQztFQUNFLDZDQUE2QztBQUMvQztBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLDhCQUE4QjtFQUM5QixpREFBaUQsRUFBRSx5RkFBeUY7QUFDOUk7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLGNBQWM7RUFDZCxZQUFZO0VBQ1osWUFBWSxFQUFFO0FBRWhCO0VBQ0UsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUdBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxtQkFBWTtFQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usd0JBQXdCO0VBQ3hCLFlBQVk7RUFDWixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0NBQW9DO0VBQ3BDLDhCQUE4QjtBQUNoQztBQUlBLHdDQUF3QztBQUN4QztFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3RvcC1iYXIvdG9wLWJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbiN0b3BiYXJTaGVsbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtYmFzaXM6IDEwMHZ3O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIC8qYm9yZGVyLWJvdHRvbTogdmFyKC0tbWFpbkJvcmRlcik7Ki9cclxuICB3aWR0aDogMTAwdnc7XHJcbiAgaGVpZ2h0OiB2YXIoLS10b3BiYXJIKTtcclxuICBtYXgtaGVpZ2h0OiB2YXIoLS10b3BiYXJIKTtcclxufVxyXG4jdG9wYmFyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbiN0b3BiYXIgPiAqIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIC8qbWFyZ2luOiBhdXRvIDAgYXV0byAxMHB4OyAvKlQ/UkI/TCovXHJcbn0vKlxyXG4jdG9wYmFyID4gYnV0dG9ue1xyXG4gIGhlaWdodDogY2FsYyh2YXIoLS10b3BiYXJIKSAtIDEwcHgpO1xyXG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xyXG4gIG1pbi13aWR0aDogMTAwcHg7XHJcbiAgbWF4LXdpZHRoOiAxMDBweDtcclxufSovXHJcbiN0b3BiYXIgYnV0dG9uLmRyb3Bkb3duVGl0bGU6Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxufVxyXG5cclxuOjpuZy1kZWVwIC5wb3B1cENvbnRlbnQgLmNsb3NlQnV0dG9ue1xyXG4gIC8qIGZsb2F0OiByaWdodDsgKi9cclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDEwcHg7XHJcbiAgdG9wOiAxMHB4O1xyXG4gIGhlaWdodDogNDBweDtcclxuICB3aWR0aDogNDBweDtcclxuICBib3JkZXI6IDJweCBzb2xpZCB2YXIoLS1tYWluRm9udENvbG9yKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoIC0tYWx0QmFja2dyb3VuZENvbG9yKTtcclxuICBjb2xvcjogdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbjpob3ZlcntcclxuICByaWdodDogNXB4O1xyXG4gIHRvcDogNXB4O1xyXG4gIGhlaWdodDogNTBweDtcclxuICB3aWR0aDogNTBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XHJcbiAgY29sb3I6IHZhcigtLUxpZ2h0bWFpbkZvbnRDb2xvcik7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAuc2NyZWVuV2lkZVNoYWRvd3tcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICB0b3A6IDA7XHJcbiAgei1pbmRleDogMjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNSk7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50e1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHBhZGRpbmc6IDMwcHggNjBweDtcclxuICBib3JkZXI6IDRweCBzb2xpZCB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1heC1oZWlnaHQ6IDkwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93IHtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgd2lkdGg6IDYwMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3c+KntcclxuICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IGF1dG87fVxyXG46Om5nLWRlZXAgLmFsaWFze1xyXG4gIHBhZGRpbmctbGVmdDogMTBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdyA+ICp7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlTmFtZXtcclxuICBjb2xvcjogZGFya29yYW5nZTtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqICAgICBkcm9wZG93biBzdHlsZSAgICAgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuXHJcbi5kcm9wZG93blRpdGxlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0OyAvKnZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpOyovXHJcbiAgY29sb3I6IHVuc2V0O1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgcGFkZGluZzogMTJweCAxNnB4O1xyXG4gIGN1cnNvcjogaW5oZXJpdDtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgLypoZWlnaHQ6IDgwJTsqL1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIucmlnaHQge1xyXG4gIG1pbi13aWR0aDogMTAwJTtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1pbi13aWR0aDogMTYwcHg7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAxNnB4IDBweCByZ2JhKDAsMCwwLDAuMik7XHJcbiAgei1pbmRleDogMTtcclxuICBib3JkZXI6IDNweCBzb2xpZCB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgcGFkZGluZzogMDtcclxuICBtYXJnaW46IDA7XHJcbiAgdG9wOiAxMDAlO1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudC5yaWdodHtcclxuICBtYXJnaW46MDtcclxuICB0b3A6IDA7XHJcbiAgbGVmdDogMTAwJTtcclxufVxyXG5cclxubGkuZHJvcGRvd25Db250ZW50IHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG5cclxudWwuZHJvcGRvd25Db250ZW50Om5vdCg6ZW1wdHkpe1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7XHJcbn1cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQsIC5kcm9wZG93bnBhZGRpbmd7XHJcbiAgZm9udC1zaXplOiBpbmhlcml0O1xyXG4gIHBhZGRpbmc6IDEycHggMTZweDtcclxufVxyXG5cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQ6aG92ZXIsIC5kcm9wZG93bkNvbnRhaW5lci5yaWdodDpob3ZlciwgLmRyb3Bkb3ducGFkZGluZzpob3ZlcntcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAyM3B4O1xyXG59XHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG8sIC5kcm9wZG93bnBhZGRpbmcudG9kb3sgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDsgfVxyXG4vKi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG86bGFzdC1jaGlsZCwgLmRyb3Bkb3ducGFkZGluZy50b2RvOmxhc3QtY2hpbGR7IGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7IH0qL1xyXG5saS5kcm9wZG93bkNvbnRlbnQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAvKnBhZGRpbmctbGVmdDogMTJweDsqL1xyXG4gIGJvcmRlci1sZWZ0OiA4cHggc29saWQgI2ZmMDAwMGEwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMwcHg7XHJcbiAgLyptYXJnaW4tbGVmdDogLTEycHg7IGJvdHRvbS1yb3VuZCBib3JkZXIsIHRyb3VibGUgY29uIHN0aWxpIHNvdnJhcHBvc3RpIGNoZSBsbyByaS1zcXVhZHJhbm8uXHJcbiAgIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDI0cHg7Ki9cclxufVxyXG4jdG9wYmFyPi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj4uZHJvcGRvd25UaXRsZXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAzMHB4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAzMHB4O31cclxuI3RvcGJhcj4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+LmRyb3Bkb3duVGl0bGUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxufVxyXG5cclxuLmJ1dHRvbkdyaWRDb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIC8qIHdpZHRoOiBjYWxjKDQwcHggKiA1IC0gMSk7Ki9cclxuICB3aWR0aDogbWluKDI1dncsIGNhbGMoNDBweCAqIDUgKyAxMHB4ICogNSAtIDFweCkpOyAvKiBidXR0b24gc2l6ZSArIGJ1dHRvbnNoZWxsIG1hcmdpbiwgNCBwZXIgcmlnYSBjb24gbWFzc2ltbyBzcGF6aW8gYXZhbnphdG8gcHJpbWEgZGVsIDXCsCovXHJcbn1cclxuXHJcbi5idXR0b25HcmlkTWluTWFyZ2luIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LXNocmluazogMDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgcGFkZGluZzogNXB4OyB9XHJcblxyXG4uYnV0dG9uR3JpZCB7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG59XHJcblxyXG5cclxudWwuZHJvcGRvd25Db250ZW50e1xyXG4gIG1pbi1oZWlnaHQ6IDEwMCU7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPnVsLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyID4gdWwuZHJvcGRvd25Db250ZW50OmVtcHR5e1xyXG4gIGRpc3BsYXk6ZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6YmVmb3Jle1xyXG4gIGNvbnRlbnQ6ICcuLi4gRW1wdHkgLi4uJztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZGFya3JlZCAhaW1wb3J0YW50O1xyXG4gIGN1cnNvcjogbm90LWFsbG93ZWQgIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKiAgICAgY2hhbmdlbG9nICAgICAqKioqKioqKioqL1xyXG4uY2hhbmdlbG9nUm9vdHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbn1cclxuIl19 */";
+    __webpack_exports__["default"] = "\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  color: var(--LightmainFontColor);\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n  max-height: 90vh;\r\n  overflow: auto;\r\n}\r\n::ng-deep .typeTable {\r\n  margin: auto;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  margin-bottom: 5px;\r\n}\r\n.typemaprow{\r\n  width: 450px;\r\n  margin-bottom: 15px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLGdDQUFnQztFQUNoQyxtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CLENBQUM7QUFDdEI7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7QUFDQTtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBSUEsdUhBQXVIO0FBRXZIO0VBQ0UseUJBQXlCLEVBQUUsOEJBQThCO0VBQ3pELFlBQVk7RUFDWixlQUFlO0VBQ2YsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLGVBQWU7RUFDZixXQUFXO0VBQ1gsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQiw0Q0FBNEM7RUFDNUMsZ0JBQWdCO0VBQ2hCLDRDQUE0QztFQUM1QyxVQUFVO0VBQ1YsNkNBQTZDO0VBQzdDLFVBQVU7RUFDVixTQUFTO0VBQ1QsU0FBUztBQUNYO0FBQ0E7RUFDRSxRQUFRO0VBQ1IsTUFBTTtFQUNOLFVBQVU7QUFDWjtBQUVBO0VBQ0UsVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixjQUFjO0FBQ2hCO0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBLGtEQUFrRCw0QkFBNEIsRUFBRTtBQUNoRiw2R0FBNkc7QUFDN0c7RUFDRSw2Q0FBNkM7RUFDN0Msc0JBQXNCO0VBQ3RCLGdDQUFnQztFQUNoQywrQkFBK0I7RUFDL0I7aUNBQytCO0FBQ2pDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsNkJBQTZCLENBQUM7QUFDaEM7RUFDRSw2Q0FBNkM7QUFDL0M7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZiw4QkFBOEI7RUFDOUIsaURBQWlELEVBQUUseUZBQXlGO0FBQzlJO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixjQUFjO0VBQ2QsWUFBWTtFQUNaLFlBQVksRUFBRTtBQUVoQjtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7QUFHQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsbUJBQVk7RUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLHdCQUF3QjtFQUN4QixZQUFZO0VBQ1osb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9DQUFvQztFQUNwQyw4QkFBOEI7QUFDaEM7QUFJQSx3Q0FBd0M7QUFDeEM7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4jdG9wYmFyU2hlbGx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAxMDB2dztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICAvKmJvcmRlci1ib3R0b206IHZhcigtLW1haW5Cb3JkZXIpOyovXHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbiAgbWF4LWhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbn1cclxuI3RvcGJhciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4jdG9wYmFyID4gKiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAvKm1hcmdpbjogYXV0byAwIGF1dG8gMTBweDsgLypUP1JCP0wqL1xyXG59LypcclxuI3RvcGJhciA+IGJ1dHRvbntcclxuICBoZWlnaHQ6IGNhbGModmFyKC0tdG9wYmFySCkgLSAxMHB4KTtcclxuICBmbGV4LWJhc2lzOiAxMDBweDtcclxuICBtaW4td2lkdGg6IDEwMHB4O1xyXG4gIG1heC13aWR0aDogMTAwcHg7XHJcbn0qL1xyXG4jdG9wYmFyIGJ1dHRvbi5kcm9wZG93blRpdGxlOmZvY3Vze1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbntcclxuICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAxMHB4O1xyXG4gIHRvcDogMTBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgd2lkdGg6IDQwcHg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKCAtLWFsdEJhY2tncm91bmRDb2xvcik7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpO1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxufVxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudCAuY2xvc2VCdXR0b246aG92ZXJ7XHJcbiAgcmlnaHQ6IDVweDtcclxuICB0b3A6IDVweDtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgd2lkdGg6IDUwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xyXG4gIGNvbG9yOiB2YXIoLS1MaWdodG1haW5Gb250Q29sb3IpO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkZXI7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcblxyXG46Om5nLWRlZXAgLnNjcmVlbldpZGVTaGFkb3d7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgdG9wOiAwO1xyXG4gIHotaW5kZXg6IDI7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjUpO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIHdpZHRoOiAxMDB2dztcclxufVxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudHtcclxuICB0b3A6IDUwJTtcclxuICBsZWZ0OiA1MCU7XHJcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGhlaWdodDogYXV0bztcclxuICBwYWRkaW5nOiAzMHB4IDYwcHg7XHJcbiAgYm9yZGVyOiA0cHggc29saWQgdmFyKC0tbWFpbkJvcmRlckNvbG9yKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICBtYXgtaGVpZ2h0OiA5MHZoO1xyXG4gIG92ZXJmbG93OiBhdXRvO1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVRhYmxlIHtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93IHtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcblxyXG4udHlwZW1hcHJvd3tcclxuICB3aWR0aDogNDUwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3c+KntcclxuICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IGF1dG87fVxyXG46Om5nLWRlZXAgLmFsaWFze1xyXG4gIHBhZGRpbmctbGVmdDogMTBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdyA+ICp7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlTmFtZXtcclxuICBjb2xvcjogZGFya29yYW5nZTtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqICAgICBkcm9wZG93biBzdHlsZSAgICAgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuXHJcbi5kcm9wZG93blRpdGxlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0OyAvKnZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpOyovXHJcbiAgY29sb3I6IHVuc2V0O1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgcGFkZGluZzogMTJweCAxNnB4O1xyXG4gIGN1cnNvcjogaW5oZXJpdDtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgLypoZWlnaHQ6IDgwJTsqL1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIucmlnaHQge1xyXG4gIG1pbi13aWR0aDogMTAwJTtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1pbi13aWR0aDogMTYwcHg7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAxNnB4IDBweCByZ2JhKDAsMCwwLDAuMik7XHJcbiAgei1pbmRleDogMTtcclxuICBib3JkZXI6IDNweCBzb2xpZCB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgcGFkZGluZzogMDtcclxuICBtYXJnaW46IDA7XHJcbiAgdG9wOiAxMDAlO1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudC5yaWdodHtcclxuICBtYXJnaW46MDtcclxuICB0b3A6IDA7XHJcbiAgbGVmdDogMTAwJTtcclxufVxyXG5cclxubGkuZHJvcGRvd25Db250ZW50IHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG5cclxudWwuZHJvcGRvd25Db250ZW50Om5vdCg6ZW1wdHkpe1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7XHJcbn1cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQsIC5kcm9wZG93bnBhZGRpbmd7XHJcbiAgZm9udC1zaXplOiBpbmhlcml0O1xyXG4gIHBhZGRpbmc6IDEycHggMTZweDtcclxufVxyXG5cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQ6aG92ZXIsIC5kcm9wZG93bkNvbnRhaW5lci5yaWdodDpob3ZlciwgLmRyb3Bkb3ducGFkZGluZzpob3ZlcntcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAyM3B4O1xyXG59XHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG8sIC5kcm9wZG93bnBhZGRpbmcudG9kb3sgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDsgfVxyXG4vKi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG86bGFzdC1jaGlsZCwgLmRyb3Bkb3ducGFkZGluZy50b2RvOmxhc3QtY2hpbGR7IGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7IH0qL1xyXG5saS5kcm9wZG93bkNvbnRlbnQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAvKnBhZGRpbmctbGVmdDogMTJweDsqL1xyXG4gIGJvcmRlci1sZWZ0OiA4cHggc29saWQgI2ZmMDAwMGEwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMwcHg7XHJcbiAgLyptYXJnaW4tbGVmdDogLTEycHg7IGJvdHRvbS1yb3VuZCBib3JkZXIsIHRyb3VibGUgY29uIHN0aWxpIHNvdnJhcHBvc3RpIGNoZSBsbyByaS1zcXVhZHJhbm8uXHJcbiAgIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDI0cHg7Ki9cclxufVxyXG4jdG9wYmFyPi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj4uZHJvcGRvd25UaXRsZXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAzMHB4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAzMHB4O31cclxuI3RvcGJhcj4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+LmRyb3Bkb3duVGl0bGUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxufVxyXG5cclxuLmJ1dHRvbkdyaWRDb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIC8qIHdpZHRoOiBjYWxjKDQwcHggKiA1IC0gMSk7Ki9cclxuICB3aWR0aDogbWluKDI1dncsIGNhbGMoNDBweCAqIDUgKyAxMHB4ICogNSAtIDFweCkpOyAvKiBidXR0b24gc2l6ZSArIGJ1dHRvbnNoZWxsIG1hcmdpbiwgNCBwZXIgcmlnYSBjb24gbWFzc2ltbyBzcGF6aW8gYXZhbnphdG8gcHJpbWEgZGVsIDXCsCovXHJcbn1cclxuXHJcbi5idXR0b25HcmlkTWluTWFyZ2luIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LXNocmluazogMDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgcGFkZGluZzogNXB4OyB9XHJcblxyXG4uYnV0dG9uR3JpZCB7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG59XHJcblxyXG5cclxudWwuZHJvcGRvd25Db250ZW50e1xyXG4gIG1pbi1oZWlnaHQ6IDEwMCU7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPnVsLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyID4gdWwuZHJvcGRvd25Db250ZW50OmVtcHR5e1xyXG4gIGRpc3BsYXk6ZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6YmVmb3Jle1xyXG4gIGNvbnRlbnQ6ICcuLi4gRW1wdHkgLi4uJztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZGFya3JlZCAhaW1wb3J0YW50O1xyXG4gIGN1cnNvcjogbm90LWFsbG93ZWQgIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKiAgICAgY2hhbmdlbG9nICAgICAqKioqKioqKioqL1xyXG4uY2hhbmdlbG9nUm9vdHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -28022,7 +29932,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ../../common/Joiner */
-    "./src/common/Joiner.ts"); // @ts-ignore
+    "./src/common/Joiner.ts");
+    /* harmony import */
+
+
+    var _m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./m2tcreator/m2tcreator.component */
+    "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts"); // @ts-ignore
 
 
     var TopBarComponent =
@@ -28030,11 +29946,187 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function () {
       function TopBarComponent() {
         _classCallCheck(this, TopBarComponent);
+
+        this.Object = Object;
       }
 
       _createClass(TopBarComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this49 = this;
+
+          setTimeout(function () {
+            _this49.status = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status;
+            _this49.topbar = TopBar.topbar;
+          }, 0);
+        }
+      }, {
+        key: "createM2T_Rule",
+        value: function createM2T_Rule(forModel) {
+          _m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_3__["M2tcreatorComponent"].willUseThis();
+        }
+      }, {
+        key: "displayResult",
+        value: function displayResult(m2tname, m2tresult) {
+          var input = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]();
+          input.setText("M2T \"" + m2tname + "\" result", '', '');
+          var innerInput = document.createElement('textarea');
+          innerInput.value = m2tresult;
+          innerInput.style.width = '100%';
+          innerInput.style.minHeight = '75vh';
+          input.setNestedInputNode(null, innerInput, false);
+          input.show();
+        }
+      }, {
+        key: "m2t_mysql_m2",
+        value: function m2t_mysql_m2() {
+          var classes = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.getAllClasses();
+
+          var tables = [];
+          var foreignKeys = [];
+
+          var getType = function getType(attr) {
+            switch (attr.type.primitiveType.short) {
+              // default: console.error('m2t mysql unsupported attr type:', attr.type.primitiveType.short, attr);
+              case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EBoolean:
+              case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EByte:
+                return 'TINYINT(1)';
+
+              case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EChar:
+                return 'CHAR(1)';
+
+              case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EDate:
+              default:
+              case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EString:
+                return 'VARCHAR' + (attr.getUpperbound() >= 0 ? '(' + attr.getUpperbound() + ')' : '');
+
+              case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EShort:
+              case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EInt:
+              case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].ELong:
+              case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EFloat:
+                return 'INT';
+            }
+          };
+
+          var _iteratorNormalCompletion6 = true;
+          var _didIteratorError6 = false;
+          var _iteratorError6 = undefined;
+
+          try {
+            for (var _iterator6 = classes[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+              var classe = _step6.value;
+              var tableStr = 'CREATE TABLE ' + classe.name + ' {\n';
+              var foreignkey = ''; // let pkFeatures: M2Feature[] = [];
+
+              var attributes = _toConsumableArray(classe.getAllAttributes());
+
+              var references = _toConsumableArray(classe.getAllReferences());
+
+              var indent = '    ';
+              var hasIDField = false;
+              var _iteratorNormalCompletion7 = true;
+              var _didIteratorError7 = false;
+              var _iteratorError7 = undefined;
+
+              try {
+                for (var _iterator7 = attributes[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+                  var attr = _step7.value;
+
+                  if (attr.name.toLowerCase() === 'id' && attr.type.primitiveType.short === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EInt) {
+                    hasIDField = true;
+                  } // if (attr.name.toLowerCase() === 'id') { pkFeatures = [attr]; }
+                  // if (pkAttributes.length !== 1 && pkFeatures[0].name.toLowerCase() !== 'id') { pkFeatures.push(attr); }
+
+
+                  tableStr += indent + attr.name + ' ' + getType(attr) + ',\n';
+                }
+              } catch (err) {
+                _didIteratorError7 = true;
+                _iteratorError7 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
+                    _iterator7.return();
+                  }
+                } finally {
+                  if (_didIteratorError7) {
+                    throw _iteratorError7;
+                  }
+                }
+              }
+
+              var _iteratorNormalCompletion8 = true;
+              var _didIteratorError8 = false;
+              var _iteratorError8 = undefined;
+
+              try {
+                for (var _iterator8 = references[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+                  var ref = _step8.value;
+
+                  if (ref.name.toLowerCase() === 'id') {
+                    hasIDField = true;
+                  } // if (ref.name.toLowerCase() === 'id') { pkFeatures = [ref]; }
+                  // if (pkAttributes.length !== 1 && pkFeatures[0].name.toLowerCase() !== 'id') { pkFeatures.push(ref); }
+
+
+                  tableStr += indent + ref.name + ' INT,\n';
+                  foreignKeys.push('ALTER TABLE ' + classe.name + '\n' + indent + 'ADD FOREIGN KEY (' + ref.name + ') REFERENCES ' + ref.getTarget().name + '(id);');
+                }
+              } catch (err) {
+                _didIteratorError8 = true;
+                _iteratorError8 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion8 && _iterator8.return != null) {
+                    _iterator8.return();
+                  }
+                } finally {
+                  if (_didIteratorError8) {
+                    throw _iteratorError8;
+                  }
+                }
+              }
+
+              if (!hasIDField) {
+                return "ERROR on class: " + classe.name + ".\nFor this beta version of mysql m2t all tables must have an \"id\" integer field.";
+              } // todo: PrimaryKey dovrebbe essere una annotation presente su [1,N] features.
+
+
+              tableStr += indent + 'PRIMARY KEY (id)\n}';
+              tables.push(tableStr);
+            }
+          } catch (err) {
+            _didIteratorError6 = true;
+            _iteratorError6 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
+                _iterator6.return();
+              }
+            } finally {
+              if (_didIteratorError6) {
+                throw _iteratorError6;
+              }
+            }
+          }
+
+          return tables.join('\n\n') + '\n\n## Constraints\n\n' + foreignKeys.join('\n\n');
+        }
+      }, {
+        key: "m2t_mysql_m1",
+        value: function m2t_mysql_m1() {
+          return 'm2t mysql m1 to do';
+        }
+      }, {
+        key: "m2t_byText_m2",
+        value: function m2t_byText_m2() {
+          return _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].copyVisibleText(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.graph.container);
+        }
+      }, {
+        key: "m2t_byText_m1",
+        value: function m2t_byText_m1() {
+          return _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].copyVisibleText(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.graph.container);
+        }
       }]);
 
       return TopBarComponent;
@@ -28060,6 +30152,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.$topbar = null;
         this.html = null;
         this.topbar = null;
+        this.typemapArr = [];
 
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!!TopBar.topbar, 'top bar instantiated twice, but it is a singleton.');
 
@@ -28068,14 +30161,130 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.html = this.$shell[0];
         this.$topbar = this.$shell.find('#topbar');
         this.topbar = this.$topbar[0];
+        this.$typemapSelect = this.$topbar.find('.typemapselector');
+        this.typemapSelect = this.$typemapSelect[0];
+        this.typemapSelect.value = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.currentTypeAlias;
+        this.updateTypeMapList();
         TopBar.topbar.updateRecents();
         this.addEventListeners();
       }
 
       _createClass(TopBar, [{
+        key: "updateTypeMapList",
+        value: function updateTypeMapList() {
+          TopBar.topbar.typemapArr = Object.keys(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary).filter(function (s) {
+            return s.indexOf('predefined.') === -1;
+          });
+        }
+      }, {
+        key: "changeTypeMap",
+        value: function changeTypeMap() {
+          var newTypeMap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+          var oldTypemap = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.currentTypeAlias;
+
+          if (!newTypeMap) {
+            newTypeMap = this.typemapSelect.value;
+          } else {
+            this.typemapSelect.value = newTypeMap;
+          }
+
+          console.log('changetm:', oldTypemap, 'new:', newTypeMap);
+          if (oldTypemap === newTypeMap) return;
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[newTypeMap], 'Invalid typemap name:', newTypeMap, 'allowed:', _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary);
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.currentTypeAlias = newTypeMap;
+          this.showTypeMap();
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.refreshGUI();
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.refreshGUI();
+        }
+      }, {
+        key: "createTypeMap",
+        value: function createTypeMap(event) {
+          var _this50 = this;
+
+          var newkey;
+
+          var userkey = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.user.getID();
+
+          if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[userkey + '.custom']) {
+            newkey = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].increaseEndingNumber(userkey + '.custom 1', false, false, function (s) {
+              return !!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[s];
+            });
+          } else {
+            newkey = userkey + '.custom';
+          }
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[newkey] = new Map();
+          this.updateTypeMapList();
+          setTimeout(function () {
+            console.log('tmkey:', newkey, 'select.val:', _this50.typemapSelect.value, 'mapselect', _this50.typemapSelect);
+
+            _this50.changeTypeMap(newkey);
+          }, 0);
+        }
+      }, {
+        key: "showTypeMap",
+        value: function showTypeMap() {
+          var $shell = this.$shell.find('#TypeMapper');
+          var $html = $shell.find('.TypeList');
+          var html = $html[0];
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].clear(html);
+
+          var table = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtml('<table class="typeTable"><tbody></tbody></table>');
+
+          var tbody = table.firstChild;
+
+          for (var m3TypeName in _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"]) {
+            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"][m3TypeName]) {
+              continue;
+            }
+
+            var type = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EType"].get(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"][m3TypeName]);
+
+            var row = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtmlRow('' + '<tr class="typeRow">' + '<td class="typeName" data-m3name="' + type.short + '">' + type.short + '</td>' + '<td class="alias">is aliased to</td>' + '<td>' + '<input class="AliasName form-control" placeholder="Not aliased" value="' + type.getName() + '"' + ' aria-label="Small" aria-describedby="inputGroup-sizing-sm">' + '</td>' + '</tr>');
+
+            tbody.appendChild(row);
+            console.log('row:', row, ', tbody:', tbody);
+          }
+
+          html.appendChild(table);
+          $html.find('input.AliasName').off('change').on('change', function (e) {
+            TopBar.topbar.aliasChange(e);
+          });
+          $shell.show();
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].closeButtonSetup($shell);
+        }
+      }, {
+        key: "aliasChange",
+        value: function aliasChange(e) {
+          var input = e.target;
+          var row = input;
+
+          while (!row.classList.contains('typeRow')) {
+            row = row.parentNode;
+          }
+
+          var typestr = $(row).find('.typeName')[0].dataset.m3name;
+          var typemap = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.currentTypeAlias];
+          var newAlias = input.value.trim();
+          if (typemap[typestr] === newAlias) return;
+          typemap[typestr] = newAlias;
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.refreshGUI();
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.refreshGUI(); // const type: EType = EType.get(typestr as ShortAttribETypes);
+          // type.changeAlias(input.value);
+
+        }
+      }, {
         key: "updateRecents",
         value: function updateRecents() {
-          var _this44 = this;
+          var _this51 = this;
 
           var tmp;
           tmp = localStorage.getItem('MM_SaveList');
@@ -28122,10 +30331,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           $metamodelHtml.find('.recentsave').off('click.load').on('click.load', function (e) {
-            _this44.loadRecent(e.currentTarget.innerText, true);
+            _this51.loadRecent(e.currentTarget.innerText, true);
           });
           $modelHtml.find('.recentsave').off('click.load').on('click.load', function (e) {
-            _this44.loadRecent(e.currentTarget.innerText, false);
+            _this51.loadRecent(e.currentTarget.innerText, false);
           });
         }
       }, {
@@ -28144,8 +30353,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "addEventListeners",
         value: function addEventListeners() {
           var $t = this.$topbar;
-          var $m2 = $t.find('.metamodel');
-          var $m1 = $t.find('.model');
+          var $m2 = $t.find('.root.metamodel');
+          var $m1 = $t.find('.root.model');
           TopBar.$checkboxesTheme = $t.find('input.themename');
           $t.find('.TypeMapping').off('click.btn').on('click.btn', function (e) {
             TopBar.topbar.showTypeMap();
@@ -28165,95 +30374,67 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.save(false, true);
           }); // download
 
-          $m2.find('.download_JSON_String').off('click.btn').on('click.btn', function (e) {
+          $m2.find('.model .download_JSON_String').off('click.btn').on('click.btn', function (e) {
             TopBar.download_JSON_String(e, 'mm');
           });
-          $m2.find('.download_JSON').off('click.btn').on('click.btn', function (e) {
+          $m2.find('.model .download_JSON').off('click.btn').on('click.btn', function (e) {
             TopBar.download_JSON_File(e, 'mm');
           });
-          $m2.find('.download_XMI').off('click.btn').on('click.btn', function (e) {
+          $m2.find('.model .download_XMI').off('click.btn').on('click.btn', function (e) {
             TopBar.download_XMI_File(e, 'mm');
           });
-          $m1.find('.download_JSON_String').off('click.btn').on('click.btn', function (e) {
+          $m1.find('.model .download_JSON_String').off('click.btn').on('click.btn', function (e) {
             TopBar.download_JSON_String(e, 'm');
           });
-          $m1.find('.download_JSON').off('click.btn').on('click.btn', function (e) {
+          $m1.find('.model .download_JSON').off('click.btn').on('click.btn', function (e) {
             TopBar.download_JSON_File(e, 'm');
           });
-          $m1.find('.download_XMI').off('click.btn').on('click.btn', function (e) {
+          $m1.find('.model .download_XMI').off('click.btn').on('click.btn', function (e) {
             TopBar.download_XMI_File(e, 'm');
           }); //// load
 
-          $m2.find('.loadEmpty').off('click.btn').on('click.btn', function (e) {
+          $m2.find('.model .loadEmpty').off('click.btn').on('click.btn', function (e) {
             TopBar.load_empty(e, 'mm');
           });
-          $m2.find('.loadFile').off('click.btn').on('click.btn', function (e) {
+          $m2.find('.model .loadFile').off('click.btn').on('click.btn', function (e) {
             TopBar.load_XMI_File(e, 'mm');
           });
-          $m2.find('.loadTxt').off('click.btn').on('click.btn', function (e) {
+          $m2.find('.model .loadTxt').off('click.btn').on('click.btn', function (e) {
             TopBar.load_JSON_Text(e, 'mm');
           });
-          $m1.find('.loadEmpty').off('click.btn').on('click.btn', function (e) {
+          $m1.find('.model .loadEmpty').off('click.btn').on('click.btn', function (e) {
             TopBar.load_empty(e, 'm');
           });
-          $m1.find('.loadFile').off('click.btn').on('click.btn', function (e) {
+          $m1.find('.model .loadFile').off('click.btn').on('click.btn', function (e) {
             TopBar.load_XMI_File(e, 'm');
           });
-          $m1.find('.loadTxt').off('click.btn').on('click.btn', function (e) {
+          $m1.find('.model .loadTxt').off('click.btn').on('click.btn', function (e) {
             TopBar.load_JSON_Text(e, 'm');
           });
-        }
-      }, {
-        key: "showTypeMap",
-        value: function showTypeMap() {
-          var $shell = this.$shell.find('#TypeMapper');
-          var $html = $shell.find('.TypeList');
-          var html = $html[0];
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].clear(html);
-
-          var table = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtml('<table class="typeTable"><tbody></tbody></table>');
-
-          var tbody = table.firstChild;
-
-          for (var m3TypeName in _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"]) {
-            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"][m3TypeName]) {
-              continue;
-            }
-
-            var type = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EType"].get(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"][m3TypeName]);
-
-            var row = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtmlRow('' + '<tr class="typeRow">' + '<td class="typeName" data-m3name="' + type.short + '">' + type.short + '</td>' + '<td class="alias">is aliased to</td>' + '<td>' + '<input class="AliasName form-control" placeholder="Not aliased" value="' + type.name + '"' + ' aria-label="Small" aria-describedby="inputGroup-sizing-sm">' + '</td>' + '</tr>');
-
-            tbody.appendChild(row);
-            console.log('row:', row, ', tbody:', tbody);
-          }
-
-          html.appendChild(table);
-          $html.find('input.AliasName').off('change').on('change', function (e) {
-            TopBar.topbar.aliasChange(e);
+          window['t'] = {
+            $: this.$topbar,
+            $t: $t,
+            $m1: $m1,
+            $m2: $m2
+          };
+          $m1.find('.vertex .loadTxt').off('click.btn').on('click.btn', function (e) {});
+          $m1.find('.viewpoints .loadTxt').off('click.btn').on('click.btn', function (e) {
+            TopBar.load_JSON_Text(e, 'm', function (val) {
+              TopBar.loadVP(val, 'm');
+            });
           });
-          $shell.show();
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].closeButtonSetup($shell);
-        }
-      }, {
-        key: "aliasChange",
-        value: function aliasChange(e) {
-          var input = e.target;
-          var row = input;
-
-          while (!row.classList.contains('typeRow')) {
-            row = row.parentNode;
-          }
-
-          var m3Type = $(row).find('.typeName')[0].dataset.m3name;
-
-          var type = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EType"].get(m3Type);
-
-          type.changeAlias(input.value);
+          $m2.find('.viewpoints .loadTxt').off('click.btn').on('click.btn', function (e) {
+            TopBar.load_JSON_Text(e, 'm', function (val) {
+              TopBar.loadVP(val, 'mm');
+            });
+          });
         }
       }], [{
+        key: "staticInit",
+        value: function staticInit() {
+          TopBar.topbar = new TopBar();
+        }
+      }, {
         key: "load_empty",
         value: function load_empty(e, prefix) {
           var empty = prefix === 'm' ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Model"].emptyModel : _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MetaModel"].emptyModel;
@@ -28308,6 +30489,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "load_JSON_Text",
         value: function load_JSON_Text(e, prefix) {
+          var callback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
           var popup = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]();
           popup.setText('paste JSON/string data', '', '');
           popup.setInputNode('textarea');
@@ -28315,7 +30497,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var finish = function finish(e, value) {
             popup.destroy();
-            TopBar.load(value, prefix);
+            if (callback) callback(value);else TopBar.load(value, prefix);
           }; // $(popup).find('.closeButton');
 
 
@@ -28350,7 +30532,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var savetxt = model.generateModelString();
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].download(model.name, savetxt);
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].download((model.name || (model.isM1() ? 'M1' : 'M2') + '_unnamed') + '.json', savetxt);
         }
       }, {
         key: "download_XMI_File",
@@ -28452,6 +30634,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return formatted;
         }
+      }, {
+        key: "loadVP",
+        value: function loadVP(val, prefix) {
+          window['discardSave'](); // stop autosave;
+
+          var model = prefix === 'm' ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m : _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm;
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.save(false);
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["LocalStorage"].setLastOpened(prefix === 'm' ? 1 : 2, null, val, null);
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].refreshPage();
+        }
       }]);
 
       return TopBar;
@@ -28499,19 +30694,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(EEnum, _common_Joiner__WEBPA12);
 
       function EEnum(parent, json) {
-        var _this45;
+        var _this52;
 
         _classCallCheck(this, EEnum);
 
-        _this45 = _possibleConstructorReturn(this, _getPrototypeOf(EEnum).call(this, parent, null));
+        _this52 = _possibleConstructorReturn(this, _getPrototypeOf(EEnum).call(this, parent, null));
 
-        if (_this45.parent) {
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(_this45.parent.enums, _assertThisInitialized(_this45));
+        if (_this52.parent) {
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(_this52.parent.enums, _assertThisInitialized(_this52));
         }
 
-        _this45.parse(json);
+        _this52.parse(json);
 
-        return _this45;
+        return _this52;
       }
 
       _createClass(EEnum, [{
@@ -28554,12 +30749,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var i;
           this.setName(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreEnum"].namee, 'Enum_1'), false);
 
-          for (var _key20 in json) {
-            var value = json[_key20];
+          for (var _key26 in json) {
+            var value = json[_key26];
 
-            switch (_key20) {
+            switch (_key26) {
               default:
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Enum.parse() unexpected key:', _key20, 'in json:', json);
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Enum.parse() unexpected key:', _key26, 'in json:', json);
 
                 break;
 
@@ -28617,6 +30812,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var arr = [];
           var model = {};
           model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreEnum"].xsitype] = 'ecore:EEnum';
@@ -28627,7 +30823,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var i;
 
           for (i = 0; i < this.childrens.length; i++) {
-            arr.push(this.childrens[i].generateModel());
+            arr.push(this.childrens[i].generateModel(loopDetectionObj));
           }
 
           return model;
@@ -28699,10 +30895,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all[i].changeType(null, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EType"].get(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString), null, null);
           }
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, false, true);
-
-          this.getVertex().remove();
-          if (refreshgui) this.refreshGUI();
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, true, false);
         }
       }, {
         key: "getDefaultValueStr",
@@ -28779,13 +30972,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(IClassifier, _common_Joiner__WEBPA13);
 
       function IClassifier() {
-        var _this46;
+        var _this53;
 
         _classCallCheck(this, IClassifier);
 
-        _this46 = _possibleConstructorReturn(this, _getPrototypeOf(IClassifier).apply(this, arguments));
-        _this46.vertex = null;
-        return _this46;
+        _this53 = _possibleConstructorReturn(this, _getPrototypeOf(IClassifier).apply(this, arguments));
+        _this53.vertex = null;
+        return _this53;
       }
 
       _createClass(IClassifier, [{
@@ -28822,9 +31015,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getVertex",
         value: function getVertex() {
+          var canMakeIt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
           var displayAsEdge = this.shouldBeDisplayedAsEdge(); // U.pw(displayAsEdge, 'getvertex called on a class that should not have a vertex.', this);
 
-          if (!displayAsEdge && this.vertex === null && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic) {
+          if (canMakeIt && !displayAsEdge && this.vertex === null && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic) {
             this.generateVertex();
           }
 
@@ -28841,16 +31035,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
-          _get(_getPrototypeOf(IClassifier.prototype), "delete", this).call(this, false); // todo: che fare con le reference a quella classe? per ora cancello i campi.
-
-
-          var i;
-
           if (!this.shouldBeDisplayedAsEdge()) {
             this.getVertex().remove();
           }
 
-          if (refreshgui) this.refreshGUI();
+          _get(_getPrototypeOf(IClassifier.prototype), "delete", this).call(this, false);
         }
       }], [{
         key: "defaultSidebarHtml",
@@ -28914,27 +31103,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       referencesIN: MReference[];
       */
       function MClass(pkg, json, metaVersion) {
-        var _this47;
+        var _this54;
 
         _classCallCheck(this, MClass);
 
-        _this47 = _possibleConstructorReturn(this, _getPrototypeOf(MClass).call(this, pkg, metaVersion));
+        _this54 = _possibleConstructorReturn(this, _getPrototypeOf(MClass).call(this, pkg, metaVersion));
 
         if (!pkg && !json && !metaVersion) {
-          return _possibleConstructorReturn(_this47);
+          return _possibleConstructorReturn(_this54);
         } // empty constructor for .duplicate();
 
 
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!metaVersion, 'null metaparent?');
 
-        _this47.parse(json, true);
+        _this54.parse(json, true);
 
-        return _this47;
+        return _this54;
       }
 
       _createClass(MClass, [{
-        key: "unsetExtends",
-        value: function unsetExtends(superclass) {
+        key: "doUnsetExtends",
+        value: function doUnsetExtends(superclass) {
           if (!superclass) return;
           var i;
           var j;
@@ -28967,17 +31156,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         } //todo: fai getByName con prefisso della classe inherited per console. tipo:  ClassC.ClassB1:samenamefeature vs ClassC.ClassB2:samenamefeature
 
       }, {
-        key: "setExtends",
-        value: function setExtends(superclass) {
-          var refresh = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-          if (!superclass) return false;
+        key: "changeMetaParent",
+        value: function changeMetaParent(newMetaParent) {
+          var allowFeatureRemoval = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          var refreshGui = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+          if (!newMetaParent) return;
+          if (this.metaParent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.metaParent.instances, this);
+          this.metaParent = newMetaParent;
+          this.metaParent.instances.push(this);
 
-          var attributes = _toConsumableArray(superclass.getAllAttributes());
+          var attributes = _toConsumableArray(newMetaParent.getAllAttributes()); // need shallow copy
 
-          var references = _toConsumableArray(superclass.getAllReferences());
 
-          var i;
-          var tmp; // exclude the ones already instantiated.
+          var references = _toConsumableArray(newMetaParent.getAllReferences());
+
+          var i; // exclude the ones already instantiated (intersection)
 
           for (i = 0; i < this.attributes.length; i++) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(attributes, this.attributes[i].metaParent);
@@ -28985,6 +31178,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           for (i = 0; i < this.references.length; i++) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(references, this.references[i].metaParent);
+          }
+
+          if (allowFeatureRemoval) {
+            // remove the exceeding ones
+            var thisAttrs = _toConsumableArray(this.attributes);
+
+            var thisRefs = _toConsumableArray(this.references);
+
+            for (i = 0; i < thisAttrs.length; i++) {
+              var elem = thisAttrs[i];
+
+              if (attributes.indexOf(elem.metaParent) >= 0) {
+                refreshGui = true;
+                console.log("7x removing attr", elem.metaParent);
+                elem.delete(false);
+              }
+            }
+
+            for (i = 0; i < thisRefs.length; i++) {
+              var _elem = thisRefs[i];
+
+              if (references.indexOf(_elem.metaParent) >= 0) {
+                refreshGui = true;
+                console.log("7x removing ref", _elem.metaParent);
+
+                _elem.delete(false);
+              }
+            }
           } // create the missing ones.
 
 
@@ -28996,9 +31217,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"](this, null, references[i]);
           }
 
-          if (refresh) this.refreshGUI_Alone();
+          if (refreshGui) this.refreshGUI_Alone();
         } // getAllChildrens(): MFeature[] { return (this.childrens); }
 
+      }, {
+        key: "getAllChildrens",
+        value: function getAllChildrens()
+        /*null = both shadow and unshadow, true = onlyshadowed*/
+        {
+          var includeOperations = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var includeAnnotations = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+          var includeAttributes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+          var includeReferences = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+          var includeShadowed = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+          var arr = [];
+          var j;
+          var extChildrens = [].concat(_toConsumableArray(this.childrens), _toConsumableArray(this.metaParent.annotations), _toConsumableArray(this.metaParent.operations));
+
+          for (j = 0; j < extChildrens.length; j++) {
+            var child = extChildrens[j];
+            console.log(child.metaParent, this.metaParent, child, this);
+
+            if (includeAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"]) {
+              arr.push(child);
+              continue;
+            }
+
+            if (includeReferences && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"]) {
+              arr.push(child);
+              continue;
+            }
+
+            if (includeOperations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]) {
+              arr.push(child);
+              continue;
+            }
+
+            if (includeAnnotations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EAnnotation"]) {
+              arr.push(child);
+              continue;
+            }
+          }
+
+          return arr;
+        }
       }, {
         key: "getAllAttributes",
         value: function getAllAttributes() {
@@ -29053,6 +31315,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return this.metaParent.getBasicOperations();
         }
       }, {
+        key: "getBasicAnnotations",
+        value: function getBasicAnnotations() {
+          return this.metaParent.getBasicAnnotations();
+        }
+      }, {
         key: "endingName",
         value: function endingName() {
           var valueMaxLength = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 10;
@@ -29103,7 +31370,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
-          var root = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+          var root = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
           /*
              { "-name": "tizio", "attrib2": value2, ...}
@@ -29118,6 +31386,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               ]
             }
           */
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj, loopDetectionObj || {});
+
           var inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
           var json = {};
 
@@ -29135,22 +31405,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             for (i = 0; i < arr[outi].length; i++) {
               var child = arr[outi][i];
               if (child.isShadowed(this)) continue;
-              var value = child.generateModel(); // some error here, il value = ELIteral viene assegnato alla key .nome
+              var value = child.generateModel(loopDetectionObj); // some error here, il value = ELIteral viene assegnato alla key .nome
 
               if (value === '' || value === null || value === undefined || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isEmptyObject(value)) {
                 continue;
               }
 
-              var _key21 = (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isPrimitive(value) ? inlineMarker : '') + child.metaParent.name;
+              var _key27 = (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isPrimitive(value) ? inlineMarker : '') + child.metaParent.name;
 
-              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(json[_key21], 'overriding value inside MClass.generateModel()', ', key:', _key21, ', newVal:', value, ', json:', json, ', MClass:', this, ', feature:', child);
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(json[_key27], 'overriding value inside MClass.generateModel()', ', key:', _key27, ', newVal:', value, ', json:', json, ', MClass:', this, ', feature:', child);
               /*let wind = window as any;
               if (!wind.json) wind.json = {};
               if (!wind.json[key]) wind.json[key] = [];
               wind.json[key].push({value: value, m1id: child.id, m2id: child.metaParent.id, index: i + '/' + arr[outi].length, m2name: child.metaParent.name, setter: child});*/
 
 
-              json[_key21] = value;
+              json[_key27] = value;
             }
           }
 
@@ -29168,7 +31438,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.referencesIN = [];
           }
 
-          this.setExtends(this.metaParent, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
+          this.changeMetaParent(this.metaParent, true, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
 
           /*{                                                           <--- classRoot
               "-xmlns:xmi": "http://www.omg.org/XMI",
@@ -29182,14 +31452,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
 
-          for (var _key22 in json) {
-            if (!json.hasOwnProperty(_key22)) {
+          for (var _key28 in json) {
+            if (!json.hasOwnProperty(_key28)) {
               continue;
             }
 
-            var value = json[_key22];
+            var value = json[_key28];
 
-            switch (_key22) {
+            switch (_key28) {
               case inlineMarker + 'xmlns:xmi': // case inlineMarker + 'xmlns:' + this.getModelRoot().namespace():
 
               case inlineMarker + 'xmi:version':
@@ -29198,21 +31468,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               default:
                 // todo: usa il ns del modello per caricare il metamodello con quel namespace se quello attuale non è conforme?
-                if (_key22.indexOf(inlineMarker) === 0) {
-                  _key22 = _key22.substr(inlineMarker.length);
+                if (_key28.indexOf(inlineMarker) === 0) {
+                  _key28 = _key28.substr(inlineMarker.length);
                 }
 
-                if (_key22.indexOf('xmlns:') === 0) {
-                  _key22 = _key22.substr('xmlns:'.length);
-                  this.getModelRoot().namespace(_key22);
+                if (_key28.indexOf('xmlns:') === 0) {
+                  _key28 = _key28.substr('xmlns:'.length);
+                  this.getModelRoot().namespace(_key28);
 
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(false, 'setns?', _key22, this, this.metaParent);
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(false, 'setns?', _key28, this, this.metaParent);
 
                   continue;
                 }
 
-                var metaAttr = this.metaParent.getAttribute(_key22);
-                var metaRef = this.metaParent.getReference(_key22);
+                var metaAttr = this.metaParent.getAttribute(_key28);
+                var metaRef = this.metaParent.getReference(_key28);
 
                 if (metaAttr) {
                   var cindex = this.getChildrenIndex_ByMetaParent(metaAttr);
@@ -29234,7 +31504,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   this.references[rindex].parse(value, true);
                 } else {
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'm1 model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', _key22, ', Iclass:', this.metaParent);
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'm1 model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', _key28, ', Iclass:', this.metaParent);
                 }
 
                 break;
@@ -29264,14 +31534,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
 
-          for (var _key23 in json) {
-            if (!json.hasOwnProperty(_key23)) {
+          for (var _key29 in json) {
+            if (!json.hasOwnProperty(_key29)) {
               continue;
             }
 
-            var value = json[_key23];
+            var value = json[_key29];
 
-            switch (_key23) {
+            switch (_key29) {
               case inlineMarker + 'xmlns:xmi': // case inlineMarker + 'xmlns:' + this.getModelRoot().namespace():
 
               case inlineMarker + 'xmi:version':
@@ -29280,21 +31550,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               default:
                 // todo: usa il ns del modello per caricare il metamodello con quel namespace se quello attuale non è conforme?
-                if (_key23.indexOf(inlineMarker) === 0) {
-                  _key23 = _key23.substr(inlineMarker.length);
+                if (_key29.indexOf(inlineMarker) === 0) {
+                  _key29 = _key29.substr(inlineMarker.length);
                 }
 
-                if (_key23.indexOf('xmlns:') === 0) {
-                  _key23 = _key23.substr('xmlns:'.length);
-                  this.getModelRoot().namespace(_key23);
+                if (_key29.indexOf('xmlns:') === 0) {
+                  _key29 = _key29.substr('xmlns:'.length);
+                  this.getModelRoot().namespace(_key29);
 
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(false, 'setns?', _key23, this, this.metaParent);
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(false, 'setns?', _key29, this, this.metaParent);
 
                   continue;
                 }
 
-                var metaAttr = this.metaParent.getAttribute(_key23);
-                var metaRef = this.metaParent.getReference(_key23);
+                var metaAttr = this.metaParent.getAttribute(_key29);
+                var metaRef = this.metaParent.getReference(_key29);
                 var newA = void 0;
                 var newR = void 0;
 
@@ -29311,7 +31581,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.references, newR);
                 } else {
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', _key23, ', Iclass:', this.metaParent);
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', _key29, ', Iclass:', this.metaParent);
                 }
 
                 break;
@@ -29332,6 +31602,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getReferenceIndex_ByMetaParent",
         value: function getReferenceIndex_ByMetaParent(meta) {
           return MClass.getArrayIndex_ByMetaParentID(meta.id, this.references);
+        }
+      }, {
+        key: "delete",
+        value: function _delete() {
+          var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+          _get(_getPrototypeOf(MClass.prototype), "delete", this).call(this, false); // NB: gli m1-link a questo oggetto sono già stati rimossi da setType in m2 o da delete vertex in IClass
+
+        }
+      }, {
+        key: "convertTo",
+        value: function convertTo(classe) {
+          this.changeMetaParent(classe, true, true);
         }
       }], [{
         key: "getArrayIndex_ByMetaParentID",
@@ -29392,15 +31675,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(ELiteral, _common_Joiner__WEBPA15);
 
       function ELiteral(parent, json) {
-        var _this48;
+        var _this55;
 
         _classCallCheck(this, ELiteral);
 
-        _this48 = _possibleConstructorReturn(this, _getPrototypeOf(ELiteral).call(this, parent, null));
+        _this55 = _possibleConstructorReturn(this, _getPrototypeOf(ELiteral).call(this, parent, null));
 
-        _this48.parse(json);
+        _this55.parse(json);
 
-        return _this48;
+        return _this55;
       }
 
       _createClass(ELiteral, [{
@@ -29416,6 +31699,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var model = {};
           model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EcoreLiteral"].value] = this.ordinal;
           model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EcoreLiteral"].literal] = this.literal;
@@ -29504,6 +31788,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModelM1",
         value: function generateModelM1() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           return this.name;
         }
       }]);
@@ -29620,15 +31905,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }]);
 
       function MAttribute(parent, json, meta) {
-        var _this49;
+        var _this56;
 
         _classCallCheck(this, MAttribute);
 
-        _this49 = _possibleConstructorReturn(this, _getPrototypeOf(MAttribute).call(this, parent, meta));
+        _this56 = _possibleConstructorReturn(this, _getPrototypeOf(MAttribute).call(this, parent, meta));
 
-        _this49.parse(json, true);
+        _this56.parse(json, true);
 
-        return _this49;
+        return _this56;
       }
 
       _createClass(MAttribute, [{
@@ -29720,6 +32005,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
           if (this.values.length === 0) {
             return null;
           }
@@ -29735,7 +32022,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var v = this.values[_i6];
 
               if (v instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ELiteral"]) {
-                values.push(v.generateModelM1());
+                values.push(v.generateModelM1(loopDetectionObj));
               }
             }
           }
@@ -30054,13 +32341,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(IAttribute, _common_Joiner__WEBPA17);
 
       function IAttribute(parent, metaParent) {
-        var _this50;
+        var _this57;
 
         _classCallCheck(this, IAttribute);
 
-        _this50 = _possibleConstructorReturn(this, _getPrototypeOf(IAttribute).call(this, parent, metaParent));
-        if (parent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(parent.attributes, _assertThisInitialized(_this50));
-        return _this50;
+        _this57 = _possibleConstructorReturn(this, _getPrototypeOf(IAttribute).call(this, parent, metaParent));
+        if (parent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(parent.attributes, _assertThisInitialized(_this57));
+        return _this57;
       }
       /*static GetDefaultStyle(modelRoot: IModel, type: EType = null): HTMLElement | SVGElement {
         return ModelPiece.GetDefaultStyle(modelRoot, 'Attribute', type); }
@@ -30116,15 +32403,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(M3Attribute, _IAttribute);
 
       function M3Attribute(parent, meta) {
-        var _this51;
+        var _this58;
 
         _classCallCheck(this, M3Attribute);
 
-        _this51 = _possibleConstructorReturn(this, _getPrototypeOf(M3Attribute).call(this, parent, meta));
+        _this58 = _possibleConstructorReturn(this, _getPrototypeOf(M3Attribute).call(this, parent, meta));
 
-        _this51.parse(null, true);
+        _this58.parse(null, true);
 
-        return _this51;
+        return _this58;
       }
 
       _createClass(M3Attribute, [{
@@ -30140,6 +32427,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'm3Attr.generateModel()');
 
           return {};
@@ -30202,20 +32491,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(M2Attribute, _common_Joiner__WEBPA18);
 
       function M2Attribute(classe, json) {
-        var _this52;
+        var _this59;
 
         _classCallCheck(this, M2Attribute);
 
-        _this52 = _possibleConstructorReturn(this, _getPrototypeOf(M2Attribute).call(this, classe, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getAttribute()));
+        _this59 = _possibleConstructorReturn(this, _getPrototypeOf(M2Attribute).call(this, classe, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getAttribute()));
 
         if (!classe && !json) {
-          return _possibleConstructorReturn(_this52);
+          return _possibleConstructorReturn(_this59);
         } // empty constructor for .duplicate();
 
 
-        _this52.parse(json, true);
+        _this59.parse(json, true);
 
-        return _this52;
+        return _this59;
       }
 
       _createClass(M2Attribute, [{
@@ -30240,6 +32529,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var model = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"](null);
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(model, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].xsitype, 'ecore:EAttribute');
@@ -30315,21 +32605,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(M2Reference, _common_Joiner__WEBPA19);
 
       function M2Reference(classe, json) {
-        var _this53;
+        var _this60;
 
         _classCallCheck(this, M2Reference);
 
-        _this53 = _possibleConstructorReturn(this, _getPrototypeOf(M2Reference).call(this, classe, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getReference()));
-        _this53.containment = false && false;
+        _this60 = _possibleConstructorReturn(this, _getPrototypeOf(M2Reference).call(this, classe, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getReference()));
+        _this60.containment = false && false;
 
         if (!classe && !json) {
-          return _possibleConstructorReturn(_this53);
+          return _possibleConstructorReturn(_this60);
         } // empty constructor for .duplicate();
 
 
-        _this53.parse(json, true);
+        _this60.parse(json, true);
 
-        return _this53;
+        return _this60;
       }
 
       _createClass(M2Reference, [{
@@ -30362,6 +32652,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var model = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"](null);
           model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].xsitype] = 'ecore:EReference';
           model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].eType] = this.type.toEcoreString();
@@ -30568,20 +32859,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       // targetStr: string;
       // constructor() {}
       function MReference(classe, json, metaParent) {
-        var _this54;
+        var _this61;
 
         _classCallCheck(this, MReference);
 
-        _this54 = _possibleConstructorReturn(this, _getPrototypeOf(MReference).call(this, classe, metaParent));
+        _this61 = _possibleConstructorReturn(this, _getPrototypeOf(MReference).call(this, classe, metaParent));
 
         if (!classe && !json && !metaParent) {
-          return _possibleConstructorReturn(_this54);
+          return _possibleConstructorReturn(_this61);
         } // empty constructor for .duplicate();
 
 
-        _this54.parse(json, true);
+        _this61.parse(json, true);
 
-        return _this54;
+        return _this61;
       }
       /*
         getStyle(): HTMLElement | SVGElement {
@@ -30722,12 +33013,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
-          MReference.loopDetection = {};
-          return this.generateModelLoop();
+          var loopDetectionObj0 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+          var loopDetectionObj = loopDetectionObj0 || {};
+          console.log("loopdetect isobject?", _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isObject(loopDetectionObj), " param:", loopDetectionObj0, loopDetectionObj0 || {});
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj0, loopDetectionObj0 || {});
+
+          return this.generateModelLoop(loopDetectionObj);
         }
       }, {
         key: "generateModelLoop",
-        value: function generateModelLoop() {
+        value: function generateModelLoop(loopDetectionObj) {
           var ret = [];
           var i;
 
@@ -30735,14 +33031,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (!this.mtarget[i]) continue;
             var mclass = this.mtarget[i];
 
-            if (MReference.loopDetection[mclass.id]) {
+            if (loopDetectionObj[mclass.id]) {
               // todo: in caso di loop cosa ci devo mettere nel modello?
               ret.push('LoopingReference');
 
               _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'looping reference in model');
             } else {
-              MReference.loopDetection[mclass.id] = mclass;
-              ret.push(mclass.generateModel());
+              loopDetectionObj[mclass.id] = mclass;
+              ret.push(mclass.generateModel(loopDetectionObj, false));
             }
           }
 
@@ -30927,9 +33223,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       return MReference;
     }(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"]);
-
-    MReference.loopDetection = {};
     /***/
+
   },
 
   /***/
@@ -30982,16 +33277,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(IReference, _common_Joiner__WEBPA21);
 
       function IReference(parent, meta) {
-        var _this55;
+        var _this62;
 
         _classCallCheck(this, IReference);
 
-        _this55 = _possibleConstructorReturn(this, _getPrototypeOf(IReference).call(this, parent, meta));
-        _this55.edges = [];
-        if (parent) parent.references.push(_assertThisInitialized(_this55));
-        _this55.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
-        _this55.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
-        _this55.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', // #ffbb22
+        _this62 = _possibleConstructorReturn(this, _getPrototypeOf(IReference).call(this, parent, meta));
+        _this62.edges = [];
+        if (parent) parent.references.push(_assertThisInitialized(_this62));
+        _this62.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
+        _this62.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
+        _this62.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', // #ffbb22
         new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
 
         var complementaHex = function complementaHex(hexstr) {
@@ -31010,7 +33305,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             break;
 
           case _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Light:
-            var edgeStyles = [_this55.edgeStyleCommon, _this55.edgeStyleHighlight, _this55.edgeStyleSelected];
+            var edgeStyles = [_this62.edgeStyleCommon, _this62.edgeStyleHighlight, _this62.edgeStyleSelected];
 
             for (i = 0; i < edgeStyles.length; i++) {
               var style = edgeStyles[i];
@@ -31024,7 +33319,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             break;
         }
 
-        return _this55;
+        return _this62;
       }
 
       _createClass(IReference, [{
@@ -31223,17 +33518,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(M3Reference, _IReference);
 
       function M3Reference(parent) {
-        var _this56;
+        var _this63;
 
         var meta = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
         _classCallCheck(this, M3Reference);
 
-        _this56 = _possibleConstructorReturn(this, _getPrototypeOf(M3Reference).call(this, parent, meta));
+        _this63 = _possibleConstructorReturn(this, _getPrototypeOf(M3Reference).call(this, parent, meta));
 
-        _this56.parse(null);
+        _this63.parse(null);
 
-        return _this56;
+        return _this63;
       } // clearTargets(): void { }
 
 
@@ -31262,6 +33557,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Reference.generateModel()');
 
           return {};
@@ -31358,7 +33655,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "isInherited",
         value: function isInherited(forClass) {
-          if (this.parent !== forClass) return true; // for m2
+          var thismr = this.getModelRoot();
+          var targetmr = forClass.getModelRoot();
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(thismr !== targetmr, 'dev error isInherited(): cannot compare object from different models:', this, forClass);
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(thismr.isM3(), 'dev error isInherited(): cannot compare object from m3:', this, forClass);
+
+          if (thismr.isM2()) return this.parent !== forClass; // for m2
 
           var m2classContaining = this.metaParent.parent;
           var m2classOfParent = forClass.metaParent;
@@ -31369,18 +33673,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "isShadowed",
         value: function isShadowed(forClass) {
-          if (!this.isInherited(forClass)) return false;
-          if (this.getModelRoot().isM1()) return this.metaParent.isShadowed(forClass);
-          if (forClass.getModelRoot().isM1()) forClass = forClass.metaParent;
-          var superclasses = forClass.getAllSuperClasses();
-          var i;
+          var myroot = this.getModelRoot();
+          var targetRoot = forClass.getModelRoot();
 
-          for (i = 0; i < superclasses.length; i++) {
-            var sc = superclasses[i];
-            var tmp = sc.isChildNameTaken(this.name);
-            if (tmp) return true;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(myroot !== targetRoot, 'error: called isShadowed with subject and parameters on different models:', this, forClass);
+
+          if (myroot.isM1()) return this.metaParent.isShadowed(forClass.metaParent);
+          var childs = forClass.getAllChildrens(false, false, true, true, false);
+          var myIndex = childs.indexOf(this);
+
+          for (var _i8 = 0; _i8 < myIndex; _i8++) {
+            if (childs[_i8].name === this.name) {
+              console.log(forClass.id + '_' + this.id + ' true 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map(function (e) {
+                return e.parent.name + '.' + e.name;
+              }));
+              return true;
+            }
           }
 
+          console.log(forClass.id + '_' + this.id + ' false 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map(function (e) {
+            return e.parent.name + '.' + e.name;
+          }));
           return false;
         }
       }]);
@@ -31414,7 +33727,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/mClass/classChild/Operations/eOperation.ts ***!
     \********************************************************/
 
-  /*! exports provided: OperationVisibility, EOperation */
+  /*! exports provided: AccessModifier, EOperation */
 
   /***/
   function srcMClassClassChildOperationsEOperationTs(module, __webpack_exports__, __webpack_require__) {
@@ -31424,8 +33737,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "OperationVisibility", function () {
-      return OperationVisibility;
+    __webpack_require__.d(__webpack_exports__, "AccessModifier", function () {
+      return AccessModifier;
     });
     /* harmony export (binding) */
 
@@ -31456,17 +33769,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       static protectedprivate = 'protected private'; }*/
 
 
-    var OperationVisibility;
+    var AccessModifier;
 
-    (function (OperationVisibility) {
-      OperationVisibility["public"] = "public";
-      OperationVisibility["private"] = "private";
-      OperationVisibility["protected"] = "protected";
-      OperationVisibility["internal"] = "internal";
-      OperationVisibility["package"] = "package";
-      OperationVisibility["protectedinternal"] = "protected internal";
-      OperationVisibility["protectedprivate"] = "protected private";
-    })(OperationVisibility || (OperationVisibility = {}));
+    (function (AccessModifier) {
+      AccessModifier["public"] = "public";
+      AccessModifier["private"] = "private";
+      AccessModifier["protected"] = "protected";
+      AccessModifier["internal"] = "internal";
+      AccessModifier["package"] = "package";
+      AccessModifier["protectedinternal"] = "protected internal";
+      AccessModifier["protectedprivate"] = "protected private";
+    })(AccessModifier || (AccessModifier = {}));
 
     var EOperation =
     /*#__PURE__*/
@@ -31476,21 +33789,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       // exceptions: IClass[];
       // todo: ha davvero senso processarli e creare anche IClass.Object etc? mi conviene tenerli a stringa.
       function EOperation(parent, json) {
-        var _this57;
+        var _this64;
 
         _classCallCheck(this, EOperation);
 
-        _this57 = _possibleConstructorReturn(this, _getPrototypeOf(EOperation).call(this, parent, null));
-        _this57.exceptionsStr = ''; // classlist to be later processed and linked.
+        _this64 = _possibleConstructorReturn(this, _getPrototypeOf(EOperation).call(this, parent, null));
+        _this64.exceptionsStr = ''; // classlist to be later processed and linked.
 
-        _this57.visibility = OperationVisibility.private;
-        _this57.detailIsOpened = false && false;
-        _this57.markedCompatibility = [];
-        if (parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) parent.operations.push(_assertThisInitialized(_this57));
+        _this64.visibility = AccessModifier.private;
+        _this64.detailIsOpened = false && false;
+        _this64.markedCompatibility = [];
+        if (parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) parent.operations.push(_assertThisInitialized(_this64));
 
-        _this57.parse(json);
+        _this64.parse(json);
 
-        return _this57;
+        return _this64;
       }
 
       _createClass(EOperation, [{
@@ -31501,13 +33814,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "canOverride",
         value: function canOverride(other) {
-          // NB: se A.a(Object): Object e B.a(String):String lo tratta come polimorfismo. se A.a(String): Object e B.a(String):String lo tratta come override valido.
+          console.log('CanOverride(', this, ', ', other, ') ? ', this.name === other.name, this.parent !== other.parent, this.getSignature() == other.getSignature(), this.getReturnType().canOverride(other.getReturnType())); // NB: se A.a(Object): Object e B.a(String):String lo tratta come polimorfismo. se A.a(String): Object e B.a(String):String lo tratta come override valido.
+
           return this.name === other.name && this.parent !== other.parent && this.getSignature() == other.getSignature() && this.getReturnType().canOverride(other.getReturnType());
         }
       }, {
         key: "canPolymorph",
         value: function canPolymorph(other) {
-          // todo: hide shadowed features
+          console.log('canPolymorph(', this, ', ', other, ') ? ', this.name === other.name, this.getSignature() != other.getSignature()); // todo: hide shadowed features
+
           return this.name === other.name && this.getSignature() != other.getSignature();
         }
       }, {
@@ -31541,23 +33856,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getVisibilityChar",
         value: function getVisibilityChar() {
           switch (this.visibility) {
-            case OperationVisibility.public:
+            case AccessModifier.public:
               return '+';
 
-            case OperationVisibility.private:
+            case AccessModifier.private:
               return '-';
 
-            case OperationVisibility.protected:
+            case AccessModifier.protected:
               return '#';
 
-            case OperationVisibility.internal:
-            case OperationVisibility.package:
+            case AccessModifier.internal:
+            case AccessModifier.package:
               return '~';
 
-            case OperationVisibility.protectedinternal:
+            case AccessModifier.protectedinternal:
               return '#~';
 
-            case OperationVisibility.protectedprivate:
+            case AccessModifier.protectedprivate:
               return '#-';
 
             default:
@@ -31601,6 +33916,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var parameters = [];
           var json = {};
           json[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].eParameters] = parameters;
@@ -31631,7 +33947,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var i;
 
           for (i = 0; i < this.childrens.length; i++) {
-            parameters.push(this.childrens[i].generateModel());
+            parameters.push(this.childrens[i].generateModel(loopDetectionObj));
           }
 
           return json;
@@ -31661,7 +33977,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.exceptionsStr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].eexceptions, '');
           this.ordered = 'true' === '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].ordered, 'false');
           this.unique = 'true ' === '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].unique, 'false');
-          this.visibility = OperationVisibility.package;
+          this.visibility = AccessModifier.package;
 
           var parameters = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].getChildrens(json, false);
 
@@ -31777,7 +34093,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var ret = _get(_getPrototypeOf(EOperation.prototype), "setType", this).call(this, ecoreTypeString, throwError, refreshGui);
 
           if (!ret) return false;
-          this.parent.calculateInheritanceViolations(true);
+          if (this.parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) this.parent.calculateInheritanceViolations(true);
           return true;
         } // getReturnType(): EParameter { return this.getFakeReturnTypeParameter(); }
 
@@ -31827,7 +34143,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
-          _get(_getPrototypeOf(EOperation.prototype), "delete", this).call(this, refreshgui);
+          _get(_getPrototypeOf(EOperation.prototype), "delete", this).call(this, false);
         }
       }]);
 
@@ -31876,20 +34192,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(EParameter, _common_Joiner__WEBPA24);
 
       function EParameter(parent, json) {
-        var _this58;
+        var _this65;
 
         _classCallCheck(this, EParameter);
 
-        _this58 = _possibleConstructorReturn(this, _getPrototypeOf(EParameter).call(this, parent, null));
+        _this65 = _possibleConstructorReturn(this, _getPrototypeOf(EParameter).call(this, parent, null));
 
         if (!parent) {
-          return _possibleConstructorReturn(_this58);
+          return _possibleConstructorReturn(_this65);
         } // fake constructor will allow to travel fake -> original. can't original -> fake.
 
 
-        _this58.parse(json);
+        _this65.parse(json);
 
-        return _this58;
+        return _this65;
       }
 
       _createClass(EParameter, [{
@@ -31906,7 +34222,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var ret = _get(_getPrototypeOf(EParameter.prototype), "setType", this).call(this, ecoreTypeString, throwError, refreshGui);
 
           if (!ret) return false;
-          this.parent.parent.calculateInheritanceViolations(true);
+          if (this.parent.parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) this.parent.parent.calculateInheritanceViolations(true);
           return true;
         }
       }, {
@@ -31966,6 +34282,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var json = {};
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].lowerBound, '' + this.lowerbound);
@@ -32073,7 +34390,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.id = Type.idMax++;
         Type.allByID[this.id] = this;
         Type.all.push(this);
-      }
+      } // change owner type. check invalid comparisons like type === othertype to see if sametype
+
 
       _createClass(Type, [{
         key: "changeType",
@@ -32117,7 +34435,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function applyTypeStr() {
           if (!this.typestr || !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm) return;
           this.applyTypeStr0();
-          if (this.primitiveType) this.printablename = this.primitiveType.name;
+          if (this.primitiveType) this.printablename = this.primitiveType.getName();
           if (this.enumType) this.printablename = this.enumType.name;
           if (this.classType) this.printablename = this.classType.name ? this.classType.name : this.classType.metaParent.name;
           if (this.typestr === '???void') this.printablename = 'void';
@@ -32231,15 +34549,41 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function toShortString() {
           if (this.classType) return '' + this.classType.name;
           if (this.enumType) return '' + this.enumType.name;
-          if (this.primitiveType) return '' + this.primitiveType.name;
+          if (this.primitiveType) return '' + this.primitiveType.getName();
           return null;
         }
       }, {
         key: "canOverride",
         value: function canOverride(other) {
-          return this.classType && this.classType.isExtending(other.classType);
+          // i primitivi identici sono compatibili
+          if (this === other) return true; // i primitivi diversi sono sempre incompatibili
+
+          if (!this.classType) return false; // per le classi
+
+          if (other.classType === other.classType) return true;
+          return this.classType.isExtending(other.classType);
         }
       }], [{
+        key: "getAllTypedMP",
+        value: function getAllTypedMP() {
+          return Type.all.map(function (t) {
+            return t.owner;
+          });
+          return Object.keys(Type.allByID).map(function (key) {
+            return _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getByID(+key);
+          });
+        }
+      }, {
+        key: "getAllWithClassType",
+        value: function getAllWithClassType(searchType) {
+          if (!searchType) return []; // const typestr = searchType.getEcoreTypeName();
+          // return Type.getAllTypedMP().filter((t:Typedd)=> (t.type && t.type.classType && t.type.classType.getEcoreTypeName() === typestr));
+
+          return Type.getAllTypedMP().filter(function (typed) {
+            return typed.type && typed.type.classType && typed.type.classType.id === searchType.id;
+          });
+        }
+      }, {
         key: "updateTypeSelectors",
         value: function updateTypeSelectors($searchRoot) {
           var primitives = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
@@ -32258,8 +34602,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var $selects = $searchRoot.find(query).not(notquery);
 
-          for (var _i8 = 0; _i8 < $selects.length; _i8++) {
-            Type.updateTypeSelector($selects[_i8]);
+          for (var _i9 = 0; _i9 < $selects.length; _i9++) {
+            Type.updateTypeSelector($selects[_i9]);
           }
 
           if (classes && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.sidebar) {
@@ -32332,7 +34676,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var opt = document.createElement('option');
               grpPrimitive.appendChild(opt);
               opt.value = etype.long;
-              opt.innerHTML = etype.name;
+              opt.innerHTML = etype.getName();
 
               if (selectedType && etype === selectedType.primitiveType) {
                 foundit(opt);
@@ -32366,15 +34710,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var classarr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.getAllClasses();
 
             for (i = 0; i < classarr.length; i++) {
-              var _e = classarr[i];
+              var _e2 = classarr[i];
 
               var _opt2 = document.createElement('option');
 
               grpClass.appendChild(_opt2);
-              _opt2.value = _e.getEcoreTypeName();
-              _opt2.innerHTML = _e.name;
+              _opt2.value = _e2.getEcoreTypeName();
+              _opt2.innerHTML = _e2.name;
 
-              if (_e === selectedType.classType) {
+              if (_e2 === selectedType.classType) {
                 foundit(_opt2);
               }
             }
@@ -32405,8 +34749,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "linkAll",
         value: function linkAll() {
-          for (var _i9 = 0; _i9 < Type.all.length; _i9++) {
-            Type.all[_i9].applyTypeStr();
+          for (var _i10 = 0; _i10 < Type.all.length; _i10++) {
+            Type.all[_i10].applyTypeStr();
           }
         }
       }, {
@@ -32439,7 +34783,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _classCallCheck(this, EType);
 
-        this.name = null;
+        // static TypeMap: Map<string, Map<string, string>>; // Map<TypemapName, Map<ECoreShortTypeName, TypeAlias>
+        // static currentTypeMapKey: string = null;
+        // name: string = null;
         this.long = null;
         this.short = null;
         this.defaultValue = null;
@@ -32451,27 +34797,93 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.short = short;
         this.defaultValue = defaultVal;
         this.minValue = minValue;
-        this.maxValue = maxValue;
-        var alias = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[short];
-        this.name = alias ? alias : short;
+        this.maxValue = maxValue; // const alias = Status.status.typeAliasDictionary[short];
+        // this.name = alias ? alias : short;
       }
 
       _createClass(EType, [{
-        key: "changeAlias",
-        value: function changeAlias(value) {
-          this.name = value;
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[this.short] = this.name;
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.aliasTypeDictionary[this.name] = this.short;
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.refreshGUI();
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.refreshGUI();
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.graph.propertyBar.refreshGUI();
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.refreshGUI();
+        key: "getName",
+        value: function getName() {
+          var typeMapKey = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+          var typemap = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[typeMapKey || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.currentTypeAlias];
+          return typemap && typemap[this.short] || this.short;
         }
+        /*
+        changeAlias(value: string) {
+          this.name = value;
+          Status.status.typeAliasDictionary[this.short] = this.getName();
+          Status.status.aliasTypeDictionary[this.name] = this.short;
+          Status.status.mm.refreshGUI();
+          Status.status.m.refreshGUI();
+          Status.status.mm.graph.propertyBar.refreshGUI();
+          Status.status.m.graph.propertyBar.refreshGUI();
+        }*/
+
       }], [{
+        key: "LoadTypeMaps",
+        value: function LoadTypeMaps() {
+          EType.LoadPredefinedTypeMaps();
+          EType.LoadCustomTypeMaps();
+        }
+      }, {
+        key: "LoadPredefinedTypeMaps",
+        value: function LoadPredefinedTypeMaps() {
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'] = {};
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong;
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'] = {};
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void] = 'void';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar] = 'char';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString] = 'string';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate] = 'date';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat] = 'float';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble] = 'double';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean] = 'bool';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte] = 'byte';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort] = 'short';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt] = 'int';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong] = 'long';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'] = {};
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void] = 'void';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar] = 'char';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString] = 'char*';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate] = 'time_t';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat] = 'float';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble] = 'double';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean] = 'BOOL';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte] = 'unsigned char';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort] = 'short';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt] = 'int';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong] = 'long';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'] = new Map();
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void] = 'void';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar] = 'CHAR';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString] = 'VARCHAR';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate] = 'DATETIME'; // OR TIMESTAMP (quasi uguali, con diversi limini min-max)
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat] = 'FLOAT';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble] = 'DOUBLE';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean] = 'TINYINT';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte] = 'CHAR(1)';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort] = 'SMALLINT';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt] = 'INT';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong] = 'SMALLINT';
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.user.getID() + '.custom'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cloneObj(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java']);
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.currentTypeAlias = 'predefined.java';
+        }
+      }, {
+        key: "LoadCustomTypeMaps",
+        value: function LoadCustomTypeMaps() {}
+      }, {
         key: "staticInit",
         value: function staticInit() {
           EType.shorts = {};
@@ -32594,21 +35006,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(Typedd, _common_Joiner__WEBPA25);
 
       function Typedd(parent, metaVersion) {
-        var _this59;
+        var _this66;
 
         _classCallCheck(this, Typedd);
 
-        _this59 = _possibleConstructorReturn(this, _getPrototypeOf(Typedd).call(this, parent, metaVersion)); // upperbound and lowerbound are defining how much values can be given to a single typed element. (nullable, single value, array)
+        _this66 = _possibleConstructorReturn(this, _getPrototypeOf(Typedd).call(this, parent, metaVersion)); // upperbound and lowerbound are defining how much values can be given to a single typed element. (nullable, single value, array)
 
-        _this59.upperbound = 1 || false; // to avoid stupid compiler warning on primitive types
+        _this66.upperbound = 1 || false; // to avoid stupid compiler warning on primitive types
 
-        _this59.lowerbound = false || 0; // tells if the values are ordered. useless if upperbound is <= 1
+        _this66.lowerbound = false || 0; // tells if the values are ordered. useless if upperbound is <= 1
 
-        _this59.ordered = false && false; // tells if the values are a set. useless if upperbound is <= 1
+        _this66.ordered = false && false; // tells if the values are a set. useless if upperbound is <= 1
 
-        _this59.unique = false && false;
-        _this59.type = _this59.getModelRoot().isM2() || _this59.getModelRoot().isM3() ? new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"](_assertThisInitialized(_this59)) : null;
-        return _this59;
+        _this66.unique = false && false;
+        _this66.type = _this66.getModelRoot().isM2() || _this66.getModelRoot().isM3() ? new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"](_assertThisInitialized(_this66)) : null;
+        return _this66;
       } // typeClassFullnameStr: string = null;
 
       /*
@@ -32666,6 +35078,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function setType(ecoreTypeString) {
           var throwError = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
           var refreshGui = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+          var root = this.getModelRoot(); //  U.pe(!root.isM2(), 'only m2 model piece features, operations and parameters can change type', this);
+
           var type = this.getType();
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(type !== this.type, 'attempting to change parent type!', this, type);
@@ -32740,7 +35154,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getVertex",
         value: function getVertex() {
-          return this.parent ? this.getClass().getVertex() : null;
+          var canMakeIt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          return this.parent ? this.getClass().getVertex(canMakeIt) : null;
         }
         /*linkToMetaParent<T extends Typedd>(classChild: T) {
           U.pe(true, 'linkToMetaPrent: todo();');
@@ -32895,20 +35310,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(IClass, _IClassifier__WEBPACK);
 
       function IClass(parent, meta) {
-        var _this60;
+        var _this67;
 
         _classCallCheck(this, IClass);
 
-        _this60 = _possibleConstructorReturn(this, _getPrototypeOf(IClass).call(this, parent, meta));
-        _this60.referencesIN = []; // external pointers to this class.
+        _this67 = _possibleConstructorReturn(this, _getPrototypeOf(IClass).call(this, parent, meta));
+        _this67.referencesIN = []; // external pointers to this class.
 
-        _this60.shouldBeDisplayedAsEdgeVar = false && false;
-        _this60.extends = [];
-        _this60.gotExtendedBy = [];
-        _this60.edges = [];
+        _this67.shouldBeDisplayedAsEdgeVar = false && false;
+        _this67.extends = [];
+        _this67.gotExtendedBy = [];
+        _this67.edges = [];
 
-        if (_this60.parent) {
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(_this60.parent.classes, _assertThisInitialized(_this60));
+        if (_this67.parent) {
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(_this67.parent.classes, _assertThisInitialized(_this67));
         } // let selectedcolor: string = 'var(--'; todo, ma crea problemi con l'input type color
 
 
@@ -32919,9 +35334,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         var i;
-        _this60.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
-        _this60.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
-        _this60.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
+        _this67.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
+        _this67.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
+        _this67.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
 
         switch (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].get()) {
           default:
@@ -32933,7 +35348,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             break;
 
           case _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Light:
-            var edgeStyles = [_this60.edgeStyleCommon, _this60.edgeStyleHighlight, _this60.edgeStyleSelected];
+            var edgeStyles = [_this67.edgeStyleCommon, _this67.edgeStyleHighlight, _this67.edgeStyleSelected];
 
             for (i = 0; i < edgeStyles.length; i++) {
               var style = edgeStyles[i];
@@ -32947,7 +35362,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             break;
         }
 
-        return _this60;
+        return _this67;
       }
 
       _createClass(IClass, [{
@@ -33021,24 +35436,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _get(_getPrototypeOf(IClass.prototype), "delete", this).call(this, false);
 
-          if (oldparent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldparent.classes, this); // todo: che fare con le reference a quella classe? per ora cancello i campi.
-
-          var pointers = this.getReferencePointingHere();
-          var i;
-
-          for (i = 0; i < pointers.length; i++) {
-            pointers[i].delete();
-          }
-
-          if (this.shouldBeDisplayedAsEdge()) {
-            var edges = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayCopy(this.getEdges(), false);
-
-            for (i = 0; i < edges.length; i++) {
-              edges[i].remove();
-            }
-          }
-
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, false, true);
+          if (oldparent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldparent.classes, this);
+          /*
+          che fare con le reference a quella classe? così cancello i campi.
+          const pointers: IReference[] = U.shallowArrayCopy(this.getReferencePointingHere());
+          let i;
+          for (i = 0; i < pointers.length; i++) { pointers[i].delete(); }
+          */
 
           if (refreshgui) this.refreshGUI();
         }
@@ -33057,10 +35461,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             var edges = this.getEdges();
 
-            var _i10;
+            var _i11;
 
-            for (_i10 = 0; _i10 < edges.length; _i10++) {
-              edges[_i10].refreshGui(debug);
+            for (_i11 = 0; _i11 < edges.length; _i11++) {
+              edges[_i11].refreshGui(debug);
             }
 
             return;
@@ -33213,113 +35617,363 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'found class.children not reference neither attribute: ', child);
           }
         }
-        /*getEdge(): IEdge[] {
-          U.pe(!this.shouldBeDisplayedAsEdge(), 'err');
-          if (!this.edges) { this.generateEdge(); }
-          return this.edges; }*/
+      }, {
+        key: "getAllOperations",
+        value: function getAllOperations() {
+          return new Set(this.getAllChildrens(true, false, false, false));
+        }
+      }, {
+        key: "getAllAnnotations",
+        value: function getAllAnnotations() {
+          return this.getAllChildrens(false, true, false, false);
+        }
+        /*
+          getDisplayedChildrens(): Set<Typedd> { return this.getBasicChildrens(); }
+          getDisplayedOperations(): Set<EOperation> { return this.getBasicOperations(); }
+          getDisplayedAttributes(): Set<IAttribute> { return this.getBasicAttributes(); }
+          getDisplayedReferences(): Set<IReference> { return this.getBasicReferences(); }*/
 
-        /*linkToMetaParent(meta: IClass): void {
-          U.pe(true, 'linkToMetaParent: todo.');
-          const outObj: any = {};
-          const comformability: number = this.conformability(meta, outObj);
-          if (comformability !== 1) {
-            U.pw(true, 'm2Class: ' + this.name + ' not fully conform to ' + meta.name + '. Conformability: = ' + comformability * 100 + '%' );
-            return; }
-          this.metaParent = meta;
+      }, {
+        key: "getBasicChildrens",
+        value: function getBasicChildrens()
+        /*null = both shadow and unshadow, true = onlyshadowed*/
+        {
+          var includeOperations = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var includeAnnotations = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+          var includeAttributes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+          var includeReferences = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+          var includeShadowed = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+          // if (includeOperations && includeAnnotations) return new Set(this.childrens);
+          var arr = [];
+          var j;
+          var isM2 = this.getModelRoot().isM2();
+
+          for (j = 0; j < this.childrens.length; j++) {
+            var child = this.childrens[j];
+            console.log(child.metaParent, this.metaParent, child, this);
+            if (child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"] && child.isInherited(this)) continue; // for m1
+
+            if (!isM2 && (includeAttributes || includeReferences) && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]) {
+              if (includeShadowed !== null && child.isShadowed(this) !== includeShadowed) continue;
+            }
+
+            if (includeAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"]) {
+              arr.push(child);
+              continue;
+            }
+
+            if (includeReferences && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"]) {
+              arr.push(child);
+              continue;
+            }
+
+            if (includeOperations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]) {
+              arr.push(child);
+              continue;
+            }
+
+            if (includeAnnotations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EAnnotation"]) {
+              arr.push(child);
+              continue;
+            } // U.pe(true, 'unexpected type of children basic:', child);
+
+          }
+
+          return new Set(arr);
+        }
+      }, {
+        key: "checkViolations",
+        value: function checkViolations() {
+          var toAllChain = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm) return;
+          if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) this.calculateInheritanceViolations(toAllChain); // this.calculateShadowings(toAllChain);
+        }
+      }]);
+
+      return IClass;
+    }(_IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"]);
+
+    var M3Class =
+    /*#__PURE__*/
+    function (_IClass) {
+      _inherits(M3Class, _IClass);
+
+      function M3Class(parent) {
+        var _this68;
+
+        var json = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+        _classCallCheck(this, M3Class);
+
+        _this68 = _possibleConstructorReturn(this, _getPrototypeOf(M3Class).call(this, parent, null));
+
+        _this68.parse(json, true);
+
+        return _this68;
+      }
+
+      _createClass(M3Class, [{
+        key: "duplicate",
+        value: function duplicate(nameAppend, newParent) {
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Class.duplicate()');
+
+          return this;
+        }
+      }, {
+        key: "generateModel",
+        value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Class.generateModel()');
+
+          return this;
+        }
+      }, {
+        key: "parse",
+        value: function parse(json, destructive) {
+          this.name = 'Class';
+          this.childrens = [];
+          this.attributes = [];
+          this.references = [];
+          this.instances = [];
+          var a = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M3Attribute"](this, null);
+          var r = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M3Reference"](this, null);
+          var o = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"](this, null);
+          var p = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EParameter"](o, null);
+        }
+      }, {
+        key: "getAllChildrens",
+        value: function getAllChildrens(includeOperations, includeAnnotations, includeAttributes, includeReferences,
+        /*null = both shadow and unshadow, true = onlyshadowed*/
+        includeShadowed) {
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, "m3.getallchildrens()");
+
+          return null;
+        }
+      }, {
+        key: "getAllAttributes",
+        value: function getAllAttributes() {
+          return new Set(this.attributes);
+        }
+      }, {
+        key: "getAllReferences",
+        value: function getAllReferences() {
+          return new Set(this.references);
+        }
+      }, {
+        key: "getAllOperations",
+        value: function getAllOperations() {
+          return new Set(this.operations);
+        }
+      }, {
+        key: "getBasicAttributes",
+        value: function getBasicAttributes() {
+          return this.getAllAttributes();
+        }
+      }, {
+        key: "getBasicReferences",
+        value: function getBasicReferences() {
+          return this.getAllReferences();
+        }
+      }, {
+        key: "getBasicOperations",
+        value: function getBasicOperations() {
+          return this.getAllOperations();
+        }
+      }, {
+        key: "getBasicAnnotations",
+        value: function getBasicAnnotations() {
+          return this.getAllAnnotations();
+        }
+      }]);
+
+      return M3Class;
+    }(IClass);
+    /***/
+
+  },
+
+  /***/
+  "./src/mClass/m2Class.ts":
+  /*!*******************************!*\
+    !*** ./src/mClass/m2Class.ts ***!
+    \*******************************/
+
+  /*! exports provided: M2Class */
+
+  /***/
+  function srcMClassM2ClassTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "M2Class", function () {
+      return M2Class;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../common/Joiner */
+    "./src/common/Joiner.ts");
+    /* harmony import */
+
+
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! sweetalert2 */
+    "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+    /* harmony import */
+
+
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default =
+    /*#__PURE__*/
+    __webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+
+    var M2Class =
+    /*#__PURE__*/
+    function (_common_Joiner__WEBPA26) {
+      _inherits(M2Class, _common_Joiner__WEBPA26);
+
+      /*
+        static updateAllMMClassSelectors(root0: Element = null, updateModel: boolean = false, updateSidebar: boolean = true): void {
+          let root: Element = root0;
+          if (!Status.status.loadedGUI) { return; }
+          if (!root) { root = Status.status.mm.graph.container; }
+          // console.log('updateAllMMClassSelectors()', 'selects:', $selectors, root);
+          const $selectors = $(root).find('select.ClassSelector');
+          let i = -1;
+          while (++i < $selectors.length) { M2Class.updateMMClassSelector($selectors[i] as HTMLSelectElement); }
+          if (updateSidebar && Status.status.m && Status.status.m.sidebar) { Status.status.m.sidebar.loadDefaultHtmls(); }
+          if (!updateModel) { return; }
+          // if (Status.status.mm && Status.status.mm.sidebar) { Status.status.mm.sidebar.updateAll(); }
+          if (Status.status.m) { Status.statm.refreshGUI(); }
+        }
+      /*
+        static updateMMClassSelector(htmlSelect: HTMLSelectElement, selected: M2Class = null, debug = false,
+                                     mustSelect: boolean = true): HTMLSelectElement {
+          if (!htmlSelect || !Status.status.loadedGUI) { return; }
+          const optGrp: HTMLOptGroupElement = document.createElement('optgroup');
+          let toSelect: string;
+          if (debug) { console.clear(); }
+          if (mustSelect && !selected) {
+            const mp: ModelPiece = ModelPiece.getLogic(htmlSelect);
+            U.pif(debug, 'ownermp:', mp, 'select:', htmlSelect);
+            // if (ownermp instanceof IAttribute || ownermp instanceof MAttribute) { selected = ownermp.parent as M2Class; }
+            if (mp instanceof Typedd) { selected = (mp as Typedd).type; }
+            U.pw(!selected, 'ClassSelectors must be held inside a m2-reference:', htmlSelect, 'ownermp:', mp) ;
+            if (!selected) { return; }
+          }
+          toSelect = '' + (selected ? selected.id : '');
+          U.pif(debug, 'selected:', selected);
+          U.clear(htmlSelect);
+          htmlSelect.appendChild(optGrp);
+          optGrp.setAttribute('label', 'Class list');
+          const mmClasses: M2Class[] = Status.status.mm.getAllClasses();
           let i: number;
-          const refPermutation: number[] = outObj.refPermutation;
-          const attrPermutation: number[] = outObj.attrPermutation;
-          i = -1;
-          while (++i < attrPermutation.length) { this.attributes[i].linkToMetaParent(meta.attributes[attrPermutation[i]]); }
-          i = -1;
-          while (++i < refPermutation.length) { this.references[i].linkToMetaParent(meta.references[refPermutation[i]]); }
-        }*/
+          let found: boolean = !mustSelect;
+          for (i = 0; i < mmClasses.length; i++) {
+            const classe: M2Class = mmClasses[i];
+            if (classe.shouldBeDisplayedAsEdge()) { continue; }
+            const opt: HTMLOptionElement = document.createElement('option');
+            opt.value = '' + classe.id;
+            if (toSelect && opt.value === toSelect) { opt.setAttribute('selected', ''); opt.selected = found = true; }
+            // console.log('mustselect?' + mustSelect + ': ' + toSelect + '&&' + opt.value + ' ? ' + found);
+            opt.innerHTML = classe.name;
+            optGrp.appendChild(opt); }
+          U.pw(debug && !found, 'class not found.', mmClasses, 'searchedClass:', selected,
+            'shouldBeEdge?', selected && selected.shouldBeDisplayedAsEdge());
+          return htmlSelect; }
+      */
+      // isRoot(): boolean { U.pe(true, 'm2 class cannot be roots.'); return false; }
+      // setRoot(value: boolean): void { U.pe(true, 'only usable in model version'); }
+      function M2Class(pkg, json) {
+        var _this69;
 
-        /*conformability(meta: IClass, outObj: any = null/*.refPermutation, .attrPermutation* /, debug: boolean = true): number {
-          if (this.attributes > meta.attributes) { return 0; }
-          if (this.references > meta.references) { return 0; }
-          const refLenArray: number[] = [];
-          let i;
-          let j;
-          // find best references permutation compabilityF
-          i = -1;
-          while (++i < meta.references.length) { refLenArray.push(i); }
-          const refPermut: number[][] = U.permute(refLenArray);
-          // console.log('possible class.references permutations[' + meta.references.length + '!]:', refLenArray, ' => ', refPermut);
-          const allRefPermutationConformability: number[] = [];
-          i = -1;
-          let bestRefPermutation: number[] = null;
-          let bestRefPermutationValue = -1;
-          while (++i < refPermut.length) {
-            j = -1;
-            const permutation = refPermut[i];
-            let permutationComformability = 0;
-            while (++j < permutation.length) {
-              const Mref: IReference = this.references[j];
-              const MMref: IReference = meta.references[permutation[j]];
-              const refComf = !Mref ? 0 : Mref.conformability(MMref, debug);
-              console.log('ref: permutationComformability:', permutationComformability, ' + ' + refComf + ' / ' + permutation.length,
-                '-->', permutationComformability + refComf / permutation.length);
-              permutationComformability += refComf / permutation.length; }
-                allRefPermutationConformability.push(permutationComformability);
-            if (permutationComformability > bestRefPermutationValue) {
-              bestRefPermutation = permutation;
-              bestRefPermutationValue = permutationComformability; }
-            if (permutationComformability === 1) { break; }
-          }
-              // find best attributes permutation compability
-          const attLenArray: number[] = [];
-          i = -1;
-          while (++i < meta.attributes.length) { attLenArray.push(i); }
-          const attPermut: number[][] = U.permute(attLenArray, debug);
-          // console.log('possible class.attributes permutations[' + meta.attributes.length + '!]:', attLenArray, ' => ', attPermut);
-          const allAttPermutationConformability: number[] = [];
-          i = -1;
-          let bestAttPermutation: number[] = null;
-          let bestAttPermutationValue = -1;
-          while (++i < attPermut.length) {
-            j = -1;
-            const permutation = attPermut[i];
-            let permutationComformability = 0;
-            while (++j < permutation.length) {
-              const M2att: IAttribute = this.attributes[j];
-              const M3att: IAttribute = meta.attributes[permutation[j]];
-              const attComf = !M2att ? 0 : M2att.conformability(M3att, debug);
-              console.log('attr: permutationComformability:', permutationComformability, ' + ' + attComf + ' / ' + permutation.length,
-                '-->', permutationComformability + attComf / permutation.length);
-              permutationComformability += attComf / permutation.length; }
-                allAttPermutationConformability.push(permutationComformability);
-            if (permutationComformability > bestRefPermutationValue) {
-              bestAttPermutation = permutation;
-              bestAttPermutationValue = permutationComformability; }
-            if (permutationComformability === 1) { break; }
-          }
-              const total = meta.childrens.length + 1; // + name
-          const nameComformability = StringSimilarity.compareTwoStrings(this.name, meta.name) / total;
-          bestAttPermutationValue = Math.max(0, bestAttPermutationValue * (meta.attributes.length / total));
-          bestRefPermutationValue = Math.max(0, bestRefPermutationValue * (meta.references.length / total));
-          if (outObj) {
-            outObj.refPermutation = bestRefPermutation;
-            outObj.attrPermutation = bestAttPermutation; }
-              const ret = nameComformability + bestAttPermutationValue + bestRefPermutationValue;
-          U.pif(debug, 'M2CLASS.comform(', this.name, {0: this}, ', ', meta.name, {0: meta}, ') = ', ret,
-            ' = ', nameComformability + ' + ' + bestAttPermutationValue + ' + ', bestRefPermutationValue);
-          return ret; }*/
-        // todo: typescript proposal: insert type "this.field[]" così posso specificare il tipo di ritorno della funzione uguale a quello di quel campo.
+        _classCallCheck(this, M2Class);
 
+        _this69 = _possibleConstructorReturn(this, _getPrototypeOf(M2Class).call(this, pkg, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getAllClasses()[0])); // features: M2Feature[]; // M2Feature[];
+
+        _this69.operations = [];
+        _this69.extends = [];
+        _this69.gotExtendedBy = [];
+        _this69.visibility = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"].package;
+        _this69.instances = [];
+
+        if (!pkg && !json) {
+          return _possibleConstructorReturn(_this69);
+        } // empty constructor for .duplicate();
+
+
+        _this69.parse(json, true);
+
+        return _this69;
+      }
+
+      _createClass(M2Class, [{
+        key: "getAccessModifier",
+        value: function getAccessModifier() {
+          return this.visibility;
+        }
+      }, {
+        key: "getVisibility",
+        value: function getVisibility() {
+          return this.getAccessModifier();
+        }
+      }, {
+        key: "setAccessModifier",
+        value: function setAccessModifier(a) {
+          var output = {
+            reason: ''
+          };
+
+          if (!this.canChangeAccessModifierValidityTo(a, output, true)) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'cannot set visibility scope to "' + a.toString() + '" because ' + output.reason);
+          }
+
+          this.visibility = a;
+        }
+      }, {
+        key: "canChangeAccessModifierValidityTo",
+        value: function canChangeAccessModifierValidityTo(a, _ref) {
+          var string = _ref.reason;
+          var allowMark = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+          //todo: controlla che le m2-reference e utilizzo nei parametri rispettino il visibility scope
+          return true;
+        }
       }, {
         key: "getAllSuperClasses",
         value: function getAllSuperClasses() {
           var plusThis = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
           // :this sembra buggato come parametro input: se gli passo un parametro stesso tipo mi da comunque errore, ma accetta letteralmente "this"...
           var i;
-          var set = plusThis ? new Set([this]) : new Set();
-
+          /*
+          const set: Set<IClass> = plusThis ? new Set<IClass>([this as any]) : new Set();
           for (i = 0; i < this.extends.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, set, this.extends[i].getAllSuperClasses(true));
+            U.SetMerge(true, set, this.extends[i].getAllSuperClasses(true)); }
+          return [...set];*/
+          // deve fare una ricerca per ordini dell'albero (width, non per depth nel grafo)
+
+          var visited = new Map();
+          var queue = plusThis ? [this].concat(_toConsumableArray(this.extends)) : _toConsumableArray(this.extends);
+          var ret = [];
+
+          for (i = 0; i < queue.length; i++) {
+            var elem = queue[i];
+            if (visited[elem.id]) continue;
+            visited[elem.id] = elem;
+            ret.push(elem);
+            queue.push.apply(queue, _toConsumableArray(elem.extends));
           }
 
-          return _toConsumableArray(set);
+          return ret;
         }
       }, {
         key: "getAllSubClasses",
@@ -33400,8 +36054,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 op.mark(true, superchildren, 'override');
                 setTimeout(function () {
                   op.mark(false, superchildren, 'override');
-                }, 1000);
-              }, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedGUI ? 0 : 2);
+                }, 3000);
+              }, 1);
               return {
                 v: {
                   v: false
@@ -33467,8 +36121,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(superclass.gotExtendedBy, this);
 
           var i;
-          if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) for (i = 0; i < this.instances.length; i++) {
-            this.instances[i].setExtends(superclass);
+          if (this instanceof M2Class) for (i = 0; i < this.instances.length; i++) {
+            this.instances[i].changeMetaParent(this, true, true);
           }
           if (refreshGUI) this.refreshGUI_Alone();
           var extendChildrens = this.getAllSuperClasses(true);
@@ -33500,9 +36154,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.refreshGUI_Alone();
 
-          if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
+          if (this instanceof M2Class) {
             for (i = 0; i < this.instances.length; i++) {
-              this.instances[i].unsetExtends(superclass);
+              this.instances[i].doUnsetExtends(superclass);
             }
 
             if (removeEdge) for (i = 0; i < this.extendEdges.length; i++) {
@@ -33522,171 +36176,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
         }
       }, {
-        key: "getAllChildrens",
-        value: function getAllChildrens() {
-          var includeOperations = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-          var includeAnnotations = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-          var includeAttributes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-          var includeReferences = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
-          var includeShadowed = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
-          //todo: actually since getAllExtends returns an array made from a set, and a class cannot contain duplicates, it cannot contain duplicates. sets here are redundant.
-          var extendchain = this.getBasicExtends(true); // this.getAllExtends(true);
-
-          var i;
-          var j;
-          var ret = [];
-          var features = new Map();
-          var operations = new Map(); // features and operations can share names
-          // features with same name on different classes will just shadow each other without overriding
-          // override solo se signature identica.
-          // se signature identica e return primitivo diverso: invalido.
-          // se signature identica e return Object più specifico: valido.
-
-          for (i = 0; i < extendchain.length; i++) {
-            ret.push.apply(ret, _toConsumableArray(extendchain[i].getBasicChildrens(includeOperations, includeAnnotations, includeAttributes, includeReferences, includeShadowed)));
-          }
-
-          return ret;
-        }
-      }, {
-        key: "getAllAttributes",
-        value: function getAllAttributes() {
-          var extendchain = this.getAllSuperClasses(true);
-          var i;
-          var ret = new Set();
-
-          for (i = 0; i < extendchain.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, ret, extendchain[i].getBasicAttributes());
-          }
-
-          return ret;
-        }
-      }, {
-        key: "getAllReferences",
-        value: function getAllReferences() {
-          var extendchain = this.getAllSuperClasses(true);
-          var i;
-          var ret = new Set();
-
-          for (i = 0; i < extendchain.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, ret, extendchain[i].getBasicReferences());
-          }
-
-          return ret;
-        }
-      }, {
-        key: "getAllOperations",
-        value: function getAllOperations() {
-          var extendchain = this.getAllSuperClasses(true);
-          var i;
-          var ret = new Set();
-
-          for (i = 0; i < extendchain.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, ret, extendchain[i].getBasicOperations());
-          }
-
-          return ret;
-        }
-        /*
-          getDisplayedChildrens(): Set<Typedd> { return this.getBasicChildrens(); }
-          getDisplayedOperations(): Set<EOperation> { return this.getBasicOperations(); }
-          getDisplayedAttributes(): Set<IAttribute> { return this.getBasicAttributes(); }
-          getDisplayedReferences(): Set<IReference> { return this.getBasicReferences(); }*/
-
-      }, {
-        key: "getBasicChildrens",
-        value: function getBasicChildrens()
-        /*null = both shadow and unshadow, true = onlyshadowed*/
-        {
-          var includeOperations = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-          var includeAnnotations = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-          var includeAttributes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-          var includeReferences = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
-          var includeShadowed = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
-          if (includeOperations && includeAnnotations) return new Set(this.childrens);
-          var arr = [];
-          var j;
-
-          for (j = 0; j < this.childrens.length; j++) {
-            var child = this.childrens[j];
-            console.log(child.metaParent, this.metaParent, child, this);
-            if (child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"] && child.isInherited(this)) continue; // for m1
-
-            if (includeAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"]) {
-              if (includeShadowed !== null && child.isShadowed(this) !== includeShadowed) continue;
-              arr.push(child);
-              continue;
-            }
-
-            if (includeReferences && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"]) {
-              arr.push(child);
-              continue;
-            }
-
-            if (includeOperations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]) {
-              arr.push(child);
-              continue;
-            }
-
-            if (includeAnnotations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EAnnotation"]) {
-              arr.push(child);
-              continue;
-            } // U.pe(true, 'unexpected type of children basic:', child);
-
-          }
-
-          return new Set(arr);
-        }
-      }, {
-        key: "getBasicAttributes",
-        value: function getBasicAttributes() {
-          return new Set(this.attributes);
-        }
-      }, {
-        key: "getBasicReferences",
-        value: function getBasicReferences() {
-          return new Set(this.references);
-        }
-      }, {
-        key: "checkViolations",
-        value: function checkViolations() {
-          var toAllChain = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-          if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm) return;
-          this.calculateInheritanceViolations(toAllChain); // this.calculateShadowings(toAllChain);
-        }
-        /*
-          calculateShadowings(updateSubclassesToo: boolean = true): void {
-            let i: number;
-            let j: number;
-            const superclasses: IClass[] = this.getAllSuperClasses();
-            let map: Map<string, IFeature[]> = new Map();
-            for (i = 0; i < superclasses.length; i++) {
-              let sc: IClass = superclasses[i];
-              let features: IFeature[] = [...sc.getBasicChildrens(false, false, true, true, false)] as IFeature[];
-        
-              for (j = 0; j < features.length; j++) {
-                let feat: IFeature = features[j];
-                if (!map[feat.name]) map[feat.name] = [feat.name]; else map[feat.name].push(feat);
-              }
-            }
-            const ownFeatures: IFeature[] = [...this.getBasicChildrens(false, false, true, true, false)] as IFeature[];
-            for (j = 0; j < ownFeatures.length; j++) {
-              let feat: IFeature = ownFeatures[j];
-              un attributo non è shadowed di natura, lo è nella sottoclassi ma non nella sua classe.extendsStralso sto settando shadowed la sottoclasse e non la superclasse
-              this.setShadowed(!!map[feat.name]); }
-            if (updateSubclassesToo) {
-              let subClasses: IClass[] = this.getAllSubClasses(false);
-              for (j = 0; j < subClasses.length; j++) {
-                let sc: IClass = subClasses[j];
-                sc.calculateShadowings(false); }
-            }
-          }
-        */
-
-      }, {
         key: "calculateInheritanceViolations",
         value: function calculateInheritanceViolations() {
           var toAllChain = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedGUI) return;
           var i;
           var j;
 
@@ -33717,214 +36210,127 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           }
         }
-      }]);
-
-      return IClass;
-    }(_IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"]);
-
-    var M3Class =
-    /*#__PURE__*/
-    function (_IClass) {
-      _inherits(M3Class, _IClass);
-
-      function M3Class(parent) {
-        var _this61;
-
-        var json = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-        _classCallCheck(this, M3Class);
-
-        _this61 = _possibleConstructorReturn(this, _getPrototypeOf(M3Class).call(this, parent, null));
-
-        _this61.parse(json, true);
-
-        return _this61;
-      }
-
-      _createClass(M3Class, [{
-        key: "duplicate",
-        value: function duplicate(nameAppend, newParent) {
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Class.duplicate()');
-
-          return this;
-        }
       }, {
-        key: "generateModel",
-        value: function generateModel() {
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Class.generateModel()');
+        key: "getTypeConversionScores",
+        value: function getTypeConversionScores() {
+          var allowSuperClass = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var allowSubClass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+          var map = {};
+          var ret = [];
 
-          return this;
-        }
-      }, {
-        key: "getBasicOperations",
-        value: function getBasicOperations() {
-          var i;
+          var sortingFunction = function sortingFunction(e1, e2) {
+            var s1 = e1.order; //  (e1.features + "." + e1.operations + "." + e1.annotations).replace("-", "Z");
 
-          for (i = 0; i < this.childrens.length; i++) {
-            var c = this.childrens[i];
-            if (c instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]) return new Set([c]);
-          }
+            var s2 = e2.order; // (e2.features + "." + e2.operations + "." + e2.annotations).replace("-", "Z");
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'failed to find m3Operation');
+            return s1.localeCompare(s2);
+            /*
+              // confronto feature number
+              if (e1.features !== e2.features) {
+                if (e1.features < 0) return e1.features + e2.features;// -1 + -5 = -6 (e1 prima di e2),  -1 + -5 = +4 (e1 dopo e2)
+                else return e1.features - e2.features;// +1 - -5 = +6 (e1 dopo di e2),  +1 - 5 = -4 (e1 prima di e2)
+              }
+              // confronto operations number
+              if (e1.operations !== e2.operations) {
+                if (e1.operations < 0) return e1.operations + e2.operations;
+                else return e1.operations - e2.operations;
+              }
+              // confronto annotations number
+              if (e1.annotations !== e2.annotations) {
+                if (e1.annotations < 0) return e1.annotations + e2.annotations;
+                else return e1.annotations - e2.annotations;
+              }
+              return 0;*/
+          };
 
-          return null;
-        }
-      }, {
-        key: "parse",
-        value: function parse(json, destructive) {
-          this.name = 'Class';
-          this.childrens = [];
-          this.attributes = [];
-          this.references = [];
-          this.instances = [];
-          var a = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M3Attribute"](this, null);
-          var r = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M3Reference"](this, null);
-          var o = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"](this, null);
-          var p = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EParameter"](o, null);
-        }
-      }]);
+          var candidateClasses = [];
+          if (allowSuperClass) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(candidateClasses, this.getAllSuperClasses(false));
+          if (allowSubClass) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(candidateClasses, this.getAllSubClasses(false));
+          candidateClasses = candidateClasses.filter(function (c) {
+            return !c.getInterface() && !c.getAbstract();
+          });
+          var myFeatures = this.getAllChildrens(false, false);
+          var myOperations = this.getAllChildrens(true, false, false, false);
+          var myAnnotations = this.getAllChildrens(false, true, false, false);
 
-      return M3Class;
-    }(IClass);
-    /***/
-
-  },
-
-  /***/
-  "./src/mClass/m2Class.ts":
-  /*!*******************************!*\
-    !*** ./src/mClass/m2Class.ts ***!
-    \*******************************/
-
-  /*! exports provided: M2Class */
-
-  /***/
-  function srcMClassM2ClassTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "M2Class", function () {
-      return M2Class;
-    });
-    /* harmony import */
+          for (var _i12 = 0; _i12 < candidateClasses.length; _i12++) {
+            var candidate = candidateClasses[_i12];
+            var featureAdd = candidate.getAllChildrens(false, false).length - myFeatures.length;
+            var operationsAdd = candidate.getAllChildrens(true, false, false, false).length - myOperations.length;
+            var annotationsAdd = candidate.getAllChildrens(false, true, false, false).length - myAnnotations.length;
+            var elem = {
+              class: candidate,
+              features: featureAdd,
+              operations: operationsAdd,
+              annotations: annotationsAdd
+            };
+            ret.push(elem);
+            var order = (featureAdd + "." + operationsAdd + "." + annotationsAdd).replace("-", "Z");
+            elem.order = order; // if (map[order]) continue;
+            // map[order] = candidate;
+          } // let lowestKey: string = Object.keys(map).sort()[0];
+          // return map[lowestKey];
 
 
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ../common/Joiner */
-    "./src/common/Joiner.ts");
-
-    var M2Class =
-    /*#__PURE__*/
-    function (_common_Joiner__WEBPA26) {
-      _inherits(M2Class, _common_Joiner__WEBPA26);
-
-      /*
-        static updateAllMMClassSelectors(root0: Element = null, updateModel: boolean = false, updateSidebar: boolean = true): void {
-          let root: Element = root0;
-          if (!Status.status.loadedGUI) { return; }
-          if (!root) { root = Status.status.mm.graph.container; }
-          // console.log('updateAllMMClassSelectors()', 'selects:', $selectors, root);
-          const $selectors = $(root).find('select.ClassSelector');
-          let i = -1;
-          while (++i < $selectors.length) { M2Class.updateMMClassSelector($selectors[i] as HTMLSelectElement); }
-          if (updateSidebar && Status.status.m && Status.status.m.sidebar) { Status.status.m.sidebar.loadDefaultHtmls(); }
-          if (!updateModel) { return; }
-          // if (Status.status.mm && Status.status.mm.sidebar) { Status.status.mm.sidebar.updateAll(); }
-          if (Status.status.m) { Status.statm.refreshGUI(); }
-        }
-      /*
-        static updateMMClassSelector(htmlSelect: HTMLSelectElement, selected: M2Class = null, debug = false,
-                                     mustSelect: boolean = true): HTMLSelectElement {
-          if (!htmlSelect || !Status.status.loadedGUI) { return; }
-          const optGrp: HTMLOptGroupElement = document.createElement('optgroup');
-          let toSelect: string;
-          if (debug) { console.clear(); }
-          if (mustSelect && !selected) {
-            const mp: ModelPiece = ModelPiece.getLogic(htmlSelect);
-            U.pif(debug, 'ownermp:', mp, 'select:', htmlSelect);
-            // if (ownermp instanceof IAttribute || ownermp instanceof MAttribute) { selected = ownermp.parent as M2Class; }
-            if (mp instanceof Typedd) { selected = (mp as Typedd).type; }
-            U.pw(!selected, 'ClassSelectors must be held inside a m2-reference:', htmlSelect, 'ownermp:', mp) ;
-            if (!selected) { return; }
-          }
-          toSelect = '' + (selected ? selected.id : '');
-          U.pif(debug, 'selected:', selected);
-          U.clear(htmlSelect);
-          htmlSelect.appendChild(optGrp);
-          optGrp.setAttribute('label', 'Class list');
-          const mmClasses: M2Class[] = Status.status.mm.getAllClasses();
-          let i: number;
-          let found: boolean = !mustSelect;
-          for (i = 0; i < mmClasses.length; i++) {
-            const classe: M2Class = mmClasses[i];
-            if (classe.shouldBeDisplayedAsEdge()) { continue; }
-            const opt: HTMLOptionElement = document.createElement('option');
-            opt.value = '' + classe.id;
-            if (toSelect && opt.value === toSelect) { opt.setAttribute('selected', ''); opt.selected = found = true; }
-            // console.log('mustselect?' + mustSelect + ': ' + toSelect + '&&' + opt.value + ' ? ' + found);
-            opt.innerHTML = classe.name;
-            optGrp.appendChild(opt); }
-          U.pw(debug && !found, 'class not found.', mmClasses, 'searchedClass:', selected,
-            'shouldBeEdge?', selected && selected.shouldBeDisplayedAsEdge());
-          return htmlSelect; }
-      */
-      // isRoot(): boolean { U.pe(true, 'm2 class cannot be roots.'); return false; }
-      // setRoot(value: boolean): void { U.pe(true, 'only usable in model version'); }
-      function M2Class(pkg, json) {
-        var _this62;
-
-        _classCallCheck(this, M2Class);
-
-        _this62 = _possibleConstructorReturn(this, _getPrototypeOf(M2Class).call(this, pkg, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getAllClasses()[0])); // features: M2Feature[]; // M2Feature[];
-
-        _this62.operations = [];
-        _this62.extends = [];
-        _this62.gotExtendedBy = [];
-        _this62.instances = [];
-
-        if (!pkg && !json) {
-          return _possibleConstructorReturn(_this62);
-        } // empty constructor for .duplicate();
-
-
-        _this62.parse(json, true);
-
-        return _this62;
-      }
-
-      _createClass(M2Class, [{
-        key: "setExtends",
-        value: function setExtends(superClass) {
-          var refreshGUI = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-          var force = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-          return _get(_getPrototypeOf(M2Class.prototype), "setExtends", this).call(this, superClass, refreshGUI, force);
+          return ret.sort(sortingFunction);
         } // getDisplayedChildrens(): Set<EOperation | M2Feature> { return this.getBasicChildrens(); }
         //getBasicChildrens(): Set<M2Feature | EOperation> { return super.getBasicChildrens() as Set<M2Feature | EOperation>; }
         // getAllChildrens(): (M2Feature | EOperation)[] { return super.getAllChildrens() as (M2Feature | EOperation)[]; }
 
       }, {
+        key: "getAllChildrens",
+        value: function getAllChildrens() {
+          var includeOperations = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var includeAnnotations = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+          var includeAttributes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+          var includeReferences = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+          var includeShadowed = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+          //todo: actually since getAllExtends returns an array made from a set, and a class cannot contain duplicates, it cannot contain duplicates.
+          // sets here are redundant.
+          var extendchain = this.getAllSuperClasses(true); // this.getAllExtends(true);
+
+          var i;
+          var ret = []; // features and operations can share names
+          // features with same name on different classes will just shadow each other without overriding
+          // override solo se signature identica.
+          // se signature identica e return primitivo diverso: invalido.
+          // se signature identica e return Object più specifico: valido.
+
+          for (i = 0; i < extendchain.length; i++) {
+            ret.push.apply(ret, _toConsumableArray(extendchain[i].getBasicChildrens(includeOperations, includeAnnotations, includeAttributes, includeReferences, includeShadowed)));
+          }
+
+          return ret;
+        }
+      }, {
         key: "getAllAttributes",
         value: function getAllAttributes() {
-          return _get(_getPrototypeOf(M2Class.prototype), "getAllAttributes", this).call(this);
+          return new Set(this.getAllChildrens(false, false, true, false));
         }
       }, {
         key: "getAllReferences",
         value: function getAllReferences() {
-          return _get(_getPrototypeOf(M2Class.prototype), "getAllReferences", this).call(this);
+          return new Set(this.getAllChildrens(false, false, false, true));
+        }
+      }, {
+        key: "getBasicAttributes",
+        value: function getBasicAttributes() {
+          return new Set(this.attributes);
+        }
+      }, {
+        key: "getBasicReferences",
+        value: function getBasicReferences() {
+          return new Set(this.references);
         }
       }, {
         key: "getBasicOperations",
         value: function getBasicOperations() {
           return new Set(this.operations);
+        }
+      }, {
+        key: "getBasicAnnotations",
+        value: function getBasicAnnotations() {
+          return this.annotations;
         }
       }, {
         key: "getModelRoot",
@@ -34043,6 +36449,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "generateModel",
         value: function generateModel() {
+          var loopDetectionObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var featurearr = [];
           var operationsarr = [];
           var model = {};
@@ -34057,15 +36464,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           for (i = 0; i < this.attributes.length; i++) {
-            featurearr.push(this.attributes[i].generateModel());
+            featurearr.push(this.attributes[i].generateModel(loopDetectionObj));
           }
 
           for (i = 0; i < this.references.length; i++) {
-            featurearr.push(this.references[i].generateModel());
+            featurearr.push(this.references[i].generateModel(loopDetectionObj));
           }
 
           for (i = 0; i < this.operations.length; i++) {
-            operationsarr.push(this.operations[i].generateModel());
+            operationsarr.push(this.operations[i].generateModel(loopDetectionObj));
           }
 
           model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreClass"].xsitype] = 'ecore:EClass';
@@ -34212,6 +36619,53 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }*/
 
       }, {
+        key: "delete",
+        value: function _delete() {
+          var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var scores = this.getTypeConversionScores(true, true);
+          var newType = scores.length > 0 && scores[0].class;
+          if (newType) this.convertInstancesTo(newType);
+          this.forceChangeType(newType);
+
+          _get(_getPrototypeOf(M2Class.prototype), "delete", this).call(this, false); // will remove remaining unconverted instances
+
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.refreshGUI();
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.refreshInstancesGUI();
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, false, true);
+        }
+      }, {
+        key: "forceChangeType",
+        value: function forceChangeType() {
+          var _this70 = this;
+
+          var newType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+          var i;
+
+          var typeds = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].getAllWithClassType(this); // NB: esistono ancora m1-object che puntano a m1-object istanze di questo oggetto, perchè le istanze vengono cancellate in super.delete() (MP level)
+          // e quando cancelli il vertice di una istanza a catena cancelli prima gli edge e quindi resetti le references attive,
+          // però il tipo puntato rimarrebbe a questa classe.
+
+
+          var newTypeStr = newType && newType.getEcoreTypeName() || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AttribETypes"].EString;
+
+          for (i = 0; i < typeds.length; i++) {
+            var typed = typeds[i];
+            typed.setType(newTypeStr);
+          }
+
+          typeds = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].getAllWithClassType(this);
+          console.log('wew', "failed to change all types:", typeds, this, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all.map(function (t) {
+            return t.printablename + '_' + (t.classType && t.classType.getEcoreTypeName());
+          }), _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all.filter(function (t) {
+            return t.classType && t.classType.getEcoreTypeName() === _this70.getEcoreTypeName();
+          }));
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!!typeds.length, "failed to change all types:", typeds, this);
+        }
+      }, {
         key: "makeExtendEdge",
 
         /*
@@ -34229,6 +36683,230 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var ret = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"](this, this.getVertex(), target.getVertex(), null);
           this.extendEdges.push(ret);
           return ret;
+        }
+      }, {
+        key: "getAbstract",
+        value: function getAbstract() {
+          return this.isAbstract;
+        }
+      }, {
+        key: "getInterface",
+        value: function getInterface() {
+          return this.isInterface;
+        }
+      }, {
+        key: "canBeInterface",
+        value: function canBeInterface(value, outputReason) {
+          var i;
+
+          if (!value) {
+            var subclasses = this.getAllSubClasses(false);
+
+            for (i = 0; i < subclasses.length; i++) {
+              var ext = subclasses[i];
+
+              if (ext.getInterface()) {
+                // no interfacce sotto questa classe
+                if (outputReason) outputReason.text = '"' + this.name + '" cannot cease to be an interface because it is extended by "' + ext.name + '" wich is an interface.' + ' Update their relationship befor proceeding.';
+                return false;
+              }
+            }
+
+            return true;
+          }
+
+          if (this.instances.length) {
+            if (outputReason) outputReason.text = 'The class "' + this.name + '" have ' + this.instances.length + ' instances, convert or delete them before proceeding.';
+            return false;
+          }
+
+          var superclasses = this.getAllSuperClasses(false);
+
+          for (i = 0; i < superclasses.length; i++) {
+            var _ext = superclasses[i];
+
+            if (!_ext.getInterface()) {
+              // no classi sopra questa interfaccia
+              if (outputReason) outputReason.text = '"' + this.name + '" cannot be an interface because it cannot extend "' + _ext.name + '" wich is a class.' + ' Update their relationship befor proceeding.';
+              return false;
+            }
+          }
+
+          return true;
+        }
+      }, {
+        key: "canBeAbstract",
+        value: function canBeAbstract(value, outputReason) {
+          if (!value) return true;
+
+          if (this.instances.length) {
+            if (outputReason) outputReason.text = 'The class "' + this.name + '" have ' + this.instances.length + ' instances.\n<br>Convert or delete them by right-clicking his vertex before proceeding.';
+            return false;
+          }
+
+          if (this.getInterface() && !this.canBeInterface(false, outputReason)) {
+            if (outputReason) outputReason.text = 'Interfaces cannot be abstract.\n<br>' + outputReason.text;
+            return false;
+          }
+
+          return true;
+        }
+      }, {
+        key: "setInterface",
+        value: function setInterface(value) {
+          var canPrintError = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+          if (this.isInterface === value) return;
+          var reason = {
+            text: ''
+          };
+
+          if (!this.canBeInterface(value, reason)) {
+            // U.pw(canPrintError, reason.text);
+            if (canPrintError) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
+                icon: 'error',
+                title: 'Invalid operation',
+                html: reason.text
+              });
+            }
+
+            return;
+          }
+
+          if (value) {
+            this.setInterfaceTrue();
+          } else {
+            this.unsetInterface();
+          }
+        }
+      }, {
+        key: "setInterfaceTrue",
+        value: function setInterfaceTrue() {
+          this.unsetAbstract();
+          this.isInterface = true;
+        }
+      }, {
+        key: "unsetInterface",
+        value: function unsetInterface() {
+          this.isInterface = false;
+        }
+      }, {
+        key: "setAbstract",
+        value: function setAbstract(value) {
+          var canPrintError = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+          if (this.isAbstract === value) return;
+          var reason = {
+            text: ''
+          };
+
+          if (!this.canBeAbstract(value, reason)) {
+            if (canPrintError) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
+                icon: 'error',
+                title: 'Invalid operation',
+                html: reason.text
+              });
+            } // U.pw(canPrintError, reason.text);
+
+
+            return;
+          }
+          /*
+          obj.abstractCheckbox.checked = false; // do not accept the change until conversion
+          // actually do the thing transforming instances
+          if (convertableChoices_AddField.length + convertableChoices_RemoveField.length === 0) {
+            let options = {
+                'By adding features': { },
+                'By removing features': { },
+              };
+            for(let ii = 0; ii < convertableChoices_AddField.length; ii++) {
+              options['By adding features'][convertableChoices_AddField[ii].id] = convertableChoices_AddField[ii].name;
+            }
+            for(let ii = 0; ii < convertableChoices_RemoveField.length; ii++) {
+              options['By removing features'][convertableChoices_RemoveField[ii].id] = convertableChoices_RemoveField[ii].name;
+            }
+            Swal.fire({
+              title: 'What about his instances?',
+              html:
+                "There are " + classe.instances.length + " instances of this class wich need to be converted to some other class" +
+                " by adding or removing features." +
+                "<br>You can convert them or undo this operation." +
+                "<br><br>Convert them to:",
+              icon: 'warning',
+              input: 'select',
+              inputOptions: options,
+              inputPlaceholder: 'Convert them',
+              showCancelButton: true,
+              inputValidator: (value) => {
+                return new Promise((resolve) => {
+                  if (value === '') {
+                    resolve()
+                  } else {
+                    resolve('You need to select a class for conversion.')
+                  }
+                })
+              }
+            }).then(function (data) {
+              const targetClass: M2Class = ModelPiece.getByID(+data.value) as M2Class;
+              classe.setAbstract(targetClass);
+              obj.abstractCheckbox.checked = true;
+              Swal.fire(
+                'Done',
+                classe.instances.length + " instances converted.",
+                'success'
+              )
+            });
+          }
+          */
+
+
+          if (value) {
+            this.setAbstractTrue();
+          } else {
+            this.unsetAbstract();
+          }
+        }
+      }, {
+        key: "setAbstractTrue",
+        value: function setAbstractTrue() {
+          this.unsetInterface();
+          return this.isAbstract = true;
+        }
+      }, {
+        key: "unsetAbstract",
+        value: function unsetAbstract() {
+          return this.isAbstract = false;
+        }
+        /*
+        public canConvertInstancesTo(classe: M2Class): boolean {
+          const instances: MClass[] = this.instances;
+          let i: number;
+          for (i = 0; i < instances.length; i++) {
+            const instance: MClass = instances[i];
+            if (instance.metaParent !== this) continue;
+            if (!instance.canConvertTo(classe)) return false;
+          }
+          return true;
+        }*/
+
+      }, {
+        key: "convertInstancesTo",
+        value: function convertInstancesTo(classe) {
+          var i;
+          var convertCount = 0;
+
+          var instances = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.instances);
+
+          for (i = 0; i < instances.length; i++) {
+            var instance = instances[i];
+
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(instance.metaParent !== this, "invalid state: mismatch on instances and metaParent:", instance, this);
+
+            instance.convertTo(classe);
+            convertCount++;
+          }
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(!!convertCount, convertCount + " subclasses converted to " + classe.name);
         }
       }], [{
         key: "updateSuperClasses",

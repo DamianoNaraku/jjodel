@@ -37,8 +37,8 @@
         <li class="UtabHeader" data-target="3">Raw</li>
       </ul>
       <div class="UtabContentContainer">
-        <div class="UtabContent" data-target="1"><app-style-editor></app-style-editor></div>
-        <div class="UtabContent" data-target="2"><app-property-barr></app-property-barr></div>
+        <div class="UtabContent" data-target="1"><app-style-editor [isM2]="false"></app-style-editor></div>
+        <div class="UtabContent" data-target="2"><app-property-barr [isM2]="false"></app-property-barr></div>
         <div class="UtabContent" data-target="3">
           <div class="rawContainer">
             <h2 class="rawTitle">Raw eCore fragment</h2>
@@ -89,4 +89,9 @@
       <input disabled type="text" placeholder="Parameter Name" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
     </div>
   </div>
+</div>
+
+<div class="visContainer" style="position:absolute; top:0px; display: none;">
+  <div id="m_visGraph" style="position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;"></div>
+  <div id="m_visOptions" style="position:absolute; width: 100px; height: 100vh; background: white"></div>
 </div>

@@ -240,7 +240,8 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addbf('PropertyBar:', 'Automatized update of structured view, style editor and raw viewer when visualized html node in graph or his parents are updated.\n');
     v.addbf('ContextMenu:', 'Was not appearing.');
 
-    v = new VersionUpload(new Date('2020/7/31'), 'small bugfix release while WIP on other features', '');
+    v = new VersionUpload(new Date('2020/7/31'), '', '');
+    v.addf('Interface and Abstract classes support', 'Accessible through the structured tree view on the right bar.');
     v.addf('Class conversion:',
       'It is now possible to change type of a single M1-class, or of all instances of a target M2-class. (<a href="https://github.com/DamianoNaraku/jjodel/wiki/Class-deletion-&-Class-type-conversion">Full guide here</a>)\n' +
       'For example converting all "Date" instances to "DateTime" instances, adding a "time" attribute to all of them without changing the definition of the "Date" class.', null, true);
@@ -249,14 +250,38 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addbf('class deletion:', 'When a class was used as function parameter, the removal was causing exceptions.' +
       '\nNow it will change the parmaeter\'s type using class conversion, or removing it if conversion is impossible.');
     v.addbf('firefox', 'default style of vertex had transparent background.');
+    v.addbf('Edges', 'Trying to delete the mandatory start and end-point of a edge would cause visual errors.');
+    v.addbf('Edges', 'Edges changing his target by dragging where not following his new target vertex when dragged.');
 
-    let searchterm = 'clog cls addbf ';
+    v = new VersionUpload(new Date('2020/10/26'), 'M2T groundwork, Type mapping improvement', '');
+    v.addf('Type mapping', 'Accessible through the topbar, it allows now to define sets of typing aliases.\n' +
+      'Once a set of aliases is created you can give it a name to switch between saved alias sets, changing multiple aliases with one action.');
+    v.addf('M2T', 'Can be done in 2 ways.<br>' + '<ul>' +
+      '<li>Through style editor: Code will be produced according to nodes content, node content can become shards of code through style editor.<br>' +
+      'Combined style overriding it is extremely easy to customize code generation for specific cases or single classes / objects.<br>' +
+      'The final output will be obtained through the "By text" predefined transformation.<br>' +
+      'Users will be able to use pre-existing transformations by importing a viewpoint from the store.</li>' +
+      '<li>In future through the MTL standard (not yet supported)<br>' +
+      'Users will be able to create their own M2T transformation and share them on a public store.</li>' +
+      '</ul>', null, true);
+
+    v = new VersionUpload(new Date('2020/12/05'), 'Auto-layouting', '');
+    v.addf('Auto-layout',
+      'Accessible through the style editor of a graph, guide on the <a href="https://github.com/DamianoNaraku/jjodel/wiki/Auto-Layout">wiki page</a>.', null, true);
+    v.addbf('zoom & pan',
+      'Zoom and pan weren\'t combining well, panning with a zoom level used to cause calculation error leading to graphical mismatch.');
+
+    v.addf('Import / Export / Reset of viewpoint and vertices positions',
+      'Accessible through the top-bar, can be used to share a viewpoint while waiting for the store.\n' +
+      'Resetting the viewpoint might fix errors caused by a wrong customization of a viewpoint.', null, true);
+    let searchterm = 'clog addbf ';
 
     // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
     // v.addf('fakegfeat', 'kkk');
     // v = new VersionUpload('v3'...);
 
   }
+  private static clog(){}
 
   static popup: InputPopup;
   static generate(): void {

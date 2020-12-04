@@ -11,7 +11,7 @@ import {
   MAttribute,
   ModelPiece,
   ShortAttribETypes,
-  Status,
+  Status, TopBar,
   Typedd,
   U
 } from '../../common/Joiner';
@@ -103,7 +103,7 @@ export class Type {
         const opt: HTMLOptionElement = document.createElement('option');
         grpPrimitive.appendChild(opt);
         opt.value = etype.long;
-        opt.innerHTML = etype.name;
+        opt.innerHTML = etype.getName();
         if (selectedType && etype === selectedType.primitiveType) { foundit(opt); }} }
     // primitive end
     // Enum Start:
@@ -178,7 +178,7 @@ export class Type {
   private applyTypeStr(): void {
     if (!this.typestr || !Status.status.mm) return;
     this.applyTypeStr0();
-    if (this.primitiveType) this.printablename = this.primitiveType.name;
+    if (this.primitiveType) this.printablename = this.primitiveType.getName();
     if (this.enumType) this.printablename = this.enumType.name;
     if (this.classType) this.printablename = this.classType.name ? this.classType.name : this.classType.metaParent.name;
     if (this.typestr === '???void') this.printablename = 'void';
@@ -243,7 +243,7 @@ export class Type {
   toShortString(): string {
     if (this.classType) return '' + this.classType.name;
     if (this.enumType) return '' + this.enumType.name;
-    if (this.primitiveType) return '' + this.primitiveType.name;
+    if (this.primitiveType) return '' + this.primitiveType.getName();
     return null; }
 
   canOverride(other: Type): boolean {
@@ -256,16 +256,94 @@ export class Type {
     return this.classType.isExtending(other.classType); }
 }
 
-
-export class EType {
+  export class EType {
   static shorts: Dictionary<ShortAttribETypes, EType> = {};
-  name: string = null;
+  // static TypeMap: Map<string, Map<string, string>>; // Map<TypemapName, Map<ECoreShortTypeName, TypeAlias>
+  // static currentTypeMapKey: string = null;
+  // name: string = null;
   long: AttribETypes = null;
   short: ShortAttribETypes = null;
   defaultValue: any = null;
   minValue: number;
   maxValue: number;
-  constructor(long: AttribETypes, short: ShortAttribETypes, defaultVal: any, minValue: number = null, maxValue: number = null) {
+
+  static LoadTypeMaps(): void {
+    EType.LoadPredefinedTypeMaps();
+    EType.LoadCustomTypeMaps();
+  }
+
+  static LoadPredefinedTypeMaps(): void {
+    Status.status.typeAliasDictionary['predefined.ecore'] = {};
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.void] = ShortAttribETypes.void;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.EChar] = ShortAttribETypes.EChar;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.EString] = ShortAttribETypes.EString;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.EDate] = ShortAttribETypes.EDate;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.EFloat] = ShortAttribETypes.EFloat;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.EDouble] = ShortAttribETypes.EDouble;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.EBoolean] = ShortAttribETypes.EBoolean;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.EByte] = ShortAttribETypes.EByte;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.EShort] = ShortAttribETypes.EShort;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.EInt] = ShortAttribETypes.EInt;
+    Status.status.typeAliasDictionary['predefined.ecore'][ShortAttribETypes.ELong] = ShortAttribETypes.ELong;
+    Status.status.typeAliasDictionary['predefined.java'] = {};
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.void] = 'void';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.EChar] = 'char';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.EString] = 'string';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.EDate] = 'date';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.EFloat] = 'float';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.EDouble] = 'double';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.EBoolean] = 'bool';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.EByte] = 'byte';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.EShort] = 'short';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.EInt] = 'int';
+    Status.status.typeAliasDictionary['predefined.java'][ShortAttribETypes.ELong] = 'long';
+    Status.status.typeAliasDictionary['predefined.c89'] = {};
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.void] = 'void';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.EChar] = 'char';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.EString] = 'char*';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.EDate] = 'time_t';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.EFloat] = 'float';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.EDouble] = 'double';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.EBoolean] = 'BOOL';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.EByte] = 'unsigned char';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.EShort] = 'short';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.EInt] = 'int';
+    Status.status.typeAliasDictionary['predefined.c89'][ShortAttribETypes.ELong] = 'long';
+    Status.status.typeAliasDictionary['predefined.MySQL'] = new Map<ShortAttribETypes, string>();
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.void] = 'void';
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.EChar] = 'CHAR';
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.EString] = 'VARCHAR';
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.EDate] = 'DATETIME'; // OR TIMESTAMP (quasi uguali, con diversi limini min-max)
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.EFloat] = 'FLOAT';
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.EDouble] = 'DOUBLE';
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.EBoolean] = 'TINYINT';
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.EByte] = 'CHAR(1)';
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.EShort] = 'SMALLINT';
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.EInt] = 'INT';
+    Status.status.typeAliasDictionary['predefined.MySQL'][ShortAttribETypes.ELong] = 'SMALLINT';
+    Status.status.typeAliasDictionary[Status.status.user.getID() + '.custom']
+      = U.cloneObj(Status.status.typeAliasDictionary['predefined.java']);
+    Status.status.currentTypeAlias = 'predefined.java';
+  }
+  static LoadCustomTypeMaps(): void {}
+
+  getName(typeMapKey: string = null) {
+    const typemap: Map<ShortAttribETypes, string>
+      = Status.status.typeAliasDictionary[typeMapKey || Status.status.currentTypeAlias];
+    return typemap && typemap[this.short] || this.short;
+  }/*
+    changeAlias(value: string) {
+      this.name = value;
+      Status.status.typeAliasDictionary[this.short] = this.getName();
+      Status.status.aliasTypeDictionary[this.name] = this.short;
+      Status.status.mm.refreshGUI();
+      Status.status.m.refreshGUI();
+      Status.status.mm.graph.propertyBar.refreshGUI();
+      Status.status.m.graph.propertyBar.refreshGUI();
+    }*/
+
+
+    constructor(long: AttribETypes, short: ShortAttribETypes, defaultVal: any, minValue: number = null, maxValue: number = null) {
     U.pe(EType.shorts[short], 'etype created twice:', EType.shorts[short]);
     EType.shorts[short] = this;
     this.long = long;
@@ -273,8 +351,9 @@ export class EType {
     this.defaultValue = defaultVal;
     this.minValue = minValue;
     this.maxValue = maxValue;
-    const alias = Status.status.typeAliasDictionary[short];
-    this.name = alias ? alias : short; }
+    // const alias = Status.status.typeAliasDictionary[short];
+    // this.name = alias ? alias : short;
+    }
   static staticInit(): Dictionary<ShortAttribETypes, EType> {
     EType.shorts = {};
     let noWarning: EType;
@@ -311,15 +390,5 @@ export class EType {
   static getAlias(a: ShortAttribETypes): string {
     const str = Status.status.typeAliasDictionary[a];
     return !str ? '' + a : Status.status.typeAliasDictionary[a]; }
-
-  changeAlias(value: string) {
-    this.name = value;
-    Status.status.typeAliasDictionary[this.short] = this.name;
-    Status.status.aliasTypeDictionary[this.name] = this.short;
-    Status.status.mm.refreshGUI();
-    Status.status.m.refreshGUI();
-    Status.status.mm.graph.propertyBar.refreshGUI();
-    Status.status.m.graph.propertyBar.refreshGUI();
-  }
 
 }

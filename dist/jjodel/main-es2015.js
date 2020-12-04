@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"measurableTemplateGeneratorShell\" class=\"template\">\n  <label><input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span></label>\n  <div class=\"meas_acc0\">\n    <h7 class=\"ruletitle btn btn-link collapsed maintitle\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">\n      <span class=\"innertitle\">Measurable Settings</span>\n    </h7>\n    <div class=\"measurableSettingRoot collapse\">\n      <div class=\"boxesroot\">\n        <div class=\"resizable boxroot\">\n          <h6 class=\"boxtitle\">Resizable handles</h6>\n          <div class=\"rectangledrawing outer\">\n            <div class=\"top row\">\n              <input type=\"checkbox\" class=\"arrow corner top left\" direction=\"nw\">\n              <input type=\"checkbox\" class=\"arrow side top\" direction=\"n\">\n              <input type=\"checkbox\" class=\"arrow corner top right\" direction=\"ne\">\n            </div>\n            <div class=\"mid row\">\n              <input type=\"checkbox\" class=\"arrow side left\" direction=\"w\">\n              <div class=\"middle\">\n                <div class=\"rectangledrawing inner\">\n                  <div class=\"top row\">\n                    <div class=\"corner top left\" direction=\"nw\"></div>\n                    <div class=\"side top\" direction=\"n\"></div>\n                    <div class=\"corner top right\" direction=\"ne\"></div>\n                  </div>\n                  <div class=\"mid row\">\n                    <div class=\"side left\" direction=\"w\"></div>\n                    <div class=\"middle\">\n                    </div>\n                    <div class=\"side right\" direction=\"e\"></div>\n                  </div>\n                  <div class=\"bot row\">\n                    <div class=\"corner bot left\" direction=\"sw\"></div>\n                    <div class=\"side bot\" direction=\"s\"></div>\n                    <div class=\"corner bot right\" direction=\"se\"></div>\n                  </div>\n                </div>\n              </div>\n              <input type=\"checkbox\" class=\"arrow side right\" direction=\"e\">\n            </div>\n            <div class=\"bot row\">\n              <input type=\"checkbox\" class=\"arrow corner bot left\" direction=\"sw\">\n              <input type=\"checkbox\" class=\"arrow side bot\" direction=\"s\">\n              <input type=\"checkbox\" class=\"arrow corner bot right\" direction=\"se\">\n            </div>\n          </div>\n        </div>\n        <div class=\"draggable boxroot\">\n          <h6 class=\"boxtitle\">Draggable directions</h6>\n          <div class=\"rectangledrawing directions\">\n            <input type=\"checkbox\" class=\"arrow arrowh drag\" direction=\"x\">\n            <input type=\"checkbox\" class=\"arrow arrowv drag\" direction=\"y\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"meas_acc\">\n        <input class=\"form-control rulesearch\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\n        <!-- dynamically generated accordions will be placed below -->\n      </div>\n\n      <div class=\"rule template\">\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\n        <div class=\"rulecontainer columncontainer collapse template\">\n\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\n          </div>\n          <div class=\"rightx column rowcontainer fill break mb-3\">\n            <div class=\"row break\">\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\n                <span class=\"prefix form-control\">_</span>\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\n                <select class=\"operator trigger\">\n                  <optgroup label=\"When\">\n                    <option>Start</option>\n                    <option>ing</option>\n                    <option selected>End</option>\n                  </optgroup>\n                </select>\n              </label>\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\n            </div>\n            <div class=\"row break\">\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\n              <span class=\"eventsplitpoint operatorcontainer\">\n                <span class=\"operator\">=</span>\n                <select class=\"operator relational\">\n                  <optgroup label=\"Operator\">\n                    <option>&lt;=</option>\n                    <option selected>=</option>\n                    <option>&gt;=</option>\n                  </optgroup>\n                </select></span>\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\n            <div class=\"measurabledebug rowcontainer\">\n              <button class=\"btn btn-primary executedebug\">Test it!</button>\n              <span class=\"debugrows\" tabindex=\"-1\">\n                <span class=\"measurableoktext\"><span>Debug output: </span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Left: </span><span class=\"measurableoutputtext debugleft\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Operator: </span><span class=\"measurableoutputtext debugoperator\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Right: </span><span class=\"measurableoutputtext debugright\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Target: </span><span class=\"measurableoutputtext debugtarget\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Triggered: </span><span class=\"measurableoutputtext debugtriggers\"></span></span>\n                <!--\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\n                <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\n                -->\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--\n\n\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\n  _target1=\"positionX\"\n  relativetargetof_target1=\"#leftside\"\n  _target2=\"positionX\"\n  relativetargetof_target2=\"#rightside\"\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\n\n  angle:false,\n  class Rotatableoptions {\n  degrees: string = 'false | number';\n  radians: string = 'false | number';\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\n  handleOffsetX: string = 'width / 2';\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\n  rotationCenterOffsetX: string = 'width / 2';\n  rotationCenterOffsetY: string = 'height / 2';\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\n  onRotationStart: string = same as above // in realtà è \"start\"\n  onRotationEnd: string = same as above // in realtà è \"stop\"\n  }\n\n--->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"measurableTemplateGeneratorShell\" class=\"template colChild\">\n  <label class=\"labelmeasurable\">\n    <input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span>\n  </label>\n  <div class=\"meas_acc0\">\n    <h7 class=\"ruletitle btn btn-link collapsed maintitle\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">\n      <span class=\"innertitle\">Measurable Settings</span>\n    </h7>\n    <div class=\"measurableSettingRoot collapse\">\n      <div class=\"boxesroot\">\n        <div class=\"resizable boxroot\">\n          <h6 class=\"boxtitle\">Resizable handles</h6>\n          <div class=\"rectangledrawing outer\">\n            <div class=\"top row\">\n              <input type=\"checkbox\" class=\"arrow corner top left\" direction=\"nw\">\n              <input type=\"checkbox\" class=\"arrow side top\" direction=\"n\">\n              <input type=\"checkbox\" class=\"arrow corner top right\" direction=\"ne\">\n            </div>\n            <div class=\"mid row\">\n              <input type=\"checkbox\" class=\"arrow side left\" direction=\"w\">\n              <div class=\"middle\">\n                <div class=\"rectangledrawing inner\">\n                  <div class=\"top row\">\n                    <div class=\"corner top left\" direction=\"nw\"></div>\n                    <div class=\"side top\" direction=\"n\"></div>\n                    <div class=\"corner top right\" direction=\"ne\"></div>\n                  </div>\n                  <div class=\"mid row\">\n                    <div class=\"side left\" direction=\"w\"></div>\n                    <div class=\"middle\">\n                    </div>\n                    <div class=\"side right\" direction=\"e\"></div>\n                  </div>\n                  <div class=\"bot row\">\n                    <div class=\"corner bot left\" direction=\"sw\"></div>\n                    <div class=\"side bot\" direction=\"s\"></div>\n                    <div class=\"corner bot right\" direction=\"se\"></div>\n                  </div>\n                </div>\n              </div>\n              <input type=\"checkbox\" class=\"arrow side right\" direction=\"e\">\n            </div>\n            <div class=\"bot row\">\n              <input type=\"checkbox\" class=\"arrow corner bot left\" direction=\"sw\">\n              <input type=\"checkbox\" class=\"arrow side bot\" direction=\"s\">\n              <input type=\"checkbox\" class=\"arrow corner bot right\" direction=\"se\">\n            </div>\n          </div>\n        </div>\n        <div class=\"draggable boxroot\">\n          <h6 class=\"boxtitle\">Draggable directions</h6>\n          <div class=\"rectangledrawing directions\">\n            <input type=\"checkbox\" class=\"arrow arrowh drag\" direction=\"x\">\n            <input type=\"checkbox\" class=\"arrow arrowv drag\" direction=\"y\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"meas_acc\">\n        <input class=\"form-control rulesearch\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\n        <!-- dynamically generated accordions will be placed below -->\n      </div>\n\n      <div class=\"rule template\">\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\n        <div class=\"rulecontainer columncontainer collapse template\">\n\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\n          </div>\n          <div class=\"rightx column rowcontainer fill break mb-3\">\n            <div class=\"row break\">\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\n                <span class=\"prefix form-control\">_</span>\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\n                <select class=\"operator trigger\">\n                  <optgroup label=\"When\">\n                    <option>Start</option>\n                    <option>ing</option>\n                    <option selected>End</option>\n                  </optgroup>\n                </select>\n              </label>\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\n            </div>\n            <div class=\"row break\">\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\n              <span class=\"eventsplitpoint operatorcontainer\">\n                <span class=\"operator\">=</span>\n                <select class=\"operator relational\">\n                  <optgroup label=\"Operator\">\n                    <option>&lt;=</option>\n                    <option selected>=</option>\n                    <option>&gt;=</option>\n                  </optgroup>\n                </select></span>\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\n            <div class=\"measurabledebug rowcontainer\">\n              <button class=\"btn btn-primary executedebug\">Test it!</button>\n              <span class=\"debugrows\" tabindex=\"-1\">\n                <span class=\"measurableoktext\"><span>Debug output: </span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Left: </span><span class=\"measurableoutputtext debugleft\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Operator: </span><span class=\"measurableoutputtext debugoperator\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Right: </span><span class=\"measurableoutputtext debugright\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Target: </span><span class=\"measurableoutputtext debugtarget\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Triggered: </span><span class=\"measurableoutputtext debugtriggers\"></span></span>\n                <!--\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\n                <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\n                -->\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--\n\n\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\n  _target1=\"positionX\"\n  relativetargetof_target1=\"#leftside\"\n  _target2=\"positionX\"\n  relativetargetof_target2=\"#rightside\"\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\n\n  angle:false,\n  class Rotatableoptions {\n  degrees: string = 'false | number';\n  radians: string = 'false | number';\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\n  handleOffsetX: string = 'width / 2';\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\n  rotationCenterOffsetX: string = 'width / 2';\n  rotationCenterOffsetY: string = 'height / 2';\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\n  onRotationStart: string = same as above // in realtà è \"start\"\n  onRotationEnd: string = same as above // in realtà è \"stop\"\n  }\n\n--->\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot\">\r\n    <ul class=\"vertex contextMenu\">\r\n      <li class=\"Vertex delete\">Delete Vertex</li>\r\n      <li class=\"todo Vertex duplicate\">Duplicate Vertex</li>\r\n      <li class=\"m1hide Vertex extend\">Extend</li>\r\n      <li class=\"Feature delete\">Delete Feature</li>\r\n      <li class=\"todo Feature duplicate\">Duplicate Feature</li>\r\n      <li class=\"Reference reflistparent\">References\r\n        <ul class=\"reflist\">\r\n          <li class=\"refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n          <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n          <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n        </ul>\r\n      </li>\r\n      <li class=\"separator\"></li>\r\n      <li class=\"Vertex up\">Push vertex Up (Z-order)</li>\r\n      <li class=\"Vertex down\">Push vertex Down (Z-order)</li>\r\n      <li class=\"todo Feature autofixinstances m2hide\">Autofix instances</li>\r\n      <li class=\"todo Feature autofix\">Autofix conformity</li>\r\n      <li class=\"Feature up\">Move feature Up</li>\r\n      <li class=\"Feature down\">Move feature Down</li>\r\n    </ul>\r\n    <ul class=\"extedge contextMenu\">\r\n      <li class=\"edge delete\">Delete generalization</li>\r\n      <li class=\"edge change\">Edit generalization</li>\r\n    </ul>\r\n    <ul class=\"edge contextMenu\">\r\n      <li class=\"edge delete\">Delete reference</li>\r\n      <li class=\"edge change\">Edit reference</li>\r\n    </ul>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot\">\r\n    <ul class=\"vertex contextMenu\">\r\n      <li class=\"Vertex changeType popupRightParent\" uif=\"classifier\">\r\n        <span>Change type</span>\r\n        <ul class=\"typelist popupRight\">\r\n          <li class=\"typeli fallback unclickable\" style=\"cursor: no-drop; color: red;\">##ERROR MSG TO FILL##</li>\r\n          <li class=\"typeli description unclickable\"><span>Best match:</span></li>\r\n          <li class=\"typeli separator unclickable\"></li>\r\n          <li class=\"typeli description unclickable\"><span>Other options</span></li>\r\n          <li class=\"typeli template\" data-index=\"-1\">\r\n            <span class=\"typeli change text\"></span>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Vertex delete\" uif=\"classifier\">Delete classifier</li>\r\n\r\n      <li class=\"Vertex todo duplicate\" uif=\"classifier\">Duplicate classifier</li>\r\n      <li class=\"Vertex extend\" uif=\"m2 && class\">Extend class</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && feature\">Delete feature</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && feature\">Duplicate feature</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && operation\">Delete operation</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && operation\">Duplicate operation</li>\r\n      <li class=\"Reference popupRightParent\" uif=\"reference\">References\r\n        <ul class=\"reflist popupRight\">\r\n          <li class=\"refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n          <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n          <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Feature todo autofixinstances\" uif=\"m2 && feature\">Autofix instances</li>\r\n      <li class=\"Feature todo autofix\" uif=\"m1 && feature\">Autofix conformity</li>\r\n      <li class=\"separator\"  uif=\"classifier || m2 && feature || m2 && operation || m2 && annotation\"></li>\r\n      <li class=\"Vertex up\" uif=\"classifier\">Push vertex Up (Z-order)</li>\r\n      <li class=\"Vertex down\" uif=\"classifier\">Push vertex Down (Z-order)</li>\r\n      <li class=\"Feature up\" uif=\"m2 && feature\">Move feature Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && feature\">Move feature Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && operation\">Move operation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && operation\">Move operation Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && annotation\">Move annotation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && annotation\">Move annotation Down</li>\r\n    </ul>\r\n    <ul class=\"extedge contextMenu\" uif=\"extedge\">\r\n      <li class=\"edge delete\">Delete generalization</li>\r\n      <li class=\"edge change\">Edit generalization</li>\r\n    </ul>\r\n    <ul class=\"edge contextMenu\" uif=\"edge\">\r\n      <li class=\"edge delete\">Delete reference</li>\r\n      <li class=\"edge change\">Edit reference</li>\r\n    </ul>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:transparent; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Attribute\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; color:inherit; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color:transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"false\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"false\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Attribute\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; color:inherit; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color:transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:0px; display: none;\">\r\n  <div id=\"m_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"m_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:transparent; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##className$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"border: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell EEnum\" style=\"background:transparent; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height: 22px; padding-left:5px; display:flex;\">\r\n      <select data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Attribute EString EInteger\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template ELiteral\" style=\"width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; color:inherit; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm btn-success\" style=\"width: 100%; height: 22px; padding:0; text-align: center\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width: 100%; height: 22px; border-bottom:1px solid lightgray; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"true\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"true\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##className$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell EEnum\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height: 22px; padding-left:5px; display:flex;\">\r\n      <select data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Attribute EString EInteger\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template ELiteral\" style=\"width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; color:inherit; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm btn-success\" style=\"width: 100%; height: 22px; padding:0; text-align: center\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width: 100%; height: 22px; border-bottom:1px solid lightgray; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:40px; display: none;\">\r\n  <div id=\"mm_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"mm_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -175,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property_sidebar\">\r\n  <div class=\"propertySidebarCurrentContent\"></div>\r\n  <div class=\"propertySidebarTemplates template\">\r\n    <div class=\"minimizer single\"></div>\r\n    <div class=\"content\">\r\n      <label class=\"model todo\">URI:<input class = \"uri m1disable\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"model todo\">Namespace:<input class = \"namespace m1disable\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"class m2hide\">Is Root<input type=\"checkbox\" class=\"isRoot\"></label>\r\n      <label class=\"operation todo\">Access modifier:<select class=\"specialjs visibilitySelector m1disable\"></select></label>\r\n      <label class=\"literal\">Ordinal:<input class=\"value\" type=\"number\"></label>\r\n      <label>Name:<input class=\"name m1disable\" placeholder=\"nameless\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"literal\">Literal:<input class=\"literal\" placeholder=\"will inherit from name\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"parameter\">Type:<select class=\"m1disable\" data-primitive=\"true\" data-enum=\"true\" data-class=\"true\"></select></label>\r\n      <label class=\"attribute\">Type:<select class=\"m1disable\" data-primitive=\"true\" data-enum=\"true\"></select></label>\r\n      <label class=\"reference\">Target Type:<select class=\"m1disable\" data-class=\"true\"></select></label>\r\n      <label class=\"attribute m2hide\">Value:<input type=\"text\" class=\"attributeValue\" placeholder=\"[ empty ]\"></label>\r\n      <label class=\"reference\">Is containment:<input type=\"checkbox\" class=\"referenceContainment m1disable\"></label>\r\n      <label class=\"parameter todo\">Is ordered:<input type=\"checkbox\" class=\"ordered m1disable\"></label>\r\n      <label class=\"parameter todo\">Values are unique:<input type=\"checkbox\" class=\"unique m1disable\"></label>\r\n      <label class=\"attribute reference parameter\">LowerBound:<input type=\"number\" step=\"1\" min=\"-1\" class=\"lowerbound m1disable\" placeholder=\"-1\"></label>\r\n      <label class=\"attribute reference parameter\">UpperBound:<input type=\"number\" step=\"1\" min=\"-1\" class=\"upperbound m1disable\" placeholder=\"-1\"></label>\r\n      <label class=\"operation todo\">Exceptions:<input class=\"exceptions\" placeholder=\"throwable exceptions, comma-separated.\"></label>\r\n      <div class=\"replaceVarOn model\"><label>Packages: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content list packageList\"></div></div></div>\r\n      <div class=\"replaceVarOn package\"><label>Classes / Interfaces: ($##classes.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content classList\"></div></div></div>\r\n      <div class=\"replaceVarOn package\"><label>Enumerations: ($##enums.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content enumList\"></div></div></div>\r\n      <div class=\"class\"><label>Attributes: <span class=\"attributeCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content attributeList\"></div></div></div>\r\n      <div class=\"class\"><label>References: <span class=\"referenceCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content referenceList\"></div></div></div>\r\n      <div class=\"class\"><label>Operations: <span class=\"operationCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content operationList\"></div></div></div>\r\n      <div class=\"replaceVarOn operation\"><label>Parameters: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content parameterList\"></div></div></div>\r\n      <div class=\"replaceVarOn enum\"><label>Literals: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content literalList\"></div></div></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property_sidebar\">\r\n  <div class=\"propertySidebarCurrentContent\"></div>\r\n  <div class=\"propertySidebarTemplates template\">\r\n    <div class=\"minimizer single\"></div>\r\n    <div class=\"content\">\r\n      <label class=\"model todo\">URI:<input class = \"uri m1disable\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"model todo\">Namespace:<input class = \"namespace m1disable\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"class m2hide\"><span>Is Root</span><input type=\"checkbox\" class=\"isRoot\"></label>\r\n\r\n      <label class=\"class m1hide\">is interface <input class=\"isinterface\" type=\"checkbox\"></label>\r\n      <label class=\"class m1hide\">is abstract <input class=\"isabstract\" type=\"checkbox\"></label>\r\n      <label class=\"class\">Access <select class=\"m1disable accessModifier\"></select></label>\r\n\r\n      <label class=\"operation todo\">Access modifier:<select class=\"specialjs visibilitySelector m1disable\"></select></label>\r\n      <label class=\"literal\">Ordinal:<input class=\"value\" type=\"number\"></label>\r\n      <label>Name:<input class=\"name m1disable\" placeholder=\"nameless\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"literal\">Literal:<input class=\"literal\" placeholder=\"will inherit from name\" pattern=\"^[a-zA-Z_$][a-zA-Z_$0-9]*$\"></label>\r\n      <label class=\"parameter\">Type:<select class=\"m1disable\" data-primitive=\"true\" data-enum=\"true\" data-class=\"true\"></select></label>\r\n      <label class=\"attribute\">Type:<select class=\"m1disable\" data-primitive=\"true\" data-enum=\"true\"></select></label>\r\n      <label class=\"reference\">Target Type:<select class=\"m1disable\" data-class=\"true\"></select></label>\r\n      <label class=\"attribute m2hide\">Value:<input type=\"text\" class=\"attributeValue\" placeholder=\"[ empty ]\"></label>\r\n      <label class=\"reference\">Is containment:<input type=\"checkbox\" class=\"referenceContainment m1disable\"></label>\r\n      <label class=\"parameter todo\">Is ordered:<input type=\"checkbox\" class=\"ordered m1disable\"></label>\r\n      <label class=\"parameter todo\">Values are unique:<input type=\"checkbox\" class=\"unique m1disable\"></label>\r\n      <label class=\"attribute reference parameter\">LowerBound:<input type=\"number\" step=\"1\" min=\"-1\" class=\"lowerbound m1disable\" placeholder=\"-1\"></label>\r\n      <label class=\"attribute reference parameter\">UpperBound:<input type=\"number\" step=\"1\" min=\"-1\" class=\"upperbound m1disable\" placeholder=\"-1\"></label>\r\n      <label class=\"operation todo\">Exceptions:<input class=\"exceptions\" placeholder=\"throwable exceptions, comma-separated.\"></label>\r\n      <div class=\"replaceVarOn model\"><label>Packages: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content list packageList\"></div></div></div>\r\n      <div class=\"replaceVarOn package\"><label>Classes / Interfaces: ($##classes.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content classList\"></div></div></div>\r\n      <div class=\"replaceVarOn package\"><label>Enumerations: ($##enums.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content enumList\"></div></div></div>\r\n      <div class=\"class\"><label>Attributes: <span class=\"attributeCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content attributeList\"></div></div></div>\r\n      <div class=\"class\"><label>References: <span class=\"referenceCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content referenceList\"></div></div></div>\r\n      <div class=\"class\"><label>Operations: <span class=\"operationCount\"></span></label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content operationList\"></div></div></div>\r\n      <div class=\"replaceVarOn operation\"><label>Parameters: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content parameterList\"></div></div></div>\r\n      <div class=\"replaceVarOn enum\"><label>Literals: ($##childrens.length$)</label>\r\n        <div class=\"wastemplate list\"><div class=\"minimizer\"></div><div class=\"content literalList\"></div></div></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -188,7 +188,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <!--\r\n      <label>\r\n        <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid X</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid Y</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom</span>\r\n      </label>\r\n      <label display = \"none\">\r\n        <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom Y</span>\r\n      </label>\r\n      <label><input type=\"checkbox\" class=\"showGrid\"><span>Show grid</span></label>\r\n      <label><input type=\"color\" class=\"graphColor\"><span>Background color</span></label>\r\n      -->\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid X</td>\r\n        <td><input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Grid Y</td>\r\n        <td><input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"graphColor\">Background color</label></td></tr>\r\n      </tbody></table>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n      <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n      <!-- start of new measurable -->\r\n\r\n      <div class=\"measurablePlaceholder\"></div>\r\n\r\n      <!-- end of new measurable -->\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"iclass show\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <label class=\"\">\r\n        <input type=\"checkbox\" class=\"asDefault\">\r\n        <span>Use as default style</span>\r\n      </label>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <!--\r\n      <label>\r\n        <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid X</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid Y</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom</span>\r\n      </label>\r\n      <label display = \"none\">\r\n        <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom Y</span>\r\n      </label>\r\n      <label><input type=\"checkbox\" class=\"showGrid\"><span>Show grid</span></label>\r\n      <label><input type=\"color\" class=\"graphColor\"><span>Background color</span></label>\r\n      -->\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid X</td>\r\n        <td><input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Grid Y</td>\r\n        <td><input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"useGrid\">Use grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor1\">Grid color 1</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor2\">Grid color 2</label></td></tr>\r\n      </tbody></table>\r\n\r\n      <label class=\"onlyVerticalContainer\" uif=\"!running\">\r\n        <button class=\"btn btn-primary layout start dynamic_uif\">Start auto-layouting</button></label>\r\n\r\n\r\n      <div class=\"layoutingRoot\" uif=\"running\">\r\n        <h5>Auto-layout options</h5>\r\n        <label class=\"onlyVerticalContainer\">\r\n          <button class=\"btn btn-primary layout stabilize\">Stabilize</button>\r\n          <span style=\"margin:auto 0.5rem\">in</span>\r\n          <input type=\"number\" class=\"stabilizeSteps lopt\" min=\"0\" step=\"1\" placeholder=\"off\" value=\"10\" data-key=\"custom.stabilizeSteps\">\r\n          <span style=\"margin-left: 0.5rem\">steps</span>\r\n        </label>\r\n        <label class=\"onlyVerticalContainer\"><button class=\"btn btn-primary layout stop\">Stop</button></label>\r\n\r\n        <label>How to manage edge points?\r\n          <select class=\"edgePointTreatment form-group\"><optgroup label=\"How to manage edge points?\">\r\n            <option value=\"delete\">Remove them</option>\r\n            <option value=\"vertex\" selected>Treat them as vertexes</option>\r\n            <option value=\"ignore\">Keep absolute position (ignore)<option>\r\n            <option value=\"relative\">Keep relative position between source & target</option>\r\n            <!--\r\n              1) treat them as vertex (default)\r\n              2) keep absolute position (ignore) (might cause a mess because they stand still)\r\n              3) keep relative position. Rimane a (x%, y%) distanza tra source e target, memorizzo un vettore direzione\r\n                 con modulo in percentuale sulla distanza tra i 2 vertici,\r\n                 così rispetto ai vertici rimane statico, anche se in realtà si è mosso assieme a loro.\r\n            -->\r\n          </optgroup></select>\r\n        </label>\r\n        <div>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"layout.hierarchical.enabled\">Hierarchical\r\n          </label>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"physics.enabled\">\r\n            Physics\r\n          </label>\r\n          <div uif=\"physics\">\r\n            <label>Simulation mode\r\n              <select class=\"dynamic_uif lopt\" data-key=\"physics.solver\">\r\n                <optgroup label=\"Simulation\">\r\n                  <option value=\"barnesHut\">BarnesHut</option>\r\n                  <option value=\"forceAtlas2Based\">Force Atlas 2</option>\r\n                  <option value=\"repulsion\">Repulsion</option>\r\n                  <option value=\"hierarchicalRepulsion\">hierarchicalRepulsion</option>\r\n                </optgroup>\r\n              </select>\r\n            </label>\r\n\r\n            <div uif=\"hr\">\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.blockShifting\">\r\n                Block shifting\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.edgeMinimization\">\r\n                Edge minimization\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.parentCentralization\">\r\n                Parent centralization\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.levelSeparation\" min=\"0\" step=\"1\">\r\n                Level separation\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.nodeSpacing\" min=\"0\" step=\"1\">\r\n                Node spacing\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.treeSpacing\" min=\"0\" step=\"1\">\r\n                Tree spacing\r\n              </label>\r\n              <label>Direction\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.direction\">\r\n                  <optgroup label=\"Direction\">\r\n                    <option value=\"UD\">Up - Down</option>\r\n                    <option value=\"DU\">Down - Up</option>\r\n                    <option value=\"LR\">Left - Right</option>\r\n                    <option value=\"RL\">Right - Left</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Sort method\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.sortMethod\">\r\n                  <optgroup label=\"Sort method\">\r\n                    <option value=\"hubsize\">hubsize</option>\r\n                    <option value=\"directed\">directed</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Shake towards\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.shakeTowards\">\r\n                  <optgroup label=\"Shake towards\">\r\n                    <option value=\"leaves\">leaves</option>\r\n                    <option value=\"roots\">roots</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n            </div>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.theta\"> Theta\r\n            </label>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" min=\"any\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.gravitationalConstant\"> Gravitational constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.centralGravity\"> Central gravity\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springLength\"> Spring length\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springConstant\"> Spring constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.damping\"> Damping\r\n            </label>\r\n            <label uif=\"atl || bar || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.avoidOverlap\"> Avoid overlap\r\n            </label>\r\n            <label uif=\"rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.nodeDistance\"> Node distance\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.minVelocity\"> Min velocity\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.maxVelocity\"> Max velocity\r\n            </label>\r\n\r\n            <label>\r\n              <input type=\"checkbox\" step=\"any\" class=\"dynamic_uif lopt\" data-key=\"physics.stabilization.enabled\"> Stabilization\r\n            </label>\r\n            <div uif=\"stabilization\">\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.iterations\"> Iterations\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.updateInterval\"> Update interval (ms)\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"custom.scale_factor\"> Scale factor\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.onlyDynamicEdges\"> onlyDynamicEdges???\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.fit\"> Fit??\r\n              </label>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n      <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n\r\n      <!-- start of new measurable -->\r\n\r\n      <div class=\"columnContainer\"><div class=\"measurablePlaceholder\"></div></div>\r\n\r\n\r\n      <!-- end of new measurable -->\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"iclass show\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autolayout\"><span>Include in Auto-layout</span></label>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <label class=\"\">\r\n        <input type=\"checkbox\" class=\"asDefault\">\r\n        <span>Use as default style</span>\r\n      </label>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/guiElements/top-bar/m2tcreator/m2tcreator.component.html":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/guiElements/top-bar/m2tcreator/m2tcreator.component.html ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("DROPPED: dovrei trovare una implementazione dello standard MTL in js (model to text standard)\ndovrei salvare la regola usando m2t, con l'aggiunta di variabili pre-esistenti definite qui.\nal momento della chiamata della trasformazione m2t prima dell'esecuzione si apre un popup su come assegnare eventuali parametri.\nes per mysql: [checkbox] Ignore duplicates, [checkbox]remove old value... [textarea (array of json strings)] GenerateRedundantKeysFor... (classlist)\nse chiamo mysql in m2 mi genero bd, tabella e vincoli, se chiamo in s1 genero \"insert into\"...\n\n\n\n\n\n\n\n\n\n\n<p>m2tcreator works!</p>\n<h3>M2T creation</h3>\n<span>M2T Options as json</span>\n<textarea class=\"m2t-options\"></textarea>\n\n\n\n\n\n\n<label>M2T help text<textarea [(ngModel)]=\"helptext\"></textarea></label>\n\n<label>name <input></label>\n<label>min values count<input type=\"number\" min=\"0\" value=\"1\"></label>\n<label>max values count<input type=\"number\" min=\"1\" value=\"1\"></label>\n<h3>Paramater list</h3>\n<label>Parameter type\n  <select>\n  <option>enum</option>\n  <option>string</option>\n  <option>number</option>\n  <option>boolean</option>\n</select></label>\n<div uif=\"type-enum\">\n  <label>Enumeration allowed values (as json array)<textarea>[\"example1\", \"example2\"]</textarea></label>\n  <label>Default value<input type=\"text\">example1</label>\n</div>\n\n<label uif=\"type-number\">numeric min value<input step=\"any\" value=\"0\"></label>\n<label uif=\"type-number\">numeric max value<input step=\"any\" value=\"100\"></label>\n<label uif=\"type-number\">user help text<input step=\"any\" value=\"100\"></label>\n");
 
 /***/ }),
 
@@ -201,7 +214,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id='topbarShell'>\r\n  <div id='topbar'>\r\n    <div class=\"dropdownContainer user\">\r\n      <button class=\"todo dropdownTitle\">User</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Logout</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Preferences</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Account</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer metametamodel\">\r\n      <button class=\"dropdownTitle\">Meta-Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding TypeMapping\">Type mapping</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding VertexStyle\">Vertex Style</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding EdgeStyle\">Edge Style</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer metamodel\">\r\n      <button class=\"dropdownTitle\">Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer model\">\r\n      <button class=\"dropdownTitle\">Model</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty model</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer themes\">\r\n      <button class=\"dropdownTitle\">Themes</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Dark\">\r\n            <span>Dark</span>\r\n          </label>\r\n        </div></li>\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Light\" checked>\r\n            <span>Light</span>\r\n          </label>\r\n        </div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer Changelog\">\r\n      <button class=\"dropdownTitle changelogbutton\">Changelog</button>\r\n    </div>\r\n  <div id=\"TypeMapper\" class=\"screenWideShadow\" data-closebuttontarget=\"1\" style=\"display: none;\">\r\n    <div id=\"TypeMapperContent\" class=\"popupContent\">\r\n      <h1>M3 Type mapping</h1>\r\n      <button class=\"closeButton\" data-closebuttontarget=\"1\">X</button>\r\n      <br>\r\n      <div class=\"TypeList\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n  <div class=\"changelogRoot\" style=\"display: none\">\r\n\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id='topbarShell'>\r\n  <div id='topbar'>\r\n    <div class=\"dropdownContainer root user\">\r\n      <button class=\"todo dropdownTitle\">User</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Logout</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Preferences</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Account</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root metametamodel\">\r\n      <button class=\"dropdownTitle\">Meta-Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding TypeMapping\">Type mapping</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding VertexStyle\">Vertex Style</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding EdgeStyle\">Edge Style</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root metamodel\">\r\n      <button class=\"dropdownTitle\">Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset vertex position</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (.jv)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset viewpoints</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Model To Text</div>\r\n            <ul class=\"dropdownContent right m2t-m2-list\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\" (click)=\"createM2T_Rule('m2')\">Create M2T rule</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\">Import M2T rule</div></li>\r\n              <li class=\"dropdownContent right separator\"></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('byText', m2t_byText_m2())\">By text</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('MySQL', m2t_mysql_m2())\">MySQL</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root model\">\r\n      <button class=\"dropdownTitle\">Model</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (XMI)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (JSON)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset vertex position</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (.jv)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset viewpoints</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Model To Text</div>\r\n            <ul class=\"dropdownContent right m2t-m2-list\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\" (click)=\"createM2T_Rule('m1')\">Create M2T rule</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\">Import M2T rule</div></li>\r\n              <li class=\"dropdownContent right separator\"></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('MySQL', m2t_mysql_m1())\">MySQL</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root themes\">\r\n      <button class=\"dropdownTitle\">Themes</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Dark\">\r\n            <span>Dark</span>\r\n          </label>\r\n        </div></li>\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Light\" checked>\r\n            <span>Light</span>\r\n          </label>\r\n        </div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root Changelog\">\r\n      <button class=\"dropdownTitle changelogbutton\">Changelog</button>\r\n    </div>\r\n  <div id=\"TypeMapper\" class=\"screenWideShadow\" data-closebuttontarget=\"1\" style=\"display: none;\">\r\n    <div id=\"TypeMapperContent\" class=\"popupContent\">\r\n      <h1>Type mapping</h1>\r\n      <button class=\"closeButton\" data-closebuttontarget=\"1\">X</button>\r\n      <br>\r\n      <div class=\"typemaprow columnContainer\">\r\n        <select class=\"typemapselector btn-sm\" (change)=\"topbar.changeTypeMap()\" style=\"margin: auto; margin-left:0;\">\r\n          <optgroup label=\"Predefined type mappings\">\r\n            <option value=\"predefined.java\">Java (default)</option>\r\n            <option value=\"predefined.c89\">C 89</option>\r\n            <option value=\"predefined.MySQL\">MySQL</option>\r\n          </optgroup>\r\n          <optgroup label=\"Customized type mappings\">\r\n            <option *ngFor=\"let typemap of topbar?.typemapArr\" value=\"{{typemap}}\">{{typemap.substring(typemap.indexOf('.') + 1)}}</option>\r\n          </optgroup>\r\n        </select>\r\n        <button style=\"margin:auto; margin-right: 0;\" class=\"btn btn-primary addcustomtypmap\"\r\n                (click)=\"topbar.createTypeMap($event)\">Add custom mapping</button>\r\n      </div>\r\n      <div class=\"TypeList\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n  <div class=\"changelogRoot\" style=\"display: none\">\r\n\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -1362,20 +1375,20 @@ class EAnnotation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiec
         // todo?? se è il main package diventa "#//"
     }
     prepareSerialize() { this.setReferencesStr(); }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const json = {};
         this.prepareSerialize();
         let i;
         const childarr = [];
         for (i = 0; i < this.childrens.length; i++) {
-            childarr.push(this.childrens[i].generateModel());
+            childarr.push(this.childrens[i].generateModel(loopDetectionObj));
         }
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAnnotation"].source, this.name);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAnnotation"].references, this.referencesStr);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAnnotation"].details, childarr);
         return json;
     }
-    getVertex() { return this.parent.getVertex(); }
+    getVertex(canMakeIt = true) { return this.parent.getVertex(canMakeIt); }
     parse(json, destructive) {
         let key;
         this.childrens = [];
@@ -1430,7 +1443,7 @@ class EAnnotationDetail extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Mod
         return undefined; // todo
     }
     fullname() { return this.parent.fullname() + '.' + this.name; }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const json = {};
         if (this.name !== null)
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _iModel__WEBPACK_IMPORTED_MODULE_2__["ECoreDetail"].key, this.name);
@@ -1438,7 +1451,7 @@ class EAnnotationDetail extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Mod
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _iModel__WEBPACK_IMPORTED_MODULE_2__["ECoreDetail"].value, this.value);
         return json;
     }
-    getVertex() { return this.parent.getVertex(); }
+    getVertex(canMakeIt = true) { return this.parent.getVertex(canMakeIt); }
     parse(json, destructive) {
         let key;
         this.childrens = [];
@@ -1482,7 +1495,7 @@ class MetaMetaModel extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"
     conformability(metaparent, outObj = null, debug = false) { return 1; }
     getAllClasses() { return super.getAllClasses(); }
     getAllReferences() { return super.getAllReferences(); }
-    generateModel() { return undefined; }
+    generateModel(loopDetectionObj = null) { return undefined; }
     getPrefix() { return 'mmm'; }
     getPrefixNum() { return 'm3'; }
     isM1() { return false; }
@@ -1623,12 +1636,12 @@ class MetaModel extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"] {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Non-destructive m2-model parse: to do');
         }
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const packageArr = [];
         let i;
         for (i = 0; i < this.childrens.length; i++) {
             const pkg = this.childrens[i];
-            packageArr.push(pkg.generateModel());
+            packageArr.push(pkg.generateModel(loopDetectionObj));
         }
         const model = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"](null);
         model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreRoot"].ecoreEPackage] = packageArr;
@@ -1652,6 +1665,12 @@ class MetaModel extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"] {
         m.copy(this);
         m.refreshGUI();
         return m;
+    }
+    calculateViolations() {
+        let classes = this.getAllClasses();
+        for (let i = 0; i < classes.length; i++) {
+            classes[i].calculateInheritanceViolations(true);
+        }
     }
 }
 MetaModel.emptyModel = '{}';
@@ -1744,12 +1763,13 @@ class Model extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"] {
     getClass(fullname, caseSensitive = false, throwErr = true, debug = true) {
         return super.getClass(fullname, caseSensitive, throwErr, debug);
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const json = {};
         const classRoot = this.getClassRoot();
         if (!classRoot)
             return Model.emptyModel;
-        json[classRoot.metaParent.getNamespaced()] = classRoot.generateModel(true);
+        // U.pe(!U.isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj, loopDetectionObj || {});
+        json[classRoot.metaParent.getNamespaced()] = classRoot.generateModel(loopDetectionObj, true);
         return json;
     }
     // namespace(set: string = null): string { return this.metaParent.namespace(set); }
@@ -1874,7 +1894,7 @@ class IModel extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"] {
         return arr;
     }
     fullname() { return this.name; }
-    getVertex() { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'IModel.getVertex();', this); return undefined; }
+    getVertex(canMakeIt = null) { return null; }
     getAllReferences() {
         const arr = [];
         const classes = this.getAllClasses();
@@ -2226,15 +2246,15 @@ class M2Package extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"] 
       v.moveTo(location);
       return v; }
       */
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const classarr = [];
         const enumarr = [];
         let i;
         for (i = 0; i < this.classes.length; i++) {
-            classarr.push(this.classes[i].generateModel());
+            classarr.push(this.classes[i].generateModel(loopDetectionObj));
         }
         for (i = 0; i < this.enums.length; i++) {
-            enumarr.push(this.enums[i].generateModel());
+            enumarr.push(this.enums[i].generateModel(loopDetectionObj));
         }
         const classifiers = Array.prototype.concat.call(classarr, enumarr);
         const model = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"](null);
@@ -2294,7 +2314,7 @@ class MPackage extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"] {
         console.log('addEmptyClass(); package:', this, '; metaVersion: ', metaVersion, 'classe:', c);
         return c;
     }
-    generateModel() { return this.parent.generateModel(); }
+    generateModel(loopDetectionObj = null) { return this.parent.generateModel(loopDetectionObj); }
     /*
     generateModel(rootClass: MClass): Json {
       const key: string = U.toDottedURI(this.uri) + ':' + rootClass.name;
@@ -2382,7 +2402,7 @@ class IPackage extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"]
     }
     // conformability(metaparent: IPackage, outObj?: any, debug?: boolean): number { return 1; }
     fullname() { return this.name; }
-    getVertex() { return undefined; }
+    getVertex(canMakeIt = null) { return undefined; }
     getEnum(name, caseSensitive = false, throwErr = true, debug = true) {
         let i;
         if (!caseSensitive) {
@@ -2436,7 +2456,7 @@ class M3Package extends IPackage {
         const c = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M3Class"](this, null);
         return c;
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         return undefined;
     }
     parse(json, destructive = true) {
@@ -2831,7 +2851,7 @@ class ModelPiece {
         return;
     }
     generateModelString() {
-        const json = this.generateModel();
+        const json = this.generateModel({});
         // console.log('genmodelstring:', json, 'this:',  this);
         return JSON.stringify(json, null, 4);
     }
@@ -2869,10 +2889,25 @@ class ModelPiece {
     }
     printableNameshort(valueMaxLength = 5) {
         if (this.name !== null) {
-            return this.fullname();
+            return this.name;
         }
         const ending = this.endingName(valueMaxLength);
         return this.metaParent.name + ':' + this.id + (ending && ending !== '' ? ':' + ending : '');
+    }
+    toJSON(loopDetectionObj) {
+        let ret = {};
+        ret.id = this.id;
+        ret.name = this.name;
+        ret.parent = this.parent.id;
+        ret.metaParent = this.metaParent.id;
+        ret.annotations = this.annotations.map((e) => e.id);
+        ret.childrens = this.childrens.map((e) => e.id);
+        ret.detachedViews = this.detachedViews.map((e) => e.id);
+        ret.views = this.views.map((e) => e.id);
+        // ret.instances = this.instances.map( (e) => e.id); not a permanent stored data, le istanze sono solo quelle disegnate al momento, non TUTTE,
+        // se un M2 è collegato a più M1 crea problemi serializzare anche questo.
+        // M1 può avere reference a M2 che viene caricato, M2 non può avere reference persistenti a M1, altrimenti caricherebbe tutti i suoi M1.
+        return ret;
     }
     // abstract conformability(metaparent: ModelPiece, outObj?: any/*.refPermutation, .attrPermutation*/, debug?: boolean): number;
     setName0(value, refreshGUI = false, warnDuplicateFix = true, key, allowEmpty) {
@@ -3023,7 +3058,9 @@ class ModelPiece {
         this.instances = [];
         this.refreshGUI();
     }
+    // nb: le sottoclassi lo devono sempre chiamare con refreshgui = false
     delete(refreshgui = true) {
+        this.unmarkAll();
         if (this.parent) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.parent.childrens, this);
             this.parent = null;
@@ -3032,7 +3069,6 @@ class ModelPiece {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.metaParent.instances, this);
             this.metaParent = null;
         }
-        this.unmarkAll();
         let i;
         let arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.views);
         for (i = 0; arr && i < arr.length; i++) {
@@ -3047,8 +3083,27 @@ class ModelPiece {
             arr[i].delete(false);
         }
         arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.instances);
-        for (i = 0; arr && i < arr.length; i++) {
-            arr[i].delete(false);
+        if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
+            const instances = arr;
+            const scores = this.getTypeConversionScores();
+            const newType = scores.length && scores[0].class;
+            if (!newType) {
+                for (i = 0; instances && i < instances.length; i++) {
+                    instances[i].delete(false);
+                }
+            }
+            else {
+                for (i = 0; instances && i < instances.length; i++) {
+                    instances[i].convertTo(newType);
+                }
+            }
+            // posso promuovere le istanze ad una sottoclasse o superclasse di quella cancellata invece di eliminarle.
+        }
+        else {
+            // not m2-class.
+            for (i = 0; arr && i < arr.length; i++) {
+                arr[i].delete(false);
+            }
         }
         if (refreshgui)
             this.refreshGUI();
@@ -3264,11 +3319,13 @@ class ModelPiece {
       resetViews(): void { this.views = []; }
     */
     getClassName() { return this.className = this.getClassName0(); }
-    getClassName0() {
+    getClassName0(allowInterfaceAbstract = false) {
         if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M3Class"]) {
             return 'm3Class';
         }
         if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
+            if (!allowInterfaceAbstract)
+                return 'm2Class';
             return this.isInterface ? 'Interface' : (this.isAbstract ? 'Abstract' : 'm2Class');
         }
         if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"]) {
@@ -3431,7 +3488,7 @@ class F {
 }
 class ProtectedModelPiece {
     constructor(original, createdBy) {
-        this.subChanges = [];
+        this.subChanges = [] /*private object*/;
         if (createdBy)
             createdBy.subChanges.push(this);
         this.unsafemp = original;
@@ -3549,7 +3606,7 @@ class ProtectedModelPiece {
     }
     endingName(valueMaxLength) { return this.unsafemp.endingName(); }
     fullname() { return this.unsafemp.fullname(); }
-    generateModel() { return this.unsafemp.generateModel(); }
+    generateModel() { return this.unsafemp.generateModel({}); }
     generateModelString() { return this.unsafemp.generateModelString(); }
     getClassName() { return this.unsafemp.getClassName(); }
     getInfo(toLower) { return this.unsafemp.getInfo(toLower); }
@@ -3695,6 +3752,124 @@ class ProtectedModelPiece {
 
 /***/ }),
 
+/***/ "./src/ServerCommunication/Synchronization/ModelUpdateMessage.ts":
+/*!***********************************************************************!*\
+  !*** ./src/ServerCommunication/Synchronization/ModelUpdateMessage.ts ***!
+  \***********************************************************************/
+/*! exports provided: ModelUpdateMessage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModelUpdateMessage", function() { return ModelUpdateMessage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class ModelUpdateMessage {
+    constructor(uid, fieldName, newValue) {
+        this.targetObj = uid;
+        this.targetField = fieldName;
+        this.newValue = newValue;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/ServerCommunication/Synchronization/SendManager.ts":
+/*!****************************************************************!*\
+  !*** ./src/ServerCommunication/Synchronization/SendManager.ts ***!
+  \****************************************************************/
+/*! exports provided: SendManager */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SendManager", function() { return SendManager; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
+
+
+// NB: se nel receiveManager ricevo un ordine di update di un ModelPieceID non esistente, devo bufferarlo.
+// potrebbe essere una inversione di ordine dei messaggi nello strato di rete.
+// NB: se al server arrivano 2 renameModelPiece nell'ordine inverso, devo tenere traccia del timestamp,
+// e se l'ultimo rename sul mp è più recente di quello appena arrivato lo ignoro. (idempotenza, non cambia l'ordine dei messaggi)
+// todo: perdi la compatibilità con eCore nel salvataggio. permetterebbe di inserire commenti, riferimenti circolari in m1 e altro.
+//  poi posso sempre salvare sia in eCore che nel mio nuovo formato.
+class SendManager {
+    constructor(serverAdress, timeout) {
+        // U.pe(!serverAdress, "fill server adress before testing");
+        this.serverAdress = serverAdress;
+        this.timeout = timeout;
+    }
+    update(uid, fieldName, newValue) {
+        const msg = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelUpdateMessage"](uid, fieldName, newValue);
+        const callback = () => { };
+        let request = $.post(this.serverAdress, msg, callback);
+        request = $.ajax({
+            url: this.serverAdress,
+            type: "POST",
+            dataType: "json",
+            timeout: this.timeout,
+            success: function (response) { setTimeout(() => SendManager.manager.update(uid, fieldName, newValue)); },
+            error: function (xmlhttprequest, textstatus, message) {
+                // 'success' | 'notmodified' | 'nocontent';
+                switch (textstatus) {
+                    default:
+                        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected return code from ajax request:', textstatus, msg);
+                        break;
+                    case 'timeout':
+                        break;
+                    case 'error':
+                        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'undefined error after synch server request send', msg);
+                        break;
+                    case 'abort':
+                        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'undefined abort after synch server request send', msg);
+                        break;
+                    case 'parsererror':
+                        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'undefined abort after synch server request send', msg);
+                        break;
+                }
+                if (textstatus === "timeout") {
+                    alert("got timeout");
+                }
+                else {
+                    alert(textstatus);
+                }
+            }
+        });
+        request.state();
+    }
+}
+SendManager.manager = new SendManager("", 5000);
+
+
+/***/ }),
+
+/***/ "./src/app/User.ts":
+/*!*************************!*\
+  !*** ./src/app/User.ts ***!
+  \*************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class User {
+    // todo
+    constructor(key) {
+        this.key = key;
+    }
+    getID() {
+        return this.key;
+    }
+}
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /*!***********************************!*\
   !*** ./src/app/app.component.css ***!
@@ -3722,9 +3897,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 
 
-// @ts-ignore
 let AppComponent = class AppComponent {
-    // @ts-ignore
     constructor() {
         this.title = 'untitled';
     }
@@ -3772,6 +3945,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../guiElements/style-editor/style-editor.component */ "./src/guiElements/style-editor/style-editor.component.ts");
 /* harmony import */ var _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../guiElements/console/console.component */ "./src/guiElements/console/console.component.ts");
 /* harmony import */ var _measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./measurabletemplate/measurabletemplate.component */ "./src/app/measurabletemplate/measurabletemplate.component.ts");
+/* harmony import */ var vis_network__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! vis-network */ "./node_modules/vis-network/peer/umd/vis-network.min.js");
+/* harmony import */ var vis_network__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(vis_network__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../guiElements/mGraph/Layouting */ "./src/guiElements/mGraph/Layouting.ts");
+/* harmony import */ var _guiElements_top_bar_m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../guiElements/top-bar/m2tcreator/m2tcreator.component */ "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./User */ "./src/app/User.ts");
+
+
+
+
+
 
 
 
@@ -3812,10 +3996,12 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBarComponent"],
             _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_17__["ConsoleComponent"],
             _measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_18__["MeasurabletemplateComponent"],
+            _guiElements_top_bar_m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_21__["M2tcreatorComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"]
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_22__["FormsModule"]
         ],
         providers: [],
         bootstrap: [
@@ -3835,28 +4021,29 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 ], AppModule);
 
 class Status {
-    // modelMatTab: MatTabGroup = null;
-    /*showMMGrid = true;
-    showMGrid = true;
-    mmGrid = new GraphPoint(20, 20);
-    mGrid = new GraphPoint(20, 20);*/
     constructor() {
         this.mm = null;
         this.m = null;
         this.typeAliasDictionary = {};
-        this.aliasTypeDictionary = {};
+        // aliasTypeDictionary: Dictionary<string, ShortAttribETypes> = {};
         this.debug = false;
         this.loadedLogic = false;
         this.loadedGUI = false;
         this.XMLinlineMarker = '' + '@';
         // todo: consenti di customizzare il marker, (in m3options?)
-        this.refreshModeAll =  true || false;
-        this.refreshModelAndInstances =  false && false;
-        this.refreshModelAndParent =  false && false;
-        this.refreshInstancesToo =  false && false;
-        this.refreshModel =  false && false;
-        this.refreshMetaParentToo =  false && false;
-        this.refreshParentToo =  false && false;
+        this.refreshModeAll = true;
+        this.refreshModelAndInstances = false;
+        this.refreshModelAndParent = false;
+        this.refreshInstancesToo = false;
+        this.refreshModel = false;
+        this.refreshMetaParentToo = false;
+        this.refreshParentToo = false;
+        // modelMatTab: MatTabGroup = null;
+        /*showMMGrid = true;
+        showMGrid = true;
+        mmGrid = new GraphPoint(20, 20);
+        mGrid = new GraphPoint(20, 20);*/
+        this.user = new _User__WEBPACK_IMPORTED_MODULE_23__["User"]('mock_user');
     }
     save() {
         return 'TO DO: SERIALIZE';
@@ -3907,7 +4094,7 @@ function main0(loadEvent, tentativi = 0) {
     }
     catch (e) {
         const errormsg = 'initialization failed, this is likely caused by a failure on connection while downloading libraries or by unsupported browser.';
-        console.log('first error:', e);
+        console.error('first error:', e);
         try {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, errormsg);
         }
@@ -4009,6 +4196,9 @@ function globalevents() {
     window['TSON'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["TSON"];
     window['TSON_JSTypes'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["TSON_JSTypes"];
     window['TSON_UnsupportedTypes'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["TSON_UnsupportedTypes"];
+    window['Network'] = vis_network__WEBPACK_IMPORTED_MODULE_19__["Network"];
+    window['Layouting'] = _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_20__["Layouting"];
+    window['TopBar'] = _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"];
     window['' + 'help'] = [
         'setBackup (backup <= saveToDB)',
         'backupSave (saveToDB <= backup)',
@@ -4071,22 +4261,12 @@ function main() {
     }
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ECoreRoot"].initializeAllECoreEnums();
     globalevents();
+    _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["EType"].LoadTypeMaps();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MeasurableRuleParts"].staticinit();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IVertex"].staticinit();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IEdge"].staticInit();
     new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MyConsole"]();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw((tmp = +_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["DetectZoom"].device()) !== 1, 'Current zoom level is different from 100%.', 'The graph part of this website may be graphically misplaced due to a bug with Svg\'s <foreignObject> content.', 'current zoom:' + (+tmp * 100) + '%', 'The bug happens in: Chrome.', 'The bug does NOT happen in: Firefox.', 'Behaviour is unknown for other browsers.');
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].void] = 'void';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EChar] = 'char';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EString] = 'string';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EDate] = 'date';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EFloat] = 'float';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EDouble] = 'double';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EBoolean] = 'bool';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EByte] = 'byte';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EShort] = 'short';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].EInt] = 'int';
-    Status.status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"].ELong] = 'long';
     /*
     Status.status.typeAliasDictionary[ShortAttribETypes.ECharObj] = 'ECharObj';
     Status.status.typeAliasDictionary[ShortAttribETypes.EStringObj] = 'EStringObj';
@@ -4108,7 +4288,7 @@ function main() {
     const validate = (thing, defaultvalue) => { return thing && thing !== '' && thing !== 'null' && thing !== 'undefined' ? thing : defaultvalue; };
     savem2.model = validate(savem2.model, _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"].emptyModel);
     savem1.model = validate(savem1.model, _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Model"].emptyModel);
-    useless = new _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"]();
+    _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"].staticInit();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["WebsiteTheme"].setTheme();
     Status.status.mmm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaMetaModel"](null);
     console.log('loading MM:', savem2);
@@ -4119,6 +4299,7 @@ function main() {
     catch (e) {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, 'Failed to load the metamodel.');
         console.log(e, savem2.model);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Type"].all = []; // reset invalid old parsed types, enums... they are no longer defined in the empty metamodel
         Status.status.mm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"](JSON.parse(_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"].emptyModel), Status.status.mmm);
     }
     // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m); return;
@@ -4146,6 +4327,7 @@ function main() {
     Status.status.mm.graph.setGrid(20, 20, true);
     Status.status.m.graph.setGrid(20, 20, true);
     Status.status.loadedGUI = true;
+    Status.status.mm.calculateViolations();
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IEdge"].all.forEach((e) => { e.refreshGui(); e.refreshGui(); });
     Status.status.mm.graph.propertyBar.show(Status.status.mm, null, null);
     Status.status.m.graph.propertyBar.show(Status.status.m, null, null);
@@ -4240,7 +4422,7 @@ document.addEventListener('DOMContentLoaded', main0);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n  min-width: 0;\r\n}\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border: 2px solid transparent;\r\n  border-radius: 22.5px 0 0 22.5px;\r\n}\r\n.meas_acc0 .maintitle{\r\n  border-radius: 5px;\r\n}\r\n.meas_acc0 .ruletitle:hover{\r\n  border-color: gray;\r\n  background-color: rgba(127, 127, 127, 0.2); }\r\n.meas_acc0 .ruletitle:hover.ruletitle[counter]:not([counter=\"0\"]), .meas_acc0 .ruletitle[counter]:not([counter=\"0\"]):not(.collapsed),\r\n.meas_acc0 .maintitle:hover,  .meas_acc0 .maintitle:not(.collapsed){\r\n  border-color: dodgerblue;\r\n  background-color: rgba(30, 144, 255, 0.2); }\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n/* dynamically added*/\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n.meas_acc0 .measurableoktext{\r\n  margin-left: 5px;\r\n  color: var(--success);\r\n}\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n.meas_acc0 .measurabledebug { display: none; }\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n.meas_acc0 .measurabledebug .debugrows { display: none; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-flow: column; }\r\n.meas_acc0 .measurabledebug:focus-within .debugrows { display: -webkit-box; display: flex; }\r\n.meas_acc0 .countershell { float: right; }\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n.meas_acc0 .directions > * { margin: auto; }\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n.meas_acc0 .rule.template { display: none !important; }\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n.meas_acc .rulesearch:focus {\r\n  border: 1px solid dodgerblue;\r\n  box-shadow: 0 0 0 1px dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsY0FBYztFQUNkLFVBQVU7RUFDVixjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBQ0Esc0JBQXNCLGlCQUFpQixFQUFFO0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTtBQUN6QyxzQkFBc0Isa0JBQWtCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDekQ7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDtBQUNBLG9CQUFvQixlQUFlLEVBQUU7QUFDckMsd0JBQXdCLGtCQUFrQixFQUFFO0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTtBQUNqQyx1QkFBdUIsY0FBYyxFQUFFLGtCQUFrQixFQUFFLG1CQUFtQixFQUFFO0FBQ2hGLG1CQUFtQixvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNsQyxnREFBZ0QsV0FBVyxFQUFFO0FBQzdELDZDQUE2QyxZQUFZLEVBQUUsd0JBQXdCLEVBQUU7QUFDckYscUJBQXFCLG9CQUFhLEVBQWIsYUFBYSxFQUFFLFdBQVcsRUFBRSxZQUFZLEVBQUU7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2pFLDZCQUE2QixZQUFZLEVBQUUsWUFBWSxFQUFFO0FBQ3pEO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLGNBQWM7RUFDZCxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsVUFBVTtFQUNWLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QsMEJBQXFCO09BQXJCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7QUFDQSxzQ0FBc0MsWUFBWSxFQUFFO0FBQ3BEO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQiw2QkFBNkI7RUFDN0IsMEJBQWtCO0VBQWxCLHVCQUFrQjtFQUFsQixrQkFBa0I7QUFDcEI7QUFDQSxnREFBZ0QsZ0JBQWdCLEVBQUU7QUFDbEU7RUFDRSxxQkFBcUI7RUFDckIsZ0RBQWdEO0FBQ2xEO0FBRUEsMEVBQTBFLDJCQUEyQixFQUFFO0FBQ3ZHLHlDQUF5QztBQUN6QztFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLG1CQUFtQjtBQUNyQjtBQUNBO0dBQ0csZ0JBQWdCO0NBQ2xCO0FBQ0Q7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLDRCQUF1QjtPQUF2Qix1QkFBdUI7QUFDekI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtBQUNkO0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFO0FBQ2pELCtCQUErQixnQkFBZ0IsRUFBRTtBQUNqRCx3Q0FBd0MsZUFBZSxFQUFFO0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0FBQ25FO0FBQ0E7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixvQkFBYTtFQUFiLGFBQWE7RUFDYiw2QkFBNkI7RUFDN0IsZ0NBQWdDO0FBQ2xDO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQiwwQ0FBMEMsRUFBRTtBQUU5Qzs7RUFFRSx3QkFBd0I7RUFDeEIseUNBQXlDLEVBQUU7QUFFN0MsbUNBQW1DLFlBQVksRUFBRTtBQUFFLHFCQUFxQjtBQUN4RSxrQ0FBa0MsMkJBQTJCLEVBQUU7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFLHFCQUFxQixFQUFFLGlCQUFpQixFQUFFO0FBQ3BHO0VBQ0UsNkJBQTZCO0VBQzdCLDBCQUEwQjtBQUM1QjtBQUNBOzs7RUFHRTtvQkFDa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixvQkFBb0I7QUFDdEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7QUFDekI7QUFDQSwyQkFBMkIsa0JBQWtCLEVBQUU7QUFDL0MsOEJBQThCLGFBQWEsRUFBRTtBQUM3QyxrREFBa0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUseUNBQXlDLGFBQWEsRUFBRSw0QkFBaUIsRUFBakIsNkJBQWlCLEVBQWpCLGlCQUFpQixFQUFFO0FBQzNFLHNEQUFzRCxvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNyRSwyQkFBMkIsWUFBWSxFQUFFO0FBQ3pDO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7QUFDQTtFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEO0FBQ0E7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTtBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7QUFDbkI7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCLEVBQUU7QUFDckI7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTtBQUMxRDtFQUNFLHNEQUFzRCxFQUFFO0FBRTFEO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFFZixvQkFBb0IsMkJBQTJCLEVBQUU7QUFDakQ7RUFDRSxXQUFXO0VBQ1gsWUFBWSxFQUFFO0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7QUFDeEM7RUFDRSw0RkFBb0Y7VUFBcEYsb0ZBQW9GLEVBQUU7QUFFeEY7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsWUFBWSxFQUFFO0FBQ2hCLDZCQUE2QixZQUFZLEVBQUU7QUFDM0M7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7QUFDQSxrQ0FBa0MsYUFBYSxFQUFFO0FBQ2pELDRCQUE0Qix3QkFBd0IsRUFBRTtBQUN0RCx1QkFBdUIsb0NBQW9DLEVBQUU7QUFFN0Q7RUFDRSw0QkFBNEI7RUFDNUIsZ0NBQWdDO0FBQ2xDIiwiZmlsZSI6InNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1lYXNfYWNjMCAubWVhc3VyYWJsZVNldHRpbmdSb290e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAucHJlbGVmdCwgLm1lYXNfYWNjMCAucG9zdE5hbWUge1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBiYWNrZ3JvdW5kOiBub25lO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbiAgcGFkZGluZzogMDtcclxuICBjb2xvcjogaW5oZXJpdDtcclxuICBoZWlnaHQ6IHVuc2V0O1xyXG59XHJcbi5tZWFzX2FjYzAgLnByZWxlZnQgeyBtYXJnaW4tcmlnaHQ6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5wb3N0TmFtZSB7IG1hcmdpbi1sZWZ0OiA1cHg7IH1cclxuLm1lYXNfYWNjMCAuYm90bWFyZyB7IG1hcmdpbi1ib3R0b206IDVweDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5tb3ZlbWVudGJveHJvb3QsIC5tZWFzX2FjYzAgLnJlc2l6ZWJveHJvb3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHJvdztcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucm93Y29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAucm93IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcclxuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XHJcbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5maWxsIHsgZmxleC1ncm93OiAxOyB9XHJcbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLmxlZnQsIC5tZWFzX2FjYzAgLnNpZGUucmlnaHQgeyB3aWR0aDogMTBweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxyXG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSB7IGJhY2tncm91bmQtY29sb3I6IGdvbGRlbnJvZDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbn1cclxuLm1lYXNfYWNjMCAuYm94cm9vdCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGV7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgYnV0dG9uLnJ1bGVkZWxldGUge1xyXG4gIGhlaWdodDogMTAwJTtcclxuICB3aWR0aDogMzBweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDI1cHggMCAwIDI1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCB7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGZsZXgtZ3JvdzogMCAhaW1wb3J0YW50O1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGZsZXgtYmFzaXM6IGF1dG8gIWltcG9ydGFudDtcclxuICBmbGV4LXNocmluazogMCAhaW1wb3J0YW50O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXIge1xyXG4gIG9yZGVyOiAyO1xyXG4gIG1hcmdpbjogYXV0byAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAtNHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XHJcbiAgY29sb3I6IGluaGVyaXQ7XHJcbiAgdGV4dC1hbGlnbi1sYXN0OiBsZWZ0O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbmRyYWcgLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDU2cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29ucmVzaXplIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA2NHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLl9vbnJvdGF0aW9uIC5vcGVyYXRvci50cmlnZ2Vye1xyXG4gIHdpZHRoOiA3N3B4O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yLnRyaWdnZXI6Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xyXG4gIG9yZGVyOiAzO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XHJcbiAgbWluLXdpZHRoOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqIHsgYm9yZGVyOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcclxuICBtYXJnaW4tdG9wOiAxcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICB3aWR0aDogbWluLWNvbnRlbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0OmZvY3VzIHsgYm94LXNoYWRvdzogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4OmZvY3VzLXdpdGhpbiB7XHJcbiAgYm9yZGVyLWNvbG9yOiAjODBiZGZmO1xyXG4gIGJveC1zaGFkb3c6IDAgMCAwIDAuMnJlbSByZ2JhKDAsIDEyMywgMjU1LCAwLjI1KTtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5yaWdodHgsIC5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAubGVmdHggeyBtYXJnaW4tYm90dG9tOiAwICFpbXBvcnRhbnQ7IH1cclxuLyogLm1lYXNfYWNjMCAucmlnaHR4IHsgbWluLXdpZHRoOiAwOyB9ICovXHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yIHtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxuICAvKm1hcmdpbi10b3A6IDhweDsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yLmFwcGx5IHtcclxuICAgbWFyZ2luLWxlZnQ6IDBweDtcclxuIH1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3Jjb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgc2VsZWN0Lm9wZXJhdG9yIHtcclxuICB3aWR0aDogNDVweDtcclxuICBtYXJnaW46IGF1dG8gNXB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yaWdodHggLmNvbXBvdW5kSW5wdXRwcmVmaXgsIC5tZWFzX2FjYzAgLnJpZ2h0eCBpbnB1dC5yaWdodHNpZGUsIC5tZWFzX2FjYzAgaW5wdXQubGVmdHNpZGUsIC5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQge1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxuICBtaW4td2lkdGg6IDEyMHB4O1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgeyBtYXJnaW4tYm90dG9tOiAxcmVtOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQgeyBtYXJnaW4tYm90dG9tOiAwOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC5tZWFzdXJhYmxlZGVidWcgeyBtYXJnaW4tdG9wOiA1cHg7IH1cclxuLm1lYXNfYWNjMCAuYXR0cm5hbWUge1xyXG4gIG1heC13aWR0aDogMjAwcHggIWltcG9ydGFudDsgLyogdG9kbzogcmVtb3ZlIHdoZW4gaXMgYXV0b3NpemluZyAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmFkZHJ1bGUge1xyXG4gIGZsb2F0OiByaWdodDtcclxuICBtYXJnaW4tdG9wOiAtNHB4O1xyXG4gIHBhZGRpbmc6IDRweCAxMHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XHJcbiAgcGFkZGluZy1yaWdodDogNHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIHRyYW5zcGFyZW50O1xyXG4gIGJvcmRlci1yYWRpdXM6IDIyLjVweCAwIDAgMjIuNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLm1haW50aXRsZXtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbn1cclxuXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlcntcclxuICBib3JkZXItY29sb3I6IGdyYXk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxMjcsIDEyNywgMTI3LCAwLjIpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGU6aG92ZXIucnVsZXRpdGxlW2NvdW50ZXJdOm5vdChbY291bnRlcj1cIjBcIl0pLCAubWVhc19hY2MwIC5ydWxldGl0bGVbY291bnRlcl06bm90KFtjb3VudGVyPVwiMFwiXSk6bm90KC5jb2xsYXBzZWQpLFxyXG4ubWVhc19hY2MwIC5tYWludGl0bGU6aG92ZXIsICAubWVhc19hY2MwIC5tYWludGl0bGU6bm90KC5jb2xsYXBzZWQpe1xyXG4gIGJvcmRlci1jb2xvcjogZG9kZ2VyYmx1ZTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDMwLCAxNDQsIDI1NSwgMC4yKTsgfVxyXG5cclxuOjpuZy1kZWVwIC5tZWFzX2FjYzAgLmlubmVydGl0bGUgeyBtYXJnaW46IGF1dG87IH0gLyogZHluYW1pY2FsbHkgYWRkZWQqL1xyXG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlciB7IC13ZWJraXQtYXBwZWFyYW5jZTogYnV0dG9uOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGNvbG9yOiBkb2RnZXJibHVlOyB9XHJcbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogdW5zZXQ7XHJcbiAgLyogZGlzYWJsZSBib290c3RyYXAgcnVsZSovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW91dHB1dHRleHQ6Zm9jdXMsXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHQ6Zm9jdXMsXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dDpmb2N1c3tcclxuICAvKm91dGxpbmU6IG5vbmU7XHJcbiAgYm94LXNoYWRvdzogbm9uZTsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVva3RleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tc3VjY2Vzcyk7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1kYW5nZXIpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS13YXJuaW5nKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXJ7IG1hcmdpbi1ib3R0b206IDVweDsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgeyBkaXNwbGF5OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eDpmb2N1cy13aXRoaW4gLm1lYXN1cmFibGVkZWJ1Z3sgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgLmRlYnVncm93cyB7IGRpc3BsYXk6IG5vbmU7IGZsZXgtZmxvdzogY29sdW1uOyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1Zzpmb2N1cy13aXRoaW4gLmRlYnVncm93cyB7IGRpc3BsYXk6IGZsZXg7IH1cclxuLm1lYXNfYWNjMCAuY291bnRlcnNoZWxsIHsgZmxvYXQ6IHJpZ2h0OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAqIHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gKiwgLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAubGVmdCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby90cXhYaGs0L3RsLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZ3ZweXd6L3RsbC5wbmcpO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnNpZGUudG9wIHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9NOWZDN0RQL3QucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5yaWdodCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9QenNtanhmL3RyLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9TTjJUSEx0L3RybC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvLzdqbTlCQlEvbC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9SWVpuVk41L3IucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3FyWVdkcEgvYmwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2dES0ZyeTUvYmxsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAuc2lkZS5ib3Qge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2NYYzBubVMvYi5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL0swcFZWVDcvYnIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1Fwd1JTc1QvYnJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnRvcCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xyXG4gIG1hcmdpbi10b3A6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmJvdCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogLTNweDtcclxuICBtYXJnaW4tdG9wOiAzcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLmxlZnQge1xyXG4gIG1hcmdpbi1yaWdodDogM3B4O1xyXG4gIG1hcmdpbi1sZWZ0OiAtM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5yaWdodCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAtM3B4O1xyXG4gIG1hcmdpbi1sZWZ0OiAzcHg7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3doIHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZDNqdGJjL2xyLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3d2IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9qSFR0UER4L3RiLnBuZyk7IH1cclxuXHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgaGVpZ2h0OiA1MHB4O1xyXG4gIG1pbi13aWR0aDogNTBweDtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+ICoge1xyXG4gIGhlaWdodDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+ICoge1xyXG4gIGhlaWdodDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd2lkdGg6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG5cclxuLm1lYXNfYWNjMCAuYXJyb3cgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Z7XHJcbiAgd2lkdGg6IDc1cHg7XHJcbiAgaGVpZ2h0OiA3NXB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdzpmb2N1c3sgb3V0bGluZTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xyXG4gIGZpbHRlcjogc2VwaWEoODIlKSBzYXR1cmF0ZSgzOTI1JSkgaHVlLXJvdGF0ZSg1NWRlZykgYnJpZ2h0bmVzcygxMjUlKSBjb250cmFzdCgxMjAlKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luOiBhdXRvOyB9XHJcbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMgPiAqIHsgbWFyZ2luOiBhdXRvOyB9XHJcbi5tZWFzX2FjYzAgLmRyYWdnYWJsZS5ib3hyb290e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgLypoZWlnaHQ6IDIzN3B4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAuY29sbGFwc2U6bm90KC5zaG93KSB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAucnVsZS50ZW1wbGF0ZSB7IGRpc3BsYXk6IG5vbmUgIWltcG9ydGFudDsgfVxyXG4ubWVhc19hY2MwIC5zZWxlY3RlZCB7IGJhY2tncm91bmQtY29sb3I6ICMzN2ZmNjYgIWltcG9ydGFudDsgfVxyXG5cclxuLm1lYXNfYWNjIC5ydWxlc2VhcmNoOmZvY3VzIHtcclxuICBib3JkZXI6IDFweCBzb2xpZCBkb2RnZXJibHVlO1xyXG4gIGJveC1zaGFkb3c6IDAgMCAwIDFweCBkb2RnZXJibHVlO1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".labelmeasurable{\r\n  margin-left:auto;\r\n  margin-right:auto\r\n}\r\n\r\n.meas_acc0{\r\n  width: 100%;\r\n}\r\n\r\n.meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n  min-width: 0;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border: 2px solid transparent;\r\n  border-radius: 22.5px 0 0 22.5px;\r\n}\r\n\r\n.meas_acc0 .maintitle{\r\n  border-radius: 5px;\r\n}\r\n\r\n.meas_acc0 .ruletitle:hover{\r\n  border-color: gray;\r\n  background-color: rgba(127, 127, 127, 0.2); }\r\n\r\n.meas_acc0 .ruletitle:hover.ruletitle[counter]:not([counter=\"0\"]), .meas_acc0 .ruletitle[counter]:not([counter=\"0\"]):not(.collapsed),\r\n.meas_acc0 .maintitle:hover,  .meas_acc0 .maintitle:not(.collapsed){\r\n  border-color: dodgerblue;\r\n  background-color: rgba(30, 144, 255, 0.2); }\r\n\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n\r\n/* dynamically added*/\r\n\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }\r\n\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n\r\n.meas_acc0 .measurableoktext{\r\n  margin-left: 5px;\r\n  color: var(--success);\r\n}\r\n\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n\r\n.meas_acc0 .measurabledebug { display: none; }\r\n\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .measurabledebug .debugrows { display: none; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-flow: column; }\r\n\r\n.meas_acc0 .measurabledebug:focus-within .debugrows { display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .countershell { float: right; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n\r\n.meas_acc0 .directions > * { margin: auto; }\r\n\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n\r\n.meas_acc0 .rule.template { display: none !important; }\r\n\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n\r\n.meas_acc .rulesearch:focus {\r\n  border: 1px solid dodgerblue;\r\n  box-shadow: 0 0 0 1px dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0VBQ2hCO0FBQ0Y7O0FBRUE7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsY0FBYztBQUNoQjs7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7O0FBQ0E7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGNBQWM7RUFDZCxVQUFVO0VBQ1YsY0FBYztFQUNkLGFBQWE7QUFDZjs7QUFDQSxzQkFBc0IsaUJBQWlCLEVBQUU7O0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTs7QUFDekMsc0JBQXNCLGtCQUFrQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUN6RDtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0FBQ25COztBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDs7QUFDQSxvQkFBb0IsZUFBZSxFQUFFOztBQUNyQyx3QkFBd0Isa0JBQWtCLEVBQUU7O0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTs7QUFDakMsdUJBQXVCLGNBQWMsRUFBRSxrQkFBa0IsRUFBRSxtQkFBbUIsRUFBRTs7QUFDaEYsbUJBQW1CLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNsQyxnREFBZ0QsV0FBVyxFQUFFOztBQUM3RCw2Q0FBNkMsWUFBWSxFQUFFLHdCQUF3QixFQUFFOztBQUNyRixxQkFBcUIsb0JBQWEsRUFBYixhQUFhLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTs7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNqRSw2QkFBNkIsWUFBWSxFQUFFLFlBQVksRUFBRTs7QUFDekQ7RUFDRSx1QkFBdUI7QUFDekI7O0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7O0FBQ0E7RUFDRSxjQUFjO0VBQ2Qsa0JBQWtCO0FBQ3BCOztBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5Qjs7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7O0FBQ0E7RUFDRSw0QkFBUTtVQUFSLFFBQVE7RUFDUixjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLFVBQVU7RUFDVix1QkFBdUI7RUFDdkIsY0FBYztFQUNkLDBCQUFxQjtPQUFyQixxQkFBcUI7QUFDdkI7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7O0FBQ0Esc0NBQXNDLFlBQVksRUFBRTs7QUFDcEQ7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDZCQUE2QjtFQUM3QiwwQkFBa0I7RUFBbEIsdUJBQWtCO0VBQWxCLGtCQUFrQjtBQUNwQjs7QUFDQSxnREFBZ0QsZ0JBQWdCLEVBQUU7O0FBQ2xFO0VBQ0UscUJBQXFCO0VBQ3JCLGdEQUFnRDtBQUNsRDs7QUFFQSwwRUFBMEUsMkJBQTJCLEVBQUU7O0FBQ3ZHLHlDQUF5Qzs7QUFDekM7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7O0FBQ0E7R0FDRyxnQkFBZ0I7Q0FDbEI7O0FBQ0Q7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQiw0QkFBdUI7T0FBdkIsdUJBQXVCO0FBQ3pCOztBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7O0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFOztBQUNqRCwrQkFBK0IsZ0JBQWdCLEVBQUU7O0FBQ2pELHdDQUF3QyxlQUFlLEVBQUU7O0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0FBQ25FOztBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDZCQUE2QjtFQUM3QixnQ0FBZ0M7QUFDbEM7O0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsMENBQTBDLEVBQUU7O0FBRTlDOztFQUVFLHdCQUF3QjtFQUN4Qix5Q0FBeUMsRUFBRTs7QUFFN0MsbUNBQW1DLFlBQVksRUFBRTs7QUFBRSxxQkFBcUI7O0FBQ3hFLGtDQUFrQywyQkFBMkIsRUFBRTs7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFLHFCQUFxQixFQUFFLGlCQUFpQixFQUFFOztBQUNwRztFQUNFLDZCQUE2QjtFQUM3QiwwQkFBMEI7QUFDNUI7O0FBQ0E7OztFQUdFO29CQUNrQjtBQUNwQjs7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7O0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQW9CO0FBQ3RCOztBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2Qjs7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7QUFDekI7O0FBQ0EsMkJBQTJCLGtCQUFrQixFQUFFOztBQUMvQyw4QkFBOEIsYUFBYSxFQUFFOztBQUM3QyxrREFBa0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7O0FBQ2pFLHlDQUF5QyxhQUFhLEVBQUUsNEJBQWlCLEVBQWpCLDZCQUFpQixFQUFqQixpQkFBaUIsRUFBRTs7QUFDM0Usc0RBQXNELG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNyRSwyQkFBMkIsWUFBWSxFQUFFOztBQUN6QztFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDOztBQUNBO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7O0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEOztBQUNBO0VBQ0UscURBQXFELEVBQUU7O0FBQ3pEO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RCxFQUFFOztBQUMzRDtFQUNFLHFEQUFxRCxFQUFFOztBQUN6RDtFQUNFLHFEQUFxRCxFQUFFOztBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTs7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTs7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7O0FBQzNEO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQixFQUFFOztBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7O0FBQ25CO0VBQ0UsaUJBQWlCO0VBQ2pCLGlCQUFpQixFQUFFOztBQUNyQjtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTs7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTs7QUFDMUQ7RUFDRSxzREFBc0QsRUFBRTs7QUFFMUQ7RUFDRSxZQUFZO0VBQ1osZUFBZTtBQUNqQjs7QUFDQTtFQUNFLFlBQVksRUFBRTs7QUFDaEI7RUFDRSxZQUFZLEVBQUU7O0FBQ2hCO0VBQ0UsWUFBWTtFQUNaLFdBQVcsRUFBRTs7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7O0FBRWYsb0JBQW9CLDJCQUEyQixFQUFFOztBQUNqRDtFQUNFLFdBQVc7RUFDWCxZQUFZLEVBQUU7O0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7O0FBQ3hDO0VBQ0UsNEZBQW9GO1VBQXBGLG9GQUFvRixFQUFFOztBQUV4RjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixZQUFZLEVBQUU7O0FBQ2hCLDZCQUE2QixZQUFZLEVBQUU7O0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25COztBQUNBLGtDQUFrQyxhQUFhLEVBQUU7O0FBQ2pELDRCQUE0Qix3QkFBd0IsRUFBRTs7QUFDdEQsdUJBQXVCLG9DQUFvQyxFQUFFOztBQUU3RDtFQUNFLDRCQUE0QjtFQUM1QixnQ0FBZ0M7QUFDbEMiLCJmaWxlIjoic3JjL2FwcC9tZWFzdXJhYmxldGVtcGxhdGUvbWVhc3VyYWJsZXRlbXBsYXRlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubGFiZWxtZWFzdXJhYmxle1xyXG4gIG1hcmdpbi1sZWZ0OmF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OmF1dG9cclxufVxyXG5cclxuLm1lYXNfYWNjMHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlU2V0dGluZ1Jvb3R7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLm1lYXNfYWNjMCAuYm94ZXNyb290IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1iYXNpczogMDtcclxufVxyXG4ubWVhc19hY2MwIC5wcmVsZWZ0LCAubWVhc19hY2MwIC5wb3N0TmFtZSB7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG8gMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGNvbG9yOiBpbmhlcml0O1xyXG4gIGhlaWdodDogdW5zZXQ7XHJcbn1cclxuLm1lYXNfYWNjMCAucHJlbGVmdCB7IG1hcmdpbi1yaWdodDogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLnBvc3ROYW1lIHsgbWFyZ2luLWxlZnQ6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5ib3RtYXJnIHsgbWFyZ2luLWJvdHRvbTogNXB4OyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1vdmVtZW50Ym94cm9vdCwgLm1lYXNfYWNjMCAucmVzaXplYm94cm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbn1cclxuLm1lYXNfYWNjMCAuY29sdW1uY29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogcm93O1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5yb3djb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29sdW1uLCAubWVhc19hY2MwIC5yb3d7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5yb3cge1xyXG4gIG1heC13aWR0aDogMTAwJTtcclxuICBtYXJnaW4tcmlnaHQ6IHVuc2V0O1xyXG4gIG1hcmdpbi1sZWZ0OiB1bnNldDsgLyogZHVtYiBfZ3JpZC5zY3NzIGZpeGVyICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYnJlYWsgeyBmbGV4LXdyYXA6IHdyYXA7IH1cclxuLm1lYXNfYWNjMCAuYXV0b2JyZWFrIHsgZmxleC13cmFwOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLmZpbGwgeyBmbGV4LWdyb3c6IDE7IH1cclxuLm1lYXNfYWNjMCAuYm94dGl0bGUgeyBkaXNwbGF5OiBibG9jazsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUgeyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUubGVmdCwgLm1lYXNfYWNjMCAuc2lkZS5yaWdodCB7IHdpZHRoOiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUudG9wLCAubWVhc19hY2MwIC5zaWRlLmJvdCB7IGhlaWdodDogMTBweDsgd2lkdGg6IGNhbGMoMTAwJSAtIDIwcHgpOyB9XHJcbi5tZWFzX2FjYzAgLmNvcm5lciB7IGRpc3BsYXk6IGZsZXg7IHdpZHRoOiAxMHB4OyBoZWlnaHQ6IDEwcHg7IH1cclxuLm1lYXNfYWNjMCAubWlkZGxlIHsgYmFja2dyb3VuZC1jb2xvcjogZ29sZGVucm9kOyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSAubWlkZGxlIHsgd2lkdGg6IDEyMHB4OyBoZWlnaHQ6IDkwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuc2lkZSwgLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcclxufVxyXG4ubWVhc19hY2MwIC5ib3hyb290IHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAzMHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweCAwIDAgMjVweDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgZmxleC1iYXNpczogYXV0byAhaW1wb3J0YW50O1xyXG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3IudHJpZ2dlciB7XHJcbiAgb3JkZXI6IDI7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbiAgbWFyZ2luLWxlZnQ6IC00cHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBjb2xvcjogaW5oZXJpdDtcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGxlZnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29uZHJhZyAub3BlcmF0b3IudHJpZ2dlcntcclxuICB3aWR0aDogNTZweDtcclxufVxyXG4ubWVhc19hY2MwIC5fb25yZXNpemUgLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDY0cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29ucm90YXRpb24gLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDc3cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3IudHJpZ2dlcjpmb2N1c3tcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJveC1zaGFkb3c6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dC5hdHRybmFtZSB7XHJcbiAgb3JkZXI6IDM7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgcGFkZGluZy1sZWZ0OiAwO1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDA7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcclxuICBtaW4td2lkdGg6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICo6Zmlyc3QtY2hpbGQge1xyXG4gIG1hcmdpbi10b3A6IDFweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHdpZHRoOiBtaW4tY29udGVudDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcclxuICBib3JkZXItY29sb3I6ICM4MGJkZmY7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxyXG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3Ige1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIC8qbWFyZ2luLXRvcDogOHB4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3IuYXBwbHkge1xyXG4gICBtYXJnaW4tbGVmdDogMHB4O1xyXG4gfVxyXG4ubWVhc19hY2MwIC5vcGVyYXRvcmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIG1hcmdpbjogYXV0byA1cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIG1pbi13aWR0aDogMTIwcHg7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLm1lYXN1cmFibGVkZWJ1ZyB7IG1hcmdpbi10b3A6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XHJcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYWRkcnVsZSB7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIG1hcmdpbi10b3A6IC00cHg7XHJcbiAgcGFkZGluZzogNHB4IDEwcHg7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlIHtcclxuICBwYWRkaW5nLXJpZ2h0OiA0cHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgYm9yZGVyLXJhZGl1czogMjIuNXB4IDAgMCAyMi41cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAubWFpbnRpdGxle1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVye1xyXG4gIGJvcmRlci1jb2xvcjogZ3JheTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDEyNywgMTI3LCAxMjcsIDAuMik7IH1cclxuXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3Zlci5ydWxldGl0bGVbY291bnRlcl06bm90KFtjb3VudGVyPVwiMFwiXSksIC5tZWFzX2FjYzAgLnJ1bGV0aXRsZVtjb3VudGVyXTpub3QoW2NvdW50ZXI9XCIwXCJdKTpub3QoLmNvbGxhcHNlZCksXHJcbi5tZWFzX2FjYzAgLm1haW50aXRsZTpob3ZlciwgIC5tZWFzX2FjYzAgLm1haW50aXRsZTpub3QoLmNvbGxhcHNlZCl7XHJcbiAgYm9yZGVyLWNvbG9yOiBkb2RnZXJibHVlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMzAsIDE0NCwgMjU1LCAwLjIpOyB9XHJcblxyXG46Om5nLWRlZXAgLm1lYXNfYWNjMCAuaW5uZXJ0aXRsZSB7IG1hcmdpbjogYXV0bzsgfSAvKiBkeW5hbWljYWxseSBhZGRlZCovXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZS5jb2xsYXBzZWQgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVyIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBidXR0b247IHRleHQtZGVjb3JhdGlvbjogbm9uZTsgY29sb3I6IGRvZGdlcmJsdWU7IH1cclxuLm1lYXNfYWNjMCAuZm9ybS1jb250cm9sID4gLmZvcm0tY29udHJvbDpub3QoOmZpcnN0LWNoaWxkKXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiB1bnNldDtcclxuICAvKiBkaXNhYmxlIGJvb3RzdHJhcCBydWxlKi9cclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dDpmb2N1cyxcclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dDpmb2N1cyxcclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0OmZvY3Vze1xyXG4gIC8qb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lOyovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW9rdGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1zdWNjZXNzKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZXJyb3J0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLWRhbmdlcik7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXdhcm5pbmcpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lcnsgbWFyZ2luLWJvdHRvbTogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4OmZvY3VzLXdpdGhpbiAubWVhc3VyYWJsZWRlYnVneyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyAuZGVidWdyb3dzIHsgZGlzcGxheTogbm9uZTsgZmxleC1mbG93OiBjb2x1bW47IH1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnOmZvY3VzLXdpdGhpbiAuZGVidWdyb3dzIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5jb3VudGVyc2hlbGwgeyBmbG9hdDogcmlnaHQ7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+ICoge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAqLCAubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93diB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3RxeFhoazQvdGwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pndnB5d3ovdGxsLnBuZyk7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAuc2lkZS50b3Age1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL005ZkM3RFAvdC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1B6c21qeGYvdHIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1NOMlRITHQvdHJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vN2ptOUJCUS9sLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLmxlZnQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vcXJZV2RwSC9ibC5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5zaWRlLmJvdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vY1hjMG5tUy9iLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vSzBwVlZUNy9ici5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUXB3UlNzVC9icmwucG5nKTsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcclxuICBtYXJnaW4tYm90dG9tOiAzcHg7XHJcbiAgbWFyZ2luLXRvcDogLTNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcclxuICBtYXJnaW4tYm90dG9tOiAtM3B4O1xyXG4gIG1hcmdpbi10b3A6IDNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcclxuICBtYXJnaW4tcmlnaHQ6IC0zcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDNweDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pkM2p0YmMvbHIucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgbWluLXdpZHRoOiA1MHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA1MHB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdyB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93dntcclxuICB3aWR0aDogNzVweDtcclxuICBoZWlnaHQ6IDc1cHg7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmFycm93OmZvY3VzeyBvdXRsaW5lOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93OmNoZWNrZWR7XHJcbiAgZmlsdGVyOiBzZXBpYSg4MiUpIHNhdHVyYXRlKDM5MjUlKSBodWUtcm90YXRlKDU1ZGVnKSBicmlnaHRuZXNzKDEyNSUpIGNvbnRyYXN0KDEyMCUpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBtYXJnaW46IGF1dG87IH1cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyA+ICogeyBtYXJnaW46IGF1dG87IH1cclxuLm1lYXNfYWNjMCAuZHJhZ2dhYmxlLmJveHJvb3R7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICAvKmhlaWdodDogMjM3cHg7Ki9cclxufVxyXG4ubWVhc19hY2MwIC5jb2xsYXBzZTpub3QoLnNob3cpIHsgZGlzcGxheTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5ydWxlLnRlbXBsYXRlIHsgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50OyB9XHJcbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XHJcblxyXG4ubWVhc19hY2MgLnJ1bGVzZWFyY2g6Zm9jdXMge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGRvZGdlcmJsdWU7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMXB4IGRvZGdlcmJsdWU7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -4881,7 +5063,7 @@ Database.db = new Database();
 /*!******************************!*\
   !*** ./src/common/Joiner.ts ***!
   \******************************/
-/*! exports provided: ansiUp, StringSimilarity, $, $b, prjson2xml, prxml2json, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, StyleComplexEntry, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, OperationVisibility, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
+/*! exports provided: ansiUp, StringSimilarity, $, $b, Swal, prjson2xml, prxml2json, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, StyleComplexEntry, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, AccessModifier, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ModelUpdateMessage, SendManager, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4890,6 +5072,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StringSimilarity", function() { return StringSimilarity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "$", function() { return $; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "$b", function() { return $b; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Swal", function() { return Swal; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prjson2xml", function() { return prjson2xml; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prxml2json", function() { return prxml2json; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReservedClasses", function() { return ReservedClasses; });
@@ -4906,299 +5089,314 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/prj_json2xml.js */ "./src/common/prj_json2xml.js");
-/* harmony import */ var _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/prj_xml2json.js */ "./src/common/prj_xml2json.js");
-/* harmony import */ var _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../GuiStyles/viewpoint */ "./src/GuiStyles/viewpoint.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewHtmlSettings", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__["ViewHtmlSettings"]; });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/prj_json2xml.js */ "./src/common/prj_json2xml.js");
+/* harmony import */ var _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/prj_xml2json.js */ "./src/common/prj_xml2json.js");
+/* harmony import */ var _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../GuiStyles/viewpoint */ "./src/GuiStyles/viewpoint.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewHtmlSettings", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["ViewHtmlSettings"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewPoint", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__["ViewPoint"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewPoint", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["ViewPoint"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewRule", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__["ViewRule"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewRule", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["ViewRule"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeViewRule", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_8__["EdgeViewRule"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeViewRule", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["EdgeViewRule"]; });
 
-/* harmony import */ var _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Database/LocalStorage */ "./src/Database/LocalStorage.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalStorage", function() { return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_9__["LocalStorage"]; });
+/* harmony import */ var _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Database/LocalStorage */ "./src/Database/LocalStorage.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalStorage", function() { return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_10__["LocalStorage"]; });
 
-/* harmony import */ var _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Model/modelPiece */ "./src/Model/modelPiece.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelPiece", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__["ModelPiece"]; });
+/* harmony import */ var _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Model/modelPiece */ "./src/Model/modelPiece.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelPiece", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["ModelPiece"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Info", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__["Info"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Info", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["Info"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelNone", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__["ModelNone"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelNone", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["ModelNone"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StyleComplexEntry", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_10__["StyleComplexEntry"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StyleComplexEntry", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["StyleComplexEntry"]; });
 
-/* harmony import */ var _Model_iModel__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Model/iModel */ "./src/Model/iModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreEnum", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreEnum"]; });
+/* harmony import */ var _Model_iModel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Model/iModel */ "./src/Model/iModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreEnum", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreEnum"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EcoreLiteral", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["EcoreLiteral"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EcoreLiteral", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["EcoreLiteral"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreParameter", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreParameter"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreParameter", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreParameter"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreOperation", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreOperation"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreOperation", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreOperation"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreAttribute", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreAttribute"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreAttribute", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreAttribute"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreReference", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreReference"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreReference", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreReference"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreClass", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreClass"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreClass", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreClass"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECorePackage", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECorePackage"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECorePackage", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECorePackage"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreRoot", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreRoot"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreRoot", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreRoot"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreAnnotation", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreAnnotation"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreAnnotation", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreAnnotation"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreDetail", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["ECoreDetail"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreDetail", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreDetail"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "XMIModel", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["XMIModel"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "XMIModel", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["XMIModel"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IModel", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_11__["IModel"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IModel", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["IModel"]; });
 
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./util */ "./src/common/util.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ShortAttribETypes", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["ShortAttribETypes"]; });
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./util */ "./src/common/util.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ShortAttribETypes", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["ShortAttribETypes"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "U", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["U"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "U", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["U"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Json", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["Json"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Json", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["Json"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttribETypes", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["AttribETypes"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttribETypes", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["AttribETypes"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InputPopup", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["InputPopup"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InputPopup", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["InputPopup"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DetectZoom", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["DetectZoom"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DetectZoom", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["DetectZoom"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Dictionary", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["Dictionary"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Dictionary", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["Dictionary"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IPoint", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["IPoint"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IPoint", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["IPoint"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Point", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["Point"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Point", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["Point"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GraphPoint", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["GraphPoint"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GraphPoint", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["GraphPoint"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ISize", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["ISize"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ISize", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["ISize"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Size", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["Size"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Size", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["Size"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GraphSize", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["GraphSize"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GraphSize", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["GraphSize"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "myFileReader", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["myFileReader"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "myFileReader", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["myFileReader"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FocusHistoryEntry", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["FocusHistoryEntry"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FocusHistoryEntry", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["FocusHistoryEntry"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileReadTypeEnum", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["FileReadTypeEnum"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileReadTypeEnum", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["FileReadTypeEnum"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EvalOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["EvalOutput"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EvalOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["EvalOutput"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectorOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["SelectorOutput"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectorOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["SelectorOutput"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON_JSTypes", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["TSON_JSTypes"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON_JSTypes", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["TSON_JSTypes"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["TSON"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["TSON"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON_UnsupportedTypes", function() { return _util__WEBPACK_IMPORTED_MODULE_12__["TSON_UnsupportedTypes"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON_UnsupportedTypes", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["TSON_UnsupportedTypes"]; });
 
-/* harmony import */ var _measurable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./measurable */ "./src/common/measurable.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleParts", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableRuleParts"]; });
+/* harmony import */ var _measurable__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./measurable */ "./src/common/measurable.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleParts", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableRuleParts"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Measurable", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["Measurable"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Measurable", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["Measurable"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableEvalContext", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableEvalContext"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableEvalContext", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableEvalContext"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "measurableRules", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["measurableRules"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "measurableRules", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["measurableRules"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleLists", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableRuleLists"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleLists", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableRuleLists"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableOperators", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["MeasurableOperators"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableOperators", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableOperators"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["DraggableOptionsImpl"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["DraggableOptionsImpl"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["ResizableOptionsImpl"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["ResizableOptionsImpl"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableOptions", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["RotatableOptions"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableOptions", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["RotatableOptions"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UnsafeMeasurableEvalContext", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["UnsafeMeasurableEvalContext"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UnsafeMeasurableEvalContext", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["UnsafeMeasurableEvalContext"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmittedsStatic", function() { return _measurable__WEBPACK_IMPORTED_MODULE_13__["ConstraintLeftAdmittedsStatic"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmittedsStatic", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["ConstraintLeftAdmittedsStatic"]; });
 
-/* harmony import */ var _src_app_app_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../src/app/app.module */ "./src/app/app.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return _src_app_app_module__WEBPACK_IMPORTED_MODULE_14__["Status"]; });
+/* harmony import */ var _src_app_app_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../src/app/app.module */ "./src/app/app.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return _src_app_app_module__WEBPACK_IMPORTED_MODULE_15__["Status"]; });
 
-/* harmony import */ var _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../guiElements/mGraph/iGraph */ "./src/guiElements/mGraph/iGraph.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IGraph", function() { return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_15__["IGraph"]; });
+/* harmony import */ var _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../guiElements/mGraph/iGraph */ "./src/guiElements/mGraph/iGraph.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IGraph", function() { return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_16__["IGraph"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewPointShell", function() { return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_15__["ViewPointShell"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewPointShell", function() { return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_16__["ViewPointShell"]; });
 
-/* harmony import */ var _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../guiElements/mGraph/Vertex/iVertex */ "./src/guiElements/mGraph/Vertex/iVertex.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IVertex", function() { return _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_16__["IVertex"]; });
+/* harmony import */ var _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../guiElements/mGraph/Vertex/iVertex */ "./src/guiElements/mGraph/Vertex/iVertex.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IVertex", function() { return _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_17__["IVertex"]; });
 
-/* harmony import */ var _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../guiElements/mGraph/Field/iField */ "./src/guiElements/mGraph/Field/iField.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IField", function() { return _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_17__["IField"]; });
+/* harmony import */ var _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../guiElements/mGraph/Field/iField */ "./src/guiElements/mGraph/Field/iField.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IField", function() { return _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_18__["IField"]; });
 
-/* harmony import */ var _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../guiElements/isidebar/isidebar.component */ "./src/guiElements/isidebar/isidebar.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ISidebar", function() { return _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_18__["ISidebar"]; });
+/* harmony import */ var _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../guiElements/isidebar/isidebar.component */ "./src/guiElements/isidebar/isidebar.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ISidebar", function() { return _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_19__["ISidebar"]; });
 
-/* harmony import */ var _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/iEdge */ "./src/guiElements/mGraph/Edge/iEdge.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IEdge", function() { return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_19__["IEdge"]; });
+/* harmony import */ var _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/iEdge */ "./src/guiElements/mGraph/Edge/iEdge.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IEdge", function() { return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_20__["IEdge"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeModes", function() { return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_19__["EdgeModes"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeModes", function() { return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_20__["EdgeModes"]; });
 
-/* harmony import */ var _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/ExtEdge */ "./src/guiElements/mGraph/Edge/ExtEdge.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ExtEdge", function() { return _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_20__["ExtEdge"]; });
+/* harmony import */ var _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/ExtEdge */ "./src/guiElements/mGraph/Edge/ExtEdge.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ExtEdge", function() { return _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_21__["ExtEdge"]; });
 
-/* harmony import */ var _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/EdgePoint */ "./src/guiElements/mGraph/Edge/EdgePoint.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePoint", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_21__["EdgePoint"]; });
+/* harmony import */ var _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/EdgePoint */ "./src/guiElements/mGraph/Edge/EdgePoint.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePoint", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__["EdgePoint"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePointFittizio", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_21__["EdgePointFittizio"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePointFittizio", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__["EdgePointFittizio"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CursorFollowerEP", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_21__["CursorFollowerEP"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CursorFollowerEP", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__["CursorFollowerEP"]; });
 
-/* harmony import */ var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/edgeStyle */ "./src/guiElements/mGraph/Edge/edgeStyle.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeStyle", function() { return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_22__["EdgeStyle"]; });
+/* harmony import */ var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/edgeStyle */ "./src/guiElements/mGraph/Edge/edgeStyle.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeStyle", function() { return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_23__["EdgeStyle"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePointStyle", function() { return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_22__["EdgePointStyle"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePointStyle", function() { return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_23__["EdgePointStyle"]; });
 
-/* harmony import */ var _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../guiElements/propertyBar/propertyBar */ "./src/guiElements/propertyBar/propertyBar.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PropertyBarr", function() { return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_23__["PropertyBarr"]; });
+/* harmony import */ var _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../guiElements/propertyBar/propertyBar */ "./src/guiElements/propertyBar/propertyBar.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PropertyBarr", function() { return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_24__["PropertyBarr"]; });
 
-/* harmony import */ var _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../guiElements/top-bar/top-bar.component */ "./src/guiElements/top-bar/top-bar.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TopBar", function() { return _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_24__["TopBar"]; });
+/* harmony import */ var _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../guiElements/top-bar/top-bar.component */ "./src/guiElements/top-bar/top-bar.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TopBar", function() { return _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_25__["TopBar"]; });
 
-/* harmony import */ var _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../guiElements/style-editor/style-editor.component */ "./src/guiElements/style-editor/style-editor.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StyleEditor", function() { return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_25__["StyleEditor"]; });
+/* harmony import */ var _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../guiElements/style-editor/style-editor.component */ "./src/guiElements/style-editor/style-editor.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StyleEditor", function() { return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_26__["StyleEditor"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SaveListEntry", function() { return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_9__["SaveListEntry"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SaveListEntry", function() { return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_10__["SaveListEntry"]; });
 
-/* harmony import */ var _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../guiElements/console/console.component */ "./src/guiElements/console/console.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MyConsole", function() { return _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_26__["MyConsole"]; });
+/* harmony import */ var _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../guiElements/console/console.component */ "./src/guiElements/console/console.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MyConsole", function() { return _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_27__["MyConsole"]; });
 
-/* harmony import */ var _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../Model/MetaMetaModel */ "./src/Model/MetaMetaModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MetaMetaModel", function() { return _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_27__["MetaMetaModel"]; });
+/* harmony import */ var _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../Model/MetaMetaModel */ "./src/Model/MetaMetaModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MetaMetaModel", function() { return _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_28__["MetaMetaModel"]; });
 
-/* harmony import */ var _Model_MetaModel__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../Model/MetaModel */ "./src/Model/MetaModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MetaModel", function() { return _Model_MetaModel__WEBPACK_IMPORTED_MODULE_28__["MetaModel"]; });
+/* harmony import */ var _Model_MetaModel__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../Model/MetaModel */ "./src/Model/MetaModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MetaModel", function() { return _Model_MetaModel__WEBPACK_IMPORTED_MODULE_29__["MetaModel"]; });
 
-/* harmony import */ var _Model_Model__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../Model/Model */ "./src/Model/Model.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Model", function() { return _Model_Model__WEBPACK_IMPORTED_MODULE_29__["Model"]; });
+/* harmony import */ var _Model_Model__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../Model/Model */ "./src/Model/Model.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Model", function() { return _Model_Model__WEBPACK_IMPORTED_MODULE_30__["Model"]; });
 
-/* harmony import */ var _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../Model/mPackage/iPackage */ "./src/Model/mPackage/iPackage.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IPackage", function() { return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_30__["IPackage"]; });
+/* harmony import */ var _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../Model/mPackage/iPackage */ "./src/Model/mPackage/iPackage.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IPackage", function() { return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_31__["IPackage"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Package", function() { return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_30__["M3Package"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Package", function() { return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_31__["M3Package"]; });
 
-/* harmony import */ var _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../Model/mPackage/MMPackage */ "./src/Model/mPackage/MMPackage.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Package", function() { return _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_31__["M2Package"]; });
+/* harmony import */ var _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../Model/mPackage/MMPackage */ "./src/Model/mPackage/MMPackage.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Package", function() { return _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_32__["M2Package"]; });
 
-/* harmony import */ var _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../Model/mPackage/MPackage.component */ "./src/Model/mPackage/MPackage.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MPackage", function() { return _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_32__["MPackage"]; });
+/* harmony import */ var _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../Model/mPackage/MPackage.component */ "./src/Model/mPackage/MPackage.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MPackage", function() { return _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_33__["MPackage"]; });
 
-/* harmony import */ var _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../mClass/IClassifier */ "./src/mClass/IClassifier.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IClassifier", function() { return _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_33__["IClassifier"]; });
+/* harmony import */ var _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../mClass/IClassifier */ "./src/mClass/IClassifier.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IClassifier", function() { return _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_34__["IClassifier"]; });
 
-/* harmony import */ var _mClass_iClass__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../mClass/iClass */ "./src/mClass/iClass.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IClass", function() { return _mClass_iClass__WEBPACK_IMPORTED_MODULE_34__["IClass"]; });
+/* harmony import */ var _mClass_iClass__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../mClass/iClass */ "./src/mClass/iClass.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IClass", function() { return _mClass_iClass__WEBPACK_IMPORTED_MODULE_35__["IClass"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Class", function() { return _mClass_iClass__WEBPACK_IMPORTED_MODULE_34__["M3Class"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Class", function() { return _mClass_iClass__WEBPACK_IMPORTED_MODULE_35__["M3Class"]; });
 
-/* harmony import */ var _mClass_m2Class__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../mClass/m2Class */ "./src/mClass/m2Class.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Class", function() { return _mClass_m2Class__WEBPACK_IMPORTED_MODULE_35__["M2Class"]; });
+/* harmony import */ var _mClass_m2Class__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../mClass/m2Class */ "./src/mClass/m2Class.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Class", function() { return _mClass_m2Class__WEBPACK_IMPORTED_MODULE_36__["M2Class"]; });
 
-/* harmony import */ var _mClass_MClass__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../mClass/MClass */ "./src/mClass/MClass.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MClass", function() { return _mClass_MClass__WEBPACK_IMPORTED_MODULE_36__["MClass"]; });
+/* harmony import */ var _mClass_MClass__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../mClass/MClass */ "./src/mClass/MClass.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MClass", function() { return _mClass_MClass__WEBPACK_IMPORTED_MODULE_37__["MClass"]; });
 
-/* harmony import */ var _mClass_EEnum__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../mClass/EEnum */ "./src/mClass/EEnum.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EEnum", function() { return _mClass_EEnum__WEBPACK_IMPORTED_MODULE_37__["EEnum"]; });
+/* harmony import */ var _mClass_EEnum__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../mClass/EEnum */ "./src/mClass/EEnum.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EEnum", function() { return _mClass_EEnum__WEBPACK_IMPORTED_MODULE_38__["EEnum"]; });
 
-/* harmony import */ var _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../mClass/classChild/Type */ "./src/mClass/classChild/Type.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Type", function() { return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_38__["Type"]; });
+/* harmony import */ var _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../mClass/classChild/Type */ "./src/mClass/classChild/Type.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Type", function() { return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_39__["Type"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EType", function() { return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_38__["EType"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EType", function() { return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_39__["EType"]; });
 
-/* harmony import */ var _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../mClass/classChild/Typedd */ "./src/mClass/classChild/Typedd.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Typedd", function() { return _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_39__["Typedd"]; });
+/* harmony import */ var _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../mClass/classChild/Typedd */ "./src/mClass/classChild/Typedd.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Typedd", function() { return _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_40__["Typedd"]; });
 
-/* harmony import */ var _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../mClass/classChild/ELiteral */ "./src/mClass/classChild/ELiteral.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ELiteral", function() { return _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_40__["ELiteral"]; });
+/* harmony import */ var _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ../mClass/classChild/ELiteral */ "./src/mClass/classChild/ELiteral.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ELiteral", function() { return _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_41__["ELiteral"]; });
 
-/* harmony import */ var _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ../mClass/classChild/Features/iFeature */ "./src/mClass/classChild/Features/iFeature.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IFeature", function() { return _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_41__["IFeature"]; });
+/* harmony import */ var _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ../mClass/classChild/Features/iFeature */ "./src/mClass/classChild/Features/iFeature.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IFeature", function() { return _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_42__["IFeature"]; });
 
-/* harmony import */ var _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ../mClass/classChild/Features/References/iReference */ "./src/mClass/classChild/Features/References/iReference.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IReference", function() { return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_42__["IReference"]; });
+/* harmony import */ var _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ../mClass/classChild/Features/References/iReference */ "./src/mClass/classChild/Features/References/iReference.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IReference", function() { return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_43__["IReference"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Reference", function() { return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_42__["M3Reference"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Reference", function() { return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_43__["M3Reference"]; });
 
-/* harmony import */ var _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ../mClass/classChild/Features/References/M2Reference */ "./src/mClass/classChild/Features/References/M2Reference.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Reference", function() { return _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_43__["M2Reference"]; });
+/* harmony import */ var _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ../mClass/classChild/Features/References/M2Reference */ "./src/mClass/classChild/Features/References/M2Reference.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Reference", function() { return _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_44__["M2Reference"]; });
 
-/* harmony import */ var _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ../mClass/classChild/Features/References/MReference */ "./src/mClass/classChild/Features/References/MReference.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MReference", function() { return _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_44__["MReference"]; });
+/* harmony import */ var _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../mClass/classChild/Features/References/MReference */ "./src/mClass/classChild/Features/References/MReference.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MReference", function() { return _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_45__["MReference"]; });
 
-/* harmony import */ var _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/iAttribute */ "./src/mClass/classChild/Features/Attributes/iAttribute.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IAttribute", function() { return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_45__["IAttribute"]; });
+/* harmony import */ var _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/iAttribute */ "./src/mClass/classChild/Features/Attributes/iAttribute.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IAttribute", function() { return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_46__["IAttribute"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Attribute", function() { return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_45__["M3Attribute"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Attribute", function() { return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_46__["M3Attribute"]; });
 
-/* harmony import */ var _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/mmAttribute */ "./src/mClass/classChild/Features/Attributes/mmAttribute.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Attribute", function() { return _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_46__["M2Attribute"]; });
+/* harmony import */ var _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/mmAttribute */ "./src/mClass/classChild/Features/Attributes/mmAttribute.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Attribute", function() { return _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_47__["M2Attribute"]; });
 
-/* harmony import */ var _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/MAttribute */ "./src/mClass/classChild/Features/Attributes/MAttribute.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MAttribute", function() { return _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_47__["MAttribute"]; });
+/* harmony import */ var _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/MAttribute */ "./src/mClass/classChild/Features/Attributes/MAttribute.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MAttribute", function() { return _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_48__["MAttribute"]; });
 
-/* harmony import */ var _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ../Model/EAnnotation */ "./src/Model/EAnnotation.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EAnnotation", function() { return _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_48__["EAnnotation"]; });
+/* harmony import */ var _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ../Model/EAnnotation */ "./src/Model/EAnnotation.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EAnnotation", function() { return _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_49__["EAnnotation"]; });
 
-/* harmony import */ var _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ../Model/EAnnotationDetail */ "./src/Model/EAnnotationDetail.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EAnnotationDetail", function() { return _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_49__["EAnnotationDetail"]; });
+/* harmony import */ var _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ../Model/EAnnotationDetail */ "./src/Model/EAnnotationDetail.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EAnnotationDetail", function() { return _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_50__["EAnnotationDetail"]; });
 
-/* harmony import */ var _common_Database__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ../common/Database */ "./src/common/Database.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Database", function() { return _common_Database__WEBPACK_IMPORTED_MODULE_50__["Database"]; });
+/* harmony import */ var _common_Database__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ../common/Database */ "./src/common/Database.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Database", function() { return _common_Database__WEBPACK_IMPORTED_MODULE_51__["Database"]; });
 
-/* harmony import */ var _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ../guiElements/dam-context-menu/dam-context-menu.component */ "./src/guiElements/dam-context-menu/dam-context-menu.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DamContextMenuComponent", function() { return _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_51__["DamContextMenuComponent"]; });
+/* harmony import */ var _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ../guiElements/dam-context-menu/dam-context-menu.component */ "./src/guiElements/dam-context-menu/dam-context-menu.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DamContextMenuComponent", function() { return _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_52__["DamContextMenuComponent"]; });
 
-/* harmony import */ var _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ../mClass/classChild/Operations/eOperation */ "./src/mClass/classChild/Operations/eOperation.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EOperation", function() { return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_52__["EOperation"]; });
+/* harmony import */ var _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ../mClass/classChild/Operations/eOperation */ "./src/mClass/classChild/Operations/eOperation.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EOperation", function() { return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_53__["EOperation"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "OperationVisibility", function() { return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_52__["OperationVisibility"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccessModifier", function() { return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_53__["AccessModifier"]; });
 
-/* harmony import */ var _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ../mClass/classChild/Operations/eParameter */ "./src/mClass/classChild/Operations/eParameter.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EParameter", function() { return _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_53__["EParameter"]; });
+/* harmony import */ var _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ../mClass/classChild/Operations/eParameter */ "./src/mClass/classChild/Operations/eParameter.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EParameter", function() { return _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_54__["EParameter"]; });
 
-/* harmony import */ var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ../app/measurabletemplate/measurabletemplate.component */ "./src/app/measurabletemplate/measurabletemplate.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Draggableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["Draggableoptions"]; });
+/* harmony import */ var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ../app/measurabletemplate/measurabletemplate.component */ "./src/app/measurabletemplate/measurabletemplate.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Draggableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["Draggableoptions"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Resizableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["Resizableoptions"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Resizableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["Resizableoptions"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Rotatableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["Rotatableoptions"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Rotatableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["Rotatableoptions"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["ResizableoptionsPH"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["ResizableoptionsPH"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["DraggableOptionsPH"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["DraggableOptionsPH"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["RotatableoptionsPH"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["RotatableoptionsPH"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableTemplateGenerator", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["MeasurableTemplateGenerator"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableTemplateGenerator", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["MeasurableTemplateGenerator"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurabletemplateComponent", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_54__["MeasurabletemplateComponent"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurabletemplateComponent", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["MeasurabletemplateComponent"]; });
 
-/* harmony import */ var _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ../guiElements/changelog/ChangelogEntry */ "./src/guiElements/changelog/ChangelogEntry.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogRoot", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["ChangelogRoot"]; });
+/* harmony import */ var _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ../guiElements/changelog/ChangelogEntry */ "./src/guiElements/changelog/ChangelogEntry.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogRoot", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["ChangelogRoot"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogEntry", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["ChangelogEntry"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogEntry", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["ChangelogEntry"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VersionUpload", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["VersionUpload"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VersionUpload", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["VersionUpload"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Feature", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["Feature"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Feature", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["Feature"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Bug", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["Bug"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Bug", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["Bug"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BugFix", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_55__["BugFix"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BugFix", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["BugFix"]; });
 
-/* harmony import */ var _GuiStyles_global__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ../GuiStyles/global */ "./src/GuiStyles/global.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WebsiteTheme", function() { return _GuiStyles_global__WEBPACK_IMPORTED_MODULE_56__["WebsiteTheme"]; });
+/* harmony import */ var _GuiStyles_global__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ../GuiStyles/global */ "./src/GuiStyles/global.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WebsiteTheme", function() { return _GuiStyles_global__WEBPACK_IMPORTED_MODULE_57__["WebsiteTheme"]; });
 
+/* harmony import */ var _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ../ServerCommunication/Synchronization/ModelUpdateMessage */ "./src/ServerCommunication/Synchronization/ModelUpdateMessage.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelUpdateMessage", function() { return _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_58__["ModelUpdateMessage"]; });
+
+/* harmony import */ var _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ../ServerCommunication/Synchronization/SendManager */ "./src/ServerCommunication/Synchronization/SendManager.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SendManager", function() { return _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_59__["SendManager"]; });
+
+/* NOTE: error in module.extends: devi importare i file rispettando l'ordine di dichiarazioni delle classi, se dichiaro class A nel file A, e class
+ B extensa A nel file B, il file B non può essere importato prima del file A*/
+/* this is undefined in constructors or method calls: likely caused by a reserved class name that is listed in config.ts and is behaving
+ differently.*/
+// /*new*/export {Styles, ModelPieceStyleEntry, SortType, StyleVisibility} from '../GuiStyles/styles';
+// /*new*/export {ViewHtmlSettings, ViewPoint, ViewRule, ModelView, PackageView, ClassView, AttributeView, EdgeViewRule, ReferenceView, OperationView,
+// ParameterView} from '../GuiStyles/viewpoint';
 
 
 const ansiUp = new ansi_up__WEBPACK_IMPORTED_MODULE_1___default.a(); // https://github.com/drudru/ansi_up // ansi color formatter.
@@ -5210,13 +5408,15 @@ let StringSimilarity = _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_2__;
 const $ = window['' + '$'] = jquery__WEBPACK_IMPORTED_MODULE_4__;
 
 const $b = bootstrap__WEBPACK_IMPORTED_MODULE_5__;
+
+const Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a;
 /*
 import * as JQueryUII        from '../../node_modules/jqueryui';
 export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/
 
 
-const prjson2xml = _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_6__;
-const prxml2json = _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_7__;
+const prjson2xml = _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_7__;
+const prxml2json = _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_8__;
 /*export const $$$: JQueryStatic = require('jquery-ui');
 export const $ui: JQueryStatic = $$$;*/
 
@@ -5267,6 +5467,8 @@ export {IModel, ECoreRoot, ECorePackage, ECoreClass, ECoreReference,
 
 
 /*new*/ 
+
+
 
 
 
@@ -5493,10 +5695,10 @@ class MeasurableEvalContext {
         this.isFilled = false;
         this.setSize = (w = null /*number*/, h = null /*number*/) => /*void*/ {
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(w)) {
-                this.width = w;
+                this.width = +w;
             }
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(h)) {
-                this.height = h;
+                this.height = +h;
             }
         };
         this.setAbsoluteGPos = (x = null /*number*/, y = null /*number*/) => /*void*/ {
@@ -5505,8 +5707,8 @@ class MeasurableEvalContext {
                 this.absoluteGPos.x = +x;
                 if (isVertex) {
                     this.vertexSize.x = this.absoluteGPos.x;
+                    this.relativeVPos.y = 0; //y intenzionale
                     this.relativeVPos.x = 0;
-                    this.relativeVPos.y = 0;
                 }
                 else {
                     this.relativeVPos.x = this.absoluteGPos.x - this.vertexSize.x;
@@ -5520,7 +5722,7 @@ class MeasurableEvalContext {
                 this.absoluteGPos.y = +y;
                 if (isVertex) {
                     this.vertexSize.y = this.absoluteGPos.y;
-                    this.relativeVPos.x = 0;
+                    this.relativeVPos.x = 0; //x intenzionale
                     this.relativeVPos.y = 0;
                 }
                 else {
@@ -5537,20 +5739,20 @@ class MeasurableEvalContext {
                 return;
             //const isVertex: boolean = MeasurableEvalContext.isVertex(this);
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
-                this.absoluteGPos.x = this.target.absoluteGPos.x + x;
+                this.absoluteGPos.x = this.target.absoluteGPos.x + +x;
             }
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(y)) {
-                this.absoluteGPos.y = this.target.absoluteGPos.y + y;
+                this.absoluteGPos.y = this.target.absoluteGPos.y + +y;
             }
             this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
         };
         this.setRelativeVPos = (x = null /*number*/, y = null /*number*/) => /*void*/ {
             //const isVertex: boolean = MeasurableEvalContext.isVertex(this); should not be used at all in vertexes.
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
-                this.absoluteGPos.x = this.vertexSize.x + x;
+                this.absoluteGPos.x = this.vertexSize.x + +x;
             }
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(y)) {
-                this.absoluteGPos.y = this.vertexSize.y + y;
+                this.absoluteGPos.y = this.vertexSize.y + +y;
             }
             this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
         };
@@ -5567,10 +5769,10 @@ class MeasurableEvalContext {
             }
             else {
                 if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
-                    this.absoluteGPos.x = x + this.relativeVPos.x;
+                    this.absoluteGPos.x = +x + this.relativeVPos.x;
                 }
                 if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(y)) {
-                    this.absoluteGPos.y = y + this.relativeVPos.y;
+                    this.absoluteGPos.y = +y + this.relativeVPos.y;
                 }
                 this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
             }
@@ -5579,11 +5781,11 @@ class MeasurableEvalContext {
         // può servire a tenere qualcosa fisso al centro del grafo anche se faccio panning
         this.setAbsoluteDocPos = (x = null /*number */, y = null /*number*/) => /*void*/ {
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(x)) {
-                this.absoluteDocPos.x = x;
+                this.absoluteDocPos.x = +x;
                 this.absoluteGPos.x = this.graphScroll.x + this.graphZoom.x * (this.absoluteDocPos.x - this.graphSize.x);
             }
             if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(y)) {
-                this.absoluteDocPos.y = y;
+                this.absoluteDocPos.y = +y;
                 this.absoluteGPos.y = this.graphScroll.y + this.graphZoom.y * (this.absoluteDocPos.y - this.graphSize.y);
             }
             this.setAbsoluteGPos(this.absoluteGPos.x, this.absoluteGPos.y);
@@ -5609,6 +5811,7 @@ class MeasurableEvalContext {
         this.unsafec = new UnsafeMeasurableEvalContext();
     }
     static isVertex(context) { return context.unsafec.vertex.getHtmlRawForeign() === context.unsafec.node; }
+    // serve a dare un oggetto verosimile da cui poter generare i suggerimenti dei nomi e tipi per l'editor delle measurableRule
     static fillFake(filltarget = true) {
         let thiss = new MeasurableEvalContext();
         thiss.isFilled = false;
@@ -5804,7 +6007,7 @@ class MeasurableRuleParts {
                     $tmpjq = $(graph.container).find(targetquery);
                 }
                 catch (e) {
-                    console.log('exception:', e);
+                    console.error('exception:', e);
                     return e;
                 }
             _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(true, '1.context:', evalContext, 'target:', $tmpjq, evalContext.target);
@@ -5813,6 +6016,7 @@ class MeasurableRuleParts {
                 backupcontext0.target = backupcontext0.target || new MeasurableEvalContext();
                 let exception = MeasurableRuleParts.fillEvalContext(evalContext.target, backupcontext0.target, $tmpjq[0], null);
                 if (exception) {
+                    console.error('exception2:', exception);
                     exception['mysource'] = ['occurred inside this.target'];
                     return exception;
                 }
@@ -5824,8 +6028,10 @@ class MeasurableRuleParts {
             filltarget();
         }
         if (evalContext.isFilled) {
+            evalContext.setAbsoluteDocPos(evalContext.absoluteDocPos.x, evalContext.absoluteDocPos.y); // non ho capito perchè ma rel.pos và in casino, quindi rifaccio la set absolutepos che reinizializza tutte a catena
+            _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(evalContext.target && (evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y), 'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos);
             return null;
-        } // must be after filltarget
+        } // must call filltarget() (at least to check if target is filled) even if the main context is already filled. so it's placed below.
         backupContext.isFilled = true; // avoid dual fill, se ci sono due eval() questo rollbackerebbe alla scorsa esecuzione.
         evalContext.isFilled = true;
         evalContext.unsafec.node = node;
@@ -5868,8 +6074,10 @@ class MeasurableRuleParts {
         backupContext.relativeVPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"]();
         backupContext.absoluteGPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"]();
         backupContext.absoluteDocPos = new _Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"]();
+        // if (evalContext.target) evalContext.relativePos.y = null; // debug
         evalContext.setAbsoluteDocPos(size.x, size.y);
         backupContext.setAbsoluteDocPos(size.x, size.y);
+        _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(evalContext.target && (evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y), 'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos);
         return null;
     }
     ;
@@ -5946,7 +6154,6 @@ class MeasurableRuleParts {
             let ermsg;
             let rollbackContext = 'donotuse';
             let evalContext = 'donotusetoo';
-            console.log('000exportchanges part 1', outcontext.vertexSize.y);
             const vertex = safeContextRollback.unsafec.vertex;
             const graph = vertex.owner;
             graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y);
@@ -5955,16 +6162,13 @@ class MeasurableRuleParts {
             // U.pe(true, 'meastest');
             // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
             const isVertex = (vertex.getMeasurableNode() === safeContextRollback.unsafec.node);
-            console.log('3xd finalize set vertexsize:', outcontext.vertexSize, outcontext.relativeVPos, outcontext.relativePos, outcontext);
             vertex.setSize(outcontext.vertexSize, false, true);
-            console.log('000exportchanges part 2', outcontext.vertexSize.y);
             if (!outcontext.model && outcontext !== safeContextRollback) {
                 out.right += 'invalid final value for this.model = ' + outcontext.model + ', please do not overwrite context variables.';
                 doRollback();
                 return;
             }
             if (!isVertex) {
-                console.log('000exportchanges part 3', !isVertex, outcontext.vertexSize.y);
                 const html = safeContextRollback.unsafec.node instanceof HTMLElement || safeContextRollback.unsafec.node instanceof SVGSVGElement ? safeContextRollback.unsafec.node : null;
                 const svgSubElement = !html ? safeContextRollback.unsafec.node : null;
                 if (!outcontext.relativeVPos || !_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(safeContextRollback.relativeVPos.x) || !_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.relativeVPos.y)) {
@@ -5972,7 +6176,6 @@ class MeasurableRuleParts {
                     doRollback();
                     return;
                 }
-                console.log('000exportchanges part 4', !isVertex, outcontext.vertexSize.y);
                 if (!html) {
                     out.right += 'inner svg\'s are currently not supported';
                     doRollback();
@@ -5996,7 +6199,6 @@ class MeasurableRuleParts {
                 if (_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(outcontext.height))
                     html.style.height = (+outcontext.height) + 'px';
             }
-            console.log('000exportchanges part 5', !isVertex, outcontext.vertexSize.y);
             if (!isRollback) {
                 // called by rollbackContext because evalContext got the method deleted.
                 try {
@@ -6121,6 +6323,7 @@ class MeasurableRuleParts {
                     return out;
                 }
                 vertex = rollbackContext.unsafec.vertex;
+                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(evalContext.target && (evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y), 'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos);
                 evalOutput = _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].evalInContext(evalContext, this.left);
                 if (evalOutput.exception) {
                     out.left += '' + evalOutput.exception;
@@ -6266,10 +6469,14 @@ class MeasurableRuleParts {
                 ///// left validation
                 this.left = this.left.trim();
                 if (!_Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableTemplateGenerator"].constraintMap[this.left]) {
+                    console.trace('icr ');
+                    console.error('irc: invalid constraint rule, found:', this.left, 'not in: ', _Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableTemplateGenerator"].constraintMap); //
                     out.left += 'invalid.';
                     out.right += 'not processed.';
                     return out;
                 }
+                console.trace('icr ');
+                console.info('irc: valid constraint rule, found:', this.left, ' in: ', _Joiner__WEBPACK_IMPORTED_MODULE_1__["MeasurableTemplateGenerator"].constraintMap);
                 //console.log('preconstraint1');
                 //        const preLeft: number = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]
                 //U.pe(!rollbackContext.target, '!starget1', evalOutput.outContext.target);
@@ -6299,7 +6506,7 @@ class MeasurableRuleParts {
                 let rc0 = rollbackContext;
                 let oc = isTargeting ? evalOutput.outContext.target : evalOutput.outContext;
                 let rc = isTargeting ? rollbackContext.target : rollbackContext;
-                _Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!isTargeting, 'left side is not targeting');
+                // U.pe(!isTargeting, 'left side is not targeting');
                 if (isTargeting && (!oc || !rc)) {
                     out.left = 'this kind of rule cannot be executed without a target.';
                     return out;
@@ -7551,7 +7758,13 @@ class U {
         return sliceThisCall ? arr.slice(2) : arr;
     }
     static getID() { return this.genID(); }
-    static genID() { return '#tìmèdkéy_' + new Date().valueOf(); }
+    static genID() { return 'timedkey_' + new Date().valueOf() + '_' + (this.sequenceNumber++); }
+    static setID(key, value) {
+        U.idMap[key] = value;
+    }
+    static unsetID(key) { delete U.idMap[key]; }
+    static isSetID(key) { return U.idMap.hasOwnProperty(key); }
+    static getByID(key) { return U.idMap[key]; }
     static getCaller(stacksToSkip = 1) {
         const stack = this.getStackTrace(false);
         return stack[stacksToSkip + 3]; // erase getStackTrace() and isFirstTimeCalled() + Error() first stack + n° of layer the caller wants.
@@ -7572,6 +7785,11 @@ class U {
         return printFunction(condition, s, restArgs);
     }
     static petmp(b, s, ...restArgs) { return U.pe(b, s, restArgs); }
+    static pedev(b, s, ...restArgs) {
+        // todo: questi sono gli errori che dovrebbero verificarsi solo in caso di errori nel codice, mai in seguito ad azioni utente invalide.
+        // quindi dovrebbero avere un sistema di error reporting verso un server con ajax request.
+        return U.pe(b, s, ...restArgs);
+    }
     static pe(b, s, ...restArgs) {
         if (!b) {
             return null;
@@ -7623,9 +7841,12 @@ class U {
         U.bootstrapPopup(str, 'success', 3000);
         return str;
     }
-    static pif(b, s, ...restArgs) { if (!b) {
-        return null;
-    } }
+    static pif(b, s, ...restArgs) {
+        if (!b) {
+            return null;
+        }
+        return U.p(s, ...restArgs);
+    }
     static p(s, ...restArgs) {
         if (restArgs === null || restArgs === undefined) {
             restArgs = [];
@@ -7709,6 +7930,75 @@ class U {
         for (j = 0; j < node.attributes.length; j++) {
             node.removeAttribute(node.attributes[j].name);
         }
+    }
+    // safe con SVG, input, select, textarea.
+    static copyVisibleText(element0) {
+        const element = element0.cloneNode(true);
+        const $element = $(element);
+        $element.remove(':hidden');
+        $element.remove('.addFieldButtonContainer');
+        $element.find('input, textarea').addBack('input, textarea').each((i, e) => {
+            const replacement = document.createElement('div');
+            replacement.dataset.replacement = "1";
+            replacement.innerText = e.value;
+            U.swap(e, replacement);
+        });
+        $element.find('select').addBack('select').each((i, e) => {
+            const replacement = document.createElement('div');
+            replacement.dataset.replacement = "1";
+            replacement.innerText = e.selectedIndex >= 0 ? e.options[e.selectedIndex].text : '';
+            U.swap(e, replacement);
+        });
+        U.pe(!!$element.find('select, input, textarea').length, 'input remaining:', $element.find('select, input, textarea').addBack('select, input, textarea'));
+        // console.log('copyVisibleText() textcontent of:', element, U.getRawInnerText(element));
+        return U.getRawInnerText(element);
+    }
+    // safe con SVG, !! NON safe con input, textarea e select
+    static getRawInnerText(element, win = null) {
+        let userselect, msuserselect, wkuserselect;
+        if (element['style']) {
+            let e = element;
+            userselect = e.style.userSelect;
+            msuserselect = e.style.msUserSelect;
+            wkuserselect = e.style.webkitUserSelect;
+            e.style.userSelect = 'all'; // text
+            e.style.msUserSelect = 'all';
+            e.style.webkitUserSelect = 'all';
+        }
+        win = win || window;
+        const doc = win.document;
+        const wasInDocument = U.isChildrenOf(element, doc.body);
+        if (!wasInDocument) {
+            doc.body.appendChild(element);
+        }
+        let sel, range, prevRange, selString;
+        sel = win.getSelection();
+        if (sel.rangeCount) {
+            prevRange = sel.getRangeAt(0);
+        }
+        range = doc.createRange();
+        range.selectNodeContents(element);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        selString = sel.toString();
+        sel.removeAllRanges();
+        prevRange && sel.addRange(prevRange);
+        if (!wasInDocument) {
+            doc.body.removeChild(element);
+        }
+        if (element['style']) {
+            let e = element;
+            if (userselect) {
+                e.style.userSelect = userselect;
+            }
+            if (msuserselect) {
+                e.style.msUserSelect = userselect;
+            }
+            if (wkuserselect) {
+                e.style.webkitUserSelect = userselect;
+            }
+        }
+        return selString;
     }
     static cloneObj(o) {
         // const r: HTMLElement = document.createElement(o.tagName);
@@ -8268,6 +8558,8 @@ class U {
     */
     static arrayRemoveAll(arr, elem, debug = false) {
         let index;
+        if (!arr)
+            return;
         while (true) {
             index = arr.indexOf(elem);
             U.pif(debug, 'ArrayRemoveAll: index: ', index, '; arr:', arr, '; elem:', elem);
@@ -8283,37 +8575,57 @@ class U {
     static eventiDaAggiungereAlBody(selecteds) {
         // todo: guarda gli invocatori
     }
-    static isOnEdge(pt, shape) {
-        return U.isOnHorizontalEdges(pt, shape) || U.isOnVerticalEdges(pt, shape);
+    static isOnEdge(pt, shape, tolerance = null) {
+        return U.isOnHorizontalEdges(pt, shape, tolerance) || U.isOnVerticalEdges(pt, shape, tolerance);
     }
-    static isOnVerticalEdges(pt, shape) {
-        return U.isOnLeftEdge(pt, shape) || U.isOnRightEdge(pt, shape);
+    static isOnVerticalEdges(pt, shape, tolerance = null) {
+        return U.isOnLeftEdge(pt, shape, tolerance) || U.isOnRightEdge(pt, shape, tolerance);
     }
-    static isOnHorizontalEdges(pt, shape) {
-        return U.isOnTopEdge(pt, shape) || U.isOnBottomEdge(pt, shape);
+    static isOnHorizontalEdges(pt, shape, tolerance = null) {
+        return U.isOnTopEdge(pt, shape, tolerance) || U.isOnBottomEdge(pt, shape, tolerance);
     }
-    static isOnRightEdge(pt, shape) {
+    static isOnRightEdge(pt, shape, tolerance = null) {
         if (!pt || !shape) {
             return null;
         }
+        if (tolerance === null)
+            tolerance = U.GeomTolerance;
+        if (tolerance)
+            return Math.abs(pt.x - (shape.x + shape.w)) < tolerance
+                && (pt.y - (shape.y) > tolerance && pt.y - (shape.y + shape.h) < tolerance);
         return (pt.x === shape.x + shape.w) && (pt.y >= shape.y && pt.y <= shape.y + shape.h);
     }
-    static isOnLeftEdge(pt, shape) {
+    static isOnLeftEdge(pt, shape, tolerance = null) {
         if (!pt || !shape) {
             return null;
         }
+        if (tolerance === null)
+            tolerance = U.GeomTolerance;
+        if (tolerance)
+            return Math.abs(pt.x - shape.x) < tolerance
+                && (pt.y - (shape.y) > tolerance && pt.y - (shape.y + shape.h) < tolerance);
         return (pt.x === shape.x) && (pt.y >= shape.y && pt.y <= shape.y + shape.h);
     }
-    static isOnTopEdge(pt, shape) {
+    static isOnTopEdge(pt, shape, tolerance = null) {
         if (!pt || !shape) {
             return null;
         }
+        if (tolerance === null)
+            tolerance = U.GeomTolerance;
+        if (tolerance)
+            return Math.abs(pt.y - shape.y) < tolerance
+                && (pt.x - (shape.x) > tolerance && pt.x - (shape.x + shape.w) < tolerance);
         return (pt.y === shape.y) && (pt.x >= shape.x && pt.x <= shape.x + shape.w);
     }
-    static isOnBottomEdge(pt, shape) {
+    static isOnBottomEdge(pt, shape, tolerance = null) {
         if (!pt || !shape) {
             return null;
         }
+        if (tolerance === null)
+            tolerance = U.GeomTolerance;
+        if (tolerance)
+            return Math.abs(pt.y - shape.y + shape.h) < tolerance
+                && (pt.x - (shape.x) > tolerance && pt.x - (shape.x + shape.w) < tolerance);
         return (pt.y === shape.y + shape.h) && (pt.x >= shape.x && pt.x <= shape.x + shape.w);
     }
     // usage: var scope1 = makeEvalContext("variable declariation list"); scope1("another eval like: x *=3;");
@@ -9176,7 +9488,11 @@ class U {
         return prefix + num;
     }
     static isValidName(name) { return /^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(name); }
-    static getTSClassName(thing) { return thing.constructor.name + ''; }
+    static getTSClassName(thing) {
+        if (!thing || !thing.constructor)
+            return typeof (thing);
+        return thing.constructor.name + '';
+    }
     static detailButtonSetup($root = null) {
         if (!$root)
             $root = $(document.body);
@@ -9563,15 +9879,16 @@ class U {
     }
     static toBoolString(bool) { return bool ? "true" : "false"; }
     static fromBoolString(str, defaultVal = false, allowNull = false, allowUndefined = false) {
-        str = str && ('' + str).toLowerCase();
+        str = ('' + str).toLowerCase();
         if (allowNull && (str === 'null'))
             return null;
         if (allowUndefined && (str === 'undefined'))
             return undefined;
         if (defaultVal === false)
             return str === "true" || str === 't' || str === '1'; // true solo se è esplicitamente true, false se ambiguo.
+        // if (defaultVal === true) return str === "false" || str === 'f' || str === '0'; // false solo se è esplicitamente false, true se ambiguo.
         if (defaultVal === true)
-            return str === "false" || str === 'f' || str === '0'; // false solo se è esplicitamente false, true se ambiguo.
+            return !(str === "false" || str === 'f' || str === '0'); // false solo se è esplicitamente false, true se ambiguo.
     }
     static parseSvgPath(str) {
         let i;
@@ -10472,6 +10789,140 @@ class U {
         // console.log('hasFocus2:', active, 'contains', elem, ' = ', active.contains(elem));
         return elem.contains(active);
     }
+    static $makeSelect($root, entries, optgrplabel = '', selectedVal = '') {
+        $root.each((i, e) => U.makeSelect(e, entries, optgrplabel, selectedVal));
+    }
+    // used to convert type from string to some enum checking after validation
+    static getEnumValByVal(val, enumDeclaration) {
+        for (let key in enumDeclaration) {
+            if (enumDeclaration[key] === val)
+                return val;
+        }
+        return null;
+    }
+    static getEnumValByKey(key, enumDeclaration) {
+        if (enumDeclaration && enumDeclaration.hasOwnProperty(key))
+            return enumDeclaration[key];
+        return null;
+    }
+    static getEnumKeyByVal(val, enumDeclaration) {
+        for (let key in enumDeclaration) {
+            if (enumDeclaration[key] === val)
+                return key;
+        }
+        return null;
+    }
+    static makeSelect(select, entries, optgrplabel = '', selectedVal = '') {
+        const grp = document.createElement('optgroup');
+        U.clear(select);
+        select.append(grp);
+        grp.label = optgrplabel;
+        for (let key in entries) {
+            const opt = document.createElement('option');
+            opt.setAttribute('value', key);
+            opt.innerText = entries[key];
+            if (entries[key] === selectedVal)
+                opt.selected = true;
+            grp.append(opt);
+        }
+    }
+    static computeConditionalHides($root, obj, caseSensitive = false, cascadeOnChildrens = true, displayFunction = null, hideFunction = null) {
+        if (!displayFunction)
+            displayFunction = (e) => $(e).show();
+        if (!hideFunction)
+            hideFunction = (e) => $(e).hide();
+        if (cascadeOnChildrens)
+            $root = $root.find('[uif]').addBack('[uif]');
+        else
+            $root.filter('[uif]');
+        let ret = { hide: [], show: [], inaltered: [] };
+        $root.each((i, e) => {
+            let b = U.checkConditionalHide(e, obj, caseSensitive);
+            switch (b) {
+                case true:
+                    ret.show.push(e);
+                    displayFunction(e);
+                    break;
+                case false:
+                    ret.hide.push(e);
+                    hideFunction(e);
+                    break;
+                default:
+                case null:
+                    ret.inaltered.push(e);
+                    break;
+            }
+        });
+        return ret;
+    }
+    static checkConditionalHide(html, obj, caseSensitive = false) {
+        let attrstr = html.getAttribute('uif');
+        if (!attrstr)
+            return null;
+        attrstr = attrstr
+            .replace(/\|+/, ' || ')
+            .replace(/&+/, ' && ')
+            .replace('+', ' + ')
+            .replace('-', ' - ')
+            .replace('*', ' * ')
+            .replace('/', ' / ')
+            .replace('!', ' ! ')
+            .replace(/\s+/, ' ');
+        let i;
+        let key;
+        let tokens = attrstr.split(' ');
+        if (!caseSensitive) {
+            for (key in obj) {
+                const lckey = key.toLowerCase();
+                if (lckey === key)
+                    continue;
+                const val = obj[key];
+                delete obj[key];
+                obj[lckey] = val;
+            }
+        }
+        for (i = 0; i < tokens.length; i++) {
+            const token = caseSensitive ? tokens[i] : tokens[i].toLowerCase();
+            // ricorda di non salvare in lowercase i token non sostituiti, altrimenti rimpiazza Math.abs() o altre funzioni java native.
+            if (obj.hasOwnProperty(token))
+                tokens[i] = obj[token];
+        }
+        let ret;
+        try {
+            ret = eval(tokens.join(' '));
+        }
+        catch (e) {
+            U.pw(true, 'Invalid conditional attribute (UIF), error:', e, 'html:', html, 'attrStr:', attrstr, 'tokens:', tokens, 'dic:', obj, 'caseSensitive:', caseSensitive);
+            ret = null;
+        }
+        // if (ret === null) console.log('rrer', tokens);
+        return ret;
+        // ipotesi 1:
+        //   computa hide = concatenazione hide1 || hide2 || hide3.... (es: m1hide || m1hideifclass), simile per "show"
+        // se ottengo:
+        // hide = null, show = null --> non computato, com'era rimane.
+        // hide = null  --> valueof(showif)
+        // show = null  --> valueof(hideif)
+        // hide = true, show = true    --> hide
+        // hide = true, show = false   --> hide
+        // hide = false, show = false  --> hide
+        // hide = false, show = true   --> show
+    }
+    static deserialize(value) {
+        if (value === '')
+            return ''; // json.parse fail on ''
+        if (value == 'undefined')
+            return undefined; // json.parse fail on undefined and 'undefined' too
+        let ret;
+        try {
+            ret = JSON.parse(value);
+        }
+        catch (e) {
+            // U.pe(true, 'failed to deserialize: |', value, '|', e);
+            return value; // means it's a raw string different from 'true', 'null', ...
+        }
+        return ret;
+    }
 }
 U.loopcounter = 0;
 U.AttributeSelectorOperator = '->';
@@ -10500,10 +10951,13 @@ U.mouseWheelButtons = 4;
 U.mouseBackButtons = 8;
 U.mouseForwardButtons = 16;
 U.oneTimeMap = {};
+U.sequenceNumber = 0;
+U.idMap = {};
 U.gotcalledby = {};
 U.$alertcontainer = null;
 U.alertcontainer = null;
 U.displayedTexts = {};
+U.GeomTolerance = 0; // 0.001;
 U.startSeparatorKeys = {};
 U.startSeparatorKeyMax = -1;
 U.focusHistoryEntriesAndIdleTimes = undefined;
@@ -11679,10 +12133,10 @@ class ChangelogRoot extends ChangelogEntry {
             'Until eventually the fourth level is reached, which has been broadly tested and should never fail.', null, true);
         v.addf('Vertex gui customization:', 'It is now possible to set up a custom filter and condition to select which childrens of a classifier / operation should be displayed.' +
             'There are shortcuts to filter children based on their type or whether they are inherited or not. <a href="https://github.com/DamianoNaraku/jjodel/wiki/Display-and-filter-sub-features-inside-a-vertex">More info here.</a>', null, true);
-        v.addf('Text popup', '' +
-            'Textual popup notifying the user about invalid actions, errors, tooltip or automatic fixing invalid user input now cannot show duplicates at the same time.' +
+        v.addf('Text popup improved:', '' +
+            'Textual popup notifying the user about invalid actions, errors, tooltip or automatic fixing invalid user input now cannot show duplicates at the same time.\n' +
             'Clicking a popup will make it disappear instantly while copying his text to the clipboard (copy-paste, old feature reminder).\n' +
-            'Right-clicking a popup will now hide all same-colored notifications.' +
+            'Right-clicking a popup will now hide all same-colored notifications.\n' +
             'Wheel-clicking a popup will now hide all notifications.');
         v.addf('Usability: mouse shortcuts', '' +
             '<ul>' +
@@ -11698,16 +12152,44 @@ class ChangelogRoot extends ChangelogEntry {
             '<li>still RightClick on a input child of a selected vertex / feature: native context menù.</li>' +
             '<li>still RightClick on any child of a un-selected vertex / feature: custom context menù.</li>' +
             '<li>still, slow (hold for 1 sec) RightClick a input child of vertex / feature: native menù</li></ul>', null, true);
-        v.addb('Bug:', 'The usage of the $ and £ characters outside variable templates ($##likeThis$) and inside the html of custom styles might cause errors, html entities like &#36; are troublesome too.\n' +
-            'Until bugfix use the unicode combination \\u0024 for $ and &#163; and \\u00A3 for £ when possible. This bugfix will have low priority.');
+        v.addb('Bug:', 'The usage of the $ and £ characters outside variable templates ($##likeThis$) and inside the html of custom styles might cause errors.\n' +
+            'Until bugfix use the unicode combination \\u0024 for $ and \\u00A3 for £ when possible. This bugfix will have low priority.');
         v.addbf('Edge:', 'Fixed an error that was preventing to insert the first mid-points to an edge when his style was "straight".');
         v.addbf('PropertyBar:', 'Automatized update of structured view, style editor and raw viewer when visualized html node in graph or his parents are updated.\n');
         v.addbf('ContextMenu:', 'Was not appearing.');
-        let searchterm = 'clog cls addbf ';
+        v = new VersionUpload(new Date('2020/7/31'), '', '');
+        v.addf('Interface and Abstract classes support', 'Accessible through the structured tree view on the right bar.');
+        v.addf('Class conversion:', 'It is now possible to change type of a single M1-class, or of all instances of a target M2-class. (<a href="https://github.com/DamianoNaraku/jjodel/wiki/Class-deletion-&-Class-type-conversion">Full guide here</a>)\n' +
+            'For example converting all "Date" instances to "DateTime" instances, adding a "time" attribute to all of them without changing the definition of the "Date" class.', null, true);
+        v.addbf('children filtering:', 'was not working properly only on his generic version (childrenContainer) and not on AttributeContainer');
+        v.addbf('validation:', 'was working on run-time edits, but not on the initial load of the model');
+        v.addbf('class deletion:', 'When a class was used as function parameter, the removal was causing exceptions.' +
+            '\nNow it will change the parmaeter\'s type using class conversion, or removing it if conversion is impossible.');
+        v.addbf('firefox', 'default style of vertex had transparent background.');
+        v.addbf('Edges', 'Trying to delete the mandatory start and end-point of a edge would cause visual errors.');
+        v.addbf('Edges', 'Edges changing his target by dragging where not following his new target vertex when dragged.');
+        v = new VersionUpload(new Date('2020/10/26'), 'M2T groundwork, Type mapping improvement', '');
+        v.addf('Type mapping', 'Accessible through the topbar, it allows now to define sets of typing aliases.\n' +
+            'Once a set of aliases is created you can give it a name to switch between saved alias sets, changing multiple aliases with one action.');
+        v.addf('M2T', 'Can be done in 2 ways.<br>' + '<ul>' +
+            '<li>Through style editor: Code will be produced according to nodes content, node content can become shards of code through style editor.<br>' +
+            'Combined style overriding it is extremely easy to customize code generation for specific cases or single classes / objects.<br>' +
+            'The final output will be obtained through the "By text" predefined transformation.<br>' +
+            'Users will be able to use pre-existing transformations by importing a viewpoint from the store.</li>' +
+            '<li>In future through the MTL standard (not yet supported)<br>' +
+            'Users will be able to create their own M2T transformation and share them on a public store.</li>' +
+            '</ul>', null, true);
+        v = new VersionUpload(new Date('2020/12/05'), 'Auto-layouting', '');
+        v.addf('Auto-layout', 'Accessible through the style editor of a graph, guide on the <a href="https://github.com/DamianoNaraku/jjodel/wiki/Auto-Layout">wiki page</a>.', null, true);
+        v.addbf('zoom & pan', 'Zoom and pan weren\'t combining well, panning with a zoom level used to cause calculation error leading to graphical mismatch.');
+        v.addf('Import / Export / Reset of viewpoint and vertices positions', 'Accessible through the top-bar, can be used to share a viewpoint while waiting for the store.\n' +
+            'Resetting the viewpoint might fix errors caused by a wrong customization of a viewpoint.', null, true);
+        let searchterm = 'clog addbf ';
         // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
         // v.addf('fakegfeat', 'kkk');
         // v = new VersionUpload('v3'...);
     }
+    static clog() { }
     static generate() {
         if (ChangelogRoot.popup)
             return;
@@ -12225,7 +12707,7 @@ class MyConsole {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#damContextMenuTemplateContainer{\r\n  display: none;\r\n}\r\n.contextMenuRoot{\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n}\r\n.reflist{ display: none; }\r\n.reflistparent:hover > .reflist { display: block; }\r\n.refli {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.reflistparent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.reflist {\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli:hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:hover li:hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBLFVBQVUsYUFBYSxFQUFFO0FBQ3pCLGtDQUFrQyxjQUFjLEVBQUU7QUFDbEQ7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQixFQUFFO0FBQ3ZCO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7QUFDZjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixpQkFBaUI7RUFDakIsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLE1BQU07QUFDUjtBQUNBO0VBQ0UsdUJBQXVCO0VBQ3ZCLHVCQUF1QjtFQUN2QixhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixXQUFXO0VBQ1gsVUFBVTtFQUNWLHNCQUFzQjtFQUN0QixZQUFZO0FBQ2Q7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCO0FBQzdCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCLEVBQUU7QUFFL0I7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtBQUNuQiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvZGFtLWNvbnRleHQtbWVudS9kYW0tY29udGV4dC1tZW51LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjZGFtQ29udGV4dE1lbnVUZW1wbGF0ZUNvbnRhaW5lcntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi5jb250ZXh0TWVudVJvb3R7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXgtaGVpZ2h0OiAxMDB2aDtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG92ZXJmbG93OiB2aXNpYmxlO1xyXG59XHJcbi5yZWZsaXN0eyBkaXNwbGF5OiBub25lOyB9XHJcbi5yZWZsaXN0cGFyZW50OmhvdmVyID4gLnJlZmxpc3QgeyBkaXNwbGF5OiBibG9jazsgfVxyXG4ucmVmbGkge1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4OyB9XHJcbi5yZWZsaSAuZmlyc3RlbXB0eXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnJlZmxpIGJ1dHRvbi5ieWluZGV4IHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG59XHJcbi5yZWZsaXN0cGFyZW50e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4ucmVmbGkgLmluZGV4IHtcclxuICBwYWRkaW5nLWxlZnQ6IDNweDtcclxuICBjb2xvcjogb3JhbmdlO1xyXG59XHJcbi5yZWZsaSAudGV4dHtcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbn1cclxuYnV0dG9uLnJlZmxpLmRlbGV0ZXtcclxuICBwYWRkaW5nOiAwIDRweDtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5yZWZsaXN0IHtcclxuICBsZWZ0OiBjYWxjKDEwMCUpO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICBib3JkZXItbGVmdDogbm9uZTtcclxuICBwYWRkaW5nOiAycHggNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDA7XHJcbiAgdG9wOiAwO1xyXG59XHJcbnVsLmNvbnRleHRNZW51e1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gIHBhZGRpbmc6IDEwcHg7XHJcbiAgcGFkZGluZy10b3A6IDZweDtcclxuICBwYWRkaW5nLWJvdHRvbTogOHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDA7XHJcbn1cclxubGk6Zmlyc3QtY2hpbGR7XHJcbiAgcGFkZGluZy10b3A6IDA7XHJcbn1cclxubGkuc2VwYXJhdG9ye1xyXG4gIG1hcmdpbi10b3A6IDJweDtcclxuICBoZWlnaHQ6IDFweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XHJcbiAgb3BhY2l0eTogMC40O1xyXG59XHJcbmxpOmxhc3QtY2hpbGR7XHJcbiAgYm9yZGVyLWJvdHRvbTogbm9uZTtcclxufVxyXG5saTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgY29sb3I6IGRvZGdlcmJsdWU7XHJcbn1cclxubGl7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG4gIGZvbnQtc2l6ZTogMC43NXJlbTtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpO1xyXG59XHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgY3Vyc29yOiBkZWZhdWx0O1xyXG4gIGZvbnQtc2l6ZTogMC43NXJlbTtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpOyB9XHJcblxyXG5saTpob3ZlciBsaTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgY29sb3I6IGRvZGdlcmJsdWU7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("#damContextMenuTemplateContainer{\r\n  display: none;\r\n}\r\n.contextMenuRoot{\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n}\r\n.popupRight{ display: none; }\r\n.popupRightParent:hover > .popupRight { display: block; }\r\n.popupRight {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.popupRightParent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.popupRight {\r\n  display: none;\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*cursor: default;*/\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:hover li:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\n.typeli.dynamic, .refli.dynamic{\r\n  cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBLGFBQWEsYUFBYSxFQUFFO0FBQzVCLHdDQUF3QyxjQUFjLEVBQUU7QUFDeEQ7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQixFQUFFO0FBQ3ZCO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7QUFDZjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixNQUFNO0FBQ1I7QUFDQTtFQUNFLHVCQUF1QjtFQUN2Qix1QkFBdUI7RUFDdkIsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsV0FBVztFQUNYLFVBQVU7RUFDVixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFFQTtFQUNFLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCO0FBQzdCO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLDJCQUEyQixFQUFFO0FBRS9CO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL2RhbS1jb250ZXh0LW1lbnUvZGFtLWNvbnRleHQtbWVudS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2RhbUNvbnRleHRNZW51VGVtcGxhdGVDb250YWluZXJ7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uY29udGV4dE1lbnVSb290e1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgbWF4LWhlaWdodDogMTAwdmg7XHJcbiAgbWF4LXdpZHRoOiAxMDB2dztcclxuICBvdmVyZmxvdzogdmlzaWJsZTtcclxufVxyXG4ucG9wdXBSaWdodHsgZGlzcGxheTogbm9uZTsgfVxyXG4ucG9wdXBSaWdodFBhcmVudDpob3ZlciA+IC5wb3B1cFJpZ2h0IHsgZGlzcGxheTogYmxvY2s7IH1cclxuLnBvcHVwUmlnaHQge1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4OyB9XHJcbi5yZWZsaSAuZmlyc3RlbXB0eXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnJlZmxpIGJ1dHRvbi5ieWluZGV4IHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG59XHJcbi5wb3B1cFJpZ2h0UGFyZW50e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4ucmVmbGkgLmluZGV4IHtcclxuICBwYWRkaW5nLWxlZnQ6IDNweDtcclxuICBjb2xvcjogb3JhbmdlO1xyXG59XHJcbi5yZWZsaSAudGV4dHtcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbn1cclxuYnV0dG9uLnJlZmxpLmRlbGV0ZXtcclxuICBwYWRkaW5nOiAwIDRweDtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5wb3B1cFJpZ2h0IHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIGxlZnQ6IGNhbGMoMTAwJSk7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmc6IDJweCA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICB0b3A6IDA7XHJcbn1cclxudWwuY29udGV4dE1lbnV7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBwYWRkaW5nLXRvcDogNnB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiA4cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxufVxyXG5saTpmaXJzdC1jaGlsZHtcclxuICBwYWRkaW5nLXRvcDogMDtcclxufVxyXG5saS5zZXBhcmF0b3J7XHJcbiAgbWFyZ2luLXRvcDogMnB4O1xyXG4gIGhlaWdodDogMXB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcclxuICBvcGFjaXR5OiAwLjQ7XHJcbn1cclxubGk6bGFzdC1jaGlsZHtcclxuICBib3JkZXItYm90dG9tOiBub25lO1xyXG59XHJcblxyXG5saXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBjdXJzb3I6IGRlZmF1bHQ7XHJcbiAgZm9udC1zaXplOiAwLjc1cmVtO1xyXG4gIHBhZGRpbmctdG9wOiAycHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDtcclxuICBjb2xvcjogdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbn1cclxubGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiBkb2RnZXJibHVlO1xyXG59XHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLypjdXJzb3I6IGRlZmF1bHQ7Ki9cclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTsgfVxyXG5cclxubGk6aG92ZXIgbGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiBkb2RnZXJibHVlO1xyXG59XHJcblxyXG4udHlwZWxpLmR5bmFtaWMsIC5yZWZsaS5keW5hbWlje1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -12264,100 +12746,229 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
     }
     static staticInit() {
         DamContextMenuComponent_1.contextMenu = new DamContextMenuComponent_1();
+        console.log('sinit contextmenu');
+        $(document).off('contextmenu')
+            .on('contextmenu', (e) => { return DamContextMenuComponent_1.contextMenu.onContextMenu(e); });
     }
     ngOnInit() { }
-    show(location, classSelectorUseless, target) {
+    onContextMenu(evt) {
+        console.log('sinit click contextmenu');
+        // evt.preventDefault(); evt.stopPropagation(); return false;
+        const vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(evt.target, false);
+        // evt.stopPropagation();
+        DamContextMenuComponent_1.contextMenu.hide();
+        // only if is focused input
+        const lastSelected = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].focusHistoryEntries[_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].focusHistoryElements.length - 1];
+        const gotSelectedNow = lastSelected && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
+        const isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(evt.target, true, false) && !gotSelectedNow;
+        const clickStartedOutsideVertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext === null;
+        // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato --> non triggerare contextmenu
+        // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input --> non triggerare contextmenu
+        if (isInput && clickStartedOutsideVertex)
+            evt.target.focus();
+        if (!isInput && gotSelectedNow)
+            evt.target.blur();
+        // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
+        const pixelMoved = !clickStartedOutsideVertex ? 0 : vertex && vertex.size.tl().subtract(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext.size.tl(), false).absolute();
+        const gotMoved = vertex && !clickStartedOutsideVertex && pixelMoved >= vertex.tolleranzaRightClickMove;
+        const mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].get(evt);
+        const ret = !mp || isInput && !gotMoved;
+        // evt['passedThroughVertex'] = ret;
+        console.log('ret:', ret, 'mp:', mp, 'moved:', gotMoved, 'isInput:', isInput);
+        if (ret)
+            return true;
+        else {
+            evt.preventDefault();
+        }
+        if (gotMoved)
+            return ret;
+        DamContextMenuComponent_1.contextMenu.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Point"](evt.pageX, evt.pageY), evt.target);
+        return ret;
+    }
+    checkIfHide(e) {
+        const originalTarget = e.target;
+        const isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(originalTarget, true);
+        const isDisabled = originalTarget.disabled;
+        const focused = this.html.contains(document.activeElement);
+        const isButton = (originalTarget.tagName.toLowerCase() === 'button')
+            && !originalTarget.disabled
+            && originalTarget === document.activeElement; // se la selezione non è sul bottone, per me non l'ho premuto,
+        // magari era un mousedown di selezione su un input terminato con mouseup su un button
+        const clickedOutside = !_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(this.html, originalTarget);
+        console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
+        if (isButton || clickedOutside || !isInput && !isDisabled && !focused) {
+            this.hide();
+        }
+    }
+    computePosition(location) {
+        const templateSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].sizeof(this.html);
+        const viewPortSize = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Size"](0, 0, window.innerWidth, window.innerHeight);
+        location.x = Math.max(0, location.x);
+        location.y = Math.max(0, location.y);
+        location.x = Math.min(viewPortSize.w - (templateSize.w), location.x);
+        console.log('vp.w:', viewPortSize.w, ' - t.w:', templateSize.w, ', loc.x', location.x, ', t.size:', templateSize, this.html);
+        console.log('vp.h:', viewPortSize.h, ' - t.h:', templateSize.h, ', loc.y', location.y, ', t.size:', templateSize, this.html);
+        location.y = Math.min(viewPortSize.h - (templateSize.h), location.y);
+        this.html.style.position = 'absolute';
+        this.html.style.zIndex = '1000';
+        this.html.style.left = '' + location.x + 'px';
+        this.html.style.top = '' + location.y + 'px';
+    }
+    show(location, target) {
+        const mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].getLogic(target);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!target, 'target is null.');
+        if (!mp)
+            return;
+        console.log('contextmenu target:', this.clickTarget);
+        const model = mp.getModelRoot();
         this.clickTarget = target;
         this.html.style.display = 'none'; // if was already displaying, start the scrollDown animation without doing the scrollUp()
-        this.$html.slideDown();
-        const vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(target);
+        // const vertex: IVertex = IVertex.getvertexByHtml(target);
         let edge = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"].getByHtml(target);
         let extedge = null;
         if (edge instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ExtEdge"]) {
             extedge = edge;
             edge = null;
         }
-        console.log('contextmenu target:', this.clickTarget);
-        const templateSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].sizeof(this.html);
-        // todo:
-        const viewPortSize = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Size"](0, 0, window.innerWidth, window.innerHeight);
-        location.x = Math.max(0, location.x);
-        location.y = Math.max(0, location.y);
-        location.x = Math.min(viewPortSize.w - (templateSize.w), location.x);
-        console.log('vp.w:', viewPortSize.w, ' - t.w:', templateSize.w, ', loc.x', location.x, ', t.size:', templateSize, this.html);
-        location.y = Math.min(viewPortSize.h - (templateSize.h), location.y);
-        this.html.style.position = 'absolute';
-        this.html.style.zIndex = '1000';
-        this.html.style.left = '' + location.x + 'px';
-        this.html.style.top = '' + location.y + 'px';
         this.extedgecontext.style.display = 'none';
         this.edgecontext.style.display = 'none';
         this.vertexcontext.style.display = 'none';
         this.edgecontext.style.display = edge ? '' : 'none';
         this.extedgecontext.style.display = extedge ? '' : 'none';
-        this.vertexcontext.style.display = vertex ? '' : 'none';
-        this.$vertexcontext.find('.Reference').hide();
+        this.vertexcontext.style.display = !edge && !extedge ? '' : 'none';
+        // this.$vertexcontext.find('.Reference').hide();
         this.$vertexcontext.find('.refli.dynamic').remove();
-        const mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].getLogic(target);
-        const model = mp.getModelRoot();
-        if (vertex) { /*
-          if (model.isM1()) {
-            this.$vertexcontext.find('.m1hide').hide();
-            this.$vertexcontext.find('.m2hide').show(); }
-          else {
-            this.$vertexcontext.find('.m1hide').show();
-            this.$vertexcontext.find('.m2hide').hide(); }*/
-            if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClassifier"]) {
-                this.$vertexcontext.find('.Feature').hide();
-                this.$vertexcontext.find('.Vertex').show();
-            }
-            else {
-                if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MReference"]) {
-                    let i;
-                    const $refli = this.$vertexcontext.find('.refli.template');
-                    for (i = 0; i < mp.mtarget.length; i++) {
-                        const target = mp.mtarget[i];
-                        const li = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneHtml($refli[0], true);
-                        li.classList.remove('template');
-                        li.classList.add('dynamic');
-                        li.dataset.index = '' + i;
-                        const $li = $(li);
-                        $li.find('.index').text('' + i);
-                        $li.find('.text').text(target ? target.printableNameshort() : 'Empty');
-                        $refli[0].parentNode.appendChild(li);
-                    }
-                    this.$vertexcontext.find('.Reference').show();
-                }
-                this.$vertexcontext.find('.Feature').show();
-                this.$vertexcontext.find('.Vertex').hide();
-            }
-            const mr = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MReference"] ? mp : null;
-            const $indexinput = this.$vertexcontext.find('input.byindex');
-            const upperbound = mr ? mr.metaParent.upperbound : null;
-            if (mr) {
-                if (upperbound === -1)
-                    $indexinput[0].removeAttribute('max');
-                else
-                    $indexinput[0].setAttribute('max', '' + upperbound);
-            }
-            else
-                $indexinput[0].setAttribute('max', '-999');
-        }
+        this.$vertexcontext.find('.typeli.dynamic').remove();
+        let i;
+        //   if (vertex) {
+        /*
         if (model.isM1()) {
-            this.$html.find('.m1hide').hide();
-            this.$html.find('.m2hide').show();
+          this.$vertexcontext.find('.m1hide').hide();
+          this.$vertexcontext.find('.m2hide').show(); }
+        else {
+          this.$vertexcontext.find('.m1hide').show();
+          this.$vertexcontext.find('.m2hide').hide(); }*/
+        if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClassifier"]) {
+            const lishow = ($jq) => $jq.each((i, e) => { e.style.display = ''; });
+            // this.$vertexcontext.find('.Feature').hide();
+            // this.$vertexcontext.find('.Vertex').show();
+            if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"]) {
+                this.fillTypeLi(mp, lishow);
+            }
         }
         else {
-            this.$html.find('.m1hide').show();
-            this.$html.find('.m2hide').hide();
+            if (mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MReference"]) {
+                const $refli = this.$vertexcontext.find('.refli.template');
+                for (i = 0; i < mp.mtarget.length; i++) {
+                    const target = mp.mtarget[i];
+                    const li = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneHtml($refli[0], true);
+                    li.classList.remove('template');
+                    li.classList.add('dynamic');
+                    li.dataset.index = '' + i;
+                    const $li = $(li);
+                    $li.find('.index').text('' + i);
+                    $li.find('.text').text(target ? target.printableNameshort() : 'Empty');
+                    $refli[0].parentNode.appendChild(li);
+                }
+                // this.$vertexcontext.find('.Reference').show();
+            }
+            /*this.$vertexcontext.find('.Feature').show();
+            this.$vertexcontext.find('.Vertex').hide();*/
         }
-        this.addEventListeners(location, vertex, mp); // [??? what?] must be done here, per facilità di fare binding usando variabili esterne agli eventi.
+        const mr = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MReference"] ? mp : null;
+        const $indexinput = this.$vertexcontext.find('input.byindex');
+        const upperbound = mr ? mr.metaParent.upperbound : null;
+        if (mr) {
+            if (upperbound === -1)
+                $indexinput[0].removeAttribute('max');
+            else
+                $indexinput[0].setAttribute('max', '' + upperbound);
+        }
+        else
+            $indexinput[0].setAttribute('max', '-999');
+        //
+        /*
+        if (model.isM1()) {
+          this.$html.find('.m1hide').hide();
+          this.$html.find('.m2hide').show();
+        }
+        else {
+          this.$html.find('.m1hide').show();
+          this.$html.find('.m2hide').hide();
+        }*/
+        let dic = {};
+        dic['m1'] = model.isM1();
+        dic['m2'] = model.isM2();
+        dic['class'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"];
+        dic['classifier'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClassifier"];
+        dic['feature'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IFeature"];
+        dic['attribute'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IAttribute"];
+        dic['reference'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IReference"];
+        dic['operation'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EOperation"];
+        dic['param'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EParameter"];
+        dic['annotation'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EAnnotation"];
+        dic['edge'] = !!edge;
+        dic['extedge'] = !!extedge;
+        let ret = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].computeConditionalHides(this.$html, dic);
+        console.log('rrer', ret);
+        if (ret.show.length + ret.inaltered.length === 0)
+            return;
+        this.addEventListeners(location, mp); // [??? what?] must be done here, per facilità di fare binding usando variabili esterne agli eventi.
+        this.computePosition(location);
+        // computePosition() needs to be after deciding sub-elements visibility and before sliding down, because needs to compute
+        // the final height with correct children display and without slideDown temporary height hard-limiter with inline css.
+        this.$html.slideDown();
     }
     hide() {
         this.$html.slideUp();
     }
-    addEventListeners(location, v, m) {
+    fillTypeLi(mp, lishow) {
+        let i;
+        const $typeli = this.$vertexcontext.find('.typeli.template');
+        const $fallback = this.$vertexcontext.find('.typeli.fallback').hide();
+        const containerli = $typeli[0].parentElement;
+        const isM2 = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["M2Class"];
+        const m2Class = (isM2 ? mp : mp.metaParent);
+        if (isM2 && mp.instances.length === 0) {
+            $(containerli).find('.typeli').hide();
+            lishow($fallback.text("This class does not have any instances to convert."));
+            return;
+        }
+        const separator = $(containerli).find('.separator')[0];
+        const arr = m2Class.getTypeConversionScores(true, true);
+        if (arr.length === 0) {
+            $(containerli).find('.typeli').hide();
+            lishow($fallback.text("This class does not have any super or subclass available for conversion."));
+            return;
+        }
+        else if (arr.length === 1) {
+            lishow($(containerli).find('.typeli'));
+            $(containerli).find('.typeli.description, .typeli.separator').hide();
+        }
+        else
+            lishow($(containerli).find('.typeli'));
+        $fallback.hide();
+        for (i = 0; i < arr.length; i++) {
+            const li = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneHtml($typeli[0], true);
+            const element = arr[i];
+            const popuptxt = "Features: " + (element.features >= 0 ? "+" : "") + element.features +
+                "; Operations: " + (element.operations >= 0 ? "+" : "") + element.operations +
+                "; Annotations: " + (element.annotations >= 0 ? "+" : "") + element.annotations + ";";
+            li.classList.remove('template');
+            li.classList.add('dynamic');
+            li.setAttribute("title", popuptxt);
+            li.dataset.index = '' + i;
+            li.dataset.classID = '' + element.class.getID();
+            const $li = $(li);
+            // $li.find('.index').text('' + i);
+            $li.find('.text').text(element.class.printableNameshort());
+            if (i === 0)
+                containerli.insertBefore(li, separator);
+            else
+                containerli.appendChild(li);
+        }
+    }
+    addEventListeners(location, m) {
         const graphLocation = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.getActiveModel().graph.toGraphCoord(location);
         const html = this.html;
         const $html = $(html);
@@ -12367,7 +12978,7 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
         const mr = m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MReference"] ? m : null;
         const $indexinput = $html.find('input.byindex');
         const upperbound = mr ? mr.getUpperbound() : null;
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!v, 'vertex null:', v, this.clickTarget);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!m, 'mp null:', m, this.clickTarget);
         const $firstempty = $html.find('.refli .firstempty');
         let $byindexInputAndButton = $html.find('.refli .byindex');
         console.log($byindexInputAndButton);
@@ -12387,7 +12998,7 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
             const edge = mr.edges[index];
             if (!edge) {
                 const tmpend = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphPoint"].fromEvent(e);
-                new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, v, null, tmpend);
+                new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, m.getVertex(), null, tmpend);
                 return;
             }
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].linkVertexMouseDown(null, edge, graphLocation);
@@ -12398,7 +13009,7 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
                 _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pw(true, 'invalid reference index. It must be a value inside the [0,' + upperbound + '] interval.');
                 return;
             }
-            const edge = mr.edges[index] ? mr.edges[index] : new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, v, null, null);
+            const edge = mr.edges[index] ? mr.edges[index] : new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, m.getVertex(), null, null);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].linkVertexMouseDown(null, edge, graphLocation);
         });
         console.log('refli dynamic setup', $html.find('li.refli.dynamic').length);
@@ -12406,8 +13017,18 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
             const index = +e.currentTarget.dataset.index;
             console.log('refli dynamic click');
             console.log('setting reference[' + index + '] = ', mr.mtarget[index], mr);
-            const edge = mr.edges[index] ? mr.edges[index] : new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, v, null, null);
+            const edge = mr.edges[index] ? mr.edges[index] : new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, m.getVertex(), null, null);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].linkVertexMouseDown(null, edge, graphLocation);
+        });
+        $html.find('li.typeli.dynamic').off('click.changetype').on('click.changetype', (e) => {
+            const newType = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].getByID(+e.currentTarget.dataset.classID);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!(m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"]), "tryed to change type of non-class element.", m, e);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!(newType instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["M2Class"]), "tryed to change type into non-class element.", newType, e);
+            console.log('typeli dynamic click, changing type of: ', m, ' into: ', newType, this);
+            if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["M2Class"])
+                m.convertInstancesTo(newType);
+            if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MClass"])
+                m.convertTo(newType);
         });
         // U.pe(true, $html.find('li.refli.dynamic'), $html);
         $html.find('button.refli.delete').off('click.setref').on('click.setref', (e) => {
@@ -12421,7 +13042,7 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
         });
         $html.find('.Vertex.duplicate').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.duplicate('_Copy', m.parent); });
         $html.find('.Vertex.delete').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.delete(true); });
-        $html.find('.Vertex.minimize').off('click.ctxMenu').on('click.ctxMenu', (e) => { v.minimize(); });
+        $html.find('.Vertex.minimize').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.getVertex().minimize(); });
         $html.find('.Vertex.extend').off('click.ctxMenu').on('click.ctxMenu', (e) => {
             new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ExtEdge"](m, m.getVertex(), null, _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphPoint"].fromEvent(e));
         });
@@ -12430,26 +13051,11 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
         $html.find('.Vertex.editStyle').off('click.ctxMenu').on('click.ctxMenu', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pw(true, 'deprecato'); /*StyleEditor.editor.show(m);*/ });
         $html.find('.Feature.autofix').off('click.ctxMenu').on('click.ctxMenu', (e) => { alert('autofix conformity: todo.'); });
         $html.find('.Feature.autofixinstances').off('click.ctxMenu').on('click.ctxMenu', (e) => { alert('autofix instances: todo.'); });
-        $html.find('.Feature.duplicate').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.duplicate('_Copy', m.parent); v.refreshGUI(); });
+        $html.find('.Feature.duplicate').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.duplicate('_Copy', m.parent); m.refreshGUI(); });
         $html.find('.Feature.delete').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.delete(true); });
-        $html.find('.Feature.minimize').off('click.ctxMenu').on('click.ctxMenu', (e) => { v.minimize(); });
-        $html.find('.Feature.up').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.pushUp(false); v.refreshGUI(); });
-        $html.find('.Feature.down').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.pushDown(false); v.refreshGUI(); });
-    }
-    checkIfHide(e) {
-        const originalTarget = e.target;
-        const isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(originalTarget, true);
-        const isDisabled = originalTarget.disabled;
-        const focused = this.html.contains(document.activeElement);
-        const isButton = (originalTarget.tagName.toLowerCase() === 'button')
-            && !originalTarget.disabled
-            && originalTarget === document.activeElement; // se la selezione non è sul bottone, per me non l'ho premuto,
-        // magari era un mousedown di selezione su un input terminato con mouseup su un button
-        const clickedOutside = !_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(this.html, originalTarget);
-        console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
-        if (isButton || clickedOutside || !isInput && !isDisabled && !focused) {
-            this.hide();
-        }
+        $html.find('.Feature.minimize').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.getVertex().minimize(); });
+        $html.find('.Feature.up').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.pushUp(false); m.refreshGUI(); });
+        $html.find('.Feature.down').off('click.ctxMenu').on('click.ctxMenu', (e) => { m.pushDown(false); m.refreshGUI(); });
     }
 };
 DamContextMenuComponent.contextMenu = null;
@@ -12785,7 +13391,8 @@ class EdgePoint {
         this.moveTo(pos, false);
         this.addEventListeners();
     }
-    static getFromHtml(html) { return EdgePoint.all[html.dataset.EdgePointID]; }
+    static getFromHtml(html) { return EdgePoint.getByID(+html.dataset.EdgePointID); }
+    static getByID(id) { return EdgePoint.all[id]; }
     follow(e = null) {
         CursorFollowerEP.activeEP = this;
         const edge = this.edge;
@@ -12811,9 +13418,13 @@ class EdgePoint {
     }
     isAttached() { return this.edge !== null; }
     detach(refreshGUI = true) {
+        //    big: quando attacco un extend, l'endVertex non ha la reference all'edge input,
+        //      quindi se muovo l'endVertex, l'ìedge non si muove.
         if (!this.isAttached()) {
             return;
         }
+        if (this.edge && this.edge.startNode == this || this.edge.endNode === this)
+            return;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.edge.midNodes, this);
         if (this.html && this.html.parentNode) {
             this.html.parentNode.removeChild(this.html);
@@ -12897,22 +13508,23 @@ class EdgePoint {
         if (highlight !== null) {
             this.isHighlighted = highlight;
         }
-        if (this.isSelected) {
-            this.styleSelected();
-        }
-        else if (this.isHighlighted) {
-            this.styleHighlight();
-        }
-        else {
-            this.styleCommon(debug);
-        }
+        this.applyStyle(false);
     }
-    styleCommon(debug = false) {
+    getCurrentStyle() {
+        if (this.isSelected) {
+            return this.edge.logic.edgeStyleSelected.edgePointStyle;
+        }
+        if (this.isHighlighted) {
+            return this.edge.logic.edgeStyleHighlight.edgePointStyle;
+        }
+        return this.edge.logic.edgeStyleCommon.edgePointStyle;
+    }
+    applyStyle(debug = false) {
         if (!this.isAttached()) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'not attached', this);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'called EdgePoint.applyStyle() while not attached', this);
             return;
         }
-        const eps = this.edge.logic.edgeStyleCommon.edgePointStyle;
+        const eps = this.getCurrentStyle();
         if (debug) {
             this.html.setAttributeNS(null, 'debug', 'styleCommon');
         }
@@ -12921,25 +13533,10 @@ class EdgePoint {
         this.html.setAttributeNS(null, 'stroke', eps.strokeColor);
         this.html.setAttributeNS(null, 'fill', eps.fillColor);
     }
-    styleHighlight() {
-        if (!this.isAttached()) {
-            return;
-        }
-        const eps = this.edge.logic.edgeStyleHighlight.edgePointStyle;
-        this.html.setAttributeNS(null, 'r', '' + eps.radius);
-        this.html.setAttributeNS(null, 'stroke-width', '' + eps.strokeWidth);
-        this.html.setAttributeNS(null, 'stroke', eps.strokeColor);
-        this.html.setAttributeNS(null, 'fill', eps.fillColor);
-    }
-    styleSelected() {
-        if (!this.isAttached()) {
-            return;
-        }
-        const eps = this.edge.logic.edgeStyleSelected.edgePointStyle;
-        this.html.setAttributeNS(null, 'r', '' + eps.radius);
-        this.html.setAttributeNS(null, 'stroke-width', '' + eps.strokeWidth);
-        this.html.setAttributeNS(null, 'stroke', eps.strokeColor);
-        this.html.setAttributeNS(null, 'fill', eps.fillColor);
+    getSize() {
+        const style = this.getCurrentStyle();
+        let radius = style.radius + style.strokeWidth;
+        return new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](this.pos.x, this.pos.y, radius * 2, radius * 2);
     }
 }
 EdgePoint.ID = 0;
@@ -13407,37 +14004,31 @@ class IEdge {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markg(prevPt, true, 'green');
             if (prevVertexSize) {
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markgS(prevVertexSize, false, 'white');
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markgS(prevVertexSize, false, 'green');
             }
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markg(nextPt, false, 'green');
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markg(nextPt, false, 'blue');
             if (nextVertexSize) {
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markgS(nextVertexSize, false);
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.markgS(nextVertexSize, false, 'blue');
             }
         }
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'prev:' + (pt1IsOnHorizontalSide) + ', next:' + (pt2IsOnHorizontalSide), 'm0:' + mode0 + ' --> ' + mode0 + ', favDirection' + angularFavDirectionIsHorizontal);
         // return '';
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'directions:', pt1IsOnHorizontalSide, pt2IsOnHorizontalSide);
         if (prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'prev not on border');
-            return '';
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'prev not on border', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge, prevPt, prevVertexSize);
+            // return '';  può causare path di un solo punto (origine)
         }
         if (nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'next not on border');
-            return '';
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'next not on border', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge, nextPt, nextVertexSize);
+            // return '';  può causare path di un solo punto (origine)
         }
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize), 'not on border');
-        if (prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize)) {
-            /*console.clear();
-            const g = Status.status.getActiveModel().graph;
-            g.markg(prevPt, false, 'green');
+        // U.pe(prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize), 'not on border');
+        if (debug && prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize)) {
+            const g = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph;
+            g.markg(prevPt, true, 'green');
             g.markgS(prevVertexSize, false, 'green');
             g.markg(prevPt, false);
             g.markgS(prevVertexSize, false);
-            console.log('not on vertex border. pt:', prevPt, 'vertex:', prevVertexSize);
-            console.log('not on vertex border. nextpt:', nextPt, 'nextvertex:', nextVertexSize);
-            U.pw(true, (!U.isOnEdge(prevPt, prevVertexSize) ? 'prev' : 'next') + ' not on vertex border.');
-            return '';
-            */
         }
         let mode = mode0;
         if (prevVertexSize && nextVertexSize) {
@@ -13617,7 +14208,7 @@ class IEdge {
         if (debugi === 3)
             return;
         if (debug) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
+            // U.cclear();
             if (startVertexSize) {
                 graph.markgS(startVertexSize, true, 'blue');
             }
@@ -13635,9 +14226,9 @@ class IEdge {
             const currPt = curr.getEndPoint(!nextVertexSize, !nextVertexSize);
             // console.log(prevVertexSize, new GraphSize());
             const intersection = nextVertexSize && prevVertexSize ? nextVertexSize.intersection(prevVertexSize) : null;
-            if (intersection)
-                console.log('midenodes.length:', !this.midNodes.length, '&&', prevPt, currPt, ' contained in ', intersection, intersection.contains(prevPt), intersection.contains(currPt));
-            if (debug) {
+            if (debug && false) {
+                if (intersection)
+                    console.log('midenodes.length:', !this.midNodes.length, '&&', prevPt, currPt, ' contained in ', intersection, intersection.contains(prevPt), intersection.contains(currPt));
                 if (intersection)
                     this.owner.markgS(intersection, true, 'black');
                 this.owner.markg(prevPt, true, 'orange');
@@ -13662,7 +14253,9 @@ class IEdge {
             pathStr += IEdge.makePathSegment(prevPt, currPt, this.getEdgeMode(), favdirection, prevVertexSize, nextVertexSize);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr: RealPts:' + '[' + i + '] = ' + currPt.toString() + '; prev:' + prevPt.toString());
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr[' + (i) + '/' + allRealPt.length + ']: ' + oldpathStr + ' --> ' + pathStr);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(pathStr.lastIndexOf('L') === -1, '0: the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
         }
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(pathStr.lastIndexOf('L') === -1, 'the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
         if (debugi === 3)
             return;
         this.setPath(pathStr, debug);
@@ -14166,7 +14759,7 @@ class IEdge {
         if (!tail) {
             endsub = pathStr.length;
             startsub = pathStr.lastIndexOf('L');
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(startsub === -1, 'the pathString have no L (but should have at least 2 points)');
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(startsub === -1, 'the pathString have no L (but should have at least 2 points)', pathStr);
             startsub = pathStr.lastIndexOf('L', startsub - 1);
             if (startsub === -1) {
                 startsub = 0;
@@ -14289,6 +14882,409 @@ class IField {
 
 /***/ }),
 
+/***/ "./src/guiElements/mGraph/Layouting.ts":
+/*!*********************************************!*\
+  !*** ./src/guiElements/mGraph/Layouting.ts ***!
+  \*********************************************/
+/*! exports provided: Layouting */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Layouting", function() { return Layouting; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var vis_network__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vis-network */ "./node_modules/vis-network/peer/umd/vis-network.min.js");
+/* harmony import */ var vis_network__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vis_network__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
+
+
+
+class Layouting {
+    constructor(graph) {
+        this.isRunning = false;
+        this.id = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getID();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].setID(this.id, this);
+        this.graph = graph;
+        this.stabilizationSteps = 10;
+        this.data = {
+            nodes: [],
+            edges: []
+        };
+        this.myOptions = {
+            edgePointMode: 'vertex'
+        };
+        this.optionsDefault = {
+            layout: {
+                randomSeed: undefined,
+                improvedLayout: true,
+                clusterThreshold: 1,
+                // clusterThreshold: 150 è il limite default per applicare improvedLayout
+                // (pre-algoritmo per trovare un buon punto di partenza da cui uscirà un miglior minimo locale)
+                hierarchical: {
+                    enabled: false,
+                    levelSeparation: 150,
+                    nodeSpacing: 100,
+                    treeSpacing: 200,
+                    blockShifting: true,
+                    edgeMinimization: true,
+                    parentCentralization: true,
+                    direction: 'UD',
+                    sortMethod: 'hubsize',
+                    shakeTowards: 'leaves'
+                }
+            },
+            interaction: {
+                dragNodes: true,
+                dragView: true,
+                hideEdgesOnDrag: false,
+                hideEdgesOnZoom: false,
+                hideNodesOnDrag: false,
+                hover: false,
+                hoverConnectedEdges: true,
+                keyboard: {
+                    enabled: false,
+                    speed: { x: 10, y: 10, zoom: 0.02 },
+                    bindToWindow: true
+                },
+                multiselect: false,
+                navigationButtons: false,
+                selectable: true,
+                selectConnectedEdges: true,
+                tooltipDelay: 300,
+                zoomView: true
+            },
+            manipulation: {
+                enabled: false,
+                initiallyActive: false,
+                addNode: true,
+                addEdge: true,
+                editNode: undefined,
+                editEdge: true,
+                deleteNode: true,
+                deleteEdge: true,
+                controlNodeStyle: {
+                // all node options are valid (WTF THAT MEANS???)
+                }
+            },
+            physics: {
+                enabled: true,
+                barnesHut: {
+                    theta: 0.5,
+                    gravitationalConstant: -1,
+                    centralGravity: 1000,
+                    springLength: 10,
+                    springConstant: 0.04,
+                    damping: 0.2,
+                    avoidOverlap: 1
+                },
+                forceAtlas2Based: {
+                    theta: 0.5,
+                    gravitationalConstant: -100,
+                    centralGravity: 0.01,
+                    springConstant: 0.08,
+                    springLength: 100,
+                    damping: 0.4,
+                    avoidOverlap: 0
+                },
+                repulsion: {
+                    centralGravity: 0.2,
+                    springLength: 200,
+                    springConstant: 0.05,
+                    nodeDistance: 100,
+                    damping: 0.09
+                },
+                hierarchicalRepulsion: {
+                    centralGravity: 0.0,
+                    springLength: 100,
+                    springConstant: 0.01,
+                    nodeDistance: 120,
+                    damping: 100,
+                    avoidOverlap: 0
+                },
+                maxVelocity: 0.001,
+                minVelocity: 0.0001,
+                solver: 'forceAtlas2Based',
+                stabilization: {
+                    enabled: true,
+                    iterations: Number.MAX_SAFE_INTEGER,
+                    updateInterval: 15,
+                    onlyDynamicEdges: false,
+                    fit: true
+                },
+                timestep: 0.5,
+                adaptiveTimestep: true,
+                wind: { x: 0, y: 0 }
+            },
+        };
+        delete this.optionsDefault.manipulation; // editNode is giving problems
+        this.optionsDefault.configure = {
+            filter: function (option, path) {
+                if (path.indexOf("physics") !== -1)
+                    return true;
+                if (path.indexOf("smooth") !== -1 || option === "smooth")
+                    return true;
+                return false;
+            },
+            container: $('#visOptions')[0],
+        };
+        const container = this.htmlg = $('#' + this.graph.model.getPrefix() + '_visGraph')[0];
+        this.net = new vis_network__WEBPACK_IMPORTED_MODULE_1__["Network"](container, {}, {});
+        this.net.on('stabilized', () => { this.onLayoutEnd(); });
+        // this.net.on('stabilizationIterationsDone', () => { this.onStabilizationStep(); } );
+        this.net.on('stabilizationProgress', () => { this.onStabilizationStep(); });
+        /*
+        this.net.startSimulation();
+        this.net.stopSimulation();// ferma senza stabilizzare?, ma chiama l'evento stabilized.
+        this.net.stabilize(); // stabilizza entro N iterazioni
+        */
+    }
+    setStyleEditorBackEvents(styleEditorOnLayoutStart, styleEditorOnLayoutEnd) {
+        this.styleEditorOnLayoutStart = styleEditorOnLayoutStart;
+        this.styleEditorOnLayoutEnd = styleEditorOnLayoutEnd;
+    }
+    onLayoutEnd() {
+        const positions = this.onStabilizationStep();
+        const manualStop = !this.isRunning;
+        if (!manualStop)
+            return;
+        if (this.styleEditorOnLayoutEnd)
+            this.styleEditorOnLayoutEnd();
+        console.log('vis layout stopped:', positions);
+    }
+    positionScaleFactor(p, clone = false) {
+        p = clone ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneObj(p) : p;
+        p.x = p.x * Layouting.scaleFactor;
+        p.y = p.y * Layouting.scaleFactor;
+        return p;
+    }
+    onStabilizationStep() {
+        //    console.log('vis stabilization step');
+        let positions = this.net.getPositions();
+        let key;
+        for (key in positions) {
+            const vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getByID(+key);
+            let position = positions[key];
+            position = this.positionScaleFactor(position);
+            const ep = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EdgePoint"].getByID(+key);
+            const newPos = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphPoint"](position.x, position.y);
+            // U.pe ( !!(ep && vertex), 'duplicate id', key, ep, vertex);
+            // U.pe (!ep && !vertex, 'invalid id', key);
+            /// todo: digli che l'evento viene da autolayout e setta onvertexmove se non viene da autolayout
+            if (vertex)
+                vertex.moveTo(newPos, false, false, true);
+            if (!vertex && ep)
+                ep.moveTo(newPos, false, true);
+        }
+        // todo: springlength e grav constant devi precompilarle in base alla size del grafo.
+        // poi devi capire se cresce lineare, al quadrato, o come...
+        return positions;
+    }
+    onVertexMove(v) {
+        // todo: che devo fare con edge che creano nuovi edgepoint dopo set data? mi sa che devo settare gli edge dinamicamente e tenermi i vertici selezionati al momento dello start
+        if (!this.isRunning)
+            return;
+        const node = this.vertexToVis(v);
+        if (!node)
+            return;
+        this.stop();
+        this.start();
+        return;
+        const size = v.getSize();
+        node.size = (size.w * size.h === 0) ? 0 : size.w; // Math.max(size.w, size.h);
+        node['heightConstraint'] = size.h;
+        node.x = size.x;
+        node.y = size.y;
+    }
+    prepareStartData() {
+        let vertexes = this.graph.getVertexSelection();
+        if (!vertexes || !vertexes.length)
+            vertexes = this.graph.getAllVertex();
+        this.clearLayout();
+        this.addToLayout(vertexes, false);
+        this.data.edges = this.prepareEdgeData(); // setta edge ed edgepoint nel data.nodes
+        this.data = this.applyScaleFactor(Layouting.scaleFactor, false);
+    }
+    linkVisVertex(v, node) { this.vertexMap[v.id] = { vertex: v, visNode: node }; }
+    vertexToVis(v) { return this.vertexMap[v.id] && this.vertexMap[v.id].visNode; }
+    visToVertex(v) { return this.vertexMap[v.id] && this.vertexMap[v.id].vertex; }
+    clearLayout() {
+        this.vertexMap = {};
+        this.data.nodes = [];
+    }
+    addToLayout(vertexes, restart) {
+        if (restart)
+            return this.restart();
+        for (const v of vertexes) {
+            if (!v.autoLayout)
+                continue;
+            let node = this.vertexToVis(v);
+            if (node)
+                return; // already exists
+            node = {};
+            node.id = v.id;
+            this.linkVisVertex(v, node);
+            const size = v.getSize();
+            // https://almende.github.io/vis/docs/network/nodes.html deprecated, but best documentation
+            node.label = v.logic().name; // v.logic().printableNameshort(10);
+            node.shape = 'square'; // esiste anche "box" ma solo con label inside, e prende la size dalla label...
+            node.size = (size.w * size.h === 0) ? 0 : size.w; // Math.max(size.w, size.h);
+            node['heightConstraint'] = size.h;
+            node.x = size.x;
+            node.y = size.y;
+            node.font = {};
+            node.font.size = 100;
+            node.font.face = 'arial';
+            node.font.color = '#000000';
+            this.data.nodes.push(node);
+        }
+        this.prepareEdgeData();
+    }
+    restart() {
+        this.start();
+        this.stop();
+    }
+    removeFromLayout(vertexes, restart) {
+        if (restart)
+            return this.restart();
+        for (const v of vertexes) {
+            if (v.autoLayout)
+                continue;
+            const node = this.vertexToVis(v);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].arrayRemoveAll(this.data.nodes, node);
+            delete this.vertexMap[v.id];
+        }
+        this.prepareEdgeData();
+    }
+    getCurrentVertexes() {
+        let v = [];
+        for (let id in this.vertexMap) {
+            v.push(this.vertexMap[id].vertex);
+        }
+        return v;
+    }
+    applyScaleFactor(factor, clone = false) {
+        const data = clone ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneObj(this.data) : this.data;
+        for (let node of data.nodes) {
+            console.log('vis node loop', node, data);
+            // node.scaling ??
+            node.x = node.x && node.x / factor;
+            node.y = node.y && node.y / factor;
+            node.size = node.size && node.size / factor;
+            node['heightConstraint'] = node['heightConstraint'] && node['heightConstraint'] / factor;
+            if (node.font) {
+                node.font['size'] = node.font['size'] && node.font['size'] / factor;
+            }
+        }
+        for (let edge of data.edges) {
+            edge.length = edge.length && edge.length / factor;
+            edge.width = edge.width && edge.width / factor;
+            edge.hoverWidth = edge.hoverWidth && edge.hoverWidth / factor;
+            edge.selectionWidth = edge.selectionWidth && edge.selectionWidth / factor;
+        }
+        return data;
+    }
+    prepareEdgeData() {
+        let visedges;
+        const vertexes = this.getCurrentVertexes();
+        let edgesArr = null; // this.graph.getEdgeSelection();
+        if (!edgesArr || !edgesArr.length) {
+            const edgeset = new Set();
+            vertexes.forEach((v) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].SetMerge(true, edgeset, v.edgesEnd, v.edgesStart); });
+            edgesArr = [...edgeset];
+        }
+        // accetto solo edge che hanno start ed end nella selezione, e che NON hanno length 0 (start = end senza midpoint forzati)
+        edgesArr = edgesArr.filter((e) => { return this.vertexMap[e.start.id] && this.vertexMap[e.end.id] && !(e.midNodes.length === 0 && e.start === e.end); });
+        visedges = edgesArr.map((e) => { return { from: e.start.id, to: e.end.id, id: e.id }; });
+        switch (this.myOptions.edgePointMode) {
+            default:
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'unexpected switch layouting.edgepointMode:', this.myOptions.edgePointMode);
+                break;
+            case 'ignore':
+            case 'relative': break;
+            case 'vertex':
+                const midPoints = [];
+                edgesArr.forEach((e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ArrayMerge(midPoints, e.midNodes); });
+                const midPointsvis = midPoints.map((ep) => {
+                    const node = {};
+                    const size = ep.getSize();
+                    // https://almende.github.io/vis/docs/network/nodes.html deprecated, but best documentation
+                    node.id = ep.id;
+                    node.shape = 'square'; // esiste anche "box" ma solo con label inside, e prende la size dalla label...
+                    node.label = '°';
+                    node.size = (size.w * size.h === 0) ? 0 : size.w; // Math.max(size.w, size.h);
+                    node['heightConstraint'] = size.h;
+                    node.x = size.x;
+                    node.y = size.y;
+                    return node;
+                });
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ArrayMerge(this.data.nodes, midPointsvis);
+                break;
+            case 'delete':
+                Object.values(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EdgePoint"].all).forEach((ep) => { ep.detach(); });
+                break;
+        }
+        return visedges;
+    }
+    start() {
+        this.prepareStartData();
+        // this.nodeExampleCompiler.shape;
+        // this.nodeExampleCompiler.shapeProperties.
+        this.net.setOptions(this.optionsDefault);
+        console.log('vis.data:', this.data);
+        this.net.setData(this.data);
+        this.isRunning = true;
+        if (this.styleEditorOnLayoutStart)
+            this.styleEditorOnLayoutStart();
+        // this.net.startSimulation();
+    }
+    stop() {
+        this.net.stopSimulation();
+    }
+    stabilize(steps = null, renewData = true) {
+        if (renewData) {
+            this.net.setOptions(this.optionsDefault);
+            this.prepareStartData();
+            this.net.setData(this.data);
+        }
+        this.net.stabilize(steps === null ? steps : this.stabilizationSteps);
+    }
+    setOption(key, value) {
+        const keypath = key.split('.');
+        let opt = this.optionsDefault;
+        switch (key) {
+            default:
+                for (let i = 0; i < keypath.length - 1; i++) {
+                    opt = opt[keypath[i]];
+                    console.log('key2 subpart: ', keypath[i], '->', opt);
+                }
+                opt[keypath[keypath.length - 1]] = value;
+                console.log('key2 END: setting ', keypath[keypath.length - 1], '->', value);
+                break;
+        }
+    }
+    getOption(key) {
+        const keypath = key.split('.');
+        let opt = this.optionsDefault;
+        let ret;
+        switch (key) {
+            default:
+                for (let i = 0; i < keypath.length - 1; i++) {
+                    opt = opt[keypath[i]];
+                    // console.log('key2 subpart: ', keypath[i], '->', opt);
+                }
+                ret = opt[keypath[keypath.length - 1]];
+                //console.log('key2 END: ', keypath[keypath.length - 1], '->', ret);
+                break;
+        }
+        return ret;
+    }
+}
+Layouting.maxID = 1;
+Layouting.scaleFactor = 1;
+
+
+/***/ }),
+
 /***/ "./src/guiElements/mGraph/Vertex/Mark.ts":
 /*!***********************************************!*\
   !*** ./src/guiElements/mGraph/Vertex/Mark.ts ***!
@@ -14380,8 +15376,8 @@ class Mark {
             this.style.color = Mark.colorCycle.get();
         }
         let html = this.mp1.getHtmlOnGraph();
-        let i; /*
-        if (this.key === 'refhover') { // crosshair (+), alias (default+link), cell (excel)ù
+        let i;
+        /*if (this.key === 'refhover') { // crosshair (+), alias (default+link), cell (excel)ù
           const $inputs = $(html).find('input, textarea, select, button');
           let cursor: string = null;
           if (markb) {
@@ -14460,9 +15456,9 @@ class Mark {
         if (this.mp2 && !this.css2) {
             this.css2 = document.createElement('style');
         }
-        if (this.mp1)
+        if (this.mp1 && this.mp1.getVertex(false))
             this.setHtml(this.html1, this.mp1, this.css1, set);
-        if (this.mp2)
+        if (this.mp2 && this.mp2.getVertex(false))
             this.setHtml(this.html2, this.mp2, this.css2, set);
     }
 }
@@ -14506,6 +15502,7 @@ class IVertex {
         this.edgesStart = [];
         this.edgesEnd = [];
         this.Vmarks = {};
+        this.autoLayout = true;
         if (!logical)
             return;
         this.id = IVertex.ID++;
@@ -14575,12 +15572,21 @@ class IVertex {
         // edge.tmpEndVertex = ref.parent.getVertex();
         edge.refreshGui();
     }
-    static getvertex(e) {
-        return IVertex.getvertexByHtml(e.currentTarget);
+    static getvertex(e, canUseMp = true) {
+        return IVertex.getvertexByHtml(e.currentTarget, canUseMp);
     }
-    static getvertexByHtml(node0) {
-        const logic = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(node0);
-        return logic && logic.getVertex();
+    static getvertexByHtml(node0, canUseMp = true) {
+        if (canUseMp) {
+            const logic = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(node0);
+            return logic && logic.getVertex();
+        }
+        let node = node0;
+        while (node) {
+            if (node.dataset && node.dataset.vertexID)
+                return IVertex.getByID(+node.dataset.vertexID);
+            node = node.parentNode;
+        }
+        return null;
     }
     /*let node: HTMLElement = node0 as HTMLElement
     U.pe(!node, 'getVertexByHtml: parameter is not a DOM node:', node);
@@ -14719,7 +15725,8 @@ class IVertex {
             return pt;
         }
         pt = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"].closestIntersection(vertexGSize, prevPt, pt, this.owner.grid);
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
+        // U.pe(!U.isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
         return pt;
     }
     setSize(size, refreshVertex = false, refreshEdge = true, trigger = null && false) {
@@ -14758,7 +15765,14 @@ class IVertex {
             this.refreshEdgesGUI();
         }
         if (trigger) {
+            // todo: problema: un solo measurable node può eseguire gli eventi "on...." (il foreignObject)
             let measnode = this.getMeasurableNode();
+            // todo: problema 2: i trigger possono eseguire solo comandi dello stesso nodo che contiene il trigger.
+            // todo problema 3: se imposto on onmove -> move linked object(follow me) && onmove->constraint e sposto in modo da violare il constraint:
+            //  siccome il constraint viene eseguito dopo, il linked object segue il mouse ma non l'oggetto che rimane fisso per il constraint.
+            //  non è un bug, va benissimo e deve funzionare così, però devo anche prevedere un assegnamento di ordine dei comandi
+            //  - fix lessicografico con prefix number: poco user friendly e costringe i nomi
+            //  - fix con pulsanti "sposta regola" su o giù e segui ordine di html (ordine attributi sul nodo in grafo == ordine esecuzione == ordine visualizzazione style editor)
             if (measnode.classList.contains('measurable'))
                 this.measuringEventTrigger(null, null, trigger, measnode);
         }
@@ -15018,7 +16032,6 @@ class IVertex {
         const html = this.htmlForeign;
         /// append childrens:
         const $childContainer = $(html).find('.ChildrenContainer, .ChildContainer, .AttributeContainer, .ReferenceContainer, .OperationContainer, .ParameterContainer');
-        const childContainer = $childContainer[0];
         // U.pe($attContainer.length !== 1, 'there must be exactly one element with class "AttributeContainer".', $attContainer);
         // U.pe($refContainer.length !== 1, 'there must be exactly one element with class "ReferenceContainer".', $refContainer);
         // U.pe($opContainer.length !== 1, 'there must be exactly one element with class "OperationContainer".', $opContainer);
@@ -15045,27 +16058,33 @@ class IVertex {
         for (j = 0; j < $childContainer.length; j++) {
             let childContainer = $childContainer[j];
             validator = getValidator(childContainer);
-            let allowAttributes = childContainer.classList.contains('AttributeContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('attributes'), true);
-            let allowReferences = childContainer.classList.contains('ReferenceContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('references'), true);
-            let allowOperations = childContainer.classList.contains('OperationContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('operations'), true);
-            let allowParameters = childContainer.classList.contains('ParameterContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('parameters'), true);
-            let allowLiterals = childContainer.classList.contains('LiteralContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('literals'), true);
-            let allowAnnotations = childContainer.classList.contains('AnnotationContainer') || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('annotations'), true);
+            let specific = !childContainer.classList.contains('ChildrenContainer') && !childContainer.classList.contains('ChildContainer');
+            let allowAttributes = childContainer.classList.contains('AttributeContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('attributes'), true);
+            let allowReferences = childContainer.classList.contains('ReferenceContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('references'), true);
+            let allowOperations = childContainer.classList.contains('OperationContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('operations'), true);
+            let allowParameters = childContainer.classList.contains('ParameterContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('parameters'), true);
+            let allowLiterals = childContainer.classList.contains('LiteralContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('literals'), true);
+            let allowAnnotations = childContainer.classList.contains('AnnotationContainer') || !specific && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('annotations'), true);
             let allowInheritance = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('inherited'), data.getModelRoot().isM1());
-            let shadowedVal = childContainer.getAttribute('inherited');
-            let allowShadowed = shadowedVal === null ? false : _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(shadowedVal, false, true);
+            let allowOnlyShadowed = childContainer.hasAttribute('shadowed') && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(childContainer.getAttribute('shadowed'), false, true);
+            // U.pe(allowShadowed === false, childContainer.getAttribute('shadowed'), U.fromBoolString(childContainer.getAttribute('shadowed'), false, true));
             for (i = 0; i < childs.length; i++) {
+                console.log('mx ' + data.id + ' filtering children [' + i + " / " + childs.length + ']', childs);
                 let child = childs[i];
                 let field;
                 if (validator && !validator(childs[i], i, childs))
                     continue;
+                console.log('mx ' + data.id + ' validator ok ');
                 if (!allowInheritance && child.parent !== data)
                     continue;
+                console.log('mx ' + data.id + ' allowInheritance ok ');
                 if (child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]) {
                     // error: when i delete extedge shadowed attr will disappear
-                    console.log('allowShadowed:', allowShadowed, child.isShadowed(data), child);
-                    if (allowShadowed !== null && child.isShadowed(data) !== allowShadowed)
+                    console.log('allowShadowed:', allowOnlyShadowed, child.isShadowed(data), child);
+                    console.log('shadowed mx ' + data.id + '? ', allowOnlyShadowed, child.isShadowed(data), child, data);
+                    if (allowOnlyShadowed !== null && child.isShadowed(data) !== allowOnlyShadowed)
                         continue;
+                    console.log('mx ' + data.id + ' shadowed ok');
                     if (allowAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"])
                         field = this.drawA(child);
                     else if (allowReferences && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"])
@@ -15235,20 +16254,19 @@ class IVertex {
         $html.off('mouseenter.vertex').on('mouseenter.vertex', (e) => { this.onMouseEnter(e); });
         $html.off('mouseleave.vertex').on('mouseleave.vertex', (e) => { this.onMouseLeave(e); });
         $html.off('click').on('click', (e) => { this.onClick(e); });
-        $html.off('contextmenu').on('contextmenu', (e) => { return this.vertexContextMenu(e); });
+        // $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
         // const $addFieldButtonContainer: JQuery<HTMLElement> = $html.find('.addFieldButtonContainer') as any as JQuery<HTMLElement>;
         // this.setAddButtonContainer($addFieldButtonContainer[0]);
     }
     addEventListeners() {
         let i;
         const $html = $(this.htmlg);
+        //    $html.find('.Attribute, .Reference, .ELiteral, .Operation, .Parameter').off('contextmenu').on('contextmenu',
+        //      (e: ContextMenuEvent): boolean => { return this.featureContextMenu(e); });
         $html.find('.delete').off('click.delete').on('click.delete', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].get(e).delete(true); });
         $html.find('.addFieldButton').off('click.addField').on('click.addField', (e) => { this.addFieldClick(e); });
         $html.find('.AddFieldSelect').off('change.addField').on('change.addField', (e) => { this.addFieldClick(e); });
         $html.find('input, select, textarea').off('change.fieldchange').on('change.fieldchange', (e) => IVertex.FieldNameChanged(e));
-        // NB: deve essere solo un off, oppure metti selettore .NOT(class) nel selettore dei 'select' di sopra
-        // if (!IVertex.contextMenu) { IVertex.contextMenu = new MyContextMenuClass(new ContextMenuService()); }
-        $html.find('.Attribute, .Reference, .ELiteral, .Operation, .Parameter').off('contextmenu').on('contextmenu', (e) => { return this.featureContextMenu(e); });
         // todo: viene chiamato 1 volta per ogni elementNode con modelID, ma io eseguo tutto dalla radice.
         // quindi viene eseguito N +1 volte per ogni vertice dove N sono i suoi (attributes + references)
         // console.log(html.tagName, html.dataset.modelpieceid);
@@ -15337,25 +16355,31 @@ class IVertex {
             return;
         }
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'setreferenceClick success!');
-        const vertexLogic = this.logic();
-        if (!(vertexLogic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]))
+        const newTargetVertex = this;
+        const oldTargetVertex = edge.end;
+        const newTargetLogic = newTargetVertex.logic();
+        const oldTargetLogic = oldTargetVertex && oldTargetVertex.logic();
+        if (!(newTargetLogic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]))
             return;
-        if (!edge.canBeLinkedTo(vertexLogic)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'edge ', edge.logic, 'cannot be linked to ', vertexLogic, 'hoveringvertex:', this);
+        if (!edge.canBeLinkedTo(newTargetLogic)) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'edge ', edge.logic, 'cannot be linked to ', newTargetLogic, 'hoveringvertex:', newTargetVertex);
             return;
         }
         if (edge.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"])
-            edge.logic.linkClass(vertexLogic, edge.getIndex(), true);
+            edge.logic.linkClass(newTargetLogic, edge.getIndex(), true);
         if (edge.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Reference"])
-            edge.logic.setType(vertexLogic.getEcoreTypeName());
+            edge.logic.setType(newTargetLogic.getEcoreTypeName());
         if (edge instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"]) {
-            if (edge.end)
-                edge.logic.unsetExtends(edge.end.logic(), false); // unset old extend without removing this vertex
+            if (edge.end && oldTargetLogic)
+                edge.logic.unsetExtends(oldTargetLogic, false); // unset old extend without removing this vertex
             edge.logic.setExtends(this.logic()); // extend the newly clicked vertex (this)
         }
         else {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(edge.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"], 'cst: class edges are currently not supported');
         }
+        if (oldTargetVertex)
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldTargetVertex.edgesEnd, edge);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(newTargetVertex.edgesEnd, edge);
         this.mark(false, 'refhover');
         // altrimenti parte l'onClick su AddFieldButton quando fissi la reference.
         // setTimeout( () => { IEdge.edgeChanging = null; }, 1);
@@ -15369,38 +16393,6 @@ class IVertex {
     }
     onClick(e) {
         // IVertex.ChangePropertyBarContentClick(e);
-    }
-    vertexContextMenu(evt) { return this.onContextMenuInner(evt, '.Vertex'); }
-    featureContextMenu(evt) { return this.onContextMenuInner(evt, '.Feature'); }
-    onContextMenuInner(evt, classSelector) {
-        // evt.preventDefault(); evt.stopPropagation(); return false;
-        evt.stopPropagation();
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DamContextMenuComponent"].contextMenu.hide();
-        // only if is focused input
-        const lastSelected = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].focusHistoryEntries[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].focusHistoryElements.length - 1];
-        const gotSelectedNow = lastSelected && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
-        const isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isInput(evt.target, true, false) && !gotSelectedNow;
-        let clickStartedOutsideVertex = IVertex.startDragContext == null;
-        // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato = male
-        // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input = male
-        if (isInput && clickStartedOutsideVertex)
-            evt.target.focus();
-        if (!isInput && gotSelectedNow)
-            evt.target.blur();
-        // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
-        const pixelMoved = !clickStartedOutsideVertex && this.size.tl().subtract(IVertex.startDragContext.size.tl(), false).absolute();
-        const gotMoved = !clickStartedOutsideVertex && pixelMoved >= this.tolleranzaRightClickMove;
-        const ret = isInput && !gotMoved;
-        // evt['passedThroughVertex'] = ret;
-        if (ret)
-            return true;
-        else {
-            evt.preventDefault();
-        }
-        if (gotMoved)
-            return ret;
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DamContextMenuComponent"].contextMenu.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](evt.pageX, evt.pageY), classSelector, evt.currentTarget);
-        return ret;
     }
     onMouseDown(e) {
         if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging) {
@@ -15498,7 +16490,7 @@ class IVertex {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.debug = true;
         const html = this.getHtmlFirstChild();
         let select;
-        // const debugOldJson = U.cloneObj(modelPiece.generateModel());
+        // const debugOldJson = U.cloneObj(modelPiece.generateModel({}));
         select = $(html).find('.AddFieldSelect')[0];
         switch (select.value.toLowerCase()) {
             default:
@@ -15556,11 +16548,19 @@ class IVertex {
             }
         }
     }
-    moveTo(graphPoint, gridIgnore = false) {
+    moveTo(graphPoint, gridIgnore = false, center = false, fromAutoLayouting = false) {
         // console.log('moveTo(', graphPoint, '), gridIgnore:', gridIgnore, ', grid:');
         // const oldsize: GraphSize = this.size; // U.getSvgSize(this.logic().html as SVGForeignObjectElement);
+        if (center) {
+            const size = this.getSize();
+            graphPoint.x -= size.w / 2;
+            graphPoint.y += size.h / 2;
+        }
         if (!gridIgnore) {
             graphPoint = this.owner.fitToGrid(graphPoint);
+        }
+        if (!fromAutoLayouting) {
+            this.owner.layouting.onVertexMove(this);
         }
         this.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](graphPoint.x, graphPoint.y, null, null), false, true, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileDragging);
     }
@@ -15651,6 +16651,15 @@ class IVertex {
         const markRect = this.Vmarks[markKey];
         return (markRect.getAttributeNS(null, 'stroke') === colorFilter);
     }
+    setAutolayout(checked) {
+        this.autoLayout = checked;
+        if (this.autoLayout) {
+            this.owner.layouting.addToLayout([this], true);
+        }
+        else {
+            this.owner.layouting.removeFromLayout([this], true);
+        }
+    }
 }
 IVertex.all = {};
 IVertex.ID = 0;
@@ -15676,6 +16685,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IGraph", function() { return IGraph; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
+/* harmony import */ var _Layouting__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Layouting */ "./src/guiElements/mGraph/Layouting.ts");
+
 
 
 class ViewPointShell {
@@ -15905,14 +16916,18 @@ class IGraph {
         this.zoom = null;
         this.grid = null;
         this.gridDisplay =  false && false;
+        this.gridColor1 = '#808080';
+        this.gridColor2 = '#808080';
         // campi per robe di debug
         this.allMarkgp = [];
+        this.useGrid = true;
         this.oldGridX = null;
         this.oldGridY = null;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!container, 'graph container is null. model:', model);
         this.id = IGraph.ID++;
         IGraph.all[this.id + ''] = this;
         this.model = model;
+        this.layouting = new _Layouting__WEBPACK_IMPORTED_MODULE_2__["Layouting"](this);
         this.model.graph = this;
         this.container = container;
         this.container.dataset.graphID = '' + this.id;
@@ -15990,6 +17005,8 @@ class IGraph {
         return null;
     }
     fitToGrid(pt0, clone = true, debug = false, fitHorizontal = true, fitVertical = true) {
+        if (!this.useGrid)
+            return pt0;
         const pt = clone ? pt0.duplicate() : pt0;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.grid, 'grid not initialized.');
         if (fitHorizontal && !isNaN(this.grid.x) && this.grid.x > 0) {
@@ -16002,6 +17019,8 @@ class IGraph {
         return pt;
     }
     fitToGridS(pt0, clone = true, debug = false, fitHorizontal = true, fitVertical = true) {
+        if (!this.useGrid)
+            return pt0;
         const pt = clone ? pt0.duplicate() : pt0;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.grid, 'grid not initialized.');
         if (fitHorizontal && !isNaN(this.grid.x) && this.grid.x > 0) {
@@ -16013,13 +17032,14 @@ class IGraph {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'fitToGrid(', pt0, '); this.grid:', this.grid, ' = ', pt);
         return pt;
     }
-    graphContextMenu(e) {
+    /*
+      graphContextMenu(e: ContextMenuEvent): boolean {
         // console.log('passedThroughVertex', e, e['passedThroughVertex']);
         // if (e['passedThroughVertex'] !== undefined) return e['passedThroughVertex'];
         e.preventDefault();
         e.stopPropagation();
-        return false;
-    }
+        return false; }
+    */
     addGraphEventListeners() {
         const $graph = $(this.container);
         const thiss = this;
@@ -16031,7 +17051,7 @@ class IGraph {
         // $graph.off('click.mark').on('click.mark', (e: ClickEvent) => { thiss.markClick(e, true); } );
         $graph.off('mousedown.move').on('mousedown.move', (e) => this.onMouseDown(e, false));
         $graph.off('mouseup.move').on('mouseup.move', (e) => this.onMouseUp(e));
-        $graph.off('contextmenu').on('contextmenu', (e) => { return this.graphContextMenu(e); });
+        // $graph.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.graphContextMenu(e); });
         // @ts-ignore
         if (!!ResizeObserver) { // not supported by edge, android firefox.
             if (!window['' + 'resizeobservers'])
@@ -16216,14 +17236,15 @@ class IGraph {
         const debug = true;
         ret.x -= graphSize.x;
         ret.y -= graphSize.y;
-        ret.x += this.scroll.x;
-        ret.y += this.scroll.y;
         ret.x /= this.zoom.x;
         ret.y /= this.zoom.y;
+        ret.x += this.scroll.x;
+        ret.y += this.scroll.y;
         // console.log('toGraph()  - graphSize:', graphSize, ' + scroll: ', this.scroll, ' / zoom', this.zoom);
         if (debug) {
             const ver = this.toHtmlCoord(ret);
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(ver.x !== p.x || ver.y !== p.y, 'error in toGraphCoord or toHtmlCoord: inputPt:', p, ', result: ', ret, 'verify:', ver, 'point:', p, 'scroll:', this.scroll, 'zoom:', this.zoom, 'GraphHtmlSize:', graphSize);
+            let tolerance = 0.001;
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(Math.abs(ver.x - p.x) > tolerance || Math.abs(ver.y - p.y) > tolerance, 'error in toGraphCoord or toHtmlCoord: inputPt:', p, ', result: ', ret, 'verify:', ver, 'point:', p, 'scroll:', this.scroll, 'zoom:', this.zoom, 'GraphHtmlSize:', graphSize);
         }
         return ret;
     }
@@ -16239,14 +17260,15 @@ class IGraph {
         const graphSize = this.getSize();
         const ret = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](p.x, p.y);
         // console.log('toHtml()', ' * zoom', this.zoom, ' - scroll: ', this.scroll, ' + graphSize:', graphSize);
-        ret.x *= this.zoom.x;
-        ret.y *= this.zoom.y;
         ret.x -= this.scroll.x;
         ret.y -= this.scroll.y;
+        ret.x *= this.zoom.x;
+        ret.y *= this.zoom.y;
         ret.x += graphSize.x;
         ret.y += graphSize.y;
         return ret;
     }
+    getAllVertex() { return [...this.model.getAllClasses(), ...this.model.getAllEnums()].map((c) => c.getVertex(false)); }
     getAllVertexIsBroke() { return this.vertex; }
     markClick(e, clean = true) { return this.mark(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](e.pageX, e.pageY), clean); }
     markg(gp, clean = false, colorTop = 'red') {
@@ -16312,6 +17334,12 @@ class IGraph {
         if (checked !== null)
             this.gridDisplay = checked;
         this.refreshGridGUI();
+    }
+    setUseGrid(b) {
+        if (this.useGrid === b)
+            return;
+        this.useGrid = b;
+        this.fitVertexToGrid(false);
     }
     setScroll(x, y) {
         const old = this.scroll.duplicate();
@@ -16382,12 +17410,12 @@ class IGraph {
         this.gridDefsHtml.innerHTML =
             '<pattern id="smallGrid_' + this.id + '" width="' + x + '" height="' + y + '" patternUnits="userSpaceOnUse">\n' +
                 (!drawx && !drawy ? '<!-- no grid -->' :
-                    '  <path d="m 0 0' + (drawy ? ' l' : ' m') + (x) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y) + '" fill="none" stroke="gray" stroke-width="0.5"/>\n') +
+                    '  <path d="m 0 0' + (drawy ? ' l' : ' m') + (x) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y) + '" fill="none" stroke="' + this.gridColor1 + '" stroke-width="0.5"/>\n') +
                 '</pattern>\n' +
                 '<pattern id="grid_' + this.id + '" width="' + (x * 10) + '" height="' + (y * 10) + '" patternUnits="userSpaceOnUse">\n' +
                 (!drawx && !drawy ? '<!-- no grid -->' :
                     '  <rect width="' + (x * 10) + '" height="' + (y * 10) + '" fill="url(#smallGrid_' + this.id + ')"/>\n' +
-                        '  <path d="m 0 0' + (drawy ? ' l' : ' m') + (x * 10) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y * 10) + '" fill="none" stroke="gray" stroke-width="1"/>\n') +
+                        '  <path d="m 0 0' + (drawy ? ' l' : ' m') + (x * 10) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y * 10) + '" fill="none" stroke="' + this.gridColor2 + '" stroke-width="1"/>\n') +
                 '</pattern>';
         this.setGridPos();
         // $grid[0].setAttributeNS(null, 'justForRefreshingIt', 'true');
@@ -16403,6 +17431,26 @@ class IGraph {
         v.owner = this;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.vertex, v);
         // todo: aggiungi edges tra i vertici. in matrix edgeMatrix[vertex][vertex] = edge
+    }
+    /*
+      setGrid(grid: GraphPoint): void {
+        this.grid = grid;
+        this.model.refreshGUI_Alone(); // reallinea tutti i vertici.
+      }*/
+    getVertexSelection() {
+        return [];
+    }
+    getEdgeSelection() {
+        return [];
+    }
+    getSelection() {
+        return [];
+    }
+    fitVertexToGrid(force = false) {
+        const vertexes = this.getAllVertex();
+        vertexes.forEach((v, i) => {
+            v.setSize(this.fitToGridS(v.getSize()), false, true, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
+        });
     }
 }
 // todo: this.vertex non è mai aggiornato reealmente.
@@ -16612,7 +17660,7 @@ MsidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\ninput, select {\r\n  height: 21px;\r\n  border-radius: 5px;\r\n  border-bottom-right-radius: 12px; }\r\ninput:hover, select:hover, input:focus, select:focus {\r\n  outline: none;\r\n  border: 2px solid dodgerblue;\r\n  height: 22px;\r\n}\r\n/* label > input[type='checkbox']{ height: 21px; } */\r\n/* input[type='checkbox']:hover, input[type='checkbox']:focus { height: 23px; }*/\r\ninput[disabled]:hover, select[disabled]:hover{\r\n  outline: none;\r\n  border: 2px solid gray;\r\n  /* height: auto; */\r\n}\r\n/*propertyBar*/\r\n#modelTemplate, #packageTemplate, #classTemplate, #attributeTemplate, #referenceTemplate{\r\n  width: 100%;\r\n}\r\n.propertySidebarTemplates{\r\n  display: none;\r\n}\r\n.wastemplate {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.wastemplate > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate > *{\r\n  width: 100%;\r\n}\r\n.minimizer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-left: 2px dashed dodgerblue;\r\n  border-bottom: 2px dashed dodgerblue;\r\n  min-width: 8px !important;\r\n  height: auto;\r\n  width: 8px !important;\r\n}\r\n.wastemplate.minimized > *{\r\n  display: none;\r\n}\r\n.wastemplate.minimized:hover {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-color: var(--secondary);\r\n}\r\n.wastemplate.minimized:before {\r\n  color: dodgerblue;\r\n  content: '+';\r\n  font-size: 20px;\r\n  margin: auto;\r\n  line-height: 0;\r\n}\r\n.wastemplate.minimized:hover:before {\r\n  color: var(--secondary);\r\n}\r\n.minimizer:hover, .attributeMinimizer:hover{\r\n  border-left: 2px dashed var(--secondary);\r\n  border-bottom: 2px dashed var(--secondary);\r\n}\r\n.wastemplate.minimized{\r\n  border: 2px solid dodgerblue;\r\n  height: 20px;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate.minimized.list{\r\n  border-style: dashed;\r\n}\r\n.minimizer.single {\r\n  border-style: solid;\r\n  border-right: none;\r\n  border-top: none;\r\n}\r\n.content {\r\n  margin-left: 8px;\r\n  width: 100%;\r\n  height: -webkit-min-content;\r\n  height: -moz-min-content;\r\n  height: min-content;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*width: calc(100% - 16px);*/\r\n\r\n}\r\nlabel{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 24px;\r\n  line-height: 24px;\r\n  white-space: nowrap;\r\n}\r\nlabel > input, label > select{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n  margin-right: 0;\r\n  margin-left: 20px;\r\n  width: inherit;\r\n  min-width: 60px;\r\n  /* float: right; */\r\n  /*margin-right: 0;*/\r\n}\r\nlabel > input[type=\"number\"] {\r\n  min-width: 30px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9wcm9wZXJ0eS1iYXJyL3Byb3BlcnR5LWJhcnIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGdDQUFnQyxFQUFFO0FBQ3BDO0VBQ0UsYUFBYTtFQUNiLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7QUFFQSxvREFBb0Q7QUFFcEQsZ0ZBQWdGO0FBQ2hGO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7QUFDQSxjQUFjO0FBQ2Q7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGtDQUFrQztFQUNsQyxvQ0FBb0M7RUFDcEMseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQThCO0FBQ2hDO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUNBO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsMENBQTBDO0FBQzVDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQiw0QkFBNEI7O0FBRTlCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixXQUFXO0VBQ1gsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvcHJvcGVydHktYmFyci9wcm9wZXJ0eS1iYXJyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuaW5wdXQsIHNlbGVjdCB7XHJcbiAgaGVpZ2h0OiAyMXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMTJweDsgfVxyXG5pbnB1dDpob3Zlciwgc2VsZWN0OmhvdmVyLCBpbnB1dDpmb2N1cywgc2VsZWN0OmZvY3VzIHtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGRvZGdlcmJsdWU7XHJcbiAgaGVpZ2h0OiAyMnB4O1xyXG59XHJcblxyXG4vKiBsYWJlbCA+IGlucHV0W3R5cGU9J2NoZWNrYm94J117IGhlaWdodDogMjFweDsgfSAqL1xyXG5cclxuLyogaW5wdXRbdHlwZT0nY2hlY2tib3gnXTpob3ZlciwgaW5wdXRbdHlwZT0nY2hlY2tib3gnXTpmb2N1cyB7IGhlaWdodDogMjNweDsgfSovXHJcbmlucHV0W2Rpc2FibGVkXTpob3Zlciwgc2VsZWN0W2Rpc2FibGVkXTpob3ZlcntcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGdyYXk7XHJcbiAgLyogaGVpZ2h0OiBhdXRvOyAqL1xyXG59XHJcbi8qcHJvcGVydHlCYXIqL1xyXG4jbW9kZWxUZW1wbGF0ZSwgI3BhY2thZ2VUZW1wbGF0ZSwgI2NsYXNzVGVtcGxhdGUsICNhdHRyaWJ1dGVUZW1wbGF0ZSwgI3JlZmVyZW5jZVRlbXBsYXRle1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5wcm9wZXJ0eVNpZGViYXJUZW1wbGF0ZXN7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4ud2FzdGVtcGxhdGUge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcbi53YXN0ZW1wbGF0ZSA+ICoge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luLWJvdHRvbTogOHB4O1xyXG59XHJcblxyXG4ud2FzdGVtcGxhdGUgPiAqe1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5taW5pbWl6ZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyLWxlZnQ6IDJweCBkYXNoZWQgZG9kZ2VyYmx1ZTtcclxuICBib3JkZXItYm90dG9tOiAycHggZGFzaGVkIGRvZGdlcmJsdWU7XHJcbiAgbWluLXdpZHRoOiA4cHggIWltcG9ydGFudDtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd2lkdGg6IDhweCAhaW1wb3J0YW50O1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQgPiAqe1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuLndhc3RlbXBsYXRlLm1pbmltaXplZDpob3ZlciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLndhc3RlbXBsYXRlLm1pbmltaXplZDpiZWZvcmUge1xyXG4gIGNvbG9yOiBkb2RnZXJibHVlO1xyXG4gIGNvbnRlbnQ6ICcrJztcclxuICBmb250LXNpemU6IDIwcHg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGxpbmUtaGVpZ2h0OiAwO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6aG92ZXI6YmVmb3JlIHtcclxuICBjb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcclxufVxyXG4ubWluaW1pemVyOmhvdmVyLCAuYXR0cmlidXRlTWluaW1pemVyOmhvdmVye1xyXG4gIGJvcmRlci1sZWZ0OiAycHggZGFzaGVkIHZhcigtLXNlY29uZGFyeSk7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IGRhc2hlZCB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWR7XHJcbiAgYm9yZGVyOiAycHggc29saWQgZG9kZ2VyYmx1ZTtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogOHB4O1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQubGlzdHtcclxuICBib3JkZXItc3R5bGU6IGRhc2hlZDtcclxufVxyXG4ubWluaW1pemVyLnNpbmdsZSB7XHJcbiAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcclxuICBib3JkZXItcmlnaHQ6IG5vbmU7XHJcbiAgYm9yZGVyLXRvcDogbm9uZTtcclxufVxyXG4uY29udGVudCB7XHJcbiAgbWFyZ2luLWxlZnQ6IDhweDtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IG1pbi1jb250ZW50O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIC8qd2lkdGg6IGNhbGMoMTAwJSAtIDE2cHgpOyovXHJcblxyXG59XHJcbmxhYmVse1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAyNHB4O1xyXG4gIGxpbmUtaGVpZ2h0OiAyNHB4O1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbn1cclxubGFiZWwgPiBpbnB1dCwgbGFiZWwgPiBzZWxlY3R7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xyXG4gIHdpZHRoOiBpbmhlcml0O1xyXG4gIG1pbi13aWR0aDogNjBweDtcclxuICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbiAgLyptYXJnaW4tcmlnaHQ6IDA7Ki9cclxufVxyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xyXG4gIG1pbi13aWR0aDogMzBweDtcclxufVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\ninput, select {\r\n  height: 21px;\r\n  border-radius: 5px;\r\n  border-bottom-right-radius: 12px; }\r\ninput:hover, select:hover, input:focus, select:focus {\r\n  outline: none;\r\n  border: 2px solid dodgerblue;\r\n  height: 22px;\r\n}\r\n/* label > input[type='checkbox']{ height: 21px; } */\r\n/* input[type='checkbox']:hover, input[type='checkbox']:focus { height: 23px; }*/\r\ninput[disabled]:hover, select[disabled]:hover{\r\n  outline: none;\r\n  border: 2px solid gray;\r\n  /* height: auto; */\r\n}\r\n/*propertyBar*/\r\n#modelTemplate, #packageTemplate, #classTemplate, #attributeTemplate, #referenceTemplate{\r\n  width: 100%;\r\n}\r\n.propertySidebarTemplates{\r\n  display: none;\r\n}\r\n.wastemplate {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.wastemplate > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate > *{\r\n  width: 100%;\r\n}\r\n.minimizer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-left: 2px dashed dodgerblue;\r\n  border-bottom: 2px dashed dodgerblue;\r\n  min-width: 8px !important;\r\n  height: auto;\r\n  width: 8px !important;\r\n}\r\n.wastemplate.minimized > *{\r\n  display: none;\r\n}\r\n.wastemplate.minimized:hover {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-color: var(--secondary);\r\n}\r\n.wastemplate.minimized:before {\r\n  color: dodgerblue;\r\n  content: '+';\r\n  font-size: 20px;\r\n  margin: auto;\r\n  line-height: 0;\r\n}\r\n.wastemplate.minimized:hover:before {\r\n  color: var(--secondary);\r\n}\r\n.minimizer:hover, .attributeMinimizer:hover{\r\n  border-left: 2px dashed var(--secondary);\r\n  border-bottom: 2px dashed var(--secondary);\r\n}\r\n.wastemplate.minimized{\r\n  border: 2px solid dodgerblue;\r\n  height: 20px;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate.minimized.list{\r\n  border-style: dashed;\r\n}\r\n.minimizer.single {\r\n  border-style: solid;\r\n  border-right: none;\r\n  border-top: none;\r\n}\r\n.content {\r\n  margin-left: 8px;\r\n  width: 100%;\r\n  height: -webkit-min-content;\r\n  height: -moz-min-content;\r\n  height: min-content;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*width: calc(100% - 16px);*/\r\n\r\n}\r\nlabel{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 24px;\r\n  line-height: 24px;\r\n  white-space: nowrap;\r\n}\r\nlabel > input:not([type]), label > input[type=\"\"], label > input[type=\"text\"], label > input[type=\"number\"],\r\nlabel > input[type=\"checkbox\"], label > select{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n  margin-right: 0;\r\n  margin-left: 20px;\r\n  width: inherit;\r\n  min-width: 60px;\r\n}\r\n/*\r\nlabel > input[type=\"checkbox\"]{\r\n   display: flex;\r\n   margin: auto;\r\n   margin-left: 0;\r\n   margin-right: 20px;\r\n   min-width: 20px;\r\n }*/\r\nlabel > input[type=\"number\"] {\r\n  min-width: 30px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9wcm9wZXJ0eS1iYXJyL3Byb3BlcnR5LWJhcnIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGdDQUFnQyxFQUFFO0FBQ3BDO0VBQ0UsYUFBYTtFQUNiLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7QUFFQSxvREFBb0Q7QUFFcEQsZ0ZBQWdGO0FBQ2hGO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7QUFDQSxjQUFjO0FBQ2Q7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGtDQUFrQztFQUNsQyxvQ0FBb0M7RUFDcEMseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQThCO0FBQ2hDO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUNBO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsMENBQTBDO0FBQzVDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQiw0QkFBNEI7O0FBRTlCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixXQUFXO0VBQ1gsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7QUFDQTs7RUFFRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QsZUFBZTtBQUNqQjtBQUNBOzs7Ozs7O0dBT0c7QUFDSDtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3Byb3BlcnR5LWJhcnIvcHJvcGVydHktYmFyci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbmlucHV0LCBzZWxlY3Qge1xyXG4gIGhlaWdodDogMjFweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDEycHg7IH1cclxuaW5wdXQ6aG92ZXIsIHNlbGVjdDpob3ZlciwgaW5wdXQ6Zm9jdXMsIHNlbGVjdDpmb2N1cyB7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDJweCBzb2xpZCBkb2RnZXJibHVlO1xyXG4gIGhlaWdodDogMjJweDtcclxufVxyXG5cclxuLyogbGFiZWwgPiBpbnB1dFt0eXBlPSdjaGVja2JveCddeyBoZWlnaHQ6IDIxcHg7IH0gKi9cclxuXHJcbi8qIGlucHV0W3R5cGU9J2NoZWNrYm94J106aG92ZXIsIGlucHV0W3R5cGU9J2NoZWNrYm94J106Zm9jdXMgeyBoZWlnaHQ6IDIzcHg7IH0qL1xyXG5pbnB1dFtkaXNhYmxlZF06aG92ZXIsIHNlbGVjdFtkaXNhYmxlZF06aG92ZXJ7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDJweCBzb2xpZCBncmF5O1xyXG4gIC8qIGhlaWdodDogYXV0bzsgKi9cclxufVxyXG4vKnByb3BlcnR5QmFyKi9cclxuI21vZGVsVGVtcGxhdGUsICNwYWNrYWdlVGVtcGxhdGUsICNjbGFzc1RlbXBsYXRlLCAjYXR0cmlidXRlVGVtcGxhdGUsICNyZWZlcmVuY2VUZW1wbGF0ZXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ucHJvcGVydHlTaWRlYmFyVGVtcGxhdGVze1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuLndhc3RlbXBsYXRlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG4ud2FzdGVtcGxhdGUgPiAqIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbi1ib3R0b206IDhweDtcclxufVxyXG5cclxuLndhc3RlbXBsYXRlID4gKntcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ubWluaW1pemVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGJvcmRlci1sZWZ0OiAycHggZGFzaGVkIGRvZGdlcmJsdWU7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IGRhc2hlZCBkb2RnZXJibHVlO1xyXG4gIG1pbi13aWR0aDogOHB4ICFpbXBvcnRhbnQ7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA4cHggIWltcG9ydGFudDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkID4gKntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6aG92ZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6YmVmb3JlIHtcclxuICBjb2xvcjogZG9kZ2VyYmx1ZTtcclxuICBjb250ZW50OiAnKyc7XHJcbiAgZm9udC1zaXplOiAyMHB4O1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBsaW5lLWhlaWdodDogMDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkOmhvdmVyOmJlZm9yZSB7XHJcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLm1pbmltaXplcjpob3ZlciwgLmF0dHJpYnV0ZU1pbmltaXplcjpob3ZlcntcclxuICBib3JkZXItbGVmdDogMnB4IGRhc2hlZCB2YXIoLS1zZWNvbmRhcnkpO1xyXG4gIGJvcmRlci1ib3R0b206IDJweCBkYXNoZWQgdmFyKC0tc2Vjb25kYXJ5KTtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVke1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGRvZGdlcmJsdWU7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDhweDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkLmxpc3R7XHJcbiAgYm9yZGVyLXN0eWxlOiBkYXNoZWQ7XHJcbn1cclxuLm1pbmltaXplci5zaW5nbGUge1xyXG4gIGJvcmRlci1zdHlsZTogc29saWQ7XHJcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG4gIGJvcmRlci10b3A6IG5vbmU7XHJcbn1cclxuLmNvbnRlbnQge1xyXG4gIG1hcmdpbi1sZWZ0OiA4cHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBtaW4tY29udGVudDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICAvKndpZHRoOiBjYWxjKDEwMCUgLSAxNnB4KTsqL1xyXG5cclxufVxyXG5sYWJlbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMjRweDtcclxuICBsaW5lLWhlaWdodDogMjRweDtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcbmxhYmVsID4gaW5wdXQ6bm90KFt0eXBlXSksIGxhYmVsID4gaW5wdXRbdHlwZT1cIlwiXSwgbGFiZWwgPiBpbnB1dFt0eXBlPVwidGV4dFwiXSwgbGFiZWwgPiBpbnB1dFt0eXBlPVwibnVtYmVyXCJdLFxyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJjaGVja2JveFwiXSwgbGFiZWwgPiBzZWxlY3R7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xyXG4gIHdpZHRoOiBpbmhlcml0O1xyXG4gIG1pbi13aWR0aDogNjBweDtcclxufVxyXG4vKlxyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJjaGVja2JveFwiXXtcclxuICAgZGlzcGxheTogZmxleDtcclxuICAgbWFyZ2luOiBhdXRvO1xyXG4gICBtYXJnaW4tbGVmdDogMDtcclxuICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG4gICBtaW4td2lkdGg6IDIwcHg7XHJcbiB9Ki9cclxubGFiZWwgPiBpbnB1dFt0eXBlPVwibnVtYmVyXCJdIHtcclxuICBtaW4td2lkdGg6IDMwcHg7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -16635,6 +17683,9 @@ let PropertyBarrComponent = class PropertyBarrComponent {
     ngOnInit() {
     }
 };
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], PropertyBarrComponent.prototype, "isM2", void 0);
 PropertyBarrComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-property-barr',
@@ -16710,11 +17761,11 @@ class PropertyBarr {
         optgrp.label = 'Access Modifier';
         selectHtml.appendChild(optgrp);
         let optionFound = false;
-        for (const key in _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["OperationVisibility"]) {
-            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["OperationVisibility"][key]) {
+        for (const key in _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"]) {
+            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"][key]) {
                 continue;
             }
-            const access = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["OperationVisibility"][key];
+            const access = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"][key];
             const opt = document.createElement('option');
             opt.value = access;
             opt.innerHTML = access;
@@ -16724,7 +17775,7 @@ class PropertyBarr {
             }
             optgrp.appendChild(opt);
         }
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(visibility && !optionFound, 'OperationVisibility selected option not found; optgrp:', optgrp, 'OperationVisibility:', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["OperationVisibility"], ', searchedVal:', visibility);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(visibility && !optionFound, 'OperationVisibility selected option not found; optgrp:', optgrp, 'OperationVisibility:', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"], ', searchedVal:', visibility);
         return selectHtml;
     }
     subTemplateShow(e) {
@@ -16931,7 +17982,10 @@ class PropertyBarr {
     }
     getC_I(o) {
         const $html = this.getTemplate(o);
+        let model = o.getModelRoot();
         this.removeOthers($html, '.class');
+        const m1class = model.isM1() ? o : null;
+        const m2class = model.isM2() ? o : null;
         // $html.find('.class').show();
         let i;
         const attribListHtml = ($html.find('.attributeList')[0]);
@@ -16952,22 +18006,48 @@ class PropertyBarr {
         $html.find('.attributeCount')[0].innerHTML = '' + attributes.length;
         $html.find('.referenceCount')[0].innerHTML = '' + references.length;
         $html.find('.operationCount')[0].innerHTML = '' + operations.length;
-        if (!(o instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"])) {
+        let stopPropagation = (e) => { e.stopPropagation(); };
+        if (m2class) {
+            const $interfaceCheckbox = $html.find('input.isinterface');
+            const interfaceCheckbox = $interfaceCheckbox[0];
+            const $abstractCheckbox = $html.find('input.isabstract');
+            const abstractCheckbox = $abstractCheckbox[0];
+            const $accessModifierHtml = $html.find('select.accessModifier');
+            const accessModifierHtml = $accessModifierHtml[0];
+            abstractCheckbox.checked = m2class.getAbstract();
+            interfaceCheckbox.checked = m2class.getInterface();
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].$makeSelect($accessModifierHtml, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"], 'Access modifier', m2class.visibility.toString());
+            $accessModifierHtml.on('change', (e) => {
+                m2class.setAccessModifier(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getEnumValByVal(accessModifierHtml.value, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"]));
+            });
+            $abstractCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation)
+                .on('change', (e) => {
+                m2class.setAbstract(abstractCheckbox.checked, true);
+                abstractCheckbox.checked = m2class.getAbstract(); // they are linked, editing abstract could unset interface
+                interfaceCheckbox.checked = m2class.getInterface();
+            });
+            $interfaceCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation)
+                .on('change', (e) => {
+                m2class.setInterface(interfaceCheckbox.checked, true);
+                abstractCheckbox.checked = m2class.getAbstract(); // setting interface could remove abstract
+                interfaceCheckbox.checked = m2class.getInterface();
+            });
+        }
+        if (!m1class) {
             return $html[0];
         }
         /// Se MClass
-        const classe = o;
         const isRoot = ($html.find('input.isRoot')[0]);
-        console.log('this:', o);
-        isRoot.disabled = isRoot.checked = classe.isRoot();
+        console.log('this:', m1class);
+        isRoot.disabled = isRoot.checked = m1class.isRoot();
         $(isRoot).off('change.pbar').on('change.pbar', (evt) => {
             const input = evt.currentTarget;
             if (!input.checked) {
                 input.checked = true;
                 return $html[0];
             }
-            classe.setRoot(input.checked);
-            classe.refreshGUI();
+            m1class.setRoot(input.checked);
+            m1class.refreshGUI();
             this.refreshGUI();
         });
         return $html[0];
@@ -17171,7 +18251,7 @@ class PropertyBarr {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n.styleContainer{\n  /*position: relative;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: auto;\n  padding: 17px;\n  padding-right: calc(17px - 10px);*/\n}\n.template{\n  display: none;\n}\n.StyleEditorDisplay .template{\n  display: unset;\n}\n.preview{\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 10px;\n  border: 1px solid red;\n  background-color: transparent;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.preview:blank{\n  background-color: gray;\n  opacity: 0.4;\n}\n.separatorShell.top{\n  margin-top: 30px;\n}\ndiv[contenteditable=\"true\"]:focus {\n  max-height: unset;\n}\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\n  overflow: auto;\n  display: -webkit-box;\n  display: flex;\n  color: black;\n  border: 1px solid black;\n  min-height: 100px;\n  max-height: 100px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\ndiv[contenteditable=\"true\"] {\n  background-color: white;\n  cursor: text;\n}\ndiv[contenteditable=\"false\"] {\n  background-color: gray;\n  cursor: no-drop;\n  opacity: 0.4;\n}\nlabel.allowEdit {\n  color: goldenrod;\n}\nbutton {\n  margin: 5px;\n}\n.style.own, .style.instances{\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.detail{\n  border: 3px solid var(--bluebordercolor);\n  background: var(--);\n  color: var(--altFontColor);\n}\nbutton.detail {\n  margin: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  display: -webkit-box;\n  display: flex;\n  height: auto;\n  border-top-left-radius: 17px;\n  border-top-right-radius: 17px;\n  z-index: 1;\n }\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  margin-right: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\nbutton.detail:last-child:not(:only-child){\n  margin-left: -3px;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\nbutton.detail:focus {\n  box-shadow: none !important;\n  outline: none !important;\n}\ndiv.detail{\n  padding: 5px;\n  margin-top: -3px;\n  width: calc(100%);\n}\n.saveasrow{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n}\nbutton.delete{\n  margin: auto;\n  margin-bottom: 5px;\n}\nbutton.saveas{\n  margin: auto;\n  margin-bottom: 5px;\n}\ninput.saveas {\n  margin: auto;\n  margin-bottom: 5px;\n  flex-basis: 100px;\n  -webkit-box-flex: 0.6;\n          flex-grow: 0.6;\n  width: 0;\n}\n.compatibleRow > label > span{\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n  margin-left: 0;\n}\n.saveasrow, .compatibleRow{\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.compatibleRow > label > input {\n  -webkit-box-ordinal-group: 2;\n          order: 1;\n  margin-left: 0;\n  margin-right: 5px;\n}\n.detail > label {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  flex-wrap: nowrap;\n}\nbutton.detail > .opened, button.detail > .closed{\n  margin: auto;\n}\ntable {\n  width: 100%;\n}\ntd.title {\n  font-weight: bold;\n  padding-top: 10px;\n  text-align: center;\n}\nh1 {\n  text-align: center;\n}\nselect{\n  /* background: inherit;\n  border: none;\n  color: inherit;\n  font: inherit; */\n  /*flex-basis: 0;*/\n  flex-shrink: 1;\n  -webkit-box-flex: 0.9;\n          flex-grow: 0.9;\n  max-width: -webkit-max-content;\n  max-width: -moz-max-content;\n  max-width: max-content;\n  min-width: 0;\n}\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\nlabel > *:not(input), h6 > * {\n  display: -webkit-box;\n  display: flex;\n  /* flex-grow: 1;*/\n  margin: auto;\n  flex-wrap: wrap;\n}\nh6{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n\n}\n.separator > * {\n  text-align: center;\n}\n/*\nbutton {\n  background: #0084ff;\n  border: none;\n  border-radius: 5px;\n  padding: 8px 14px;\n  font-size: 15px;\n  color: #fff;\n}\n\nbutton:disabled{\n  background: gray;\n}*/\ninput[type=\"number\"] {\n  width: 40px;\n  margin-right: 5px;\n}\n.zoomX, .zoomY, .gridX, .gridY {\n  margin-left: 5px;\n  margin-right: 15px;}\nlabel>input[type=\"checkbox\"],\nlabel>input[type=\"color\"] {\n  margin-bottom: 3px;\n}\n#primary_color {\n  border-radius: 100%;\n  height: 60px;\n  width: 60px;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n}\n[contenteditable=true]:empty:before {\n  content: attr(placeholder);\n  display: block;\n  /* For Firefox */\n  cursor: text;\n  vertical-align: middle;\n  color: darkgray;\n  text-align: center;\n  margin: auto;\n}\n.separatorShell {\n  min-height: 33px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n  margin: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100%;\n}\n.roww {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.colContainer, .columnContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-flow: nowrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n}\n.colChild, .columnChild {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-flow: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  max-width: 100%;\n  min-width: 0;\n}\n.separator {\n  margin: auto;\n  display: inline-block;\n}\n.stylelabel{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  margin-right: 5px;\n}\nselect.stylename{\n  display: -webkit-box;\n  display: flex;\n  margin: auto;\n  margin-left: 0;\n}\n.HorizontalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.HorizontalChild{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n}\n.opened{\n  display: none;\n}\n.helpButton, .styledelete {\n  display: -webkit-box;\n  display: flex;\n  width: 35px;\n  height: 35px;\n  margin: auto;\n  margin-right: 0;\n}\n.styledelete {\n  margin-right: 5px;\n  margin-left: 5px;\n}\n.helpButton {\n  background: rgb(0, 62, 127);\n  border-color: rgb(0, 62, 127); }\n.htmlstyle > .top {\n  display: -webkit-box;\n  display: flex;\n}\n.expressionRoot {\n  flex-wrap: nowrap !important;\n  max-width: 100%;\n}\ninput.fill{\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n  margin-left: 7px;\n}\n.leftside{\n  -webkit-box-flex: 3;\n          flex-grow: 3;\n  flex-basis: 0;\n  min-width: 0;\n  max-width: 150px;\n}\n.rightside{\n  -webkit-box-flex: 7;\n          flex-grow: 7;\n  flex-basis: 0;\n  min-width: 0;\n}\n.arrowContainer{\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 10px;\n}\nbutton.arrow{\n  display: -webkit-box;\n  display: flex;\n  line-height: unset;\n  padding: 0 6px;\n}\n.tsclass{\n  margin: auto;\n  display: inline;\n  text-align: center;\n}\n/* */\n/*\npre {\n  background:#EEE;\n  padding:5px;\n  width: 290px;\n}*/\n.addHeader{\n  display: -webkit-box;\n  display: flex;\n}\n.addHeader > button {\n  margin-left: 0;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n}\nselect.attributetypeadd{\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  min-width: 0;\n  margin-right: 10px;\n}\n.previewselector{\n  height: 23px;\n  outline: none;\n  border: 2px dashed #666666;\n}\n.showAsEdge{\n  margin-right: 5px !important;\n}\nbutton.delete, button.saveas{\n  font-size: 0.8rem;\n}\nbutton.deleteRule{\n  -webkit-box-flex: 0;\n          flex-grow: 0;\n  flex-basis: auto;\n  min-width: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  padding: 5px;\n}\n.nowrap{\n  flex-wrap: nowrap;\n}\n._root {\n  margin-bottom: 5px;\n}\ndiv.detail.measurable > div.template {\n  display: none;\n}\n.graphColor, .showGrid{\n  margin-left: 0;\n}\nselect.operator{\n  -moz-text-align-last: center;\n       text-align-last: center;\n  margin-left: 5px;\n  margin-right: 5px;\n  width: 25px;\n}\nspan.operatortext{\n  margin-left: 5px;\n  margin-right: 5px;\n}\nselect.operator:disabled{\n  display: none;\n  /*\n  background: inherit;\n  border: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  margin: 0;*/\n}\nspan.nameprefix {\n  margin-left: 7px;\n  background: white;\n  border: 2px inset rgb(238, 238, 238);\n  height: 21px;\n  border-right: none;\n  color: black;\n  line-height: 16px;\n}\ninput.name {\n  margin-left: 0;\n  border-left: none;\n  padding-left: 0;\n}\nlabel:focus > input.name {\n  outline: none;\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\n}\ninput.name:focus {\n  outline: none;\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\n}\n.htmlstyle {\n  width: 100%;\n}\nlabel.allowEdit > span {\n  margin-left:0;\n}\nlabel > input ~ * {\n  margin: 0;\n  margin-right: 5px;\n}\nlabel > input[type=\"checkbox\"] ~ * {\n  margin-left: 0;\n}\n.html[contenteditable] {\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\n  overflow-wrap: anywhere;\n  word-wrap: anywhere;\n  white-space: break-spaces;\n}\n.autosizecontainer{\n  display: inline-block;\n}\n.autosizecontainer > *{\n  display: inline-block;\n  margin-right: 5px;\n}\n.sizeContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap; }\n.sizeContainerHalf {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.sizelabel {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n          flex-flow: column-reverse;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 700px) {\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\n  .sizelabel{\n    display: inline-block;\n  }\n}\n.sizelabel > *{\n  display: inline;\n  margin: auto; }\n/* they fix outer css influence on measurable section. */\ninput[type=\"checkbox\"].arrow {\n  margin: 0; }\n.meas_acc0 button { margin: 0; }\n/***********              Measurable editor v2 start                 ********/\n.meas_acc0 .measurableSettingRoot{\n  width: 100%;\n  display: block;\n}\n.meas_acc0 .boxesroot {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n}\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n}\n.meas_acc0 .columncontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .rowcontainer {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .column, .meas_acc0 .row{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .row {\n  max-width: 100%;\n  margin-right: unset;\n  margin-left: unset; /* dumb _grid.scss fixer */\n}\n.meas_acc0 .break { flex-wrap: wrap; }\n.meas_acc0 .autobreak { flex-wrap: initial; }\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\n.meas_acc0 .side { display: -webkit-box; display: flex; }\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\n  background-color: dimgray;\n}\n.meas_acc0 .boxroot {\n  display: block;\n  margin: auto;\n  flex-wrap: wrap;\n}\n.meas_acc0 .ruletitle{\n  display: block;\n  text-align: center;\n}\n.meas_acc0 button.ruledelete {\n  height: 100%;\n  width: 30px;\n  padding: 0;\n  margin-right: 5px;\n  border-radius: 25px 0 0 25px;\n}\n.meas_acc0 .compoundInputprefix {\n  max-width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 0;\n  padding: 0;\n  -webkit-box-flex: 0 !important;\n          flex-grow: 0 !important;\n  width: auto;\n  flex-basis: auto !important;\n  flex-shrink: 0 !important;\n}\n.meas_acc0 .compoundInputprefix > input.attrname {\n  border-left: none;\n  padding-left: 0;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.meas_acc0 .compoundInputprefix > * { border: none; }\n.meas_acc0 .compoundInputprefix > *:first-child {\n  margin-top: 1px;\n  padding-right: 0;\n  background-color: transparent;\n}\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\n.meas_acc0 .compoundInputprefix:focus-within {\n  border-color: #80bdff;\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\n/* .meas_acc0 .rightx { min-width: 0; } */\n.meas_acc0 .rightx span.operator {\n  margin: auto;\n  margin-left: 5px;\n  margin-right: 5px;\n  margin-top: 8px;\n}\n.meas_acc0 .operatorcontainer {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 5px;\n}\n.meas_acc0 select.operator {\n  width: 45px;\n  margin: auto 5px;\n  text-align: center;\n  -moz-text-align-last: center;\n       text-align-last: center;\n}\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\n  margin-bottom: 5px;\n  min-width: 120px;\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\n.meas_acc0 .attrname {\n  max-width: 200px !important; /* todo: remove when is autosizing */\n  min-width: 0;\n}\n.meas_acc0 .addrule {\n  float: right;\n  margin-top: -4px;\n  padding: 4px 10px;\n}\n.meas_acc0 .ruletitle {\n  padding-right: 4px;\n  margin-bottom: 5px;\n}\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\n.meas_acc0 .form-control > .form-control:not(:first-child){\n  border-top-left-radius: unset;\n  /* disable bootstrap rule*/\n}\n.meas_acc0 .measurableerrortext{\n  margin-left: 5px;\n  color: var(--danger);\n}\n.meas_acc0 .measurablewarningtext{\n  margin-left: 5px;\n  color: var(--warning);\n}\n.meas_acc0 .measurableoutputtext{\n  margin-left: 5px;\n  color: var(--secondary);\n}\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\n.meas_acc0 .measurabledebug { display: none; }\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\n.meas_acc0 .countershell { float: right; }\n.meas_acc0 .rectangledrawing.outer > * {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .top > .left {\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\n}\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\n.meas_acc0 .rectangledrawing.outer > .top > .right {\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\n.meas_acc0 input.side.top {\n  margin-bottom: 3px;\n  margin-top: -3px; }\n.meas_acc0 input.side.bot {\n  margin-bottom: -3px;\n  margin-top: 3px; }\n.meas_acc0 input.side.left {\n  margin-right: 3px;\n  margin-left: -3px; }\n.meas_acc0 input.side.right {\n  margin-right: -3px;\n  margin-left: 3px; }\n.meas_acc0 .arrowh {\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\n.meas_acc0 .arrowv {\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\n  height: 50px;\n  min-width: 50px;\n}\n.meas_acc0 .rectangledrawing.outer > .top > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .bot > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .arrow { -webkit-appearance: initial; }\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\n  width: 75px;\n  height: 75px; }\n.meas_acc0 .arrow:focus{ outline: none; }\n.meas_acc0 .arrow:checked{\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\n.meas_acc0 .directions {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto; }\n.meas_acc0 .directions > * { margin: auto; }\n.meas_acc0 .draggable.boxroot{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  /*height: 237px;*/\n}\n.meas_acc0 .collapse:not(.show) { display: none; }\n.meas_acc0 .selected { background-color: #37ff66 !important; }\n/***********              Measurable editor v2 end                   ********/\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0U7Ozs7O29DQUtrQztBQUNwQztBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLDZCQUE2QjtFQUM3QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLHdDQUF3QztFQUN4QyxtQkFBbUI7RUFDbkIsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osNEJBQTRCO0VBQzVCLDZCQUE2QjtFQUM3QixVQUFVO0NBQ1g7QUFDRCw0Q0FBNEMsaURBQWlEO0VBQzNGLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsNkJBQTZCO0FBQy9CO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLHdCQUF3QjtBQUMxQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHFCQUFjO1VBQWQsY0FBYztFQUNkLFFBQVE7QUFDVjtBQUNBO0VBQ0UsMkJBQW1CO0VBQW5CLHdCQUFtQjtFQUFuQixtQkFBbUI7RUFDbkIsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0VBQ1osNEJBQVE7VUFBUixRQUFRO0VBQ1IsY0FBYztBQUNoQjtBQUNBO0VBQ0UsV0FBVztFQUNYLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFOzs7a0JBR2dCO0VBQ2hCLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QscUJBQWM7VUFBZCxjQUFjO0VBQ2QsOEJBQXNCO0VBQXRCLDJCQUFzQjtFQUF0QixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBRUEsT0FBTyxvQkFBYSxDQUFiLGFBQWEsRUFBRSxrQkFBVyxFQUFYLFdBQVcsQ0FBQztBQUNsQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUVBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZOztBQUVkO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTs7Ozs7Ozs7Ozs7O0VBWUU7QUFDRjtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixrQkFBa0IsQ0FBQztBQUdyQjs7RUFFRSxrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osV0FBVztFQUNYLFlBQVk7RUFDWixhQUFhO0VBQ2Isd0JBQXdCO0FBQzFCO0FBRUE7RUFDRSwwQkFBMEI7RUFDMUIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsWUFBWTtBQUNkO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0FBQ2Q7QUFDQTtFQUNFLFlBQVk7RUFDWixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFjO0VBQWQsNkJBQWM7VUFBZCxjQUFjO0VBQ2QsZUFBZTtFQUNmLFdBQVc7QUFDYjtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7RUFDWixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLDZCQUE2QixFQUFFO0FBRWpDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLDRCQUE0QjtFQUM1QixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtFQUNaLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQSxJQUFJO0FBRUo7Ozs7O0VBS0U7QUFDRjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsNEJBQVE7VUFBUixRQUFRO0FBQ1Y7QUFDQTtFQUNFLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLDBCQUEwQjtBQUM1QjtBQUVBO0VBQ0UsNEJBQTRCO0FBQzlCO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDRCQUF1QjtPQUF2Qix1QkFBdUI7RUFDdkIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixXQUFXO0FBQ2I7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGFBQWE7RUFDYjs7Ozs7YUFLVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsZUFBZTtBQUNqQjtBQUVBO0VBQ0UsYUFBYTtFQUNiLDJDQUEyQztBQUM3QztBQUVBO0VBQ0UsYUFBYTtFQUNiLGlGQUFpRjtBQUNuRjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLFNBQVM7RUFDVCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9FQUFvRTtFQUNwRSx1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLHlCQUF5QjtBQUMzQjtBQUVBO0VBQ0UscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlLEVBQUU7QUFDbkI7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQiw0QkFBeUI7RUFBekIsOEJBQXlCO1VBQXpCLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnTEFBZ0w7RUFDaEw7SUFDRSxxQkFBcUI7RUFDdkI7QUFDRjtBQUNBO0VBQ0UsZUFBZTtFQUNmLFlBQVksRUFBRTtBQVdkLHdEQUF3RDtBQUUxRDtFQUNFLFNBQVMsRUFBRTtBQUViLG9CQUFvQixTQUFTLEVBQUU7QUFLL0IsNkVBQTZFO0FBQzdFO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw4QkFBYztFQUFkLDZCQUFjO1VBQWQsY0FBYztFQUNkLGlCQUFpQjtBQUNuQjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGVBQWU7RUFDZixtQkFBbUI7RUFDbkIsa0JBQWtCLEVBQUUsMEJBQTBCO0FBQ2hEO0FBQ0Esb0JBQW9CLGVBQWUsRUFBRTtBQUNyQyx3QkFBd0Isa0JBQWtCLEVBQUU7QUFDNUMsbUJBQW1CLG1CQUFZLEVBQVosWUFBWSxFQUFFO0FBQ2pDLHVCQUF1QixjQUFjLEVBQUUsa0JBQWtCLEVBQUUsbUJBQW1CLEVBQUU7QUFDaEYsbUJBQW1CLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2xDLGdEQUFnRCxXQUFXLEVBQUU7QUFDN0QsNkNBQTZDLFlBQVksRUFBRSx3QkFBd0IsRUFBRTtBQUNyRixxQkFBcUIsb0JBQWEsRUFBYixhQUFhLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTtBQUMvRCxxQkFBcUIsMkJBQTJCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUsNkJBQTZCLFlBQVksRUFBRSxZQUFZLEVBQUU7QUFDekQ7RUFDRSx5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLGNBQWM7RUFDZCxZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsZUFBZTtFQUNmLDJCQUFtQjtFQUFuQix3QkFBbUI7RUFBbkIsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixVQUFVO0VBQ1YsOEJBQXVCO1VBQXZCLHVCQUF1QjtFQUN2QixXQUFXO0VBQ1gsMkJBQTJCO0VBQzNCLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZix5QkFBeUI7RUFDekIsNEJBQTRCO0FBQzlCO0FBQ0Esc0NBQXNDLFlBQVksRUFBRTtBQUNwRDtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsNkJBQTZCO0FBQy9CO0FBQ0EsZ0RBQWdELGdCQUFnQixFQUFFO0FBQ2xFO0VBQ0UscUJBQXFCO0VBQ3JCLGdEQUFnRDtBQUNsRDtBQUVBLDBFQUEwRSwyQkFBMkIsRUFBRTtBQUN2Ryx5Q0FBeUM7QUFDekM7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLDRCQUF1QjtPQUF2Qix1QkFBdUI7QUFDekI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtBQUNkO0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFO0FBQ2pELCtCQUErQixnQkFBZ0IsRUFBRTtBQUNqRCx3Q0FBd0MsZUFBZSxFQUFFO0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0VBQ2pFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQSxrQ0FBa0MsMkJBQTJCLEVBQUU7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFO0FBQzFEO0VBQ0UsNkJBQTZCO0VBQzdCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtBQUN0QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHVCQUF1QjtBQUN6QjtBQUNBLDJCQUEyQixrQkFBa0IsRUFBRTtBQUMvQyw4QkFBOEIsYUFBYSxFQUFFO0FBQzdDLGtEQUFrRCxvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNqRSwyQkFBMkIsWUFBWSxFQUFFO0FBQ3pDO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7QUFDQTtFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEO0FBQ0E7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTtBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7QUFDbkI7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCLEVBQUU7QUFDckI7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTtBQUMxRDtFQUNFLHNEQUFzRCxFQUFFO0FBRTFEO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFFZixvQkFBb0IsMkJBQTJCLEVBQUU7QUFFakQ7RUFDRSxXQUFXO0VBQ1gsWUFBWSxFQUFFO0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7QUFDeEM7RUFDRSw0RkFBb0Y7VUFBcEYsb0ZBQW9GLEVBQUU7QUFFeEY7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsWUFBWSxFQUFFO0FBRWhCLDZCQUE2QixZQUFZLEVBQUU7QUFDM0M7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7QUFDQSxrQ0FBa0MsYUFBYSxFQUFFO0FBQ2pELHVCQUF1QixvQ0FBb0MsRUFBRTtBQUM3RCw2RUFBNkUiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3N0eWxlLWVkaXRvci9zdHlsZS1lZGl0b3IuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLnN0eWxlQ29udGFpbmVye1xuICAvKnBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBvdmVyZmxvdy15OiBhdXRvO1xuICBvdmVyZmxvdy14OiBhdXRvO1xuICBwYWRkaW5nOiAxN3B4O1xuICBwYWRkaW5nLXJpZ2h0OiBjYWxjKDE3cHggLSAxMHB4KTsqL1xufVxuLnRlbXBsYXRle1xuICBkaXNwbGF5OiBub25lO1xufVxuLlN0eWxlRWRpdG9yRGlzcGxheSAudGVtcGxhdGV7XG4gIGRpc3BsYXk6IHVuc2V0O1xufVxuLnByZXZpZXd7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBtaW4taGVpZ2h0OiAxMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCByZWQ7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuLnByZXZpZXc6Ymxhbmt7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbi5zZXBhcmF0b3JTaGVsbC50b3B7XG4gIG1hcmdpbi10b3A6IDMwcHg7XG59XG5cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdOmZvY3VzIHtcbiAgbWF4LWhlaWdodDogdW5zZXQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSwgZGl2W2NvbnRlbnRlZGl0YWJsZT1cImZhbHNlXCJdIHtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGNvbG9yOiBibGFjaztcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xuICBtYXgtaGVpZ2h0OiAxMDBweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBjdXJzb3I6IHRleHQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwiZmFsc2VcIl0ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xuICBjdXJzb3I6IG5vLWRyb3A7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbmxhYmVsLmFsbG93RWRpdCB7XG4gIGNvbG9yOiBnb2xkZW5yb2Q7XG59XG5idXR0b24ge1xuICBtYXJnaW46IDVweDtcbn1cbi5zdHlsZS5vd24sIC5zdHlsZS5pbnN0YW5jZXN7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbn1cbi5kZXRhaWx7XG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLWJsdWVib3JkZXJjb2xvcik7XG4gIGJhY2tncm91bmQ6IHZhcigtLSk7XG4gIGNvbG9yOiB2YXIoLS1hbHRGb250Q29sb3IpO1xufVxuYnV0dG9uLmRldGFpbCB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgZGlzcGxheTogZmxleDtcbiAgaGVpZ2h0OiBhdXRvO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxN3B4O1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMTdweDtcbiAgei1pbmRleDogMTtcbiB9XG5idXR0b24uZGV0YWlsOmZpcnN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7IC8qIGZpcnN0IHZpc2libGUgY2hpbGQgbm90IHBvc3NpYmxlIGljIHB1cmUgY3NzICovXG4gIGZsZXgtZmxvdzogY29sdW1uO1xuICBtYXJnaW4tcmlnaHQ6IDA7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6bGFzdC1jaGlsZDpub3QoOm9ubHktY2hpbGQpe1xuICBtYXJnaW4tbGVmdDogLTNweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6Zm9jdXMge1xuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcbn1cbmRpdi5kZXRhaWx7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXRvcDogLTNweDtcbiAgd2lkdGg6IGNhbGMoMTAwJSk7XG59XG4uc2F2ZWFzcm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG5idXR0b24uZGVsZXRle1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbmJ1dHRvbi5zYXZlYXN7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuaW5wdXQuc2F2ZWFzIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xuICBmbGV4LWdyb3c6IDAuNjtcbiAgd2lkdGg6IDA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gc3BhbntcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgb3JkZXI6IDI7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLnNhdmVhc3JvdywgLmNvbXBhdGlibGVSb3d7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IHdyYXA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gaW5wdXQge1xuICBvcmRlcjogMTtcbiAgbWFyZ2luLWxlZnQ6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLmRldGFpbCA+IGxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG5idXR0b24uZGV0YWlsID4gLm9wZW5lZCwgYnV0dG9uLmRldGFpbCA+IC5jbG9zZWR7XG4gIG1hcmdpbjogYXV0bztcbn1cbnRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbnRkLnRpdGxlIHtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbmgxIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuc2VsZWN0e1xuICAvKiBiYWNrZ3JvdW5kOiBpbmhlcml0O1xuICBib3JkZXI6IG5vbmU7XG4gIGNvbG9yOiBpbmhlcml0O1xuICBmb250OiBpbmhlcml0OyAqL1xuICAvKmZsZXgtYmFzaXM6IDA7Ki9cbiAgZmxleC1zaHJpbms6IDE7XG4gIGZsZXgtZ3JvdzogMC45O1xuICBtYXgtd2lkdGg6IG1heC1jb250ZW50O1xuICBtaW4td2lkdGg6IDA7XG59XG5cbmxhYmVsIHtkaXNwbGF5OiBmbGV4OyBmbGV4LWdyb3c6MTt9XG5sYWJlbCA+ICo6bm90KGlucHV0KSwgaDYgPiAqIHtcbiAgZGlzcGxheTogZmxleDtcbiAgLyogZmxleC1ncm93OiAxOyovXG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuXG5oNntcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcblxufVxuLnNlcGFyYXRvciA+ICoge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKlxuYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDhweCAxNHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG5idXR0b246ZGlzYWJsZWR7XG4gIGJhY2tncm91bmQ6IGdyYXk7XG59Ki9cbmlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xuICB3aWR0aDogNDBweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7fVxuXG5cbmxhYmVsPmlucHV0W3R5cGU9XCJjaGVja2JveFwiXSxcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbn1cblxuI3ByaW1hcnlfY29sb3Ige1xuICBib3JkZXItcmFkaXVzOiAxMDAlO1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcbn1cblxuW2NvbnRlbnRlZGl0YWJsZT10cnVlXTplbXB0eTpiZWZvcmUge1xuICBjb250ZW50OiBhdHRyKHBsYWNlaG9sZGVyKTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIC8qIEZvciBGaXJlZm94ICovXG4gIGN1cnNvcjogdGV4dDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgY29sb3I6IGRhcmtncmF5O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbjogYXV0bztcbn1cblxuLnNlcGFyYXRvclNoZWxsIHtcbiAgbWluLWhlaWdodDogMzNweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnJvd3cge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuLmNvbENvbnRhaW5lciwgLmNvbHVtbkNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogbm93cmFwO1xuICBmbGV4LWZsb3c6IHJvdztcbn1cbi5jb2xDaGlsZCwgLmNvbHVtbkNoaWxkIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1pbi13aWR0aDogMDtcbn1cbi5zZXBhcmF0b3Ige1xuICBtYXJnaW46IGF1dG87XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5zdHlsZWxhYmVse1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbn1cbnNlbGVjdC5zdHlsZW5hbWV7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uSG9yaXpvbnRhbENvbnRhaW5lcntcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgd2lkdGg6IDEwMCU7XG59XG4uSG9yaXpvbnRhbENoaWxke1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuLm9wZW5lZHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmhlbHBCdXR0b24sIC5zdHlsZWRlbGV0ZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAzNXB4O1xuICBoZWlnaHQ6IDM1cHg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiAwO1xufVxuLnN0eWxlZGVsZXRlIHtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG4uaGVscEJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IHJnYigwLCA2MiwgMTI3KTtcbiAgYm9yZGVyLWNvbG9yOiByZ2IoMCwgNjIsIDEyNyk7IH1cblxuLmh0bWxzdHlsZSA+IC50b3Age1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmV4cHJlc3Npb25Sb290IHtcbiAgZmxleC13cmFwOiBub3dyYXAgIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuaW5wdXQuZmlsbHtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xuICBtYXJnaW4tbGVmdDogN3B4O1xufVxuLmxlZnRzaWRle1xuICBmbGV4LWdyb3c6IDM7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIG1pbi13aWR0aDogMDtcbiAgbWF4LXdpZHRoOiAxNTBweDtcbn1cbi5yaWdodHNpZGV7XG4gIGZsZXgtZ3JvdzogNztcbiAgZmxleC1iYXNpczogMDtcbiAgbWluLXdpZHRoOiAwO1xufVxuLmFycm93Q29udGFpbmVye1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuYnV0dG9uLmFycm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBsaW5lLWhlaWdodDogdW5zZXQ7XG4gIHBhZGRpbmc6IDAgNnB4O1xufVxuLnRzY2xhc3N7XG4gIG1hcmdpbjogYXV0bztcbiAgZGlzcGxheTogaW5saW5lO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKiAqL1xuXG4vKlxucHJlIHtcbiAgYmFja2dyb3VuZDojRUVFO1xuICBwYWRkaW5nOjVweDtcbiAgd2lkdGg6IDI5MHB4O1xufSovXG4uYWRkSGVhZGVye1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmFkZEhlYWRlciA+IGJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBvcmRlcjogMjtcbn1cbnNlbGVjdC5hdHRyaWJ1dGV0eXBlYWRke1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG4gIG1pbi13aWR0aDogMDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuLnByZXZpZXdzZWxlY3RvcntcbiAgaGVpZ2h0OiAyM3B4O1xuICBvdXRsaW5lOiBub25lO1xuICBib3JkZXI6IDJweCBkYXNoZWQgIzY2NjY2Njtcbn1cblxuLnNob3dBc0VkZ2V7XG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5idXR0b24uZGVsZXRlLCBidXR0b24uc2F2ZWFze1xuICBmb250LXNpemU6IDAuOHJlbTtcbn1cbmJ1dHRvbi5kZWxldGVSdWxle1xuICBmbGV4LWdyb3c6IDA7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIG1pbi13aWR0aDogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogNXB4O1xufVxuLm5vd3JhcHtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4uX3Jvb3Qge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXYuZGV0YWlsLm1lYXN1cmFibGUgPiBkaXYudGVtcGxhdGUge1xuICBkaXNwbGF5OiBub25lO1xufVxuLmdyYXBoQ29sb3IsIC5zaG93R3JpZHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG5zZWxlY3Qub3BlcmF0b3J7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgd2lkdGg6IDI1cHg7XG59XG5zcGFuLm9wZXJhdG9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Qub3BlcmF0b3I6ZGlzYWJsZWR7XG4gIGRpc3BsYXk6IG5vbmU7XG4gIC8qXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgLW1vei1hcHBlYXJhbmNlOiBub25lO1xuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG4gIG1hcmdpbjogMDsqL1xufVxuXG5zcGFuLm5hbWVwcmVmaXgge1xuICBtYXJnaW4tbGVmdDogN3B4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xuICBoZWlnaHQ6IDIxcHg7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbiAgY29sb3I6IGJsYWNrO1xuICBsaW5lLWhlaWdodDogMTZweDtcbn1cbmlucHV0Lm5hbWUge1xuICBtYXJnaW4tbGVmdDogMDtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbn1cblxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogMCAycHggMnB4IDJweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cblxuaW5wdXQubmFtZTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IDJweCAycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KSwgMnB4IC0ycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cbi5odG1sc3R5bGUge1xuICB3aWR0aDogMTAwJTtcbn1cbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xuICBtYXJnaW4tbGVmdDowO1xufVxubGFiZWwgPiBpbnB1dCB+ICoge1xuICBtYXJnaW46IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxubGFiZWwgPiBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0gfiAqIHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG4uaHRtbFtjb250ZW50ZWRpdGFibGVdIHtcbiAgLypJREUgZ2l2ZXMgZXJyb3IgYnV0IHRoZXkgYWxsIGFjdHVhbGx5IGV4aXN0LCBhdCBsZWFzdCBvbiBtb3ppbGxhLiovXG4gIG92ZXJmbG93LXdyYXA6IGFueXdoZXJlO1xuICB3b3JkLXdyYXA6IGFueXdoZXJlO1xuICB3aGl0ZS1zcGFjZTogYnJlYWstc3BhY2VzO1xufVxuXG4uYXV0b3NpemVjb250YWluZXJ7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5hdXRvc2l6ZWNvbnRhaW5lciA+ICp7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uc2l6ZUNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDsgfVxuLnNpemVDb250YWluZXJIYWxmIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xufVxuLnNpemVsYWJlbCB7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBmbGV4LWZsb3c6IGNvbHVtbi1yZXZlcnNlO1xuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG59XG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3MDBweCkge1xuICAvKiBzdSB2aWV3cG9ydCB0cm9wcG8gcGljY29saSBjYW1iaW8gbGEgdmlzdWFsaXp6YXppb25lIGRhIGxhYmVsIHNvcHJhIGlsIHRlc3RvIChidW9ubyBwZXIgZmFyZSBtb25vLXJvdykgYSBsYWJlbCBhZmZpYW5jYXRhIGFsIHRlc3RvIChwZXIgZmFyZSA0IHJvdyBlIHNjb3JyZXJlIHZlcnRpY2FsbWVudGUpKi9cbiAgLnNpemVsYWJlbHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cbn1cbi5zaXplbGFiZWwgPiAqe1xuICBkaXNwbGF5OiBpbmxpbmU7XG4gIG1hcmdpbjogYXV0bzsgfVxuXG5cblxuXG5cblxuXG5cblxuXG4gIC8qIHRoZXkgZml4IG91dGVyIGNzcyBpbmZsdWVuY2Ugb24gbWVhc3VyYWJsZSBzZWN0aW9uLiAqL1xuXG5pbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0uYXJyb3cge1xuICBtYXJnaW46IDA7IH1cblxuLm1lYXNfYWNjMCBidXR0b24geyBtYXJnaW46IDA7IH1cblxuXG5cblxuLyoqKioqKioqKioqICAgICAgICAgICAgICBNZWFzdXJhYmxlIGVkaXRvciB2MiBzdGFydCAgICAgICAgICAgICAgICAgKioqKioqKiovXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlU2V0dGluZ1Jvb3R7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBibG9jaztcbn1cbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xufVxuLm1lYXNfYWNjMCAubW92ZW1lbnRib3hyb290LCAubWVhc19hY2MwIC5yZXNpemVib3hyb290IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbn1cbi5tZWFzX2FjYzAgLmNvbHVtbmNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogcm93O1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbn1cblxuLm1lYXNfYWNjMCAucm93Y29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuLm1lYXNfYWNjMCAuY29sdW1uLCAubWVhc19hY2MwIC5yb3d7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xufVxuLm1lYXNfYWNjMCAucm93IHtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBtYXJnaW4tcmlnaHQ6IHVuc2V0O1xuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xufVxuLm1lYXNfYWNjMCAuYnJlYWsgeyBmbGV4LXdyYXA6IHdyYXA7IH1cbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxuLm1lYXNfYWNjMCAuZmlsbCB7IGZsZXgtZ3JvdzogMTsgfVxuLm1lYXNfYWNjMCAuYm94dGl0bGUgeyBkaXNwbGF5OiBibG9jazsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9XG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAuc2lkZS5sZWZ0LCAubWVhc19hY2MwIC5zaWRlLnJpZ2h0IHsgd2lkdGg6IDEwcHg7IH1cbi5tZWFzX2FjYzAgLnNpZGUudG9wLCAubWVhc19hY2MwIC5zaWRlLmJvdCB7IGhlaWdodDogMTBweDsgd2lkdGg6IGNhbGMoMTAwJSAtIDIwcHgpOyB9XG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XG4ubWVhc19hY2MwIC5taWRkbGUgeyBiYWNrZ3JvdW5kLWNvbG9yOiBnb2xkZW5yb2Q7IGRpc3BsYXk6IGZsZXg7IH1cbi5tZWFzX2FjYzAgLm1pZGRsZSAubWlkZGxlIHsgd2lkdGg6IDEyMHB4OyBoZWlnaHQ6IDkwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XG4gIGJhY2tncm91bmQtY29sb3I6IGRpbWdyYXk7XG59XG4ubWVhc19hY2MwIC5ib3hyb290IHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxle1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDMwcHg7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xuICBib3JkZXItcmFkaXVzOiAyNXB4IDAgMCAyNXB4O1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCB7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogMDtcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XG4gIHdpZHRoOiBhdXRvO1xuICBmbGV4LWJhc2lzOiBhdXRvICFpbXBvcnRhbnQ7XG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xuICBib3JkZXItbGVmdDogbm9uZTtcbiAgcGFkZGluZy1sZWZ0OiAwO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcbiAgbWFyZ2luLXRvcDogMXB4O1xuICBwYWRkaW5nLXJpZ2h0OiAwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dDpmb2N1cyB7IGJveC1zaGFkb3c6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcbiAgYm9yZGVyLWNvbG9yOiAjODBiZGZmO1xuICBib3gtc2hhZG93OiAwIDAgMCAwLjJyZW0gcmdiYSgwLCAxMjMsIDI1NSwgMC4yNSk7XG59XG5cbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAucmlnaHR4LCAubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLmxlZnR4IHsgbWFyZ2luLWJvdHRvbTogMCAhaW1wb3J0YW50OyB9XG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cbi5tZWFzX2FjYzAgLnJpZ2h0eCBzcGFuLm9wZXJhdG9yIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgbWFyZ2luLXRvcDogOHB4O1xufVxuLm1lYXNfYWNjMCAub3BlcmF0b3Jjb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG4ubWVhc19hY2MwIHNlbGVjdC5vcGVyYXRvciB7XG4gIHdpZHRoOiA0NXB4O1xuICBtYXJnaW46IGF1dG8gNXB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xufVxuLm1lYXNfYWNjMCAucmlnaHR4IC5jb21wb3VuZElucHV0cHJlZml4LCAubWVhc19hY2MwIC5yaWdodHggaW5wdXQucmlnaHRzaWRlLCAubWVhc19hY2MwIGlucHV0LmxlZnRzaWRlLCAubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xuICBtaW4td2lkdGg6IDEyMHB4O1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG59XG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyIHsgbWFyZ2luLWJvdHRvbTogMXJlbTsgfVxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC5tZWFzdXJhYmxlZGVidWcgeyBtYXJnaW4tdG9wOiA1cHg7IH1cbi5tZWFzX2FjYzAgLmF0dHJuYW1lIHtcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXG4gIG1pbi13aWR0aDogMDtcbn1cbi5tZWFzX2FjYzAgLmFkZHJ1bGUge1xuICBmbG9hdDogcmlnaHQ7XG4gIG1hcmdpbi10b3A6IC00cHg7XG4gIHBhZGRpbmc6IDRweCAxMHB4O1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlIHtcbiAgcGFkZGluZy1yaWdodDogNHB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XG4ubWVhc19hY2MwIC5ydWxldGl0bGU6aG92ZXIgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGJ1dHRvbjsgfVxuLm1lYXNfYWNjMCAuZm9ybS1jb250cm9sID4gLmZvcm0tY29udHJvbDpub3QoOmZpcnN0LWNoaWxkKXtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogdW5zZXQ7XG4gIC8qIGRpc2FibGUgYm9vdHN0cmFwIHJ1bGUqL1xufVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgY29sb3I6IHZhcigtLWRhbmdlcik7XG59XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxld2FybmluZ3RleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIGNvbG9yOiB2YXIoLS13YXJuaW5nKTtcbn1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0e1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBjb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcbn1cbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXJ7IG1hcmdpbi1ib3R0b206IDVweDsgfVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnIHsgZGlzcGxheTogbm9uZTsgfVxuLm1lYXNfYWNjMCAucmlnaHR4OmZvY3VzLXdpdGhpbiAubWVhc3VyYWJsZWRlYnVneyBkaXNwbGF5OiBmbGV4OyB9XG4ubWVhc19hY2MwIC5jb3VudGVyc2hlbGwgeyBmbG9hdDogcmlnaHQ7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAqIHtcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAqLCAubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93diB7XG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLmxlZnQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3RxeFhoazQvdGwucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZ3ZweXd6L3RsbC5wbmcpO1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAuc2lkZS50b3Age1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9NOWZDN0RQL3QucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAucmlnaHQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1B6c21qeGYvdHIucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9TTjJUSEx0L3RybC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vN2ptOUJCUS9sLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUllablZONS9yLnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLmxlZnQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3FyWVdkcEgvYmwucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9nREtGcnk1L2JsbC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5zaWRlLmJvdCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2NYYzBubVMvYi5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5yaWdodCB7XG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vSzBwVlZUNy9ici5wbmcpOyovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1Fwd1JTc1QvYnJsLnBuZyk7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS50b3Age1xuICBtYXJnaW4tYm90dG9tOiAzcHg7XG4gIG1hcmdpbi10b3A6IC0zcHg7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5ib3Qge1xuICBtYXJnaW4tYm90dG9tOiAtM3B4O1xuICBtYXJnaW4tdG9wOiAzcHg7IH1cbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5sZWZ0IHtcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XG4gIG1hcmdpbi1sZWZ0OiAtM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUucmlnaHQge1xuICBtYXJnaW4tcmlnaHQ6IC0zcHg7XG4gIG1hcmdpbi1sZWZ0OiAzcHg7IH1cbi5tZWFzX2FjYzAgLmFycm93aCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pkM2p0YmMvbHIucG5nKTsgfVxuLm1lYXNfYWNjMCAuYXJyb3d2IHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vakhUdFBEeC90Yi5wbmcpOyB9XG5cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gLmNvcm5lciB7XG4gIGhlaWdodDogNTBweDtcbiAgbWluLXdpZHRoOiA1MHB4O1xufVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAqIHtcbiAgaGVpZ2h0OiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+ICoge1xuICBoZWlnaHQ6IDUwcHg7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xuICBoZWlnaHQ6IGF1dG87XG4gIHdpZHRoOiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XG4gIGhlaWdodDogYXV0bztcbiAgd2lkdGg6IDUwcHg7IH1cblxuLm1lYXNfYWNjMCAuYXJyb3cgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cblxuLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Z7XG4gIHdpZHRoOiA3NXB4O1xuICBoZWlnaHQ6IDc1cHg7IH1cblxuLm1lYXNfYWNjMCAuYXJyb3c6Zm9jdXN7IG91dGxpbmU6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLmFycm93OmNoZWNrZWR7XG4gIGZpbHRlcjogc2VwaWEoODIlKSBzYXR1cmF0ZSgzOTI1JSkgaHVlLXJvdGF0ZSg1NWRlZykgYnJpZ2h0bmVzcygxMjUlKSBjb250cmFzdCgxMjAlKTsgfVxuXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICBtYXJnaW46IGF1dG87IH1cblxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyA+ICogeyBtYXJnaW46IGF1dG87IH1cbi5tZWFzX2FjYzAgLmRyYWdnYWJsZS5ib3hyb290e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IGNvbHVtbjtcbiAgLypoZWlnaHQ6IDIzN3B4OyovXG59XG4ubWVhc19hY2MwIC5jb2xsYXBzZTpub3QoLnNob3cpIHsgZGlzcGxheTogbm9uZTsgfVxuLm1lYXNfYWNjMCAuc2VsZWN0ZWQgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjMzdmZjY2ICFpbXBvcnRhbnQ7IH1cbi8qKioqKioqKioqKiAgICAgICAgICAgICAgTWVhc3VyYWJsZSBlZGl0b3IgdjIgZW5kICAgICAgICAgICAgICAgICAgICoqKioqKioqL1xuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n.styleContainer{\n  /*position: relative;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: auto;\n  padding: 17px;\n  padding-right: calc(17px - 10px);*/\n}\n.template{\n  display: none;\n}\n.StyleEditorDisplay .template{\n  display: unset;\n}\n.preview{\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 10px;\n  border: 1px solid red;\n  background-color: transparent;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.preview:blank{\n  background-color: gray;\n  opacity: 0.4;\n}\n.separatorShell.top{\n  margin-top: 30px;\n}\ndiv[contenteditable=\"true\"]:focus {\n  max-height: unset;\n}\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\n  overflow: auto;\n  display: -webkit-box;\n  display: flex;\n  color: black;\n  border: 1px solid black;\n  min-height: 100px;\n  max-height: 200px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\ndiv[contenteditable=\"true\"] {\n  background-color: white;\n  cursor: text;\n}\ndiv[contenteditable=\"false\"] {\n  background-color: gray;\n  cursor: no-drop;\n  opacity: 0.4;\n}\nlabel.allowEdit {\n  color: goldenrod;\n}\nbutton {\n  margin: 5px;\n}\n.style.own, .style.instances{\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.detail{\n  border: 3px solid var(--bluebordercolor);\n  background: var(--);\n  color: var(--altFontColor);\n}\nbutton.detail {\n  margin: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  display: -webkit-box;\n  display: flex;\n  height: auto;\n  border-top-left-radius: 17px;\n  border-top-right-radius: 17px;\n  z-index: 1;\n }\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  margin-right: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\nbutton.detail:last-child:not(:only-child){\n  margin-left: -3px;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\nbutton.detail:focus {\n  box-shadow: none !important;\n  outline: none !important;\n}\ndiv.detail{\n  padding: 5px;\n  margin-top: -3px;\n  width: calc(100%);\n}\n.saveasrow{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n}\nbutton.delete{\n  margin: auto;\n  margin-bottom: 5px;\n}\nbutton.saveas{\n  margin: auto;\n  margin-bottom: 5px;\n}\ninput.saveas {\n  margin: auto;\n  margin-bottom: 5px;\n  flex-basis: 100px;\n  -webkit-box-flex: 0.6;\n          flex-grow: 0.6;\n  width: 0;\n}\n.compatibleRow > label > span{\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n  margin-left: 0;\n}\n.saveasrow, .compatibleRow{\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.compatibleRow > label > input {\n  -webkit-box-ordinal-group: 2;\n          order: 1;\n  margin-left: 0;\n  margin-right: 5px;\n}\n.detail > label {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  flex-wrap: nowrap;\n}\nbutton.detail > .opened, button.detail > .closed{\n  margin: auto;\n}\ntable {\n  width: 100%;\n}\ntd.title {\n  font-weight: bold;\n  padding-top: 10px;\n  text-align: center;\n}\nh1 {\n  text-align: center;\n}\nselect{\n  /* background: inherit;\n  border: none;\n  color: inherit;\n  font: inherit; */\n  /*flex-basis: 0;*/\n  flex-shrink: 1;\n  -webkit-box-flex: 0.9;\n          flex-grow: 0.9;\n  max-width: -webkit-max-content;\n  max-width: -moz-max-content;\n  max-width: max-content;\n  min-width: 0;\n}\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\nlabel > *:not(input), h6 > * {\n  display: -webkit-box;\n  display: flex;\n  /* flex-grow: 1;*/\n  margin: auto;\n  flex-wrap: wrap;\n}\nh6{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n\n}\n.separator > * {\n  text-align: center;\n}\n/*\nbutton {\n  background: #0084ff;\n  border: none;\n  border-radius: 5px;\n  padding: 8px 14px;\n  font-size: 15px;\n  color: #fff;\n}\n\nbutton:disabled{\n  background: gray;\n}*/\ninput[type=\"number\"] {\n  width: 40px;\n  margin-right: 5px;\n}\n.zoomX, .zoomY, .gridX, .gridY {\n  margin-left: 5px;\n  margin-right: 15px;}\nlabel>input[type=\"checkbox\"],\nlabel>input[type=\"color\"] {\n  margin-bottom: 3px;\n}\n#primary_color {\n  border-radius: 100%;\n  height: 60px;\n  width: 60px;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n}\n[contenteditable=true]:empty:before {\n  content: attr(placeholder);\n  display: block;\n  /* For Firefox */\n  cursor: text;\n  vertical-align: middle;\n  color: darkgray;\n  text-align: center;\n  margin: auto;\n}\n.separatorShell {\n  min-height: 33px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n  margin: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100%;\n}\n.roww {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.separator {\n  margin: auto;\n  display: inline-block;\n}\n.stylelabel{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  margin-right: 5px;\n}\nselect.stylename{\n  display: -webkit-box;\n  display: flex;\n  margin: auto;\n  margin-left: 0;\n}\n.HorizontalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.onlyVerticalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n}\n.onlyVerticalContainer > * {\n  margin: auto 0;\n}\n.HorizontalChild{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n}\n.opened{\n  display: none;\n}\n.helpButton, .styledelete {\n  display: -webkit-box;\n  display: flex;\n  width: 35px;\n  height: 35px;\n  margin: auto;\n  margin-right: 0;\n}\n.styledelete {\n  margin-right: 5px;\n  margin-left: 5px;\n}\n.helpButton {\n  background: rgb(0, 62, 127);\n  border-color: rgb(0, 62, 127); }\n.htmlstyle > .top {\n  display: -webkit-box;\n  display: flex;\n}\n.expressionRoot {\n  flex-wrap: nowrap !important;\n  max-width: 100%;\n}\ninput.fill{\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n  margin-left: 7px;\n}\n.leftside{\n  -webkit-box-flex: 3;\n          flex-grow: 3;\n  flex-basis: 0;\n  min-width: 0;\n  max-width: 150px;\n}\n.rightside{\n  -webkit-box-flex: 7;\n          flex-grow: 7;\n  flex-basis: 0;\n  min-width: 0;\n}\n.arrowContainer{\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 10px;\n}\nbutton.arrow{\n  display: -webkit-box;\n  display: flex;\n  line-height: unset;\n  padding: 0 6px;\n}\n.tsclass{\n  margin: auto;\n  display: inline;\n  text-align: center;\n}\n/* */\n/*\npre {\n  background:#EEE;\n  padding:5px;\n  width: 290px;\n}*/\n.addHeader{\n  display: -webkit-box;\n  display: flex;\n}\n.addHeader > button {\n  margin-left: 0;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n}\nselect.attributetypeadd{\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  min-width: 0;\n  margin-right: 10px;\n}\n.previewselector{\n  height: 23px;\n  outline: none;\n  border: 2px dashed #666666;\n}\n.showAsEdge{\n  margin-right: 5px !important;\n}\nbutton.delete, button.saveas{\n  font-size: 0.8rem;\n}\nbutton.deleteRule{\n  -webkit-box-flex: 0;\n          flex-grow: 0;\n  flex-basis: auto;\n  min-width: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  padding: 5px;\n}\n.nowrap{\n  flex-wrap: nowrap;\n}\n._root {\n  margin-bottom: 5px;\n}\ndiv.detail.measurable > div.template {\n  display: none;\n}\n.graphColor, .showGrid{\n  margin-left: 0;\n}\nselect.operator{\n  -moz-text-align-last: center;\n       text-align-last: center;\n  margin-left: 5px;\n  margin-right: 5px;\n  width: 25px;\n}\nspan.operatortext{\n  margin-left: 5px;\n  margin-right: 5px;\n}\nselect.operator:disabled{\n  display: none;\n  /*\n  background: inherit;\n  border: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  margin: 0;*/\n}\nspan.nameprefix {\n  margin-left: 7px;\n  background: white;\n  border: 2px inset rgb(238, 238, 238);\n  height: 21px;\n  border-right: none;\n  color: black;\n  line-height: 16px;\n}\ninput.name {\n  margin-left: 0;\n  border-left: none;\n  padding-left: 0;\n}\nlabel:focus > input.name {\n  outline: none;\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\n}\ninput.name:focus {\n  outline: none;\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\n}\n.htmlstyle {\n  width: 100%;\n}\nlabel.allowEdit > span {\n  margin-left:0;\n}\nlabel > * {\n  margin-top: auto;\n  margin-bottom: auto;\n}\nlabel > input[type=\"checkbox\"] ~ * {\n  margin-left: 0;\n}\n.html[contenteditable] {\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\n  overflow-wrap: anywhere;\n  word-wrap: anywhere;\n  white-space: break-spaces;\n}\n.autosizecontainer{\n  display: inline-block;\n}\n.autosizecontainer > *{\n  display: inline-block;\n  margin-right: 5px;\n}\n.sizeContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap; }\n.sizeContainerHalf {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.sizelabel {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n          flex-flow: column-reverse;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 700px) {\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\n  .sizelabel{\n    display: inline-block;\n  }\n}\n.sizelabel > *{\n  display: inline;\n  margin: auto; }\n/* they fix outer css influence on measurable section. */\ninput[type=\"checkbox\"].arrow {\n  margin: 0; }\n.meas_acc0 button { margin: 0; }\n/***********              Measurable editor v2 start                 ********/\n.meas_acc0 .measurableSettingRoot{\n  width: 100%;\n  display: block;\n}\n.meas_acc0 .boxesroot {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n}\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n}\n.meas_acc0 .column, .meas_acc0 .row{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .row {\n  max-width: 100%;\n  margin-right: unset;\n  margin-left: unset; /* dumb _grid.scss fixer */\n}\n.meas_acc0 .break { flex-wrap: wrap; }\n.meas_acc0 .autobreak { flex-wrap: initial; }\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\n.meas_acc0 .side { display: -webkit-box; display: flex; }\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\n  background-color: dimgray;\n}\n.meas_acc0 .boxroot {\n  display: block;\n  margin: auto;\n  flex-wrap: wrap;\n}\n.meas_acc0 .ruletitle{\n  display: block;\n  text-align: center;\n}\n.meas_acc0 button.ruledelete {\n  height: 100%;\n  width: 30px;\n  padding: 0;\n  margin-right: 5px;\n  border-radius: 25px 0 0 25px;\n}\n.meas_acc0 .compoundInputprefix {\n  max-width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 0;\n  padding: 0;\n  -webkit-box-flex: 0 !important;\n          flex-grow: 0 !important;\n  width: auto;\n  flex-basis: auto !important;\n  flex-shrink: 0 !important;\n}\n.meas_acc0 .compoundInputprefix > input.attrname {\n  border-left: none;\n  padding-left: 0;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.meas_acc0 .compoundInputprefix > * { border: none; }\n.meas_acc0 .compoundInputprefix > *:first-child {\n  margin-top: 1px;\n  padding-right: 0;\n  background-color: transparent;\n}\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\n.meas_acc0 .compoundInputprefix:focus-within {\n  border-color: #80bdff;\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\n/* .meas_acc0 .rightx { min-width: 0; } */\n.meas_acc0 .rightx span.operator {\n  margin: auto;\n  margin-left: 5px;\n  margin-right: 5px;\n  margin-top: 8px;\n}\n.meas_acc0 .operatorcontainer {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 5px;\n}\n.meas_acc0 select.operator {\n  width: 45px;\n  margin: auto 5px;\n  text-align: center;\n  -moz-text-align-last: center;\n       text-align-last: center;\n}\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\n  margin-bottom: 5px;\n  min-width: 120px;\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\n.meas_acc0 .attrname {\n  max-width: 200px !important; /* todo: remove when is autosizing */\n  min-width: 0;\n}\n.meas_acc0 .addrule {\n  float: right;\n  margin-top: -4px;\n  padding: 4px 10px;\n}\n.meas_acc0 .ruletitle {\n  padding-right: 4px;\n  margin-bottom: 5px;\n}\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\n.meas_acc0 .form-control > .form-control:not(:first-child){\n  border-top-left-radius: unset;\n  /* disable bootstrap rule*/\n}\n.meas_acc0 .measurableerrortext{\n  margin-left: 5px;\n  color: var(--danger);\n}\n.meas_acc0 .measurablewarningtext{\n  margin-left: 5px;\n  color: var(--warning);\n}\n.meas_acc0 .measurableoutputtext{\n  margin-left: 5px;\n  color: var(--secondary);\n}\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\n.meas_acc0 .measurabledebug { display: none; }\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\n.meas_acc0 .countershell { float: right; }\n.meas_acc0 .rectangledrawing.outer > * {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .top > .left {\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\n}\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\n.meas_acc0 .rectangledrawing.outer > .top > .right {\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\n.meas_acc0 input.side.top {\n  margin-bottom: 3px;\n  margin-top: -3px; }\n.meas_acc0 input.side.bot {\n  margin-bottom: -3px;\n  margin-top: 3px; }\n.meas_acc0 input.side.left {\n  margin-right: 3px;\n  margin-left: -3px; }\n.meas_acc0 input.side.right {\n  margin-right: -3px;\n  margin-left: 3px; }\n.meas_acc0 .arrowh {\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\n.meas_acc0 .arrowv {\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\n  height: 50px;\n  min-width: 50px;\n}\n.meas_acc0 .rectangledrawing.outer > .top > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .bot > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .arrow { -webkit-appearance: initial; }\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\n  width: 75px;\n  height: 75px; }\n.meas_acc0 .arrow:focus{ outline: none; }\n.meas_acc0 .arrow:checked{\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\n.meas_acc0 .directions {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto; }\n.meas_acc0 .directions > * { margin: auto; }\n.meas_acc0 .draggable.boxroot{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  /*height: 237px;*/\n}\n.meas_acc0 .collapse:not(.show) { display: none; }\n.meas_acc0 .selected { background-color: #37ff66 !important; }\n/***********              Measurable editor v2 end                   ********/\n.isinterface, .isabstract{\n  margin-right: 5px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0U7Ozs7O29DQUtrQztBQUNwQztBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLDZCQUE2QjtFQUM3QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLHdDQUF3QztFQUN4QyxtQkFBbUI7RUFDbkIsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osNEJBQTRCO0VBQzVCLDZCQUE2QjtFQUM3QixVQUFVO0NBQ1g7QUFDRCw0Q0FBNEMsaURBQWlEO0VBQzNGLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsNkJBQTZCO0FBQy9CO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLHdCQUF3QjtBQUMxQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHFCQUFjO1VBQWQsY0FBYztFQUNkLFFBQVE7QUFDVjtBQUNBO0VBQ0UsMkJBQW1CO0VBQW5CLHdCQUFtQjtFQUFuQixtQkFBbUI7RUFDbkIsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0VBQ1osNEJBQVE7VUFBUixRQUFRO0VBQ1IsY0FBYztBQUNoQjtBQUNBO0VBQ0UsV0FBVztFQUNYLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFOzs7a0JBR2dCO0VBQ2hCLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QscUJBQWM7VUFBZCxjQUFjO0VBQ2QsOEJBQXNCO0VBQXRCLDJCQUFzQjtFQUF0QixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBRUEsT0FBTyxvQkFBYSxDQUFiLGFBQWEsRUFBRSxrQkFBVyxFQUFYLFdBQVcsQ0FBQztBQUNsQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUVBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZOztBQUVkO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTs7Ozs7Ozs7Ozs7O0VBWUU7QUFDRjtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixrQkFBa0IsQ0FBQztBQUdyQjs7RUFFRSxrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osV0FBVztFQUNYLFlBQVk7RUFDWixhQUFhO0VBQ2Isd0JBQXdCO0FBQzFCO0FBRUE7RUFDRSwwQkFBMEI7RUFDMUIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsWUFBWTtBQUNkO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsV0FBVztBQUNiO0FBRUE7RUFDRSxZQUFZO0VBQ1oscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw4QkFBYztFQUFkLDZCQUFjO1VBQWQsY0FBYztFQUNkLGVBQWU7RUFDZixXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFjO0VBQWQsNkJBQWM7VUFBZCxjQUFjO0VBQ2QsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7RUFDWixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLDZCQUE2QixFQUFFO0FBRWpDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLDRCQUE0QjtFQUM1QixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtFQUNaLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQSxJQUFJO0FBRUo7Ozs7O0VBS0U7QUFDRjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsNEJBQVE7VUFBUixRQUFRO0FBQ1Y7QUFDQTtFQUNFLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLDBCQUEwQjtBQUM1QjtBQUVBO0VBQ0UsNEJBQTRCO0FBQzlCO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDRCQUF1QjtPQUF2Qix1QkFBdUI7RUFDdkIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixXQUFXO0FBQ2I7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGFBQWE7RUFDYjs7Ozs7YUFLVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsZUFBZTtBQUNqQjtBQUVBO0VBQ0UsYUFBYTtFQUNiLDJDQUEyQztBQUM3QztBQUVBO0VBQ0UsYUFBYTtFQUNiLGlGQUFpRjtBQUNuRjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9FQUFvRTtFQUNwRSx1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLHlCQUF5QjtBQUMzQjtBQUVBO0VBQ0UscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlLEVBQUU7QUFDbkI7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQiw0QkFBeUI7RUFBekIsOEJBQXlCO1VBQXpCLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnTEFBZ0w7RUFDaEw7SUFDRSxxQkFBcUI7RUFDdkI7QUFDRjtBQUNBO0VBQ0UsZUFBZTtFQUNmLFlBQVksRUFBRTtBQVdkLHdEQUF3RDtBQUUxRDtFQUNFLFNBQVMsRUFBRTtBQUViLG9CQUFvQixTQUFTLEVBQUU7QUFLL0IsNkVBQTZFO0FBQzdFO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0FBQ25CO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGVBQWU7RUFDZixtQkFBbUI7RUFDbkIsa0JBQWtCLEVBQUUsMEJBQTBCO0FBQ2hEO0FBQ0Esb0JBQW9CLGVBQWUsRUFBRTtBQUNyQyx3QkFBd0Isa0JBQWtCLEVBQUU7QUFDNUMsbUJBQW1CLG1CQUFZLEVBQVosWUFBWSxFQUFFO0FBQ2pDLHVCQUF1QixjQUFjLEVBQUUsa0JBQWtCLEVBQUUsbUJBQW1CLEVBQUU7QUFDaEYsbUJBQW1CLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2xDLGdEQUFnRCxXQUFXLEVBQUU7QUFDN0QsNkNBQTZDLFlBQVksRUFBRSx3QkFBd0IsRUFBRTtBQUNyRixxQkFBcUIsb0JBQWEsRUFBYixhQUFhLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTtBQUMvRCxxQkFBcUIsMkJBQTJCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUsNkJBQTZCLFlBQVksRUFBRSxZQUFZLEVBQUU7QUFDekQ7RUFDRSx5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLGNBQWM7RUFDZCxZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsZUFBZTtFQUNmLDJCQUFtQjtFQUFuQix3QkFBbUI7RUFBbkIsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixVQUFVO0VBQ1YsOEJBQXVCO1VBQXZCLHVCQUF1QjtFQUN2QixXQUFXO0VBQ1gsMkJBQTJCO0VBQzNCLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZix5QkFBeUI7RUFDekIsNEJBQTRCO0FBQzlCO0FBQ0Esc0NBQXNDLFlBQVksRUFBRTtBQUNwRDtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsNkJBQTZCO0FBQy9CO0FBQ0EsZ0RBQWdELGdCQUFnQixFQUFFO0FBQ2xFO0VBQ0UscUJBQXFCO0VBQ3JCLGdEQUFnRDtBQUNsRDtBQUVBLDBFQUEwRSwyQkFBMkIsRUFBRTtBQUN2Ryx5Q0FBeUM7QUFDekM7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLDRCQUF1QjtPQUF2Qix1QkFBdUI7QUFDekI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtBQUNkO0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFO0FBQ2pELCtCQUErQixnQkFBZ0IsRUFBRTtBQUNqRCx3Q0FBd0MsZUFBZSxFQUFFO0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0VBQ2pFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQSxrQ0FBa0MsMkJBQTJCLEVBQUU7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFO0FBQzFEO0VBQ0UsNkJBQTZCO0VBQzdCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtBQUN0QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHVCQUF1QjtBQUN6QjtBQUNBLDJCQUEyQixrQkFBa0IsRUFBRTtBQUMvQyw4QkFBOEIsYUFBYSxFQUFFO0FBQzdDLGtEQUFrRCxvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNqRSwyQkFBMkIsWUFBWSxFQUFFO0FBQ3pDO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7QUFDQTtFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEO0FBQ0E7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTtBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7QUFDbkI7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCLEVBQUU7QUFDckI7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTtBQUMxRDtFQUNFLHNEQUFzRCxFQUFFO0FBRTFEO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFFZixvQkFBb0IsMkJBQTJCLEVBQUU7QUFFakQ7RUFDRSxXQUFXO0VBQ1gsWUFBWSxFQUFFO0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7QUFDeEM7RUFDRSw0RkFBb0Y7VUFBcEYsb0ZBQW9GLEVBQUU7QUFFeEY7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsWUFBWSxFQUFFO0FBRWhCLDZCQUE2QixZQUFZLEVBQUU7QUFDM0M7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7QUFDQSxrQ0FBa0MsYUFBYSxFQUFFO0FBQ2pELHVCQUF1QixvQ0FBb0MsRUFBRTtBQUM3RCw2RUFBNkU7QUFDN0U7RUFDRSxpQkFBaUI7QUFDbkIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3N0eWxlLWVkaXRvci9zdHlsZS1lZGl0b3IuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLnN0eWxlQ29udGFpbmVye1xuICAvKnBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBvdmVyZmxvdy15OiBhdXRvO1xuICBvdmVyZmxvdy14OiBhdXRvO1xuICBwYWRkaW5nOiAxN3B4O1xuICBwYWRkaW5nLXJpZ2h0OiBjYWxjKDE3cHggLSAxMHB4KTsqL1xufVxuLnRlbXBsYXRle1xuICBkaXNwbGF5OiBub25lO1xufVxuLlN0eWxlRWRpdG9yRGlzcGxheSAudGVtcGxhdGV7XG4gIGRpc3BsYXk6IHVuc2V0O1xufVxuLnByZXZpZXd7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBtaW4taGVpZ2h0OiAxMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCByZWQ7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuLnByZXZpZXc6Ymxhbmt7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbi5zZXBhcmF0b3JTaGVsbC50b3B7XG4gIG1hcmdpbi10b3A6IDMwcHg7XG59XG5cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdOmZvY3VzIHtcbiAgbWF4LWhlaWdodDogdW5zZXQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSwgZGl2W2NvbnRlbnRlZGl0YWJsZT1cImZhbHNlXCJdIHtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGNvbG9yOiBibGFjaztcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xuICBtYXgtaGVpZ2h0OiAyMDBweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBjdXJzb3I6IHRleHQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwiZmFsc2VcIl0ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xuICBjdXJzb3I6IG5vLWRyb3A7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbmxhYmVsLmFsbG93RWRpdCB7XG4gIGNvbG9yOiBnb2xkZW5yb2Q7XG59XG5idXR0b24ge1xuICBtYXJnaW46IDVweDtcbn1cbi5zdHlsZS5vd24sIC5zdHlsZS5pbnN0YW5jZXN7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbn1cbi5kZXRhaWx7XG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLWJsdWVib3JkZXJjb2xvcik7XG4gIGJhY2tncm91bmQ6IHZhcigtLSk7XG4gIGNvbG9yOiB2YXIoLS1hbHRGb250Q29sb3IpO1xufVxuYnV0dG9uLmRldGFpbCB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgZGlzcGxheTogZmxleDtcbiAgaGVpZ2h0OiBhdXRvO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxN3B4O1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMTdweDtcbiAgei1pbmRleDogMTtcbiB9XG5idXR0b24uZGV0YWlsOmZpcnN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7IC8qIGZpcnN0IHZpc2libGUgY2hpbGQgbm90IHBvc3NpYmxlIGljIHB1cmUgY3NzICovXG4gIGZsZXgtZmxvdzogY29sdW1uO1xuICBtYXJnaW4tcmlnaHQ6IDA7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6bGFzdC1jaGlsZDpub3QoOm9ubHktY2hpbGQpe1xuICBtYXJnaW4tbGVmdDogLTNweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6Zm9jdXMge1xuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcbn1cbmRpdi5kZXRhaWx7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXRvcDogLTNweDtcbiAgd2lkdGg6IGNhbGMoMTAwJSk7XG59XG4uc2F2ZWFzcm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG5idXR0b24uZGVsZXRle1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbmJ1dHRvbi5zYXZlYXN7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuaW5wdXQuc2F2ZWFzIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xuICBmbGV4LWdyb3c6IDAuNjtcbiAgd2lkdGg6IDA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gc3BhbntcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgb3JkZXI6IDI7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLnNhdmVhc3JvdywgLmNvbXBhdGlibGVSb3d7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IHdyYXA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gaW5wdXQge1xuICBvcmRlcjogMTtcbiAgbWFyZ2luLWxlZnQ6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLmRldGFpbCA+IGxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG5idXR0b24uZGV0YWlsID4gLm9wZW5lZCwgYnV0dG9uLmRldGFpbCA+IC5jbG9zZWR7XG4gIG1hcmdpbjogYXV0bztcbn1cbnRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbnRkLnRpdGxlIHtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbmgxIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuc2VsZWN0e1xuICAvKiBiYWNrZ3JvdW5kOiBpbmhlcml0O1xuICBib3JkZXI6IG5vbmU7XG4gIGNvbG9yOiBpbmhlcml0O1xuICBmb250OiBpbmhlcml0OyAqL1xuICAvKmZsZXgtYmFzaXM6IDA7Ki9cbiAgZmxleC1zaHJpbms6IDE7XG4gIGZsZXgtZ3JvdzogMC45O1xuICBtYXgtd2lkdGg6IG1heC1jb250ZW50O1xuICBtaW4td2lkdGg6IDA7XG59XG5cbmxhYmVsIHtkaXNwbGF5OiBmbGV4OyBmbGV4LWdyb3c6MTt9XG5sYWJlbCA+ICo6bm90KGlucHV0KSwgaDYgPiAqIHtcbiAgZGlzcGxheTogZmxleDtcbiAgLyogZmxleC1ncm93OiAxOyovXG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuXG5oNntcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcblxufVxuLnNlcGFyYXRvciA+ICoge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKlxuYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDhweCAxNHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG5idXR0b246ZGlzYWJsZWR7XG4gIGJhY2tncm91bmQ6IGdyYXk7XG59Ki9cbmlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xuICB3aWR0aDogNDBweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7fVxuXG5cbmxhYmVsPmlucHV0W3R5cGU9XCJjaGVja2JveFwiXSxcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbn1cblxuI3ByaW1hcnlfY29sb3Ige1xuICBib3JkZXItcmFkaXVzOiAxMDAlO1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcbn1cblxuW2NvbnRlbnRlZGl0YWJsZT10cnVlXTplbXB0eTpiZWZvcmUge1xuICBjb250ZW50OiBhdHRyKHBsYWNlaG9sZGVyKTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIC8qIEZvciBGaXJlZm94ICovXG4gIGN1cnNvcjogdGV4dDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgY29sb3I6IGRhcmtncmF5O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbjogYXV0bztcbn1cblxuLnNlcGFyYXRvclNoZWxsIHtcbiAgbWluLWhlaWdodDogMzNweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnJvd3cge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uc2VwYXJhdG9yIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uc3R5bGVsYWJlbHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Quc3R5bGVuYW1le1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLkhvcml6b250YWxDb250YWluZXJ7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogcm93O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuLm9ubHlWZXJ0aWNhbENvbnRhaW5lcntcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cbi5vbmx5VmVydGljYWxDb250YWluZXIgPiAqIHtcbiAgbWFyZ2luOiBhdXRvIDA7XG59XG4uSG9yaXpvbnRhbENoaWxke1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuLm9wZW5lZHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmhlbHBCdXR0b24sIC5zdHlsZWRlbGV0ZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAzNXB4O1xuICBoZWlnaHQ6IDM1cHg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiAwO1xufVxuLnN0eWxlZGVsZXRlIHtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG4uaGVscEJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IHJnYigwLCA2MiwgMTI3KTtcbiAgYm9yZGVyLWNvbG9yOiByZ2IoMCwgNjIsIDEyNyk7IH1cblxuLmh0bWxzdHlsZSA+IC50b3Age1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmV4cHJlc3Npb25Sb290IHtcbiAgZmxleC13cmFwOiBub3dyYXAgIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuaW5wdXQuZmlsbHtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xuICBtYXJnaW4tbGVmdDogN3B4O1xufVxuLmxlZnRzaWRle1xuICBmbGV4LWdyb3c6IDM7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIG1pbi13aWR0aDogMDtcbiAgbWF4LXdpZHRoOiAxNTBweDtcbn1cbi5yaWdodHNpZGV7XG4gIGZsZXgtZ3JvdzogNztcbiAgZmxleC1iYXNpczogMDtcbiAgbWluLXdpZHRoOiAwO1xufVxuLmFycm93Q29udGFpbmVye1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuYnV0dG9uLmFycm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBsaW5lLWhlaWdodDogdW5zZXQ7XG4gIHBhZGRpbmc6IDAgNnB4O1xufVxuLnRzY2xhc3N7XG4gIG1hcmdpbjogYXV0bztcbiAgZGlzcGxheTogaW5saW5lO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKiAqL1xuXG4vKlxucHJlIHtcbiAgYmFja2dyb3VuZDojRUVFO1xuICBwYWRkaW5nOjVweDtcbiAgd2lkdGg6IDI5MHB4O1xufSovXG4uYWRkSGVhZGVye1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmFkZEhlYWRlciA+IGJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBvcmRlcjogMjtcbn1cbnNlbGVjdC5hdHRyaWJ1dGV0eXBlYWRke1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG4gIG1pbi13aWR0aDogMDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuLnByZXZpZXdzZWxlY3RvcntcbiAgaGVpZ2h0OiAyM3B4O1xuICBvdXRsaW5lOiBub25lO1xuICBib3JkZXI6IDJweCBkYXNoZWQgIzY2NjY2Njtcbn1cblxuLnNob3dBc0VkZ2V7XG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5idXR0b24uZGVsZXRlLCBidXR0b24uc2F2ZWFze1xuICBmb250LXNpemU6IDAuOHJlbTtcbn1cbmJ1dHRvbi5kZWxldGVSdWxle1xuICBmbGV4LWdyb3c6IDA7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIG1pbi13aWR0aDogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogNXB4O1xufVxuLm5vd3JhcHtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4uX3Jvb3Qge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXYuZGV0YWlsLm1lYXN1cmFibGUgPiBkaXYudGVtcGxhdGUge1xuICBkaXNwbGF5OiBub25lO1xufVxuLmdyYXBoQ29sb3IsIC5zaG93R3JpZHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG5zZWxlY3Qub3BlcmF0b3J7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgd2lkdGg6IDI1cHg7XG59XG5zcGFuLm9wZXJhdG9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Qub3BlcmF0b3I6ZGlzYWJsZWR7XG4gIGRpc3BsYXk6IG5vbmU7XG4gIC8qXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgLW1vei1hcHBlYXJhbmNlOiBub25lO1xuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG4gIG1hcmdpbjogMDsqL1xufVxuXG5zcGFuLm5hbWVwcmVmaXgge1xuICBtYXJnaW4tbGVmdDogN3B4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xuICBoZWlnaHQ6IDIxcHg7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbiAgY29sb3I6IGJsYWNrO1xuICBsaW5lLWhlaWdodDogMTZweDtcbn1cbmlucHV0Lm5hbWUge1xuICBtYXJnaW4tbGVmdDogMDtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbn1cblxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogMCAycHggMnB4IDJweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cblxuaW5wdXQubmFtZTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IDJweCAycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KSwgMnB4IC0ycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cbi5odG1sc3R5bGUge1xuICB3aWR0aDogMTAwJTtcbn1cbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xuICBtYXJnaW4tbGVmdDowO1xufVxubGFiZWwgPiAqIHtcbiAgbWFyZ2luLXRvcDogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogYXV0bztcbn1cbmxhYmVsID4gaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdIH4gKiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLmh0bWxbY29udGVudGVkaXRhYmxlXSB7XG4gIC8qSURFIGdpdmVzIGVycm9yIGJ1dCB0aGV5IGFsbCBhY3R1YWxseSBleGlzdCwgYXQgbGVhc3Qgb24gbW96aWxsYS4qL1xuICBvdmVyZmxvdy13cmFwOiBhbnl3aGVyZTtcbiAgd29yZC13cmFwOiBhbnl3aGVyZTtcbiAgd2hpdGUtc3BhY2U6IGJyZWFrLXNwYWNlcztcbn1cblxuLmF1dG9zaXplY29udGFpbmVye1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uYXV0b3NpemVjb250YWluZXIgPiAqe1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLnNpemVDb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7IH1cbi5zaXplQ29udGFpbmVySGFsZiB7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIGZsZXgtZ3JvdzogMTtcbn1cbi5zaXplbGFiZWwge1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW4tcmV2ZXJzZTtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzAwcHgpIHtcbiAgLyogc3Ugdmlld3BvcnQgdHJvcHBvIHBpY2NvbGkgY2FtYmlvIGxhIHZpc3VhbGl6emF6aW9uZSBkYSBsYWJlbCBzb3ByYSBpbCB0ZXN0byAoYnVvbm8gcGVyIGZhcmUgbW9uby1yb3cpIGEgbGFiZWwgYWZmaWFuY2F0YSBhbCB0ZXN0byAocGVyIGZhcmUgNCByb3cgZSBzY29ycmVyZSB2ZXJ0aWNhbG1lbnRlKSovXG4gIC5zaXplbGFiZWx7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG59XG4uc2l6ZWxhYmVsID4gKntcbiAgZGlzcGxheTogaW5saW5lO1xuICBtYXJnaW46IGF1dG87IH1cblxuXG5cblxuXG5cblxuXG5cblxuICAvKiB0aGV5IGZpeCBvdXRlciBjc3MgaW5mbHVlbmNlIG9uIG1lYXN1cmFibGUgc2VjdGlvbi4gKi9cblxuaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLmFycm93IHtcbiAgbWFyZ2luOiAwOyB9XG5cbi5tZWFzX2FjYzAgYnV0dG9uIHsgbWFyZ2luOiAwOyB9XG5cblxuXG5cbi8qKioqKioqKioqKiAgICAgICAgICAgICAgTWVhc3VyYWJsZSBlZGl0b3IgdjIgc3RhcnQgICAgICAgICAgICAgICAgICoqKioqKioqL1xuLm1lYXNfYWNjMCAubWVhc3VyYWJsZVNldHRpbmdSb290e1xuICB3aWR0aDogMTAwJTtcbiAgZGlzcGxheTogYmxvY2s7XG59XG4ubWVhc19hY2MwIC5ib3hlc3Jvb3Qge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIGZsZXgtZ3JvdzogMTtcbiAgZmxleC1iYXNpczogMDtcbn1cbi5tZWFzX2FjYzAgLm1vdmVtZW50Ym94cm9vdCwgLm1lYXNfYWNjMCAucmVzaXplYm94cm9vdCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZ3JvdzogMTtcbiAgZmxleC1mbG93OiBjb2x1bW47XG59XG5cbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbn1cbi5tZWFzX2FjYzAgLnJvdyB7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcbiAgbWFyZ2luLWxlZnQ6IHVuc2V0OyAvKiBkdW1iIF9ncmlkLnNjc3MgZml4ZXIgKi9cbn1cbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XG4ubWVhc19hY2MwIC5hdXRvYnJlYWsgeyBmbGV4LXdyYXA6IGluaXRpYWw7IH1cbi5tZWFzX2FjYzAgLmZpbGwgeyBmbGV4LWdyb3c6IDE7IH1cbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxuLm1lYXNfYWNjMCAuc2lkZSB7IGRpc3BsYXk6IGZsZXg7IH1cbi5tZWFzX2FjYzAgLnNpZGUubGVmdCwgLm1lYXNfYWNjMCAuc2lkZS5yaWdodCB7IHdpZHRoOiAxMHB4OyB9XG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxuLm1lYXNfYWNjMCAuY29ybmVyIHsgZGlzcGxheTogZmxleDsgd2lkdGg6IDEwcHg7IGhlaWdodDogMTBweDsgfVxuLm1lYXNfYWNjMCAubWlkZGxlIHsgYmFja2dyb3VuZC1jb2xvcjogZ29sZGVucm9kOyBkaXNwbGF5OiBmbGV4OyB9XG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLmlubmVyID4gLnJvdyA+IC5zaWRlLCAubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLmlubmVyID4gLnJvdyA+IC5jb3JuZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBkaW1ncmF5O1xufVxuLm1lYXNfYWNjMCAuYm94cm9vdCB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IGF1dG87XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZXtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgYnV0dG9uLnJ1bGVkZWxldGUge1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAzMHB4O1xuICBwYWRkaW5nOiAwO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgYm9yZGVyLXJhZGl1czogMjVweCAwIDAgMjVweDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXgge1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XG4gIG1hcmdpbi1ib3R0b206IDA7XG4gIHBhZGRpbmc6IDA7XG4gIGZsZXgtZ3JvdzogMCAhaW1wb3J0YW50O1xuICB3aWR0aDogYXV0bztcbiAgZmxleC1iYXNpczogYXV0byAhaW1wb3J0YW50O1xuICBmbGV4LXNocmluazogMCAhaW1wb3J0YW50O1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0LmF0dHJuYW1lIHtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqIHsgYm9yZGVyOiBub25lOyB9XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gKjpmaXJzdC1jaGlsZCB7XG4gIG1hcmdpbi10b3A6IDFweDtcbiAgcGFkZGluZy1yaWdodDogMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4OmZvY3VzLXdpdGhpbiB7XG4gIGJvcmRlci1jb2xvcjogIzgwYmRmZjtcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xufVxuXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxuLyogLm1lYXNfYWNjMCAucmlnaHR4IHsgbWluLXdpZHRoOiAwOyB9ICovXG4ubWVhc19hY2MwIC5yaWdodHggc3Bhbi5vcGVyYXRvciB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi10b3A6IDhweDtcbn1cbi5tZWFzX2FjYzAgLm9wZXJhdG9yY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xuICB3aWR0aDogNDVweDtcbiAgbWFyZ2luOiBhdXRvIDVweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbiAgbWluLXdpZHRoOiAxMjBweDtcbiAgZmxleC1iYXNpczogMDtcbiAgZmxleC1ncm93OiAxO1xufVxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQgeyBtYXJnaW4tYm90dG9tOiAwOyB9XG4ubWVhc19hY2MwIC5yaWdodHggPiAubWVhc3VyYWJsZWRlYnVnIHsgbWFyZ2luLXRvcDogNXB4OyB9XG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XG4gIG1heC13aWR0aDogMjAwcHggIWltcG9ydGFudDsgLyogdG9kbzogcmVtb3ZlIHdoZW4gaXMgYXV0b3NpemluZyAqL1xuICBtaW4td2lkdGg6IDA7XG59XG4ubWVhc19hY2MwIC5hZGRydWxlIHtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBtYXJnaW4tdG9wOiAtNHB4O1xuICBwYWRkaW5nOiA0cHggMTBweDtcbn1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XG4gIHBhZGRpbmctcmlnaHQ6IDRweDtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlLmNvbGxhcHNlZCB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVyIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBidXR0b247IH1cbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IHVuc2V0O1xuICAvKiBkaXNhYmxlIGJvb3RzdHJhcCBydWxlKi9cbn1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIGNvbG9yOiB2YXIoLS1kYW5nZXIpO1xufVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0e1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBjb2xvcjogdmFyKC0td2FybmluZyk7XG59XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG59XG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyeyBtYXJnaW4tYm90dG9tOiA1cHg7IH1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyB7IGRpc3BsYXk6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eDpmb2N1cy13aXRoaW4gLm1lYXN1cmFibGVkZWJ1Z3sgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAuY291bnRlcnNoZWxsIHsgZmxvYXQ6IHJpZ2h0OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gKiB7XG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gKiwgLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Yge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby90cXhYaGs0L3RsLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmd2cHl3ei90bGwucG5nKTtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnNpZGUudG9wIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vTTlmQzdEUC90LnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9QenNtanhmL3RyLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vU04yVEhMdC90cmwucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvLzdqbTlCQlEvbC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5sZWZ0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9xcllXZHBIL2JsLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAuc2lkZS5ib3Qge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9jWGMwbm1TL2IucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL0swcFZWVDcvYnIucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9RcHdSU3NUL2JybC5wbmcpOyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xuICBtYXJnaW4tdG9wOiAtM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcbiAgbWFyZ2luLWJvdHRvbTogLTNweDtcbiAgbWFyZ2luLXRvcDogM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XG4gIG1hcmdpbi1yaWdodDogM3B4O1xuICBtYXJnaW4tbGVmdDogLTNweDsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcbiAgbWFyZ2luLXJpZ2h0OiAtM3B4O1xuICBtYXJnaW4tbGVmdDogM3B4OyB9XG4ubWVhc19hY2MwIC5hcnJvd2gge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZDNqdGJjL2xyLnBuZyk7IH1cbi5tZWFzX2FjYzAgLmFycm93diB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxuXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+IC5jb3JuZXIge1xuICBoZWlnaHQ6IDUwcHg7XG4gIG1pbi13aWR0aDogNTBweDtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XG4gIGhlaWdodDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAqIHtcbiAgaGVpZ2h0OiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcbiAgaGVpZ2h0OiBhdXRvO1xuICB3aWR0aDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xuICBoZWlnaHQ6IGF1dG87XG4gIHdpZHRoOiA1MHB4OyB9XG5cbi5tZWFzX2FjYzAgLmFycm93IHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XG5cbi5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2e1xuICB3aWR0aDogNzVweDtcbiAgaGVpZ2h0OiA3NXB4OyB9XG5cbi5tZWFzX2FjYzAgLmFycm93OmZvY3VzeyBvdXRsaW5lOiBub25lOyB9XG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xuICBmaWx0ZXI6IHNlcGlhKDgyJSkgc2F0dXJhdGUoMzkyNSUpIGh1ZS1yb3RhdGUoNTVkZWcpIGJyaWdodG5lc3MoMTI1JSkgY29udHJhc3QoMTIwJSk7IH1cblxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgbWFyZ2luOiBhdXRvOyB9XG5cbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMgPiAqIHsgbWFyZ2luOiBhdXRvOyB9XG4ubWVhc19hY2MwIC5kcmFnZ2FibGUuYm94cm9vdHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIC8qaGVpZ2h0OiAyMzdweDsqL1xufVxuLm1lYXNfYWNjMCAuY29sbGFwc2U6bm90KC5zaG93KSB7IGRpc3BsYXk6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XG4vKioqKioqKioqKiogICAgICAgICAgICAgIE1lYXN1cmFibGUgZWRpdG9yIHYyIGVuZCAgICAgICAgICAgICAgICAgICAqKioqKioqKi9cbi5pc2ludGVyZmFjZSwgLmlzYWJzdHJhY3R7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuIl19 */");
 
 /***/ }),
 
@@ -17191,6 +18271,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
 /* harmony import */ var _propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../propertyBar/propertyBar */ "./src/guiElements/propertyBar/propertyBar.ts");
 /* harmony import */ var _common_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../common/util */ "./src/common/util.ts");
+/* harmony import */ var _mGraph_Layouting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../mGraph/Layouting */ "./src/guiElements/mGraph/Layouting.ts");
+
 
 
 
@@ -17198,9 +18280,24 @@ __webpack_require__.r(__webpack_exports__);
 
 let StyleEditorComponent = class StyleEditorComponent {
     constructor() { }
-    ngOnInit() {
+    getModel() {
+        return this.model = (this.isM2 ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm : _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m);
+    }
+    getGraph() {
+        return this.graph = this.graph || this.getModel().graph;
+    }
+    get() {
+        return this.se = this.se || this.getModel().graph.propertyBar.styleEditor;
+    }
+    ngOnInit() { }
+    changeGridUse($event) {
+        console.log('change grid use:', $event);
+        this.getGraph().useGrid = $event.currentTarget['checked'];
     }
 };
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], StyleEditorComponent.prototype, "isM2", void 0);
 StyleEditorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-style-editor',
@@ -17264,6 +18361,7 @@ class StyleEditor {
         // if (m instanceof IPackage) { this.showP(m); return; }
         this.clickedLevel = clickedLevel = clickedLevel || m.getHtmlOnGraph();
         this.showMP(m, null, false, null);
+        this.addEventListeners();
         this.updateClickedGUIHighlight();
         return; /*
         if (m instanceof IClass) { this.showC(m); }
@@ -17271,6 +18369,10 @@ class StyleEditor {
         if (m instanceof IReference) { this.showR(m); }
         if (m instanceof EOperation) { this.showO(m); }
         if (m instanceof EParameter) { this.showParam(m); }*/
+    }
+    addEventListeners() {
+        // this.$root.find('[data-modelpieceid]').off('contextmenu')
+        // .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
     }
     updateClickedGUIHighlight() {
         $(this.propertyBar.model.graph.container).find('.styleEditorSelected').removeClass('styleEditorSelected');
@@ -17308,30 +18410,33 @@ class StyleEditor {
         const zoomX = $html.find('.zoomX')[0];
         const zoomY = $html.find('.zoomY')[0];
         const showGrid = $html.find('.showGrid')[0];
-        const color = $html.find('.graphColor')[0];
+        const useGrid = $html.find('.useGrid')[0];
+        const gridColor1 = $html.find('.gridColor1')[0];
+        const gridColor2 = $html.find('.gridColor2')[0];
         gridX.value = m.graph.grid ? '' + m.graph.grid.x : '';
         gridY.value = m.graph.grid ? '' + m.graph.grid.y : '';
         zoomX.value = m.graph.zoom.x + '';
         zoomY.value = m.graph.zoom.y + '';
         showGrid.checked = m.graph.gridDisplay;
-        color.value = '#000ff'; // todo.
+        useGrid.checked = m.graph.useGrid;
+        gridColor1.value = m.graph.gridColor1;
+        gridColor2.value = m.graph.gridColor2;
+        $([gridColor1, gridColor2]).on('change', (e) => {
+            m.graph.gridColor1 = gridColor1.value || '#808080';
+            m.graph.gridColor2 = gridColor2.value || '#808080';
+            m.graph.refreshGridGUI();
+        });
         // event listeners:
-        $(gridX).off('change.set').on('change.set', (e) => {
+        const changeGrid = (e, coord) => {
             const input = e.currentTarget;
             if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isNumerizable(input.value))
-                m.graph.grid.x = +input.value; // will be displayed by gridDisplay.trigger
+                m.graph.grid[coord] = +input.value; // will be displayed by gridDisplay.trigger
             showGrid.checked = true;
             $(showGrid).trigger('change');
-            m.refreshGUI();
-        });
-        $(gridY).off('change.set').on('change.set', (e) => {
-            const input = e.currentTarget;
-            if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isNumerizable(input.value))
-                m.graph.grid.y = +input.value; // will be displayed by gridDisplay.trigger
-            showGrid.checked = true;
-            $(showGrid).trigger('change');
-            m.refreshGUI();
-        });
+            m.graph.fitVertexToGrid(false);
+        };
+        $(gridX).off('change.set').on('change.set', (e) => changeGrid(e, 'x'));
+        $(gridY).off('change.set').on('change.set', (e) => changeGrid(e, 'y'));
         $(zoomX).off('change.set').on('change.set', (e) => {
             const input = e.currentTarget;
             m.graph.setZoom(+input.value, null);
@@ -17344,6 +18449,15 @@ class StyleEditor {
             const input = e.currentTarget;
             m.graph.setGrid(null, null, input.checked);
         });
+        $(useGrid).off('change.set').on('change.set', (e) => {
+            const input = e.currentTarget;
+            console.log('useGrid changed', m.graph.useGrid, '-->', input.checked);
+            console.log('useGrid changed', m.graph.useGrid, '-->', input.checked);
+            e.preventDefault(); // debug to see if angular change status
+            m.graph.setUseGrid(input.checked);
+        });
+        console.log('newk, layouuthtml setup pre');
+        this.layoutHtmlSetup(m);
     }
     showP(m) { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'styles of Package(', m, '): unexpected.'); }
     setStyleEditor($styleown, model, mp, style, context, indexedPath = null, insideOwnSection = false) {
@@ -17386,6 +18500,8 @@ class StyleEditor {
             saveasName: null,
             styledelete: null,
             measurableCheckbox: null,
+            interfaceCheckbox: null,
+            abstractCheckbox: null
         };
         if (insideOwnSection)
             this.ownstylecontext = obj;
@@ -17561,13 +18677,12 @@ class StyleEditor {
             e.stopImmediatePropagation();
         });
         $(obj.styledelete).on('click', () => { style.view.delete(); mp.refreshGUI(); this.show(mp, mp.getHtmlOnGraph()); });
-        $measurableCheckbox.on('click', (e) => { e.stopPropagation(); });
-        $measurableCheckbox.on('mousedown', (e) => { e.stopPropagation(); });
-        $measurableCheckbox.on('mouseup', (e) => { e.stopPropagation(); });
+        let stopPropagation = (e) => { e.stopPropagation(); };
         if (!$measurableCheckbox[0].checked)
             $measurableTitle.hide();
         let templateParent = context.templateLevel && context.templateLevel.parentElement;
-        $measurableCheckbox.off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e) => {
+        $measurableCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation)
+            .off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e) => {
             context.templateLevel.classList.remove('measurable');
             if (measurableCheckbox.checked) {
                 context.templateLevel.classList.add('measurable');
@@ -17577,7 +18692,7 @@ class StyleEditor {
                 if (!$measurableBody[0].classList.contains('show')) {
                     $measurableTitle.trigger('click');
                 }
-                console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', templateParent.style.position);
+                // console.log('is now measurable:', context.templateLevel, 'parent:', context.templateLevel, 'parentStyle', templateParent.style.position);
                 if (templateParent) {
                     if (templateParent.style.position !== 'relative') {
                         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ps(true, 'The parent node of a measurable element must have style.position="relative" due to jqueryUI limitations. The parent style has been automatically corrected, was'
@@ -17694,8 +18809,10 @@ class StyleEditor {
         this.sizeInputh = $html.find('input.sizeh')[0];
         const $autosizew = $html.find('input.autowidth');
         const $autosizeh = $html.find('input.autoheight');
+        const $autolayout = $html.find('input.autolayout');
         const autosizew = $autosizew[0];
         const autosizeh = $autosizeh[0];
+        const autolayout = $autolayout[0];
         if (v && this.sizeInputx) {
             autosizeh.disabled = autosizew.disabled = this.ownstylecontext.measurableCheckbox.disabled;
             const isAutosize = v.isAutosize();
@@ -17730,6 +18847,7 @@ class StyleEditor {
             };
             $autosizew.on('change', () => { setAutosize(autosizew.checked, null); this.sizeInputw.disabled = autosizew.checked; });
             $autosizeh.on('change', () => { setAutosize(null, autosizeh.checked); this.sizeInputh.disabled = autosizeh.checked; });
+            $autolayout.on('change', () => { v.setAutolayout(autolayout.checked); });
             const vSize = v.getSize();
             this.sizeInputx.value = '' + (vSize.x);
             this.sizeInputy.value = '' + (vSize.y);
@@ -17743,6 +18861,7 @@ class StyleEditor {
         else {
             $html.find('.sizeContainer').remove();
         }
+        autolayout.checked = v.autoLayout;
         //// end autosize
         // <meta>
         //     <dependency><attributes><type>double</ </ </
@@ -18273,9 +19392,24 @@ class StyleEditor {
         };
         $(nameinput).off('change.name').on('change.name', nameChanged);
         $(operator).off('change.operator').on('change.operator', operatorChanged);
-        $(left).off('click.leftside').on('click.leftside', leftClicked);
-        $(right).off('click.rightside').on('click.rightside', rightClicked);
-        $(target).off('click.target').on('click.target', targetClicked);
+        if (left && (left.list || left instanceof HTMLSelectElement)) {
+            $(left).off('change.leftside').on('change.leftside', leftChanged);
+        }
+        else {
+            $(left).off('click.leftside').on('click.leftside', leftClicked);
+        }
+        if (right && (right.list || right instanceof HTMLSelectElement)) {
+            $(right).off('change.rightside').on('change.rightside', rightChanged);
+        }
+        else {
+            $(right).off('click.rightside').on('click.rightside', rightClicked);
+        }
+        if (target && (target.list || target instanceof HTMLSelectElement)) {
+            $(target).off('change.target').on('change.target', targetChanged);
+        }
+        else {
+            $(target).off('click.target').on('click.target', targetClicked);
+        }
         /*
         $(nameinput).off('change.name').on('change.name', nameChanged);
         $(left).off('change.leftside').on('change.leftside', leftChanged);
@@ -18329,7 +19463,15 @@ class StyleEditor {
             const attr = context.graphLevel.attributes.getNamedItem(generateRuleName().toLowerCase());
             let parts = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](attr, null, false);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!parts.prefix, 'unexpected rule: ' + parts, this, attr, generateRuleName());
-            let output = parts.process(false);
+            let output = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](null, null, true);
+            try {
+                output = parts.process(false);
+            }
+            catch (exception) {
+                output = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](null, null, true);
+                console.error('testing the execution caused exception:', exception);
+                output.right = 'Exception:' + exception;
+            }
             console.log('execution output:', output);
             if (debugleft)
                 debugleft.innerText = output.left;
@@ -18357,31 +19499,42 @@ class StyleEditor {
     getRuleEditor() {
         if (StyleEditor.ruleeditor)
             return { editor: StyleEditor.ruleeditor, input: StyleEditor.ruleeditorinput };
-        const callforeachkeyrecursive = (obj, f, pathuntilnow) => {
+        const callforeachkeyrecursive = (obj, f, pathuntilnow = '', visited_avoidloop = []) => {
             let key0;
             let key;
             let val;
+            // U.pif((pathuntilnow + '.' + key).indexOf('model') > 0, 'pre!! autocompletem model,  path:', pathuntilnow, 'obj:', obj);
             for (key0 in obj) {
                 key = key0;
                 val = obj[key];
+                const isArray = Array.isArray(val);
+                const isObject = typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].object;
+                if (isObject || isArray) {
+                    if (obj === val)
+                        continue;
+                    // nope, sta cosa dei duplicati così non va bene perchè ho degli alias e soprattutto su model fai la roba grezza if obj === val
+                    // if (visited_avoidloop.includes(val)) continue; else visited_avoidloop.push(val);
+                }
                 if (typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].function) {
                     key += _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getFunctionSignatureFromComments(val).signature + ';';
                 }
-                else if (Array.isArray(val)) {
+                // else key += '/*' + U.getTSClassName(val) + '*/.';
+                else if (isArray) {
                     key += '/*array*/';
                 }
-                else if (typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].object) {
-                    key += '.'; /*no post comment*/
-                }
+                else if (isObject) {
+                    key += '.';
+                } // no type comment per object, altrimenti il commento invalida la ricerca di next suggestions.
                 else
                     key += '; /*' + typeof val + '*/';
                 _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(key === 'vertex', 'key:', key, 'obj[key]:', obj[key], 'val:', val, 'cond:', (val instanceof Object && !(val instanceof Function)));
                 f(pathuntilnow + '.', key);
                 // console.log(pathuntilnow, val);
                 if (val instanceof Element)
-                    return;
-                if (val instanceof Object)
-                    callforeachkeyrecursive(val, f, pathuntilnow + '.' + key0);
+                    continue;
+                //NB: do not use instanceof Object, might somehow fail on custom classes (ModelProtected)
+                if (typeof val === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TSON_JSTypes"].object)
+                    callforeachkeyrecursive(val, f, pathuntilnow + '.' + key0, visited_avoidloop);
             }
         };
         let i;
@@ -18389,16 +19542,20 @@ class StyleEditor {
         let spaceUsed = ' '; // String.fromCharCode(160);
         let preChars = '};' + spaceUsed + '*/+-';
         let autocompletekeys = [];
-        let addmanyv2 = (prechars, prePath, key) => {
+        let addmanyv2 = (preChars, prePath, key) => {
+            // preChars = spazio, moltiplicazione, addizione...
             if (prePath.charAt(0) === '.')
                 prePath = prePath.substr(1);
             for (i = 0; i < preChars.length; i++) {
-                autocompletekeys.push(new _common_util__WEBPACK_IMPORTED_MODULE_4__["AutocompleteMatch"](prechars[i] + prePath, key));
+                autocompletekeys.push(new _common_util__WEBPACK_IMPORTED_MODULE_4__["AutocompleteMatch"](preChars[i] + prePath, key));
             }
         };
         let contextobj = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableEvalContext"].fillFake();
+        window['autocompletekeys'] = autocompletekeys;
+        window['autocompletesourceobj'] = contextobj;
+        window['autocompletemodel'] = contextobj.model;
         let obj = { 'this': contextobj };
-        callforeachkeyrecursive(obj, (prePath, key) => { addmanyv2(preChars, prePath, key); }, '');
+        callforeachkeyrecursive(obj, (prePath, key) => { addmanyv2(preChars, prePath, key); }, '', []);
         let inputcontainer = document.createElement('div');
         let input = document.createElement('div');
         let suggestionlist = document.createElement('ul');
@@ -18412,9 +19569,183 @@ class StyleEditor {
         StyleEditor.ruleeditorinput = input;
         return this.getRuleEditor();
     }
+    layoutHtmlSetup(model) {
+        const $layout = this.$root.find('.layoutingRoot');
+        const $inputs = $layout.find('.lopt').add(this.$root.find('.lopt.stabilizeSteps'));
+        const renew = () => { this.computeLayoutUIFs(model, this.$root); this.fillLayoutHtmlValues(model, $inputs); };
+        // timeout necessario, altrimenti onchange fà prima renew() ri-settando il valore logico dentro l'html, e poi esegue
+        // l'uif con il vecchio valore logico, il nuovo valore cambiato dall'utente viene perso.
+        $('.dynamic_uif').on('change', (e) => { setTimeout(renew, 1); });
+        const $edgePointSelect = $('.edgePointTreatment');
+        const layouting = model.graph.layouting;
+        const myOptions = layouting.myOptions;
+        $edgePointSelect[0].value = myOptions.edgePointMode;
+        $edgePointSelect.on('change', (e) => {
+            switch ($edgePointSelect[0].value) {
+                default:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'unexpected value of layouting.myoptions.edgePointMode:', $edgePointSelect[0].value);
+                    break;
+                case 'vertex':
+                case 'ignore':
+                case 'relative':
+                    myOptions.edgePointMode = $edgePointSelect[0].value;
+                    break;
+            }
+        });
+        renew();
+        const onRun = () => {
+            renew();
+        };
+        const onStop = () => {
+            renew();
+        };
+        layouting.setStyleEditorBackEvents(onRun, onStop);
+        $inputs.on('change', (e) => {
+            this.setLayoutHtmlValue(layouting, e.currentTarget);
+        });
+        const $start = this.$root.find('.layout.start').on('click', (e) => {
+            layouting.start();
+        });
+        const $stabilize = this.$root.find('.layout.stabilize').on('click', (e) => {
+            layouting.stabilize();
+        });
+        const $stop = this.$root.find('.layout.stop').on('click', (e) => {
+            layouting.isRunning = false;
+            layouting.stop();
+        });
+    }
+    setLayoutHtmlValue(layout, currentTarget) {
+        console.log('key2 optionval:', currentTarget.value, currentTarget);
+        this.setLayoutValue(layout, currentTarget.value, currentTarget.dataset.key);
+    }
+    setLayoutValue(layouting, value0, key) {
+        layouting.stop();
+        const value = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].deserialize(value0);
+        if (key.indexOf('custom.') === 0) {
+            switch (key) {
+                default:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, "unexpected custom uif key on setlayout value:", key);
+                    break;
+                case 'custom.stabilizeSteps':
+                    layouting.stabilizationSteps = value;
+                    break;
+                case 'custom.scale_factor':
+                    _mGraph_Layouting__WEBPACK_IMPORTED_MODULE_5__["Layouting"].scaleFactor = value;
+                    break;
+            }
+        }
+        else {
+            key = key.replace(/\.bh\./, '.' + layouting.optionsDefault.physics.solver + '.');
+            layouting.setOption(key, value);
+        }
+        layouting.start();
+    }
+    computeLayoutUIFs(model, $layout) {
+        const dictionary = {};
+        const graph = model.graph;
+        const layouting = graph.layouting;
+        const options = layouting.optionsDefault;
+        dictionary['atl'] = dictionary['bar'] = dictionary['rep'] = dictionary['hr'] = false;
+        switch (options.physics.solver) {
+            default: _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, 'unexpected switch value solver:', options.physics.solver);
+            case 'barnesHut':
+                dictionary['bar'] = true;
+                break;
+            case 'repulsion':
+                dictionary['rep'] = true;
+                break;
+            case 'hierarchicalRepulsion':
+                dictionary['hr'] = true;
+                break;
+            case 'forceAtlas2Based':
+                dictionary['atl'] = true;
+                break;
+        }
+        dictionary['stabilization'] = options.physics.stabilization.enabled;
+        dictionary['physics'] = options.physics.enabled;
+        dictionary['running'] = layouting.isRunning;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].computeConditionalHides($layout, dictionary, false, true, (e) => $(e).slideDown(), (e) => $(e).slideUp());
+    }
+    fillLayoutHtmlValues(model, $inputs) {
+        let i;
+        let val;
+        const layouting = model.graph.layouting;
+        for (i = 0; i < $inputs.length; i++) {
+            const input = $inputs[i];
+            let key = input.dataset.key;
+            if (key.indexOf('custom.') === 0) {
+                switch (key) {
+                    default:
+                        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, "unexpected custom uif key:", key);
+                        break;
+                    case 'custom.stabilizeSteps':
+                        val = '' + layouting.stabilizationSteps;
+                        break;
+                    case 'custom.scale_factor':
+                        val = '' + _mGraph_Layouting__WEBPACK_IMPORTED_MODULE_5__["Layouting"].scaleFactor;
+                        break;
+                }
+            }
+            else {
+                // normal keys
+                key = key.replace(/\.bh\./, '.' + model.graph.layouting.optionsDefault.physics.solver + '.');
+                val = '' + model.graph.layouting.getOption(key);
+            }
+            if (input instanceof HTMLSelectElement)
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].selectHtml(input, val, false);
+            else
+                input.value = val;
+            // console.log('newkeyy:', key, input, input.value);
+        }
+    }
 }
 StyleEditor.ruleeditor = null;
 StyleEditor.ruleeditorinput = null;
+
+
+/***/ }),
+
+/***/ "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.css":
+/*!*********************************************************************!*\
+  !*** ./src/guiElements/top-bar/m2tcreator/m2tcreator.component.css ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvdG9wLWJhci9tMnRjcmVhdG9yL20ydGNyZWF0b3IuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts ***!
+  \********************************************************************/
+/*! exports provided: M2tcreatorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M2tcreatorComponent", function() { return M2tcreatorComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let M2tcreatorComponent = class M2tcreatorComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+    static willUseThis() { }
+};
+M2tcreatorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-m2tcreator',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./m2tcreator.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/guiElements/top-bar/m2tcreator/m2tcreator.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./m2tcreator.component.css */ "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.css")).default]
+    })
+], M2tcreatorComponent);
+
 
 
 /***/ }),
@@ -18428,7 +19759,7 @@ StyleEditor.ruleeditorinput = null;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  color: var(--LightmainFontColor);\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n  max-height: 90vh;\r\n  overflow: auto;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  width: 600px;\r\n  margin-bottom: 5px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLGdDQUFnQztFQUNoQyxtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUIsQ0FBQztBQUN0QjtFQUNFLGtCQUFrQjtFQUNsQixtQkFBbUI7QUFDckI7QUFDQTtBQUNBO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFJQSx1SEFBdUg7QUFFdkg7RUFDRSx5QkFBeUIsRUFBRSw4QkFBOEI7RUFDekQsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGVBQWU7QUFDakI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixxQkFBcUI7RUFDckIsZUFBZTtFQUNmLFdBQVc7RUFDWCxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsNENBQTRDO0VBQzVDLFVBQVU7RUFDViw2Q0FBNkM7RUFDN0MsVUFBVTtFQUNWLFNBQVM7RUFDVCxTQUFTO0FBQ1g7QUFDQTtFQUNFLFFBQVE7RUFDUixNQUFNO0VBQ04sVUFBVTtBQUNaO0FBRUE7RUFDRSxVQUFVO0VBQ1YscUJBQXFCO0VBQ3JCLGNBQWM7QUFDaEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0UsK0JBQStCO0FBQ2pDO0FBQ0Esa0RBQWtELDRCQUE0QixFQUFFO0FBQ2hGLDZHQUE2RztBQUM3RztFQUNFLDZDQUE2QztFQUM3QyxzQkFBc0I7RUFDdEIsZ0NBQWdDO0VBQ2hDLCtCQUErQjtFQUMvQjtpQ0FDK0I7QUFDakM7QUFDQTtFQUNFLDRCQUE0QjtFQUM1Qiw2QkFBNkIsQ0FBQztBQUNoQztFQUNFLDZDQUE2QztBQUMvQztBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLDhCQUE4QjtFQUM5QixpREFBaUQsRUFBRSx5RkFBeUY7QUFDOUk7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLGNBQWM7RUFDZCxZQUFZO0VBQ1osWUFBWSxFQUFFO0FBRWhCO0VBQ0UsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUdBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxtQkFBWTtFQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usd0JBQXdCO0VBQ3hCLFlBQVk7RUFDWixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0NBQW9DO0VBQ3BDLDhCQUE4QjtBQUNoQztBQUlBLHdDQUF3QztBQUN4QztFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3RvcC1iYXIvdG9wLWJhci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbiN0b3BiYXJTaGVsbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtYmFzaXM6IDEwMHZ3O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIC8qYm9yZGVyLWJvdHRvbTogdmFyKC0tbWFpbkJvcmRlcik7Ki9cclxuICB3aWR0aDogMTAwdnc7XHJcbiAgaGVpZ2h0OiB2YXIoLS10b3BiYXJIKTtcclxuICBtYXgtaGVpZ2h0OiB2YXIoLS10b3BiYXJIKTtcclxufVxyXG4jdG9wYmFyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbiN0b3BiYXIgPiAqIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIC8qbWFyZ2luOiBhdXRvIDAgYXV0byAxMHB4OyAvKlQ/UkI/TCovXHJcbn0vKlxyXG4jdG9wYmFyID4gYnV0dG9ue1xyXG4gIGhlaWdodDogY2FsYyh2YXIoLS10b3BiYXJIKSAtIDEwcHgpO1xyXG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xyXG4gIG1pbi13aWR0aDogMTAwcHg7XHJcbiAgbWF4LXdpZHRoOiAxMDBweDtcclxufSovXHJcbiN0b3BiYXIgYnV0dG9uLmRyb3Bkb3duVGl0bGU6Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxufVxyXG5cclxuOjpuZy1kZWVwIC5wb3B1cENvbnRlbnQgLmNsb3NlQnV0dG9ue1xyXG4gIC8qIGZsb2F0OiByaWdodDsgKi9cclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDEwcHg7XHJcbiAgdG9wOiAxMHB4O1xyXG4gIGhlaWdodDogNDBweDtcclxuICB3aWR0aDogNDBweDtcclxuICBib3JkZXI6IDJweCBzb2xpZCB2YXIoLS1tYWluRm9udENvbG9yKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoIC0tYWx0QmFja2dyb3VuZENvbG9yKTtcclxuICBjb2xvcjogdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbjpob3ZlcntcclxuICByaWdodDogNXB4O1xyXG4gIHRvcDogNXB4O1xyXG4gIGhlaWdodDogNTBweDtcclxuICB3aWR0aDogNTBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XHJcbiAgY29sb3I6IHZhcigtLUxpZ2h0bWFpbkZvbnRDb2xvcik7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAuc2NyZWVuV2lkZVNoYWRvd3tcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICB0b3A6IDA7XHJcbiAgei1pbmRleDogMjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNSk7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50e1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHBhZGRpbmc6IDMwcHggNjBweDtcclxuICBib3JkZXI6IDRweCBzb2xpZCB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1heC1oZWlnaHQ6IDkwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93IHtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgd2lkdGg6IDYwMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3c+KntcclxuICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IGF1dG87fVxyXG46Om5nLWRlZXAgLmFsaWFze1xyXG4gIHBhZGRpbmctbGVmdDogMTBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdyA+ICp7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlTmFtZXtcclxuICBjb2xvcjogZGFya29yYW5nZTtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqICAgICBkcm9wZG93biBzdHlsZSAgICAgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuXHJcbi5kcm9wZG93blRpdGxlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0OyAvKnZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpOyovXHJcbiAgY29sb3I6IHVuc2V0O1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgcGFkZGluZzogMTJweCAxNnB4O1xyXG4gIGN1cnNvcjogaW5oZXJpdDtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgLypoZWlnaHQ6IDgwJTsqL1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIucmlnaHQge1xyXG4gIG1pbi13aWR0aDogMTAwJTtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1pbi13aWR0aDogMTYwcHg7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAxNnB4IDBweCByZ2JhKDAsMCwwLDAuMik7XHJcbiAgei1pbmRleDogMTtcclxuICBib3JkZXI6IDNweCBzb2xpZCB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgcGFkZGluZzogMDtcclxuICBtYXJnaW46IDA7XHJcbiAgdG9wOiAxMDAlO1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudC5yaWdodHtcclxuICBtYXJnaW46MDtcclxuICB0b3A6IDA7XHJcbiAgbGVmdDogMTAwJTtcclxufVxyXG5cclxubGkuZHJvcGRvd25Db250ZW50IHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG5cclxudWwuZHJvcGRvd25Db250ZW50Om5vdCg6ZW1wdHkpe1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7XHJcbn1cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQsIC5kcm9wZG93bnBhZGRpbmd7XHJcbiAgZm9udC1zaXplOiBpbmhlcml0O1xyXG4gIHBhZGRpbmc6IDEycHggMTZweDtcclxufVxyXG5cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQ6aG92ZXIsIC5kcm9wZG93bkNvbnRhaW5lci5yaWdodDpob3ZlciwgLmRyb3Bkb3ducGFkZGluZzpob3ZlcntcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAyM3B4O1xyXG59XHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG8sIC5kcm9wZG93bnBhZGRpbmcudG9kb3sgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDsgfVxyXG4vKi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG86bGFzdC1jaGlsZCwgLmRyb3Bkb3ducGFkZGluZy50b2RvOmxhc3QtY2hpbGR7IGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7IH0qL1xyXG5saS5kcm9wZG93bkNvbnRlbnQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAvKnBhZGRpbmctbGVmdDogMTJweDsqL1xyXG4gIGJvcmRlci1sZWZ0OiA4cHggc29saWQgI2ZmMDAwMGEwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMwcHg7XHJcbiAgLyptYXJnaW4tbGVmdDogLTEycHg7IGJvdHRvbS1yb3VuZCBib3JkZXIsIHRyb3VibGUgY29uIHN0aWxpIHNvdnJhcHBvc3RpIGNoZSBsbyByaS1zcXVhZHJhbm8uXHJcbiAgIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDI0cHg7Ki9cclxufVxyXG4jdG9wYmFyPi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj4uZHJvcGRvd25UaXRsZXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAzMHB4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAzMHB4O31cclxuI3RvcGJhcj4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+LmRyb3Bkb3duVGl0bGUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxufVxyXG5cclxuLmJ1dHRvbkdyaWRDb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIC8qIHdpZHRoOiBjYWxjKDQwcHggKiA1IC0gMSk7Ki9cclxuICB3aWR0aDogbWluKDI1dncsIGNhbGMoNDBweCAqIDUgKyAxMHB4ICogNSAtIDFweCkpOyAvKiBidXR0b24gc2l6ZSArIGJ1dHRvbnNoZWxsIG1hcmdpbiwgNCBwZXIgcmlnYSBjb24gbWFzc2ltbyBzcGF6aW8gYXZhbnphdG8gcHJpbWEgZGVsIDXCsCovXHJcbn1cclxuXHJcbi5idXR0b25HcmlkTWluTWFyZ2luIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LXNocmluazogMDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgcGFkZGluZzogNXB4OyB9XHJcblxyXG4uYnV0dG9uR3JpZCB7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG59XHJcblxyXG5cclxudWwuZHJvcGRvd25Db250ZW50e1xyXG4gIG1pbi1oZWlnaHQ6IDEwMCU7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPnVsLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyID4gdWwuZHJvcGRvd25Db250ZW50OmVtcHR5e1xyXG4gIGRpc3BsYXk6ZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6YmVmb3Jle1xyXG4gIGNvbnRlbnQ6ICcuLi4gRW1wdHkgLi4uJztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZGFya3JlZCAhaW1wb3J0YW50O1xyXG4gIGN1cnNvcjogbm90LWFsbG93ZWQgIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKiAgICAgY2hhbmdlbG9nICAgICAqKioqKioqKioqL1xyXG4uY2hhbmdlbG9nUm9vdHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  color: var(--LightmainFontColor);\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n  max-height: 90vh;\r\n  overflow: auto;\r\n}\r\n::ng-deep .typeTable {\r\n  margin: auto;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  margin-bottom: 5px;\r\n}\r\n.typemaprow{\r\n  width: 450px;\r\n  margin-bottom: 15px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLGdDQUFnQztFQUNoQyxtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CLENBQUM7QUFDdEI7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7QUFDQTtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBSUEsdUhBQXVIO0FBRXZIO0VBQ0UseUJBQXlCLEVBQUUsOEJBQThCO0VBQ3pELFlBQVk7RUFDWixlQUFlO0VBQ2YsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLGVBQWU7RUFDZixXQUFXO0VBQ1gsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQiw0Q0FBNEM7RUFDNUMsZ0JBQWdCO0VBQ2hCLDRDQUE0QztFQUM1QyxVQUFVO0VBQ1YsNkNBQTZDO0VBQzdDLFVBQVU7RUFDVixTQUFTO0VBQ1QsU0FBUztBQUNYO0FBQ0E7RUFDRSxRQUFRO0VBQ1IsTUFBTTtFQUNOLFVBQVU7QUFDWjtBQUVBO0VBQ0UsVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixjQUFjO0FBQ2hCO0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBLGtEQUFrRCw0QkFBNEIsRUFBRTtBQUNoRiw2R0FBNkc7QUFDN0c7RUFDRSw2Q0FBNkM7RUFDN0Msc0JBQXNCO0VBQ3RCLGdDQUFnQztFQUNoQywrQkFBK0I7RUFDL0I7aUNBQytCO0FBQ2pDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsNkJBQTZCLENBQUM7QUFDaEM7RUFDRSw2Q0FBNkM7QUFDL0M7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZiw4QkFBOEI7RUFDOUIsaURBQWlELEVBQUUseUZBQXlGO0FBQzlJO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixjQUFjO0VBQ2QsWUFBWTtFQUNaLFlBQVksRUFBRTtBQUVoQjtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7QUFHQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsbUJBQVk7RUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLHdCQUF3QjtFQUN4QixZQUFZO0VBQ1osb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9DQUFvQztFQUNwQyw4QkFBOEI7QUFDaEM7QUFJQSx3Q0FBd0M7QUFDeEM7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4jdG9wYmFyU2hlbGx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAxMDB2dztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICAvKmJvcmRlci1ib3R0b206IHZhcigtLW1haW5Cb3JkZXIpOyovXHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbiAgbWF4LWhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbn1cclxuI3RvcGJhciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4jdG9wYmFyID4gKiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAvKm1hcmdpbjogYXV0byAwIGF1dG8gMTBweDsgLypUP1JCP0wqL1xyXG59LypcclxuI3RvcGJhciA+IGJ1dHRvbntcclxuICBoZWlnaHQ6IGNhbGModmFyKC0tdG9wYmFySCkgLSAxMHB4KTtcclxuICBmbGV4LWJhc2lzOiAxMDBweDtcclxuICBtaW4td2lkdGg6IDEwMHB4O1xyXG4gIG1heC13aWR0aDogMTAwcHg7XHJcbn0qL1xyXG4jdG9wYmFyIGJ1dHRvbi5kcm9wZG93blRpdGxlOmZvY3Vze1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbntcclxuICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAxMHB4O1xyXG4gIHRvcDogMTBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgd2lkdGg6IDQwcHg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKCAtLWFsdEJhY2tncm91bmRDb2xvcik7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpO1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxufVxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudCAuY2xvc2VCdXR0b246aG92ZXJ7XHJcbiAgcmlnaHQ6IDVweDtcclxuICB0b3A6IDVweDtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgd2lkdGg6IDUwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xyXG4gIGNvbG9yOiB2YXIoLS1MaWdodG1haW5Gb250Q29sb3IpO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkZXI7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcblxyXG46Om5nLWRlZXAgLnNjcmVlbldpZGVTaGFkb3d7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgdG9wOiAwO1xyXG4gIHotaW5kZXg6IDI7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjUpO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIHdpZHRoOiAxMDB2dztcclxufVxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudHtcclxuICB0b3A6IDUwJTtcclxuICBsZWZ0OiA1MCU7XHJcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGhlaWdodDogYXV0bztcclxuICBwYWRkaW5nOiAzMHB4IDYwcHg7XHJcbiAgYm9yZGVyOiA0cHggc29saWQgdmFyKC0tbWFpbkJvcmRlckNvbG9yKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICBtYXgtaGVpZ2h0OiA5MHZoO1xyXG4gIG92ZXJmbG93OiBhdXRvO1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVRhYmxlIHtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93IHtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcblxyXG4udHlwZW1hcHJvd3tcclxuICB3aWR0aDogNDUwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3c+KntcclxuICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IGF1dG87fVxyXG46Om5nLWRlZXAgLmFsaWFze1xyXG4gIHBhZGRpbmctbGVmdDogMTBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdyA+ICp7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlTmFtZXtcclxuICBjb2xvcjogZGFya29yYW5nZTtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqICAgICBkcm9wZG93biBzdHlsZSAgICAgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuXHJcbi5kcm9wZG93blRpdGxlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0OyAvKnZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpOyovXHJcbiAgY29sb3I6IHVuc2V0O1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgcGFkZGluZzogMTJweCAxNnB4O1xyXG4gIGN1cnNvcjogaW5oZXJpdDtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgLypoZWlnaHQ6IDgwJTsqL1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIucmlnaHQge1xyXG4gIG1pbi13aWR0aDogMTAwJTtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1pbi13aWR0aDogMTYwcHg7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAxNnB4IDBweCByZ2JhKDAsMCwwLDAuMik7XHJcbiAgei1pbmRleDogMTtcclxuICBib3JkZXI6IDNweCBzb2xpZCB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgcGFkZGluZzogMDtcclxuICBtYXJnaW46IDA7XHJcbiAgdG9wOiAxMDAlO1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudC5yaWdodHtcclxuICBtYXJnaW46MDtcclxuICB0b3A6IDA7XHJcbiAgbGVmdDogMTAwJTtcclxufVxyXG5cclxubGkuZHJvcGRvd25Db250ZW50IHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG5cclxudWwuZHJvcGRvd25Db250ZW50Om5vdCg6ZW1wdHkpe1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7XHJcbn1cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQsIC5kcm9wZG93bnBhZGRpbmd7XHJcbiAgZm9udC1zaXplOiBpbmhlcml0O1xyXG4gIHBhZGRpbmc6IDEycHggMTZweDtcclxufVxyXG5cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQ6aG92ZXIsIC5kcm9wZG93bkNvbnRhaW5lci5yaWdodDpob3ZlciwgLmRyb3Bkb3ducGFkZGluZzpob3ZlcntcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAyM3B4O1xyXG59XHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG8sIC5kcm9wZG93bnBhZGRpbmcudG9kb3sgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDsgfVxyXG4vKi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG86bGFzdC1jaGlsZCwgLmRyb3Bkb3ducGFkZGluZy50b2RvOmxhc3QtY2hpbGR7IGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7IH0qL1xyXG5saS5kcm9wZG93bkNvbnRlbnQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAvKnBhZGRpbmctbGVmdDogMTJweDsqL1xyXG4gIGJvcmRlci1sZWZ0OiA4cHggc29saWQgI2ZmMDAwMGEwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMwcHg7XHJcbiAgLyptYXJnaW4tbGVmdDogLTEycHg7IGJvdHRvbS1yb3VuZCBib3JkZXIsIHRyb3VibGUgY29uIHN0aWxpIHNvdnJhcHBvc3RpIGNoZSBsbyByaS1zcXVhZHJhbm8uXHJcbiAgIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDI0cHg7Ki9cclxufVxyXG4jdG9wYmFyPi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj4uZHJvcGRvd25UaXRsZXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAzMHB4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAzMHB4O31cclxuI3RvcGJhcj4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+LmRyb3Bkb3duVGl0bGUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxufVxyXG5cclxuLmJ1dHRvbkdyaWRDb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIC8qIHdpZHRoOiBjYWxjKDQwcHggKiA1IC0gMSk7Ki9cclxuICB3aWR0aDogbWluKDI1dncsIGNhbGMoNDBweCAqIDUgKyAxMHB4ICogNSAtIDFweCkpOyAvKiBidXR0b24gc2l6ZSArIGJ1dHRvbnNoZWxsIG1hcmdpbiwgNCBwZXIgcmlnYSBjb24gbWFzc2ltbyBzcGF6aW8gYXZhbnphdG8gcHJpbWEgZGVsIDXCsCovXHJcbn1cclxuXHJcbi5idXR0b25HcmlkTWluTWFyZ2luIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LXNocmluazogMDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgcGFkZGluZzogNXB4OyB9XHJcblxyXG4uYnV0dG9uR3JpZCB7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG59XHJcblxyXG5cclxudWwuZHJvcGRvd25Db250ZW50e1xyXG4gIG1pbi1oZWlnaHQ6IDEwMCU7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPnVsLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyID4gdWwuZHJvcGRvd25Db250ZW50OmVtcHR5e1xyXG4gIGRpc3BsYXk6ZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6YmVmb3Jle1xyXG4gIGNvbnRlbnQ6ICcuLi4gRW1wdHkgLi4uJztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZGFya3JlZCAhaW1wb3J0YW50O1xyXG4gIGN1cnNvcjogbm90LWFsbG93ZWQgIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKiAgICAgY2hhbmdlbG9nICAgICAqKioqKioqKioqL1xyXG4uY2hhbmdlbG9nUm9vdHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -18446,13 +19777,98 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
+/* harmony import */ var _m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./m2tcreator/m2tcreator.component */ "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts");
+
 
 
 
 // @ts-ignore
 let TopBarComponent = class TopBarComponent {
-    constructor() { }
+    constructor() {
+        this.Object = Object;
+    }
     ngOnInit() {
+        setTimeout(() => {
+            this.status = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status;
+            this.topbar = TopBar.topbar;
+        }, 0);
+    }
+    createM2T_Rule(forModel) {
+        _m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_3__["M2tcreatorComponent"].willUseThis();
+    }
+    displayResult(m2tname, m2tresult) {
+        const input = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]();
+        input.setText("M2T \"" + m2tname + "\" result", '', '');
+        const innerInput = document.createElement('textarea');
+        innerInput.value = m2tresult;
+        innerInput.style.width = '100%';
+        innerInput.style.minHeight = '75vh';
+        input.setNestedInputNode(null, innerInput, false);
+        input.show();
+    }
+    m2t_mysql_m2() {
+        const classes = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.getAllClasses();
+        let tables = [];
+        let foreignKeys = [];
+        const getType = (attr) => {
+            switch (attr.type.primitiveType.short) {
+                // default: console.error('m2t mysql unsupported attr type:', attr.type.primitiveType.short, attr);
+                case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EBoolean:
+                case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EByte: return 'TINYINT(1)';
+                case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EChar: return 'CHAR(1)';
+                case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EDate:
+                default:
+                case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EString: return 'VARCHAR' + (attr.getUpperbound() >= 0 ? '(' + attr.getUpperbound() + ')' : '');
+                case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EShort:
+                case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EInt:
+                case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].ELong:
+                case _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EFloat: return 'INT';
+            }
+        };
+        for (const classe of classes) {
+            let tableStr = 'CREATE TABLE ' + classe.name + ' {\n';
+            let foreignkey = '';
+            // let pkFeatures: M2Feature[] = [];
+            const attributes = [...classe.getAllAttributes()];
+            const references = [...classe.getAllReferences()];
+            const indent = '    ';
+            let hasIDField = false;
+            for (const attr of attributes) {
+                if (attr.name.toLowerCase() === 'id' && attr.type.primitiveType.short === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EInt) {
+                    hasIDField = true;
+                }
+                // if (attr.name.toLowerCase() === 'id') { pkFeatures = [attr]; }
+                // if (pkAttributes.length !== 1 && pkFeatures[0].name.toLowerCase() !== 'id') { pkFeatures.push(attr); }
+                tableStr += indent + attr.name + ' ' + getType(attr) + ',\n';
+            }
+            for (const ref of references) {
+                if (ref.name.toLowerCase() === 'id') {
+                    hasIDField = true;
+                }
+                // if (ref.name.toLowerCase() === 'id') { pkFeatures = [ref]; }
+                // if (pkAttributes.length !== 1 && pkFeatures[0].name.toLowerCase() !== 'id') { pkFeatures.push(ref); }
+                tableStr += indent + ref.name + ' INT,\n';
+                foreignKeys.push('ALTER TABLE ' + classe.name + '\n' +
+                    indent + 'ADD FOREIGN KEY (' + ref.name + ') REFERENCES ' + ref.getTarget().name + '(id);');
+            }
+            if (!hasIDField) {
+                return "ERROR on class: " + classe.name +
+                    ".\nFor this beta version of mysql m2t all tables must have an \"id\" integer field.";
+            }
+            // todo: PrimaryKey dovrebbe essere una annotation presente su [1,N] features.
+            tableStr += indent + 'PRIMARY KEY (id)\n}';
+            tables.push(tableStr);
+        }
+        return tables.join('\n\n') + '\n\n## Constraints\n\n' + foreignKeys.join('\n\n');
+    }
+    m2t_mysql_m1() {
+        return 'm2t mysql m1 to do';
+    }
+    m2t_byText_m2() {
+        return _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].copyVisibleText(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.graph.container);
+    }
+    m2t_byText_m1() {
+        return _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].copyVisibleText(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.graph.container);
     }
 };
 TopBarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -18469,14 +19885,104 @@ class TopBar {
         this.$topbar = null;
         this.html = null;
         this.topbar = null;
+        this.typemapArr = [];
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!!TopBar.topbar, 'top bar instantiated twice, but it is a singleton.');
         TopBar.topbar = this;
         this.$shell = $('#topbarShell');
         this.html = this.$shell[0];
         this.$topbar = this.$shell.find('#topbar');
         this.topbar = this.$topbar[0];
+        this.$typemapSelect = this.$topbar.find('.typemapselector');
+        this.typemapSelect = this.$typemapSelect[0];
+        this.typemapSelect.value = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.currentTypeAlias;
+        this.updateTypeMapList();
         TopBar.topbar.updateRecents();
         this.addEventListeners();
+    }
+    static staticInit() {
+        TopBar.topbar = new TopBar();
+    }
+    updateTypeMapList() {
+        TopBar.topbar.typemapArr = Object.keys(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary).filter((s) => s.indexOf('predefined.') === -1);
+    }
+    changeTypeMap(newTypeMap = null) {
+        const oldTypemap = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.currentTypeAlias;
+        if (!newTypeMap) {
+            newTypeMap = this.typemapSelect.value;
+        }
+        else {
+            this.typemapSelect.value = newTypeMap;
+        }
+        console.log('changetm:', oldTypemap, 'new:', newTypeMap);
+        if (oldTypemap === newTypeMap)
+            return;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[newTypeMap], 'Invalid typemap name:', newTypeMap, 'allowed:', _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.currentTypeAlias = newTypeMap;
+        this.showTypeMap();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.refreshGUI();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.refreshGUI();
+    }
+    createTypeMap(event) {
+        let newkey;
+        const userkey = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.user.getID();
+        if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[userkey + '.custom']) {
+            newkey = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].increaseEndingNumber(userkey + '.custom 1', false, false, s => !!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[s]);
+        }
+        else {
+            newkey = userkey + '.custom';
+        }
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[newkey] = new Map();
+        this.updateTypeMapList();
+        setTimeout(() => {
+            console.log('tmkey:', newkey, 'select.val:', this.typemapSelect.value, 'mapselect', this.typemapSelect);
+            this.changeTypeMap(newkey);
+        }, 0);
+    }
+    showTypeMap() {
+        const $shell = this.$shell.find('#TypeMapper');
+        const $html = $shell.find('.TypeList');
+        const html = $html[0];
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].clear(html);
+        const table = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtml('<table class="typeTable"><tbody></tbody></table>');
+        const tbody = table.firstChild;
+        for (const m3TypeName in _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"]) {
+            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"][m3TypeName]) {
+                continue;
+            }
+            const type = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EType"].get(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"][m3TypeName]);
+            const row = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtmlRow('' +
+                '<tr class="typeRow">' +
+                '<td class="typeName" data-m3name="' + type.short + '">' + type.short + '</td>' +
+                '<td class="alias">is aliased to</td>' +
+                '<td>' +
+                '<input class="AliasName form-control" placeholder="Not aliased" value="' + type.getName() + '"' +
+                ' aria-label="Small" aria-describedby="inputGroup-sizing-sm">' +
+                '</td>' +
+                '</tr>');
+            tbody.appendChild(row);
+            console.log('row:', row, ', tbody:', tbody);
+        }
+        html.appendChild(table);
+        $html.find('input.AliasName').off('change').on('change', (e) => { TopBar.topbar.aliasChange(e); });
+        $shell.show();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].closeButtonSetup($shell);
+    }
+    aliasChange(e) {
+        const input = e.target;
+        let row = input;
+        while (!row.classList.contains('typeRow')) {
+            row = row.parentNode;
+        }
+        const typestr = $(row).find('.typeName')[0].dataset.m3name;
+        const typemap = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.currentTypeAlias];
+        const newAlias = input.value.trim();
+        if (typemap[typestr] === newAlias)
+            return;
+        typemap[typestr] = newAlias;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.refreshGUI();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.refreshGUI();
+        // const type: EType = EType.get(typestr as ShortAttribETypes);
+        // type.changeAlias(input.value);
     }
     static load_empty(e, prefix) {
         const empty = prefix === 'm' ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Model"].emptyModel : _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MetaModel"].emptyModel;
@@ -18517,14 +20023,17 @@ class TopBar {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["LocalStorage"].setLastOpened(num, json, null, null);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].refreshPage();
     }
-    static load_JSON_Text(e, prefix) {
+    static load_JSON_Text(e, prefix, callback = null) {
         const popup = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["InputPopup"]();
         popup.setText('paste JSON/string data', '', '');
         popup.setInputNode('textarea');
         popup.setInput('', 'paste data here.');
         const finish = (e, value) => {
             popup.destroy();
-            TopBar.load(value, prefix);
+            if (callback)
+                callback(value);
+            else
+                TopBar.load(value, prefix);
         };
         // $(popup).find('.closeButton');
         popup.addOkButton('Load', [finish]);
@@ -18546,7 +20055,7 @@ class TopBar {
         const model = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status[modelstr];
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!model, 'invalid modelStr in export-save_json_file: |' + modelstr + '|, status:', status);
         const savetxt = model.generateModelString();
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].download(model.name, savetxt);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].download((model.name || (model.isM1() ? 'M1' : 'M2') + '_unnamed') + '.json', savetxt);
     }
     static download_XMI_File(e, modelstr) {
         const model = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status[modelstr];
@@ -18684,8 +20193,8 @@ class TopBar {
     }
     addEventListeners() {
         const $t = this.$topbar;
-        const $m2 = $t.find('.metamodel');
-        const $m1 = $t.find('.model');
+        const $m2 = $t.find('.root.metamodel');
+        const $m1 = $t.find('.root.model');
         TopBar.$checkboxesTheme = $t.find('input.themename');
         $t.find('.TypeMapping').off('click.btn').on('click.btn', (e) => { TopBar.topbar.showTypeMap(); });
         $t.find('.changelogbutton').off('click.btn').on('click.btn', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ChangelogRoot"].show(); });
@@ -18696,58 +20205,35 @@ class TopBar {
         $m2.find('.save').off('click.btn').on('click.btn', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.save(false, true); });
         $m1.find('.save').off('click.btn').on('click.btn', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.save(false, true); });
         // download
-        $m2.find('.download_JSON_String').off('click.btn').on('click.btn', (e) => { TopBar.download_JSON_String(e, 'mm'); });
-        $m2.find('.download_JSON').off('click.btn').on('click.btn', (e) => { TopBar.download_JSON_File(e, 'mm'); });
-        $m2.find('.download_XMI').off('click.btn').on('click.btn', (e) => { TopBar.download_XMI_File(e, 'mm'); });
-        $m1.find('.download_JSON_String').off('click.btn').on('click.btn', (e) => { TopBar.download_JSON_String(e, 'm'); });
-        $m1.find('.download_JSON').off('click.btn').on('click.btn', (e) => { TopBar.download_JSON_File(e, 'm'); });
-        $m1.find('.download_XMI').off('click.btn').on('click.btn', (e) => { TopBar.download_XMI_File(e, 'm'); });
+        $m2.find('.model .download_JSON_String').off('click.btn').on('click.btn', (e) => { TopBar.download_JSON_String(e, 'mm'); });
+        $m2.find('.model .download_JSON').off('click.btn').on('click.btn', (e) => { TopBar.download_JSON_File(e, 'mm'); });
+        $m2.find('.model .download_XMI').off('click.btn').on('click.btn', (e) => { TopBar.download_XMI_File(e, 'mm'); });
+        $m1.find('.model .download_JSON_String').off('click.btn').on('click.btn', (e) => { TopBar.download_JSON_String(e, 'm'); });
+        $m1.find('.model .download_JSON').off('click.btn').on('click.btn', (e) => { TopBar.download_JSON_File(e, 'm'); });
+        $m1.find('.model .download_XMI').off('click.btn').on('click.btn', (e) => { TopBar.download_XMI_File(e, 'm'); });
         //// load
-        $m2.find('.loadEmpty').off('click.btn').on('click.btn', (e) => { TopBar.load_empty(e, 'mm'); });
-        $m2.find('.loadFile').off('click.btn').on('click.btn', (e) => { TopBar.load_XMI_File(e, 'mm'); });
-        $m2.find('.loadTxt').off('click.btn').on('click.btn', (e) => { TopBar.load_JSON_Text(e, 'mm'); });
-        $m1.find('.loadEmpty').off('click.btn').on('click.btn', (e) => { TopBar.load_empty(e, 'm'); });
-        $m1.find('.loadFile').off('click.btn').on('click.btn', (e) => { TopBar.load_XMI_File(e, 'm'); });
-        $m1.find('.loadTxt').off('click.btn').on('click.btn', (e) => { TopBar.load_JSON_Text(e, 'm'); });
+        $m2.find('.model .loadEmpty').off('click.btn').on('click.btn', (e) => { TopBar.load_empty(e, 'mm'); });
+        $m2.find('.model .loadFile').off('click.btn').on('click.btn', (e) => { TopBar.load_XMI_File(e, 'mm'); });
+        $m2.find('.model .loadTxt').off('click.btn').on('click.btn', (e) => { TopBar.load_JSON_Text(e, 'mm'); });
+        $m1.find('.model .loadEmpty').off('click.btn').on('click.btn', (e) => { TopBar.load_empty(e, 'm'); });
+        $m1.find('.model .loadFile').off('click.btn').on('click.btn', (e) => { TopBar.load_XMI_File(e, 'm'); });
+        $m1.find('.model .loadTxt').off('click.btn').on('click.btn', (e) => { TopBar.load_JSON_Text(e, 'm'); });
+        window['t'] = {
+            $: this.$topbar,
+            $t: $t,
+            $m1: $m1,
+            $m2: $m2,
+        };
+        $m1.find('.vertex .loadTxt').off('click.btn').on('click.btn', (e) => { });
+        $m1.find('.viewpoints .loadTxt').off('click.btn').on('click.btn', (e) => { TopBar.load_JSON_Text(e, 'm', (val) => { TopBar.loadVP(val, 'm'); }); });
+        $m2.find('.viewpoints .loadTxt').off('click.btn').on('click.btn', (e) => { TopBar.load_JSON_Text(e, 'm', (val) => { TopBar.loadVP(val, 'mm'); }); });
     }
-    showTypeMap() {
-        const $shell = this.$shell.find('#TypeMapper');
-        const $html = $shell.find('.TypeList');
-        const html = $html[0];
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].clear(html);
-        const table = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtml('<table class="typeTable"><tbody></tbody></table>');
-        const tbody = table.firstChild;
-        for (const m3TypeName in _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"]) {
-            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"][m3TypeName]) {
-                continue;
-            }
-            const type = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EType"].get(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"][m3TypeName]);
-            const row = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtmlRow('' +
-                '<tr class="typeRow">' +
-                '<td class="typeName" data-m3name="' + type.short + '">' + type.short + '</td>' +
-                '<td class="alias">is aliased to</td>' +
-                '<td>' +
-                '<input class="AliasName form-control" placeholder="Not aliased" value="' + type.name + '"' +
-                ' aria-label="Small" aria-describedby="inputGroup-sizing-sm">' +
-                '</td>' +
-                '</tr>');
-            tbody.appendChild(row);
-            console.log('row:', row, ', tbody:', tbody);
-        }
-        html.appendChild(table);
-        $html.find('input.AliasName').off('change').on('change', (e) => { TopBar.topbar.aliasChange(e); });
-        $shell.show();
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].closeButtonSetup($shell);
-    }
-    aliasChange(e) {
-        const input = e.target;
-        let row = input;
-        while (!row.classList.contains('typeRow')) {
-            row = row.parentNode;
-        }
-        const m3Type = $(row).find('.typeName')[0].dataset.m3name;
-        const type = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EType"].get(m3Type);
-        type.changeAlias(input.value);
+    static loadVP(val, prefix) {
+        window['discardSave'](); // stop autosave;
+        const model = prefix === 'm' ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m : _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.save(false);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["LocalStorage"].setLastOpened(prefix === 'm' ? 1 : 2, null, val, null);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].refreshPage();
     }
 }
 TopBar.topbar = null;
@@ -18845,7 +20331,7 @@ class EEnum extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClassifier"] {
                 break;
         }
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const arr = [];
         const model = {};
         model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreEnum"].xsitype] = 'ecore:EEnum';
@@ -18856,7 +20342,7 @@ class EEnum extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClassifier"] {
         model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreEnum"].eLiterals] = arr;
         let i;
         for (i = 0; i < this.childrens.length; i++) {
-            arr.push(this.childrens[i].generateModel());
+            arr.push(this.childrens[i].generateModel(loopDetectionObj));
         }
         return model;
     }
@@ -18904,10 +20390,7 @@ class EEnum extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClassifier"] {
                 continue;
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all[i].changeType(null, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EType"].get(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString), null, null);
         }
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, false, true);
-        this.getVertex().remove();
-        if (refreshgui)
-            this.refreshGUI();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, true, false);
     }
     getDefaultValueStr() { return this.childrens[0].name; }
     getAllowedValuesStr() {
@@ -18975,10 +20458,10 @@ class IClassifier extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiec
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, true, true);
         return this.name;
     }
-    getVertex() {
+    getVertex(canMakeIt = true) {
         const displayAsEdge = this.shouldBeDisplayedAsEdge();
         // U.pw(displayAsEdge, 'getvertex called on a class that should not have a vertex.', this);
-        if (!displayAsEdge && this.vertex === null && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic) {
+        if (canMakeIt && !displayAsEdge && this.vertex === null && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic) {
             this.generateVertex();
         }
         return this.vertex;
@@ -18989,14 +20472,10 @@ class IClassifier extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiec
         return _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].classTypePrefix + this.parent.name;
     }
     delete(refreshgui = true) {
-        super.delete(false);
-        // todo: che fare con le reference a quella classe? per ora cancello i campi.
-        let i;
         if (!this.shouldBeDisplayedAsEdge()) {
             this.getVertex().remove();
         }
-        if (refreshgui)
-            this.refreshGUI();
+        super.delete(false);
     }
 }
 
@@ -19036,7 +20515,7 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!metaVersion, 'null metaparent?');
         this.parse(json, true);
     }
-    unsetExtends(superclass) {
+    doUnsetExtends(superclass) {
         if (!superclass)
             return;
         let i;
@@ -19067,19 +20546,42 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         this.refreshGUI_Alone();
     }
     //todo: fai getByName con prefisso della classe inherited per console. tipo:  ClassC.ClassB1:samenamefeature vs ClassC.ClassB2:samenamefeature
-    setExtends(superclass, refresh = false) {
-        if (!superclass)
-            return false;
-        const attributes = [...superclass.getAllAttributes()];
-        const references = [...superclass.getAllReferences()];
+    changeMetaParent(newMetaParent, allowFeatureRemoval = false, refreshGui = false) {
+        if (!newMetaParent)
+            return;
+        if (this.metaParent)
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.metaParent.instances, this);
+        this.metaParent = newMetaParent;
+        this.metaParent.instances.push(this);
+        const attributes = [...newMetaParent.getAllAttributes()]; // need shallow copy
+        const references = [...newMetaParent.getAllReferences()];
         let i;
-        let tmp;
-        // exclude the ones already instantiated.
+        // exclude the ones already instantiated (intersection)
         for (i = 0; i < this.attributes.length; i++) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(attributes, this.attributes[i].metaParent);
         }
         for (i = 0; i < this.references.length; i++) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(references, this.references[i].metaParent);
+        }
+        if (allowFeatureRemoval) { // remove the exceeding ones
+            let thisAttrs = [...this.attributes];
+            let thisRefs = [...this.references];
+            for (i = 0; i < thisAttrs.length; i++) {
+                const elem = thisAttrs[i];
+                if (attributes.indexOf(elem.metaParent) >= 0) {
+                    refreshGui = true;
+                    console.log("7x removing attr", elem.metaParent);
+                    elem.delete(false);
+                }
+            }
+            for (i = 0; i < thisRefs.length; i++) {
+                const elem = thisRefs[i];
+                if (references.indexOf(elem.metaParent) >= 0) {
+                    refreshGui = true;
+                    console.log("7x removing ref", elem.metaParent);
+                    elem.delete(false);
+                }
+            }
         }
         // create the missing ones.
         for (i = 0; i < attributes.length; i++) {
@@ -19088,10 +20590,36 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         for (i = 0; i < references.length; i++) {
             new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"](this, null, references[i]);
         }
-        if (refresh)
+        if (refreshGui)
             this.refreshGUI_Alone();
     }
     // getAllChildrens(): MFeature[] { return (this.childrens); }
+    getAllChildrens(includeOperations = true, includeAnnotations = true, includeAttributes = true, includeReferences = true, includeShadowed = false /*null = both shadow and unshadow, true = onlyshadowed*/) {
+        const arr = [];
+        let j;
+        const extChildrens = [...this.childrens, ...this.metaParent.annotations, ...this.metaParent.operations];
+        for (j = 0; j < extChildrens.length; j++) {
+            const child = extChildrens[j];
+            console.log(child.metaParent, this.metaParent, child, this);
+            if (includeAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"]) {
+                arr.push(child);
+                continue;
+            }
+            if (includeReferences && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"]) {
+                arr.push(child);
+                continue;
+            }
+            if (includeOperations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]) {
+                arr.push(child);
+                continue;
+            }
+            if (includeAnnotations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EAnnotation"]) {
+                arr.push(child);
+                continue;
+            }
+        }
+        return arr;
+    }
     getAllAttributes() { return new Set(this.attributes); }
     getAllReferences() { return new Set(this.references); }
     /*getDisplayedChildrens(): Set<EOperation | MFeature> {
@@ -19125,6 +20653,7 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         return ret;
     }
     getBasicOperations() { return this.metaParent.getBasicOperations(); }
+    getBasicAnnotations() { return this.metaParent.getBasicAnnotations(); }
     endingName(valueMaxLength = 10) {
         if (this.attributes.length > 0) {
             return this.attributes[0].endingName(valueMaxLength);
@@ -19150,7 +20679,7 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         return c;
     }
     // linkToMetaParent(meta: M2Class): void { return super.linkToMetaParent(meta); }
-    generateModel(root = false) {
+    generateModel(loopDetectionObj = null, root = false) {
         /*
            { "-name": "tizio", "attrib2": value2, ...}
         OR:
@@ -19164,6 +20693,7 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
             ]
           }
         */
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj, loopDetectionObj || {});
         const inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
         const json = {};
         if (root) {
@@ -19179,7 +20709,7 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
                 const child = arr[outi][i];
                 if (child.isShadowed(this))
                     continue;
-                const value = (child).generateModel();
+                const value = (child).generateModel(loopDetectionObj);
                 // some error here, il value = ELIteral viene assegnato alla key .nome
                 if (value === '' || value === null || value === undefined || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isEmptyObject(value)) {
                     continue;
@@ -19202,7 +20732,7 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
             this.childrens = [];
             this.referencesIN = [];
         }
-        this.setExtends(this.metaParent, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
+        this.changeMetaParent(this.metaParent, true, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
         /*{                                                           <--- classRoot
             "-xmlns:xmi": "http://www.omg.org/XMI",
             "-xmlns:org.eclipse.example.bowling": "https://org/eclipse/example/bowling",
@@ -19333,6 +20863,13 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         }
         return -1;
     }
+    delete(refreshgui = true) {
+        super.delete(false);
+        // NB: gli m1-link a questo oggetto sono già stati rimossi da setType in m2 o da delete vertex in IClass
+    }
+    convertTo(classe) {
+        this.changeMetaParent(classe, true, true);
+    }
 }
 
 
@@ -19362,7 +20899,7 @@ class ELiteral extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
     }
     isInherited(forClass) { if (this.parent !== forClass)
         return true; }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const model = {};
         model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EcoreLiteral"].value] = this.ordinal;
         model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EcoreLiteral"].literal] = this.literal;
@@ -19426,7 +20963,7 @@ class ELiteral extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         }
         super.fieldChanged(e, true);
     }
-    generateModelM1() { return this.name; }
+    generateModelM1(loopDetectionObj = null) { return this.name; }
 }
 
 
@@ -19550,7 +21087,7 @@ class MAttribute extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute
         super.copy(other, nameAppend, newParent);
         this.setValueStr(other.getValueStr());
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         if (this.values.length === 0) {
             return null;
         }
@@ -19561,7 +21098,7 @@ class MAttribute extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute
             for (i = 0; i < this.values.length; i++) {
                 const v = this.values[i];
                 if (v instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ELiteral"]) {
-                    values.push(v.generateModelM1());
+                    values.push(v.generateModelM1(loopDetectionObj));
                 }
             }
         }
@@ -19810,7 +21347,7 @@ class M3Attribute extends IAttribute {
         this.parse(null, true);
     }
     duplicate(nameAppend = '_', newParent = null) { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Attr.duplicate()'); return this; }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'm3Attr.generateModel()');
         return {};
     }
@@ -19859,7 +21396,7 @@ class M2Attribute extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribut
           this.views.push(v);
           pv.attributeViews.push(v); }*/
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const model = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"](null);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(model, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].xsitype, 'ecore:EAttribute');
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(model, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].eType, this.type.toEcoreString());
@@ -19921,7 +21458,7 @@ class M2Reference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReferenc
           this.views.push(v);
           pv.referenceViews.push(v); }*/
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const model = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"](null);
         model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].xsitype] = 'ecore:EReference';
         model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].eType] = this.type.toEcoreString();
@@ -20142,22 +21679,27 @@ class MReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference
     }
     // link(targetStr?: string, debug?: boolean): void { throw new Error('mreference.linkByStr() should never be called'); }
     // LinkToMetaParent(ref: MReference): void { super.LinkToMetaParent(ref); }
-    generateModel() { MReference.loopDetection = {}; return this.generateModelLoop(); }
-    generateModelLoop() {
+    generateModel(loopDetectionObj0 = null) {
+        const loopDetectionObj = loopDetectionObj0 || {};
+        console.log("loopdetect isobject?", _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isObject(loopDetectionObj), " param:", loopDetectionObj0, loopDetectionObj0 || {});
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj0, loopDetectionObj0 || {});
+        return this.generateModelLoop(loopDetectionObj);
+    }
+    generateModelLoop(loopDetectionObj) {
         const ret = [];
         let i;
         for (i = 0; i < this.mtarget.length; i++) {
             if (!this.mtarget[i])
                 continue;
             const mclass = this.mtarget[i];
-            if (MReference.loopDetection[mclass.id]) {
+            if (loopDetectionObj[mclass.id]) {
                 // todo: in caso di loop cosa ci devo mettere nel modello?
                 ret.push('LoopingReference');
                 _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'looping reference in model');
             }
             else {
-                MReference.loopDetection[mclass.id] = mclass;
-                ret.push(mclass.generateModel());
+                loopDetectionObj[mclass.id] = mclass;
+                ret.push(mclass.generateModel(loopDetectionObj, false));
             }
         }
         return ret;
@@ -20281,7 +21823,6 @@ class MReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference
         }
     }
 }
-MReference.loopDetection = {};
 
 
 /***/ }),
@@ -20480,7 +22021,7 @@ class M3Reference extends IReference {
     //conformability(meta: IReference, debug?: boolean): number { U.pe(true, 'Invalid operation: m3Reference.comformability()'); return 0; }
     duplicate(nameAppend, newParent) { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Reference.duplicate()'); return this; }
     generateEdges() { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Reference.generateEdges()'); return []; }
-    generateModel() { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Reference.generateModel()'); return {}; }
+    generateModel(loopDetectionObj = null) { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Reference.generateModel()'); return {}; }
     parse(json, destructive) { this.name = 'Reference'; }
     linkClass(classe = null) { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: M3Reference.linkClass();'); }
     getTarget(index) { return this.parent; }
@@ -20514,8 +22055,12 @@ class IFeature extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         U.pe(!this.getModelRoot().isM2(), 'setShadowed() must be called from M2.', this);
         this.isShadowed = mapElement; }*/
     isInherited(forClass) {
-        if (this.parent !== forClass)
-            return true; // for m2
+        let thismr = this.getModelRoot();
+        let targetmr = forClass.getModelRoot();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(thismr !== targetmr, 'dev error isInherited(): cannot compare object from different models:', this, forClass);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(thismr.isM3(), 'dev error isInherited(): cannot compare object from m3:', this, forClass);
+        if (thismr.isM2())
+            return this.parent !== forClass; // for m2
         let m2classContaining = this.metaParent.parent;
         let m2classOfParent = forClass.metaParent;
         if (m2classContaining !== m2classOfParent)
@@ -20523,20 +22068,20 @@ class IFeature extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         return false;
     }
     isShadowed(forClass) {
-        if (!this.isInherited(forClass))
-            return false;
-        if (this.getModelRoot().isM1())
-            return this.metaParent.isShadowed(forClass);
-        if (forClass.getModelRoot().isM1())
-            forClass = forClass.metaParent;
-        let superclasses = forClass.getAllSuperClasses();
-        let i;
-        for (i = 0; i < superclasses.length; i++) {
-            let sc = superclasses[i];
-            let tmp = sc.isChildNameTaken(this.name);
-            if (tmp)
+        const myroot = this.getModelRoot();
+        const targetRoot = forClass.getModelRoot();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(myroot !== targetRoot, 'error: called isShadowed with subject and parameters on different models:', this, forClass);
+        if (myroot.isM1())
+            return this.metaParent.isShadowed(forClass.metaParent);
+        let childs = forClass.getAllChildrens(false, false, true, true, false);
+        let myIndex = childs.indexOf(this);
+        for (let i = 0; i < myIndex; i++) {
+            if (childs[i].name === this.name) {
+                console.log(forClass.id + '_' + this.id + ' true 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map((e) => e.parent.name + '.' + e.name));
                 return true;
+            }
         }
+        console.log(forClass.id + '_' + this.id + ' false 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map((e) => e.parent.name + '.' + e.name));
         return false;
     }
 }
@@ -20564,12 +22109,12 @@ export abstract class MFeature extends IFeature {
 /*!********************************************************!*\
   !*** ./src/mClass/classChild/Operations/eOperation.ts ***!
   \********************************************************/
-/*! exports provided: OperationVisibility, EOperation */
+/*! exports provided: AccessModifier, EOperation */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OperationVisibility", function() { return OperationVisibility; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccessModifier", function() { return AccessModifier; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EOperation", function() { return EOperation; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/Joiner */ "./src/common/Joiner.ts");
@@ -20584,23 +22129,23 @@ export class OperationVisibility {
   static internal = 'internal';
   static protectedinternal = 'protected internal';
   static protectedprivate = 'protected private'; }*/
-var OperationVisibility;
-(function (OperationVisibility) {
-    OperationVisibility["public"] = "public";
-    OperationVisibility["private"] = "private";
-    OperationVisibility["protected"] = "protected";
-    OperationVisibility["internal"] = "internal";
-    OperationVisibility["package"] = "package";
-    OperationVisibility["protectedinternal"] = "protected internal";
-    OperationVisibility["protectedprivate"] = "protected private";
-})(OperationVisibility || (OperationVisibility = {}));
+var AccessModifier;
+(function (AccessModifier) {
+    AccessModifier["public"] = "public";
+    AccessModifier["private"] = "private";
+    AccessModifier["protected"] = "protected";
+    AccessModifier["internal"] = "internal";
+    AccessModifier["package"] = "package";
+    AccessModifier["protectedinternal"] = "protected internal";
+    AccessModifier["protectedprivate"] = "protected private";
+})(AccessModifier || (AccessModifier = {}));
 class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
     // exceptions: IClass[];
     // todo: ha davvero senso processarli e creare anche IClass.Object etc? mi conviene tenerli a stringa.
     constructor(parent, json) {
         super(parent, null);
         this.exceptionsStr = ''; // classlist to be later processed and linked.
-        this.visibility = OperationVisibility.private;
+        this.visibility = AccessModifier.private;
         this.detailIsOpened =  false && false;
         this.markedCompatibility = [];
         if (parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"])
@@ -20610,10 +22155,12 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
     isInherited(forClass) { if (this.parent !== forClass)
         return true; }
     canOverride(other) {
+        console.log('CanOverride(', this, ', ', other, ') ? ', this.name === other.name, this.parent !== other.parent, this.getSignature() == other.getSignature(), this.getReturnType().canOverride(other.getReturnType()));
         // NB: se A.a(Object): Object e B.a(String):String lo tratta come polimorfismo. se A.a(String): Object e B.a(String):String lo tratta come override valido.
         return this.name === other.name && this.parent !== other.parent && this.getSignature() == other.getSignature() && this.getReturnType().canOverride(other.getReturnType());
     }
     canPolymorph(other) {
+        console.log('canPolymorph(', this, ', ', other, ') ? ', this.name === other.name, this.getSignature() != other.getSignature());
         // todo: hide shadowed features
         return this.name === other.name && this.getSignature() != other.getSignature();
     }
@@ -20632,13 +22179,13 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
     getChildrenParameterSelector(index) { return this.getChildrenParameter(index).getSelector(); }
     getVisibilityChar() {
         switch (this.visibility) {
-            case OperationVisibility.public: return '+';
-            case OperationVisibility.private: return '-';
-            case OperationVisibility.protected: return '#';
-            case OperationVisibility.internal:
-            case OperationVisibility.package: return '~';
-            case OperationVisibility.protectedinternal: return '#~';
-            case OperationVisibility.protectedprivate: return '#-';
+            case AccessModifier.public: return '+';
+            case AccessModifier.private: return '-';
+            case AccessModifier.protected: return '#';
+            case AccessModifier.internal:
+            case AccessModifier.package: return '~';
+            case AccessModifier.protectedinternal: return '#~';
+            case AccessModifier.protectedprivate: return '#-';
             default: return '?';
         }
     }
@@ -20656,7 +22203,7 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         // this.arguments = []; for (i = 0; i < this.childrens.length; i++) { U.ArrayAdd(this.arguments, this.childrens[i]); }
         this.refreshGUI();
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const parameters = [];
         const json = {};
         json[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].eParameters] = parameters;
@@ -20678,7 +22225,7 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].unique, '' + this.unique);
         let i;
         for (i = 0; i < this.childrens.length; i++) {
-            parameters.push(this.childrens[i].generateModel());
+            parameters.push(this.childrens[i].generateModel(loopDetectionObj));
         }
         return json;
     }
@@ -20697,7 +22244,7 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         this.exceptionsStr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].eexceptions, '');
         this.ordered = 'true' === '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].ordered, 'false');
         this.unique = 'true ' === '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].unique, 'false');
-        this.visibility = OperationVisibility.package;
+        this.visibility = AccessModifier.package;
         const parameters = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].getChildrens(json, false);
         let i;
         for (i = 0; i < parameters.length; i++) {
@@ -20783,7 +22330,8 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         let ret = super.setType(ecoreTypeString, throwError, refreshGui);
         if (!ret)
             return false;
-        this.parent.calculateInheritanceViolations(true);
+        if (this.parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"])
+            this.parent.calculateInheritanceViolations(true);
         return true;
     }
     // getReturnType(): EParameter { return this.getFakeReturnTypeParameter(); }
@@ -20818,7 +22366,7 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         // super.unmarkAll((key: string) => { return key.indexOf('incompatibility') === 0; });
     }
     delete(refreshgui = true) {
-        super.delete(refreshgui);
+        super.delete(false);
     }
 }
 
@@ -20853,7 +22401,8 @@ class EParameter extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         let ret = super.setType(ecoreTypeString, throwError, refreshGui);
         if (!ret)
             return false;
-        this.parent.parent.calculateInheritanceViolations(true);
+        if (this.parent.parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"])
+            this.parent.parent.calculateInheritanceViolations(true);
         return true;
     }
     fullname() { return super.fullname() + ':' + this.name; }
@@ -20876,7 +22425,7 @@ class EParameter extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Info"].unset(info, 'instances');
         return info;
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const json = {};
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].lowerBound, '' + this.lowerbound);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].upperBound, '' + this.upperbound);
@@ -20941,6 +22490,18 @@ class Type {
         this.id = Type.idMax++;
         Type.allByID[this.id] = this;
         Type.all.push(this);
+    }
+    // change owner type. check invalid comparisons like type === othertype to see if sametype
+    static getAllTypedMP() {
+        return Type.all.map((t) => t.owner);
+        return Object.keys(Type.allByID).map((key) => { return _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getByID(+key); });
+    }
+    static getAllWithClassType(searchType) {
+        if (!searchType)
+            return [];
+        // const typestr = searchType.getEcoreTypeName();
+        // return Type.getAllTypedMP().filter((t:Typedd)=> (t.type && t.type.classType && t.type.classType.getEcoreTypeName() === typestr));
+        return Type.getAllTypedMP().filter((typed) => { return typed.type && typed.type.classType && typed.type.classType.id === searchType.id; });
     }
     static updateTypeSelectors($searchRoot, primitives = true, enums = true, classes = true) {
         if (!$searchRoot) {
@@ -21011,7 +22572,7 @@ class Type {
                 const opt = document.createElement('option');
                 grpPrimitive.appendChild(opt);
                 opt.value = etype.long;
-                opt.innerHTML = etype.name;
+                opt.innerHTML = etype.getName();
                 if (selectedType && etype === selectedType.primitiveType) {
                     foundit(opt);
                 }
@@ -21068,9 +22629,11 @@ class Type {
             selectHtml.appendChild(grpClass);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(selectedType && !optionFound, 'selected type option not found; select:', selectHtml, ' EType.shorts:', EType, EType.shorts, ', searchedVal:', selectedType);
     }
-    static linkAll() { for (let i = 0; i < Type.all.length; i++) {
-        Type.all[i].applyTypeStr();
-    } }
+    static linkAll() {
+        for (let i = 0; i < Type.all.length; i++) {
+            Type.all[i].applyTypeStr();
+        }
+    }
     static get(id) { return Type.allByID[id]; }
     changeType(typestr = null, primitiveType = null, classType = null, enumType = null) {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe((typestr ? 1 : 0) + (primitiveType ? 1 : 0) + (classType ? 1 : 0) !== 1, 'changeType(): exactly one argument is required. str:', typestr, 'primitive:', primitiveType, 'classType:', classType);
@@ -21102,7 +22665,7 @@ class Type {
             return;
         this.applyTypeStr0();
         if (this.primitiveType)
-            this.printablename = this.primitiveType.name;
+            this.printablename = this.primitiveType.getName();
         if (this.enumType)
             this.printablename = this.enumType.name;
         if (this.classType)
@@ -21194,10 +22757,21 @@ class Type {
         if (this.enumType)
             return '' + this.enumType.name;
         if (this.primitiveType)
-            return '' + this.primitiveType.name;
+            return '' + this.primitiveType.getName();
         return null;
     }
-    canOverride(other) { return this.classType && this.classType.isExtending(other.classType); }
+    canOverride(other) {
+        // i primitivi identici sono compatibili
+        if (this === other)
+            return true;
+        // i primitivi diversi sono sempre incompatibili
+        if (!this.classType)
+            return false;
+        // per le classi
+        if (other.classType === other.classType)
+            return true;
+        return this.classType.isExtending(other.classType);
+    }
 }
 Type.all = [];
 Type.idMax = 0;
@@ -21206,7 +22780,9 @@ Type.classTypePrefix = '#//';
 Type.selectors = { all: [], primitives: [], classes: [], enums: [] };
 class EType {
     constructor(long, short, defaultVal, minValue = null, maxValue = null) {
-        this.name = null;
+        // static TypeMap: Map<string, Map<string, string>>; // Map<TypemapName, Map<ECoreShortTypeName, TypeAlias>
+        // static currentTypeMapKey: string = null;
+        // name: string = null;
         this.long = null;
         this.short = null;
         this.defaultValue = null;
@@ -21217,9 +22793,80 @@ class EType {
         this.defaultValue = defaultVal;
         this.minValue = minValue;
         this.maxValue = maxValue;
-        const alias = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[short];
-        this.name = alias ? alias : short;
+        // const alias = Status.status.typeAliasDictionary[short];
+        // this.name = alias ? alias : short;
     }
+    static LoadTypeMaps() {
+        EType.LoadPredefinedTypeMaps();
+        EType.LoadCustomTypeMaps();
+    }
+    static LoadPredefinedTypeMaps() {
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'] = {};
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.ecore'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'] = {};
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void] = 'void';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar] = 'char';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString] = 'string';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate] = 'date';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat] = 'float';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble] = 'double';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean] = 'bool';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte] = 'byte';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort] = 'short';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt] = 'int';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong] = 'long';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'] = {};
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void] = 'void';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar] = 'char';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString] = 'char*';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate] = 'time_t';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat] = 'float';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble] = 'double';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean] = 'BOOL';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte] = 'unsigned char';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort] = 'short';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt] = 'int';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.c89'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong] = 'long';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'] = new Map();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].void] = 'void';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EChar] = 'CHAR';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EString] = 'VARCHAR';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDate] = 'DATETIME'; // OR TIMESTAMP (quasi uguali, con diversi limini min-max)
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EFloat] = 'FLOAT';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EDouble] = 'DOUBLE';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EBoolean] = 'TINYINT';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EByte] = 'CHAR(1)';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EShort] = 'SMALLINT';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].EInt] = 'INT';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.MySQL'][_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ShortAttribETypes"].ELong] = 'SMALLINT';
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.user.getID() + '.custom']
+            = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cloneObj(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary['predefined.java']);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.currentTypeAlias = 'predefined.java';
+    }
+    static LoadCustomTypeMaps() { }
+    getName(typeMapKey = null) {
+        const typemap = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[typeMapKey || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.currentTypeAlias];
+        return typemap && typemap[this.short] || this.short;
+    } /*
+      changeAlias(value: string) {
+        this.name = value;
+        Status.status.typeAliasDictionary[this.short] = this.getName();
+        Status.status.aliasTypeDictionary[this.name] = this.short;
+        Status.status.mm.refreshGUI();
+        Status.status.m.refreshGUI();
+        Status.status.mm.graph.propertyBar.refreshGUI();
+        Status.status.m.graph.propertyBar.refreshGUI();
+      }*/
     static staticInit() {
         EType.shorts = {};
         let noWarning;
@@ -21259,15 +22906,6 @@ class EType {
     static getAlias(a) {
         const str = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[a];
         return !str ? '' + a : _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[a];
-    }
-    changeAlias(value) {
-        this.name = value;
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.typeAliasDictionary[this.short] = this.name;
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.aliasTypeDictionary[this.name] = this.short;
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.refreshGUI();
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.refreshGUI();
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.graph.propertyBar.refreshGUI();
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.refreshGUI();
     }
 }
 EType.shorts = {};
@@ -21341,6 +22979,8 @@ class Typedd extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"] {
         }
     }
     setType(ecoreTypeString, throwError = true, refreshGui = true) {
+        const root = this.getModelRoot();
+        //  U.pe(!root.isM2(), 'only m2 model piece features, operations and parameters can change type', this);
         const type = this.getType();
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(type !== this.type, 'attempting to change parent type!', this, type);
         type.changeType(ecoreTypeString);
@@ -21381,7 +23021,7 @@ class Typedd extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"] {
     }
     getPackage() { return this.parent ? this.getClass().parent : null; }
     graph() { return this.getVertex().owner; }
-    getVertex() { return this.parent ? this.getClass().getVertex() : null; }
+    getVertex(canMakeIt = true) { return this.parent ? this.getClass().getVertex(canMakeIt) : null; }
     /*linkToMetaParent<T extends Typedd>(classChild: T) {
       U.pe(true, 'linkToMetaPrent: todo();');
       this.metaParent = classChild;
@@ -21514,19 +23154,12 @@ class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
         super.delete(false);
         if (oldparent)
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldparent.classes, this);
-        // todo: che fare con le reference a quella classe? per ora cancello i campi.
-        const pointers = this.getReferencePointingHere();
+        /*
+        che fare con le reference a quella classe? così cancello i campi.
+        const pointers: IReference[] = U.shallowArrayCopy(this.getReferencePointingHere());
         let i;
-        for (i = 0; i < pointers.length; i++) {
-            pointers[i].delete();
-        }
-        if (this.shouldBeDisplayedAsEdge()) {
-            const edges = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayCopy(this.getEdges(), false);
-            for (i = 0; i < edges.length; i++) {
-                edges[i].remove();
-            }
-        }
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, false, true);
+        for (i = 0; i < pointers.length; i++) { pointers[i].delete(); }
+        */
         if (refreshgui)
             this.refreshGUI();
     }
@@ -21641,283 +23274,11 @@ class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'found class.children not reference neither attribute: ', child);
         }
     }
-    /*getEdge(): IEdge[] {
-      U.pe(!this.shouldBeDisplayedAsEdge(), 'err');
-      if (!this.edges) { this.generateEdge(); }
-      return this.edges; }*/
-    /*linkToMetaParent(meta: IClass): void {
-      U.pe(true, 'linkToMetaParent: todo.');
-      const outObj: any = {};
-      const comformability: number = this.conformability(meta, outObj);
-      if (comformability !== 1) {
-        U.pw(true, 'm2Class: ' + this.name + ' not fully conform to ' + meta.name + '. Conformability: = ' + comformability * 100 + '%' );
-        return; }
-      this.metaParent = meta;
-      let i: number;
-      const refPermutation: number[] = outObj.refPermutation;
-      const attrPermutation: number[] = outObj.attrPermutation;
-      i = -1;
-      while (++i < attrPermutation.length) { this.attributes[i].linkToMetaParent(meta.attributes[attrPermutation[i]]); }
-      i = -1;
-      while (++i < refPermutation.length) { this.references[i].linkToMetaParent(meta.references[refPermutation[i]]); }
-    }*/
-    /*conformability(meta: IClass, outObj: any = null/*.refPermutation, .attrPermutation* /, debug: boolean = true): number {
-      if (this.attributes > meta.attributes) { return 0; }
-      if (this.references > meta.references) { return 0; }
-      const refLenArray: number[] = [];
-      let i;
-      let j;
-      // find best references permutation compabilityF
-      i = -1;
-      while (++i < meta.references.length) { refLenArray.push(i); }
-      const refPermut: number[][] = U.permute(refLenArray);
-      // console.log('possible class.references permutations[' + meta.references.length + '!]:', refLenArray, ' => ', refPermut);
-      const allRefPermutationConformability: number[] = [];
-      i = -1;
-      let bestRefPermutation: number[] = null;
-      let bestRefPermutationValue = -1;
-      while (++i < refPermut.length) {
-        j = -1;
-        const permutation = refPermut[i];
-        let permutationComformability = 0;
-        while (++j < permutation.length) {
-          const Mref: IReference = this.references[j];
-          const MMref: IReference = meta.references[permutation[j]];
-          const refComf = !Mref ? 0 : Mref.conformability(MMref, debug);
-          console.log('ref: permutationComformability:', permutationComformability, ' + ' + refComf + ' / ' + permutation.length,
-            '-->', permutationComformability + refComf / permutation.length);
-          permutationComformability += refComf / permutation.length; }
-  
-        allRefPermutationConformability.push(permutationComformability);
-        if (permutationComformability > bestRefPermutationValue) {
-          bestRefPermutation = permutation;
-          bestRefPermutationValue = permutationComformability; }
-        if (permutationComformability === 1) { break; }
-      }
-  
-      // find best attributes permutation compability
-      const attLenArray: number[] = [];
-      i = -1;
-      while (++i < meta.attributes.length) { attLenArray.push(i); }
-      const attPermut: number[][] = U.permute(attLenArray, debug);
-      // console.log('possible class.attributes permutations[' + meta.attributes.length + '!]:', attLenArray, ' => ', attPermut);
-      const allAttPermutationConformability: number[] = [];
-      i = -1;
-      let bestAttPermutation: number[] = null;
-      let bestAttPermutationValue = -1;
-      while (++i < attPermut.length) {
-        j = -1;
-        const permutation = attPermut[i];
-        let permutationComformability = 0;
-        while (++j < permutation.length) {
-          const M2att: IAttribute = this.attributes[j];
-          const M3att: IAttribute = meta.attributes[permutation[j]];
-          const attComf = !M2att ? 0 : M2att.conformability(M3att, debug);
-          console.log('attr: permutationComformability:', permutationComformability, ' + ' + attComf + ' / ' + permutation.length,
-            '-->', permutationComformability + attComf / permutation.length);
-          permutationComformability += attComf / permutation.length; }
-  
-        allAttPermutationConformability.push(permutationComformability);
-        if (permutationComformability > bestRefPermutationValue) {
-          bestAttPermutation = permutation;
-          bestAttPermutationValue = permutationComformability; }
-        if (permutationComformability === 1) { break; }
-      }
-  
-      const total = meta.childrens.length + 1; // + name
-      const nameComformability = StringSimilarity.compareTwoStrings(this.name, meta.name) / total;
-      bestAttPermutationValue = Math.max(0, bestAttPermutationValue * (meta.attributes.length / total));
-      bestRefPermutationValue = Math.max(0, bestRefPermutationValue * (meta.references.length / total));
-      if (outObj) {
-        outObj.refPermutation = bestRefPermutation;
-        outObj.attrPermutation = bestAttPermutation; }
-  
-      const ret = nameComformability + bestAttPermutationValue + bestRefPermutationValue;
-      U.pif(debug, 'M2CLASS.comform(', this.name, {0: this}, ', ', meta.name, {0: meta}, ') = ', ret,
-        ' = ', nameComformability + ' + ' + bestAttPermutationValue + ' + ', bestRefPermutationValue);
-      return ret; }*/
-    // todo: typescript proposal: insert type "this.field[]" così posso specificare il tipo di ritorno della funzione uguale a quello di quel campo.
-    getAllSuperClasses(plusThis = false) {
-        // :this sembra buggato come parametro input: se gli passo un parametro stesso tipo mi da comunque errore, ma accetta letteralmente "this"...
-        let i;
-        const set = plusThis ? new Set([this]) : new Set();
-        for (i = 0; i < this.extends.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, set, this.extends[i].getAllSuperClasses(true));
-        }
-        return [...set];
-    }
-    getAllSubClasses(plusThis = false) {
-        let i;
-        const set = plusThis ? new Set([this]) : new Set();
-        for (i = 0; i < this.gotExtendedBy.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, set, this.gotExtendedBy[i].getAllSubClasses(true));
-        }
-        return [...set];
-    }
-    getBasicExtends(plusThis = false) { return plusThis ? [this, ...this.extends] : this.extends; }
-    canExtend(superclass, output = { reason: '', indirectExtendChain: null }) {
-        if (!superclass) {
-            output.reason = 'Invalid extend target: ' + superclass;
-            return false;
-        }
-        if (superclass === this) {
-            output.reason = 'Classifiers cannot extend themself.';
-            return false;
-        }
-        if (this.extends.indexOf(superclass) >= 0) {
-            output.reason = 'Target class is already directly extended.';
-            return false;
-        }
-        if (!this.getModelRoot().isM2()) {
-            output.reason = 'Only a M2 IClassifier can extend other IClassifiers.';
-            return false;
-        }
-        output.indirectExtendChain = output.indirectExtendChain || superclass.getAllSuperClasses(false);
-        if (this.getAllSuperClasses(false).indexOf(superclass) >= 0) {
-            output.reason = 'Target class is already indirectly extended.';
-            return false;
-        }
-        if (output.indirectExtendChain.indexOf(this) >= 0) {
-            output.reason = 'Cannot set this extend, it would cause a inheritance loop.';
-            return false;
-        }
-        // ora verifico se causa delle violazioni di override (attibuti omonimi string e boolean non possono overridarsi)
-        let i;
-        let j;
-        let childrens = [...this.getBasicOperations()];
-        let superchildrens = [...superclass.getBasicOperations()];
-        for (i = 0; i < childrens.length; i++) {
-            let op = childrens[i];
-            for (j = 0; j < superchildrens.length; j++) {
-                let superchildren = superchildrens[j];
-                if (op.name !== superchildren.name)
-                    continue;
-                if (op.canOverride(superchildren) || op.canPolymorph(superchildren))
-                    continue;
-                output.reason = 'Marked homonymous operations cannot override nor polymorph each others.';
-                setTimeout(() => {
-                    op.mark(true, superchildren, 'override');
-                    setTimeout(() => { op.mark(false, superchildren, 'override'); }, 1000);
-                }, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedGUI ? 0 : 2);
-                return false;
-            }
-        }
-        return true;
-    }
-    isExtending(superclass, orEqual = true) {
-        if (!superclass)
-            return false;
-        const extendss = this.getAllSuperClasses(orEqual);
-        let i;
-        for (i = 0; i < extendss.length; i++) {
-            if (superclass === extendss[i]) {
-                return true;
-            }
-        }
-        return false;
-    }
-    setExtends(superclass, refreshGUI = true, force = false) {
-        let out = { reason: '', indirectExtendChain: null };
-        if (!this.canExtend(superclass, out)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, out.reason);
-            if (!force)
-                return false;
-        }
-        this.extends.push(superclass);
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(superclass.gotExtendedBy, this);
-        let i;
-        if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"])
-            for (i = 0; i < this.instances.length; i++) {
-                (this).instances[i].setExtends(superclass);
-            }
-        if (refreshGUI)
-            this.refreshGUI_Alone();
-        const extendChildrens = this.getAllSuperClasses(true);
-        console.log('calculateViolationsExtend childrens:' + extendChildrens, this);
-        if (refreshGUI)
-            for (i = 0; i < extendChildrens.length; i++) {
-                let extChild = extendChildrens[i];
-                console.log('calculateViolationsExtend');
-                extChild.checkViolations(false);
-            }
-        // if (this.vertex) this.vertex.owner.propertyBar.refreshGUI();
-        // if (this.vertex) this.vertex.owner.propertyBar.show(this,null, true, true);
-        return true;
-    }
-    unsetExtends(superclass, removeEdge = true) {
-        if (!superclass)
-            return;
-        console.log('UnsetExtend:', this, this.name);
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.getModelRoot().isM2(), 'Only m2 IClassifier can un-extend other IClassifiers.');
-        let index = this.extends.indexOf(superclass);
-        if (index < 0)
-            return;
-        let i;
-        this.extends.splice(index, 1);
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(superclass.gotExtendedBy, this);
-        this.refreshGUI_Alone();
-        if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
-            for (i = 0; i < this.instances.length; i++) {
-                (this).instances[i].unsetExtends(superclass);
-            }
-            if (removeEdge)
-                for (i = 0; i < this.extendEdges.length; i++) {
-                    let extedge = this.extendEdges[i];
-                    if (extedge.end.logic() == superclass) {
-                        extedge.remove();
-                    }
-                }
-        }
-        const extendChildrens = this.getAllSubClasses(true);
-        for (i = -1; i < extendChildrens.length; i++) {
-            let extChild = i === -1 ? this : extendChildrens[i];
-            extChild.checkViolations(true);
-        }
-    }
-    getAllChildrens(includeOperations = true, includeAnnotations = true, includeAttributes = true, includeReferences = true, includeShadowed = true) {
-        //todo: actually since getAllExtends returns an array made from a set, and a class cannot contain duplicates, it cannot contain duplicates. sets here are redundant.
-        const extendchain = this.getBasicExtends(true); // this.getAllExtends(true);
-        let i;
-        let j;
-        const ret = [];
-        const features = new Map();
-        const operations = new Map();
-        // features and operations can share names
-        // features with same name on different classes will just shadow each other without overriding
-        // override solo se signature identica.
-        // se signature identica e return primitivo diverso: invalido.
-        // se signature identica e return Object più specifico: valido.
-        for (i = 0; i < extendchain.length; i++) {
-            ret.push(...extendchain[i].getBasicChildrens(includeOperations, includeAnnotations, includeAttributes, includeReferences, includeShadowed));
-        }
-        return ret;
-    }
-    getAllAttributes() {
-        const extendchain = this.getAllSuperClasses(true);
-        let i;
-        const ret = new Set();
-        for (i = 0; i < extendchain.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, ret, extendchain[i].getBasicAttributes());
-        }
-        return ret;
-    }
-    getAllReferences() {
-        const extendchain = this.getAllSuperClasses(true);
-        let i;
-        const ret = new Set();
-        for (i = 0; i < extendchain.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, ret, extendchain[i].getBasicReferences());
-        }
-        return ret;
-    }
     getAllOperations() {
-        const extendchain = this.getAllSuperClasses(true);
-        let i;
-        const ret = new Set();
-        for (i = 0; i < extendchain.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, ret, extendchain[i].getBasicOperations());
-        }
-        return ret;
+        return new Set(this.getAllChildrens(true, false, false, false));
+    }
+    getAllAnnotations() {
+        return this.getAllChildrens(false, true, false, false);
     }
     /*
       getDisplayedChildrens(): Set<Typedd> { return this.getBasicChildrens(); }
@@ -21925,18 +23286,20 @@ class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
       getDisplayedAttributes(): Set<IAttribute> { return this.getBasicAttributes(); }
       getDisplayedReferences(): Set<IReference> { return this.getBasicReferences(); }*/
     getBasicChildrens(includeOperations = true, includeAnnotations = true, includeAttributes = true, includeReferences = true, includeShadowed = false /*null = both shadow and unshadow, true = onlyshadowed*/) {
-        if (includeOperations && includeAnnotations)
-            return new Set(this.childrens);
+        // if (includeOperations && includeAnnotations) return new Set(this.childrens);
         const arr = [];
         let j;
+        const isM2 = this.getModelRoot().isM2();
         for (j = 0; j < this.childrens.length; j++) {
             const child = this.childrens[j];
             console.log(child.metaParent, this.metaParent, child, this);
             if (child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"] && child.isInherited(this))
                 continue; // for m1
-            if (includeAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"]) {
+            if (!isM2 && (includeAttributes || includeReferences) && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]) {
                 if (includeShadowed !== null && child.isShadowed(this) !== includeShadowed)
                     continue;
+            }
+            if (includeAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"]) {
                 arr.push(child);
                 continue;
             }
@@ -21956,64 +23319,12 @@ class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
         }
         return new Set(arr);
     }
-    getBasicAttributes() { return new Set(this.attributes); }
-    getBasicReferences() { return new Set(this.references); }
     checkViolations(toAllChain = true) {
         if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm)
             return;
-        this.calculateInheritanceViolations(toAllChain);
+        if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"])
+            this.calculateInheritanceViolations(toAllChain);
         // this.calculateShadowings(toAllChain);
-    }
-    /*
-      calculateShadowings(updateSubclassesToo: boolean = true): void {
-        let i: number;
-        let j: number;
-        const superclasses: IClass[] = this.getAllSuperClasses();
-        let map: Map<string, IFeature[]> = new Map();
-        for (i = 0; i < superclasses.length; i++) {
-          let sc: IClass = superclasses[i];
-          let features: IFeature[] = [...sc.getBasicChildrens(false, false, true, true, false)] as IFeature[];
-    
-          for (j = 0; j < features.length; j++) {
-            let feat: IFeature = features[j];
-            if (!map[feat.name]) map[feat.name] = [feat.name]; else map[feat.name].push(feat);
-          }
-        }
-        const ownFeatures: IFeature[] = [...this.getBasicChildrens(false, false, true, true, false)] as IFeature[];
-        for (j = 0; j < ownFeatures.length; j++) {
-          let feat: IFeature = ownFeatures[j];
-          un attributo non è shadowed di natura, lo è nella sottoclassi ma non nella sua classe.extendsStralso sto settando shadowed la sottoclasse e non la superclasse
-          this.setShadowed(!!map[feat.name]); }
-        if (updateSubclassesToo) {
-          let subClasses: IClass[] = this.getAllSubClasses(false);
-          for (j = 0; j < subClasses.length; j++) {
-            let sc: IClass = subClasses[j];
-            sc.calculateShadowings(false); }
-        }
-      }
-    */
-    calculateInheritanceViolations(toAllChain = false) {
-        let i;
-        let j;
-        if (toAllChain) {
-            let classes = [this];
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(classes, this.getAllSubClasses(false));
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(classes, this.getAllSuperClasses(false));
-            for (i = 0; i < classes.length; i++) {
-                classes[i].checkViolations(false);
-            }
-        }
-        let operations = [...this.getAllOperations()];
-        console.log('3x operation: ', this, operations);
-        for (j = 0; j < operations.length; j++) {
-            let op1 = operations[j];
-            op1.unmarkAllIncompatibility();
-            for (i = 0; i < operations.length; i++) {
-                let op2 = operations[i];
-                let ret = op1.isCompatible(op2, true);
-                console.log('3x operation[' + j + '] = ', ret, op1.name, op2.name, op1, op2, this, operations);
-            }
-        }
     }
 }
 class M3Class extends IClass {
@@ -22022,17 +23333,7 @@ class M3Class extends IClass {
         this.parse(json, true);
     }
     duplicate(nameAppend, newParent) { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Class.duplicate()'); return this; }
-    generateModel() { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Class.generateModel()'); return this; }
-    getBasicOperations() {
-        let i;
-        for (i = 0; i < this.childrens.length; i++) {
-            const c = this.childrens[i];
-            if (c instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"])
-                return new Set([c]);
-        }
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'failed to find m3Operation');
-        return null;
-    }
+    generateModel(loopDetectionObj = null) { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Invalid operation: m3Class.generateModel()'); return this; }
     parse(json, destructive) {
         this.name = 'Class';
         this.childrens = [];
@@ -22044,6 +23345,18 @@ class M3Class extends IClass {
         const o = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"](this, null);
         const p = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EParameter"](o, null);
     }
+    getAllChildrens(includeOperations, includeAnnotations, includeAttributes, includeReferences, 
+    /*null = both shadow and unshadow, true = onlyshadowed*/ includeShadowed) {
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, "m3.getallchildrens()");
+        return null;
+    }
+    getAllAttributes() { return new Set(this.attributes); }
+    getAllReferences() { return new Set(this.references); }
+    getAllOperations() { return new Set(this.operations); }
+    getBasicAttributes() { return this.getAllAttributes(); }
+    getBasicReferences() { return this.getAllReferences(); }
+    getBasicOperations() { return this.getAllOperations(); }
+    getBasicAnnotations() { return this.getAllAnnotations(); }
 }
 
 
@@ -22061,6 +23374,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M2Class", function() { return M2Class; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/Joiner */ "./src/common/Joiner.ts");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
@@ -22122,21 +23438,281 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         this.operations = [];
         this.extends = [];
         this.gotExtendedBy = [];
+        this.visibility = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"].package;
         this.instances = [];
         if (!pkg && !json) {
             return;
         } // empty constructor for .duplicate();
         this.parse(json, true);
     }
-    setExtends(superClass, refreshGUI = true, force = false) {
-        return super.setExtends(superClass, refreshGUI, force);
+    getAccessModifier() { return this.visibility; }
+    getVisibility() { return this.getAccessModifier(); }
+    setAccessModifier(a) {
+        const output = { reason: '' };
+        if (!this.canChangeAccessModifierValidityTo(a, output, true)) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'cannot set visibility scope to "' + a.toString() + '" because ' + output.reason);
+        }
+        this.visibility = a;
+    }
+    canChangeAccessModifierValidityTo(a, { reason: string }, allowMark = false) {
+        //todo: controlla che le m2-reference e utilizzo nei parametri rispettino il visibility scope
+        return true;
+    }
+    getAllSuperClasses(plusThis = false) {
+        // :this sembra buggato come parametro input: se gli passo un parametro stesso tipo mi da comunque errore, ma accetta letteralmente "this"...
+        let i;
+        /*
+        const set: Set<IClass> = plusThis ? new Set<IClass>([this as any]) : new Set();
+        for (i = 0; i < this.extends.length; i++) {
+          U.SetMerge(true, set, this.extends[i].getAllSuperClasses(true)); }
+        return [...set];*/
+        // deve fare una ricerca per ordini dell'albero (width, non per depth nel grafo)
+        const visited = new Map();
+        const queue = plusThis ? [this, ...this.extends] : [...this.extends];
+        const ret = [];
+        for (i = 0; i < queue.length; i++) {
+            let elem = queue[i];
+            if (visited[elem.id])
+                continue;
+            visited[elem.id] = elem;
+            ret.push(elem);
+            queue.push(...elem.extends);
+        }
+        return ret;
+    }
+    getAllSubClasses(plusThis = false) {
+        let i;
+        const set = plusThis ? new Set([this]) : new Set();
+        for (i = 0; i < this.gotExtendedBy.length; i++) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].SetMerge(true, set, this.gotExtendedBy[i].getAllSubClasses(true));
+        }
+        return [...set];
+    }
+    getBasicExtends(plusThis = false) { return plusThis ? [this, ...this.extends] : this.extends; }
+    canExtend(superclass, output = { reason: '', indirectExtendChain: null }) {
+        if (!superclass) {
+            output.reason = 'Invalid extend target: ' + superclass;
+            return false;
+        }
+        if (superclass === this) {
+            output.reason = 'Classifiers cannot extend themself.';
+            return false;
+        }
+        if (this.extends.indexOf(superclass) >= 0) {
+            output.reason = 'Target class is already directly extended.';
+            return false;
+        }
+        if (!this.getModelRoot().isM2()) {
+            output.reason = 'Only a M2 IClassifier can extend other IClassifiers.';
+            return false;
+        }
+        output.indirectExtendChain = output.indirectExtendChain || superclass.getAllSuperClasses(false);
+        if (this.getAllSuperClasses(false).indexOf(superclass) >= 0) {
+            output.reason = 'Target class is already indirectly extended.';
+            return false;
+        }
+        if (output.indirectExtendChain.indexOf(this) >= 0) {
+            output.reason = 'Cannot set this extend, it would cause a inheritance loop.';
+            return false;
+        }
+        // ora verifico se causa delle violazioni di override (attibuti omonimi string e boolean non possono overridarsi)
+        let i;
+        let j;
+        let childrens = [...this.getBasicOperations()];
+        let superchildrens = [...superclass.getBasicOperations()];
+        for (i = 0; i < childrens.length; i++) {
+            let op = childrens[i];
+            for (j = 0; j < superchildrens.length; j++) {
+                let superchildren = superchildrens[j];
+                if (op.name !== superchildren.name)
+                    continue;
+                if (op.canOverride(superchildren) || op.canPolymorph(superchildren))
+                    continue;
+                output.reason = 'Marked homonymous operations cannot override nor polymorph each others.';
+                setTimeout(() => {
+                    op.mark(true, superchildren, 'override');
+                    setTimeout(() => { op.mark(false, superchildren, 'override'); }, 3000);
+                }, 1);
+                return false;
+            }
+        }
+        return true;
+    }
+    isExtending(superclass, orEqual = true) {
+        if (!superclass)
+            return false;
+        const extendss = this.getAllSuperClasses(orEqual);
+        let i;
+        for (i = 0; i < extendss.length; i++) {
+            if (superclass === extendss[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    setExtends(superclass, refreshGUI = true, force = false) {
+        let out = { reason: '', indirectExtendChain: null };
+        if (!this.canExtend(superclass, out)) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, out.reason);
+            if (!force)
+                return false;
+        }
+        this.extends.push(superclass);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(superclass.gotExtendedBy, this);
+        let i;
+        if (this instanceof M2Class)
+            for (i = 0; i < this.instances.length; i++) {
+                (this).instances[i].changeMetaParent(this, true, true);
+            }
+        if (refreshGUI)
+            this.refreshGUI_Alone();
+        const extendChildrens = this.getAllSuperClasses(true);
+        console.log('calculateViolationsExtend childrens:' + extendChildrens, this);
+        if (refreshGUI)
+            for (i = 0; i < extendChildrens.length; i++) {
+                let extChild = extendChildrens[i];
+                console.log('calculateViolationsExtend');
+                extChild.checkViolations(false);
+            }
+        // if (this.vertex) this.vertex.owner.propertyBar.refreshGUI();
+        // if (this.vertex) this.vertex.owner.propertyBar.show(this,null, true, true);
+        return true;
+    }
+    unsetExtends(superclass, removeEdge = true) {
+        if (!superclass)
+            return;
+        console.log('UnsetExtend:', this, this.name);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.getModelRoot().isM2(), 'Only m2 IClassifier can un-extend other IClassifiers.');
+        let index = this.extends.indexOf(superclass);
+        if (index < 0)
+            return;
+        let i;
+        this.extends.splice(index, 1);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(superclass.gotExtendedBy, this);
+        this.refreshGUI_Alone();
+        if (this instanceof M2Class) {
+            for (i = 0; i < this.instances.length; i++) {
+                (this).instances[i].doUnsetExtends(superclass);
+            }
+            if (removeEdge)
+                for (i = 0; i < this.extendEdges.length; i++) {
+                    let extedge = this.extendEdges[i];
+                    if (extedge.end.logic() == superclass) {
+                        extedge.remove();
+                    }
+                }
+        }
+        const extendChildrens = this.getAllSubClasses(true);
+        for (i = -1; i < extendChildrens.length; i++) {
+            let extChild = i === -1 ? this : extendChildrens[i];
+            extChild.checkViolations(true);
+        }
+    }
+    calculateInheritanceViolations(toAllChain = false) {
+        if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedGUI)
+            return;
+        let i;
+        let j;
+        if (toAllChain) {
+            let classes = [this];
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(classes, this.getAllSubClasses(false));
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(classes, this.getAllSuperClasses(false));
+            for (i = 0; i < classes.length; i++) {
+                classes[i].checkViolations(false);
+            }
+        }
+        let operations = [...this.getAllOperations()];
+        console.log('3x operation: ', this, operations);
+        for (j = 0; j < operations.length; j++) {
+            let op1 = operations[j];
+            op1.unmarkAllIncompatibility();
+            for (i = 0; i < operations.length; i++) {
+                let op2 = operations[i];
+                let ret = op1.isCompatible(op2, true);
+                console.log('3x operation[' + j + '] = ', ret, op1.name, op2.name, op1, op2, this, operations);
+            }
+        }
+    }
+    getTypeConversionScores(allowSuperClass = true, allowSubClass = true) {
+        const map = {};
+        const ret = [];
+        const sortingFunction = (e1, e2) => {
+            let s1 = e1.order; //  (e1.features + "." + e1.operations + "." + e1.annotations).replace("-", "Z");
+            let s2 = e2.order; // (e2.features + "." + e2.operations + "." + e2.annotations).replace("-", "Z");
+            return s1.localeCompare(s2);
+            /*
+              // confronto feature number
+              if (e1.features !== e2.features) {
+                if (e1.features < 0) return e1.features + e2.features;// -1 + -5 = -6 (e1 prima di e2),  -1 + -5 = +4 (e1 dopo e2)
+                else return e1.features - e2.features;// +1 - -5 = +6 (e1 dopo di e2),  +1 - 5 = -4 (e1 prima di e2)
+              }
+              // confronto operations number
+              if (e1.operations !== e2.operations) {
+                if (e1.operations < 0) return e1.operations + e2.operations;
+                else return e1.operations - e2.operations;
+              }
+              // confronto annotations number
+              if (e1.annotations !== e2.annotations) {
+                if (e1.annotations < 0) return e1.annotations + e2.annotations;
+                else return e1.annotations - e2.annotations;
+              }
+              return 0;*/
+        };
+        let candidateClasses = [];
+        if (allowSuperClass)
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(candidateClasses, this.getAllSuperClasses(false));
+        if (allowSubClass)
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(candidateClasses, this.getAllSubClasses(false));
+        candidateClasses = candidateClasses.filter((c) => !c.getInterface() && !c.getAbstract());
+        const myFeatures = this.getAllChildrens(false, false);
+        const myOperations = this.getAllChildrens(true, false, false, false);
+        const myAnnotations = this.getAllChildrens(false, true, false, false);
+        for (let i = 0; i < candidateClasses.length; i++) {
+            const candidate = candidateClasses[i];
+            let featureAdd = candidate.getAllChildrens(false, false).length - myFeatures.length;
+            let operationsAdd = candidate.getAllChildrens(true, false, false, false).length - myOperations.length;
+            let annotationsAdd = candidate.getAllChildrens(false, true, false, false).length - myAnnotations.length;
+            let elem = { class: candidate, features: featureAdd, operations: operationsAdd, annotations: annotationsAdd };
+            ret.push(elem);
+            const order = (featureAdd + "." + operationsAdd + "." + annotationsAdd).replace("-", "Z");
+            elem.order = order;
+            // if (map[order]) continue;
+            // map[order] = candidate;
+        }
+        // let lowestKey: string = Object.keys(map).sort()[0];
+        // return map[lowestKey];
+        return ret.sort(sortingFunction);
     }
     // getDisplayedChildrens(): Set<EOperation | M2Feature> { return this.getBasicChildrens(); }
     //getBasicChildrens(): Set<M2Feature | EOperation> { return super.getBasicChildrens() as Set<M2Feature | EOperation>; }
     // getAllChildrens(): (M2Feature | EOperation)[] { return super.getAllChildrens() as (M2Feature | EOperation)[]; }
-    getAllAttributes() { return super.getAllAttributes(); }
-    getAllReferences() { return super.getAllReferences(); }
+    getAllChildrens(includeOperations = true, includeAnnotations = true, includeAttributes = true, includeReferences = true, 
+    /*null = both shadow and unshadow, true = onlyshadowed*/ includeShadowed = true) {
+        //todo: actually since getAllExtends returns an array made from a set, and a class cannot contain duplicates, it cannot contain duplicates.
+        // sets here are redundant.
+        const extendchain = this.getAllSuperClasses(true); // this.getAllExtends(true);
+        let i;
+        const ret = [];
+        // features and operations can share names
+        // features with same name on different classes will just shadow each other without overriding
+        // override solo se signature identica.
+        // se signature identica e return primitivo diverso: invalido.
+        // se signature identica e return Object più specifico: valido.
+        for (i = 0; i < extendchain.length; i++) {
+            ret.push(...extendchain[i].getBasicChildrens(includeOperations, includeAnnotations, includeAttributes, includeReferences, includeShadowed));
+        }
+        return ret;
+    }
+    getAllAttributes() {
+        return new Set(this.getAllChildrens(false, false, true, false));
+    }
+    getAllReferences() {
+        return new Set(this.getAllChildrens(false, false, false, true));
+    }
+    getBasicAttributes() { return new Set(this.attributes); }
+    getBasicReferences() { return new Set(this.references); }
     getBasicOperations() { return new Set(this.operations); }
+    getBasicAnnotations() { return (this.annotations); }
     getModelRoot() { return super.getModelRoot(); }
     getNamespaced() {
         const str = this.getModelRoot().namespace();
@@ -22216,7 +23792,7 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.childrens, newFunction);
         }
     }
-    generateModel() {
+    generateModel(loopDetectionObj = null) {
         const featurearr = [];
         const operationsarr = [];
         const model = {};
@@ -22227,13 +23803,13 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
             supertypesstr += _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].startSeparator(key, ' ') + this.extends[i].getEcoreTypeName();
         }
         for (i = 0; i < this.attributes.length; i++) {
-            featurearr.push(this.attributes[i].generateModel());
+            featurearr.push(this.attributes[i].generateModel(loopDetectionObj));
         }
         for (i = 0; i < this.references.length; i++) {
-            featurearr.push(this.references[i].generateModel());
+            featurearr.push(this.references[i].generateModel(loopDetectionObj));
         }
         for (i = 0; i < this.operations.length; i++) {
-            operationsarr.push(this.operations[i].generateModel());
+            operationsarr.push(this.operations[i].generateModel(loopDetectionObj));
         }
         model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreClass"].xsitype] = 'ecore:EClass';
         model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreClass"].namee] = this.name;
@@ -22339,6 +23915,32 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         }
         return false;
       }*/
+    delete(refreshgui = true) {
+        const scores = this.getTypeConversionScores(true, true);
+        const newType = scores.length > 0 && scores[0].class;
+        if (newType)
+            this.convertInstancesTo(newType);
+        this.forceChangeType(newType);
+        super.delete(false); // will remove remaining unconverted instances
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.refreshGUI();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.refreshInstancesGUI();
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, false, true);
+    }
+    forceChangeType(newType = null) {
+        let i;
+        let typeds = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].getAllWithClassType(this);
+        // NB: esistono ancora m1-object che puntano a m1-object istanze di questo oggetto, perchè le istanze vengono cancellate in super.delete() (MP level)
+        // e quando cancelli il vertice di una istanza a catena cancelli prima gli edge e quindi resetti le references attive,
+        // però il tipo puntato rimarrebbe a questa classe.
+        const newTypeStr = newType && newType.getEcoreTypeName() || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AttribETypes"].EString;
+        for (i = 0; i < typeds.length; i++) {
+            let typed = typeds[i];
+            typed.setType(newTypeStr);
+        }
+        typeds = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].getAllWithClassType(this);
+        console.log('wew', "failed to change all types:", typeds, this, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all.map((t) => t.printablename + '_' + (t.classType && t.classType.getEcoreTypeName())), _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all.filter((t) => (t.classType && t.classType.getEcoreTypeName() === this.getEcoreTypeName())));
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!!typeds.length, "failed to change all types:", typeds, this);
+    }
     static updateSuperClasses() {
         const dictionary = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.getEcoreStr_Class_Dictionary();
         const classes = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.getAllClasses();
@@ -22369,6 +23971,185 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         const ret = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"](this, this.getVertex(), target.getVertex(), null);
         this.extendEdges.push(ret);
         return ret;
+    }
+    getAbstract() { return this.isAbstract; }
+    getInterface() { return this.isInterface; }
+    canBeInterface(value, outputReason) {
+        let i;
+        if (!value) {
+            const subclasses = this.getAllSubClasses(false);
+            for (i = 0; i < subclasses.length; i++) {
+                const ext = subclasses[i];
+                if (ext.getInterface()) {
+                    // no interfacce sotto questa classe
+                    if (outputReason)
+                        outputReason.text = '"' + this.name + '" cannot cease to be an interface because it is extended by "'
+                            + ext.name + '" wich is an interface.' + ' Update their relationship befor proceeding.';
+                    return false;
+                }
+            }
+            return true;
+        }
+        if (this.instances.length) {
+            if (outputReason)
+                outputReason.text =
+                    'The class "' + this.name + '" have ' + this.instances.length + ' instances, convert or delete them before proceeding.';
+            return false;
+        }
+        const superclasses = this.getAllSuperClasses(false);
+        for (i = 0; i < superclasses.length; i++) {
+            const ext = superclasses[i];
+            if (!ext.getInterface()) {
+                // no classi sopra questa interfaccia
+                if (outputReason)
+                    outputReason.text = '"' + this.name + '" cannot be an interface because it cannot extend "'
+                        + ext.name + '" wich is a class.' + ' Update their relationship befor proceeding.';
+                return false;
+            }
+        }
+        return true;
+    }
+    canBeAbstract(value, outputReason) {
+        if (!value)
+            return true;
+        if (this.instances.length) {
+            if (outputReason)
+                outputReason.text =
+                    'The class "' + this.name + '" have ' + this.instances.length + ' instances.\n<br>Convert or delete them by right-clicking his vertex before proceeding.';
+            return false;
+        }
+        if (this.getInterface() && !this.canBeInterface(false, outputReason)) {
+            if (outputReason)
+                outputReason.text = 'Interfaces cannot be abstract.\n<br>' + outputReason.text;
+            return false;
+        }
+        return true;
+    }
+    setInterface(value, canPrintError = true) {
+        if (this.isInterface === value)
+            return;
+        let reason = { text: '' };
+        if (!this.canBeInterface(value, reason)) {
+            // U.pw(canPrintError, reason.text);
+            if (canPrintError) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
+                    icon: 'error',
+                    title: 'Invalid operation',
+                    html: reason.text
+                });
+            }
+            return;
+        }
+        if (value) {
+            this.setInterfaceTrue();
+        }
+        else {
+            this.unsetInterface();
+        }
+    }
+    setInterfaceTrue() {
+        this.unsetAbstract();
+        this.isInterface = true;
+    }
+    unsetInterface() { this.isInterface = false; }
+    setAbstract(value, canPrintError = true) {
+        if (this.isAbstract === value)
+            return;
+        let reason = { text: '' };
+        if (!this.canBeAbstract(value, reason)) {
+            if (canPrintError) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
+                    icon: 'error',
+                    title: 'Invalid operation',
+                    html: reason.text
+                });
+            }
+            // U.pw(canPrintError, reason.text);
+            return;
+        }
+        /*
+        obj.abstractCheckbox.checked = false; // do not accept the change until conversion
+        // actually do the thing transforming instances
+        if (convertableChoices_AddField.length + convertableChoices_RemoveField.length === 0) {
+          let options = {
+              'By adding features': { },
+              'By removing features': { },
+            };
+          for(let ii = 0; ii < convertableChoices_AddField.length; ii++) {
+            options['By adding features'][convertableChoices_AddField[ii].id] = convertableChoices_AddField[ii].name;
+          }
+          for(let ii = 0; ii < convertableChoices_RemoveField.length; ii++) {
+            options['By removing features'][convertableChoices_RemoveField[ii].id] = convertableChoices_RemoveField[ii].name;
+          }
+          Swal.fire({
+            title: 'What about his instances?',
+            html:
+              "There are " + classe.instances.length + " instances of this class wich need to be converted to some other class" +
+              " by adding or removing features." +
+              "<br>You can convert them or undo this operation." +
+              "<br><br>Convert them to:",
+            icon: 'warning',
+            input: 'select',
+            inputOptions: options,
+            inputPlaceholder: 'Convert them',
+            showCancelButton: true,
+            inputValidator: (value) => {
+              return new Promise((resolve) => {
+                if (value === '') {
+                  resolve()
+                } else {
+                  resolve('You need to select a class for conversion.')
+                }
+              })
+            }
+          }).then(function (data) {
+            const targetClass: M2Class = ModelPiece.getByID(+data.value) as M2Class;
+            classe.setAbstract(targetClass);
+            obj.abstractCheckbox.checked = true;
+            Swal.fire(
+              'Done',
+              classe.instances.length + " instances converted.",
+              'success'
+            )
+          });
+        }
+        */
+        if (value) {
+            this.setAbstractTrue();
+        }
+        else {
+            this.unsetAbstract();
+        }
+    }
+    setAbstractTrue() {
+        this.unsetInterface();
+        return this.isAbstract = true;
+    }
+    unsetAbstract() {
+        return this.isAbstract = false;
+    }
+    /*
+    public canConvertInstancesTo(classe: M2Class): boolean {
+      const instances: MClass[] = this.instances;
+      let i: number;
+      for (i = 0; i < instances.length; i++) {
+        const instance: MClass = instances[i];
+        if (instance.metaParent !== this) continue;
+        if (!instance.canConvertTo(classe)) return false;
+      }
+      return true;
+    }*/
+    convertInstancesTo(classe) {
+        let i;
+        let convertCount = 0;
+        const instances = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.instances);
+        for (i = 0; i < instances.length; i++) {
+            const instance = instances[i];
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(instance.metaParent !== this, "invalid state: mismatch on instances and metaParent:", instance, this);
+            instance.convertTo(classe);
+            convertCount++;
+        }
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(!!convertCount, convertCount + " subclasses converted to " + classe.name);
     }
 }
 

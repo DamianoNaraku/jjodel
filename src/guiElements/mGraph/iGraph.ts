@@ -27,7 +27,7 @@ import {
   ExtEdge,
   measurableRules,
   DamContextMenuComponent,
-  Model
+  Model, IClassifier
 } from '../../common/Joiner';
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
@@ -38,6 +38,7 @@ import BlurEvent = JQuery.BlurEvent;
 import ChangeEvent = JQuery.ChangeEvent;
 import {StartDragContext} from './Vertex/iVertex';
 import ContextMenuEvent = JQuery.ContextMenuEvent;
+import {Layouting} from './Layouting';
 
 
 export class ViewPointShell {
@@ -252,6 +253,9 @@ export class IGraph {
   gridDisplay: boolean = false && false;
   edgeContainer: SVGGElement;
   vertexContainer: SVGGElement;
+  gridColor1: string = '#808080';
+  gridColor2: string = '#808080';
+  public layouting: Layouting;
 
   // campi per robe di debug
   private allMarkgp: SVGCircleElement[] = [];
@@ -266,6 +270,7 @@ export class IGraph {
   private gridPos: Point;
   private gridHtml: SVGRectElement;
   private gridDefsHtml: SVGDefsElement;
+  useGrid: boolean = true;
 
   static getByID(id: string): IGraph { return IGraph.all[id]; }
   static getByHtml(html: Element): IGraph {
@@ -282,6 +287,7 @@ export class IGraph {
     this.id = IGraph.ID++;
     IGraph.all[this.id + ''] = this;
     this.model = model;
+    this.layouting = new Layouting(this);
     this.model.graph = this;
     this.container = container;
     this.container.dataset.graphID = '' + this.id;
@@ -334,6 +340,7 @@ export class IGraph {
     this.refreshGridGUI(); }
 
   fitToGrid(pt0: GraphPoint, clone: boolean = true, debug: boolean = false, fitHorizontal = true, fitVertical = true): GraphPoint {
+    if (!this.useGrid) return pt0;
     const pt: GraphPoint = clone ? pt0.duplicate() : pt0;
     U.pe(!this.grid, 'grid not initialized.');
     if (fitHorizontal && !isNaN(this.grid.x) && this.grid.x > 0) { pt.x = Math.round(pt.x / this.grid.x) * this.grid.x; }
@@ -342,6 +349,7 @@ export class IGraph {
     return pt; }
 
   fitToGridS(pt0: GraphSize, clone: boolean = true, debug: boolean = false, fitHorizontal = true, fitVertical = true): GraphSize {
+    if (!this.useGrid) return pt0;
     const pt: GraphSize = clone ? pt0.duplicate() : pt0;
     U.pe(!this.grid, 'grid not initialized.');
     if (fitHorizontal && !isNaN(this.grid.x) && this.grid.x > 0) { pt.x = Math.round(pt.x / this.grid.x) * this.grid.x; }
@@ -526,14 +534,15 @@ export class IGraph {
     const debug = true;
     ret.x -= graphSize.x;
     ret.y -= graphSize.y;
-    ret.x += this.scroll.x;
-    ret.y += this.scroll.y;
     ret.x /= this.zoom.x;
     ret.y /= this.zoom.y;
+    ret.x += this.scroll.x;
+    ret.y += this.scroll.y;
     // console.log('toGraph()  - graphSize:', graphSize, ' + scroll: ', this.scroll, ' / zoom', this.zoom);
     if (debug) {
       const ver: Point = this.toHtmlCoord(ret);
-      U.pe( ver.x !== p.x || ver.y !== p.y, 'error in toGraphCoord or toHtmlCoord: inputPt:', p, ', result: ', ret, 'verify:', ver,
+      let tolerance = 0.001;
+      U.pw( Math.abs(ver.x - p.x) > tolerance || Math.abs(ver.y - p.y) > tolerance, 'error in toGraphCoord or toHtmlCoord: inputPt:', p, ', result: ', ret, 'verify:', ver,
         'point:', p, 'scroll:', this.scroll, 'zoom:', this.zoom, 'GraphHtmlSize:', graphSize); }
     return ret; }
   toHtmlCoordS(s: GraphSize): Size {
@@ -545,14 +554,15 @@ export class IGraph {
     const graphSize: Size = this.getSize();
     const ret: Point = new Point(p.x, p.y);
     // console.log('toHtml()', ' * zoom', this.zoom, ' - scroll: ', this.scroll, ' + graphSize:', graphSize);
-    ret.x *= this.zoom.x;
-    ret.y *= this.zoom.y;
     ret.x -= this.scroll.x;
     ret.y -= this.scroll.y;
+    ret.x *= this.zoom.x;
+    ret.y *= this.zoom.y;
     ret.x += graphSize.x;
     ret.y += graphSize.y;
     return ret; }
 
+  getAllVertex(): IVertex[] { return [...this.model.getAllClasses(), ...this.model.getAllEnums()].map((c: IClassifier) => c.getVertex(false)); }
   getAllVertexIsBroke() { return this.vertex; }
 
   markClick(e: JQuery.ClickEvent, clean: boolean = true) { return this.mark(new Point(e.pageX, e.pageY), clean); }
@@ -609,6 +619,12 @@ export class IGraph {
     if (y !== null) this.grid.y = y;
     if (checked !== null) this.gridDisplay = checked;
     this.refreshGridGUI(); }
+
+  setUseGrid(b: boolean): void {
+    if (this.useGrid === b) return;
+    this.useGrid = b;
+    this.fitVertexToGrid(false);
+  }
 
   setScroll(x: number, y: number): void {
     const old = this.scroll.duplicate();
@@ -676,16 +692,17 @@ export class IGraph {
     let drawx = this.grid.x === null || !(isNaN(this.grid.x) || this.grid.x <= 0 || this.grid.x >= maxSquareSize);
     let drawy = this.grid.x === null || !(isNaN(this.grid.y) || this.grid.y <= 0 || this.grid.x >= maxSquareSize);
 
+
     this.gridDefsHtml.innerHTML =
       '<pattern id="smallGrid_' + this.id + '" width="' + x + '" height="' + y + '" patternUnits="userSpaceOnUse">\n' +
       (!drawx && !drawy ? '<!-- no grid -->' :
-      '  <path d="m 0 0' + (drawy ? ' l' : ' m' ) + (x) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y) + '" fill="none" stroke="gray" stroke-width="0.5"/>\n'
+      '  <path d="m 0 0' + (drawy ? ' l' : ' m' ) + (x) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y) + '" fill="none" stroke="' + this.gridColor1 + '" stroke-width="0.5"/>\n'
       ) +
       '</pattern>\n' +
       '<pattern id="grid_' + this.id + '" width="' + (x * 10) + '" height="' + (y * 10) + '" patternUnits="userSpaceOnUse">\n' +
       (!drawx && !drawy ? '<!-- no grid -->' :
       '  <rect width="' + (x * 10) + '" height="' + (y * 10) + '" fill="url(#smallGrid_' + this.id + ')"/>\n' +
-      '  <path d="m 0 0' + (drawy ? ' l' : ' m' ) + (x * 10) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y * 10) + '" fill="none" stroke="gray" stroke-width="1"/>\n') +
+      '  <path d="m 0 0' + (drawy ? ' l' : ' m' ) + (x * 10) + ' 0' + (drawx ? ' l' : ' m') + ' 0 ' + (y * 10) + '" fill="none" stroke="' + this.gridColor2 + '" stroke-width="1"/>\n') +
       '</pattern>';
     this.setGridPos();
     // $grid[0].setAttributeNS(null, 'justForRefreshingIt', 'true');
@@ -704,4 +721,20 @@ export class IGraph {
     this.grid = grid;
     this.model.refreshGUI_Alone(); // reallinea tutti i vertici.
   }*/
+  getVertexSelection(): IVertex[]{
+    return [];
+  }
+  getEdgeSelection(): IEdge[]{
+    return [];
+  }
+  getSelection(): (IVertex | IEdge)[] {
+    return [];
+  }
+
+  fitVertexToGrid(force: boolean = false): void{
+    const vertexes: IVertex[] = this.getAllVertex();
+    vertexes.forEach((v: IVertex, i:number) => {
+      v.setSize(this.fitToGridS(v.getSize()), false, true, measurableRules.onDragEnd);
+    });
+  }
 }

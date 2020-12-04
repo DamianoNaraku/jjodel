@@ -40,7 +40,7 @@ div[contenteditable="true"], div[contenteditable="false"] {
   color: black;
   border: 1px solid black;
   min-height: 100px;
-  max-height: 100px;
+  max-height: 200px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -265,6 +265,14 @@ select.stylename{
   flex-flow: row;
   flex-wrap: wrap;
   width: 100%;
+}
+.onlyVerticalContainer{
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+.onlyVerticalContainer > * {
+  margin: auto 0;
 }
 .HorizontalChild{
   display: inline-flex;

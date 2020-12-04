@@ -59,8 +59,12 @@ input[type="color"]::-webkit-color-swatch {
   /*border-radius: 100%;*/
   border: none;
 }
+select{
+  border-width: 1px;
+}
+
 input[type="number"]{
-  width: 0;
+  text-align: center;
 }
 input[type="number"][digit="1"]{
   min-width: 30px;
@@ -71,6 +75,7 @@ input[type="number"][digit="2"]{
 input[type="number"][digit="3"]{
   min-width: 40px;
 }
+input[type="number"],
 input[type="number"][digit="4"]{
   min-width: 50px;
 }
@@ -94,7 +99,7 @@ input[type="number"][digit="5"]{
 .resizableBorder.top { border-top: 5px solid rgb(46, 47, 52); }
 .resizableBorder.bottom { border-bottom: 5px solid rgb(46, 47, 52); }
 
-.template{ display: none !important; }
+.template, .whatisthis{ display: none !important; }
 /* real css */
 .resizableBorderContainer {
   background-color: var(--mainBackgroundColor);

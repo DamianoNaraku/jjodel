@@ -1,6 +1,6 @@
 <div id='topbarShell'>
   <div id='topbar'>
-    <div class="dropdownContainer user">
+    <div class="dropdownContainer root user">
       <button class="todo dropdownTitle">User</button>
       <ul class="dropdownContent">
         <li class="dropdownContent"><div class="todo dropdownpadding">Logout</div></li>
@@ -8,7 +8,7 @@
         <li class="dropdownContent"><div class="todo dropdownpadding">Account</div></li>
       </ul>
     </div>
-    <div class="dropdownContainer metametamodel">
+    <div class="dropdownContainer root metametamodel">
       <button class="dropdownTitle">Meta-Metamodel</button>
       <ul class="dropdownContent">
         <li class="dropdownContent"><div class="dropdownpadding TypeMapping">Type mapping</div></li>
@@ -16,7 +16,7 @@
         <li class="dropdownContent"><div class="todo dropdownpadding EdgeStyle">Edge Style</div></li>
       </ul>
     </div>
-    <div class="dropdownContainer metamodel">
+    <div class="dropdownContainer root metamodel">
       <button class="dropdownTitle">Metamodel</button>
       <ul class="dropdownContent">
         <li class="dropdownContent"><div class="dropdownpadding save">Save</div></li>
@@ -36,11 +36,34 @@
             <div class="dropdownTitle right">Export</div>
             <ul class="dropdownContent right">
               <li class="dropdownContent right">
-                <div class="dropdownpadding download_JSON_String">To eCore/JSON string</div></li>
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Model</div>
+                  <ul class="dropdownContent right model">
+                    <li class="dropdownContent right"><div class="dropdownpadding download_JSON_String">To eCore/JSON string</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding download_JSON">Download eCore/JSON file</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding download_XMI">Download eCore/XMI file</div></li>
+                  </ul>
+                </div>
+              </li>
               <li class="dropdownContent right">
-                <div class="dropdownpadding download_JSON">Download eCore/JSON file</div></li>
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Vertices layout</div>
+                  <ul class="dropdownContent right vertex">
+                    <li class="dropdownContent right"><div class="dropdownpadding downloadFile">Download file (.jv)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding downloadTxt">To text</div></li>
+                  </ul>
+                </div>
+              </li>
               <li class="dropdownContent right">
-                <div class="dropdownpadding download_XMI">Download eCore/XMI file</div></li>
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Viewpoints</div>
+                  <ul class="dropdownContent right viewpoints">
+                    <li class="dropdownContent right"><div class="dropdownpadding downloadFile">Download file (.jvp)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding downloadTxt">To text</div></li>
+                  </ul>
+                </div>
+              </li>
+
             </ul>
           </div>
         </li>
@@ -48,15 +71,55 @@
           <div class="dropdownContainer right">
             <div class="dropdownTitle right">Import</div>
             <ul class="dropdownContent right">
-              <li class="dropdownContent right"><div class="dropdownpadding loadEmpty">New empty metamodel</div></li>
-              <li class="dropdownContent right"><div class="dropdownpadding loadFile">From file (eCore/XMI)</div></li>
-              <li class="dropdownContent right"><div class="dropdownpadding loadTxt">From text (eCore/JSON)</div></li>
+              <li class="dropdownContent right">
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Model</div>
+                  <ul class="dropdownContent right model">
+                    <li class="dropdownContent right"><div class="dropdownpadding loadEmpty">New empty metamodel</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadFile">From file (eCore/XMI)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadTxt">From text (eCore/JSON)</div></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="dropdownContent right">
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Vertices layout</div>
+                  <ul class="dropdownContent right vertex">
+                    <li class="dropdownContent right"><div class="dropdownpadding loadEmpty">Reset vertex position</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadFile">From file (.jv)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadTxt">From text (.jv)</div></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="dropdownContent right">
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Viewpoints</div>
+                  <ul class="dropdownContent right viewpoints">
+                    <li class="dropdownContent right"><div class="dropdownpadding loadEmpty">Reset viewpoints</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadFile">From file (.jvp)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadTxt">From text</div></li>
+                  </ul>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </li>
+        <li class="dropdownContent">
+          <div class="dropdownContainer right">
+            <div class="dropdownTitle right">Model To Text</div>
+            <ul class="dropdownContent right m2t-m2-list">
+              <li class="dropdownContent right"><div class="dropdownpadding todo" (click)="createM2T_Rule('m2')">Create M2T rule</div></li>
+              <li class="dropdownContent right"><div class="dropdownpadding todo">Import M2T rule</div></li>
+              <li class="dropdownContent right separator"></li>
+              <li class="dropdownContent right"><div class="dropdownpadding" (click)="displayResult('byText', m2t_byText_m2())">By text</div></li>
+              <li class="dropdownContent right"><div class="dropdownpadding" (click)="displayResult('MySQL', m2t_mysql_m2())">MySQL</div></li>
             </ul>
           </div>
         </li>
       </ul>
     </div>
-    <div class="dropdownContainer model">
+    <div class="dropdownContainer root model">
       <button class="dropdownTitle">Model</button>
       <ul class="dropdownContent">
         <li class="dropdownContent"><div class="dropdownpadding save">Save</div></li>
@@ -76,11 +139,34 @@
             <div class="dropdownTitle right">Export</div>
             <ul class="dropdownContent right">
               <li class="dropdownContent right">
-                <div class="dropdownpadding download_JSON_String">To eCore/JSON string</div></li>
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Model</div>
+                  <ul class="dropdownContent right model">
+                    <li class="dropdownContent right"><div class="dropdownpadding download_JSON_String">To eCore/JSON string</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding download_JSON">Download eCore/JSON file</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding download_XMI">Download eCore/XMI file</div></li>
+                  </ul>
+                </div>
+              </li>
               <li class="dropdownContent right">
-                <div class="dropdownpadding download_JSON">Download eCore/JSON file</div></li>
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Vertices layout</div>
+                  <ul class="dropdownContent right vertex">
+                    <li class="dropdownContent right"><div class="dropdownpadding downloadFile">Download file (.jv)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding downloadTxt">To text</div></li>
+                  </ul>
+                </div>
+              </li>
               <li class="dropdownContent right">
-                <div class="dropdownpadding download_XMI">Download eCore/XMI file</div></li>
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Viewpoints</div>
+                  <ul class="dropdownContent right viewpoints">
+                    <li class="dropdownContent right"><div class="dropdownpadding downloadFile">Download file (.jvp)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding downloadTxt">To text</div></li>
+                  </ul>
+                </div>
+              </li>
+
             </ul>
           </div>
         </li>
@@ -88,15 +174,55 @@
           <div class="dropdownContainer right">
             <div class="dropdownTitle right">Import</div>
             <ul class="dropdownContent right">
-              <li class="dropdownContent right"><div class="dropdownpadding loadEmpty">New empty model</div></li>
-              <li class="dropdownContent right"><div class="dropdownpadding loadFile">From file (eCore/XMI)</div></li>
-              <li class="dropdownContent right"><div class="dropdownpadding loadTxt">From text (eCore/JSON)</div></li>
+              <li class="dropdownContent right">
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Model</div>
+                  <ul class="dropdownContent right model">
+                    <li class="dropdownContent right"><div class="dropdownpadding loadEmpty">New empty metamodel</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadFile">From file (XMI)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadTxt">From text (JSON)</div></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="dropdownContent right">
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Vertices layout</div>
+                  <ul class="dropdownContent right vertex">
+                    <li class="dropdownContent right"><div class="dropdownpadding loadEmpty">Reset vertex position</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadFile">From file (.jv)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadTxt">From text (.jv)</div></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="dropdownContent right">
+                <div class="dropdownContainer right">
+                  <div class="dropdownTitle right">Viewpoints</div>
+                  <ul class="dropdownContent right viewpoints">
+                    <li class="dropdownContent right"><div class="dropdownpadding loadEmpty">Reset viewpoints</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadFile">From file (.jvp)</div></li>
+                    <li class="dropdownContent right"><div class="dropdownpadding loadTxt">From text</div></li>
+                  </ul>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </li>
+
+        <li class="dropdownContent">
+          <div class="dropdownContainer right">
+            <div class="dropdownTitle right">Model To Text</div>
+            <ul class="dropdownContent right m2t-m2-list">
+              <li class="dropdownContent right"><div class="dropdownpadding todo" (click)="createM2T_Rule('m1')">Create M2T rule</div></li>
+              <li class="dropdownContent right"><div class="dropdownpadding todo">Import M2T rule</div></li>
+              <li class="dropdownContent right separator"></li>
+              <li class="dropdownContent right"><div class="dropdownpadding" (click)="displayResult('MySQL', m2t_mysql_m1())">MySQL</div></li>
             </ul>
           </div>
         </li>
       </ul>
     </div>
-    <div class="dropdownContainer themes">
+    <div class="dropdownContainer root themes">
       <button class="dropdownTitle">Themes</button>
       <ul class="dropdownContent">
         <li class="dropdownContent"><div class="dropdownpadding">
@@ -113,14 +239,28 @@
         </div></li>
       </ul>
     </div>
-    <div class="dropdownContainer Changelog">
+    <div class="dropdownContainer root Changelog">
       <button class="dropdownTitle changelogbutton">Changelog</button>
     </div>
   <div id="TypeMapper" class="screenWideShadow" data-closebuttontarget="1" style="display: none;">
     <div id="TypeMapperContent" class="popupContent">
-      <h1>M3 Type mapping</h1>
+      <h1>Type mapping</h1>
       <button class="closeButton" data-closebuttontarget="1">X</button>
       <br>
+      <div class="typemaprow columnContainer">
+        <select class="typemapselector btn-sm" (change)="topbar.changeTypeMap()" style="margin: auto; margin-left:0;">
+          <optgroup label="Predefined type mappings">
+            <option value="predefined.java">Java (default)</option>
+            <option value="predefined.c89">C 89</option>
+            <option value="predefined.MySQL">MySQL</option>
+          </optgroup>
+          <optgroup label="Customized type mappings">
+            <option *ngFor="let typemap of topbar?.typemapArr" value="{{typemap}}">{{typemap.substring(typemap.indexOf('.') + 1)}}</option>
+          </optgroup>
+        </select>
+        <button style="margin:auto; margin-right: 0;" class="btn btn-primary addcustomtypmap"
+                (click)="topbar.createTypeMap($event)">Add custom mapping</button>
+      </div>
       <div class="TypeList"></div>
     </div>
   </div>

@@ -68,7 +68,7 @@ export class UnsafeMeasurableEvalContext {
   modelRoot: /*Model*/IModel;
 }
 export class MeasurableEvalContext {
-  unsafec: UnsafeMeasurableEvalContext
+  unsafec: UnsafeMeasurableEvalContext;
   graphSize: ISize;
   documentSize: ISize;
   graphScroll: IPoint;
@@ -689,9 +689,13 @@ export class MeasurableRuleParts {
         ///// left validation
         this.left = this.left.trim();
         if (!MeasurableTemplateGenerator.constraintMap[this.left]) {
+          console.trace('icr ');
+          console.error('irc: invalid constraint rule, found:', this.left, 'not in: ', MeasurableTemplateGenerator.constraintMap);//
           out.left += 'invalid.';
           out.right += 'not processed.';
           return out; }
+        console.trace('icr ');
+        console.info('irc: valid constraint rule, found:', this.left, ' in: ', MeasurableTemplateGenerator.constraintMap);
         //console.log('preconstraint1');
 //        const preLeft: number = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]
         //U.pe(!rollbackContext.target, '!starget1', evalOutput.outContext.target);
@@ -713,7 +717,7 @@ export class MeasurableRuleParts {
         let rc0 = rollbackContext;
         let oc = isTargeting ? evalOutput.outContext.target : evalOutput.outContext;
         let rc = isTargeting ? rollbackContext.target : rollbackContext;
-        U.pe(!isTargeting, 'left side is not targeting');
+        // U.pe(!isTargeting, 'left side is not targeting');
         if (isTargeting && (!oc || !rc))  { out.left = 'this kind of rule cannot be executed without a target.'; return out; }
         switch (left) {
           default:

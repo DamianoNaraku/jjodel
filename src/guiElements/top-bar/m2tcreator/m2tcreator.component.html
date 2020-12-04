@@ -1,0 +1,46 @@
+DROPPED: dovrei trovare una implementazione dello standard MTL in js (model to text standard)
+dovrei salvare la regola usando m2t, con l'aggiunta di variabili pre-esistenti definite qui.
+al momento della chiamata della trasformazione m2t prima dell'esecuzione si apre un popup su come assegnare eventuali parametri.
+es per mysql: [checkbox] Ignore duplicates, [checkbox]remove old value... [textarea (array of json strings)] GenerateRedundantKeysFor... (classlist)
+se chiamo mysql in m2 mi genero bd, tabella e vincoli, se chiamo in s1 genero "insert into"...
+
+
+
+
+
+
+
+
+
+
+<p>m2tcreator works!</p>
+<h3>M2T creation</h3>
+<span>M2T Options as json</span>
+<textarea class="m2t-options"></textarea>
+
+
+
+
+
+
+<label>M2T help text<textarea [(ngModel)]="helptext"></textarea></label>
+
+<label>name <input></label>
+<label>min values count<input type="number" min="0" value="1"></label>
+<label>max values count<input type="number" min="1" value="1"></label>
+<h3>Paramater list</h3>
+<label>Parameter type
+  <select>
+  <option>enum</option>
+  <option>string</option>
+  <option>number</option>
+  <option>boolean</option>
+</select></label>
+<div uif="type-enum">
+  <label>Enumeration allowed values (as json array)<textarea>["example1", "example2"]</textarea></label>
+  <label>Default value<input type="text">example1</label>
+</div>
+
+<label uif="type-number">numeric min value<input step="any" value="0"></label>
+<label uif="type-number">numeric max value<input step="any" value="100"></label>
+<label uif="type-number">user help text<input step="any" value="100"></label>

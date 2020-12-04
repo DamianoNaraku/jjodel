@@ -1,25 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
-  AttribETypes,
+  ChangelogRoot,
+  EType,
   IModel,
+  InputPopup,
   Json,
+  LocalStorage,
+  M2Attribute,
+  M2Class,
+  M2Reference,
   MClass,
   MetaModel,
   Model,
-  Status,
-  U, // Options,
-  ShortAttribETypes,
-  InputPopup,
-  myFileReader,
-  prxml2json,
-  EType,
-  LocalStorage,
   prjson2xml,
-  ChangelogRoot,
-  WebsiteTheme,
-  ReservedClasses,
-  ReservedStorageKey
+  prxml2json,
+  ShortAttribETypes,
+  Status,
+  U,
+  WebsiteTheme
 } from '../../common/Joiner';
+import {M2tcreatorComponent} from './m2tcreator/m2tcreator.component';
 import ChangeEvent = JQuery.ChangeEvent;
 import ClickEvent = JQuery.ClickEvent;
 
@@ -31,11 +31,97 @@ import ClickEvent = JQuery.ClickEvent;
 })
 export class TopBarComponent implements OnInit {
 
+  topbar: TopBar;
+  status: Status;
+  Object: Object = Object;
   constructor() { }
 
   ngOnInit() {
+    setTimeout(
+      () => {
+        this.status = Status.status;
+        this.topbar = TopBar.topbar;
+      }, 0);
   }
 
+  createM2T_Rule(forModel: 'm1' | 'm2'): void {
+    M2tcreatorComponent.willUseThis();
+  }
+
+  displayResult(m2tname: string, m2tresult: string): void {
+    const input = new InputPopup();
+    input.setText("M2T \"" + m2tname + "\" result", '', '');
+    const innerInput: HTMLTextAreaElement = document.createElement('textarea');
+    innerInput.value = m2tresult;
+    innerInput.style.width = '100%';
+    innerInput.style.minHeight = '75vh';
+    input.setNestedInputNode(null, innerInput, false);
+    input.show();
+  }
+
+  m2t_mysql_m2(): string {
+    const classes: M2Class[] = Status.status.mm.getAllClasses();
+    let tables: string[] = [];
+    let foreignKeys: string[] = [];
+    const getType = (attr: M2Attribute) => {
+      switch (attr.type.primitiveType.short){
+        // default: console.error('m2t mysql unsupported attr type:', attr.type.primitiveType.short, attr);
+        case ShortAttribETypes.EBoolean:
+        case ShortAttribETypes.EByte: return 'TINYINT(1)';
+        case ShortAttribETypes.EChar: return 'CHAR(1)';
+        case ShortAttribETypes.EDate:
+        default:
+        case ShortAttribETypes.EString: return 'VARCHAR' + (attr.getUpperbound() >= 0 ? '(' + attr.getUpperbound() + ')' : '');
+        case ShortAttribETypes.EShort:
+        case ShortAttribETypes.EInt:
+        case ShortAttribETypes.ELong:
+        case ShortAttribETypes.EFloat: return 'INT';
+      }
+    }
+    for (const classe of classes) {
+      let tableStr: string = 'CREATE TABLE ' + classe.name + ' {\n';
+      let foreignkey: string = '';
+      // let pkFeatures: M2Feature[] = [];
+      const attributes: M2Attribute[] = [...classe.getAllAttributes()];
+      const references: M2Reference[] = [...classe.getAllReferences()];
+      const indent: string = '    ';
+      let hasIDField: boolean = false;
+      for (const attr of attributes) {
+        if (attr.name.toLowerCase() === 'id' && attr.type.primitiveType.short === ShortAttribETypes.EInt) {
+          hasIDField = true;
+        }
+        // if (attr.name.toLowerCase() === 'id') { pkFeatures = [attr]; }
+        // if (pkAttributes.length !== 1 && pkFeatures[0].name.toLowerCase() !== 'id') { pkFeatures.push(attr); }
+        tableStr += indent + attr.name + ' ' + getType(attr) + ',\n';
+      }
+      for (const ref of references) {
+        if (ref.name.toLowerCase() === 'id') { hasIDField = true; }
+        // if (ref.name.toLowerCase() === 'id') { pkFeatures = [ref]; }
+        // if (pkAttributes.length !== 1 && pkFeatures[0].name.toLowerCase() !== 'id') { pkFeatures.push(ref); }
+        tableStr += indent + ref.name + ' INT,\n';
+        foreignKeys.push('ALTER TABLE ' + classe.name + '\n' +
+          indent + 'ADD FOREIGN KEY (' + ref.name + ') REFERENCES ' + ref.getTarget().name + '(id);');
+      }
+      if (!hasIDField) {
+        return "ERROR on class: " + classe.name +
+          ".\nFor this beta version of mysql m2t all tables must have an \"id\" integer field."
+      }
+      // todo: PrimaryKey dovrebbe essere una annotation presente su [1,N] features.
+      tableStr += indent + 'PRIMARY KEY (id)\n}';
+      tables.push(tableStr);
+    }
+    return tables.join('\n\n') + '\n\n## Constraints\n\n' +  foreignKeys.join('\n\n');
+  }
+  m2t_mysql_m1(): string {
+    return 'm2t mysql m1 to do';
+  }
+
+  m2t_byText_m2(): string{
+    return U.copyVisibleText(Status.status.mm.graph.container);
+  }
+  m2t_byText_m1(): string{
+    return U.copyVisibleText(Status.status.m.graph.container);
+  }
 }
 
 export class TopBar {
@@ -45,6 +131,14 @@ export class TopBar {
   html: HTMLElement = null;
   topbar: HTMLElement = null;
   static $checkboxesTheme: JQuery<HTMLInputElement>;
+  private $typemapSelect: JQuery<HTMLSelectElement>;
+  private typemapSelect: HTMLSelectElement;
+  typemapArr: string[] = [];
+
+  static staticInit(): void {
+    TopBar.topbar = new TopBar();
+  }
+
   constructor() {
     U.pe(!!TopBar.topbar, 'top bar instantiated twice, but it is a singleton.');
     TopBar.topbar = this;
@@ -52,9 +146,87 @@ export class TopBar {
     this.html = this.$shell[0];
     this.$topbar = this.$shell.find('#topbar');
     this.topbar = this.$topbar[0];
+    this.$typemapSelect = this.$topbar.find('.typemapselector') as JQuery<HTMLSelectElement>;
+    this.typemapSelect = this.$typemapSelect[0];
+    this.typemapSelect.value = Status.status.currentTypeAlias;
+    this.updateTypeMapList();
     TopBar.topbar.updateRecents();
     this.addEventListeners(); }
 
+  updateTypeMapList(): void {
+    TopBar.topbar.typemapArr = Object.keys(Status.status.typeAliasDictionary).filter((s: string) => s.indexOf('predefined.') === -1);
+  }
+
+  changeTypeMap(newTypeMap: string = null): void {
+    const oldTypemap: string = Status.status.currentTypeAlias;
+    if (!newTypeMap) { newTypeMap = this.typemapSelect.value; }
+    else { this.typemapSelect.value = newTypeMap; }
+    console.log('changetm:', oldTypemap, 'new:', newTypeMap);
+    if (oldTypemap === newTypeMap) return;
+    U.pe(!Status.status.typeAliasDictionary[newTypeMap], 'Invalid typemap name:', newTypeMap,
+      'allowed:', Status.status.typeAliasDictionary);
+    Status.status.currentTypeAlias = newTypeMap;
+    this.showTypeMap();
+    Status.status.mm.refreshGUI();
+    Status.status.m.refreshGUI();
+  }
+
+  createTypeMap(event: Event){
+    let newkey: string;
+    const userkey: string = Status.status.user.getID();
+    if (Status.status.typeAliasDictionary[userkey + '.custom']) {
+      newkey = U.increaseEndingNumber( userkey+'.custom 1', false, false,
+          s => !!Status.status.typeAliasDictionary[s]);
+    } else { newkey = userkey + '.custom'; }
+    Status.status.typeAliasDictionary[newkey] = new Map<ShortAttribETypes, string>();
+    this.updateTypeMapList();
+    setTimeout(() => {
+      console.log('tmkey:', newkey, 'select.val:', this.typemapSelect.value, 'mapselect', this.typemapSelect);
+      this.changeTypeMap(newkey);
+    }, 0);
+  }
+
+  showTypeMap(): void {
+    const $shell = this.$shell.find('#TypeMapper');
+    const $html = $shell.find('.TypeList');
+    const html = $html[0];
+    U.clear(html);
+    const table: HTMLTableElement = U.toHtml<HTMLTableElement>('<table class="typeTable"><tbody></tbody></table>');
+    const tbody = table.firstChild as HTMLElement;
+    for (const m3TypeName in ShortAttribETypes) {
+      if ( !ShortAttribETypes[m3TypeName] ) { continue; }
+      const type: EType = EType.get(ShortAttribETypes[m3TypeName] as ShortAttribETypes);
+      const row: HTMLTableRowElement = U.toHtmlRow('' +
+        '<tr class="typeRow">' +
+        '<td class="typeName" data-m3name="' + type.short + '">' + type.short + '</td>' +
+        '<td class="alias">is aliased to</td>' +
+        '<td>' +
+        '<input class="AliasName form-control" placeholder="Not aliased" value="' + type.getName() + '"' +
+        ' aria-label="Small" aria-describedby="inputGroup-sizing-sm">' +
+        '</td>' +
+        '</tr>');
+      tbody.appendChild(row);
+      console.log('row:', row, ', tbody:', tbody);
+    }
+    html.appendChild(table);
+    $html.find('input.AliasName').off('change').on('change', (e: ChangeEvent) => { TopBar.topbar.aliasChange(e); } );
+    $shell.show();
+    U.closeButtonSetup($shell); }
+
+  aliasChange(e: ChangeEvent): void {
+    const input: HTMLInputElement = e.target as HTMLInputElement;
+    let row: HTMLElement = input;
+    while (!row.classList.contains('typeRow')) { row = row.parentNode as HTMLElement; }
+    const typestr: string = $(row).find('.typeName')[0].dataset.m3name;
+    const typemap = Status.status.typeAliasDictionary[Status.status.currentTypeAlias];
+    const newAlias = input.value.trim();
+    if (typemap[typestr] === newAlias) return;
+    typemap[typestr] = newAlias;
+    Status.status.mm.refreshGUI();
+    Status.status.m.refreshGUI();
+    // const type: EType = EType.get(typestr as ShortAttribETypes);
+    // type.changeAlias(input.value);
+  }
 
   static load_empty(e: JQuery.ClickEvent, prefix: string) {
     const empty: string = prefix === 'm' ? Model.emptyModel : MetaModel.emptyModel;
@@ -95,14 +267,15 @@ export class TopBar {
     LocalStorage.setLastOpened(num, json, null, null);
     U.refreshPage(); }
 
-  static load_JSON_Text(e: JQuery.ClickEvent, prefix: string) {
+  static load_JSON_Text(e: JQuery.ClickEvent, prefix: string, callback:(val: string) => void = null): void {
     const popup: InputPopup = new InputPopup();
     popup.setText('paste JSON/string data', '', '');
     popup.setInputNode('textarea');
     popup.setInput('', 'paste data here.');
     const finish = (e: ClickEvent, value: string) => {
       popup.destroy();
-      TopBar.load(value, prefix); };
+      if (callback) callback(value);
+      else TopBar.load(value, prefix); };
     // $(popup).find('.closeButton');
     popup.addOkButton('Load', [finish]);
     popup.show(); }
@@ -258,8 +431,8 @@ export class TopBar {
 
   addEventListeners() {
     const $t = this.$topbar;
-    const $m2 = $t.find('.metamodel');
-    const $m1 = $t.find('.model');
+    const $m2 = $t.find('.root.metamodel');
+    const $m1 = $t.find('.root.model');
     TopBar.$checkboxesTheme = $t.find('input.themename') as JQuery<HTMLInputElement>;
     $t.find('.TypeMapping').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.topbar.showTypeMap(); });
     $t.find('.changelogbutton').off('click.btn').on('click.btn', (e: ClickEvent) => { ChangelogRoot.show(); });
@@ -271,53 +444,41 @@ export class TopBar {
     $m1.find('.save').off('click.btn').on('click.btn', (e: ClickEvent) => { Status.status.m.save(false, true); } );
 
     // download
-    $m2.find('.download_JSON_String').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_JSON_String(e, 'mm'); } );
-    $m2.find('.download_JSON').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_JSON_File(e, 'mm'); } );
-    $m2.find('.download_XMI').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_XMI_File(e, 'mm'); } );
-    $m1.find('.download_JSON_String').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_JSON_String(e, 'm'); } );
-    $m1.find('.download_JSON').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_JSON_File(e, 'm'); } );
-    $m1.find('.download_XMI').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_XMI_File(e, 'm'); } );
+    $m2.find('.model .download_JSON_String').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_JSON_String(e, 'mm'); } );
+    $m2.find('.model .download_JSON').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_JSON_File(e, 'mm'); } );
+    $m2.find('.model .download_XMI').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_XMI_File(e, 'mm'); } );
+    $m1.find('.model .download_JSON_String').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_JSON_String(e, 'm'); } );
+    $m1.find('.model .download_JSON').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_JSON_File(e, 'm'); } );
+    $m1.find('.model .download_XMI').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.download_XMI_File(e, 'm'); } );
     //// load
-    $m2.find('.loadEmpty').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_empty(e, 'mm'); } );
-    $m2.find('.loadFile').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_XMI_File(e, 'mm'); } );
-    $m2.find('.loadTxt').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_JSON_Text(e, 'mm'); } );
-    $m1.find('.loadEmpty').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_empty(e, 'm'); } );
-    $m1.find('.loadFile').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_XMI_File(e, 'm'); } );
-    $m1.find('.loadTxt').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_JSON_Text(e, 'm'); } ); }
+    $m2.find('.model .loadEmpty').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_empty(e, 'mm'); } );
+    $m2.find('.model .loadFile').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_XMI_File(e, 'mm'); } );
+    $m2.find('.model .loadTxt').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_JSON_Text(e, 'mm'); } );
+    $m1.find('.model .loadEmpty').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_empty(e, 'm'); } );
+    $m1.find('.model .loadFile').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_XMI_File(e, 'm'); } );
+    $m1.find('.model .loadTxt').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_JSON_Text(e, 'm'); } );
 
-  showTypeMap(): void {
-    const $shell = this.$shell.find('#TypeMapper');
-    const $html = $shell.find('.TypeList');
-    const html = $html[0];
-    U.clear(html);
-    const table: HTMLTableElement = U.toHtml<HTMLTableElement>('<table class="typeTable"><tbody></tbody></table>');
-    const tbody = table.firstChild as HTMLElement;
-    for (const m3TypeName in ShortAttribETypes) {
-      if ( !ShortAttribETypes[m3TypeName] ) { continue; }
-      const type: EType = EType.get(ShortAttribETypes[m3TypeName] as ShortAttribETypes);
-      const row: HTMLTableRowElement = U.toHtmlRow('' +
-        '<tr class="typeRow">' +
-          '<td class="typeName" data-m3name="' + type.short + '">' + type.short + '</td>' +
-          '<td class="alias">is aliased to</td>' +
-          '<td>' +
-             '<input class="AliasName form-control" placeholder="Not aliased" value="' + type.name + '"' +
-                ' aria-label="Small" aria-describedby="inputGroup-sizing-sm">' +
-          '</td>' +
-        '</tr>');
-      tbody.appendChild(row);
-      console.log('row:', row, ', tbody:', tbody);
+
+    window['t'] = {
+      $: this.$topbar,
+      $t: $t,
+      $m1: $m1,
+      $m2: $m2,
     }
-    html.appendChild(table);
-    $html.find('input.AliasName').off('change').on('change', (e: ChangeEvent) => { TopBar.topbar.aliasChange(e); } );
-    $shell.show();
-    U.closeButtonSetup($shell); }
+    $m1.find('.vertex .loadTxt').off('click.btn').on('click.btn', (e: ClickEvent) => {  } );
+    $m1.find('.viewpoints .loadTxt').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_JSON_Text(e, 'm', (val: string) => { TopBar.loadVP(val, 'm'); }); } );
+    $m2.find('.viewpoints .loadTxt').off('click.btn').on('click.btn', (e: ClickEvent) => { TopBar.load_JSON_Text(e, 'm', (val: string) => { TopBar.loadVP(val, 'mm'); }); } );
 
-  aliasChange(e: ChangeEvent): void {
-    const input: HTMLInputElement = e.target as HTMLInputElement;
-    let row: HTMLElement = input;
-    while (!row.classList.contains('typeRow')) { row = row.parentNode as HTMLElement; }
-    const m3Type = $(row).find('.typeName')[0].dataset.m3name;
-    const type: EType = EType.get(m3Type as ShortAttribETypes);
-    type.changeAlias(input.value); }
+
+  }
+
+
+  private static loadVP(val: string, prefix: 'm' | 'mm'): void{
+    window['discardSave'](); // stop autosave;
+    const model: IModel = prefix === 'm' ? Status.status.m : Status.status.mm;
+    Status.status.m.save(false);
+    LocalStorage.setLastOpened( prefix === 'm' ? 1 : 2, null, val, null);
+    U.refreshPage();
+  }
 
 }

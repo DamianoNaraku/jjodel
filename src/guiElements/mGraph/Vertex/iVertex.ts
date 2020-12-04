@@ -107,6 +107,7 @@ export class IVertex {
   dragConfig: DraggableOptions;
   private htmlForeign: SVGForeignObjectElement;
   private Vmarks: Dictionary<string, SVGRectElement> = {};
+  autoLayout: boolean = true;
 
   static staticinit(): GraphPoint {
     const g: GraphPoint = new GraphPoint(0, 0);
@@ -291,7 +292,8 @@ export class IVertex {
     pt.y += endPointGSize.h / 2;
     if (! prevPt ) { return pt; }
     pt = GraphSize.closestIntersection(vertexGSize, prevPt, pt, this.owner.grid);
-    U.pe(!U.isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
+    // U.pe(!U.isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
+    U.pw(!U.isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
     return pt; }
 
   setSize(size: GraphSize, refreshVertex: boolean = false, refreshEdge: boolean = true, trigger: string = null && measurableRules.onRotationEnd): void {
@@ -322,7 +324,14 @@ export class IVertex {
     if (refreshVertex) { this.refreshGUI(); }
     if (refreshEdge) { this.refreshEdgesGUI(); }
     if (trigger) {
+      // todo: problema: un solo measurable node può eseguire gli eventi "on...." (il foreignObject)
       let measnode = this.getMeasurableNode();
+      // todo: problema 2: i trigger possono eseguire solo comandi dello stesso nodo che contiene il trigger.
+      // todo problema 3: se imposto on onmove -> move linked object(follow me) && onmove->constraint e sposto in modo da violare il constraint:
+      //  siccome il constraint viene eseguito dopo, il linked object segue il mouse ma non l'oggetto che rimane fisso per il constraint.
+      //  non è un bug, va benissimo e deve funzionare così, però devo anche prevedere un assegnamento di ordine dei comandi
+      //  - fix lessicografico con prefix number: poco user friendly e costringe i nomi
+      //  - fix con pulsanti "sposta regola" su o giù e segui ordine di html (ordine attributi sul nodo in grafo == ordine esecuzione == ordine visualizzazione style editor)
       if (measnode.classList.contains('measurable')) this.measuringEventTrigger(null, null, trigger, measnode); }
   }
 
@@ -801,19 +810,26 @@ export class IVertex {
     const edge: IEdge = IEdge.edgeChanging;
     if (!edge) { return; }
     U.pif(debug, 'setreferenceClick success!');
-    const vertexLogic: IClassifier = this.logic();
-    if (!(vertexLogic instanceof IClass)) return;
-    if (!edge.canBeLinkedTo(vertexLogic)) {
-      U.pif(debug, 'edge ', edge.logic, 'cannot be linked to ', vertexLogic, 'hoveringvertex:', this);
+    const newTargetVertex: IVertex = this;
+    const oldTargetVertex: IVertex = edge.end;
+    const newTargetLogic: IClassifier = newTargetVertex.logic();
+    const oldTargetLogic: IClassifier = oldTargetVertex && oldTargetVertex.logic();
+
+    if (!(newTargetLogic instanceof IClass)) return;
+    if (!edge.canBeLinkedTo(newTargetLogic)) {
+      U.pif(debug, 'edge ', edge.logic, 'cannot be linked to ', newTargetLogic, 'hoveringvertex:', newTargetVertex);
       return; }
-    if (edge.logic instanceof MReference) edge.logic.linkClass(vertexLogic as MClass, edge.getIndex(), true);
-    if (edge.logic instanceof M2Reference) edge.logic.setType((vertexLogic as M2Class).getEcoreTypeName());
+    if (edge.logic instanceof MReference) edge.logic.linkClass(newTargetLogic as MClass, edge.getIndex(), true);
+    if (edge.logic instanceof M2Reference) edge.logic.setType((newTargetLogic as M2Class).getEcoreTypeName());
     if (edge instanceof ExtEdge) {
-      if (edge.end) edge.logic.unsetExtends(edge.end.logic() as M2Class, false); // unset old extend without removing this vertex
+      if (edge.end && oldTargetLogic) edge.logic.unsetExtends(oldTargetLogic as M2Class, false); // unset old extend without removing this vertex
       edge.logic.setExtends(this.logic() as M2Class); // extend the newly clicked vertex (this)
     } else {
       U.pe(edge.logic instanceof MClass, 'cst: class edges are currently not supported');
     }
+    if (oldTargetVertex) U.arrayRemoveAll(oldTargetVertex.edgesEnd, edge);
+    U.ArrayAdd(newTargetVertex.edgesEnd, edge);
+
     this.mark(false, 'refhover');
     // altrimenti parte l'onClick su AddFieldButton quando fissi la reference.
     // setTimeout( () => { IEdge.edgeChanging = null; }, 1);
@@ -950,10 +966,18 @@ export class IVertex {
     for (i = 0; i < refEnd.length; i++) { if (refEnd[i]) { refEnd[i].refreshGui(); } }
     for (i = 0; i < refStart.length; i++) { if (refStart[i]) { refStart[i].refreshGui(); } } }
 
-  moveTo(graphPoint: GraphPoint, gridIgnore: boolean = false): void {
+  moveTo(graphPoint: GraphPoint, gridIgnore: boolean = false, center: boolean = false, fromAutoLayouting: boolean = false): void {
     // console.log('moveTo(', graphPoint, '), gridIgnore:', gridIgnore, ', grid:');
     // const oldsize: GraphSize = this.size; // U.getSvgSize(this.logic().html as SVGForeignObjectElement);
+    if (center) {
+      const size: GraphSize = this.getSize();
+      graphPoint.x -= size.w / 2;
+      graphPoint.y += size.h / 2;
+    }
     if (!gridIgnore) { graphPoint = this.owner.fitToGrid(graphPoint); }
+    if (!fromAutoLayouting) {
+      this.owner.layouting.onVertexMove(this);
+    }
     this.setSize(new GraphSize(graphPoint.x, graphPoint.y, null, null), false, true, measurableRules.whileDragging);
   }
 
@@ -1030,4 +1054,9 @@ export class IVertex {
     return (markRect.getAttributeNS(null, 'stroke') === colorFilter);
   }
 
+  setAutolayout(checked: boolean): void{
+    this.autoLayout = checked;
+    if (this.autoLayout) { this.owner.layouting.addToLayout([this], true); }
+    else { this.owner.layouting.removeFromLayout([this], true); }
+  }
 }

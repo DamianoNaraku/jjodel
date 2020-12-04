@@ -913,9 +913,9 @@ export class ProtectedModelPiece {/* implements MReference {
   private sidebarHtml: any;
 
   /////////// real fields*/
-  unsafemp: ModelPiece;
-  pendingChanges: PendingMeasurableChanges;
-  subChanges: ProtectedModelPiece[] = [];
+  unsafemp: ModelPiece/*ModelPiece*/;
+  pendingChanges: PendingMeasurableChanges/*private object*/;
+  subChanges: ProtectedModelPiece[] = []/*private object*/;
   constructor(original: ModelPiece, createdBy: ProtectedModelPiece){
     if (createdBy) createdBy.subChanges.push(this);
     this.unsafemp = original;
@@ -937,21 +937,21 @@ export class ProtectedModelPiece {/* implements MReference {
     }
   }
 
-  applyChanges(): void { // got deleted in evalContext, it is only in backupContext. evalContext calls it through backupContext.call(this = evalContext);
+  applyChanges(): void /*private*/{ // got deleted in evalContext, it is only in backupContext. evalContext calls it through backupContext.call(this = evalContext);
     PendingFunctionCall.executeProtectedMPBuffer();
 //todo: send all messages to Client.receiveMessage(jsonCommandFormat);
   }
 
   //////// safe functions()
 
-  getID(): number{/*number*/ return this.unsafemp.getID(); }
-  getSelector(): string {/*string*/ return this.unsafemp.getSelector(); }
+  getID(): number /*number*/ {/*number*/ return this.unsafemp.getID(); }
+  getSelector(): string /*string*/ {/*string*/ return this.unsafemp.getSelector(); }
 
-  getChildrenSelector(index: number/*number*/): string {/*string*/ return this.unsafemp.getChildrenSelector(index); }
-  getChildrenAttributeSelector(index: number/*number*/): string {/*string*/
+  getChildrenSelector(index: number/*number*/): string /*string*/ {/*string*/ return this.unsafemp.getChildrenSelector(index); }
+  getChildrenAttributeSelector(index: number/*number*/): string /*string*/ {/*string*/
     if (!(this.unsafemp instanceof IClass)) throw new Error("called IClass.getChildrenAttributeSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return this.unsafemp.getChildrenAttributeSelector(index); }
-  getTarget(index: number = 0/*number = 0*/): ProtectedModelPiece {/*ModelPiece*/
+  getTarget(index: number = 0/*number = 0*/): ProtectedModelPiece /*ModelPiece (protected shell)*/ {/*ModelPiece*/
     if (!(this.unsafemp instanceof IReference)) throw new Error("called IReference.getTarget() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return new ProtectedModelPiece(this.unsafemp.getTarget(index), this); }
   getTargetSelector(index: number = 0/*number = 0*/): string {/*string*/
@@ -964,10 +964,10 @@ export class ProtectedModelPiece {/* implements MReference {
   getChildrenOperationSelector(index: number/*number*/): string {/*string*/
     if (!(this.unsafemp instanceof IClass)) throw new Error("called IClass.getChildrenOperationSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return this.unsafemp.getChildrenOperationSelector(index); }
-  getChildrenLiteralSelector(index: number/*number*/): string {/*string*/
+  getChildrenLiteralSelector(index: number/*number*/): string /*string*/ {/*string*/
     if (!(this.unsafemp instanceof EEnum)) throw new Error("called EEnum.getChildrenLiteralSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return this.unsafemp.getChildrenLiteralSelector(index); }
-  getChildrenParameterSelector(index: number/*number*/): string {/*string*/
+  getChildrenParameterSelector(index: number/*number*/): string /*string*/ {/*string*/
     if (!(this.unsafemp instanceof EOperation)) throw new Error("called EOperation.getChildrenParameterSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return this.unsafemp.getChildrenParameterSelector(index); }
   getChildrenClassSelector(index: number/*number*/): string {/*string*/

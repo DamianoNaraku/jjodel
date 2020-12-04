@@ -72,10 +72,17 @@
   max-height: 90vh;
   overflow: auto;
 }
+::ng-deep .typeTable {
+  margin: auto;
+}
 ::ng-deep .typeRow {
   height: 20px;
-  width: 600px;
   margin-bottom: 5px;
+}
+
+.typemaprow{
+  width: 450px;
+  margin-bottom: 15px;
 }
 ::ng-deep .typeRow>*{
   margin-top: auto;

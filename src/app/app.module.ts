@@ -66,7 +66,7 @@ import {
   WebsiteTheme,
   ChangelogRoot,
   TSON,
-  TSON_JSTypes, TSON_UnsupportedTypes, PropertyBarr, MeasurableEvalContext, InputPopup,
+  TSON_JSTypes, TSON_UnsupportedTypes, PropertyBarr, MeasurableEvalContext, InputPopup, ECoreEnum, MeasurableOperators,
 } from '../common/Joiner';
 import { PropertyBarrComponent }   from '../guiElements/property-barr/property-barr.component';
 import { MGraphHtmlComponent }     from '../guiElements/m-graph-html/m-graph-html.component';
@@ -77,6 +77,11 @@ import {MeasurabletemplateComponent} from './measurabletemplate/measurabletempla
 import KeyDownEvent = JQuery.KeyDownEvent;
 import {AutocompleteMatch} from '../common/util';
 import MouseDownEvent = JQuery.MouseDownEvent;
+import {Network} from 'vis-network';
+import {Layouting} from '../guiElements/mGraph/Layouting';
+import {M2tcreatorComponent} from '../guiElements/top-bar/m2tcreator/m2tcreator.component';
+import {FormsModule} from '@angular/forms';
+import {User} from './User';
 
 // @ts-ignore
 @NgModule({
@@ -96,11 +101,13 @@ import MouseDownEvent = JQuery.MouseDownEvent;
     TopBarComponent,
     ConsoleComponent,
     MeasurabletemplateComponent,
+    M2tcreatorComponent,
     /*BrowserAnimationsModule*/
   ],
-  imports: [
+  imports:[
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [
@@ -110,39 +117,45 @@ import MouseDownEvent = JQuery.MouseDownEvent;
     TopBarComponent,
     ConsoleComponent,
     GraphTabHtmlComponent,
-    MeasurabletemplateComponent], // todo: devi aggiungere qua ogni componente html (vengono caricati prima dei ts?)
+    MeasurabletemplateComponent],
   // aggiunto da me
   schemas: [
     NO_ERRORS_SCHEMA
   ]
 })
 export class AppModule { }
+
+
+
+
 export class Status {
   static status: Status = null;
   static userid: string;
   mmm: MetaMetaModel;
   mm: MetaModel = null;
   m: Model = null;
-  typeAliasDictionary: Dictionary<ShortAttribETypes, string> = {};
-  aliasTypeDictionary: Dictionary<string, ShortAttribETypes> = {};
+  typeAliasDictionary: Dictionary<string, Dictionary<ShortAttribETypes, string>> = {};
+  currentTypeAlias: string;
+  // aliasTypeDictionary: Dictionary<string, ShortAttribETypes> = {};
   debug = false;
   loadedLogic = false;
   loadedGUI = false;
   XMLinlineMarker: string = '' + '@';
   // todo: consenti di customizzare il marker, (in m3options?)
 
-  refreshModeAll: boolean = true || true;
-  refreshModelAndInstances: boolean = false && false;
-  refreshModelAndParent: boolean = false && false;
-  refreshInstancesToo: boolean = false && false;
-  refreshModel: boolean = false && false;
-  refreshMetaParentToo: boolean = false && false;
-  refreshParentToo: boolean = false && false;
+  refreshModeAll: boolean = true;
+  refreshModelAndInstances: boolean = false;
+  refreshModelAndParent: boolean = false;
+  refreshInstancesToo: boolean = false;
+  refreshModel: boolean = false;
+  refreshMetaParentToo: boolean = false;
+  refreshParentToo: boolean = false;
   // modelMatTab: MatTabGroup = null;
   /*showMMGrid = true;
   showMGrid = true;
   mmGrid = new GraphPoint(20, 20);
   mGrid = new GraphPoint(20, 20);*/
+  user: User = new User('mock_user');
 
   constructor() { }
   save(): string {
@@ -192,7 +205,7 @@ export function main0(loadEvent: Event, tentativi: number = 0) {
   }
     catch (e) {
       const errormsg = 'initialization failed, this is likely caused by a failure on connection while downloading libraries or by unsupported browser.';
-      console.log('first error:', e);
+      console.error('first error:', e);
       try { U.pw(true, errormsg); } catch(ee) { console.log('second error while printing:', ee); document.body.innerHTML = errormsg; }
     }
   // console.log('main(), $ loaded:', $ !== undefined, 'status: ', Status.status);
@@ -288,6 +301,9 @@ function globalevents(): void {
   window['TSON'] = TSON;
   window['TSON_JSTypes'] = TSON_JSTypes;
   window['TSON_UnsupportedTypes'] = TSON_UnsupportedTypes;
+  window['Network'] = Network;
+  window['Layouting'] = Layouting;
+  window['TopBar'] = TopBar;
   window['' + 'help'] = [
     'setBackup (backup <= saveToDB)',
     'backupSave (saveToDB <= backup)',
@@ -347,6 +363,7 @@ function main() {
 
   ECoreRoot.initializeAllECoreEnums();
   globalevents();
+  EType.LoadTypeMaps();
   MeasurableRuleParts.staticinit();
   IVertex.staticinit();
   IEdge.staticInit();
@@ -357,17 +374,6 @@ function main() {
     'The bug happens in: Chrome.',
     'The bug does NOT happen in: Firefox.',
     'Behaviour is unknown for other browsers.');
-  Status.status.typeAliasDictionary[ShortAttribETypes.void] = 'void';
-  Status.status.typeAliasDictionary[ShortAttribETypes.EChar] = 'char';
-  Status.status.typeAliasDictionary[ShortAttribETypes.EString] = 'string';
-  Status.status.typeAliasDictionary[ShortAttribETypes.EDate] = 'date';
-  Status.status.typeAliasDictionary[ShortAttribETypes.EFloat] = 'float';
-  Status.status.typeAliasDictionary[ShortAttribETypes.EDouble] = 'double';
-  Status.status.typeAliasDictionary[ShortAttribETypes.EBoolean] = 'bool';
-  Status.status.typeAliasDictionary[ShortAttribETypes.EByte] = 'byte';
-  Status.status.typeAliasDictionary[ShortAttribETypes.EShort] = 'short';
-  Status.status.typeAliasDictionary[ShortAttribETypes.EInt] = 'int';
-  Status.status.typeAliasDictionary[ShortAttribETypes.ELong] = 'long';
   /*
   Status.status.typeAliasDictionary[ShortAttribETypes.ECharObj] = 'ECharObj';
   Status.status.typeAliasDictionary[ShortAttribETypes.EStringObj] = 'EStringObj';
@@ -390,8 +396,7 @@ function main() {
   const validate = (thing: string, defaultvalue: string): string => { return thing && thing !== '' && thing !== 'null' && thing !== 'undefined' ? thing : defaultvalue; };
   savem2.model = validate(savem2.model, MetaModel.emptyModel);
   savem1.model = validate(savem1.model, Model.emptyModel);
-
-  useless = new TopBar();
+  TopBar.staticInit();
   WebsiteTheme.setTheme();
   Status.status.mmm = new MetaMetaModel(null);
   console.log('loading MM:', savem2);

@@ -39,8 +39,167 @@
         <td style="display: none">X: <input type="number" class="zoomXOLD" min="0.0001" step="0.1" placeholder="1"> Y: <input type="number" class="zoomY" min="0.0001" step="0.1" placeholder="1"></td>
       </tr>
       <tr><td colspan="2"><label><input type="checkbox" class="showGrid">Show grid</label></td></tr>
-      <tr><td colspan="2"><label><input type="color" class="graphColor">Background color</label></td></tr>
+      <tr><td colspan="2"><label><input type="checkbox" class="useGrid">Use grid</label></td></tr>
+      <tr><td colspan="2"><label><input type="color" class="gridColor1">Grid color 1</label></td></tr>
+      <tr><td colspan="2"><label><input type="color" class="gridColor2">Grid color 2</label></td></tr>
       </tbody></table>
+
+      <label class="onlyVerticalContainer" uif="!running">
+        <button class="btn btn-primary layout start dynamic_uif">Start auto-layouting</button></label>
+
+
+      <div class="layoutingRoot" uif="running">
+        <h5>Auto-layout options</h5>
+        <label class="onlyVerticalContainer">
+          <button class="btn btn-primary layout stabilize">Stabilize</button>
+          <span style="margin:auto 0.5rem">in</span>
+          <input type="number" class="stabilizeSteps lopt" min="0" step="1" placeholder="off" value="10" data-key="custom.stabilizeSteps">
+          <span style="margin-left: 0.5rem">steps</span>
+        </label>
+        <label class="onlyVerticalContainer"><button class="btn btn-primary layout stop">Stop</button></label>
+
+        <label>How to manage edge points?
+          <select class="edgePointTreatment form-group"><optgroup label="How to manage edge points?">
+            <option value="delete">Remove them</option>
+            <option value="vertex" selected>Treat them as vertexes</option>
+            <option value="ignore">Keep absolute position (ignore)<option>
+            <option value="relative">Keep relative position between source & target</option>
+            <!--
+              1) treat them as vertex (default)
+              2) keep absolute position (ignore) (might cause a mess because they stand still)
+              3) keep relative position. Rimane a (x%, y%) distanza tra source e target, memorizzo un vettore direzione
+                 con modulo in percentuale sulla distanza tra i 2 vertici,
+                 così rispetto ai vertici rimane statico, anche se in realtà si è mosso assieme a loro.
+            -->
+          </optgroup></select>
+        </label>
+        <div>
+          <label>
+            <input type="checkbox" class="lopt dynamic_uif" data-key="layout.hierarchical.enabled">Hierarchical
+          </label>
+          <label>
+            <input type="checkbox" class="lopt dynamic_uif" data-key="physics.enabled">
+            Physics
+          </label>
+          <div uif="physics">
+            <label>Simulation mode
+              <select class="dynamic_uif lopt" data-key="physics.solver">
+                <optgroup label="Simulation">
+                  <option value="barnesHut">BarnesHut</option>
+                  <option value="forceAtlas2Based">Force Atlas 2</option>
+                  <option value="repulsion">Repulsion</option>
+                  <option value="hierarchicalRepulsion">hierarchicalRepulsion</option>
+                </optgroup>
+              </select>
+            </label>
+
+            <div uif="hr">
+              <label>
+                <input type="checkbox" class="lopt" data-key="layout.hierarchical.blockShifting">
+                Block shifting
+              </label>
+              <label>
+                <input type="checkbox" class="lopt" data-key="layout.hierarchical.edgeMinimization">
+                Edge minimization
+              </label>
+              <label>
+                <input type="checkbox" class="lopt" data-key="layout.hierarchical.parentCentralization">
+                Parent centralization
+              </label>
+              <label>
+                <input type="number" class="lopt" data-key="layout.hierarchical.levelSeparation" min="0" step="1">
+                Level separation
+              </label>
+              <label>
+                <input type="number" class="lopt" data-key="layout.hierarchical.nodeSpacing" min="0" step="1">
+                Node spacing
+              </label>
+              <label>
+                <input type="number" class="lopt" data-key="layout.hierarchical.treeSpacing" min="0" step="1">
+                Tree spacing
+              </label>
+              <label>Direction
+                <select class="lopt" data-key="layout.hierarchical.direction">
+                  <optgroup label="Direction">
+                    <option value="UD">Up - Down</option>
+                    <option value="DU">Down - Up</option>
+                    <option value="LR">Left - Right</option>
+                    <option value="RL">Right - Left</option>
+                  </optgroup>
+                </select>
+              </label>
+              <label>Sort method
+                <select class="lopt" data-key="layout.hierarchical.sortMethod">
+                  <optgroup label="Sort method">
+                    <option value="hubsize">hubsize</option>
+                    <option value="directed">directed</option>
+                  </optgroup>
+                </select>
+              </label>
+              <label>Shake towards
+                <select class="lopt" data-key="layout.hierarchical.shakeTowards">
+                  <optgroup label="Shake towards">
+                    <option value="leaves">leaves</option>
+                    <option value="roots">roots</option>
+                  </optgroup>
+                </select>
+              </label>
+            </div>
+            <label uif="atl || bar">
+              <input type="number" step="any" class="lopt" data-key="physics.bh.theta"> Theta
+            </label>
+            <label uif="atl || bar">
+              <input type="number" min="any" step="any" class="lopt" data-key="physics.bh.gravitationalConstant"> Gravitational constant
+            </label>
+            <label uif="atl || bar || rep || hr">
+              <input type="number" step="any" class="lopt" data-key="physics.bh.centralGravity"> Central gravity
+            </label>
+            <label uif="atl || bar || rep || hr">
+              <input type="number" step="any" class="lopt" data-key="physics.bh.springLength"> Spring length
+            </label>
+            <label uif="atl || bar || rep || hr">
+              <input type="number" step="any" class="lopt" data-key="physics.bh.springConstant"> Spring constant
+            </label>
+            <label uif="atl || bar || rep || hr">
+              <input type="number" step="any" class="lopt" data-key="physics.bh.damping"> Damping
+            </label>
+            <label uif="atl || bar || hr">
+              <input type="number" step="any" class="lopt" data-key="physics.bh.avoidOverlap"> Avoid overlap
+            </label>
+            <label uif="rep || hr">
+              <input type="number" step="any" class="lopt" data-key="physics.bh.nodeDistance"> Node distance
+            </label>
+            <label>
+              <input type="number" step="any" class="lopt" data-key="physics.minVelocity"> Min velocity
+            </label>
+            <label>
+              <input type="number" step="any" class="lopt" data-key="physics.maxVelocity"> Max velocity
+            </label>
+
+            <label>
+              <input type="checkbox" step="any" class="dynamic_uif lopt" data-key="physics.stabilization.enabled"> Stabilization
+            </label>
+            <div uif="stabilization">
+              <label>
+                <input type="number" step="any" class="lopt" data-key="physics.stabilization.iterations"> Iterations
+              </label>
+              <label>
+                <input type="number" step="any" class="lopt" data-key="physics.stabilization.updateInterval"> Update interval (ms)
+              </label>
+              <label>
+                <input type="number" step="any" class="lopt" data-key="custom.scale_factor"> Scale factor
+              </label>
+              <label class="whatisthis">
+                <input type="checkbox" class="lopt" data-key="physics.stabilization.onlyDynamicEdges"> onlyDynamicEdges???
+              </label>
+              <label class="whatisthis">
+                <input type="checkbox" class="lopt" data-key="physics.stabilization.fit"> Fit??
+              </label>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="template htmlstyle">
@@ -245,6 +404,7 @@
         </div>
         <label class="autosizecontainer"><input type="checkbox" class="autoheight"><span>Adapt height to content</span></label>
         <label class="autosizecontainer"><input type="checkbox" class="autowidth"><span>Adapt width to content</span></label>
+        <label class="autosizecontainer"><input type="checkbox" class="autolayout"><span>Include in Auto-layout</span></label>
       </div>
 
       <div class="separatorShell"></div>

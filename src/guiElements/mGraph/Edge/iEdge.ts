@@ -288,30 +288,30 @@ export enum EdgeModes {
     if (debug) {
       U.cclear();
       Status.status.getActiveModel().graph.markg(prevPt, true, 'green');
-      if (prevVertexSize) { Status.status.getActiveModel().graph.markgS(prevVertexSize, false, 'white'); }
-      Status.status.getActiveModel().graph.markg(nextPt, false, 'green');
-      if (nextVertexSize) { Status.status.getActiveModel().graph.markgS(nextVertexSize, false); }
+      if (prevVertexSize) { Status.status.getActiveModel().graph.markgS(prevVertexSize, false, 'green'); }
+      Status.status.getActiveModel().graph.markg(nextPt, false, 'blue');
+      if (nextVertexSize) { Status.status.getActiveModel().graph.markgS(nextVertexSize, false, 'blue'); }
     }
     U.pif(debug, 'prev:' + (pt1IsOnHorizontalSide) + ', next:' + (pt2IsOnHorizontalSide),
       'm0:' + mode0 + ' --> ' + mode0 + ', favDirection' + angularFavDirectionIsHorizontal);
     // return '';
     U.pif(debug, 'directions:', pt1IsOnHorizontalSide, pt2IsOnHorizontalSide);
-    if (prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize)) { U.pw(debug, 'prev not on border'); return ''; }
-    if (nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize)) { U.pw(debug, 'next not on border'); return ''; }
-    U.pe(prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize), 'not on border');
+    if (prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize)) {
+      U.pw(true, 'prev not on border', U.isOnEdge, prevPt, prevVertexSize);
+      // return '';  può causare path di un solo punto (origine)
+    }
+    if (nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize)) {
+      U.pw(true, 'next not on border', U.isOnEdge, nextPt, nextVertexSize);
+      // return '';  può causare path di un solo punto (origine)
+    }
+    // U.pe(prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize), 'not on border');
 
-    if (prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize)) {
-      /*console.clear();
+    if (debug && prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize)) {
       const g = Status.status.getActiveModel().graph;
-      g.markg(prevPt, false, 'green');
+      g.markg(prevPt, true, 'green');
       g.markgS(prevVertexSize, false, 'green');
       g.markg(prevPt, false);
       g.markgS(prevVertexSize, false);
-      console.log('not on vertex border. pt:', prevPt, 'vertex:', prevVertexSize);
-      console.log('not on vertex border. nextpt:', nextPt, 'nextvertex:', nextVertexSize);
-      U.pw(true, (!U.isOnEdge(prevPt, prevVertexSize) ? 'prev' : 'next') + ' not on vertex border.');
-      return '';
-      */
     }
     let mode: EdgeModes = mode0;
     if (prevVertexSize && nextVertexSize) {
@@ -470,7 +470,7 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
 
     if (debugi === 3) return;
     if (debug) {
-      U.cclear();
+      // U.cclear();
       if (startVertexSize) { graph.markgS(startVertexSize, true, 'blue'); }
       if (endVertexSize) { graph.markgS(endVertexSize, false); } }
 
@@ -484,9 +484,9 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
       const currPt: GraphPoint = curr.getEndPoint(!nextVertexSize, !nextVertexSize);
       // console.log(prevVertexSize, new GraphSize());
       const intersection = nextVertexSize && prevVertexSize ? nextVertexSize.intersection(prevVertexSize) : null;
-      if (intersection) console.log('midenodes.length:', !this.midNodes.length , '&&', prevPt , currPt, ' contained in ', intersection,
-        intersection.contains(prevPt), intersection.contains(currPt));
-      if (debug) {
+      if (debug && false) {
+        if (intersection) console.log('midenodes.length:', !this.midNodes.length , '&&', prevPt , currPt, ' contained in ', intersection,
+          intersection.contains(prevPt), intersection.contains(currPt));
         if (intersection) this.owner.markgS(intersection, true, 'black');
         this.owner.markg(prevPt, true, 'orange');
         this.owner.markg(currPt, false,'yellow');
@@ -502,7 +502,14 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
       pathStr += IEdge.makePathSegment(prevPt, currPt, this.getEdgeMode(), favdirection, prevVertexSize, nextVertexSize);
       U.pif(debug, 'pathStr: RealPts:' + '[' + i + '] = ' + currPt.toString() + '; prev:' + prevPt.toString());
       U.pif(debug, 'pathStr[' + (i) + '/' + allRealPt.length + ']: ' + oldpathStr + ' --> ' + pathStr);
+
+      U.pe( pathStr.lastIndexOf('L') === -1,
+        '0: the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
     }
+
+
+    U.pe( pathStr.lastIndexOf('L') === -1,
+      'the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
 
     if (debugi === 3) return;
     this.setPath(pathStr, debug);
@@ -914,7 +921,7 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     if (!tail) {
       endsub = pathStr.length;
       startsub = pathStr.lastIndexOf('L');
-      U.pe(startsub === -1, 'the pathString have no L (but should have at least 2 points)');
+      U.pe(startsub === -1, 'the pathString have no L (but should have at least 2 points)', pathStr);
       startsub = pathStr.lastIndexOf('L', startsub - 1);
       if (startsub === -1) { startsub = 0; }
     } else {

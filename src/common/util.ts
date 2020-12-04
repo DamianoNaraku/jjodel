@@ -512,20 +512,29 @@ export class U {
     // first 2 entries are "Erorr" and "getStackTrace()"
     return sliceThisCall ? arr.slice(2) : arr; }
 
-  static getID(): string { return this.genID(); }
-  static genID(): string { return '#tìmèdkéy_' + new Date().valueOf(); }
-  static getCaller(stacksToSkip: number = 1): string {
+  private static sequenceNumber: number = 0;
+  private static idMap: Dictionary<string, any> = {};
+  public static getID(): string { return this.genID(); }
+  public static genID(): string { return 'timedkey_' + new Date().valueOf()+'_' + (this.sequenceNumber++); }
+  public static setID(key: string, value: any): void {
+    U.idMap[key] = value;
+  }
+  public static unsetID(key: string): void { delete U.idMap[key]; }
+  public static isSetID(key: string): boolean { return U.idMap.hasOwnProperty(key); }
+  public static getByID<T>(key: string): T { return U.idMap[key]; }
+
+  public static getCaller(stacksToSkip: number = 1): string {
     const stack: string[] = this.getStackTrace(false);
     return stack[stacksToSkip + 3]; // erase getStackTrace() and isFirstTimeCalled() + Error() first stack + n° of layer the caller wants.
   }
   private static gotcalledby: Dictionary<string, boolean> = {};
-  static isFirstTimeCalledByThisLine(stacksToSkip: number = 1) {
+  public static isFirstTimeCalledByThisLine(stacksToSkip: number = 1) {
     const caller: string = this.getCaller(stacksToSkip);
     if (U.gotcalledby[caller]) return false;
     return U.gotcalledby[caller] = true; }
 
-  static lineKey(): string { return this.getCaller(1); }
-  static oneTime(key: string = null, printFunction: (b: boolean, s: any, ...restArgs: any[]) => string, condition: boolean, s: any, ...restArgs: any[]): string {
+  public static lineKey(): string { return this.getCaller(1); }
+  public static oneTime(key: string = null, printFunction: (b: boolean, s: any, ...restArgs: any[]) => string, condition: boolean, s: any, ...restArgs: any[]): string {
     if (key === null) key = s;
     if (condition || U.oneTimeMap[key]) return null;
     U.oneTimeMap[key] = true;
@@ -566,7 +575,9 @@ export class U {
     U.bootstrapPopup(str, 'success', 3000);
     return str; }
 
-  static pif(b: boolean, s: any, ...restArgs: any[]): string { if (!b) { return null; } }
+  static pif(b: boolean, s: any, ...restArgs: any[]): string {
+    if (!b) { return null; }
+    return U.p(s, ...restArgs); }
 
   static p(s: any, ...restArgs: any[]): string {
     if (restArgs === null || restArgs === undefined) { restArgs = []; }
@@ -641,6 +652,66 @@ export class U {
     let j: number;
     for (j = 0; j < node.attributes.length; j++) { node.removeAttribute(node.attributes[j].name); }
   }
+
+  // safe con SVG, input, select, textarea.
+  public static copyVisibleText(element0: Element): string {
+    const element: Element = element0.cloneNode(true) as Element;
+    const $element = $(element);
+    $element.remove(':hidden');
+    $element.remove('.addFieldButtonContainer');
+    $element.find('input, textarea').addBack('input, textarea').each( (i, e: HTMLInputElement | HTMLTextAreaElement)=> {
+      const replacement = document.createElement('div');
+      replacement.dataset.replacement = "1";
+      replacement.innerText = e.value;
+      U.swap(e, replacement);
+    });
+    $element.find('select').addBack('select').each( (i, e: HTMLSelectElement)=> {
+      const replacement = document.createElement('div');
+      replacement.dataset.replacement = "1";
+      replacement.innerText = e.selectedIndex >= 0 ?  e.options[e.selectedIndex].text : '';
+      U.swap(e, replacement);
+    });
+    U.pe(!!$element.find('select, input, textarea').length,
+     'input remaining:', $element.find('select, input, textarea').addBack('select, input, textarea'));
+    // console.log('copyVisibleText() textcontent of:', element, U.getRawInnerText(element));
+    return U.getRawInnerText(element); }
+
+  // safe con SVG, !! NON safe con input, textarea e select
+  private static getRawInnerText(element: Element, win: Window = null): string {
+    let userselect: string, msuserselect: string, wkuserselect: string;
+    if (element['style']) {
+      let e: HTMLElement = element as any;
+      userselect = e.style.userSelect;
+      msuserselect = e.style.msUserSelect;
+      wkuserselect = e.style.webkitUserSelect;
+      e.style.userSelect = 'all'; // text
+      e.style.msUserSelect = 'all';
+      e.style.webkitUserSelect = 'all';
+    }
+    win = win || window;
+    const doc = win.document;
+    const wasInDocument = U.isChildrenOf(element, doc.body);
+    if (!wasInDocument) { doc.body.appendChild(element); }
+    let sel: Selection, range: Range, prevRange: Range, selString: string;
+    sel = win.getSelection();
+    if (sel.rangeCount) {
+      prevRange = sel.getRangeAt(0);
+    }
+    range = doc.createRange();
+    range.selectNodeContents(element);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    selString = sel.toString();
+    sel.removeAllRanges();
+    prevRange && sel.addRange(prevRange);
+    if (!wasInDocument) { doc.body.removeChild(element); }
+    if (element['style']) {
+      let e: HTMLElement = element as any;
+      if (userselect) { e.style.userSelect = userselect; }
+      if (msuserselect) { e.style.msUserSelect = userselect; }
+      if (wkuserselect) { e.style.webkitUserSelect = userselect; }
+    }
+    return selString; }
 
   static cloneObj<T extends object>(o: T): Json {
     // const r: HTMLElement = document.createElement(o.tagName);
@@ -1117,32 +1188,46 @@ export class U {
     // todo: guarda gli invocatori
   }
 
-  static isOnEdge(pt: GraphPoint, shape: GraphSize): boolean {
-    return U.isOnHorizontalEdges(pt, shape) || U.isOnVerticalEdges(pt, shape); }
+  private static GeomTolerance = 0; // 0.001;
+  static isOnEdge(pt: GraphPoint, shape: GraphSize, tolerance: number = null): boolean {
+    return U.isOnHorizontalEdges(pt, shape, tolerance) || U.isOnVerticalEdges(pt, shape, tolerance); }
 
-  static isOnVerticalEdges(pt: GraphPoint, shape: GraphSize): boolean {
-    return U.isOnLeftEdge(pt, shape) || U.isOnRightEdge(pt, shape); }
+  static isOnVerticalEdges(pt: GraphPoint, shape: GraphSize, tolerance: number = null): boolean {
+    return U.isOnLeftEdge(pt, shape, tolerance) || U.isOnRightEdge(pt, shape, tolerance); }
 
-  static isOnHorizontalEdges(pt: GraphPoint, shape: GraphSize): boolean {
-    return U.isOnTopEdge(pt, shape) || U.isOnBottomEdge(pt, shape); }
+  static isOnHorizontalEdges(pt: GraphPoint, shape: GraphSize, tolerance: number = null): boolean {
+    return U.isOnTopEdge(pt, shape, tolerance) || U.isOnBottomEdge(pt, shape, tolerance); }
 
-  static isOnRightEdge(pt: GraphPoint, shape: GraphSize): boolean {
+  static isOnRightEdge(pt: GraphPoint, shape: GraphSize, tolerance: number = null): boolean {
     if (!pt || !shape) { return null; }
+    if (tolerance === null) tolerance = U.GeomTolerance;
+    if (tolerance) return Math.abs(pt.x - (shape.x + shape.w)) < tolerance
+      && ( pt.y - (shape.y) > tolerance && pt.y - (shape.y + shape.h) < tolerance);
     return (pt.x === shape.x + shape.w) && (pt.y >= shape.y && pt.y <= shape.y + shape.h);
+
   }
 
-  static isOnLeftEdge(pt: GraphPoint, shape: GraphSize): boolean {
+  static isOnLeftEdge(pt: GraphPoint, shape: GraphSize, tolerance: number = null): boolean {
     if (!pt || !shape) { return null; }
+    if (tolerance === null) tolerance = U.GeomTolerance;
+    if (tolerance) return Math.abs(pt.x - shape.x) < tolerance
+      && (pt.y - (shape.y) > tolerance && pt.y - (shape.y + shape.h) < tolerance);
     return (pt.x === shape.x) && (pt.y >= shape.y && pt.y <= shape.y + shape.h);
   }
 
-  static isOnTopEdge(pt: GraphPoint, shape: GraphSize): boolean {
+  static isOnTopEdge(pt: GraphPoint, shape: GraphSize, tolerance: number = null): boolean {
     if (!pt || !shape) { return null; }
+    if (tolerance === null) tolerance = U.GeomTolerance;
+    if (tolerance) return Math.abs(pt.y - shape.y) < tolerance
+      && (pt.x - (shape.x) > tolerance && pt.x - (shape.x + shape.w) < tolerance);
     return (pt.y === shape.y) && (pt.x >= shape.x && pt.x <= shape.x + shape.w);
   }
 
-  static isOnBottomEdge(pt: GraphPoint, shape: GraphSize): boolean {
+  static isOnBottomEdge(pt: GraphPoint, shape: GraphSize, tolerance: number = null): boolean {
     if (!pt || !shape) { return null; }
+    if (tolerance === null) tolerance = U.GeomTolerance;
+    if (tolerance) return Math.abs(pt.y - shape.y + shape.h) < tolerance
+      && (pt.x - (shape.x) > tolerance && pt.x - (shape.x + shape.w) < tolerance);
     return (pt.y === shape.y + shape.h) && (pt.x >= shape.x && pt.x <= shape.x + shape.w);
   }
   // usage: var scope1 = makeEvalContext("variable declariation list"); scope1("another eval like: x *=3;");
@@ -1848,7 +1933,9 @@ export class U {
 
   static isValidName(name: string): boolean { return /^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(name); }
 
-  static getTSClassName(thing: any): string { return thing.constructor.name + ''; }
+  static getTSClassName(thing: any): string {
+    if (!thing || !thing.constructor) return typeof(thing);
+    return thing.constructor.name + ''; }
 
   static detailButtonSetup($root = null): void {
     if (!$root) $root = $(document.body);
@@ -2941,7 +3028,15 @@ export class U {
   static checkConditionalHide(html: Element, obj: Dictionary<string, boolean>, caseSensitive: boolean = false): boolean {
     let attrstr: string = html.getAttribute('uif');
     if (!attrstr) return null;
-    attrstr = attrstr.replace('|+', ' || ').replace('&+', ' && '); // .replace('\s+', ' ');
+    attrstr = attrstr
+    .replace(/\|+/, ' || ')
+    .replace(/&+/, ' && ')
+    .replace('+', ' + ')
+    .replace('-', ' - ')
+    .replace('*', ' * ')
+    .replace('/', ' / ')
+    .replace('!', ' ! ')
+    .replace(/\s+/, ' ');
     let i: number;
     let key: string;
     let tokens: string[] = attrstr.split(' ');
@@ -2951,7 +3046,7 @@ export class U {
         if (lckey === key) continue;
         const val: boolean = obj[key];
         delete obj[key];
-        obj[lckey] = obj[key];
+        obj[lckey] = val;
       }
     }
 
@@ -2981,6 +3076,21 @@ export class U {
     // hide = false, show = false  --> hide
     // hide = false, show = true   --> show
   }
+
+  static deserialize(value: string): any{
+    if (value === '') return '';// json.parse fail on ''
+    if (value == 'undefined') return undefined;// json.parse fail on undefined and 'undefined' too
+    let ret: any;
+    try {
+      ret = JSON.parse(value);
+    } catch(e) {
+      // U.pe(true, 'failed to deserialize: |', value, '|', e);
+      return value; // means it's a raw string different from 'true', 'null', ...
+    }
+    return ret;
+  }
+
+
 }
 export enum Keystrokes {
   escape = 'Escape',
@@ -3077,6 +3187,7 @@ export enum TSON_JSTypes {
   'String' = 'string',// type is obj, serialized as str.
   'function' = 'function',
 }
+
 export enum TSON_UnsupportedTypes {
   'BigInt' = 'bigint',
   'symbol' = 'symbol',

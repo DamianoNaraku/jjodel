@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {
-  AccessModifier, DamContextMenuComponent,
+  AccessModifier, DamContextMenuComponent, Dictionary,
   Draggableoptions,
   DraggableOptionsPH,
   EdgeModes,
   GraphSize,
   IClass,
   IClassifier,
-  IEdge,
+  IEdge, IGraph,
   IModel, InputPopup,
   IPackage,
   IReference,
@@ -40,6 +40,7 @@ import {AutocompleteMatch} from '../../common/util';
 import {Style} from '@angular/cli/lib/config/schema';
 import Swal from 'sweetalert2';
 import ContextMenuEvent = JQuery.ContextMenuEvent;
+import {Layouting} from '../mGraph/Layouting';
 
 @Component({
   selector: 'app-style-editor',
@@ -47,12 +48,28 @@ import ContextMenuEvent = JQuery.ContextMenuEvent;
   styleUrls: ['./style-editor.component.css']
 })
 export class StyleEditorComponent implements OnInit {
+  @Input() isM2: boolean;
+  model: IModel;
+  graph: IGraph;
+  se: StyleEditor;
 
+  getModel(): IModel {
+    return this.model = (this.isM2 ? Status.status.mm : Status.status.m);
+  }
+  getGraph(): IGraph {
+    return this.graph = this.graph || this.getModel().graph;
+  }
+  get(): StyleEditor {
+    return this.se = this.se || this.getModel().graph.propertyBar.styleEditor;
+  }
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  changeGridUse($event: Event): void{
+    console.log('change grid use:', $event);
+    this.getGraph().useGrid = $event.currentTarget['checked'];
+  }
 }
 class editorcontext {templateLevel: Element; graphLevel: Element; applyNodeChangesToInput: () => void;}
 type ownStyleContext = {
@@ -180,28 +197,32 @@ export class StyleEditor {
     const zoomX: HTMLInputElement = $html.find('.zoomX')[0] as HTMLInputElement;
     const zoomY: HTMLInputElement = $html.find('.zoomY')[0] as HTMLInputElement;
     const showGrid: HTMLInputElement = $html.find('.showGrid')[0] as HTMLInputElement;
-    const color: HTMLInputElement = $html.find('.graphColor')[0] as HTMLInputElement;
+    const useGrid: HTMLInputElement = $html.find('.useGrid')[0] as HTMLInputElement;
+    const gridColor1: HTMLInputElement = $html.find('.gridColor1')[0] as HTMLInputElement;
+    const gridColor2: HTMLInputElement = $html.find('.gridColor2')[0] as HTMLInputElement;
     gridX.value = m.graph.grid ? '' + m.graph.grid.x : '';
     gridY.value = m.graph.grid ? '' + m.graph.grid.y : '';
     zoomX.value = m.graph.zoom.x + '';
     zoomY.value = m.graph.zoom.y + '';
     showGrid.checked = m.graph.gridDisplay;
-    color.value = '#000ff'; // todo.
+    useGrid.checked = m.graph.useGrid;
+    gridColor1.value = m.graph.gridColor1;
+    gridColor2.value = m.graph.gridColor2;
+    $([gridColor1, gridColor2]).on('change', (e: ChangeEvent) => {
+      m.graph.gridColor1 = gridColor1.value || '#808080';
+      m.graph.gridColor2 = gridColor2.value || '#808080';
+      m.graph.refreshGridGUI();
+    } );
     // event listeners:
-    $(gridX).off('change.set').on('change.set', (e: ChangeEvent) => {
+    const changeGrid = (e: ChangeEvent, coord: 'x' | 'y') => {
       const input: HTMLInputElement = e.currentTarget;
-      if(U.isNumerizable(input.value)) m.graph.grid.x = +input.value; // will be displayed by gridDisplay.trigger
+      if(U.isNumerizable(input.value)) m.graph.grid[coord] = +input.value; // will be displayed by gridDisplay.trigger
       showGrid.checked = true;
       $(showGrid).trigger('change');
-      m.refreshGUI();
-    });
-    $(gridY).off('change.set').on('change.set', (e: ChangeEvent) => {
-      const input: HTMLInputElement = e.currentTarget;
-      if(U.isNumerizable(input.value)) m.graph.grid.y = +input.value; // will be displayed by gridDisplay.trigger
-      showGrid.checked = true;
-      $(showGrid).trigger('change');
-      m.refreshGUI();
-    });
+      m.graph.fitVertexToGrid(false);
+    };
+    $(gridX).off('change.set').on('change.set', (e: ChangeEvent) => changeGrid(e, 'x'));
+    $(gridY).off('change.set').on('change.set', (e: ChangeEvent) => changeGrid(e, 'y'));
     $(zoomX).off('change.set').on('change.set', (e: ChangeEvent) => {
       const input: HTMLInputElement = e.currentTarget;
       m.graph.setZoom(+input.value, null);
@@ -214,6 +235,15 @@ export class StyleEditor {
       const input: HTMLInputElement = e.currentTarget;
       m.graph.setGrid(null, null, input.checked);
     });
+    $(useGrid).off('change.set').on('change.set', (e: ChangeEvent) => {
+      const input: HTMLInputElement = e.currentTarget;
+      console.log('useGrid changed', m.graph.useGrid, '-->', input.checked);
+      console.log('useGrid changed', m.graph.useGrid, '-->', input.checked);
+      e.preventDefault(); // debug to see if angular change status
+      m.graph.setUseGrid(input.checked);
+    });
+    console.log('newk, layouuthtml setup pre');
+    this.layoutHtmlSetup(m);
   }
 
   showP(m: IPackage) { U.pe(true, 'styles of Package(', m, '): unexpected.'); }
@@ -526,8 +556,10 @@ export class StyleEditor {
     this.sizeInputh = $html.find('input.sizeh')[0] as HTMLInputElement;
     const $autosizew = $html.find('input.autowidth') as JQuery<HTMLInputElement>;
     const $autosizeh = $html.find('input.autoheight') as JQuery<HTMLInputElement>;
+    const $autolayout = $html.find('input.autolayout') as JQuery<HTMLInputElement>;
     const autosizew = $autosizew[0];
     const autosizeh = $autosizeh[0];
+    const autolayout = $autolayout[0];
     if (v && this.sizeInputx) {
       autosizeh.disabled = autosizew.disabled = this.ownstylecontext.measurableCheckbox.disabled;
       const isAutosize = v.isAutosize();
@@ -560,6 +592,7 @@ export class StyleEditor {
       };
       $autosizew.on('change', () => { setAutosize(autosizew.checked, null); this.sizeInputw.disabled = autosizew.checked; });
       $autosizeh.on('change', () => { setAutosize(null, autosizeh.checked); this.sizeInputh.disabled = autosizeh.checked; });
+      $autolayout.on('change', () => { v.setAutolayout(autolayout.checked); });
       const vSize: GraphSize = v.getSize();
       this.sizeInputx.value = '' + (vSize.x);
       this.sizeInputy.value = '' + (vSize.y);
@@ -570,6 +603,7 @@ export class StyleEditor {
       $(this.sizeInputw).on('change', () => { v.setSize(new GraphSize(null, null, +this.sizeInputw.value,  null)); });
       $(this.sizeInputh).on('change', () => { v.setSize(new GraphSize(null, null, null, +this.sizeInputh.value)); });
     } else { $html.find('.sizeContainer').remove(); }
+    autolayout.checked = v.autoLayout;
     //// end autosize
     // <meta>
     //     <dependency><attributes><type>double</ </ </
@@ -1100,9 +1134,18 @@ export class StyleEditor {
 
     $(nameinput).off('change.name').on('change.name', nameChanged);
     $(operator).off('change.operator').on('change.operator', operatorChanged);
-    $(left).off('click.leftside').on('click.leftside', leftClicked);
-    $(right).off('click.rightside').on('click.rightside', rightClicked);
-    $(target).off('click.target').on('click.target', targetClicked);
+    if (left && (left.list || left instanceof HTMLSelectElement)) {
+      $(left).off('change.leftside').on('change.leftside', leftChanged); }
+    else { $(left).off('click.leftside').on('click.leftside', leftClicked); }
+
+    if (right && (right.list || right instanceof HTMLSelectElement)) {
+      $(right).off('change.rightside').on('change.rightside', rightChanged); }
+    else { $(right).off('click.rightside').on('click.rightside', rightClicked); }
+
+    if (target && (target.list || target instanceof HTMLSelectElement)) {
+      $(target).off('change.target').on('change.target', targetChanged); }
+    else { $(target).off('click.target').on('click.target', targetClicked); }
+
 
     /*
     $(nameinput).off('change.name').on('change.name', nameChanged);
@@ -1169,22 +1212,33 @@ export class StyleEditor {
   static ruleeditorinput: HTMLElement = null;
   private getRuleEditor(): {editor: HTMLElement, input: HTMLElement} {
     if (StyleEditor.ruleeditor) return {editor: StyleEditor.ruleeditor, input: StyleEditor.ruleeditorinput};
-    const callforeachkeyrecursive = (obj: object, f: (prePath: string, key: string) => void, pathuntilnow: string) => {
+    const callforeachkeyrecursive = (obj: object, f: (prePath: string, key: string) => void, pathuntilnow: string = '', visited_avoidloop: object[] = []) => {
       let key0: string;
       let key: string;
       let val: any;
+      // U.pif((pathuntilnow + '.' + key).indexOf('model') > 0, 'pre!! autocompletem model,  path:', pathuntilnow, 'obj:', obj);
       for (key0 in obj) {
         key = key0;
         val = obj[key];
+        const isArray: boolean = Array.isArray(val);
+        const isObject: boolean = typeof val === TSON_JSTypes.object;
+        if (isObject || isArray) {
+          if (obj === val) continue;
+          // nope, sta cosa dei duplicati così non va bene perchè ho degli alias e soprattutto su model fai la roba grezza if obj === val
+          // if (visited_avoidloop.includes(val)) continue; else visited_avoidloop.push(val);
+        }
+
         if (typeof val === TSON_JSTypes.function) { key += U.getFunctionSignatureFromComments(val).signature + ';'; }
-        else if (Array.isArray(val)) { key += '/*array*/'; }
-        else if (typeof val === TSON_JSTypes.object) { key += '.'; /*no post comment*/}
+        // else key += '/*' + U.getTSClassName(val) + '*/.';
+        else if (isArray) { key += '/*array*/'; }
+        else if (isObject) { key += '.'; } // no type comment per object, altrimenti il commento invalida la ricerca di next suggestions.
         else key += '; /*' + typeof val + '*/';
         U.pe(key === 'vertex', 'key:', key, 'obj[key]:', obj[key], 'val:', val, 'cond:', (val instanceof Object && !(val instanceof Function)));
         f(pathuntilnow + '.', key);
         // console.log(pathuntilnow, val);
-        if (val instanceof Element) return;
-        if (val instanceof Object) callforeachkeyrecursive(val, f, pathuntilnow + '.' + key0);
+        if (val instanceof Element) continue;
+        //NB: do not use instanceof Object, might somehow fail on custom classes (ModelProtected)
+        if (typeof val === TSON_JSTypes.object) callforeachkeyrecursive(val, f, pathuntilnow + '.' + key0, visited_avoidloop);
       }
     }
     let i: number;
@@ -1193,13 +1247,17 @@ export class StyleEditor {
     let preChars = '};' + spaceUsed + '*/+-';
     let autocompletekeys: AutocompleteMatch[] = [];
 
-    let addmanyv2 = (prechars: string, prePath: string, key: string) => {
+    let addmanyv2 = (preChars: string, prePath: string, key: string) => {
+      // preChars = spazio, moltiplicazione, addizione...
       if (prePath.charAt(0) === '.') prePath = prePath.substr(1);
-      for (i = 0; i < preChars.length; i++) { autocompletekeys.push( new AutocompleteMatch(prechars[i] + prePath, key) ); }
+      for (i = 0; i < preChars.length; i++) { autocompletekeys.push( new AutocompleteMatch(preChars[i] + prePath, key) ); }
     }
     let contextobj: MeasurableEvalContext = MeasurableEvalContext.fillFake();
+    window['autocompletekeys'] = autocompletekeys;
+    window['autocompletesourceobj'] = contextobj;
+    window['autocompletemodel'] = contextobj.model;
     let obj = {'this': contextobj};
-    callforeachkeyrecursive(obj, (prePath: string, key: string) => { addmanyv2(preChars, prePath, key); }, '');
+    callforeachkeyrecursive(obj, (prePath: string, key: string) => { addmanyv2(preChars, prePath, key); }, '', []);
     let inputcontainer: HTMLElement = document.createElement('div');
     let input: HTMLElement = document.createElement('div');
     let suggestionlist: HTMLUListElement = document.createElement('ul');
@@ -1212,4 +1270,129 @@ export class StyleEditor {
     StyleEditor.ruleeditor = inputcontainer;
     StyleEditor.ruleeditorinput = input;
     return this.getRuleEditor(); }
+
+  private layoutHtmlSetup(model: IModel){
+    const $layout = this.$root.find('.layoutingRoot');
+    const $inputs: JQuery<HTMLInputElement | HTMLSelectElement> = $layout.find('.lopt').add(this.$root.find('.lopt.stabilizeSteps')) as any;
+    const renew = () => { this.computeLayoutUIFs(model, this.$root); this.fillLayoutHtmlValues(model, $inputs); };
+    // timeout necessario, altrimenti onchange fà prima renew() ri-settando il valore logico dentro l'html, e poi esegue
+    // l'uif con il vecchio valore logico, il nuovo valore cambiato dall'utente viene perso.
+    $('.dynamic_uif').on('change', (e: ChangeEvent) => { setTimeout(renew, 1); } );
+
+    const $edgePointSelect: JQuery<HTMLSelectElement> = $('.edgePointTreatment');
+    const layouting: Layouting = model.graph.layouting;
+    const myOptions = layouting.myOptions;
+    $edgePointSelect[0].value = myOptions.edgePointMode;
+    $edgePointSelect.on('change', (e: ChangeEvent) => {
+      switch ($edgePointSelect[0].value) {
+        default: U.pe(true, 'unexpected value of layouting.myoptions.edgePointMode:', $edgePointSelect[0].value); break;
+        case 'vertex':
+        case 'ignore':
+        case 'relative': myOptions.edgePointMode = $edgePointSelect[0].value; break;
+      }
+    });
+    renew();
+
+    const onRun = () => {
+      renew();
+    };
+    const onStop = () => {
+      renew();
+    };
+    layouting.setStyleEditorBackEvents(onRun, onStop);
+    $inputs.on('change', (e: ChangeEvent) => {
+      this.setLayoutHtmlValue(layouting, e.currentTarget);
+    });
+
+    const $start = this.$root.find('.layout.start').on('click', (e: ClickEvent) => {
+      layouting.start();
+    } );
+    const $stabilize = this.$root.find('.layout.stabilize').on('click', (e: ClickEvent) => {
+      layouting.stabilize();
+    } );
+    const $stop = this.$root.find('.layout.stop').on('click', (e: ClickEvent) => {
+      layouting.isRunning = false;
+      layouting.stop();
+    } );
+  }
+
+  private setLayoutHtmlValue(layout: Layouting, currentTarget: HTMLInputElement | HTMLSelectElement): void{
+    console.log('key2 optionval:', currentTarget.value, currentTarget);
+    this.setLayoutValue(layout, currentTarget.value, currentTarget.dataset.key); }
+
+  private setLayoutValue(layouting: Layouting, value0: string, key: string): void {
+    layouting.stop();
+    const value: any = U.deserialize(value0);
+    if (key.indexOf('custom.') === 0) {
+      switch (key) {
+        default: U.pe(true, "unexpected custom uif key on setlayout value:", key); break;
+        case 'custom.stabilizeSteps':
+          layouting.stabilizationSteps = value;
+          break;
+        case 'custom.scale_factor':
+          Layouting.scaleFactor = value;
+          break;
+      }
+    }
+    else {
+      key = key.replace(/\.bh\./, '.' + layouting.optionsDefault.physics.solver + '.');
+      layouting.setOption(key, value);
+    }
+    layouting.start();
+  }
+
+  private computeLayoutUIFs(model: IModel, $layout: JQuery<Element>): void{
+    const dictionary: Dictionary<string, boolean> = {};
+    const graph: IGraph = model.graph;
+    const layouting: Layouting = graph.layouting
+    const options = layouting.optionsDefault;
+    dictionary['atl'] = dictionary['bar'] = dictionary['rep'] = dictionary['hr'] = false;
+    switch (options.physics.solver) {
+      default: U.pe(true, 'unexpected switch value solver:', options.physics.solver);
+      case 'barnesHut':
+        dictionary['bar'] = true;
+        break;
+      case 'repulsion':
+        dictionary['rep'] = true;
+        break;
+      case 'hierarchicalRepulsion':
+        dictionary['hr'] = true;
+        break;
+      case 'forceAtlas2Based':
+        dictionary['atl'] = true;
+        break;
+    }
+    dictionary['stabilization'] = options.physics.stabilization.enabled;
+    dictionary['physics'] = options.physics.enabled;
+    dictionary['running'] = layouting.isRunning;
+    U.computeConditionalHides($layout, dictionary, false, true,
+      (e: Element) => $(e).slideDown(), (e: Element) => $(e).slideUp() );
+  }
+
+  private fillLayoutHtmlValues(model: IModel, $inputs: JQuery<HTMLSelectElement | HTMLInputElement>): void{
+    let i: number;
+    let val: string;
+    const layouting: Layouting = model.graph.layouting;
+    for (i = 0; i < $inputs.length; i++){
+      const input: HTMLSelectElement | HTMLInputElement = $inputs[i];
+      let key: string = input.dataset.key;
+      if (key.indexOf('custom.') === 0) {
+        switch (key) {
+          default: U.pe(true, "unexpected custom uif key:", key); break;
+          case 'custom.stabilizeSteps': val = '' + layouting.stabilizationSteps; break;
+
+          case 'custom.scale_factor': val = '' + Layouting.scaleFactor; break;
+        }
+      }
+      else {
+        // normal keys
+        key = key.replace(/\.bh\./, '.' + model.graph.layouting.optionsDefault.physics.solver + '.');
+        val = '' + model.graph.layouting.getOption(key);
+      }
+      if (input instanceof HTMLSelectElement) U.selectHtml(input, val, false);
+      else input.value = val;
+      // console.log('newkeyy:', key, input, input.value);
+    }
+  }
 }
+

@@ -1,4 +1,16 @@
-import {IEdge, GraphPoint, IVertex, Dictionary, EdgePointStyle, EdgeStyle, IGraph, Point, Status, U} from '../../../common/Joiner';
+import {
+  IEdge,
+  GraphPoint,
+  IVertex,
+  Dictionary,
+  EdgePointStyle,
+  EdgeStyle,
+  IGraph,
+  Point,
+  Status,
+  U,
+  GraphSize
+} from '../../../common/Joiner';
 import ClickEvent = JQuery.ClickEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
 import MouseMoveEvent = JQuery.MouseMoveEvent;
@@ -48,7 +60,7 @@ export class EdgePointFittizio {
 }
 export class EdgePoint implements IEdgePoint {
   static ID = 0;
-  static all: Dictionary = {};
+  static all: Dictionary<number, EdgePoint> = {};
   id: number = null;
   pos: GraphPoint = null;
   html: SVGCircleElement = null;
@@ -74,7 +86,8 @@ export class EdgePoint implements IEdgePoint {
     this.moveTo(pos, false);
     this.addEventListeners(); }
 
-  static getFromHtml(html: Element): EdgePoint { return EdgePoint.all[(html as HTMLElement).dataset.EdgePointID]; }
+  static getFromHtml(html: Element): EdgePoint { return EdgePoint.getByID(+(html as HTMLElement).dataset.EdgePointID); }
+  static getByID(id: number): EdgePoint { return EdgePoint.all[id]; }
 
   follow(e: MouseDownEvent = null): void {
     CursorFollowerEP.activeEP = this;
@@ -105,7 +118,11 @@ export class EdgePoint implements IEdgePoint {
   isAttached(): boolean { return this.edge !== null; }
 
   detach(refreshGUI: boolean = true): void {
+//    big: quando attacco un extend, l'endVertex non ha la reference all'edge input,
+//      quindi se muovo l'endVertex, l'ìedge non si muove.
     if (!this.isAttached()) { return; }
+    if (this.edge && this.edge.startNode == this || this.edge.endNode === this) return;
+
     U.arrayRemoveAll(this.edge.midNodes, this);
     if (this.html && this.html.parentNode) { this.html.parentNode.removeChild(this.html); }
     if (refreshGUI) { this.edge.refreshGui(); }
@@ -173,33 +190,29 @@ export class EdgePoint implements IEdgePoint {
   public refreshGUI(select: boolean = null, highlight: boolean = null, debug: boolean = false): void {
     if (select !== null) { this.isSelected = select; }
     if (highlight !== null) { this.isHighlighted = highlight; }
-    if (this.isSelected) { this.styleSelected(); } else
-    if (this.isHighlighted) { this.styleHighlight(); } else { this.styleCommon(debug); } }
+    this.applyStyle(false); }
 
-  private styleCommon(debug: boolean = false): void {
-    if (!this.isAttached()) { U.pw(debug, 'not attached', this); return; }
-    const eps: EdgePointStyle = this.edge.logic.edgeStyleCommon.edgePointStyle;
+  public getCurrentStyle(): EdgePointStyle {
+    if (this.isSelected) { return this.edge.logic.edgeStyleSelected.edgePointStyle; }
+    if (this.isHighlighted) { return this.edge.logic.edgeStyleHighlight.edgePointStyle; }
+    return this.edge.logic.edgeStyleCommon.edgePointStyle; }
+
+  private applyStyle(debug: boolean = false): void {
+    if (!this.isAttached()) { U.pw(debug, 'called EdgePoint.applyStyle() while not attached', this); return; }
+    const eps: EdgePointStyle = this.getCurrentStyle();
     if (debug) { this.html.setAttributeNS(null, 'debug', 'styleCommon'); }
     this.html.setAttributeNS(null, 'r', '' + eps.radius);
     this.html.setAttributeNS(null, 'stroke-width', '' + eps.strokeWidth);
     this.html.setAttributeNS(null, 'stroke', eps.strokeColor);
-    this.html.setAttributeNS(null, 'fill', eps.fillColor); }
+    this.html.setAttributeNS(null, 'fill', eps.fillColor);
+  }
 
-  private styleHighlight(): void {
-    if (!this.isAttached()) { return; }
-    const eps: EdgePointStyle = this.edge.logic.edgeStyleHighlight.edgePointStyle;
-    this.html.setAttributeNS(null, 'r', '' + eps.radius);
-    this.html.setAttributeNS(null, 'stroke-width', '' + eps.strokeWidth);
-    this.html.setAttributeNS(null, 'stroke', eps.strokeColor);
-    this.html.setAttributeNS(null, 'fill', eps.fillColor); }
 
-  private styleSelected(): void {
-    if (!this.isAttached()) { return; }
-    const eps: EdgePointStyle = this.edge.logic.edgeStyleSelected.edgePointStyle;
-    this.html.setAttributeNS(null, 'r', '' + eps.radius);
-    this.html.setAttributeNS(null, 'stroke-width', '' + eps.strokeWidth);
-    this.html.setAttributeNS(null, 'stroke', eps.strokeColor);
-    this.html.setAttributeNS(null, 'fill', eps.fillColor); }
+  getSize(): GraphSize{
+    const style: EdgePointStyle = this.getCurrentStyle();
+    let radius = style.radius + style.strokeWidth;
+    return new GraphSize(this.pos.x, this.pos.y, radius * 2, radius * 2);
+  }
 }
 
 export class CursorFollowerEP extends EdgePoint {

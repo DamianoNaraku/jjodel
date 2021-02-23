@@ -100,6 +100,10 @@ input[type="number"][digit="5"]{
 .resizableBorder.bottom { border-bottom: 5px solid rgb(46, 47, 52); }
 
 .template, .whatisthis{ display: none !important; }
+
+.dropdown-item{
+  cursor: pointer;
+}
 /* real css */
 .resizableBorderContainer {
   background-color: var(--mainBackgroundColor);
@@ -453,3 +457,128 @@ body.Light button.edit:not(.btn) { background-image: url(../img/white/editw.png)
   padding: 5px;
   word-break: break-word;
 }
+
+
+
+
+/* css editor START */
+.csseditorroot .roww .g0{
+  flex-grow: 0;
+}
+.csseditorroot .roww .g1{
+  flex-grow: 1;
+}
+.csseditorroot .roww .g2{
+  flex-grow: 2;
+}
+.csseditorroot .roww .g3{
+  flex-grow: 3;
+}
+.csseditorroot .roww .g{
+  display:flex;
+  flex-wrap:wrap;
+  flex-basis: 0;
+}
+.csseditorroot .roww .g > *{
+  margin: auto;
+  text-align: center;
+}
+
+.csseditorroot .roww .c{
+  position: relative;
+  margin: 0 auto;
+  font-weight: 800;
+  display: flex;
+  flex-wrap: wrap;
+}
+.csseditorroot .roww .c>div{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.csseditorroot .roww .c input[type="color"]{
+  height: 100%;
+  width: 48px;
+}
+.csseditorroot .roww .delcssprop{
+  margin-right: 5px;
+}
+.csseditorroot .roww .cssprop{
+  margin: auto 5px;
+}
+.csseditorroot .roww .cssval{
+  margin: auto 5px;
+  margin-right: 0;
+}
+.csseditorroot .roww .rc{
+  color: white;
+}
+
+.csseditorroot .roww .fc > div{
+  z-index: 1;
+}
+.csseditorroot .c input[type="color"]::-webkit-color-swatch {
+  opacity: 0;
+}
+.csseditorroot div.addclass{
+  display:flex;
+}
+.csseditorroot div.addclass>input{
+  flex-grow: 1;
+  flex-basis:0;
+}
+/*
+*::-webkit-color-swatch-wrapper{
+}
+*::-webkit-color-swatch{
+    filter: invert(1);
+}*/
+.csseditorroot .csscontainer{
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+.csseditorroot .css_editor{
+  margin-top:5px;
+}
+.csseditorroot button.addclass{
+  margin-left: 5px;
+}
+.csseditorroot .roww{
+  display: flex;
+}
+
+
+.csseditorroot .cscheme{
+  min-height: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+.csseditorroot .colorblock{
+  min-width: 20px;
+  flex-grow: 1;
+  min-height: 20px;
+  display: flex;
+}
+.csseditorroot .cschemeroot{
+  display: flex;
+}
+
+.csseditorroot .colorblock.empty{
+  border: 1px solid black;
+  text-align:center;
+  border-left-width: 0px;
+}
+.csseditorroot .colorblock.empty:first-child{
+  border-left-width: 1px;
+}
+.csseditorroot .colorblock.empty::after{
+  content: '?';
+  margin: auto;
+}
+.csseditorroot .dropdown button{
+  width: 100%;
+}
+
+/* css editor END */

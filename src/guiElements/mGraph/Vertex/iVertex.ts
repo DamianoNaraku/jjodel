@@ -227,6 +227,11 @@ export class IVertex {
     // this.refreshGUI(); // need both refresh
   }
 
+  isAllowingEdges(): boolean {
+    const svgForeign: SVGForeignObjectElement = this.getHtmlRawForeign();
+    // svgForeign.style.display === 'none' &&
+    return U.fromBoolString(svgForeign.getAttribute('keep-edges'), true); }
+
   mark(markb: boolean, key: string, color: string = 'red', radiusX: number = 10, radiusY: number = 10,
        width: number = 5, backColor: string = 'none', extraOffset: GraphSize = null): void {
     if (!this.isDrawn()) { return; }
@@ -293,7 +298,8 @@ export class IVertex {
     if (! prevPt ) { return pt; }
     pt = GraphSize.closestIntersection(vertexGSize, prevPt, pt, this.owner.grid);
     // U.pe(!U.isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
-    U.pw(!U.isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
+    const debug: boolean = false;
+    U.pw(debug && !U.isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
     return pt; }
 
   setSize(size: GraphSize, refreshVertex: boolean = false, refreshEdge: boolean = true, trigger: string = null && measurableRules.onRotationEnd): void {
@@ -891,6 +897,7 @@ export class IVertex {
     let hoveringTarget: IClassifier = html2 ? ModelPiece.getLogic(html2) as IClassifier : null;
     U.pe(!hoveringTarget || !(hoveringTarget instanceof IClassifier),
       'the currentTarget should point to the vertex root, only classifier should be retrieved.', hoveringTarget, e, html2);
+    console.log('linkable ? ', hoveringTarget, edge, edge.canBeLinkedTo(hoveringTarget as any));
     const linkable: boolean = hoveringTarget instanceof IClass ? edge.canBeLinkedTo(hoveringTarget) : false;
     const size: GraphSize = hoveringTarget.getVertex().getSize();
     const width = 3;
@@ -957,7 +964,7 @@ export class IVertex {
     U.pe(!graph, 'Vertex should only be created after Graph initialization.');
     this.owner = graph; }
 
-  refreshGUI(): void { this.draw(); }
+  refreshGUI(): void { this.draw(); this.refreshEdgesGUI(); }
 
   refreshEdgesGUI(): void {
     const refEnd: IEdge[] = this.edgesEnd; // this.getReferencesEnd();

@@ -92,9 +92,9 @@ export abstract class IReference extends IFeature {
     this.clearTargets();
     super.copy(r, nameAppend, newParent);
     this.generateEdges();
-    this.edgeStyleCommon = r.edgeStyleCommon.clone();
-    this.edgeStyleHighlight = r.edgeStyleHighlight.clone();
-    this.edgeStyleSelected = r.edgeStyleSelected.clone();
+    this.edgeStyleCommon = r.edgeStyleCommon.duplicate();
+    this.edgeStyleHighlight = r.edgeStyleHighlight.duplicate();
+    this.edgeStyleSelected = r.edgeStyleSelected.duplicate();
     // this.typeClassFullnameStr = r.typeClassFullnameStr;
     if (newParent) { U.ArrayAdd(newParent.references, this); }
     this.refreshGUI();

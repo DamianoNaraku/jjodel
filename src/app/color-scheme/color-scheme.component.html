@@ -1,0 +1,61 @@
+<div id="colorSchemeEditorRoot" class="screenWideShadow" style="display: none">
+  <div class="popupContent" style="min-width: 75vw;">
+    <button class="btn btn-danger m-auto mr-2 p-0" style="width: 30px; height: 30px; position: absolute; right: 30px; top: 30px;" (click)="hide()">X</button>
+    <div class="d-flex w-100">
+      <h1 class="d-inline-flex m-auto">Color scheme editor</h1>
+    </div>
+    todo: il primo rigo deve essere website-wide color scheme (cannot be archived or deleted), e consenti di spostare gli stili sopra e sotto con frecce
+    <table class="table">
+      <thead>
+      <tr>
+        <th style="width: min-content">Delete</th>
+        <th style="width: min-content">Active</th>
+        <th style="min-width: 150px;">Name</th>
+        <th style="min-width: 220px;" title="to limit the activation scope of a color scheme">CSS scope selector</th>
+        <th style="min-width: 150px;" title='To manually access this color scheme colors as css variables.\nUse "var(--" + prefix + colorIndex + ")" in css'>Color prefix</th>
+        <th>Colors</th>
+        <th>Add Colors</th>
+        <th title="if many color schemes are conflicting due to same scope and access mode, the one with highest priority is applied">
+          <div class="rowContainer"><div class="rowChildren">Priority</div><div class="rowChildren">(ascending)</div></div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cs of this.colorSchemes; index as csindex">
+        <td class="">
+          <button class="ruledelete btn btn-danger" (click)="this.remove(cs)">X</button>
+        </td>
+        <td class="">
+          <input class="w-100" type="checkbox" (change)="this.toggleArchived(cs)" [checked]="cs.isActive">
+        </td>
+        <td class=""><input class="form-control input-group-text w-100" [value]="cs.name" (change)="this.changeName($event, cs)"/></td>
+        <td class=""><input class="form-control input-group-text w-100" [value]="cs.selector" (change)="this.changeSelector($event, cs)"/></td>
+        <td class=""><input class="form-control input-group-text w-100" [value]="cs.colorPrefix" (change)="this.changeColorPrefix($event, cs)"/></td>
+        <td class="p-0 rowcontainer">
+          <div class="d-flex flex-wrap" style="margin:4px; justify-content: start;">
+              <span *ngFor="let color of cs.foreColors; index as i">
+                <input style="width: 30px; height: 30px; margin: 2.5px;" type="color" [value]="color" [attr.valuetest]="color" (change)="this.changeColor($event, cs, cs.foreColors, i)">
+              </span>
+          </div>
+        </td>
+        <td style="white-space: nowrap;">
+          <button class="btn btn-outline-success p-0 mr-1" style="width: 30px; height: 30px" (click)="this.addColor($event, cs, cs.foreColors)">+</button>
+          <button class="btn btn-outline-danger p-0" style="width: 30px; height: 30px" (click)="this.removeColor($event, cs, cs.foreColors)">-</button>
+        </td>
+        <td class="">
+          <button class="d-block m-auto move btn btn-outline-secondary w-30 h-30 pt-0 pb-0" (click)="this.move($event, cs, csindex, -1)">↑</button>
+          <button style="margin: auto" class="d-block move btn btn-outline-secondary w-30 h-30 pt-0 pb-0 mt-1" (click)="this.move($event, cs, csindex, +1)">⇣</button>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="8"><button class="btn btn-success btn-lg w-100" (click)="addCS()">+</button></td>
+      </tr>
+      </tfoot>
+    </table>
+
+    <p style="white-space: pre;">{{this.styleStr}}</p>
+    <style>{{this.styleStr}}</style>
+  </div>
+</div>

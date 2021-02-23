@@ -56,6 +56,26 @@ export class MClass extends IClass {
     this.parse(json, true);
   }
 
+  getAttribute(name: string, caseSensitive: boolean = false): MAttribute {
+    let i: number;
+    if (!caseSensitive) { name = name.toLowerCase(); }
+    let attributes: MAttribute[] = [...this.getAllAttributes()];
+    for (i = 0; i < attributes.length; i++) {
+      const s: string = attributes[i].metaParent.name;
+      if ((caseSensitive ? s : s.toLowerCase()) === name) { return attributes[i]; } }
+    return null; }
+
+  getReference(name: string, caseSensitive: boolean = false): MReference {
+    let i: number;
+    if (!caseSensitive) { name = name.toLowerCase(); }
+    let references: MReference[] = [...this.getAllReferences()];
+    for (i = 0; i < references.length; i++) {
+      const s1: string = references[i].metaParent.name;
+      console.log('find IReference[' + s1 + '] =?= ' + name + ' ? ' + (caseSensitive ? s1 : s1 && s1.toLowerCase()) === name);
+      if ((caseSensitive ? s1 : s1 && s1.toLowerCase()) === name) { return references[i]; } }
+    return null; }
+
+
   public doUnsetExtends(superclass: M2Class): void {
     if (!superclass) return;
     let i: number;
@@ -244,6 +264,9 @@ export class MClass extends IClass {
           { "-name": "asd" }             <-- class[1]
         ]
       }*/
+    // todo big bug: se un m1-object ha una reference a Mammifero{ età }, ma io gli assegno Balena{ età, peso }, si aspetta di trovare solo {età}
+    // ma potrei avergli assegnato una balena con anche il peso, e lui in questo parse assume che sia solo un mammifero senza peso.
+    // l'errore è sin da prima del parse, è quando gli passo il metaParent proprio
     const inlineMarker: string = Status.status.XMLinlineMarker;
     for (let key in json) {
       if (!json.hasOwnProperty(key)) { continue; }
@@ -278,7 +301,7 @@ export class MClass extends IClass {
             this.references[rindex].parse(value, true);
 
           } else {
-            U.pe(true, 'm1 model attribute-or-reference type not found. class:', this, ', json:', json,
+            U.pw(true, 'm1 model attribute-or-reference type not found. class:', this, ', json:', json,
               'key/name:', key, ', Iclass:', this.metaParent); }
           break;
       }
@@ -332,11 +355,19 @@ export class MClass extends IClass {
   }
 
 
-  getChildrenIndex_ByMetaParent(meta: ModelPiece): number { return MClass.getArrayIndex_ByMetaParentID(meta.id, this.childrens); }
-  getAttributeIndex_ByMetaParent(meta: IAttribute): number { return MClass.getArrayIndex_ByMetaParentID(meta.id, this.attributes); }
-  getReferenceIndex_ByMetaParent(meta: IReference): number { return MClass.getArrayIndex_ByMetaParentID(meta.id, this.references); }
+  getChildrenIndex_ByMetaParent(meta: ModelPiece): number {
+    const arr: ModelPiece[] = this.getAllChildrens(true, true, true, true, false);
+    return MClass.getArrayIndex_ByMetaParentID(meta.id, arr); }
 
-  static getArrayIndex_ByMetaParentID(id: number, array: ModelPiece[]): number {
+  getAttributeIndex_ByMetaParent(meta: M2Attribute): number {
+    const arr: MAttribute[] = [...this.getAllAttributes()];
+    return MClass.getArrayIndex_ByMetaParentID(meta.id, arr); }
+
+  getReferenceIndex_ByMetaParent(meta: M2Reference): number {
+    const arr: MReference[] = [...this.getAllReferences()];
+    return MClass.getArrayIndex_ByMetaParentID(meta.id, arr); }
+
+  private static getArrayIndex_ByMetaParentID(id: number, array: ModelPiece[]): number {
     let i = -1;
     while (++i < array.length) { if (id === array[i].metaParent.id) { return i; } }
     return -1; }

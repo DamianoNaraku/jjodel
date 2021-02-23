@@ -41,7 +41,7 @@ export class M2Package extends IPackage {
     return super.getClass(name, caseSensitive, throwErr, debug) as M2Class; }
 
   addEmptyClass(): M2Class {
-    const c = new M2Class(this, null);
+    const c = new M2Class(this, null, false);
     if (Status.status.loadedLogic) { c.generateVertex(); }
     console.log('addEmptyClass(); package:', this, 'classe:', c);
     Type.updateTypeSelectors(null, false, false, true);

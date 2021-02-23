@@ -184,13 +184,13 @@ export abstract class IModel extends ModelPiece {
     if (this instanceof Model) { return 'Model'.toLowerCase(); }
     U.pe(true, 'unexpected'); return 'error'; }
 
-    getLastView(): ViewPoint {
-      let i: number;
-      for (i = this.viewpoints.length; --i >= 0; ) {
-        const vp: ViewPoint = this.viewpoints[i];
-        if (vp.isApplied) return vp; }
-      return null;
-    }
+  getForemostView(allowDisabled: boolean = false): ViewPoint {
+    let i: number;
+    let vp = this.viewpoints.sort( ViewPoint.sortCriteria );
+    for (i = 0; i < vp.length; i++) {
+      const vp: ViewPoint = this.viewpoints[i];
+      if (allowDisabled || vp.isApplied) return vp; }
+    return null; }
 
   public static getByName(name: string): IModel {
     if (Status.status.mmm.fullname() === name) return Status.status.mmm;

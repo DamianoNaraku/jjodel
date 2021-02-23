@@ -123,8 +123,9 @@ export class MReference extends IReference {
   getType(): Type { return (this.metaParent ? this.metaParent.getType() : null); }
 
   canBeLinkedTo(hoveringTarget: MClass): boolean {
-    const c1: M2Class = this.getType().classType;
-    const c2: M2Class = hoveringTarget.metaParent;
+    const c1: M2Class = hoveringTarget.metaParent;
+    const c2: M2Class = this.getType().classType;
+    console.log('canbelinkedm1 ? ', c1, c2);
     return c1.isExtending(c2, true); }
 
   // link(targetStr?: string, debug?: boolean): void { throw new Error('mreference.linkByStr() should never be called'); }

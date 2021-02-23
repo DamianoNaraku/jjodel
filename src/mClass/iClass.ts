@@ -201,9 +201,9 @@ export abstract class IClass extends IClassifier {
     this.attributes = [];
     this.references = [];
     this.edges = [];
-    this.edgeStyleCommon = other.edgeStyleCommon.clone();
-    this.edgeStyleHighlight = other.edgeStyleHighlight.clone();
-    this.edgeStyleSelected = other.edgeStyleSelected.clone();
+    this.edgeStyleCommon = other.edgeStyleCommon.duplicate();
+    this.edgeStyleHighlight = other.edgeStyleHighlight.duplicate();
+    this.edgeStyleSelected = other.edgeStyleSelected.duplicate();
     let i: number;
     for ( i = 0; i < this.childrens.length; i++) {
       const child: Typedd = this.childrens[i];

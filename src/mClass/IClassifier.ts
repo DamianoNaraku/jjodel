@@ -65,8 +65,8 @@ export abstract class IClassifier extends ModelPiece{
     if (this.sidebarHtml) { return this.sidebarHtml; }
     return IClassifier.defaultSidebarHtml(); }
 
-  setName(value: string, refreshGUI: boolean = false): string {
-    super.setName(value, refreshGUI);
+  setName(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true): string {
+    super.setName(value, refreshGUI, warnDuplicateFix);
     if (refreshGUI) this.refreshInstancesGUI();
     // for (i = 0; model && i < model.instances.length; i++) { model.instances[i].sidebar.fullnameChanged(oldName, this.name); }
     Type.updateTypeSelectors(null, false, true, true);

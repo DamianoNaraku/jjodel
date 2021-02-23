@@ -117,11 +117,11 @@ export class M2Class extends IClass {
   // isRoot(): boolean { U.pe(true, 'm2 class cannot be roots.'); return false; }
   // setRoot(value: boolean): void { U.pe(true, 'only usable in model version'); }
 
-  constructor(pkg: M2Package, json: Json) {
+  constructor(pkg: M2Package, json: Json, allowWarning: boolean = true) {
     super(pkg, Status.status.mmm.getAllClasses()[0]);
     this.instances = [];
     if (!pkg && !json) { return; } // empty constructor for .duplicate();
-    this.parse(json, true);
+    this.parse(json, true, allowWarning);
   }
 
   getAllSuperClasses(plusThis: boolean = false): M2Class[] {
@@ -360,11 +360,11 @@ export class M2Class extends IClass {
     if (this instanceof Model) { return str; }
     return str + ':' + this.name; }
 
-  parse(json: Json, destructive: boolean) {
+  parse(json: Json, destructive: boolean, allowWarning: boolean = true) {
 //     console.log('M2Class.parse(); json:', json, '; metaVersion: ', this.metaParent, 'this:', this);
     /// own attributes.
     this.extendEdges = [];
-    this.setName(Json.read<string>(json, ECoreClass.namee, 'Class_1'), false);
+    this.setName(Json.read<string>(json, ECoreClass.namee, 'Class_1'), false, allowWarning);
     let key: string;
     for (key in json) {
       switch (key) {

@@ -112,7 +112,7 @@ export class DamContextMenuComponent implements OnInit {
     // magari era un mousedown di selezione su un input terminato con mouseup su un button
 
     const clickedOutside = !U.isParentOf(this.html, originalTarget);
-    console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
+    // console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
 
     if (isButton || clickedOutside || !isInput && !isDisabled && !focused) { this.hide(); }
 

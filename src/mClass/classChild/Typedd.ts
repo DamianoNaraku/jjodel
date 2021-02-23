@@ -56,8 +56,14 @@ export abstract class Typedd extends ModelPiece {
     return; }*/
 
   fieldChanged(e: JQuery.ChangeEvent, ignoreSwitch: boolean = false): void {
+    const graph = this.getModelRoot().graph;
+    console.log('fieldchanged typedd', e);
+    if (!e) {
+      // this.refreshGUI();
+      graph.propertyBar.refreshGUI();
+      return;
+    }
     const html: HTMLElement = e.currentTarget;
-    const graph: IGraph = this.getModelRoot().graph;
     const fromGraph: boolean = U.isParentOf(graph.container, html);
     const fromSidebar: boolean = U.isParentOf(graph.propertyBar.container, html);
     if (!ignoreSwitch) switch (html.tagName.toLowerCase()) {

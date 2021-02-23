@@ -274,6 +274,23 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addf('Import / Export / Reset of viewpoint and vertices positions',
       'Accessible through the top-bar, can be used to share a viewpoint while waiting for the store.\n' +
       'Resetting the viewpoint might fix errors caused by a wrong customization of a viewpoint.', null, true);
+
+
+
+
+    v = new VersionUpload(new Date('2021/01/23'), 'Hiding elements', '');
+    v.addf('Hiding edges',
+      'Edges can now be hidden according to source and target vertexes.\n' +
+      'To hide all edges incoming/emitted by a vertex, set keep-edges="false" on his root element.\n' +
+      'GUI support will come at a later time.', null, false);
+    v.addf('Hiding bertices',
+      'Vertices can now be hidden simply by deleting their root node inside style editor.', null, false);
+    v.addb('Loading edges',
+      'Edges are loading on wrong position during initial render, it will be fixed by hovering on them or changing viewpoint.' +
+      ' Looking for a solution.', null, false);
+    v.addbf('Loading customized default style',
+      'Fixed a failure in loading a viewpoint with a <b>"customized default"</b> style (3° layer, last customizable priority level).',
+      null, true);
     let searchterm = 'clog addbf ';
 
     // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');

@@ -158,8 +158,9 @@ export class MAttribute extends IAttribute {
   }
 
   fieldChanged(e: ChangeEvent) {
-    const html: HTMLElement = e.currentTarget;
-    switch (html.tagName.toLowerCase()) {
+    console.log('fieldchanged m1 attr', e);
+    const html: HTMLElement = e && e.currentTarget;
+    if (e) switch (html.tagName.toLowerCase()) {
       default: U.pe(true, 'unexpected tag:', html.tagName, ' of:', html, 'in event:', e); break;
       case 'textarea':
       case 'input':

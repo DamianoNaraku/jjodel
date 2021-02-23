@@ -85,6 +85,9 @@ export class PropertyBarr {
     this.selectedModelPiece = null;
     const $root: JQuery<HTMLElement> = this.get$root();
     this.container = $root.find('.propertySidebarCurrentContent')[0] as HTMLElement;
+    $($root[0].parentElement).on('contextmenu', (e: ContextMenuEvent) => {
+      e.stopPropagation();
+    });
     this.templateContainer = $root.find('.propertySidebarTemplates')[0] as HTMLElement;
     U.pe( !this.container, 'property bar shell not found in: ', $root);
     U.pe( !this.templateContainer, 'property bar template shell not found in: ', $root);
@@ -106,6 +109,7 @@ export class PropertyBarr {
     U.pe(index === -1, 'invalid selector to keep:', keep, toremove);
     // toremove = toremove.substr(0, index - 1) + toremove.substr(index + keep.length);
     $html.find(toremove).not(keep).remove(); }
+
   private getTemplate(o: ModelPiece, selector: string = 'propertySidebarTemplates', root: HTMLElement = null): JQuery<HTMLElement> {
     // selector = '.propertySidebarTemplates';
     // if (!root) { root = this.templateContainer; }

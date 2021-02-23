@@ -44,8 +44,13 @@
       <tr><td colspan="2"><label><input type="color" class="gridColor2">Grid color 2</label></td></tr>
       </tbody></table>
 
+      <label class="onlyVerticalContainer">
+        <button class="btn btn-primary colorschemeopener">Manage color scheme</button>
+      </label>
+
       <label class="onlyVerticalContainer" uif="!running">
-        <button class="btn btn-primary layout start dynamic_uif">Start auto-layouting</button></label>
+        <button class="btn btn-primary layout start dynamic_uif">Start auto-layouting</button>
+      </label>
 
 
       <div class="layoutingRoot" uif="running">
@@ -203,6 +208,8 @@
     </div>
 
     <div class="template htmlstyle">
+      <!-- start of level header -->
+      <app-csseditor></app-csseditor>
       <div class="top">
         <label class="colChild">
           <div class="roww">
@@ -218,8 +225,113 @@
         <button class="btn btn-danger styledelete" matTooltip="Remove style customization">X</button>
         <button class="helpButton btn btn-info" matTooltip="todo: explain .EndPoint, .TypeSelector, .ClassSelector...">?</button>
       </div>
-      <label class="allowEdit"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class="allowEdit btn btn-secondary">Make it</button></label>
-      <div contenteditable="true" class="html" placeholder="Html for $##name$ (m2 class)."></div>
+      <!-- end of level header -->
+      <div class="cssdetailleveltoggler2">
+        <ul class="UtabHeaderContainer" style="background-color: inherit;">
+          <li class="UtabHeader" selected="true" data-toggle="collapse" data-target=".cssdetailleveltoggler2 .collapse.c1">
+            <span>
+              Simplified editor
+            </span>
+          </li>
+          <li class="UtabHeader" selected="true" data-toggle="collapse" data-target=".cssdetailleveltoggler2 .collapse.c2">
+            <span>
+              Full editor
+            </span>
+          </li>
+        </ul>
+
+        <div class="collapse c1" data-parent=".cssdetailleveltoggler2">
+          <!-- start of css editor -->
+          <div class="csseditorroot">
+            <h4>Color scheme selector</h4>
+            <div class="cschemeroot">
+
+              <span class="dropdown cscheme w-auto">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" fillwithvalue1>NOT INIT</button>
+                <div class="dropdown-menu w-100">
+                  <li class="dropdown-item" data-csname="custom">
+                      <div class="text-center" value1>Custom</div>
+                      <div class="cscheme default" value2>
+                        <div class="colorblock empty"></div>
+                        <div class="colorblock empty"></div>
+                        <div class="colorblock empty"></div>
+                        <div class="colorblock empty"></div>
+                      </div>
+                  </li>
+                  <li class="dropdown-item template" data-csname="tofill">
+                    <div class="text-center" value1></div>
+                    <div class="cscheme" value2></div>
+                  </li>
+                </div>
+              </span>
+
+              <div class="cscheme">
+                <div class="cscheme active" fillwithvalue2></div>
+              </div>
+
+            </div>
+
+            <div class="css_editor" uif="isCustomized">
+              <h4>Css / color customizer</h4>
+              <div class="roww addclass">
+                <input list="currentNodeClassList">
+                <button class="btn btn-success addselector">Add element</button>
+              </div>
+              <div>
+                <div class="roww cssBlocksContainer">
+                  <div class="cssprop template roww">
+                    <div class="g g0">
+                      <button class="btn btn-danger delcssprop">X</button>
+                    </div>
+                    <input class="form-group g1 cssprop" list="cssrules" value="border">
+                    <div class="g g0">
+                      <span>:</span>
+                    </div>
+                    <input class="form-group cssval g1 cssval" placeholder="ph autocomplete todo">
+                  </div>
+                  <div class="cssblock template">
+                    <div class="colorPicker roww">
+                      <div class="g g0">
+                        <button class="btn btn-danger delcssprop">X</button>
+                      </div>
+                      <div class="g g3"><span class="title selector">SELECTOR_TOFILL</span></div>
+                      <div class="g g1 mr-1 fontstyle" style="flex-grow: 0;"><label class="c fc" style="margin-bottom: 15px;">
+                        <div class="horizontalContainer verticalContainer"><span class="HorizontalChild">Font</span></div>
+                        <input type="color" value="#000000" class="m-0" style="background: transparent;">
+                        <input type="range" class="form-control-range opacity" min="0" max="1" step="any">
+                      </label></div>
+                      <div class="g g1 mr-1 backstyle" style="flex-grow: 0;"><label class="c bc" style="margin-bottom: 15px;">
+                        <div class="horizontalContainer verticalContainer"><span class="HorizontalChild">Font</span></div>
+                        <input type="color" value="#ffffff" class="m-0" style="background: transparent;">
+                        <input type="range" class="form-control-range opacity" min="0" max="1" step="any">
+                      </label></div>
+                      <div class="g g2"><button class="btn btn-primary rc" data-toggle="collapse" data-target="#ac1"><span class="rulecount">X</span> css</button></div>
+                    </div>
+                    <div id="ac1" class="csscontainer collapse">
+                    <div class="d-flex csspropcontainer">
+                      <button class="btn btn-success m-auto addcssprop">Add css rule</button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+
+          </div>
+          <!-- end of css editor -->
+        </div>
+        <div class="collapse c2 show" data-parent=".cssdetailleveltoggler2">
+          <!-- start of html editor -->
+          <label class="allowEdit"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class="allowEdit btn btn-secondary">Make it</button></label>
+          <div contenteditable="true" class="html" placeholder="Html for $##name$ (m2 class)."></div>
+          <!-- end of html editor -->
+        </div>
+
+      </div>
+
 
       <!--
       <div class="roww nowrap detailButtonContainer">
@@ -361,11 +473,9 @@
       </div> -->
 
       <!-- start of new measurable -->
-
       <div class="columnContainer"><div class="measurablePlaceholder"></div></div>
-
-
       <!-- end of new measurable -->
+
     </div>
 
     <div class="template modelpiece">

@@ -39,6 +39,7 @@ import ChangeEvent = JQuery.ChangeEvent;
 import {StartDragContext} from './Vertex/iVertex';
 import ContextMenuEvent = JQuery.ContextMenuEvent;
 import {Layouting} from './Layouting';
+import {Keystrokes} from '../../common/util';
 
 
 export class ViewPointShell {
@@ -113,39 +114,61 @@ export class ViewPointShell {
     this.ignoreEvents = true;
     if (changingGuiChecked) {
       for (i = 0; i < this.checkboxes.length; i++) { this.checkboxes[i].checked = false; }
-      this.graph.model.refreshGUI_Alone();
+     // this.graph.model.refreshGUI_Alone();
     }
     const defaultradio: HTMLInputElement = this.$html.find('input[type="radio"]')[0] as HTMLInputElement;
     defaultradio.checked = true;
     this.ignoreEvents = false;
+    this.refreshApplied();
   }
+
   refreshApplied(): void {
     // this.undoAll(false);
     let i: number;
     let stylecustomized: boolean = false;
     const makeSureAllCheckboxesAreProcessed: HTMLInputElement[] = this.checkboxes.slice();
+    this.graph.propertyBar.styleEditor.hide();
     for (i = this.model.viewpoints.length; --i >= 0; ) {
       const vp: ViewPoint = this.model.viewpoints[i];
       const checkbox: HTMLInputElement = this.getCheckbox(vp);
       U.pe(!checkbox, 'failed to get checkbox of:', vp, this);
       U.arrayRemoveAll(makeSureAllCheckboxesAreProcessed, checkbox);
       stylecustomized = stylecustomized || checkbox.checked;
-      if (vp.isApplied === checkbox.checked) { continue; }
-      if (vp.isApplied) { vp.detach(); } else { vp.apply(); }
-    }/*
-    for (i = 0; i < makeSureAllCheckboxesAreProcessed.length; i++) {
-      const cbox: HTMLInputElement = makeSureAllCheckboxesAreProcessed[i];
-      const vp = ViewPoint.getbyID(+cbox.dataset.vpid);
-      if (vp.isApplied === checkbox.checked) { continue; }
-      if (vp.isApplied) { vp.detach(); } else { vp.apply(); }
-    }*/
-    U.pe(!!makeSureAllCheckboxesAreProcessed.length, 'Error: some checkbox are not yet processed.', makeSureAllCheckboxesAreProcessed, this);
-    // U.pe(true, 'stopped here still works? 2');
+      vp.apply();
+      vp.isApplied = checkbox.checked;
+      // if (vp.isApplied === checkbox.checked) { continue; }
+      // if (vp.isApplied) { vp.detach(); } else { vp.apply(); } // just used to set isapplied
+    }
     const defaultradio: HTMLInputElement = this.$html.find('input[type="radio"]')[0] as HTMLInputElement;
     defaultradio.checked = !stylecustomized;
     this.updatelastvp();
-    this.graph.model.refreshGUI_Alone();
-    this.graph.propertyBar.refreshGUI();
+    const isM2: boolean = true; // this.graph.model.isM2(); per qualche motivo è false se cambio una checkbox in m2, ha collegato modello sbagliato?
+
+    if (stylecustomized) {
+      this.graph.model.refreshGUI();
+      if (isM2) Status.status.m.refreshGUI();
+      this.graph.propertyBar.styleEditor.show();
+      if (isM2) { Status.status.m.graph.propertyBar.styleEditor.show(); }
+    }
+    else {
+      try {
+        this.graph.model.refreshGUI_Alone();
+      } catch(e) {
+        console.error('error while disabling all vp(0):', e);
+        this.graph.propertyBar.styleEditor.hide();
+      }
+    }
+    setTimeout( () => {
+      if (isM2)
+        try {
+          Status.status.m.refreshGUI();
+        } catch(e) {
+          console.error('error while disabling all vp(1):', e);
+          Status.status.m.graph.propertyBar.styleEditor.hide(); }
+
+      this.graph.propertyBar.styleEditor.show();
+      if (isM2) Status.status.m.graph.propertyBar.styleEditor.show();
+    }, 10);
   }
   duplicateEvent(e: ClickEvent, oldvp: ViewPoint, oldvpCheckbox: HTMLInputElement, debug: boolean = false): void {
     U.pif(debug, 'duplicate(' + (oldvp ? oldvp.name : null) + ') Start:', this.model.viewpoints);
@@ -186,16 +209,20 @@ export class ViewPointShell {
       //
       // $rename.hide(); $delete.hide(); $duplicate.hide();
     });
-    const inputConfirm = (confirm: boolean = true) => {
-      if (confirm) { v.setname(input.name); }
+    const inputConfirm = (key: string) => {
+      console.log('vprename ?', key);
+      switch (key) {
+        default: return;
+        case Keystrokes.numpadEnter:
+        case Keystrokes.enter: v.setname(input.value); break;
+        case Keystrokes.escape: break; }
+      let oldVal = input.value;
       input.value = v.name;
       input.readOnly = true;
-      // $rename.show();
-      // $delete.show();
-      // $duplicate.show();
+      console.log('vprename ok:', v.name, input.value, oldVal);
     };
-    $input.on('keydown', (e: KeyDownEvent) => { if (e.key === 'return') { inputConfirm(true); } else if (e.key === 'escape') { inputConfirm(false); }});
-    $input.on('blur', (e: BlurEvent) => { inputConfirm(false); });
+    $input.on('keydown', (e: KeyDownEvent) => { inputConfirm(e.key); });
+    $input.on('blur', (e: BlurEvent) => { inputConfirm(Keystrokes.enter); });
     $input.on('click', (e: ClickEvent) => {
       // todo: se non lo fa già di suo: (per triggerare default.click() = this.undoAll();
       // if (input.readOnly) { this.undoAll(true); }
@@ -204,18 +231,24 @@ export class ViewPointShell {
     input.value = v.name;
     checkbox.checked = v.isApplied;
     $checkbox.on('change', (e: ChangeEvent): boolean => {
+      const checkbox: HTMLElement = e.currentTarget;
+      const vp: ViewPoint = ViewPoint.getByID( +checkbox.dataset.vpid);
+      vp.runtimeorder = ViewPoint.LAST_ORDER++;
+      console.log('changed cbox:', checkbox);
       if (this.ignoreEvents) { e.preventDefault(); return false; }
-      this.refreshApplied();
+      setTimeout( () => this.refreshApplied(), 1); // devo dare tempo alla checkbox di settarsi
       return true; });
     if (allowApply && v.isApplied) {
       $checkbox.trigger('change');
     }
     li.classList.remove('template');
+    li.classList.add ( "linkedToModel_" + this.model.getPrefix() );
     this.html.appendChild(li);
   }
+
   updatelastvp(): void {
     this.$html.find('li[islastvp]').removeAttr('islastvp');
-    const vp: ViewPoint = this.model.getLastView();
+    const vp: ViewPoint = this.model.getForemostView();
     console.log('updatelastvp() ', this.model.viewpoints, this.getViewpointGUI, this);
     if (!vp) return;
     this.lastVP = vp;

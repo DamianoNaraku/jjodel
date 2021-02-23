@@ -184,6 +184,7 @@ export class Type {
     if (this.typestr === '???void') this.printablename = 'void';
     U.pe(!this.printablename, this);
   }
+
   private applyTypeStr0(): void {
     const debug = false;
     let i: number;

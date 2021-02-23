@@ -194,7 +194,7 @@ export class EOperation extends Typedd {
     let parameterStr = '';
     maxarguments = Math.min(maxarguments, this.childrens.length);
     let i: number;
-    const debug: boolean = true;
+    const debug: boolean = false;
     const separator = ', ';
     for (i = 0; i < maxarguments; i++) {
       if (i !== 0) { parameterStr += separator; }

@@ -1,4 +1,4 @@
-::ng-deep :root  {/* css variables */
+::ng-deep body {/* css variables */
   --topbarH: 40px;
   --sidebarW: 283px;
   --mainBorderWidth: 5px;
@@ -6,31 +6,55 @@
   --scrollbarW: 0px;
   --tabH: 30px;
   --bluebordercolor: #0084ff;
-
+/*
   --mainFontColor: transparent;
   --mainBackgroundColor: transparent;
   --mainBorderColor: transparent;
   --secondaryBorderColor: transparent;
   --popupBackgroundColor: transparent;
   --altBackgroundColor: var(--mainBorderColor);
-  --altFontColor: transparent;
-
+  --altFontColor: transparent;*/
+/*
   --DarkmainFontColor: #b2b2ba;
-  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;*/
-  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;*/
-  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;*/
+  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;* /
+  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;* /
+  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;* /
   --DarkpopupBackgroundColor: #44444c;
   --DarkaltBackgroundColor: var(--mainBorderColor);
   --DarkaltFontColor: var(--LightmainBorderColor);
-
-
+*/
+/*
   --LightmainFontColor: var(--DarksecondaryBorderColor);
   --LightmainBackgroundColor: white;
-  --LightmainBorderColor: #f0f0f0; /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/
-  --LightsecondaryBorderColor: #f5f5f5; /*#c5c5c5;*/
+  --LightmainBorderColor: #f0f0f0; /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;* /
+  --LightsecondaryBorderColor: #f5f5f5; /*#c5c5c5;* /
   --LightpopupBackgroundColor: var(--DarkmainBorderColor);
   --LightaltBackgroundColor: var(--mainBorderColor);
-  --LightaltFontColor: var(--DarkmainBorderColor);
+  --LightaltFontColor: var(--DarkmainBorderColor);*/
+/*
+  --color-1: #f5f5f5;
+  --color-2: #f0f0f0;
+  --color-3: var(--DarksecondaryBorderColor);
+  --color-4: var(--DarkmainBorderColor);
+  --color-bg-1: #ffffff;
+  --color-bg-2: var(--DarkmainBorderColor);
+  --color-bg-3: var(--mainBorderColor);*/
+
+  --LightmainFontColor: var(--color-3);
+  --LightmainBackgroundColor: var(--color-bg-1);
+  --LightmainBorderColor: var(--color-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/
+  --LightsecondaryBorderColor: var(--color-1); /*#c5c5c5;*/
+  --LightpopupBackgroundColor: var(--color-bg-2);
+  --LightaltBackgroundColor: var(--color-bg-3);
+  --LightaltFontColor: var(--color-4);
+
+  --mainFontColor: var(--color-3);
+  --mainBackgroundColor: var(--color-bg-1);
+  --mainBorderColor: var(--color-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/
+  --secondaryBorderColor: var(--color-1); /*#c5c5c5;*/
+  --popupBackgroundColor: var(--color-bg-2);
+  --altBackgroundColor: var(--color-bg-3);
+  --altFontColor: var(--color-4);
 }
 ::ng-deep *{
   box-sizing: border-box;
@@ -50,6 +74,9 @@
 ::ng-deep optgroup{
   color: black;
   background-color: white;
+}
+::ng-deep [title] {
+  cursor: help;
 }
 /*::-webkit-scrollbar {
 display: none;

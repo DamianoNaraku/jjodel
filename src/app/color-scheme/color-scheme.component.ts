@@ -1,0 +1,268 @@
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {U} from '../../common/Joiner';
+
+export class ColorScheme2{
+  private static maxID: number;
+  public static storageKey: string = 'jodelColorSchemes';
+  public id: number;
+  public name: string;
+  public selector: string;
+  public colorPrefix: string;
+  public isActive: boolean = true;
+  public foreColors: string[] = [];
+  // public backColors: string[] = [];
+  public static staticinit(): ColorScheme2[] {
+    const str: string = localStorage.getItem(ColorScheme2.storageKey) || '[]';
+    const arr: ColorScheme2[] = JSON.parse(str) || [];
+    ColorScheme2.maxID = arr.length ? Math.max( ...(arr.map((e, i) => { return e.id; }))) + 1 : 0;
+    return []; // arr; todo: rimetti array vero
+  }
+
+  constructor(name: string, selector: string, colorPrefix: string, isActive: boolean, foreColors: string[]) {
+    this.name = name || 'cs-1';
+    this.isActive = isActive;
+    this.foreColors = foreColors || [];
+    this.colorPrefix = colorPrefix || "color-";
+    this.selector = selector || this.autoGenerateSelector();
+  }
+
+  public autoGenerateSelector(): string { return '[color-scheme*="' + this.validateStringForCssVarName(this.name) + '"]'; }
+
+  clone(json: JSON): void {
+    let j: ColorScheme2 = json as any;
+    this.name = j.name;
+    // todo
+  }
+
+  static loadDefault(): ColorScheme2[]{
+    let i = 0;
+    const ret = [
+      new ColorScheme2('main theme light', 'body', 'color-', true,  ['#f5f5f5', '#f0f0f0', '#3c3c44', '#2e2f34']),
+      new ColorScheme2('main theme light bg', 'body', 'color-bg-', true, ['#ffffff', '#2e2f34']),
+      new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#364f6b', '#3fc1c9', '#f5f5f5', '#fc5185']),
+      new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#f9a828', '#ececeb', '#07617d', '#2e383f']),
+      new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#fa4659', '#effe40', '#a33e83', '#2eb872']),
+      new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#BE64FA', '#8459DE', '#5975DE', '#64ACFA']),
+    ];
+    return ret;
+  }
+
+  validateStringForCssVarName(name: string): string {
+    name = name.trim().replace(/\s/gi, '-');
+    name = name.replace(/([^a-z0-9_\-]+)/gi, '');
+    if (!name.length) { name = "color-scheme-1"; }
+    else if (!name.match(/^[a-zA-Z_]/)) { name += "_"; }
+    return name; }
+
+}
+
+@Component({
+  selector: 'app-color-scheme',
+  templateUrl: './color-scheme.component.html',
+  styleUrls: ['./color-scheme.component.css']
+})
+
+export class ColorSchemeComponent implements OnInit, OnDestroy {
+  public static cs: ColorSchemeComponent;
+  private static $html: JQuery<HTMLElement>;
+  private static $styleNode: JQuery<HTMLStyleElement>;
+  private static styleNode: HTMLStyleElement;
+  // public display: string;
+  public styleStr: string;
+  public colorSchemes: ColorScheme2[] = [];
+
+  constructor() {
+  }
+
+  ngOnDestroy() {
+    localStorage.setItem(ColorScheme2.storageKey, JSON.stringify(this.colorSchemes));
+  }
+
+  ngOnInit() {
+    ColorSchemeComponent.cs = this;
+    this.colorSchemes = ColorScheme2.staticinit();
+    if (this.colorSchemes.length === 0) { this.colorSchemes = ColorScheme2.loadDefault(); }
+    // this.display = 'none';
+    ColorSchemeComponent.$html = $('app-color-scheme > #colorSchemeEditorRoot');
+    ColorSchemeComponent.$styleNode = $('style#colorSchemeStyle');
+    ColorSchemeComponent.styleNode = ColorSchemeComponent.$styleNode[0];
+    this.updateCss();
+    ColorSchemeComponent.show();
+  }
+
+
+
+
+  toggleArchived(cs: ColorScheme2): void {
+    cs.isActive = !cs.isActive;
+    if (cs.isActive) this.enable(cs); else this.disable(cs);
+    this.updateCss();
+  }
+
+  private enable(cs: ColorScheme2): void {
+    U.arrayRemoveAll(this.colorSchemes, cs);
+    let lastActiveIndex = this.colorSchemes.length;
+    while (--lastActiveIndex) {
+      if (this.colorSchemes[lastActiveIndex].isActive) break;
+    }
+    U.insertAt(this.colorSchemes, lastActiveIndex + 1, cs);
+  }
+
+  private disable(cs: ColorScheme2): void { this.enable(cs); }
+  /*
+  disable(cs: ColorScheme2): void {
+    U.arrayRemoveAll(this.colorSchemes, cs);
+    let lastActiveIndex = this.colorSchemes.length;
+    while (--lastActiveIndex) {
+      if (this.colorSchemes[lastActiveIndex].isActive) break;
+    }
+    U.insertAt(this.colorSchemes, lastActiveIndex, cs);
+  }*/
+
+  removeColor($event: Event, cs: ColorScheme2, arr: string[]): void {
+    if (arr.length) arr.length = arr.length - 1;
+    this.updateCss();
+  }
+
+  changeColor($event: Event, cs: ColorScheme2, arr: string[], index: number): void {
+    const input: HTMLInputElement = $event.target as any;
+    arr[index] = input.value;
+    this.updateCss();
+  }
+
+  addColor($event: Event, cs: ColorScheme2, arr: string[]): void{
+    console.log('addColor(', $event, cs, arr);
+    const objarr: {r: number, g: number, b: number, a: number}[] = arr.map((e, i) => U.HexToHexObj(e));
+    const avg: {r: number, g: number, b: number, a: number} = {r:0, g:0, b:0, a:0};
+    let weights = [];
+    let lastVal: number = 1; // 2^0
+    const sum: number = Math.pow(2, objarr.length + 1) - 2; // perchè l'array parte da 2 invece che da 1
+    for (let i = 0; i < objarr.length; i++) { weights.push( (lastVal *= 2) / sum); }
+    if (objarr.length % 2 == 1) { weights = weights.reverse(); }
+
+    console.log('objarr:', objarr, weights, sum);
+    const randomPart = 0.5;
+    if (objarr) {
+      for (let i = objarr.length; --i >= 0;) {
+        const color = objarr[i];
+        const randomWeight = randomPart * (2 * Math.random() - 1);
+        console.log('randomWeight', randomWeight);
+        const weight = weights[i] * (1 + randomWeight);
+        avg.a += color.a ? color.a * weight : 0;
+        avg.r += color.r * weight;
+        avg.g += color.g * weight;
+        avg.b += color.b * weight;
+        console.log('objarr adding::', color, weight, {r:color.r * weight, g: color.g * weight, b: color.b * weight}, U.cloneObj(avg));
+      }/*
+      avg.a /= objarr.length;
+      avg.r /= objarr.length;
+      avg.g /= objarr.length;
+      avg.b /= objarr.length;*/
+    }
+    avg.a = Math.max(0, Math.min(255, avg.a));
+    avg.r = Math.max(0, Math.min(255, avg.r));
+    avg.g = Math.max(0, Math.min(255, avg.g));
+    avg.b = Math.max(0, Math.min(255, avg.b));
+    arr.push(U.colorObjToArgb(avg, '#', '').rgbhex);
+    // this.colorSchemes = this.colorSchemes;// force trigger change?
+    this.updateCss();
+  }
+
+  addCS(){
+    const lastCS: ColorScheme2 = this.colorSchemes[this.colorSchemes.length - 1];
+    const newCS: ColorScheme2 = new ColorScheme2(null, null, null, true, null);
+    newCS.foreColors = lastCS.foreColors.map( (e) => {
+      const color = U.HexToHexObj(e);
+      color.r = (color.r + 127) % 256;
+      color.g = (color.g + 127) % 256;
+      color.b = (color.b + 127) % 256;
+      color.a = (color.a + 127) % 256 || null;
+      return U.colorObjToArgb(color, '#', '').rgbhex;
+    });
+    const index = this.colorSchemes.push(newCS);
+    this.changeName(null, newCS, newCS.name);
+    newCS.selector = newCS.autoGenerateSelector();
+    this.updateCss();
+  }
+
+  remove(cs: ColorScheme2){
+    U.arrayRemoveAll(this.colorSchemes, cs);
+    this.updateCss();
+  }
+
+  private updateCss(): void{
+    // const scope = "body"; // ".Vertex";
+    let str = "";
+    for (let i = 0; i < this.colorSchemes.length; i++) {
+      let cs = this.colorSchemes[i];
+      if (!cs.isActive) continue;
+      str += cs.selector + ' {'; // '[color-scheme="' + cs.name + '"] {\n';
+      str += '        /***  ' + cs.name + "  ***/"
+      for (let j = 0; j < cs.foreColors.length; j++) {
+        const color = cs.foreColors[j];
+        str += "\n    --"+cs.colorPrefix + (1+j) + ": " + color + ";";
+      }
+      todo: --color-2 nel css default deve diventare un background (da app.component.ts)
+      /*
+      for (let j = 0; j < cs.backColors.length; j++) {
+        const color = cs.backColors[j];
+        str += "\n    back-color-" + j + ": " + color + ";";
+      }*/
+      str += "\n}\n\n";
+    }
+    // str += "body{ color: red !important; background-color: wheat !important;}"
+    this.styleStr = str;
+    ColorSchemeComponent.styleNode.innerHTML = this.styleStr;
+  }
+
+  move($event: MouseEvent, cs: ColorScheme2, csindex: number, direction: -1 | 1): void {
+    U.arrayRemoveAll(this.colorSchemes, cs);
+    if (csindex + direction === -1) { csindex = this.colorSchemes.length; (direction as any) = 0; }
+    else if (csindex + direction === this.colorSchemes.length + 1) { csindex = 0; (direction as any) = 0; }
+    U.insertAt(this.colorSchemes, csindex + direction, cs);
+    this.updateCss();
+  }
+
+  changeColorPrefix($event: Event, cs: ColorScheme2): void{
+    const input: HTMLInputElement = $event && $event.target as any;
+    cs.colorPrefix = cs.validateStringForCssVarName(input.value);
+    this.updateCss();
+  }
+
+  changeSelector($event: Event, cs: ColorScheme2): void{
+    const input: HTMLInputElement = $event && $event.target as any;
+    cs.selector = input.value;
+    this.updateCss();
+  }
+
+  changeName($event: Event, cs: ColorScheme2, namepar: string = null): void {
+    let regenerateSelector: boolean = cs.name && cs.autoGenerateSelector() === cs.selector;
+    const input: HTMLInputElement = $event && $event.target as any;
+    let name: string = namepar || input.value;
+    if (!namepar && cs.name === name) return;
+    const namearr: string[] = this.colorSchemes.map( (e, i) => e.name );
+    const names = U.ArrayToMap(namearr);
+    console.log('name map', names, namearr, 'name:', name);
+    while (names[name]) { name = U.increaseEndingNumber(name); }
+    // input.value =
+    cs.name = name;
+    // regenerateSelector = true;
+    if (regenerateSelector) cs.selector = cs.autoGenerateSelector();
+    this.updateCss();
+  }
+  hide(): void {
+    ColorSchemeComponent.$html.hide();
+    // this.display = 'none';
+    console.log("cs.hide()"); }
+/*
+  show(): void {
+    this.display = 'flex'; }*/
+
+  static show(): void {
+    // NB: il codice eseguito fuori da questo componente, o dentro componenti che NON hanno @ViewChild non viene osservato per cambiamenti,
+    // se modifico le variabili esternamente la grafica non viene aggiornata.
+    // quindi modifico direttamente html invece delle variabili
+    console.log("cs.show()");
+    ColorSchemeComponent.$html.show();
+  }
+}

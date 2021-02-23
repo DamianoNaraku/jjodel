@@ -6,12 +6,19 @@
 // /*new*/export {ViewHtmlSettings, ViewPoint, ViewRule, ModelView, PackageView, ClassView, AttributeView, EdgeViewRule, ReferenceView, OperationView,
 // ParameterView} from '../GuiStyles/viewpoint';
 
+
 export type MyException = any;
 import { default as AnsiUp } from 'ansi_up';
 export const ansiUp = new AnsiUp(); // https://github.com/drudru/ansi_up // ansi color formatter.
 
 import * as stringsimilarity from '../common/StringSimilarity.js';
-export let StringSimilarity = stringsimilarity;
+export const StringSimilarity = stringsimilarity;
+import { toCSS, toJSON } from 'cssjson';
+export const CSS = { toCSS, toJSON };
+export const JSCSS_CSSPARSER = window['CSSParser'] || {};
+/*import * as CSSS from 'css';
+export const CSS = CSSS;*/
+
 import "jqueryui";
 // import "jquery";
 import * as $$ from 'jquery';
@@ -30,7 +37,7 @@ export const prjson2xml = _pr_json2xml;
 export const prxml2json = _pr_xml2json;
 /*export const $$$: JQueryStatic = require('jquery-ui');
 export const $ui: JQueryStatic = $$$;*/
-
+export {VsCodeLayerIn, VsCodeLayerOut} from '../vscodeLayer/VsCodeLayer';
 export {ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule} from '../GuiStyles/viewpoint';
 export {LocalStorage} from '../Database/LocalStorage';
 export {ModelPiece, Info, ModelNone, StyleComplexEntry} from '../Model/modelPiece';
@@ -39,8 +46,8 @@ export {ModelPiece, Info, ModelNone, StyleComplexEntry} from '../Model/modelPiec
   ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel} from '../Model/iModel';
 export {ShortAttribETypes, U, Json, AttribETypes,
   InputPopup, DetectZoom, Dictionary,
-  IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput
-, TSON_JSTypes, TSON, TSON_UnsupportedTypes, TSONString} from './util';
+  IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput,
+  TSON_JSTypes, TSON, TSON_UnsupportedTypes, TSONString, GenericObject} from './util';
 export {
   MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules,
   MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl,

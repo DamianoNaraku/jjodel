@@ -120,7 +120,7 @@ export abstract class ModelPiece {
   name: string = null;
   // styleOfInstances:Element = null;
   // customStyleToErase: Element = null;
-//  styleobj: ModelPieceStyleEntry = null;
+  // styleobj: ModelPieceStyleEntry = null;
   key: number[] = null;
   views: ViewRule[] = null;
   annotations: EAnnotation[] = [];
@@ -383,6 +383,7 @@ export abstract class ModelPiece {
 
   abstract duplicate(nameAppend?: string, newParent?: ModelPiece): ModelPiece;
   // abstract conformability(metaparent: ModelPiece, outObj?: any/*.refPermutation, .attrPermutation*/, debug?: boolean): number;
+
   setName0(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true, key: string, allowEmpty: boolean): string {
     if (value === this['' + key]) return this['' + key];
     const valueOld: string = this['' + key];
@@ -414,7 +415,7 @@ export abstract class ModelPiece {
       const op = this as EOperation;
       this['' + key] = value;
       op.parent.checkViolations(true);
-    } else while (this.parent && this.parent['isChild' +  U.firstToUpper(key) + 'Taken'](value)) {
+    } else while (this.parent && this.parent['isChild' +  U.firstToUpper(key) + 'Taken'](value) && valueOld !== value) {
       nameFixed = true;
       value = U.increaseEndingNumber(value, false, false); }
     U.pe(nameFixed && (valueInputError === value), 'increaseEningNumber failed:', value, this, this.parent ? this.parent.childrens : null);
@@ -602,60 +603,68 @@ export abstract class ModelPiece {
 
   getInheritableStyle(): StyleComplexEntry {
     let i: number;
-    const ret: StyleComplexEntry = new StyleComplexEntry();
+    let matches: ViewRule[] = [];
     for (i = this.views.length; --i >= 0;) {
       let v: ViewRule = this.views[i];
       // if (!v.viewpoint.isApplied) continue;
-      if (!v.htmli || !v.htmli.getHtml()) continue;
-      ret.html = v.htmli.getHtml();
-      ret.htmlobj = v.htmli;
-      ret.view = v;
-      ret.ownermp = this;
-      ret.isinstanceshtml = true;
-      return ret; }
-    return null; }
+      if (!v.viewpoint.isApplied || !v.htmli || !v.htmli.getHtml()) continue;
+      matches.push(v); }
+    if (!matches.length) return null;
+    matches = matches.sort( ViewRule.sortCriteria );
+    const v: ViewRule = matches[0];
+    return v.toStyleComplexEntry(this, v.htmli, false, true, false, false); }
 
-  getInheritedStyle(): StyleComplexEntry { return this.metaParent ? this.metaParent.getInheritableStyle() : null; }
-  getStyle(): StyleComplexEntry {
+  getInheritedStyle_lv2(): StyleComplexEntry { return this.metaParent ? this.metaParent.getInheritableStyle() : null; }
+
+  getOwnStyle_lv1(): StyleComplexEntry {
     let j: number;
-    let i: number;
-    const ret: StyleComplexEntry = new StyleComplexEntry();
-    // level 1: own style
+    let matches: ViewRule[] = [];
     for (j = this.views.length; --j >= 0;){
       const v: ViewRule = this.views[j];
-      if (!v.htmlo || !v.htmlo.getHtml()) continue;
-      ret.html = v.htmlo.getHtml();
-      ret.htmlobj = v.htmlo;
-      ret.view = v;
-      ret.ownermp = this;
-      ret.isownhtml = true;
-      return ret; }
+      if (!v.viewpoint.isApplied || !v.htmlo || !v.htmlo.getHtml()) continue;
+      matches.push(v); }
+    if (!matches.length) return null;
+    matches = matches.sort( ViewRule.sortCriteria );
+    const v: ViewRule = matches[0];
+    return v.toStyleComplexEntry(this, v.htmlo, true, false, false, false); }
 
-    // level 2: inherited style
-    const tmpret = this.getInheritedStyle();
-    if (tmpret) return tmpret;
-
-    // level 3: prendo lo stile default user-made
+  getCustomGlobalStyle_lv3(): StyleComplexEntry {
     const model: IModel = this.getModelRoot();
-    for (j = model.viewpoints.length; --j >= 0;) {
-      const vp: ViewPoint = model.viewpoints[j];
+    let vparr: ViewPoint[] = model.viewpoints.sort( ViewPoint.sortCriteria );
+    for (let i = 0; i < vparr.length; i++) {
+      const vp: ViewPoint = vparr[i];
       if (!vp.isApplied) continue;
       const v: ViewRule = vp.getDefault(this, false);
-      if (!v) continue;
-      ret.html = v.htmlo.getHtml();
-      ret.htmlobj = v.htmlo;
-      ret.view = v;
-      ret.ownermp = this;
-      ret.isCustomGlobalhtml = true;
-      return ret; }
+      if (v) return v.toStyleComplexEntry(this, v.htmlo, false, false, true, false);
+    }
+    return null; }
 
-    // level 4: se fallisce tutto, prendo lo stile statico default
+  getGlobalStyle_lv4(): StyleComplexEntry {
+    const ret = new StyleComplexEntry();
     ret.html = this.getGlobalLevelStyle();
     ret.htmlobj = null;
     ret.view = null;
     ret.ownermp = null;
     ret.isGlobalhtml = true;
     return ret; }
+
+  public getStyle(): StyleComplexEntry {
+    let ret: StyleComplexEntry;
+
+    // level 1: own style
+    ret = this.getOwnStyle_lv1();
+    if (ret) return ret;
+
+    // level 2: inherited style
+    ret = this.getInheritedStyle_lv2();
+    if (ret) return ret;
+
+    // level 3: prendo lo stile default user-made
+    ret = this.getCustomGlobalStyle_lv3();
+    if (ret) return ret;
+
+    // level 4: se fallisce tutto, prendo lo stile statico default
+    return this.getGlobalStyle_lv4(); }
 
   /*
   getStyleOld(): ViewHtmlSettings { return this.views.getHtml(this); }
@@ -727,7 +736,12 @@ export abstract class ModelPiece {
     }
     return null; }
 
-  getLastView(): ViewRule { return this.views[this.views.length - 1]; }
+  getForemostView(allowDisabled: boolean = false): ViewRule {
+    const arr = this.views.sort(ViewRule.sortCriteria);
+    for (let i = 0; i < arr.length; i++) {
+      if (allowDisabled || arr[i].viewpoint.isApplied) return arr[i];
+    }
+    return null; }
   /*
     addView(v: ViewRule): void {
       // if (!v.viewpoint.viewsDictionary[this.id]) {  v.viewpoint.viewsDictionary[this.id] = []; }

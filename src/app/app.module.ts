@@ -66,8 +66,9 @@ import {
   WebsiteTheme,
   ChangelogRoot,
   TSON,
-  TSON_JSTypes, TSON_UnsupportedTypes, PropertyBarr, MeasurableEvalContext, InputPopup, ECoreEnum, MeasurableOperators,
+  TSON_JSTypes, TSON_UnsupportedTypes, PropertyBarr, MeasurableEvalContext, InputPopup, ECoreEnum, MeasurableOperators, VsCodeLayerIn, VsCodeLayerOut,
 } from '../common/Joiner';
+
 import { PropertyBarrComponent }   from '../guiElements/property-barr/property-barr.component';
 import { MGraphHtmlComponent }     from '../guiElements/m-graph-html/m-graph-html.component';
 import { DamContextMenuComponent } from '../guiElements/dam-context-menu/dam-context-menu.component';
@@ -82,28 +83,29 @@ import {Layouting} from '../guiElements/mGraph/Layouting';
 import {M2tcreatorComponent} from '../guiElements/top-bar/m2tcreator/m2tcreator.component';
 import {FormsModule} from '@angular/forms';
 import {User} from './User';
+import { ColorSchemeComponent } from './color-scheme/color-scheme.component';
 
 // @ts-ignore
 @NgModule({
-  declarations: [
-    AppComponent,
-    MminputComponent,
-    MmsidebarComponent,
-    MsidebarComponent,
-    IsidebarComponent,
-    TopBarComponent,
-    GraphTabHtmlComponent,
-    MmGraphHtmlComponent,
-    PropertyBarrComponent,
-    MGraphHtmlComponent,
-    DamContextMenuComponent,
-    StyleEditorComponent,
-    TopBarComponent,
-    ConsoleComponent,
-    MeasurabletemplateComponent,
-    M2tcreatorComponent,
-    /*BrowserAnimationsModule*/
-  ],
+    declarations:[
+        AppComponent,
+        MminputComponent,
+        MmsidebarComponent,
+        MsidebarComponent,
+        IsidebarComponent,
+        TopBarComponent,
+        GraphTabHtmlComponent,
+        MmGraphHtmlComponent,
+        PropertyBarrComponent,
+        MGraphHtmlComponent,
+        DamContextMenuComponent,
+        StyleEditorComponent,
+        ConsoleComponent,
+        M2tcreatorComponent,
+        ColorSchemeComponent,
+        MeasurabletemplateComponent,
+        /*BrowserAnimationsModule*/
+    ],
   imports:[
     BrowserModule,
     BrowserAnimationsModule,
@@ -117,6 +119,7 @@ import {User} from './User';
     TopBarComponent,
     ConsoleComponent,
     GraphTabHtmlComponent,
+    ColorSchemeComponent,
     MeasurabletemplateComponent],
   // aggiunto da me
   schemas: [
@@ -156,7 +159,7 @@ export class Status {
   mmGrid = new GraphPoint(20, 20);
   mGrid = new GraphPoint(20, 20);*/
   user: User = new User('mock_user');
-
+  isEmbed: boolean = window.parent !== window;
   constructor() { }
   save(): string {
     return 'TO DO: SERIALIZE'; }
@@ -187,25 +190,23 @@ export class Status {
 
 
 export function main0(loadEvent: Event, tentativi: number = 0) {
+  if (document.getElementById('MM_INPUT') === null) {
+    if (tentativi++ >= 10)  { U.pe(true, 'failed to load html'); }
+    console.log('main0 wait(100)');
+    setTimeout(() => main0(null, tentativi), 100);
+    return; }
+
   try {
     Status.status = new Status();
     (window as any).global = window;
-    // (window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;
-    if (document.getElementById('MM_INPUT') === null) {
-      if (tentativi++ >= 10)  { U.pe(true, 'failed to load MM_INPUT'); }
-      setTimeout(() => main0(null, tentativi), 100);
-      console.log('main0 wait(100)');
-      return; }// else { mainForceTabChange(0); }
-
-    // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.js');
-    // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.structure.js');
-    // U.loadScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js');
+    U.disableConsole();
     main();
     setTimeout(() => delayedMain(), 1);
   }
     catch (e) {
       const errormsg = 'initialization failed, this is likely caused by a failure on connection while downloading libraries or by unsupported browser.';
       console.error('first error:', e);
+      U.disableConsole();
       try { U.pw(true, errormsg); } catch(ee) { console.log('second error while printing:', ee); document.body.innerHTML = errormsg; }
     }
   // console.log('main(), $ loaded:', $ !== undefined, 'status: ', Status.status);
@@ -304,6 +305,7 @@ function globalevents(): void {
   window['Network'] = Network;
   window['Layouting'] = Layouting;
   window['TopBar'] = TopBar;
+  window['ColorSchemeComponent'] = ColorSchemeComponent;
   window['' + 'help'] = [
     'setBackup (backup <= saveToDB)',
     'backupSave (saveToDB <= backup)',
@@ -337,6 +339,14 @@ function globalevents(): void {
   window['' + 'setBackupGUI'] = () => { localStorage.setItem('backupGUI', localStorage.getItem('modelGraphSave_GUI_Damiano')); };
   window['' + 'setBackupMM'] = () => { localStorage.setItem('backupMM', localStorage.getItem('LastOpenedMM')); };
   window['' + 'setBackupM'] = () => { localStorage.setItem('backupM', localStorage.getItem('LastOpenedM')); };
+
+
+
+  $('#testbtn').on('click', function testClick(){
+    console.log("testbtn clicked");
+    VsCodeLayerOut.send({type:"jodel.test", body:{a:'a', b:5, c:{d:"nested test", e:2.7}}});
+  });
+
 }
 function setBootstrapOnLowestPriority() {
   let $s = $('style');
@@ -350,6 +360,7 @@ function main() {
   let tmp: any;
   let useless: any;
   let i: number;
+  VsCodeLayerIn.setupReceive();
   setBootstrapOnLowestPriority();
   (window as any).U = U;
   (window as any).status = Status.status;
@@ -388,8 +399,14 @@ function main() {
   EType.staticInit();
   DamContextMenuComponent.staticInit();
 
-  const savem2 = LocalStorage.getLastOpened(2);
-  const savem1 = LocalStorage.getLastOpened(1);
+  if (!Status.status.isEmbed) {
+    const savem2 = LocalStorage.getLastOpened(2);
+    const savem1 = LocalStorage.getLastOpened(1);
+    onModelsReceive(savem2, savem1);
+  }
+}
+export function onModelsReceive(savem2: {model: string, vertexpos: string, view: string}, savem1: {model: string, vertexpos: string, view: string}): void {
+  let useless: any;
   /*let MetaMetaModelStr = MetaMetaModel.emptyMetaMetaModel;
   let MetaModelinputStr = MetaModel.emptyModel;
   let ModelinputStr = Model.emptyModel;*/
@@ -461,7 +478,7 @@ function main() {
   // console.log(vpmatjson, Status.status.mm.graph.viewPointShell);
 
   // return;
-  let j: number;
+  let i:number, j: number;
   for (j = 0; j < vertexposMat.length; j++) {
     const vdic: Dictionary<string, GraphPoint> = vertexposMat[j];
     const m: IModel = marr[j];
@@ -477,9 +494,10 @@ function main() {
   }
 
   for (j = 0; j < vpmatjson.length; j++) {
-    const vparr: ViewPoint[] = vpmatjson[j] as ViewPoint[];
+    let vparr: ViewPoint[] = vpmatjson[j] as ViewPoint[];
     const m: IModel = marr[j];
     let v: ViewPoint;
+    vparr = vparr.sort(ViewPoint.sortCriteria);
     for (i = 0; i < vparr.length; i++) {
       const jsonvp: ViewPoint = vparr[i];
       // console.clear();
@@ -487,6 +505,7 @@ function main() {
       v = new ViewPoint(m);
       v.clone(jsonvp);
       v.updateTarget(m);
+      v.runtimeorder = ViewPoint.LAST_ORDER++;
       m.graph.viewPointShell.add(v, false); // [persistent isApplied] STEP 1: qui setto checked sulla gui in base al v.isApplied salvato.
       v.isApplied = false; // STEP 2: qui affermo che non è stato ancora applicato
     }
@@ -513,11 +532,13 @@ function main() {
   // Options.Load(Status.status);
 
 }
+
 function delayedMain(): void {
 }
 
 function fakemain() {
 
 }
+
 window['' + 'main'] = main0;
 document.addEventListener('DOMContentLoaded', main0);

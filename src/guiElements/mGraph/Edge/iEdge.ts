@@ -284,6 +284,7 @@ export enum EdgeModes {
     const pt1IsOnHorizontalSide = !prevVertexSize ? null : U.isOnHorizontalEdges(prevPt, prevVertexSize);
     const pt2IsOnHorizontalSide = !nextVertexSize ? null : U.isOnHorizontalEdges(nextPt, nextVertexSize);
 
+    debug = false;
     // if (prevVertexSize) { prevPt = prevVertexSize} //IVertex.closestIntersection(); }
     if (debug) {
       U.cclear();
@@ -297,16 +298,17 @@ export enum EdgeModes {
     // return '';
     U.pif(debug, 'directions:', pt1IsOnHorizontalSide, pt2IsOnHorizontalSide);
     if (prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize)) {
-      U.pw(true, 'prev not on border', U.isOnEdge, prevPt, prevVertexSize);
+      U.pw(debug, 'prev not on border', U.isOnEdge, prevPt, prevVertexSize);
+      // può succedere quando cambi viewpoint in m2 che causa redraw e ridimensionamento in m1 mentre non è visibile.
       // return '';  può causare path di un solo punto (origine)
     }
     if (nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize)) {
-      U.pw(true, 'next not on border', U.isOnEdge, nextPt, nextVertexSize);
+      U.pw(debug, 'next not on border', U.isOnEdge, nextPt, nextVertexSize);
       // return '';  può causare path di un solo punto (origine)
     }
     // U.pe(prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize), 'not on border');
 
-    if (debug && prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize)) {
+    if (debug && (prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize))) {
       const g = Status.status.getActiveModel().graph;
       g.markg(prevPt, true, 'green');
       g.markgS(prevVertexSize, false, 'green');
@@ -430,7 +432,11 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     if (debugi === 1) return;
     // || this.start.size.isinside(this.end.size) ||  this.end.size.isinside(this.start.size
     // quando startpoint o endpoint sono dentro un vertice size
-    if (!this.midNodes.length && (this.start === this.end)) { //this.start.size.intersection(this.end.size))) {
+
+    if (!this.midNodes.length && (this.start === this.end)
+      || this.start && !this.start.isAllowingEdges()
+      || this.end && !this.end.isAllowingEdges()
+    ) { //this.start.size.intersection(this.end.size))) {
       $(this.shell).hide();
       return; } else $(this.shell).show();
 
@@ -857,6 +863,7 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     this.unsetTarget();
     this.end = v;
     if (v) { v.edgesEnd.push(this); } }
+
   mark(markb: boolean, key: string = 'errorGeneric', color: string = 'red'): void {
     U.pe(true, 'IEdge.mark() todo.');
   }

@@ -447,6 +447,7 @@ export class MeasurableRuleParts {
 
     let debug: boolean = this.prefix === measurableRules.export;
     const doRollback = () => {
+      return;
       console.trace('doing rollback');
       try{
         exportChanges0(rollbackContext, rollbackContext, true);

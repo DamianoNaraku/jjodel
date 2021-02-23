@@ -22,6 +22,7 @@ import {
 import {M2tcreatorComponent} from './m2tcreator/m2tcreator.component';
 import ChangeEvent = JQuery.ChangeEvent;
 import ClickEvent = JQuery.ClickEvent;
+import {ColorSchemeComponent} from '../../app/color-scheme/color-scheme.component';
 
 // @ts-ignore
 @Component({
@@ -228,11 +229,11 @@ export class TopBar {
     // type.changeAlias(input.value);
   }
 
-  static load_empty(e: JQuery.ClickEvent, prefix: string) {
+  static load_empty(e: JQuery.ClickEvent, prefix: 'mm' | 'm') {
     const empty: string = prefix === 'm' ? Model.emptyModel : MetaModel.emptyModel;
     TopBar.load(empty, prefix); }
 
-  static load_XMI_File(e: JQuery.ClickEvent, prefix: string) {
+  static load_XMI_File(e: JQuery.ClickEvent, prefix: 'mm' | 'm') {
     // filename:   rootClass.name + '.' + MetaModel.name;   es: path\league.bowling
     // open file dialog
     // read file
@@ -440,6 +441,7 @@ export class TopBar {
       const checkboxTriggered: HTMLInputElement = e.currentTarget;
       WebsiteTheme.setTheme(checkboxTriggered);
     });
+    $t.find('.colorschemeopener').on('click', (e: ClickEvent) => { ColorSchemeComponent.show(); } );
     $m2.find('.save').off('click.btn').on('click.btn', (e: ClickEvent) => { Status.status.mm.save(false, true); } );
     $m1.find('.save').off('click.btn').on('click.btn', (e: ClickEvent) => { Status.status.m.save(false, true); } );
 

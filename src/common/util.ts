@@ -1,15 +1,8 @@
 ﻿import {
-  IVertex,
-  IEdge,
-  IField,
-  IPackage,
-  M2Class,
-  IAttribute, IReference,
-  IFeature,
   ModelPiece, MetaMetaModel,
-  ISidebar, XMIModel,
+  ECoreClass, ECorePackage, ECoreRoot, ECoreOperation, ECoreAnnotation, ECoreEnum,
   IGraph, IModel, Status,
-  ECoreClass, ECorePackage, ECoreRoot, ECoreOperation, MAttribute, IClass, IClassifier, ECoreAnnotation, ECoreEnum, MyException, Measurable
+  XMIModel, MyException,
 } from './Joiner';
 
 import ClickEvent = JQuery.ClickEvent;
@@ -19,6 +12,7 @@ import MouseUpEvent = JQuery.MouseUpEvent;
 import ContextMenuEvent = JQuery.ContextMenuEvent;
 export class Dictionary<K = string, V = string> extends Object {}
 import * as detectzoooom            from 'detect-zoom'; // https://github.com/tombigel/detect-zoom broken 2013? but works
+export type GenericObject = { [key: string]: any };
 
 import KeyDownEvent = JQuery.KeyDownEvent;
 import MouseEnterEvent = JQuery.MouseEnterEvent;
@@ -32,6 +26,8 @@ import KeyPressEvent = JQuery.KeyPressEvent;
 import {split} from 'ts-node';
 import KeyUpEvent = JQuery.KeyUpEvent;
 import {isNewLine} from '@angular/compiler/src/chars';
+import {style} from '@angular/animations';
+import {by} from 'protractor';
 
   export class myFileReader {
   private static input: HTMLInputElement;
@@ -345,6 +341,31 @@ export class InputPopup {
 
 }
 
+export class CSSRuleSorted{
+    public all: CSSStyleRule[];
+
+    constructor(styleNode: HTMLStyleElement) {
+        const oldParent = styleNode.parentElement;
+        if (!oldParent) document.body.append(styleNode);
+        let cssRuleList: CSSRuleList = styleNode.sheet['cssRules'] || styleNode.sheet['rules'];
+        this.all = [...cssRuleList as any];
+        if (!oldParent) document.body.removeChild(styleNode);
+        // if (se aveva parent rimane attaccato lì e non serve fare questo) oldParent.append(styleNode);
+      }
+
+  public getCSSMediaRule(): CSSMediaRule[]{
+    return this.all.filter( (e, i): boolean => { return e instanceof CSSMediaRule; }) as any[];
+  }
+  public getCSSStyleRule(): CSSStyleRule[]{
+    return this.all.filter( (e, i): boolean  => { return e instanceof CSSStyleRule; }) as any[];
+  }
+  public notIn(list:CSSStyleRule[]): CSSStyleRule[] {
+    return this.all.filter( (e, i): boolean  => { return list.indexOf(e) !== -1; });
+  }
+}
+export class CSSParser {
+  static parse(styleNode: HTMLStyleElement): CSSRuleSorted { return new CSSRuleSorted(styleNode); }
+}
 export enum ShortAttribETypes {
   void = 'void',
   EChar  = 'Echar',
@@ -553,7 +574,8 @@ export class U {
     let str = 'Error:' + s + '';
     for (let i = 0; i < restArgs.length; i++) { str += '' + restArgs[i] + '\t\r\n'; }
     console.error(s, ...restArgs);
-    if (!U.production && false) { alert(str); } else { U.bootstrapPopup(str, 'danger', 5000); }
+    window['lastError'] = [restArgs];
+    U.bootstrapPopup(str, 'danger', 5000);
     return (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash']; }
 
   static pw(b: boolean, s: any, ...restArgs: any[]): string {
@@ -1026,9 +1048,10 @@ export class U {
 
   static toHtml<T extends Element>(html: string, container: Element = null, containerTag: string = 'div'): T {
     if (container === null) { container = document.createElement(containerTag); }
+    if (!html || html === '') return null;
     container.innerHTML = html;
     const ret: T = container.firstChild as any;
-    container.removeChild(ret);
+    if (ret) container.removeChild(ret);
     return ret; }
 
   static toBase64Image(html: Element, container: Element = null, containerTag: string = 'div'): string {
@@ -1316,10 +1339,9 @@ export class U {
       });
   }
 
-  static insertAt(arr: any[], index: number, elem: any) {
-    const oldl = arr.length;
-    const ret = arr.splice(index, 0, elem);
-    U.pe(oldl + 1 !== arr.length, oldl + ' --> ' + arr.length + '; arr not growing. ret:', ret, arr);
+  static insertAt(arr: any[], index: number, elem: any): void {
+    if (index >= arr.length) { arr.push(elem); return; }
+    arr.splice(index, 0, elem);
   }
 
   static setViewBox(svg: SVGElement, size: Size = null): void {
@@ -1509,6 +1531,57 @@ export class U {
     const tmp: string[] = U.strFirstDiff(s1, s2, 20);
     U.pif(debug, 'isValidHtml() ' + (tmp ? '|' + tmp[0] + '| vs |' + tmp[1] + '|' : 'tmp === null'));
     return ret; }
+
+  static RGBAToHex(str: string, prefix = '#', postfix = ''): string {
+    return U.RGBAToHexObj(str, prefix, postfix).rgbahex;
+  }
+
+  static HexToHexObj(str: string): {r: number, g: number, b: number, a: number} {
+    str = U.replaceAll(str, '#', '');
+    let byteLen: number;
+    switch(str.length){
+      default: return null;
+      case 3: case 4: byteLen = 1; break; // rgb & rgba con 1 byte color depth
+      case 6: case 7: case 8: byteLen = 2; break;
+    }
+    const arr: number[] = [];
+    let pos = 0;
+    let strval: string;
+    let val: number;
+    while(true){
+      strval = str.substr(pos, byteLen);
+      if (!strval) break;
+      if (strval.length === 1) strval += strval; // f -> ff, 0 -> 00, 7 -> 77 nb: non usare byteLen, l'ultimo valore può avere bytelen diversa (RR GG BB A)
+      val = Number.parseInt(strval, 16);
+      if (isNaN(val)) return null;
+      arr.push(val);
+      pos += byteLen;
+    }
+    if (arr.length < 3) return null;
+    return {r: arr[0], g: arr[1], b: arr[2], a: arr[3]};
+  }
+
+  static colorObjToArgb(colorObj: {r: number, g: number, b: number, a: number}, prefix = '#', postfix = ''): {r: number, g: number, b: number, a: number, rgbhex: string, rgbahex: string} {
+    const ret = colorObj as {r: number, g: number, b: number, a: number, rgbhex: string, rgbahex: string};
+    let tmp = prefix + U.toHex(ret.r, 2) + U.toHex(ret.g, 2) + U.toHex(ret.b, 2);
+    ret.rgbhex = tmp + postfix;
+    ret.rgbahex =  tmp + U.toHex(ret.a || ret.a === 0 ? ret.a : 255, 2) + postfix;
+    return ret;
+  }
+
+  static RGBAToHexObj(str: string, prefix = '#', postfix = ''): {r: number, g: number, b: number, a: number, rgbhex: string, rgbahex: string} {
+    str = U.replaceAll(str, 'a', '');
+    str = U.replaceAll(str, 'rgb', '');
+    str = U.replaceAll(U.replaceAll(str, '(', ''), ')', '');
+    const rgb = str.split( ',' );
+    const ret = {
+      r: parseInt( rgb[0] ), //.toString(16); // .substring(4) skip rgb(
+      g: parseInt( rgb[1] ),
+      b: parseInt( rgb[2] ), // parseInt scraps trailing )
+      a: rgb[3] && rgb[3].length ? 255 * (+rgb[3]) : 255,
+    };
+    return U.colorObjToArgb(ret);
+  }
 
   static getIndex(node: Element): number {
     if (!node.parentElement) { return -1; }
@@ -1862,7 +1935,6 @@ export class U {
   static clearSelection() {}
 
   static refreshPage(): void { window.location.href += ''; }
-
 
   static isArray(v: any): boolean { return Array.isArray(v); }
 
@@ -2361,10 +2433,12 @@ export class U {
       let targetElement: Element = target instanceof Element ? target : null;
       tag = targetElement ? targetElement.tagName.toLowerCase() : null;
       if (tag === inputcheck || tag === selectcheck || tag === textareacheck) {
-        console.log('isInput:', target);
+        // console.log('isInput:', target);
         return true; }
       attrcontenteditable = contenteditable && targetElement ? targetElement.getAttribute('contenteditable') : null;
-      if (attrcontenteditable === '' || attrcontenteditable === 'true') { console.log('isInput:', target); return true; }
+      if (attrcontenteditable === '' || attrcontenteditable === 'true') {
+        // console.log('isInput:', target);
+        return true; }
       if (!deep_up) return false;
       target = target.parentNode;
     }
@@ -2475,6 +2549,7 @@ export class U {
   static toMap(arr: (string | number | boolean)[], useLastIndexAsValue: boolean = false): Dictionary<string, boolean | number> {
     const ret: Dictionary<string, boolean | number> = {};
     for (let i = 0; i < arr.length; i++) { ret['' + arr[i]] = useLastIndexAsValue ? i : true; }
+    // arr.reduce((accumulator,curr)=> (accumulator[curr]='',accumulator), {}); // geniale da stackoverflow (accumulator was "acc")
     return ret; }
 
   static isUnset(val: any, ignorespaces: boolean = true, parseStrings: boolean = true, ifemptystr: boolean = false, ifnull: boolean = true, ifundef: boolean = true, ifzero: boolean = false): boolean{
@@ -2633,7 +2708,7 @@ export class U {
   }
 
   static toHex(num: number, lengthMin: number = 6): string {
-    let ret: string = Number(num).toString(16);
+    let ret: string = Math.round(+num).toString(16);
     while (ret.length < lengthMin) ret = '0' + ret;
     return ret; }
 
@@ -3059,7 +3134,7 @@ export class U {
     try {
       ret = eval(tokens.join(' '));
     } catch (e) {
-      U.pw(true, 'Invalid conditional attribute (UIF), error:', e, 'html:', html, 'attrStr:', attrstr, 'tokens:', tokens, 'dic:', obj, 'caseSensitive:', caseSensitive);
+      // U.pw(true, 'Invalid conditional attribute (UIF), error:', e, 'html:', html, 'attrStr:', attrstr, 'tokens:', tokens, 'dic:', obj, 'caseSensitive:', caseSensitive);
       ret = null;
     }
     // if (ret === null) console.log('rrer', tokens);
@@ -3091,6 +3166,33 @@ export class U {
   }
 
 
+  static makeCssSheet(): HTMLStyleElement{
+    const style: HTMLStyleElement = document.createElement('style');
+    // Add a media (and/or media query) here if you'd like!
+    // style.setAttribute("media", "screen")
+    // style.setAttribute("media", "only screen and (max-width : 1024px)")
+    style.type = 'text/css';
+    style.appendChild(document.createTextNode("")); // necessario per un bug in webkit
+    return style; }
+
+  static getActualInlineStyles(el: HTMLElement): string[][] {
+    const ret: string[][] = [];
+    for (let i = 0, len = el.style.length; i < len; ++i) {
+      let name: string = el.style[i];
+      ret.push ([name, el.style[name]]);
+      // console.log(name, ':', value);
+    }
+    return ret;
+  }
+
+  static disableConsole(){
+    console['logg'] = console.log;
+    console.log = () => {};
+  }
+  static enableConsole() {
+    if (console['logg']) console.log = console['logg'];
+  }
+
 }
 export enum Keystrokes {
   escape = 'Escape',
@@ -3104,6 +3206,7 @@ export enum Keystrokes {
   pageUp = 'PageUp',
   pageDown = 'PageDown',
   enter = 'Enter', // event.code = 'NumpadEnter' se fatto da numpad, oppure "numpad3", "NumpadMultiply", ShiftLeft, etc...
+  numpadEnter = 'NumpadEnter',
   audioVolumeMute = 'AudioVolumeMute',
   audioVolumeUp = 'AudioVolumeUp',
   audioVolumeDown = 'AudioVolumeDown',

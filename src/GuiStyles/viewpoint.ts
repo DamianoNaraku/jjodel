@@ -29,6 +29,7 @@ import KeyboardEventBase = JQuery.KeyboardEventBase;
 import KeyUpEvent = JQuery.KeyUpEvent;
 import ClickEvent = JQuery.ClickEvent;
 import SelectEvent = JQuery.SelectEvent;
+import {Edge} from 'vis-network';
 
 export class StyleVisibility {
   public static _public: string = 'public';
@@ -140,9 +141,11 @@ export class ViewHtmlSettings{
     this.forkCounter = json.forkCounter;
     this.ForkedFromStr_name = json.ForkedFromStr_name;
     this.ForkedFromStr_user = json.ForkedFromStr_user;
-    //this.htmlstr = json.htmlstr;
-    if (json.htmlstr) this.html = U.toHtml(json.htmlstr);
-    U.pe(!(this.html instanceof Element), 'invalid htmlstr:', json.htmlstr, json);
+    // se è serializzato ha .htmlstr, se non lo è ha .html
+    const otherHtmlstr: string = json.getHtmlstr ? json.getHtmlstr() : json.htmlstr;
+    this.html = U.toHtml(otherHtmlstr);
+    // console.log('hhtmlo, json.htmlstr:', json, otherHtmlstr, this.html);
+    U.pe(!(this.html instanceof Element), 'invalid htmlstr, otherHTMLstring:', otherHtmlstr, ' sourcejson:', json, 'result html', this.html);
   }
 
   setDependencyArray(featuredependency: {template: string, namesArray: string, typesArray: string}[]): void {
@@ -170,6 +173,10 @@ export class ViewRule {
   public edgeViews: EdgeViewRule[] = [];
   protected viewpointstr: string;
   isDefault: boolean = false;
+  static sortCriteria(vr1: ViewRule, vr2: ViewRule): number {
+    if (!vr1.viewpoint) return -1;
+    if (!vr2.viewpoint) return 1;
+    return ViewPoint.sortCriteria(vr1.viewpoint, vr2.viewpoint); };
 
   static getbyID(id: number): ViewRule { return ViewRule.allByID[id]; }
   static getbyHtml(html0: Element): ViewRule {
@@ -177,13 +184,14 @@ export class ViewRule {
     while (html && html.dataset && !html.dataset.styleid) html = html.parentElement;
     return ViewRule.getbyID(html && html.dataset ? +html.dataset.styleid : null); }
 
-  constructor(owner: ViewPoint, target: ModelPiece = null) {
+  constructor(owner: ViewPoint = null, target: ModelPiece = null) {
     ViewRule[this.id = ViewRule.maxID++] = this;
     if (owner) owner.views.push(this);
     this.viewpoint = owner;
     this.target = target;
     this.setTargetStr();
   }
+
 
   // will be called by JSON.serialize() before starting, replacing the original parameter.
   toJSON(nameOrIndex: string): Json{
@@ -208,31 +216,34 @@ export class ViewRule {
   }
 
   updateViewpoint(vp: ViewPoint = null): void {
-    this.viewpoint = vp || ViewPoint.get(this.viewpointstr);
+    this.viewpoint = vp || ViewPoint.getByName(this.viewpointstr) || this.viewpoint;
     const arr = this.edgeViews ? this.edgeViews : [];
     let i: number;
     for (i = 0; i < arr.length; i++) { arr[i].updateViewpoint(vp); } }
 
   updateTarget(): void {
-    const root: IModel = this.viewpoint.target;
+    // const root: IModel = this.viewpoint.target;
     const path: number[] = JSON.parse(this.targetStr);
     const realindexfollowed: {indexFollowed: string[] | number[], debugArr: {index: string | number, elem: any}[]} = {indexFollowed: [], debugArr:[]};
     this.target = ModelPiece.getByKey(path, realindexfollowed);
     if (realindexfollowed.indexFollowed.length !== path.length) {
       U.pw(true, 'unable to find target of view:', this, ' search output:', realindexfollowed);
       this.target = null; }
+    this.apply();
   }
 
   clone(json: ViewRule): void {
-    if(json.setViewpointStr) { json.setViewpointStr(); }
+    if (json.setViewpointStr) { json.setViewpointStr(); }
     for(let key in json) {
       switch (key){
-        default: U.pe(true, 'unexpected key', key, json); break;
+        default: U.pe(true, 'unexpected key "', key, '"', json); break;
+        case 'viewpoint': break; // si attacca tramite viewpoint dopo il clone, altrimenti non si aggiornano le liste-dizionari di viewpoint.
         case 'id': case 'target': case 'isDefault': break;
         case 'targetStr': this.targetStr = json[key]; break;
         case 'htmlo':
           if (!json.htmlo) { this.htmlo = null; break; }
           if (!this.htmlo) { this.htmlo = new ViewHtmlSettings(); }
+          console.log('other htmlo:', json.htmlo, json);
           this.htmlo.clone(json.htmlo); break;
         case 'htmli':
           if (!json.htmli) { this.htmli = null; break; }
@@ -245,7 +256,7 @@ export class ViewRule {
           const arr = json.edgeViews ? json.edgeViews : [];
           let i: number;
           for (i = 0; i < arr.length; i++) {
-            U.ArrayAdd(this.edgeViews, new EdgeViewRule(this.viewpoint).clone(arr[i]));
+            U.ArrayAdd(this.edgeViews, EdgeViewRule.duplicate(arr[i]));
           }
           break;
         case 'viewpointstr': this.viewpointstr = json.viewpointstr; break; }
@@ -264,12 +275,15 @@ export class ViewRule {
   // should only be called from ViewPoint
   apply(target: ModelPiece = null): void {
     this.target = target || this.target || ModelPiece.getByKeyStr(this.targetStr);
+    if (!target) this.detach();
     console.log(this);
+    if (!this.viewpoint) return;
     this.viewpoint.viewsDictionary[this.target.id] = this;
     U.ArrayAdd(this.target.views, this);
   }
   // should only be called from ViewPoint
   detach() {
+    return;
     // if (!this.target) return; target must never be deleted in Viewww.
     U.arrayRemoveAll(this.target.views, this);
     U.ArrayAdd(this.target.detachedViews, this);
@@ -297,7 +311,7 @@ export class ViewRule {
     return vp.setDefault(false, this); }
 
   setDefault(isDefault: boolean = false): ViewRule {
-    console.log('setDefault()', isDefault, this.target);
+    console.log('setDefault() 99x', isDefault, this.target, this);
     if (this.isDefault === isDefault) return this;
     if (!isDefault) return this.unsetDefault();
     this.isDefault = true;
@@ -306,6 +320,24 @@ export class ViewRule {
     if (defaultvr === this) return this;
     return vp.setDefault(true, this); }
 
+  static duplicate(json: ViewRule, appendToViewpoint: ViewPoint): ViewRule{
+    if (!json) return json;
+    const ret: ViewRule = new ViewRule(appendToViewpoint);
+    console.log('99x', ret.viewpoint, ret);
+    ret.clone(json);
+    return ret; }
+
+  toStyleComplexEntry(mp: ModelPiece, htmlx: ViewHtmlSettings, isOwnHtml: boolean, isInstanceHtml: boolean, isCustomGlobalhtml: boolean, isGlobalhtml: boolean): StyleComplexEntry {
+    const ret = new StyleComplexEntry();
+    ret.htmlobj = htmlx;
+    ret.html = ret.htmlobj.getHtml();
+    ret.view = this;
+    ret.ownermp = this.target; // was mp
+    ret.isownhtml = isOwnHtml;
+    ret.isinstanceshtml = isInstanceHtml;
+    ret.isCustomGlobalhtml = isCustomGlobalhtml;
+    ret.isGlobalhtml = isGlobalhtml
+    return ret; }
 }
 
 export class DefaultStyleMap {
@@ -320,9 +352,44 @@ export class DefaultStyleMap {
   parameter: ViewRule;
   edge: EdgeViewRule;
   extEdge: EdgeViewRule;
+  viewpoint: ViewPoint;
+
+  constructor(vp: ViewPoint){
+    this.viewpoint = vp;
+  }
+
+  static duplicate(json: DefaultStyleMap, vp: ViewPoint): DefaultStyleMap {
+    if (!json) return json;
+    const ret = new DefaultStyleMap(vp);
+    ret.clone(json);
+    return ret; }
+
+  duplicate(): DefaultStyleMap { return DefaultStyleMap.duplicate(this, this.viewpoint); }
+
+  clone(defaultStyleMap: DefaultStyleMap): void {
+    this.class = ViewRule.duplicate(defaultStyleMap.class, this.viewpoint);
+    this.enum = ViewRule.duplicate(defaultStyleMap.enum, this.viewpoint);
+    this.literal = ViewRule.duplicate(defaultStyleMap.literal, this.viewpoint);
+    this.attribute = ViewRule.duplicate(defaultStyleMap.attribute, this.viewpoint);
+    this.reference = ViewRule.duplicate(defaultStyleMap.reference, this.viewpoint);
+    this.operation = ViewRule.duplicate(defaultStyleMap.operation, this.viewpoint);
+    this.parameter = ViewRule.duplicate(defaultStyleMap.parameter, this.viewpoint);
+    this.edge = EdgeViewRule.duplicate(defaultStyleMap.edge);
+    this.extEdge = EdgeViewRule.duplicate(defaultStyleMap.extEdge);
+  }
+
+  toJSON(nameOrIndex: string): Json {
+    const copy0: any = {};
+    for (let key in this) { copy0[key] = this[key]; }
+    const copy: DefaultStyleMap = copy0;
+    delete copy.viewpoint;
+    return copy; }
+
 }
+
 export class ViewPoint extends ViewRule{
   static allnames: Dictionary<string, ViewPoint> = {};
+  static LAST_ORDER: number = 1;
   target: IModel;
   name: string;
   views: ViewRule[];
@@ -333,6 +400,9 @@ export class ViewPoint extends ViewRule{
   grid: GraphPoint;
   isApplied: boolean = false;
   defaultStyleMap: DefaultStyleMap;
+  runtimeorder: number;
+
+  static sortCriteria(vp1: ViewPoint, vp2: ViewPoint): number { return vp2.runtimeorder - vp1.runtimeorder; };
 /*
   static getAppliedViews_TOMOVE(m: ModelPiece): ViewRule[] {
     let i: number;
@@ -344,18 +414,23 @@ export class ViewPoint extends ViewRule{
     }
     return arr; }*/
 
-  static get(value: string): ViewPoint {
+  static getByName(value: string): ViewPoint {
     return ViewPoint.allnames[value];
+  }
+  static getByID(id: number): ViewPoint {
+    return ViewPoint.allByID[id];
   }
   // abstract _isApplied(): boolean;
   constructor(target: IModel, name: string = null) {
     super(null);
+    ViewPoint.allByID[this.id] = this;
+    this.runtimeorder = ViewPoint.LAST_ORDER++;
     this.scroll = new Point(0, 0);
     this.zoom = new Point(1, 1);
     this.grid = new Point(20, 20);
     this.viewsDictionary = {};
     this.views = [];
-    this.defaultStyleMap = new DefaultStyleMap();
+    this.defaultStyleMap = new DefaultStyleMap(this);
     this.setname(name);
     this.updateTarget(target); }
 
@@ -469,10 +544,15 @@ export class ViewPoint extends ViewRule{
   clone(json: ViewPoint): void {
     if (json.target && json.setTargetStr) json.setTargetStr();
     let i: number;
+    this.viewsDictionary = {};
     for(let key in json) {
       switch (key){
         default: U.pe(true, 'unexpected key:', key, json); break;
-        case 'id': case 'target': case 'viewpoint': case 'isDefault': case 'defaultStyleMap': break;
+        case 'id': case 'target': case 'viewpoint': case 'isDefault': break;
+        case 'defaultStyleMap':
+          this.defaultStyleMap = DefaultStyleMap.duplicate(json.defaultStyleMap, this);
+          break;
+        case 'runtimeorder': this.runtimeorder = json.runtimeorder; break; // preservo persino l'ordine di applicazione
         case 'htmlo':
           if (!json.htmlo) { this.htmlo = null; continue; }
           if (!this.htmlo) this.htmlo = new ViewHtmlSettings();
@@ -501,10 +581,8 @@ export class ViewPoint extends ViewRule{
         case 'views':
           this.views = [];
           if (!json.views) continue;
-          for (i = 0; i < json.views.length; i++) {
-            const v: ViewRule = new ViewRule(this);
-            v.clone(json.views[i]);
-            U.ArrayAdd(this.views, v); } break;
+          for (i = 0; i < json.views.length; i++) { ViewRule.duplicate(json.views[i], this); } break;
+        case 'viewsDictionary': break;
         case 'grid': this.grid = new Point(json.grid.x, json.grid.y); break;
         case 'gridShow': this.gridShow = json.gridShow; break;
         case 'scroll': this.scroll = new GraphPoint(json.scroll.x, json.scroll.y); break;
@@ -541,13 +619,33 @@ export class EdgeViewRule extends ViewRule {
   public midPoints: EdgePointView[];
   public edgeIndex: number;
 
-  clone(obj0: Json): EdgeViewRule {
-    return this;
+  static duplicate(json: EdgeViewRule): EdgeViewRule {
+    if (!json) return json;
+    const ret: EdgeViewRule = new EdgeViewRule();
+    ret.clone(json);
+    return ret; }
+
+  duplicate(): EdgeViewRule { return EdgeViewRule.duplicate(this); }
+
+  clone(json: EdgeViewRule): void {
+    this.common = EdgeStyle.duplicate(json.common);
+    this.highlight = EdgeStyle.duplicate(json.highlight);
+    this.selected = EdgeStyle.duplicate(json.selected);
+    this.midPoints = [];
+    this.edgeIndex = json.edgeIndex;
+    for (let mp of json.midPoints) {
+      this.midPoints.push(EdgePointView.duplicate(mp, this.viewpoint));
+    }
   }
 }
 
 export class EdgePointView extends ViewRule {
-  clone(obj0: Json): void { }
+  static duplicate(json: EdgePointView, vp:ViewPoint): EdgePointView{
+    if (!json) return json;
+    const ret: EdgePointView = new EdgePointView();
+    ret.clone(json);
+    return ret; }
 
-
+  donotmix: string;
+  // todo
 }

@@ -50,43 +50,43 @@
   </div>
   <div class="MDefaultStyles customized"></div>
   <div class="MDefaultStyles immutable">
-    <foreignobject class="template Class" x="0" y="0" width="200" height="40" style="outline: 1px solid black; background:white; color:black;">
-      <div class="Class Vertex vertexShell" style="background:white; height:auto; width:100%; overflow: auto;" data-autosizey="1">
+    <foreignobject class="template Vertex Class" x="0" y="0" width="200" height="40" style="overflow: hidden; outline: 1px solid var(--color-3); background:var(--color-1); color:var(--color-2);">
+      <div class="Class" style="background:var(--color-1); height:auto; width:100%; overflow: auto;" data-autosizey="1">
         <div class="VertexHeader" style="height:20px; width:100%; text-align:center; display:flex;">
-          <div style="text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;">($##metaParent.name$)</div>
+          <div style="text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;">($##metaParent.name$)</div>
         </div>
-        <div class="specialjs AttributeContainer" style="display: flex; flex-direction: column;"></div>
-        <div class="specialjs ReferenceContainer" style="display: flex; flex-direction: column;"></div>
-        <div class="specialjs OperationContainer" style="display: flex; flex-direction: column;"></div>
+        <div class="specialjs AttributeContainer" style="overflow: hidden; display: flex; flex-direction: column;"></div>
+        <div class="specialjs ReferenceContainer" style="overflow: hidden; display: flex; flex-direction: column;"></div>
+        <div class="specialjs OperationContainer" style="overflow: hidden; display: flex; flex-direction: column;"></div>
       </div>
     </foreignobject>
 
-    <div class="template Reference" style="width:100%; height:22px; padding-left:5px; display:flex; margin:auto;">
-      <span style="display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;">*$##metaParent.type.printablename$</span>
+    <div class="template Feature Reference" style="width:100%; height:22px; padding-left:5px; display:flex; margin:auto;">
+      <span style="display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:var(--color-1);">*$##metaParent.type.printablename$</span>
       <span style="display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;">$##metaParent.name$</span>
       <button class="LinkVertex" style="order:3; width:22px; height:22px; padding:0; margin:auto;">-></button>
     </div>
 
-    <div class="template Attribute" style="width:100%; height:22px; padding-left:5px; display:flex;">
-      <span style="order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;">$##metaParent.type.printablename$</span>
+    <div class="template Feature Attribute" style="width:100%; height:22px; padding-left:5px; display:flex;">
+      <span style="order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:var(--color-1);">$##metaParent.type.printablename$</span>
       <span style="order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;">$##metaParent.name$&nbsp;=&nbsp;</span>
-      <input type="text" placeholder="empty string" value="$##valuesStr$" style="background:transparent; color:inherit; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+      <input type="text" placeholder="empty string" value="$##valuesStr$" style="background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
     </div>
 
-    <div class="template Operation" style="width:100%; height: 22px; padding-left: 5px; display:flex;">
+    <div class="template Feature Operation" style="width:100%; height: 22px; padding-left: 5px; display:flex;">
       <div class="specialjs signature" data-maxargumentchars="10" data-maxarguments="2" style="min-width:100%"></div>
-      <div class="specialjs operationDetail" style="margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color:transparent; margin-top:0;">
+      <div class="specialjs operationDetail" style="margin:2px; margin-top:0; padding:2px; order:2; border: 3px solid var(--color-2); border-top-color:transparent;">
         <div style="display: flex; width: 100%;">
-          <select disabled data-primitive="true" data-enum="true" data-class="true" data-void="true" style="background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
-          <input disabled type="text" placeholder="Operation Name" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+          <select disabled data-primitive="true" data-enum="true" data-class="true" data-void="true" style="background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
+          <input disabled type="text" placeholder="Operation Name" value="$##name$" style="background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
         </div>
         <div class="parameterList" style="display: flex; width: 100%;"></div>
       </div>
     </div>
 
-    <div class="template Parameter" style="width:100%; height:22px; padding-left: 5px; display:flex;">
-      <select disabled data-primitive="true" data-enum="true" data-class="true" style="background:transparent; color:inherit; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
-      <input disabled type="text" placeholder="Parameter Name" value="$##name$" style="background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+    <div class="template Feature Parameter" style="width:100%; height:22px; padding-left: 5px; display:flex;">
+      <select disabled data-primitive="true" data-enum="true" data-class="true" style="background:transparent; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
+      <input disabled type="text" placeholder="Parameter Name" value="$##name$" style="background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
     </div>
   </div>
 </div>

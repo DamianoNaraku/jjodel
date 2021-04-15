@@ -22,12 +22,13 @@ import {
   MReference,
   M2Reference,
   M3Package,
+  ECoreClass,
   ECoreRoot,
   M3Class,
   M3Reference,
   Status,
   ViewPoint,
-  Type, Dictionary, IClass
+  Type, Dictionary, IClass, M2Attribute,
 } from '../common/Joiner';
 import {EAnnotation} from './EAnnotation';
 
@@ -47,8 +48,30 @@ export class MetaModel extends IModel {
   metaParent: MetaMetaModel;
   instances: Model[];
   childrens: M2Package[];
+  static genericObjectJson: Json;
+  static genericReferenceJson: Json;
+  static genericAttributeJson: Json;
+  static genericObject: M2Class;
+  static genericReference: M2Reference;
+  static genericAttribute: M2Attribute;
 
-  constructor(json: Json, metaParent: MetaMetaModel) { super(metaParent); this.parse(json, true); }
+  constructor(json: Json, metaParent: MetaMetaModel) {
+    super(metaParent);
+    MetaModel.genericObjectJson = {}; /*{
+      [ECoreClass.xsitype]: "ecore:EClass",
+      [ECoreClass.namee]: "G_Object",
+      [ECoreClass.interface]: "false",
+      [ECoreClass.abstract]: "false",
+      [ECoreClass.instanceTypeName]: "",
+      [ECoreClass.eSuperTypes]: "",
+      [ECoreClass.eStructuralFeatures]: [],
+      [ECoreClass.eOperations]: [] };*/
+    MetaModel.genericAttributeJson = "";
+    MetaModel.genericReferenceJson = [];
+
+    // MetaModel.genericObject.childrens = MetaModel.genericObject.attributes = MetaModel.genericObject.references = MetaModel.genericObject.operations = [];
+    this.parse(json, true);
+  }
 
   getAllClasses(): M2Class[] { return super.getAllClasses() as M2Class[]; }
   getAllReferences(): M2Reference[] { return super.getAllReferences() as M2Reference[]; }
@@ -96,7 +119,12 @@ export class MetaModel extends IModel {
 
 
   parse(json: Json, destructive: boolean = true): void {
-    if (destructive) { this.childrens = []; }
+    if (destructive) {
+      this.childrens = [];
+      // MetaModel.genericObject = new M2Class(this.getDefaultPackage(), MetaModel.genericObjectJson, false);
+      // MetaModel.genericAttribute = new M2Attribute(MetaModel.genericObject, MetaModel.genericAttributeJson);
+      // MetaModel.genericReference = new M2Reference(MetaModel.genericObject, MetaModel.genericReferenceJson);
+    }
     const childrens = Json.getChildrens(json);
     const annotations = Json.getAnnotations(json);
     let i;

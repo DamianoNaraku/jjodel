@@ -1,10 +1,14 @@
-<div id="colorSchemeEditorRoot" class="screenWideShadow" style="display: none">
+<div id="colorSchemeEditorRoot" class="screenWideShadow" [ngStyle]="{display: 'none', visibility: (this.temporaryInvisible ? 'hidden' : 'visible')}">
   <div class="popupContent" style="min-width: 75vw;">
-    <button class="btn btn-danger m-auto mr-2 p-0" style="width: 30px; height: 30px; position: absolute; right: 30px; top: 30px;" (click)="hide()">X</button>
+    <button class="btn btn-danger m-auto mr-2 p-0" style="width: 40px; height: 40px; position: absolute; right: 30px; top: 30px;" (click)="hide()">X</button>
+    <div style="position: absolute; height: 100vw; right: 30px; top: 70px; background: inherit; border-left: 5px solid; border-color: var(--color-bg-1);">
+      <div class="eye mt-2 p-0" style="height: 0; position: sticky; top:0; visibility: visible;" (mouseenter)="invisible()" (mouseleave)="visible()" (click)="hide()">
+        <svg style="height: 40px; width: 40px; cursor: hand;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-eye fa-w-18 fa-lg"><path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z" class=""></path></svg>
+      </div>
+    </div>
     <div class="d-flex w-100">
       <h1 class="d-inline-flex m-auto">Color scheme editor</h1>
     </div>
-    todo: il primo rigo deve essere website-wide color scheme (cannot be archived or deleted), e consenti di spostare gli stili sopra e sotto con frecce
     <table class="table">
       <thead>
       <tr>
@@ -29,7 +33,7 @@
           <input class="w-100" type="checkbox" (change)="this.toggleArchived(cs)" [checked]="cs.isActive">
         </td>
         <td class=""><input class="form-control input-group-text w-100" [value]="cs.name" (change)="this.changeName($event, cs)"/></td>
-        <td class=""><input class="form-control input-group-text w-100" [value]="cs.selector" (change)="this.changeSelector($event, cs)"/></td>
+        <td class=""><input class="form-control input-group-text w-100" [value]="cs.selector" [placeholder]="cs.autoselector" (change)="this.changeSelector($event, cs)"/></td>
         <td class=""><input class="form-control input-group-text w-100" [value]="cs.colorPrefix" (change)="this.changeColorPrefix($event, cs)"/></td>
         <td class="p-0 rowcontainer">
           <div class="d-flex flex-wrap" style="margin:4px; justify-content: start;">

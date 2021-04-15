@@ -112,26 +112,9 @@ export enum EdgeModes {
       if (mp === model) return;
       const v: IVertex = mp.getVertex(); // IVertex.getvertexByHtml(target);
       const e: IEdge[] = []; //U.shallowArrayCopy(IEdge.selecteds);// IEdge.getByHtml(target);
-      const ext: ExtEdge[] = [];
-      const elogic: (IClass | IReference)[] = [];
-      const extlogic: M2Class[] = [];
-      for (i = 0; i < IEdge.selecteds.length; i++) {
-        const elem: IEdge = IEdge.selecteds[i];
-        if (elem instanceof ExtEdge) { ext.push(elem); extlogic.push(elem.logic); }
-        else { e.push(elem); elogic.push(elem.logic)}
-      }
+
       console.log('document.keydown.deletethings: ', evt, e, v, mp);
-      if (e && e.length) {
-        console.log('edge: evt.key.toLowerCase() = ', evt.key.toLowerCase());
-        switch(evt.key.toLowerCase()) {
-          default: break;
-          case 'delete':
-            for (i = 0; i < elogic.length; i++) { (elogic[i] as ModelPiece).delete(true); }
-            for (i = 0; i < ext.length; i++) { ext[i].remove(); }
-            break;
-        }
-        return;
-      }
+
       if (v) {
       switch(evt.key.toLowerCase()) {
         default: break;
@@ -434,8 +417,8 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     // quando startpoint o endpoint sono dentro un vertice size
 
     if (!this.midNodes.length && (this.start === this.end)
-      || this.start && !this.start.isAllowingEdges()
-      || this.end && !this.end.isAllowingEdges()
+      || this.start && !this.start.isAllowingEdge(this)
+      || this.end && !this.end.isAllowingEdge(this)
     ) { //this.start.size.intersection(this.end.size))) {
       $(this.shell).hide();
       return; } else $(this.shell).show();
@@ -610,8 +593,33 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
       // if (U.isFunction((document.activeElement as any).blur)) this.shell.blur();
       Status.status.getActiveModel().graph.edgeChangingAbort(e);
       }
-    if (e.key !== Keystrokes.delete) return;
-    this.remove(); }
+
+    console.log('edge: evt.key.toLowerCase() = ', e.key.toLowerCase());
+    let i: number;
+    const ext: ExtEdge[] = [];
+    const edges: IEdge[] = [];
+    const elogic: (IClass | IReference)[] = [];
+    const extlogic: M2Class[] = [];
+    for (i = 0; i < IEdge.selecteds.length; i++) {
+      const elem: IEdge = IEdge.selecteds[i];
+      if (elem instanceof ExtEdge) { ext.push(elem); extlogic.push(elem.logic); }
+      else { edges.push(elem); elogic.push(elem.logic)}
+    }
+    switch(e.key.toLowerCase()) {
+      default: break;
+      case 'delete':
+        for (i = 0; i < elogic.length; i++) { (elogic[i] as ModelPiece).delete(true); }
+        for (i = 0; i < ext.length; i++) {
+          for (let extedge of ext) {
+            console.log('delete extedge:', extedge);
+            extedge.logic.unsetExtends(extedge.end.logic() as M2Class);
+            extedge.remove();
+          }
+          //ext[i].remove();
+        }
+        break;
+    }
+    }
 
   onBlur(e: BlurEvent = null) {
     if (this.isDeleted) return;// check dopo aver fatto edgeabort se continua a dare errore quando deselezioni premendo altrove.

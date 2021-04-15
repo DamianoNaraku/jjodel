@@ -50,7 +50,7 @@ export class Model extends IModel {
       const namespacedclass: string = key;
       const mmclass: M2Class = this.metaParent.getClassByNameSpace(namespacedclass, false, true);
       const value: Json = json[key];
-      new MClass(this.getDefaultPackage(), value, mmclass);
+      new MClass(this.getDefaultPackage(), value, mmclass, true);
     }
 
     /*

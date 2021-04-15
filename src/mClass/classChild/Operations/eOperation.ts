@@ -264,7 +264,7 @@ export class EOperation extends Typedd {
 
 
   delete(refreshgui: boolean = true): void{
-    super.delete(false);
+    super.delete(true);
   }
 
   markedCompatibility: {key: string, target: EOperation}[] = [];

@@ -29,20 +29,17 @@ import {
   ViewHtmlSettings,
   ViewPoint,
   ViewRule,
+  CSSEditor,
+  ColorSchemeComponent,
+  AutocompleteMatch,
+  PropertyBarTabs,
+  Layouting, MetaModel, ParseNumberOrBooleanOptions, TagNames
 } from '../../common/Joiner';
-import {PropertyBarTabs} from '../propertyBar/propertyBar';
 import ChangeEvent = JQuery.ChangeEvent;
 import KeyDownEvent = JQuery.KeyDownEvent;
 import ClickEvent = JQuery.ClickEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
-import {AutocompleteMatch} from '../../common/util';
-import {Style} from '@angular/cli/lib/config/schema';
-import Swal from 'sweetalert2';
-import ContextMenuEvent = JQuery.ContextMenuEvent;
-import {Layouting} from '../mGraph/Layouting';
-import {CSSEditor} from './csseditor/CssEditor';
-import {ColorSchemeComponent} from '../../app/color-scheme/color-scheme.component';
 
 @Component({
   selector: 'app-style-editor',
@@ -380,6 +377,7 @@ export class StyleEditor {
     }
     /// start!
     obj.input.setAttribute('placeholder', U.replaceVarsString(mp, obj.input.getAttribute('placeholder')));
+    console.log('setting outerhtml: ', context.templateLevel.outerHTML);
     obj.input.innerText = context.templateLevel.outerHTML;
 
     $styleown.find('.htmllevel').html((isInherited ? 'Instances Html' : 'Own html')
@@ -401,7 +399,10 @@ export class StyleEditor {
     const onStyleChange = (): void => {
       console.log('onStyleChange', U.getCaller(), U.getStackTrace());
       console.log('99jj set html:', obj.input.innerText);
-      let inputHtml: Element = U.toHtml(obj.input.innerText);
+      let inputHtml: Element = U.toHtml(obj.input.innerText)//U.toHtmlValidate(obj.input.innerText);
+      // non c'è bisogno di validare, perchè corregge automaticamente e se metti chiusure di tag di troppo le toglie da solo!
+      // non può rompere oltre il nodo attuale
+      // if (!inputHtml) return;
 
       const disabledAttr: string = obj.input.getAttribute('disabled');
       if (disabledAttr === 'true' || disabledAttr === '') return;
@@ -607,6 +608,7 @@ export class StyleEditor {
     const $autosizew = $html.find('input.autowidth') as JQuery<HTMLInputElement>;
     const $autosizeh = $html.find('input.autoheight') as JQuery<HTMLInputElement>;
     const $autolayout = $html.find('input.autolayout') as JQuery<HTMLInputElement>;
+    if (m instanceof IClassifier) this.setupEdgesVisibility(context, $html);
     const autosizew = $autosizew[0];
     const autosizeh = $autosizeh[0];
     const autolayout = $autolayout[0];
@@ -1455,6 +1457,37 @@ export class StyleEditor {
     ret.classList.remove('template');
     ret.setAttribute("keep-edges", U.toBoolString(keepEdges));
     return ret;
+  }
+
+  private setupEdgesVisibility(context: EditorContext, $html: JQuery<HTMLElement>){
+    const $edgeVisibility = $html.find('input[type="checkbox"].edgeVisibility') as JQuery<HTMLInputElement>;
+    const $edgePriority = $html.find('.edgePriority input[kind]') as JQuery<HTMLInputElement>;
+    $edgeVisibility.on('change', (e: ChangeEvent) => {
+        let input = e.currentTarget;
+        context.templateRoot.setAttribute('allow-edges',input.checked);
+        context.applyRootChangesToInput();
+      });
+    $edgePriority.on('change', (e: ChangeEvent) => {
+      let input = e.currentTarget;
+      let direction_and_kind = input.getAttribute('kind');
+      context.templateRoot.setAttribute('show-' + direction_and_kind + '-edges', input.value);
+      context.applyRootChangesToInput();
+    });
+    U.pe(context.templateRoot.tagName !== TagNames.FOREIGNOBJECT, 'vertex root must be a SVGFOREIGNOBJECT', context.templateRoot);
+    let keepEdges = U.fromBoolString(context.templateRoot.getAttribute('keep-edges'), this.propertyBar.selectedModelPiece !== MetaModel.genericObject);
+    $edgeVisibility[0].checked = keepEdges;
+    if (keepEdges) $edgePriority.show(); else $edgePriority.hide();
+    const directions: ("in"|"out")[] = ["in", "out"], kinds: ("rel"|"ext"|"oth")[] = ["rel", "ext", "oth"];
+
+    let results = IVertex.isAllowingEdges(context.templateRoot as any);
+    for (let direction of directions) {
+      for (let kind of kinds) {
+        let attrstr = 'show-' + 'show-' + direction + '-' + kind + '-edges'
+        let $priobutton = $edgePriority.filter('[kind="' + direction + "-" + kind + '"]');
+        console.log("setting visibility edge input:", $priobutton, $edgePriority, '[kind="' + direction + "-" + kind + '"]');
+        $priobutton[0].value = '' + results[direction][kind];
+      }
+    }
   }
 }
 

@@ -48,7 +48,7 @@ export class MPackage extends IPackage {
     return super.getClass(name, caseSensitive, throwErr, debug) as MClass; }
 
   addEmptyClass(metaVersion: M2Class): MClass {
-    const c: MClass = new MClass(this, null, metaVersion);
+    const c: MClass = new MClass(this, null, metaVersion, false);
     if (Status.status.loadedLogic) c.generateVertex();
     console.log('addEmptyClass(); package:', this, '; metaVersion: ', metaVersion, 'classe:', c);
     return c; }

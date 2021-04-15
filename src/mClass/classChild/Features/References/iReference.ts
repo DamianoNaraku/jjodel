@@ -73,7 +73,7 @@ export abstract class IReference extends IFeature {
     linkEnd = Math.min(edges.length, linkEnd);
     linkStart = Math.max(0, linkStart);
     for (i = linkStart; i < linkEnd; i++) { if(edges[i]) edges[i].remove(); }
-    if (refreshgui) oldParent.refreshGUI();
+    if (refreshgui) { setTimeout( ()=> oldParent.refreshGUI(), 0); }
   }
 
   // abstract linkClass(classe?: IClass): void;

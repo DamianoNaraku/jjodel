@@ -3,7 +3,7 @@ import {onModelsReceive} from '../app/app.module';
 
 export class VsCodeLayerOut{
   public static thisOrigin: string = location.origin;
-  public static ancestorOrigin: string = location.ancestorOrigins[0];
+  public static ancestorOrigin: string = location.ancestorOrigins && location.ancestorOrigins[0];
   public static send(message: GenericObject): void {
     console.log("sending data to:", VsCodeLayerOut.ancestorOrigin)
     window.parent.postMessage(message, VsCodeLayerOut.ancestorOrigin, undefined);

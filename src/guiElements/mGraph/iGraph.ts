@@ -467,16 +467,15 @@ export class IGraph {
     const v: IVertex = IVertex.selected;
     const vcontext: StartDragContext = IVertex.startDragContext;
     if (!v) return;
-    const afterContextMenu = () => { IVertex.startDragContext = null; }
     IVertex.selected = null;
     v.owner.grid.x = IVertex.selectedGridWasOn.x;
     v.owner.grid.y = IVertex.selectedGridWasOn.y;
     IVertex.selectedGridWasOn.x = 'prevent_doublemousedowncheck' as any;
     IVertex.selectedGridWasOn.y = 'prevent_doublemousedowncheck' as any;
-    const afterContextMenuTimeout = () => setTimeout(afterContextMenu, 0);
-    afterContextMenuTimeout(); // do it regardless of moved or not.
+    // const afterContextMenuTimeout = () => setTimeout(afterContextMenu, 0);
+    // afterContextMenuTimeout(); // do it regardless of moved or not.
     const gotMoved = !vcontext.size.tl().equals(v.size.tl(), 0);
-    if (!gotMoved) return;
+    if (!gotMoved) { return; }
     v.owner.fitToGridS(v.size, false);
     v.setSize(v.size, false, true, measurableRules.onDragEnd);
     //NB: Ivertex.selected va cancellato per forza prima di gotMoved e setSize, perchè crea casini con dragEnd.

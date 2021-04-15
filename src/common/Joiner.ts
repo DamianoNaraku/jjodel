@@ -7,6 +7,8 @@
 // ParameterView} from '../GuiStyles/viewpoint';
 
 
+
+
 export type MyException = any;
 import { default as AnsiUp } from 'ansi_up';
 export const ansiUp = new AnsiUp(); // https://github.com/drudru/ansi_up // ansi color formatter.
@@ -37,6 +39,7 @@ export const prjson2xml = _pr_json2xml;
 export const prxml2json = _pr_xml2json;
 /*export const $$$: JQueryStatic = require('jquery-ui');
 export const $ui: JQueryStatic = $$$;*/
+export {Layouting} from '../guiElements/mGraph/Layouting';
 export {VsCodeLayerIn, VsCodeLayerOut} from '../vscodeLayer/VsCodeLayer';
 export {ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule} from '../GuiStyles/viewpoint';
 export {LocalStorage} from '../Database/LocalStorage';
@@ -44,14 +47,17 @@ export {ModelPiece, Info, ModelNone, StyleComplexEntry} from '../Model/modelPiec
 /*new*/export {ECoreEnum, EcoreLiteral,
   ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference,
   ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel} from '../Model/iModel';
-export {ShortAttribETypes, U, Json, AttribETypes,
-  InputPopup, DetectZoom, Dictionary,
+export {TagNames, ShortAttribETypes, U, Json, AttribETypes,
+  InputPopup, DetectZoom, Dictionary, ParseNumberOrBooleanOptions,
   IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput,
-  TSON_JSTypes, TSON, TSON_UnsupportedTypes, TSONString, GenericObject} from './util';
+  TSON_JSTypes, TSON, TSON_UnsupportedTypes, TSONString, GenericObject, CSSRuleSorted, Keystrokes, AutocompleteMatch, CSSParser} from './util';
+export {ColorScheme2, ColorSchemeComponent} from '../app/color-scheme/color-scheme.component';
+
 export {
   MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules,
   MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl,
   RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic} from './measurable';
+export {EditorContext} from '../guiElements/style-editor/style-editor.component';
 export {Status} from '../../src/app/app.module';
 export {IGraph, ViewPointShell} from '../guiElements/mGraph/iGraph';
 export {IVertex} from '../guiElements/mGraph/Vertex/iVertex';
@@ -61,7 +67,7 @@ export {IEdge, EdgeModes} from '../guiElements/mGraph/Edge/iEdge';
 export {ExtEdge} from '../guiElements/mGraph/Edge/ExtEdge';
 export {EdgePoint, EdgePointFittizio, CursorFollowerEP} from '../guiElements/mGraph/Edge/EdgePoint';
 export {EdgeStyle, EdgePointStyle} from '../guiElements/mGraph/Edge/edgeStyle';
-export {PropertyBarr} from '../guiElements/propertyBar/propertyBar';
+export {PropertyBarr, PropertyBarTabs} from '../guiElements/propertyBar/propertyBar';
 export {TopBar} from '../guiElements/top-bar/top-bar.component';
 export {StyleEditor} from '../guiElements/style-editor/style-editor.component';
 /*neww*/ export {SaveListEntry} from '../Database/LocalStorage';
@@ -105,6 +111,7 @@ export {ModelUpdateMessage} from '../ServerCommunication/Synchronization/ModelUp
 export {SendManager} from '../ServerCommunication/Synchronization/SendManager';
 
 
+export {CSSEditor} from '../../src/guiElements/style-editor/csseditor/CssEditor';
 
 
 export class ReservedClasses {
@@ -112,7 +119,7 @@ export class ReservedClasses {
   // hence i made a class tied with the presence of attributes starting with measurableRules.onRefresh for efficiency.
   static readonly onRefresh = 'onRefresh';
   static readonly template = 'template';
-  static readonly vertexRoot = 'vertexRoot';
+  static readonly vertexRootG = 'VertexRoot'; // on G element
 }
 export class ReservedAttributes {
   static readonly todo = 'todo';

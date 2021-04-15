@@ -117,7 +117,7 @@ export class MReference extends IReference {
     linkEnd = Math.min(this.mtarget.length, linkEnd);
     linkStart = Math.max(0, linkStart);
     for (i = linkStart; i < linkEnd; i++) { this.setTarget(i, null); }
-    if (refreshgui) { oldParent.refreshGUI(); }
+    if (refreshgui) { setTimeout( ()=> {oldParent.refreshGUI(); }, 0); }
   }
 
   getType(): Type { return (this.metaParent ? this.metaParent.getType() : null); }
@@ -188,7 +188,7 @@ export class MReference extends IReference {
     for (i = 0; i < json.length; i++) {
       // console.log('mref.parse: ', json0, json, 'i:', json[i]);
       if ($.isEmptyObject(json[i])) { continue; }
-      const t: MClass = new MClass(pkg, json[i], targetMM);
+      const t: MClass = new MClass(pkg, json[i], targetMM, true);
       this.mtarget[i] = t;
     }
     U.pe(this.metaParent.upperbound !== -1 && this.mtarget.length !== +this.metaParent.upperbound, 'wrong mtarget length', this.mtarget, this.mtarget.length, this.metaParent.upperbound);

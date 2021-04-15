@@ -623,7 +623,7 @@ export class MeasurableRuleParts {
             let vertex: IVertex;
             let pos: number = htmlFoundsevt.indexOf(html);
             if (pos > 0) { vertex = vertexFoundsevt[pos]; } else {
-              vertex = html.classList.contains(ReservedClasses.vertexRoot) ? IVertex.getvertexByHtml(html) : null;
+              vertex = IVertex.getvertexByHtml(html);
               htmlFoundsevt.push(html);
               vertexFoundsevt.push(vertex); }
               let mr: MeasurableRuleParts = new MeasurableRuleParts(a, ruleprefix, true);

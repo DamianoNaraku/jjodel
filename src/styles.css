@@ -1,10 +1,26 @@
 /*@import '../src/themes/squaredTabs.css'; /* You can add global styles to this file, and also import other style files */
+:root{
+  --transparent-1: #ffffff;
+}
 ::-webkit-scrollbar {
-  background-color: rgba(00, 132, 255, 0.1);
+  /*background-color: rgba(00, 132, 255, 255);*/
   /* background-color: var(--mainBorderColor); */
   width: 10px;  /* Remove scrollbar space */
   /* background: transparent;  /* Optional: just make scrollbar invisible */
+  opacity: 0.1;
 }
+/*others*/
+::-webkit-scrollbar-thumb {
+  background: var(--color-4);
+  border: 2px solid darkblue;
+  border-radius: 5px;
+  /* no one works
+  background-clip: padding-box;
+  filter: invert(); /*brightness(100%);* /
+  opacity: 0.5;*/
+
+}
+
 body{
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -34,6 +50,9 @@ textarea::selection,
   color: white;
 }
 
+body{
+  background-color: var(--mainBackgroundColor);
+}
 
 input[type="checkbox"], input[type="radio"], input[type="color"] {
   width: 24px;
@@ -243,12 +262,6 @@ body.Light button.edit:not(.btn) { background-image: url(../img/white/editw.png)
   margin-top: auto;
   margin-bottom: auto;
 }
-/*others*/
-::-webkit-scrollbar-thumb {
-  background: #0084ff;
-  border: 2px solid darkblue;
-  border-radius: 5px;
-}
 
 .mainRow{
   flex-grow: 1;
@@ -262,13 +275,23 @@ body.Light button.edit:not(.btn) { background-image: url(../img/white/editw.png)
   bottom: 0;*/
   height: 100%;
   width: 100%;}
+
 .todo{
   background-color: darkred !important;
   cursor: not-allowed !important;
-  color: var(--DarkmainFontColor) !important;
+  color: white !important;
 }
 .todo>*, .todo *{
   cursor: not-allowed !important;
+}
+button {
+  border-color: inherit;
+  outline-color: inherit;
+}
+.Vertex input, .Vertex select, .Vertex button{
+  color: inherit; /* previene la sovrascrittura del colore da parte di bootstrap, voglio che erediti dal color scheme*/
+  border-color: inherit;
+  outline-color: inherit;
 }
 .Vertex select{
   text-align-last: end;
@@ -563,6 +586,11 @@ body.Light button.edit:not(.btn) { background-image: url(../img/white/editw.png)
 }
 .csseditorroot .cschemeroot{
   display: flex;
+  flex-wrap: wrap;
+}
+
+.csseditorroot .cschemeroot > * {
+  flex-grow: 1;
 }
 
 .csseditorroot .colorblock.empty{

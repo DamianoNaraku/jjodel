@@ -246,27 +246,66 @@
             <h4>Color scheme selector</h4>
             <div class="cschemeroot">
 
-              <span class="dropdown cscheme w-auto">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" fillwithvalue1>NOT INIT</button>
-                <div class="dropdown-menu w-100">
-                  <li class="dropdown-item" data-csname="custom">
-                      <div class="text-center" value1>Custom</div>
-                      <div class="cscheme default" value2>
-                        <div class="colorblock empty"></div>
-                        <div class="colorblock empty"></div>
-                        <div class="colorblock empty"></div>
-                        <div class="colorblock empty"></div>
-                      </div>
-                  </li>
-                  <li class="dropdown-item template" data-csname="tofill">
-                    <div class="text-center" value1></div>
-                    <div class="cscheme" value2></div>
-                  </li>
+              <!--div class="ui dropdown fluid multiple search selection">
+                <input type="hidden" name="color-schemes" class="color-schemes">
+                <i class="dropdown icon"></i>
+                <div class="default text">Select Color scheme (currently inherithing #####)</div>
+                <div class="menu">
+                  <div class="item dropdown-item template" data-value="cs-selectors">
+                    <i class="af flag"></i>Afghanistan
+                    <div class="text-center">cs name</div>
+                    <div class="colorblock"></div>
+                  </div>
                 </div>
-              </span>
+              </div-->
 
-              <div class="cscheme">
-                <div class="cscheme active" fillwithvalue2></div>
+              <div class="cstemplates template">
+                <li class="cslistreadonly dropdownitem">
+                  <div class="inheritedFromText cslistreadonly dropdownitem"><span>from&nbsp;</span><span class="cs tag"></span><span>&nbsp;(</span><span class="cs level"></span><span>&nbsp;levels up)</span></div>
+                  <ul class="cs list p-0"></ul>
+                </li>
+                <li class="csoption dropdownitem">
+                  <div class="name text-center"></div>
+                  <div class="colors d-flex">
+                    <!-- contiene colorblocks creati a runtime -->
+                  </div>
+                </li>
+
+              </div>
+
+              <div class="dropdown hover-display readonly btn d-flex inheriting-color-scheme-list">
+                <div class="title btn">Inherited color schemes</div>
+                <i class="icon"></i>
+                <ul class="dropdownmenu w-100">
+                  <!-- contiene .template.cslistreadonly -->
+                </ul>
+              </div>
+
+              <div class="dropdown btn d-flex own-color-scheme-list" tabindex="-1">
+                <div class="title btn">Own color schemes</div>
+                <i class="icon"></i>
+                <ul class="dropdownmenu w-100">
+                  <!-- contiene .template.cslistreadonly -->
+                </ul>
+                <!--span class="dropdown cscheme w-auto d-none roba vecchia inutilizzata">
+                  <input type="hidden" name="color-schemes" class="color-schemes">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" fillwithvalue1>NOT INIT</button>
+                  <div class="dropdown-menu w-100">
+                    <li class="dropdown-item" data-csname="custom">
+                        <div class="text-center" value1>Custom</div>
+                        <div class="cscheme default" value2>
+                          <div class="colorblock empty"></div>
+                          <div class="colorblock empty"></div>
+                          <div class="colorblock empty"></div>
+                          <div class="colorblock empty"></div>
+                        </div>
+                    </li>
+                    <li class="dropdown-item template" data-csname="tofill">
+                      <div class="text-center" value1></div>
+                      <div class="cscheme" value2></div>
+                    </li>
+                  </div>
+                </span-->
               </div>
 
             </div>
@@ -515,6 +554,39 @@
         <label class="autosizecontainer"><input type="checkbox" class="autoheight"><span>Adapt height to content</span></label>
         <label class="autosizecontainer"><input type="checkbox" class="autowidth"><span>Adapt width to content</span></label>
         <label class="autosizecontainer"><input type="checkbox" class="autolayout"><span>Include in Auto-layout</span></label>
+        <label class="autosizecontainer"><input type="checkbox" class="edgeVisibility"><span>Display edges</span></label>
+        <table class="edgePriority">
+          <thead>
+          <tr>
+            <th colspan="3">Edges visibility</th>
+          </tr>
+          <tr>
+            <th colspan="1" rowspan="2">Kind</th>
+            <th colspan="2" rowspan="2">Direction</th>
+          </tr>
+          <tr>
+            <td colspan="1">In</td>
+            <td colspan="1">Out</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th>Relationship</th>
+            <td><input kind="in-rel" type="number"></td>
+            <td><input kind="out-rel" type="number"></td>
+          </tr>
+          <tr>
+            <th>Inheritance</th>
+            <td><input kind="in-ext" type="number"></td>
+            <td><input kind="out-ext" type="number"></td>
+          </tr>
+          <tr>
+            <th>Other</th>
+            <td><input kind="in-oth" type="number"></td>
+            <td><input kind="out-oth" type="number"></td>
+          </tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="separatorShell"></div>

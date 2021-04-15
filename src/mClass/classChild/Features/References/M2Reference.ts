@@ -106,12 +106,15 @@ export class M2Reference extends IReference {
       mref.delete(true, n, Number.POSITIVE_INFINITY); } }
 
   delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
-    let oldParent = this.parent;
+    const oldParent = this.parent;
+    console.log('m2ref.delete()', refreshgui, oldParent);
     // total deletion
     if (linkStart === null && linkEnd === null) {
       if (this.type.classType) U.arrayRemoveAll(this.type.classType.referencesIN, this);}
     super.delete(false, linkStart, linkEnd);
-    if (refreshgui) { oldParent.refreshGUI(); oldParent.refreshInstancesGUI(); }
+    console.log('m2ref.delete()', refreshgui, oldParent);
+
+    if (refreshgui && oldParent) { setTimeout( ()=> {oldParent.refreshGUI(); oldParent.refreshInstancesGUI();}, 0); }
   }
 /*
   getStyle(debug: boolean = true): HTMLElement | SVGElement {

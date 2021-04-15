@@ -43,7 +43,7 @@
   height: 50px;
   width: 50px;
   background-color: red;
-  color: var(--LightmainFontColor);
+  /*color: var(--color-2);*/
   font-weight: bolder;
   font-size: 15px;
 }

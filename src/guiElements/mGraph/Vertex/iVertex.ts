@@ -46,7 +46,7 @@ import {
   Resizableoptions,
   Rotatableoptions,
   DraggableOptionsImpl,
-  ResizableOptionsImpl, StyleEditor, ReservedClasses, EAnnotation,
+  ResizableOptionsImpl, StyleEditor, ReservedClasses, EAnnotation, MetaModel, ParseNumberOrBooleanOptions,
 } from '../../../common/Joiner';
 import MouseMoveEvent = JQuery.MouseMoveEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
@@ -133,7 +133,20 @@ export class IVertex {
   static linkVertexMouseDown(e: MouseDownEvent | ClickEvent, edge: IEdge = null, location: GraphPoint = null): void {
     if (e) { e.stopPropagation(); }
     if (IEdge.edgeChanging) { IEdge.edgeChanging.owner.edgeChangingAbort(e); }
-    edge = edge ? edge : IEdge.get(e);
+    location = location || GraphPoint.fromEvent(e); //Status.status.getActiveModel().graph.toGraphCoord(new Point(e.pageX, e.pageY));
+    if (!edge ) {
+      const mp: ModelPiece = ModelPiece.getLogic(e.target);
+      const mr: MReference = mp instanceof MReference ? mp : null;
+      U.pe(!mr, 'button.linkVertex should only be inserted inside M1-references', mp, e);
+      let index = mr.getfirstEmptyTarget();
+      if (index === -1) { U.pw(true, 'This reference is already filled to his upperbound.'); e.preventDefault(); e.stopPropagation(); return; }
+      const upperbound: number = mr.getUpperbound();
+      U.pw(upperbound === 0, 'Before setting a reference change set an Upperbound != 0 for his m2 counterpart.');
+      if(upperbound === 0) return;
+      U.pe(!! mr.edges[index], "dev error, was trying to overwrite an existing edge");
+      edge = new IEdge(mr, index, mp.getVertex(), null, location);
+    }
+    // edge = edge ? edge : IEdge.get(e);
     U.pe(!edge, 'IVertex.linkVertexMouseDown() failed to get edge:', e);
     const logic: IClass | IReference = edge.logic;
     const classe: IClass = logic instanceof IClass ? logic : null;
@@ -227,10 +240,48 @@ export class IVertex {
     // this.refreshGUI(); // need both refresh
   }
 
-  isAllowingEdges(): boolean {
-    const svgForeign: SVGForeignObjectElement = this.getHtmlRawForeign();
-    // svgForeign.style.display === 'none' &&
-    return U.fromBoolString(svgForeign.getAttribute('keep-edges'), true); }
+  isAllowingEdge(edge: IEdge): boolean {
+    const start: IVertex = edge.start;
+    const end: IVertex = edge.end;
+    const startSvgForeign: SVGForeignObjectElement = start && start.getHtmlRawForeign();
+    const endSvgForeign: SVGForeignObjectElement = end && end.getHtmlRawForeign();
+    // start: null true true , end: null true false
+    console.log('isAllowingEdge pre-check keep-edges ', start && start.logic() && start.logic().name, ' - ', end && end.logic() && end.logic().name,
+      ' start:',
+      startSvgForeign && startSvgForeign.getAttribute('keep-edges'),
+      start.logic() !== MetaModel.genericObject,
+      startSvgForeign && U.fromBoolString(startSvgForeign.getAttribute('keep-edges'), start.logic() !== MetaModel.genericObject),
+      ', end:',
+      endSvgForeign && endSvgForeign.getAttribute('keep-edges'),
+      end && end.logic() !== MetaModel.genericObject,
+      endSvgForeign && U.fromBoolString(endSvgForeign.getAttribute('keep-edges'), end.logic() !== MetaModel.genericObject));
+    if (startSvgForeign && !U.fromBoolString(startSvgForeign.getAttribute('keep-edges'), start.logic() !== MetaModel.genericObject)) return false;
+    if (endSvgForeign && !U.fromBoolString(endSvgForeign.getAttribute('keep-edges'), end.logic() !== MetaModel.genericObject)) return false;
+
+    let kind;
+    if (this instanceof ExtEdge) kind = "ext";
+    // if (this instanceof IndirectEdge) kind = "oth";
+    else kind = "rel";
+    const conditionStart = start && IVertex.isAllowingEdges(startSvgForeign, ["out"], [kind]);
+    const conditionEnd = end && IVertex.isAllowingEdges(startSvgForeign, ["in"], [kind]);
+    console.log("isAllowingEdge(", edge, conditionStart, conditionEnd);
+    return (start ? conditionStart["out"][kind] : 0) + (end ? conditionEnd["in"][kind] : 0) > 0;
+  }
+
+  public static isAllowingEdges(svgForeign: SVGForeignObjectElement, directions: ("in"|"out")[] = ["in", "out"], kinds: ("rel"|"ext"|"oth")[] = ["rel", "ext", "oth"])
+    /*returns */: { in: {rel: number, ext: number, oth: number}, out: {rel: number, ext: number, oth: number}} {
+    const ret: { in: {rel: number, ext: number, oth: number}, out: {rel: number, ext: number, oth: number}} = { in: {}, out:{}} as any;
+    let defaultValues: ParseNumberOrBooleanOptions = new ParseNumberOrBooleanOptions();
+    defaultValues.defaultValue = 1;
+    defaultValues.trueValue = 1;
+    defaultValues.falseValue = -1;
+    for (let direction of directions) {
+      for (let kind of kinds) {
+        ret[direction][kind] = U.parseNumberOrBoolean(svgForeign.getAttribute('show-' + direction + '-' + kind + '-edges'), defaultValues);
+      }
+    }
+    return ret;
+    }
 
   mark(markb: boolean, key: string, color: string = 'red', radiusX: number = 10, radiusY: number = 10,
        width: number = 5, backColor: string = 'none', extraOffset: GraphSize = null): void {
@@ -609,7 +660,7 @@ export class IVertex {
   public getMeasurableNode(): Element { return this.htmlForeign; }
   private setHtmls(data: IClassifier, htmlRaw: SVGForeignObjectElement): SVGForeignObjectElement {
     // console.log('drawCV()');
-    if (!this.htmlg) { this.owner.vertexContainer.appendChild(this.htmlg = U.newSvg('g'));  data.linkToLogic(this.htmlg); this.addRootEventListeners(); }
+    if (!this.htmlg) { this.owner.vertexContainer.appendChild(this.htmlg = U.newSvg('g')); data.linkToLogic(this.htmlg); this.addRootEventListeners(); }
     else U.clear(this.htmlg);
     let i: number;
     const graphHtml: Element = this.owner.vertexContainer;
@@ -617,7 +668,7 @@ export class IVertex {
     // console.log('drawing Vertex[' + data.name + '] with style:', htmlRaw, 'logic:', data);
     // console.log('drawVertex: template:', htmlRaw);
     const foreign: SVGForeignObjectElement = this.htmlForeign = U.textToSvg(U.replaceVars<SVGForeignObjectElement>(data, htmlRaw, true).outerHTML);
-    this.htmlForeign.classList.add(ReservedClasses.vertexRoot);
+    // this.htmlForeign.classList.add(ReservedClasses.vertexRoot);
     const $foreign = $(foreign);
     data.linkToLogic(foreign);
     const $elementWithID = $foreign.find('[id]');
@@ -738,7 +789,7 @@ export class IVertex {
     // if (html.tagName.toLowerCase() === 'foreignobject' && html.dataset.modelpieceid )
     //   { html = html.firstChild as Element; }
     // while (!(html.classList.contains('Vertex'))) { console.log(html); html = html.parentNode as Element; }
-    // $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDownButton);
+     $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDown);
     const defaultResizeConfig: ResizableOptions = new ResizableOptionsImpl();
     const defaultDragConfig: DraggableOptions = new DraggableOptionsImpl();
     const defaultRotConfig: RotatableOptions = new RotatableOptions();
@@ -866,6 +917,7 @@ export class IVertex {
 
     IVertex.selected = this;
     IVertex.startDragContext = new StartDragContext(this);
+    console.log('rx mousedown');
 
     if (IVertex.selectedGridWasOn.x as any === 'prevent_doublemousedowncheck') {
       IVertex.selectedGridWasOn.x = IVertex.selected.owner.grid.x; }

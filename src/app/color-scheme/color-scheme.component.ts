@@ -2,7 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {U} from '../../common/Joiner';
 
 export class ColorScheme2{
-  private static maxID: number;
+  public static all: {[id: number]: ColorScheme2} = {};
+  private static maxID: number = 1;
   public static storageKey: string = 'jodelColorSchemes';
   public id: number;
   public name: string;
@@ -11,34 +12,59 @@ export class ColorScheme2{
   public isActive: boolean = true;
   public foreColors: string[] = [];
   // public backColors: string[] = [];
-  public static staticinit(): ColorScheme2[] {
-    const str: string = localStorage.getItem(ColorScheme2.storageKey) || '[]';
-    const arr: ColorScheme2[] = JSON.parse(str) || [];
-    ColorScheme2.maxID = arr.length ? Math.max( ...(arr.map((e, i) => { return e.id; }))) + 1 : 0;
-    return []; // arr; todo: rimetti array vero
-  }
+  public autoselector: string;
+
+  static get(id: number): ColorScheme2{ return ColorScheme2.all[id]; }
+  static getAll(): ColorScheme2[]{ return Object.values(ColorScheme2.all); }
+
+  static duplicate( other: JSON) :ColorScheme2 {
+    const ret = new ColorScheme2(null, null, null, null, null);
+    ret.clone(other);
+    return ret; }
 
   constructor(name: string, selector: string, colorPrefix: string, isActive: boolean, foreColors: string[]) {
     this.name = name || 'cs-1';
     this.isActive = isActive;
     this.foreColors = foreColors || [];
     this.colorPrefix = colorPrefix || "color-";
-    this.selector = selector || this.autoGenerateSelector();
+    this.selector = selector || '';
+    this.id = ColorScheme2.maxID++;
+    this.autoGenerateSelector();
+    ColorScheme2.all[this.id] = this;
   }
 
-  public autoGenerateSelector(): string { return '[color-scheme*="' + this.validateStringForCssVarName(this.name) + '"]'; }
+  // warning: deve generare qualcosa di indipendente dagli altri dati, altrimenti se l'utente cambia gli altri dati si rompono i selettori auto-gestiti tramite la gui del dropdown
+  public autoGenerateSelector(): string { return this.autoselector = 'g.VertexRoot [color-scheme*="CS-' + this.id + '|"]'; }// '[color-scheme*="' + this.validateStringForCssVarName(this.name) + '"]'; }
 
-  clone(json: JSON): void {
-    let j: ColorScheme2 = json as any;
-    this.name = j.name;
-    // todo
+  clone(json: JSON): this {
+    let oldid = this.id;
+    U.cloneProperties(this, json);
+    this.autoGenerateSelector();
+    ColorScheme2.maxID = Math.max(ColorScheme2.maxID, this.id + 1);
+    ColorScheme2.all[oldid] = null;
+    ColorScheme2.all[this.id] = this;
+    return this; }
+
+  public static staticinit(): ColorScheme2[] {
+    const str: string = localStorage.getItem(ColorScheme2.storageKey) || '[]';
+    const arr: ColorScheme2[] = (JSON.parse(str) || []).map(e => ColorScheme2.duplicate(e) );
+    ColorScheme2.maxID = arr.length ? Math.max( ...(arr.map((e, i) => { return e.id; }))) + 1 : 0;
+    return []; // arr; todo: rimetti array vero
   }
 
   static loadDefault(): ColorScheme2[]{
     let i = 0;
     const ret = [
-      new ColorScheme2('main theme light', 'body', 'color-', true,  ['#f5f5f5', '#f0f0f0', '#3c3c44', '#2e2f34']),
-      new ColorScheme2('main theme light bg', 'body', 'color-bg-', true, ['#ffffff', '#2e2f34']),
+      //   --color-1: '#f5f5f5', '#f0f0f0', '#3c3c44', '#2e2f34';
+      //   --color-bg-1: '#ffffff', '#f0f0f0', '#2e2f34';
+      new ColorScheme2('main theme Light', 'body', 'color-', true,  ['#f5f5f5', '#3c3c44', '#2e2f34', '#1E90FF']),
+      // background was: ['#ffffff', '#f0f0f0', '#2e2f34']
+      new ColorScheme2('main theme Light bg', 'body', 'color-bg-', true, ['#f4f4f4', '#e0e0e0', '#2e2f34']),
+      new ColorScheme2('main theme Dark', 'body', 'color-', false,  [ '#3c3c44', '#b2b2ba', '#f0f0f0', '#1E90FF']),
+      new ColorScheme2('main theme Dark bg', 'body', 'color-bg-', false, ['#1a1a1c', '#2e2f34', '#44444c']),
+      new ColorScheme2('Vertex', 'g.VertexRoot', null, true, ['#ffffff', '#000000', '#000000', '#1E90FF', '#ff0000']),
+      new ColorScheme2('Feature', '.graph .Feature', null, true, ['#ff8c00', '#28a745', '#d3d3d3', '#FFFFFF']),
+      // examples
       new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#364f6b', '#3fc1c9', '#f5f5f5', '#fc5185']),
       new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#f9a828', '#ececeb', '#07617d', '#2e383f']),
       new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#fa4659', '#effe40', '#a33e83', '#2eb872']),
@@ -53,6 +79,12 @@ export class ColorScheme2{
     if (!name.length) { name = "color-scheme-1"; }
     else if (!name.match(/^[a-zA-Z_]/)) { name += "_"; }
     return name; }
+
+  getFullSelector(joinStr: string = ', '): string {
+    if (!this.selector) return this.autoselector;
+    if (U.replaceAll(this.autoselector, '"', "'") === U.replaceAll(this.selector, '"', "'")) return this.selector;
+    return this.selector + joinStr + this.autoselector;
+  }
 
 }
 
@@ -70,6 +102,7 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
   // public display: string;
   public styleStr: string;
   public colorSchemes: ColorScheme2[] = [];
+  public temporaryInvisible: boolean;
 
   constructor() {
   }
@@ -80,6 +113,7 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     ColorSchemeComponent.cs = this;
+    this.temporaryInvisible = false;
     this.colorSchemes = ColorScheme2.staticinit();
     if (this.colorSchemes.length === 0) { this.colorSchemes = ColorScheme2.loadDefault(); }
     // this.display = 'none';
@@ -95,11 +129,21 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
 
   toggleArchived(cs: ColorScheme2): void {
     cs.isActive = !cs.isActive;
-    if (cs.isActive) this.enable(cs); else this.disable(cs);
+    this.enableOmonyms(cs);
     this.updateCss();
   }
 
-  private enable(cs: ColorScheme2): void {
+  private enableOmonyms(master: ColorScheme2): void {
+    let csarr: ColorScheme2[] = [...this.colorSchemes] // must clone array, altrimenti updateOrder rompe l'iterazione forEach
+    csarr.forEach( (cs) => {
+      if (cs.name.indexOf(master.name) !== 0) return;
+      cs.isActive = master.isActive;
+      this.updateOrder(cs);
+    });
+  }
+
+
+  private updateOrder(cs: ColorScheme2): void {
     U.arrayRemoveAll(this.colorSchemes, cs);
     let lastActiveIndex = this.colorSchemes.length;
     while (--lastActiveIndex) {
@@ -108,7 +152,6 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
     U.insertAt(this.colorSchemes, lastActiveIndex + 1, cs);
   }
 
-  private disable(cs: ColorScheme2): void { this.enable(cs); }
   /*
   disable(cs: ColorScheme2): void {
     U.arrayRemoveAll(this.colorSchemes, cs);
@@ -187,8 +230,8 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
 
   remove(cs: ColorScheme2){
     U.arrayRemoveAll(this.colorSchemes, cs);
-    this.updateCss();
-  }
+    ColorScheme2.all[cs.id] = null;
+    this.updateCss(); }
 
   private updateCss(): void{
     // const scope = "body"; // ".Vertex";
@@ -196,13 +239,13 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
     for (let i = 0; i < this.colorSchemes.length; i++) {
       let cs = this.colorSchemes[i];
       if (!cs.isActive) continue;
-      str += cs.selector + ' {'; // '[color-scheme="' + cs.name + '"] {\n';
+      let selector = cs.getFullSelector(',\n');
+      str += selector +' {'; // '[color-scheme="' + cs.name + '"] {\n';
       str += '        /***  ' + cs.name + "  ***/"
       for (let j = 0; j < cs.foreColors.length; j++) {
         const color = cs.foreColors[j];
         str += "\n    --"+cs.colorPrefix + (1+j) + ": " + color + ";";
       }
-      todo: --color-2 nel css default deve diventare un background (da app.component.ts)
       /*
       for (let j = 0; j < cs.backColors.length; j++) {
         const color = cs.backColors[j];
@@ -231,23 +274,22 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
 
   changeSelector($event: Event, cs: ColorScheme2): void{
     const input: HTMLInputElement = $event && $event.target as any;
-    cs.selector = input.value;
+    input.value = cs.selector = input.value.trim();
     this.updateCss();
   }
 
   changeName($event: Event, cs: ColorScheme2, namepar: string = null): void {
-    let regenerateSelector: boolean = cs.name && cs.autoGenerateSelector() === cs.selector;
+    // let regenerateSelector: boolean = cs.name && cs.autoGenerateSelector() === cs.selector;
     const input: HTMLInputElement = $event && $event.target as any;
-    let name: string = namepar || input.value;
+    let name: string = (namepar || input.value).trim();
     if (!namepar && cs.name === name) return;
     const namearr: string[] = this.colorSchemes.map( (e, i) => e.name );
     const names = U.ArrayToMap(namearr);
     console.log('name map', names, namearr, 'name:', name);
     while (names[name]) { name = U.increaseEndingNumber(name); }
-    // input.value =
-    cs.name = name;
+    input.value = cs.name = name;
     // regenerateSelector = true;
-    if (regenerateSelector) cs.selector = cs.autoGenerateSelector();
+    // if (regenerateSelector) cs.selector = cs.autoGenerateSelector();
     this.updateCss();
   }
   hide(): void {
@@ -265,4 +307,23 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
     console.log("cs.show()");
     ColorSchemeComponent.$html.show();
   }
+
+
+  public invisible(): void {
+    this.temporaryInvisible = true;
+  }
+  public visible(): void {
+    this.temporaryInvisible = false;
+  }
+  public static getAllSelectors(excludeDisabled: boolean = true): {[selector:string]: ColorScheme2[]} {
+    const ret: {[selector:string]: ColorScheme2[]} = {};
+    for (let cs of ColorSchemeComponent.cs.colorSchemes) {
+      if (excludeDisabled && !cs.isActive) continue;
+      const fullselector: string = cs.getFullSelector();
+      if (!ret[fullselector]) ret[fullselector] = [cs];
+      else ret[fullselector].push(cs);
+    }
+    return ret;
+  }
+
 }

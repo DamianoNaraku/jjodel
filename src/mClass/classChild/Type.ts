@@ -8,7 +8,7 @@ import {
   M2Class,
   M2Package,
   M2Reference,
-  MAttribute,
+  MAttribute, MetaModel,
   ModelPiece,
   ShortAttribETypes,
   Status, TopBar,
@@ -186,6 +186,7 @@ export class Type {
   }
 
   private applyTypeStr0(): void {
+    // input: this.typestr
     const debug = false;
     let i: number;
     let oldClass = this.classType;
@@ -207,8 +208,9 @@ export class Type {
         if (c) { this.classType = c; break; }
         const e: EEnum = pkg.getEnum(s);
         if (e) { this.enumType = e; break; } }
+      // if (!this.classType) this.classType = MetaModel.genericObject;
     }
-    U.pe(!this.primitiveType && !this.enumType && !this.classType, 'failed to find target: |' + typestr + '|', Status.status.mm);
+    U.pe(!this.primitiveType && !this.enumType && !this.classType, 'failed to find target: |' + typestr + '|', this, Status.status.mm);
 
     if (this.owner instanceof M2Reference) {
       if (oldClass === this.classType) return;

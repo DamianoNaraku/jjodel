@@ -1,0 +1,133 @@
+<div id="colorSchemeEditorRoot" class="screenWideShadow" [ngStyle]="{display: 'none', visibility: (this.temporaryInvisible ? 'hidden' : 'visible')}">
+  <div class="popupContent" style="min-width: 75vw;">
+    <button class="btn btn-danger m-auto mr-2 p-0" style="width: 40px; height: 40px; position: absolute; right: 30px; top: 30px;" (click)="hide()">X</button>
+    <div style="position: absolute; height: 100vw; right: 30px; top: 70px; background: inherit; border-left: 5px solid; border-color: var(--color-bg-1);">
+      <div class="eye mt-2 p-0" style="height: 0; position: sticky; top:0; visibility: visible;" (mouseenter)="invisible()" (mouseleave)="visible()" (click)="hide()">
+        <svg style="height: 40px; width: 40px; cursor: hand;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-eye fa-w-18 fa-lg"><path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z" class=""></path></svg>
+      </div>
+    </div>
+    <p>edge-editor works!</p>
+    <div>
+
+
+
+
+
+      <div *ngFor="let style of styles">
+        <label>
+          <span>Display condition</span>
+          if StartVertex
+          <textarea>
+            if start is visible
+          </textarea>
+        </label>
+
+        <label>
+          <span>Path type</span>
+          <select [value]="style.pathMode" [title]="pathHelpText[style.pathMode]" (change)="pathModeChanged($event, style)">
+            <optgroup label="SVG path commands">
+              <option *ngfor="let entry of this.svgPaths" value="entry.value">{{entry.text}}
+                ></option>
+            </optgroup>
+          </select>
+          <h6>Customize path</h6>
+          <table>
+            <thead>
+            <tr>
+              <th colspan="2" *ngIf="style.pathMode === 'C'">Bézier point 1</th>
+              <th colspan="2" *ngIf="style.pathMode === 'C'">Bézier point 2</th>
+            </tr>
+            <tr>
+              <th colspan="1" *ngIf="style.pathMode === 'C'">X</th>
+              <th colspan="1" *ngIf="style.pathMode === 'C'">Y</th>
+              <th colspan="1" *ngIf="style.pathMode === 'C'">X</th>
+              <th colspan="1" *ngIf="style.pathMode === 'C'">Y</th>
+            </tr>
+            </thead>
+          </table>
+          <div>Bezier point 1</div>
+        </label>
+
+      </div>
+
+      <h6>Edge points</h6>
+      <div>
+       <div>
+          Apply to:
+          <select>
+            <option>All edgepoints</option>
+            <option>Only Manually inserted</option>
+            <option>Only Automatically inserted ("fake")</option>
+          </select>
+          and
+          <select>
+            <option>No restriction</option>
+            <option>First</option>
+            <option>Middle</option>
+            <option>Last</option>
+          </select>
+
+         <textarea style="white-space: pre-wrap;">
+           example1: all ep &#13;&#10;
+           true
+           example2: only first manual ep &#13;&#10;
+           ep.manual && ep.index === 0
+           example2: only auto-inserted ep of an edge staring by a vertex linked to a class named "A" &#13;&#10;
+           ep.edge.start.logic.name === "A"
+          </textarea>
+        </div>
+
+        <label>Follow</label>
+        <select>
+          <option>Predecessor (vertex or edgepoint)</option>
+          <option>Successor (vertex or edgepoint)</option>
+          <option>Both by half (keep relative position in %)</option>
+          <option>No one</option>
+          <option>Custom (edit the following rule)</option>
+        </select>
+
+        <label>Generated following Rule</label>
+        <textarea style="white-space: pre-wrap;">
+          example1: segue il precedente (Equivale a selezionare Predecessor) &#13;&#10;
+          dx = deltaPrev.x &#13;&#10;
+          dy = deltaPrev.y &#13;&#10;
+          example2: segue nessuno, ma ogni volta che un elemento si sposta, lui và in alto di 7 pixel (inutile ma è un esempio) &#13;&#10;
+          dx = 0 &#13;&#10;
+          dy = 7 &#13;&#10;
+          example3: segue entrambi al 90% (nota che solo deltaPrev o deltaSucc sono riempiti, mai entrambi. quasi = a Both by half) &#13;&#10;
+          dx = 0.9 * (deltaPrev.x + deltaSucc.x) &#13;&#10;
+          dy = 0.9 + (deltaPrev.y + deltaSucc.y) &#13;&#10;
+        </textarea>
+      </div>
+
+
+
+      todo: OBJECT-M1 e OBJECT-M2 mi servono per selezionare un fallback quando devo editare lo stile di default
+
+
+
+
+      add indirect edge
+      mostra lista di vertici raggiungibili ordinati per optgroup con depth (ma parte da depth 2)
+
+      feature deduci connessione:
+      (puoi applicarla a tutti i vertici o ad uno specifico)
+      contiene: {condizione, stile}, il modelpiece dell'edge è lo startvertex? come se fosse un extend?
+      if ( v1.distanza(v2).x < 100 && ! v1.isLinked(v2, 1))  se i vertici sono meno di 100 pixel distanti in X e non hanno già un edge diretto in(depth = 1)
+
+
+      if ( v2.hopDistance(v1) > 2 && v1.shortestHopPathWith(v2, includeInvisibleVertexBoolean = true))
+      se sono distanti più di 2 archi, e non esiste una connessione visibile lunga meno di 4 salti
+
+      hopdistance
+      -1: non raggiungibile
+      0: se stesso
+      1: direct link
+      ...
+
+
+
+
+
+    </div>
+</div>

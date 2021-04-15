@@ -7,9 +7,9 @@ export class ExtEdge extends IEdge{
 
   constructor(logic: M2Class, startv: IVertex, end: IVertex, tmpend: GraphPoint) { super(logic, null, startv, end, tmpend); }
 
-  canBeLinkedTo(target0: M2Class): boolean {
+  canBeLinkedTo(target0: M2Class, print = true): boolean {
     let out: {reason: string, indirectExtendChain: IClass[]} = {reason: '', indirectExtendChain: null};
-    if (!this.logic.canExtend(target0, out)) { U.ps(true, out.reason); return false; }
+    if (!this.logic.canExtend(target0, out)) { U.ps(print, out.reason); return false; }
     return true; }
 
   addEventListeners(foredge: boolean, forheadtail: boolean): void {

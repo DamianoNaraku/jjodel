@@ -191,12 +191,12 @@
 
 .meas_acc0 .ruletitle:hover.ruletitle[counter]:not([counter="0"]), .meas_acc0 .ruletitle[counter]:not([counter="0"]):not(.collapsed),
 .meas_acc0 .maintitle:hover,  .meas_acc0 .maintitle:not(.collapsed){
-  border-color: dodgerblue;
+  border-color: var(--color-4);
   background-color: rgba(30, 144, 255, 0.2); }
 
 ::ng-deep .meas_acc0 .innertitle { margin: auto; } /* dynamically added*/
 .meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }
-.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }
+.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: var(--color-4); }
 .meas_acc0 .form-control > .form-control:not(:first-child){
   border-top-left-radius: unset;
   /* disable bootstrap rule*/
@@ -316,6 +316,6 @@
 .meas_acc0 .selected { background-color: #37ff66 !important; }
 
 .meas_acc .rulesearch:focus {
-  border: 1px solid dodgerblue;
-  box-shadow: 0 0 0 1px dodgerblue;
+  border: 1px solid var(--color-4);
+  box-shadow: 0 0 0 1px var(--color-4);
 }

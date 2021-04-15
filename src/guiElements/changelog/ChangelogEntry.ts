@@ -280,10 +280,17 @@ export class ChangelogRoot extends ChangelogEntry {
 
     v = new VersionUpload(new Date('2021/01/23'), 'Hiding elements', '');
     v.addf('Hiding edges',
-      'Edges can now be hidden according to source and target vertexes.\n' +
-      'To hide all edges incoming/emitted by a vertex, set keep-edges="false" on his root element.\n' +
+      'Edges can now be hidden according to source and target vertexes and to edge type.\n' +
+      'To hide all edges incoming/emitted by a vertex without questions, set keep-edges="false" on his root element.\n' +
+      'Default value is false for "Object" vertex and true for every other vertex.\n' +
+      'If keep-edges is true, you can hide a single kind of edge use one of show-<DIRECTION>-<KIND>-edges where <DIRECTION> is one of "in", "out" and <KIND> is one of "rel", "ext", "oth" ' +
+      'where "rel" stands for relationships, "ext" stands for extends, "oth" stands for indirect, deducted edges and anything outside previous categories.\n' +
+      'Values can be a boolean true evaluated to "+1", a boolean false evaluated to "-1" or directly any real number.' +
+      'If there are conflicting instructions, like if start vertex is hiding emitted edges of that kind ("-1") and end vertex is showing incoming edges of that kind (+1), ' +
+      'the conflicting values will be summed resulting in (-1 + 1 = 0) and the edge will be displayed if the result is strictly above 0.\n' +
+      'By default those properties have a value of "+1".' +
       'GUI support will come at a later time.', null, false);
-    v.addf('Hiding bertices',
+    v.addf('Hiding vertices',
       'Vertices can now be hidden simply by deleting their root node inside style editor.', null, false);
     v.addb('Loading edges',
       'Edges are loading on wrong position during initial render, it will be fixed by hovering on them or changing viewpoint.' +
@@ -291,7 +298,19 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addbf('Loading customized default style',
       'Fixed a failure in loading a viewpoint with a <b>"customized default"</b> style (3° layer, last customizable priority level).',
       null, true);
-    let searchterm = 'clog addbf ';
+    v = new VersionUpload(new Date('2021/01/23'), 'Color schemes', 'Allow to define multiple color schemes and manage activation context for them, overriding the default coloring of vertices, edges, or the entire app.');
+    v.addf('Color scheme manager', 'Accessible through Graph\'s style editor or from Themes in top-bar. It can add, remove and modify existing color schemes. It also allows to choose the activation context of the color scheme (e.g.:whole app, only Attributes...).');
+    v.addf('Style editor integration', 'Once a visual element is clicked, you can manually assign an existing color scheme to that element through the style editor');
+    // v.addf('Style editor integration for edges', 'todo: All elements can have multiple color scheme enabled, but edges should always have multiple color schemes. It is suggested to use one for normal status, one for highlighted status and one for focused status');
+    // v.addf('Color scheme and Views', 'todo: Color scheme are stored inside Views.');
+    v = new VersionUpload(new Date('2021/04/13'), 'minor fixes while wip on v2', '');
+    v.addbf('color scheme', 'minor fix over styles rarely applied to incorrect elements.');
+    v.addb('contextmenu', 'There is a known severe bug with vertex contextmenu incorrectly disappearing over chrome+macOS. Tryed to fix but could not test could not test personally or reproduce on other browser+OS combinations, it is unknown if the bug is still present.');
+    v.addbf('contextmenu', 'Fixed a different bug on firefox that was rarely causing it to not appear at all.');
+    v.addbf('gui', 'minor gui issues fixed (vertex overflow).');
+    v.addbf('extend', 'removing an extension relationship was not removing the edge (graphic only bug).');
+    v.addb('type conversion', 'casting an object to a superclass is not removing properties for the subclass.');
+    let searchterm = 'clog addbf';
 
     // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
     // v.addf('fakegfeat', 'kkk');

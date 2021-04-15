@@ -65,7 +65,9 @@ export class M2Package extends IPackage {
     this.parent.namespace(nsPrefix);
     /// childrens
     const childs = Json.getChildrens(json);
-    if (destructive) { this.childrens = []; }
+    if (destructive) {
+      this.childrens = [];
+    }
     let i: number;
     for (i = 0; i < childs.length; i++) {
       const child = childs[i];
@@ -127,7 +129,10 @@ export class M2Package extends IPackage {
     const classarr = [];
     const enumarr = [];
     let i: number;
-    for (i = 0; i < this.classes.length; i++) { classarr.push(this.classes[i].generateModel(loopDetectionObj)); }
+    for (i = 0; i < this.classes.length; i++) {
+      if (this.classes[i] === MetaModel.genericObject) continue;
+      classarr.push(this.classes[i].generateModel(loopDetectionObj));
+    }
     for (i = 0; i < this.enums.length; i++) { enumarr.push(this.enums[i].generateModel(loopDetectionObj)); }
     const classifiers: Json[] = Array.prototype.concat.call(classarr, enumarr);
     const model = new Json(null);

@@ -14,63 +14,78 @@
   --popupBackgroundColor: transparent;
   --altBackgroundColor: var(--mainBorderColor);
   --altFontColor: transparent;*/
-/*
-  --DarkmainFontColor: #b2b2ba;
-  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;* /
-  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;* /
-  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;* /
-  --DarkpopupBackgroundColor: #44444c;
-  --DarkaltBackgroundColor: var(--mainBorderColor);
-  --DarkaltFontColor: var(--LightmainBorderColor);
-*/
-/*
-  --LightmainFontColor: var(--DarksecondaryBorderColor);
-  --LightmainBackgroundColor: white;
-  --LightmainBorderColor: #f0f0f0; /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;* /
-  --LightsecondaryBorderColor: #f5f5f5; /*#c5c5c5;* /
-  --LightpopupBackgroundColor: var(--DarkmainBorderColor);
-  --LightaltBackgroundColor: var(--mainBorderColor);
-  --LightaltFontColor: var(--DarkmainBorderColor);*/
-/*
+
+  /* todo: questi colori vengono sempre rimpiazzati dinamicamente, esistono solo in fallback se l'utente elimina tutti i color-scheme*/
   --color-1: #f5f5f5;
-  --color-2: #f0f0f0;
-  --color-3: var(--DarksecondaryBorderColor);
-  --color-4: var(--DarkmainBorderColor);
+  --color-2: #3c3c44;
+  --color-3: #2e2f34;
+  --color-4: #1E90FF;
   --color-bg-1: #ffffff;
-  --color-bg-2: var(--DarkmainBorderColor);
-  --color-bg-3: var(--mainBorderColor);*/
+  --color-bg-2: #f0f0f0;
+  --color-bg-3: #2e2f34;
+  --color-bg-30: transparent;
 
-  --LightmainFontColor: var(--color-3);
+  /*
+  --LightsecondaryBorderColor: var(--color-1); /*#c5c5c5;* /
+  --LightmainFontColor: var(--color-2);
+  --LightaltFontColor: var(--color-3);
   --LightmainBackgroundColor: var(--color-bg-1);
-  --LightmainBorderColor: var(--color-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/
-  --LightsecondaryBorderColor: var(--color-1); /*#c5c5c5;*/
-  --LightpopupBackgroundColor: var(--color-bg-2);
-  --LightaltBackgroundColor: var(--color-bg-3);
-  --LightaltFontColor: var(--color-4);
+  --LightmainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;* /
+  --LightpopupBackgroundColor: var(--color-bg-3);
+  /* --LightaltBackgroundColor: var(--color-bg-30);* /
 
-  --mainFontColor: var(--color-3);
+  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;* /--color-1
+  --DarkmainFontColor: #b2b2ba; --color-2
+  --DarkaltFontColor: #f0f0f0;/* var(--LightmainBorderColor); * /--color-3
+  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;* /--color-bg-1
+  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;* /--color-bg-2
+  --DarkpopupBackgroundColor: #44444c;--color-bg-3
+  /*--DarkaltBackgroundColor: var(--mainBorderColor);*/
+
+  --mainFontColor: var(--color-2);
   --mainBackgroundColor: var(--color-bg-1);
-  --mainBorderColor: var(--color-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/
+  --mainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/
   --secondaryBorderColor: var(--color-1); /*#c5c5c5;*/
-  --popupBackgroundColor: var(--color-bg-2);
-  --altBackgroundColor: var(--color-bg-3);
-  --altFontColor: var(--color-4);
+  --popupBackgroundColor: var(--color-bg-3);
+  /*--altBackgroundColor: var(--color-bg-30);*/
+  --altFontColor: var(--color-3);
 }
+.Vertex{
+  --color-1: #FFFFFF;
+  --color-2: #000000;
+  --color-3: #000000;
+  --color-4: #1E90FF;
+  --color-5: #FF0000;
+}
+.Feature{
+   --color-1: #ff8c00;
+   --color-2: #28a745;
+   --color-3: #d3d3d3;
+   --color-4: #FFFFFF;
+ }
+
 ::ng-deep *{
   box-sizing: border-box;
   scrollbar-base-color: transparent;
   scrollbar-3dlight-color: transparent;
-  scrollbar-highlight-color: rgba(93,95,104,0);
+  scrollbar-highlight-color: rgba(93,95,104,0); /* unused? totally transparent*/
   scrollbar-track-color: rgba(93,95,104,0);
   scrollbar-arrow-color: #000;
   scrollbar-shadow-color: rgba(93,95,104,0);
   scrollbar-darkshadow-color: rgba(93,95,104,0);
   /* -moz-appearance: none !important; */
 }
+::ng-deep .graph *{
+  overflow: inherit;
+  text-overflow: ellipsis;
+}
 /*because color will be inherited, but background not (since input and selects cannot inherit and inherit behave like transparent.
  this is fine on the input itself but the optgroup cannot have transparent and will be always white.
  now, the problem is if you set a bacgkround-color: inherit / transparent select inside a black element with white text, the optgroup will be white with white text.
  */
+::ng-deep select{
+  text-overflow: clip;
+}
 ::ng-deep optgroup{
   color: black;
   background-color: white;

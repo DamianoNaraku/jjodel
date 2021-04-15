@@ -122,6 +122,7 @@ export class M2Class extends IClass {
     this.instances = [];
     if (!pkg && !json) { return; } // empty constructor for .duplicate();
     this.parse(json, true, allowWarning);
+    this.setExtends(MetaModel.genericObject, true, false, false);
   }
 
   getAllSuperClasses(plusThis: boolean = false): M2Class[] {
@@ -194,10 +195,10 @@ export class M2Class extends IClass {
     }
     return false; }
 
-  setExtends(superclass: M2Class, refreshGUI: boolean = true, force: boolean = false): boolean {
+  setExtends(superclass: M2Class, refreshGUI: boolean = true, force: boolean = false, print: boolean = true): boolean {
     let out: {reason: string, indirectExtendChain: IClass[]} = {reason: '', indirectExtendChain: null};
     if (!this.canExtend(superclass, out)) {
-      U.pw(true, out.reason);
+      U.pw(print, out.reason);
       if (!force) return false; }
     this.extends.push(superclass);
     U.ArrayAdd(superclass.gotExtendedBy, this);
@@ -219,6 +220,7 @@ export class M2Class extends IClass {
   unsetExtends(superclass: M2Class, removeEdge: boolean = true): void {
     if (!superclass) return;
     console.log('UnsetExtend:', this, this.name);
+    if (superclass === MetaModel.genericObject) { U.pw(true, 'Cannot un-extend "' + MetaModel.genericObject.name + '"'); return; }
     U.pe(!this.getModelRoot().isM2(), 'Only m2 IClassifier can un-extend other IClassifiers.');
     let index: number = this.extends.indexOf(superclass);
     if (index < 0) return;
@@ -266,36 +268,33 @@ export class M2Class extends IClass {
     }
   }
 
-  getTypeConversionScores(allowSuperClass: boolean = true, allowSubClass: boolean = true): {class: M2Class, features: number, operations: number, annotations: number}[]{
+  getTypeConversionScoresManual(candidateClasses: M2Class[]): {class: M2Class, features: number, operations: number, annotations: number}[]{
     const map: Dictionary<string, M2Class> = {};
     const ret: {class: M2Class, features: number, operations: number, annotations: number}[] = [];
     const sortingFunction =
       (e1: {class: M2Class, features: number, operations: number, annotations: number}, e2: {class: M2Class, features: number, operations: number, annotations: number}
       ): number => {
-      let s1: string = (e1 as any).order;//  (e1.features + "." + e1.operations + "." + e1.annotations).replace("-", "Z");
-      let s2: string = (e2 as any).order;// (e2.features + "." + e2.operations + "." + e2.annotations).replace("-", "Z");
-      return s1.localeCompare(s2);
-      /*
-        // confronto feature number
-        if (e1.features !== e2.features) {
-          if (e1.features < 0) return e1.features + e2.features;// -1 + -5 = -6 (e1 prima di e2),  -1 + -5 = +4 (e1 dopo e2)
-          else return e1.features - e2.features;// +1 - -5 = +6 (e1 dopo di e2),  +1 - 5 = -4 (e1 prima di e2)
-        }
-        // confronto operations number
-        if (e1.operations !== e2.operations) {
-          if (e1.operations < 0) return e1.operations + e2.operations;
-          else return e1.operations - e2.operations;
-        }
-        // confronto annotations number
-        if (e1.annotations !== e2.annotations) {
-          if (e1.annotations < 0) return e1.annotations + e2.annotations;
-          else return e1.annotations - e2.annotations;
-        }
-        return 0;*/
+        let s1: string = (e1 as any).order;//  (e1.features + "." + e1.operations + "." + e1.annotations).replace("-", "Z");
+        let s2: string = (e2 as any).order;// (e2.features + "." + e2.operations + "." + e2.annotations).replace("-", "Z");
+        return s1.localeCompare(s2);
+        /*
+          // confronto feature number
+          if (e1.features !== e2.features) {
+            if (e1.features < 0) return e1.features + e2.features;// -1 + -5 = -6 (e1 prima di e2),  -1 + -5 = +4 (e1 dopo e2)
+            else return e1.features - e2.features;// +1 - -5 = +6 (e1 dopo di e2),  +1 - 5 = -4 (e1 prima di e2)
+          }
+          // confronto operations number
+          if (e1.operations !== e2.operations) {
+            if (e1.operations < 0) return e1.operations + e2.operations;
+            else return e1.operations - e2.operations;
+          }
+          // confronto annotations number
+          if (e1.annotations !== e2.annotations) {
+            if (e1.annotations < 0) return e1.annotations + e2.annotations;
+            else return e1.annotations - e2.annotations;
+          }
+          return 0;*/
       };
-    let candidateClasses = [];
-    if (allowSuperClass) U.ArrayMerge(candidateClasses, this.getAllSuperClasses(false));
-    if (allowSubClass) U.ArrayMerge(candidateClasses, this.getAllSubClasses(false));
     candidateClasses = candidateClasses.filter((c)=> !c.getInterface() && !c.getAbstract());
     const myFeatures = this.getAllChildrens(false, false);
     const myOperations = this.getAllChildrens(true, false, false, false);
@@ -317,6 +316,13 @@ export class M2Class extends IClass {
     // let lowestKey: string = Object.keys(map).sort()[0];
     // return map[lowestKey];
     return ret.sort(sortingFunction);
+  }
+
+  getTypeConversionScores(allowSuperClass: boolean = true, allowSubClass: boolean = true): {class: M2Class, features: number, operations: number, annotations: number}[]{
+    let candidateClasses = [];
+    if (allowSuperClass) U.ArrayMerge(candidateClasses, this.getAllSuperClasses(false));
+    if (allowSubClass) U.ArrayMerge(candidateClasses, this.getAllSubClasses(false));
+    return this.getTypeConversionScoresManual(candidateClasses);
   }
 
 

@@ -1,4 +1,94 @@
+.dropdown{
+  position: relative;
+  padding-left: 0;
+}
+.dropdown:focus{
+  outline: none;
+  box-shadow: none;
+}
+.dropdown:focus-within{
+  pointer-events: none;
+}
+.dropdown:focus-within>.dropdownmenu{
+  display: block;
+  z-index: 1000;
+}
+.dropdown.hover-display:hover>.dropdownmenu{
+  display: block;
+  z-index: 1001;
+}
 
+.dropdown:focus-within>.icon,
+.dropdown.hover-display:hover>.icon{
+  transform: rotate(225deg);
+}
+.dropdown.hover-display.readonly .dropdownmenu{
+  pointer-events: none;
+}
+.dropdownmenu .dropdownitem{
+  border: 1px solid transparent; /* per evitare incrementi di dimensione*/
+}
+.dropdownmenu .dropdownitem.selected{
+  border: 1px solid var(--color-4);
+  /* outline: 2px solid var(--color-4); */
+  box-shadow: 0 0 3px 1px var(--color-4);
+  background: var(--color-bg-2);
+}
+/*.dropdown>.icon:hover, .dropdown:focus-within>.icon{
+  filter: brightness(0.9);
+}*/
+.dropdown>.dropdownmenu{
+  pointer-events: all;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  /*float: left;*/
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 1rem;
+  /*color: #212529;*/
+  text-align: left;
+  list-style: none;
+  /*background-color: #fff;*/
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  background: var(--color-bg-1);
+}
+.dropdownitem{
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+}
+.cslistreadonly.dropdownitem .inheritedFromText{
+  text-align:center;
+}
+
+.cslistreadonly.dropdownitem .inheritedFromText>*{
+  display: inline-block;
+}
+.dropdown>.icon{
+  display: flex;
+  text-align: center;
+}
+.dropdown>.icon{
+  background: inherit;
+  margin: auto 10px;
+  border: solid;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  vertical-align: middle;
+  transform: rotate(45deg);
+  min-height: 20px;
+  min-width: 20px;
+}
+.dropdown .title{
+  margin: auto;
+}
+.colorblock{
+  margin-right: 2px;
+}
 .styleContainer{
   /*position: relative;
   height: 100%;

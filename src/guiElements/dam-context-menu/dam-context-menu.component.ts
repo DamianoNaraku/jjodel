@@ -72,8 +72,7 @@ export class DamContextMenuComponent implements OnInit {
   ngOnInit() { }
 
   public onContextMenu(evt: ContextMenuEvent): boolean {
-
-    console.log('sinit click contextmenu');
+    console.log('rx click contextmenu');
     // evt.preventDefault(); evt.stopPropagation(); return false;
     const vertex: IVertex = IVertex.getvertexByHtml(evt.target, false);
     // evt.stopPropagation();
@@ -95,8 +94,14 @@ export class DamContextMenuComponent implements OnInit {
     const ret: boolean = !mp || isInput && !gotMoved;
     // evt['passedThroughVertex'] = ret;
     console.log('ret:', ret, 'mp:', mp, 'moved:', gotMoved, 'isInput:', isInput);
+    const afterContextMenu = () => {
+      console.log('rx mouseup');
+      IVertex.startDragContext = null; }
+
+      afterContextMenu();
+
     if (ret) return true; else { evt.preventDefault(); }
-    if (gotMoved) return ret;
+    if (gotMoved) { return ret; }
     DamContextMenuComponent.contextMenu.show(new Point(evt.pageX, evt.pageY), evt.target);
     return ret; }
 
@@ -112,6 +117,9 @@ export class DamContextMenuComponent implements OnInit {
     // magari era un mousedown di selezione su un input terminato con mouseup su un button
 
     const clickedOutside = !U.isParentOf(this.html, originalTarget);
+    // clicking on a submenu header should not cause it to disappear making the user incorrectly believe they triggered an action
+    if (!clickedOutside && originalTarget.classList.contains('popupRightParent')) return;
+
     // console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
 
     if (isButton || clickedOutside || !isInput && !isDisabled && !focused) { this.hide(); }
@@ -136,6 +144,7 @@ export class DamContextMenuComponent implements OnInit {
     const mp: ModelPiece = ModelPiece.getLogic(target);
     U.pe(!target, 'target is null.');
     if (!mp) return;
+    mp.linkToLogic(this.html, false);
     console.log('contextmenu target:', this.clickTarget);
     const model: IModel = mp.getModelRoot();
     this.clickTarget = target;
@@ -299,16 +308,7 @@ export class DamContextMenuComponent implements OnInit {
     $firstempty[0].disabled = mr && upperbound === 0;
 
     $html.find('.refli .firstempty').off('click.setref').on('click.setref', (e: ClickEvent) => {
-      let index = mr.getfirstEmptyTarget();
-      if (index === -1) { U.pw(true, 'This reference is already filled to his upperbound.'); e.preventDefault(); e.stopPropagation(); return; }
-      U.pw(upperbound === 0, 'Before setting a reference change set an Upperbound != 0 for his m2 counterpart.');
-      if(upperbound === 0) return;
-      const edge: IEdge = mr.edges[index];
-      if (!edge) {
-        const tmpend: GraphPoint = GraphPoint.fromEvent(e);
-        new IEdge(mr, index, m.getVertex(), null, tmpend);
-        return; }
-      IVertex.linkVertexMouseDown(null, edge, graphLocation);
+      IVertex.linkVertexMouseDown(e, null, graphLocation);
     });
     $html.find('.refli button.byindex').off('click.setref').on('click.setref', (e: ClickEvent) => {
       let index: number = +$indexinput[0].value;

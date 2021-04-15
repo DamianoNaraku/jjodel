@@ -341,6 +341,9 @@ export class InputPopup {
 
 }
 
+export class TagNames{
+    static FOREIGNOBJECT: "FOREIGNOBJECT" = "FOREIGNOBJECT";
+}
 export class CSSRuleSorted{
     public all: CSSStyleRule[];
 
@@ -1020,12 +1023,12 @@ export class U {
     return parent.getElementsByTagName('*');
   }
 
-  static ancestorArray<T extends Element>(domelem: T): Array<T> {
+  static ancestorArray<T extends Element>(domelem: T, stopNode: Element = null, includeSelf: boolean = true): Array<T> {
     // [0]=element, [1]=father, [2]=grandfather... [n]=document
     if (domelem === null || domelem === undefined) { return []; }
-    const arr = [domelem];
+    const arr = includeSelf ? [domelem] : [];
     let tmp: T = domelem.parentNode as T;
-    while (tmp !== null) {
+    while (tmp !== null && tmp != stopNode) {
       arr.push(tmp);
       tmp = tmp.parentNode as T; }
     return arr;
@@ -1036,6 +1039,12 @@ export class U {
     const o: SVGElement = U.newSvg<SVGElement>('svg');
     o.innerHTML = html;
     return o.firstChild as unknown as T;
+  }
+
+  static toHtmlValidate(text: string): Element {
+    const html: Element = U.toHtml(text);
+    if (html.innerHTML === text.replace(/\s+/gi,  '')) return html;
+    return null;
   }
 
   static toHtmlRow(html: string): HTMLTableRowElement {
@@ -1884,7 +1893,7 @@ export class U {
     return o; }
 
   // returns true only if parameter is already a number by type. U.isNumber('3') will return false
-  static isNumber(o: any): boolean { return +o === o && o !== NaN; }
+  static isNumber(o: any): boolean { return +o === o && !isNaN(o); }
   // returns true only if parameter is a number or a stringified number. U.isNumber('3') will return true
   static isNumerizable(o: any): boolean { return o !== null && o !== undefined && o !== '' && !isNaN(+o); }
   static isNumberArray(o: any, minn: number = Number.NEGATIVE_INFINITY, max: number = Number.POSITIVE_INFINITY,
@@ -2305,14 +2314,32 @@ export class U {
     return false; }
 
   static toBoolString(bool: boolean): string { return bool ? "true" : "false"; }
-  static fromBoolString(str: string | boolean, defaultVal: boolean = false, allowNull: boolean = false, allowUndefined: boolean = false): boolean {
+  static fromBoolString<T>(str: string | boolean, defaultVal: boolean | T = false, allowNull: boolean = false, allowUndefined: boolean = false): boolean | T {
     str = ('' + str).toLowerCase();
     if (allowNull && (str === 'null')) return null;
     if (allowUndefined && (str === 'undefined')) return undefined;
 
-    if (defaultVal === false) return str === "true" || str === 't' || str === '1'; // true solo se è esplicitamente true, false se ambiguo.
+    if (str === "true" || str === 't' || str === '1') return true;
     // if (defaultVal === true) return str === "false" || str === 'f' || str === '0'; // false solo se è esplicitamente false, true se ambiguo.
-    if (defaultVal === true) return !(str === "false" || str === 'f' || str === '0'); // false solo se è esplicitamente false, true se ambiguo.
+    if (str === "false" || str === 'f' || str === '0') return false;
+    return defaultVal;
+  }
+
+  static parseNumberOrBoolean(val: string, params: ParseNumberOrBooleanOptions = new ParseNumberOrBooleanOptions()): number {
+    let booleanTry: boolean | '' = U.fromBoolString(val, '', true, true);
+    console.log("isAllowingEdge parsenumberorboolean:", booleanTry, "|", params, "|", val);
+    switch ('' + booleanTry) {
+      default: U.pe(true, "dev error, unexpected case on U.parseNumberOfBoolean: ", val, ' = ', booleanTry); break;
+      case 'true': if (params.allowBooleans) return params.trueValue; break;
+      case 'false': if (params.allowBooleans) return params.falseValue; break;
+      case 'undefined': if (params.allowUndefined) return params.undefinedValue; break;
+      case 'null': if (params.allowNull) return params.nullValue; break;
+      case '':
+        let valnumber: number = +val;
+        if (isNaN(valnumber)) return params.allowedNan ? params.nanValue : params.defaultValue;
+        return valnumber;
+    }
+    return params.defaultValue;
   }
 
   static parseSvgPath(str: string): {assoc: {letter: string, pt: Point}[], pts: Point[]} {
@@ -3193,7 +3220,24 @@ export class U {
     if (console['logg']) console.log = console['logg'];
   }
 
+  // copia propietà da un oggetto deserializzato (senza funzioni) in un oggetto non serializzato ma privo di dati
+  static cloneProperties(param: GenericObject, json: JSON): void{
+    for (let key in json) { param[key] = json[key]; }
+  }
+
 }
+const $smap = {};
+// selettore query "statico", per memorizzare in cache i nodi del DOM read-only per recuperarli più efficientemente. (es: nodi template)
+export function $s<T extends Element>(selector: string, clone: boolean = true): JQuery<T>{
+  let ret: JQuery<T>;
+  if ($smap[selector]) { ret = $smap[selector]; }
+  else {
+    ret = ($(selector) as any);
+    $smap[selector] = ret;
+  }
+  if (clone) ret = ret.clone(false);
+  return ret; }
+
 export enum Keystrokes {
   escape = 'Escape',
   capsLock = 'CapsLock',
@@ -3463,6 +3507,25 @@ export enum AttribETypes {
 }
 
 // export type Json = object;
+
+export class ParseNumberOrBooleanOptions{
+  defaultValue?: any;
+  allowNull?: boolean; nullValue?: any;
+  allowUndefined?: boolean; undefinedValue?: any;
+  allowedNan?: boolean; nanValue?: any;
+  allowBooleans?: boolean; trueValue?: any; falseValue?: any;
+  constructor(
+    defaultValue: any = null, allowNull: boolean = false, nullValue: any = null,
+    allowUndefined: boolean = false, undefinedValue: any = undefined,
+    allowedNan: boolean = false, nanValue: any = NaN,
+    allowBooleans: boolean = true, trueValue : any = 1, falseValue: any = 0) {
+      this.defaultValue = defaultValue; this.allowNull = allowNull; this.nullValue = nullValue;
+      this.allowUndefined = allowUndefined; this.undefinedValue = undefinedValue;
+      this.allowedNan = allowedNan; this.nanValue = nanValue;
+      this.allowBooleans = allowBooleans; this.trueValue = trueValue; this.falseValue = falseValue;
+  }
+}
+
 export class Json {
   constructor(j: object) {/* U.pe('' + j === j, 'parameter cannot be a string'); */}
 

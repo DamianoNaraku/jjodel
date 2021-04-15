@@ -25,8 +25,23 @@ import {
   GraphPoint,
   IModel,
   Size,
-  EdgeStyle, MFeature, M2Attribute, M3Class, IClass,
-  Dictionary, GraphSize, MPackage, MReference, MAttribute, M2Reference, M2Feature, EOperation, Typedd, EAnnotation,
+  EdgeStyle,
+  MFeature,
+  M2Attribute,
+  M3Class,
+  IClass,
+  Dictionary,
+  GraphSize,
+  MPackage,
+  MReference,
+  MAttribute,
+  M2Reference,
+  M2Feature,
+  EOperation,
+  Typedd,
+  EAnnotation,
+  MetaMetaModel,
+  MetaModel,
 } from '../common/Joiner';
 
 export class MClass extends IClass {
@@ -49,11 +64,18 @@ export class MClass extends IClass {
   referencesIN: MReference[];
 */
 
-  constructor(pkg: MPackage, json: Json, metaVersion: M2Class) {
+  constructor(pkg: MPackage, json: Json, metaVersion: M2Class, autodetection: boolean) {
     super(pkg, metaVersion);
     if (!pkg && !json && !metaVersion) { return; } // empty constructor for .duplicate();
     U.pe(!metaVersion, 'null metaparent?');
     this.parse(json, true);
+
+    if (autodetection){
+      // let possibleClasses: M2Class[] = newMetaParent.getAllSubClasses(true);
+      if (this.metaParent) U.arrayRemoveAll(this.metaParent.instances, this);
+      let scores = this.metaParent.getTypeConversionScores(false, true);
+    }
+    this.changeMetaParent(metaVersion, false);
   }
 
   getAttribute(name: string, caseSensitive: boolean = false): MAttribute {
@@ -197,7 +219,7 @@ export class MClass extends IClass {
   }
 
   duplicate(nameAppend: string = null, newParent: IPackage | ModelPiece = null): MClass {
-    const c = new MClass(null, null, null);
+    const c = new MClass(null, null, null, false);
     c.copy(this);
     c.refreshGUI_Alone();
     return c; }
@@ -237,8 +259,7 @@ export class MClass extends IClass {
         // some error here, il value = ELIteral viene assegnato alla key .nome
         if (value === '' || value === null || value === undefined || U.isEmptyObject(value)) { continue; }
         const key: string = (U.isPrimitive(value) ? inlineMarker : '') + child.metaParent.name;
-        U.pe(json[key], 'overriding value inside MClass.generateModel()',
-          ', key:', key, ', newVal:', value, ', json:', json, ', MClass:', this, ', feature:', child);
+        // U.pe(json[key], 'overriding value inside MClass.generateModel()', ', key:', key, ', newVal:', value, ', json:', json, ', MClass:', this, ', feature:', child);
         /*let wind = window as any;
         if (!wind.json) wind.json = {};
         if (!wind.json[key]) wind.json[key] = [];
@@ -247,12 +268,51 @@ export class MClass extends IClass {
     }
     return json; }
 
+  parse_asgeneric_broke(json: Json, destructive: boolean = true): void {
+    json = U.cloneObj(json);
+    if (destructive) {
+      this.attributes = [];
+      this.references = [];
+      this.childrens = [];
+      this.referencesIN = []; }
+    this.metaParent = MetaModel.genericObject;
+    // this.changeMetaParent(this.metaParent, true, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
+    const inlineMarker: string = Status.status.XMLinlineMarker;
+    let allKeys = Object.keys(json);
+    const xmiVersion = json[inlineMarker + 'xmi:version'];
+    delete json[inlineMarker + 'xmi:version'];
+    if (xmiVersion) {
+      U.pe(+xmiVersion !== 2, "This xmi version (" + xmiVersion + ") is not supported");
+      this.setRoot(true);
+    }
+    for (let key of allKeys) {
+      if (!json.hasOwnProperty(key)) { continue; }
+      let keyParts = key.split(':');
+      const val = json[key];
+      switch (keyParts[0]) {
+        default:
+          if (typeof val === 'string') { new MAttribute(this, null, MetaModel.genericAttribute); }
+          else { new MReference(this, null, MetaModel.genericReference); }
+          // U.pe(true, 'unexpected entry while parsing M1Class:' + keyParts[0], keyParts);
+        break;
+        case inlineMarker + 'xmlns':
+          switch (keyParts[1]) {
+            case 'xmi': break; //"-xmlns:xmi": "http://www.omg.org/XMI",
+            default: // "-xmlns:org.eclipse.example.bowling": "https://org/eclipse/example/bowling",
+              const value: Json = json[key];
+              // todo: (set / handle) the (package / namespace)
+            break;
+          }
+        }
+      }
+  }
+
   parse(json: Json, destructive: boolean = true): void {
-  if (destructive) {
-    this.attributes = [];
-    this.references = [];
-    this.childrens = [];
-    this.referencesIN = []; }
+    if (destructive) {
+      this.attributes = [];
+      this.references = [];
+      this.childrens = [];
+      this.referencesIN = []; }
     this.changeMetaParent(this.metaParent, true, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
 
     /*{                                                           <--- classRoot

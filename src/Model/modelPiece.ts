@@ -41,7 +41,7 @@ import {
   IGraph,
   Typedd,
   IField,
-  TSON_JSTypes, ViewPoint, Size, ISize
+  TSON_JSTypes, ViewPoint, Size, ISize, ReservedClasses
 } from '../common/Joiner';
 
 import ClickEvent = JQuery.ClickEvent;
@@ -221,9 +221,11 @@ export abstract class ModelPiece {
 
   replaceVarsSetup(): void { return; }
 
-  linkToLogic(html0: Element): void {
+  linkToLogic(html0: Element, asVertex: boolean = true): void {
     let html: HTMLElement = html0 as HTMLElement;
     if (this.id === null || this.id === undefined) { U.pw(true, 'undefined id:', this); return; }
+    if (asVertex) html.classList.add(ReservedClasses.vertexRootG);
+    // html.classList.add('VertexShell');
     html.dataset.modelpieceid = '' + this.id; }
 
   getm2(): MetaModel {
@@ -384,7 +386,7 @@ export abstract class ModelPiece {
   abstract duplicate(nameAppend?: string, newParent?: ModelPiece): ModelPiece;
   // abstract conformability(metaparent: ModelPiece, outObj?: any/*.refPermutation, .attrPermutation*/, debug?: boolean): number;
 
-  setName0(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true, key: string, allowEmpty: boolean): string {
+  setName0(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = false, key: string, allowEmpty: boolean): string {
     if (value === this['' + key]) return this['' + key];
     const valueOld: string = this['' + key];
     const valueInputError = value;
@@ -443,7 +445,7 @@ export abstract class ModelPiece {
 
   preReplace(): void { this.className = this.getFriendlyClassName(); }
 
-  setName(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true): string { return this.setName0(value, refreshGUI, warnDuplicateFix, 'name', false); }
+  setName(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = false): string { return this.setName0(value, refreshGUI, warnDuplicateFix, 'name', false); }
 /*  setNameOld(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true): string {
     const valueOld: string = this.name;
     const valueInputError = value;
@@ -517,6 +519,7 @@ export abstract class ModelPiece {
 
   // nb: le sottoclassi lo devono sempre chiamare con refreshgui = false
   delete(refreshgui: boolean = true): void {
+    console.trace("delete remove self", this, refreshgui);
     this.unmarkAll();
     if (this.parent) {
       U.arrayRemoveAll(this.parent.childrens, this);
@@ -524,14 +527,17 @@ export abstract class ModelPiece {
     if (this.metaParent) {
       U.arrayRemoveAll(this.metaParent.instances, this);
       this.metaParent = null; }
+    console.log("delete remove childs", this, refreshgui);
     let i: number;
     let arr: any = U.shallowArrayCopy<ViewRule>(this.views);
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
     arr = U.shallowArrayCopy<ViewRule>(this.detachedViews);
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
+    console.log("delete remove views", this, refreshgui);
     arr = U.shallowArrayCopy<ModelPiece>(this.childrens);
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
 
+    console.log("delete remove or convert instances", this, refreshgui);
     arr = U.shallowArrayCopy<ModelPiece>(this.instances);
     if (this instanceof M2Class){
       const instances: MClass[] = arr as any;
@@ -549,6 +555,7 @@ export abstract class ModelPiece {
       // not m2-class.
       for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
     }
+    console.log("delete end, refresh gui", this, refreshgui);
     if (refreshgui) this.refreshGUI();
   }
 

@@ -36,6 +36,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/color-scheme/color-scheme.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/color-scheme/color-scheme.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"colorSchemeEditorRoot\" class=\"screenWideShadow\" [ngStyle]=\"{display: 'none', visibility: (this.temporaryInvisible ? 'hidden' : 'visible')}\">\n  <div class=\"popupContent\" style=\"min-width: 75vw;\">\n    <button class=\"btn btn-danger m-auto mr-2 p-0\" style=\"width: 40px; height: 40px; position: absolute; right: 30px; top: 30px;\" (click)=\"hide()\">X</button>\n    <div style=\"position: absolute; height: 100vw; right: 30px; top: 70px; background: inherit; border-left: 5px solid; border-color: var(--color-bg-1);\">\n      <div class=\"eye mt-2 p-0\" style=\"height: 0; position: sticky; top:0; visibility: visible;\" (mouseenter)=\"invisible()\" (mouseleave)=\"visible()\" (click)=\"hide()\">\n        <svg style=\"height: 40px; width: 40px; cursor: hand;\" aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"eye\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 576 512\" class=\"svg-inline--fa fa-eye fa-w-18 fa-lg\"><path fill=\"currentColor\" d=\"M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z\" class=\"\"></path></svg>\n      </div>\n    </div>\n    <div class=\"d-flex w-100\">\n      <h1 class=\"d-inline-flex m-auto\">Color scheme editor</h1>\n    </div>\n    <table class=\"table\">\n      <thead>\n      <tr>\n        <th style=\"width: min-content\">Delete</th>\n        <th style=\"width: min-content\">Active</th>\n        <th style=\"min-width: 150px;\">Name</th>\n        <th style=\"min-width: 220px;\" title=\"to limit the activation scope of a color scheme\">CSS scope selector</th>\n        <th style=\"min-width: 150px;\" title='To manually access this color scheme colors as css variables.\\nUse \"var(--\" + prefix + colorIndex + \")\" in css'>Color prefix</th>\n        <th>Colors</th>\n        <th>Add Colors</th>\n        <th title=\"if many color schemes are conflicting due to same scope and access mode, the one with highest priority is applied\">\n          <div class=\"rowContainer\"><div class=\"rowChildren\">Priority</div><div class=\"rowChildren\">(ascending)</div></div>\n        </th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let cs of this.colorSchemes; index as csindex\">\n        <td class=\"\">\n          <button class=\"ruledelete btn btn-danger\" (click)=\"this.remove(cs)\">X</button>\n        </td>\n        <td class=\"\">\n          <input class=\"w-100\" type=\"checkbox\" (change)=\"this.toggleArchived(cs)\" [checked]=\"cs.isActive\">\n        </td>\n        <td class=\"\"><input class=\"form-control input-group-text w-100\" [value]=\"cs.name\" (change)=\"this.changeName($event, cs)\"/></td>\n        <td class=\"\"><input class=\"form-control input-group-text w-100\" [value]=\"cs.selector\" [placeholder]=\"cs.autoselector\" (change)=\"this.changeSelector($event, cs)\"/></td>\n        <td class=\"\"><input class=\"form-control input-group-text w-100\" [value]=\"cs.colorPrefix\" (change)=\"this.changeColorPrefix($event, cs)\"/></td>\n        <td class=\"p-0 rowcontainer\">\n          <div class=\"d-flex flex-wrap\" style=\"margin:4px; justify-content: start;\">\n              <span *ngFor=\"let color of cs.foreColors; index as i\">\n                <input style=\"width: 30px; height: 30px; margin: 2.5px;\" type=\"color\" [value]=\"color\" [attr.valuetest]=\"color\" (change)=\"this.changeColor($event, cs, cs.foreColors, i)\">\n              </span>\n          </div>\n        </td>\n        <td style=\"white-space: nowrap;\">\n          <button class=\"btn btn-outline-success p-0 mr-1\" style=\"width: 30px; height: 30px\" (click)=\"this.addColor($event, cs, cs.foreColors)\">+</button>\n          <button class=\"btn btn-outline-danger p-0\" style=\"width: 30px; height: 30px\" (click)=\"this.removeColor($event, cs, cs.foreColors)\">-</button>\n        </td>\n        <td class=\"\">\n          <button class=\"d-block m-auto move btn btn-outline-secondary w-30 h-30 pt-0 pb-0\" (click)=\"this.move($event, cs, csindex, -1)\">↑</button>\n          <button style=\"margin: auto\" class=\"d-block move btn btn-outline-secondary w-30 h-30 pt-0 pb-0 mt-1\" (click)=\"this.move($event, cs, csindex, +1)\">⇣</button>\n        </td>\n      </tr>\n      </tbody>\n      <tfoot>\n      <tr>\n        <td colspan=\"8\"><button class=\"btn btn-success btn-lg w-100\" (click)=\"addCS()\">+</button></td>\n      </tr>\n      </tfoot>\n    </table>\n\n    <p style=\"white-space: pre;\">{{this.styleStr}}</p>\n    <style>{{this.styleStr}}</style>\n  </div>\n</div>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/measurabletemplate/measurabletemplate.component.html":
 /*!************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/measurabletemplate/measurabletemplate.component.html ***!
@@ -45,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"measurableTemplateGeneratorShell\" class=\"template colChild\">\n  <label class=\"labelmeasurable\">\n    <input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span>\n  </label>\n  <div class=\"meas_acc0\">\n    <h7 class=\"ruletitle btn btn-link collapsed maintitle\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">\n      <span class=\"innertitle\">Measurable Settings</span>\n    </h7>\n    <div class=\"measurableSettingRoot collapse\">\n      <div class=\"boxesroot\">\n        <div class=\"resizable boxroot\">\n          <h6 class=\"boxtitle\">Resizable handles</h6>\n          <div class=\"rectangledrawing outer\">\n            <div class=\"top row\">\n              <input type=\"checkbox\" class=\"arrow corner top left\" direction=\"nw\">\n              <input type=\"checkbox\" class=\"arrow side top\" direction=\"n\">\n              <input type=\"checkbox\" class=\"arrow corner top right\" direction=\"ne\">\n            </div>\n            <div class=\"mid row\">\n              <input type=\"checkbox\" class=\"arrow side left\" direction=\"w\">\n              <div class=\"middle\">\n                <div class=\"rectangledrawing inner\">\n                  <div class=\"top row\">\n                    <div class=\"corner top left\" direction=\"nw\"></div>\n                    <div class=\"side top\" direction=\"n\"></div>\n                    <div class=\"corner top right\" direction=\"ne\"></div>\n                  </div>\n                  <div class=\"mid row\">\n                    <div class=\"side left\" direction=\"w\"></div>\n                    <div class=\"middle\">\n                    </div>\n                    <div class=\"side right\" direction=\"e\"></div>\n                  </div>\n                  <div class=\"bot row\">\n                    <div class=\"corner bot left\" direction=\"sw\"></div>\n                    <div class=\"side bot\" direction=\"s\"></div>\n                    <div class=\"corner bot right\" direction=\"se\"></div>\n                  </div>\n                </div>\n              </div>\n              <input type=\"checkbox\" class=\"arrow side right\" direction=\"e\">\n            </div>\n            <div class=\"bot row\">\n              <input type=\"checkbox\" class=\"arrow corner bot left\" direction=\"sw\">\n              <input type=\"checkbox\" class=\"arrow side bot\" direction=\"s\">\n              <input type=\"checkbox\" class=\"arrow corner bot right\" direction=\"se\">\n            </div>\n          </div>\n        </div>\n        <div class=\"draggable boxroot\">\n          <h6 class=\"boxtitle\">Draggable directions</h6>\n          <div class=\"rectangledrawing directions\">\n            <input type=\"checkbox\" class=\"arrow arrowh drag\" direction=\"x\">\n            <input type=\"checkbox\" class=\"arrow arrowv drag\" direction=\"y\">\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"meas_acc\">\n        <input class=\"form-control rulesearch\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\n        <!-- dynamically generated accordions will be placed below -->\n      </div>\n\n      <div class=\"rule template\">\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\n        <div class=\"rulecontainer columncontainer collapse template\">\n\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\n          </div>\n          <div class=\"rightx column rowcontainer fill break mb-3\">\n            <div class=\"row break\">\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\n                <span class=\"prefix form-control\">_</span>\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\n                <select class=\"operator trigger\">\n                  <optgroup label=\"When\">\n                    <option>Start</option>\n                    <option>ing</option>\n                    <option selected>End</option>\n                  </optgroup>\n                </select>\n              </label>\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\n            </div>\n            <div class=\"row break\">\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\n              <span class=\"eventsplitpoint operatorcontainer\">\n                <span class=\"operator\">=</span>\n                <select class=\"operator relational\">\n                  <optgroup label=\"Operator\">\n                    <option>&lt;=</option>\n                    <option selected>=</option>\n                    <option>&gt;=</option>\n                  </optgroup>\n                </select></span>\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\n            <div class=\"measurabledebug rowcontainer\">\n              <button class=\"btn btn-primary executedebug\">Test it!</button>\n              <span class=\"debugrows\" tabindex=\"-1\">\n                <span class=\"measurableoktext\"><span>Debug output: </span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Left: </span><span class=\"measurableoutputtext debugleft\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Operator: </span><span class=\"measurableoutputtext debugoperator\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Right: </span><span class=\"measurableoutputtext debugright\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Target: </span><span class=\"measurableoutputtext debugtarget\"></span></span>\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Triggered: </span><span class=\"measurableoutputtext debugtriggers\"></span></span>\n                <!--\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\n                <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\n                -->\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--\n\n\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\n  _target1=\"positionX\"\n  relativetargetof_target1=\"#leftside\"\n  _target2=\"positionX\"\n  relativetargetof_target2=\"#rightside\"\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\n\n  angle:false,\n  class Rotatableoptions {\n  degrees: string = 'false | number';\n  radians: string = 'false | number';\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\n  handleOffsetX: string = 'width / 2';\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\n  rotationCenterOffsetX: string = 'width / 2';\n  rotationCenterOffsetY: string = 'height / 2';\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\n  onRotationStart: string = same as above // in realtà è \"start\"\n  onRotationEnd: string = same as above // in realtà è \"stop\"\n  }\n\n--->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"measurableTemplateGeneratorShell\" class=\"template colChild mt-4\">\r\n  <label class=\"labelmeasurable\">\r\n    <input class=\"ismeasurable\" type=\"checkbox\"><span>is measurable</span>\r\n  </label>\r\n  <div class=\"meas_acc0\">\r\n    <h7 class=\"ruletitle btn btn-link collapsed maintitle\" type=\"button\" data-parent=\".meas_acc0\" data-toggle=\"collapse\" data-target=\".meas_acc0 > .measurableSettingRoot\">\r\n      <span class=\"innertitle\">Measurable Settings</span>\r\n    </h7>\r\n    <div class=\"measurableSettingRoot collapse\">\r\n      <div class=\"boxesroot\">\r\n        <div class=\"resizable boxroot\">\r\n          <h6 class=\"boxtitle\">Resizable handles</h6>\r\n          <div class=\"rectangledrawing outer\">\r\n            <div class=\"top row\">\r\n              <input type=\"checkbox\" class=\"arrow corner top left\" direction=\"nw\">\r\n              <input type=\"checkbox\" class=\"arrow side top\" direction=\"n\">\r\n              <input type=\"checkbox\" class=\"arrow corner top right\" direction=\"ne\">\r\n            </div>\r\n            <div class=\"mid row\">\r\n              <input type=\"checkbox\" class=\"arrow side left\" direction=\"w\">\r\n              <div class=\"middle\">\r\n                <div class=\"rectangledrawing inner\">\r\n                  <div class=\"top row\">\r\n                    <div class=\"corner top left\" direction=\"nw\"></div>\r\n                    <div class=\"side top\" direction=\"n\"></div>\r\n                    <div class=\"corner top right\" direction=\"ne\"></div>\r\n                  </div>\r\n                  <div class=\"mid row\">\r\n                    <div class=\"side left\" direction=\"w\"></div>\r\n                    <div class=\"middle\">\r\n                    </div>\r\n                    <div class=\"side right\" direction=\"e\"></div>\r\n                  </div>\r\n                  <div class=\"bot row\">\r\n                    <div class=\"corner bot left\" direction=\"sw\"></div>\r\n                    <div class=\"side bot\" direction=\"s\"></div>\r\n                    <div class=\"corner bot right\" direction=\"se\"></div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <input type=\"checkbox\" class=\"arrow side right\" direction=\"e\">\r\n            </div>\r\n            <div class=\"bot row\">\r\n              <input type=\"checkbox\" class=\"arrow corner bot left\" direction=\"sw\">\r\n              <input type=\"checkbox\" class=\"arrow side bot\" direction=\"s\">\r\n              <input type=\"checkbox\" class=\"arrow corner bot right\" direction=\"se\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"draggable boxroot\">\r\n          <h6 class=\"boxtitle\">Draggable directions</h6>\r\n          <div class=\"rectangledrawing directions\">\r\n            <input type=\"checkbox\" class=\"arrow arrowh drag\" direction=\"x\">\r\n            <input type=\"checkbox\" class=\"arrow arrowv drag\" direction=\"y\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n\r\n      <div class=\"meas_acc\">\r\n        <input class=\"form-control rulesearch\" type=\"text\" placeholder=\"Search\" aria-label=\"Search\">\r\n        <!-- dynamically generated accordions will be placed below -->\r\n      </div>\r\n\r\n      <div class=\"rule template\">\r\n        <h7 class=\"ruletitle btn btn-link collapsed\" type=\"button\" data-parent=\".meas_acc\" data-toggle=\"collapse\" data-target=\"DYNAMICALLYFILLED\">###</h7>\r\n        <div class=\"rulecontainer columncontainer collapse template\">\r\n\r\n          <div class=\"leftx column\"><button class=\"ruledelete btn btn-danger\">X</button>\r\n          </div>\r\n          <div class=\"rightx column rowcontainer fill break mb-3\">\r\n            <div class=\"row break\">\r\n              <label class=\"compoundInputprefix nobreak input-group-prepend form-control\">\r\n                <span class=\"prefix form-control\">_</span>\r\n                <input type=\"text\" class=\"form-control attrname\" placeholder=\"DYNAMICALLYFILLED\" pattern=\"^[\\S]*$\">\r\n                <select class=\"operator trigger\">\r\n                  <optgroup label=\"When\">\r\n                    <option>Start</option>\r\n                    <option>ing</option>\r\n                    <option selected>End</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <span class=\"botmarg\"><span class=\"postName\">holds rule:</span></span>\r\n            </div>\r\n            <div class=\"row break\">\r\n              <span class=\"botmarg\"><span class=\"preleft prefix form-control\">####</span></span>\r\n              <input type=\"text\" class=\"form-control leftside\" placeholder=\"DYNAMICALLYFILLED\">\r\n              <span class=\"eventsplitpoint operatorcontainer\">\r\n                <span class=\"operator\">=</span>\r\n                <select class=\"operator relational\">\r\n                  <optgroup label=\"Operator\">\r\n                    <option>&lt;=</option>\r\n                    <option selected>=</option>\r\n                    <option>&gt;=</option>\r\n                  </optgroup>\r\n                </select></span>\r\n              <input type=\"text\" class=\"form-control rightside\" placeholder=\"#######\">\r\n            </div><input type=\"text\" class=\"form-control target\" placeholder=\"Rel. target selector\">\r\n            <div class=\"measurabledebug rowcontainer\">\r\n              <button class=\"btn btn-primary executedebug\">Test it!</button>\r\n              <span class=\"debugrows\" tabindex=\"-1\">\r\n                <span class=\"measurableoktext\"><span>Debug output: </span></span>\r\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Left: </span><span class=\"measurableoutputtext debugleft\"></span></span>\r\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Operator: </span><span class=\"measurableoutputtext debugoperator\"></span></span>\r\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Right: </span><span class=\"measurableoutputtext debugright\"></span></span>\r\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Target: </span><span class=\"measurableoutputtext debugtarget\"></span></span>\r\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Triggered: </span><span class=\"measurableoutputtext debugtriggers\"></span></span>\r\n                <!--\r\n                <span class=\"measurablewarningtext\" tabindex=\"-1\"><span>Warnings: </span><span class=\"text\"></span></span>\r\n                <span class=\"measurableerrortext\" tabindex=\"-1\"><span>Errors: </span><span class=\"text\"></span></span>\r\n                -->\r\n              </span>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!--\r\n\r\n\r\n  NB: non è possibile inserire N relativeTarget direttamente, ma è possibile usarne uno in ogni _Variable, memorizzare i dati d'interesse sul bersaglio nella variabile ed accedervi in altri attributi.\r\n  esempio: come inserire un nodo equidistante tra due nodi bersaglio.\r\n  _target1=\"positionX\"\r\n  relativetargetof_target1=\"#leftside\"\r\n  _target2=\"positionX\"\r\n  relativetargetof_target2=\"#rightside\"\r\n  _import=\"positionX = (a.target1 + a.target2) / 2\"\r\n\r\n  angle:false,\r\n  class Rotatableoptions {\r\n  degrees: string = 'false | number';\r\n  radians: string = 'false | number';\r\nhandle: string = 'url', //  internamente richiede come parametro un $('imageselector')... crea un elemento con quell'immagine. e appendilo al vertice con display: none per evitare di ricrearne uno ogni volta che crei un vertice, almeno così viene anche cancellato assieme al vertice. prova se l'url netto va bene lo stesso in overloading\r\n  handleOffsetX: string = 'width / 2';\r\n  handleOffsetY: string = '-20'; // internamente è: handleOffset: { top: 0, left: 0 }\r\n  rotationCenterOffsetX: string = 'width / 2';\r\n  rotationCenterOffsetY: string = 'height / 2';\r\n  // internamente è: rotationCenterOffset: { top: 0, left: 0 } from the center of the element\r\n  step: string = 'degree', // internamente ha \"snap = boolean\" e step = number, setta anche snap = true se trovi step come attributo measur-rotatable.\r\n  transforms: string = 'null | {scaleY: 2}'; // non chiaro neanche negli esempi demo. googla.\r\n  wheelRotate: string = 'false' // NB: non previene lo scroll della pagina come azione default.\r\n  onRotating: string = 'rotate: function(event, ui) { ... }'; // NB: se la sua trimmed version non inizia con function oppure con /^([^)]+)[\\s]*=>$/ allora aggiungicelo tu a tempo di esecuzione? o non vale la pena per degradazione performance?.\r\n  onRotationStart: string = same as above // in realtà è \"start\"\r\n  onRotationEnd: string = same as above // in realtà è \"stop\"\r\n  }\r\n\r\n--->\r\n");
 
 /***/ }),
 
@@ -71,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot\">\r\n    <ul class=\"vertex contextMenu\">\r\n      <li class=\"Vertex changeType popupRightParent\" uif=\"classifier\">\r\n        <span>Change type</span>\r\n        <ul class=\"typelist popupRight\">\r\n          <li class=\"typeli fallback unclickable\" style=\"cursor: no-drop; color: red;\">##ERROR MSG TO FILL##</li>\r\n          <li class=\"typeli description unclickable\"><span>Best match:</span></li>\r\n          <li class=\"typeli separator unclickable\"></li>\r\n          <li class=\"typeli description unclickable\"><span>Other options</span></li>\r\n          <li class=\"typeli template\" data-index=\"-1\">\r\n            <span class=\"typeli change text\"></span>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Vertex delete\" uif=\"classifier\">Delete classifier</li>\r\n\r\n      <li class=\"Vertex todo duplicate\" uif=\"classifier\">Duplicate classifier</li>\r\n      <li class=\"Vertex extend\" uif=\"m2 && class\">Extend class</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && feature\">Delete feature</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && feature\">Duplicate feature</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && operation\">Delete operation</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && operation\">Duplicate operation</li>\r\n      <li class=\"Reference popupRightParent\" uif=\"reference\">References\r\n        <ul class=\"reflist popupRight\">\r\n          <li class=\"refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n          <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n          <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Feature todo autofixinstances\" uif=\"m2 && feature\">Autofix instances</li>\r\n      <li class=\"Feature todo autofix\" uif=\"m1 && feature\">Autofix conformity</li>\r\n      <li class=\"separator\"  uif=\"classifier || m2 && feature || m2 && operation || m2 && annotation\"></li>\r\n      <li class=\"Vertex up\" uif=\"classifier\">Push vertex Up (Z-order)</li>\r\n      <li class=\"Vertex down\" uif=\"classifier\">Push vertex Down (Z-order)</li>\r\n      <li class=\"Feature up\" uif=\"m2 && feature\">Move feature Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && feature\">Move feature Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && operation\">Move operation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && operation\">Move operation Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && annotation\">Move annotation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && annotation\">Move annotation Down</li>\r\n    </ul>\r\n    <ul class=\"extedge contextMenu\" uif=\"extedge\">\r\n      <li class=\"edge delete\">Delete generalization</li>\r\n      <li class=\"edge change\">Edit generalization</li>\r\n    </ul>\r\n    <ul class=\"edge contextMenu\" uif=\"edge\">\r\n      <li class=\"edge delete\">Delete reference</li>\r\n      <li class=\"edge change\">Edit reference</li>\r\n    </ul>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot\">\r\n    <ul class=\"vertex contextMenu\">\r\n      <li class=\"Vertex changeType popupRightParent\" uif=\"classifier\">\r\n        <span>Change type</span>\r\n        <ul class=\"typelist popupRight\">\r\n          <li class=\"typeli fallback unclickable\" style=\"cursor: no-drop; color: red;\">##ERROR MSG TO FILL##</li>\r\n          <li class=\"typeli description unclickable\"><span>Best match:</span></li>\r\n          <li class=\"typeli separator unclickable\"></li>\r\n          <li class=\"typeli description unclickable\"><span>Other options</span></li>\r\n          <li class=\"typeli template\" data-index=\"-1\">\r\n            <span class=\"typeli change text\"></span>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Vertex delete\" uif=\"classifier\">Delete classifier</li>\r\n\r\n      <li class=\"Vertex todo duplicate\" uif=\"classifier\">Duplicate classifier</li>\r\n      <li class=\"Vertex extend\" uif=\"m2 && class\">Extend class</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && feature\">Delete feature</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && feature\">Duplicate feature</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && operation\">Delete operation</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && operation\">Duplicate operation</li>\r\n      <li class=\"Reference popupRightParent\" uif=\"m1 && reference\">References\r\n        <ul class=\"reflist popupRight\">\r\n          <li class=\"refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n          <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n          <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Feature todo autofixinstances\" uif=\"m2 && feature\">Autofix instances</li>\r\n      <li class=\"Feature todo autofix\" uif=\"m1 && feature\">Autofix conformity</li>\r\n      <li class=\"separator\"  uif=\"classifier || m2 && feature || m2 && operation || m2 && annotation\"></li>\r\n      <li class=\"Vertex up\" uif=\"classifier\">Push vertex Up (Z-order)</li>\r\n      <li class=\"Vertex down\" uif=\"classifier\">Push vertex Down (Z-order)</li>\r\n      <li class=\"Feature up\" uif=\"m2 && feature\">Move feature Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && feature\">Move feature Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && operation\">Move operation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && operation\">Move operation Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && annotation\">Move annotation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && annotation\">Move annotation Down</li>\r\n    </ul>\r\n    <ul class=\"extedge contextMenu\" uif=\"extedge\">\r\n      <li class=\"edge delete\">Delete generalization</li>\r\n      <li class=\"edge change\">Edit generalization</li>\r\n    </ul>\r\n    <ul class=\"edge contextMenu\" uif=\"edge\">\r\n      <li class=\"edge delete\">Delete reference</li>\r\n      <li class=\"edge change\">Edit reference</li>\r\n    </ul>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -110,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"false\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"false\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:darkorange;\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Attribute\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:darkorange;\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; color:inherit; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color:transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:0px; display: none;\">\r\n  <div id=\"m_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"m_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"false\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"false\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Vertex Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"overflow: hidden; outline: 1px solid var(--color-3); background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference\" style=\"width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:var(--color-1);\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:var(--color-1);\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" style=\"width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; margin-top:0; padding:2px; order:2; border: 3px solid var(--color-2); border-top-color:transparent;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Parameter\" style=\"width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:0px; display: none;\">\r\n  <div id=\"m_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"m_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -123,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"true\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"true\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:dodgerblue; margin:auto; padding-left:4px;\">($##className$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid black; background:white; color:black;\">\r\n      <div class=\"Class Vertex vertexShell EEnum\" style=\"background:white; height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; color:inherit; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; color:inherit; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:red; margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; color:inherit; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"color:inherit; background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Reference\" style=\"width:100%; height: 22px; padding-left:5px; display:flex;\">\r\n      <select data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Attribute EString EInteger\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template ELiteral\" style=\"width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; color:inherit; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Operation\" style=\"width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid #28a745; border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm btn-success\" style=\"width: 100%; height: 22px; padding:0; text-align: center\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width: 100%; height: 22px; border-bottom:1px solid lightgray; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; color:inherit; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; color:inherit; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:40px; display: none;\">\r\n  <div id=\"mm_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"mm_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"true\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"true\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Vertex invisibleNode\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"display:none\" keep-edges=\"false\"\r\n                   show-in-rel-edges=\"false\" show-in-ext-edges=\"false\" show-in-oth-edges=\"false\"\r\n                   show-out-rel-edges=\"false\" show-out-ext-edges=\"false\" show-out-oth-edges=\"false\">\r\n      <div style=\"height:auto;\"></div>\r\n    </foreignobject>\r\n    <foreignobject class=\"template Vertex Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"overflow: hidden; outline: 1px solid var(--color-3); background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;\">($##className$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template Vertex EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"overflow: hidden; outline: 1px solid var(--color-3); background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"EEnum\" style=\"background:var(--color-1); height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-5); margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"background:rgba(127, 127, 127, 0.2);\">Go todo opac</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference\" style=\"width:100%; height: 22px; padding-left:5px; display:flex;\">\r\n      <select data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute EString EInteger\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Feature ELiteral\" style=\"width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" style=\"width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid var(--color-2); border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm\" style=\"width: 100%; height: 22px; padding:0; text-align: center; background-color: var(--color-2); color:var(--color-4);\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width: 100%; height: 22px; border-bottom:1px solid var(--color-3); display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:40px; display: none;\">\r\n  <div id=\"mm_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"mm_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -188,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <!--\r\n      <label>\r\n        <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid X</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid Y</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom</span>\r\n      </label>\r\n      <label display = \"none\">\r\n        <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom Y</span>\r\n      </label>\r\n      <label><input type=\"checkbox\" class=\"showGrid\"><span>Show grid</span></label>\r\n      <label><input type=\"color\" class=\"graphColor\"><span>Background color</span></label>\r\n      -->\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid X</td>\r\n        <td><input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Grid Y</td>\r\n        <td><input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"useGrid\">Use grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor1\">Grid color 1</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor2\">Grid color 2</label></td></tr>\r\n      </tbody></table>\r\n\r\n      <label class=\"onlyVerticalContainer\" uif=\"!running\">\r\n        <button class=\"btn btn-primary layout start dynamic_uif\">Start auto-layouting</button></label>\r\n\r\n\r\n      <div class=\"layoutingRoot\" uif=\"running\">\r\n        <h5>Auto-layout options</h5>\r\n        <label class=\"onlyVerticalContainer\">\r\n          <button class=\"btn btn-primary layout stabilize\">Stabilize</button>\r\n          <span style=\"margin:auto 0.5rem\">in</span>\r\n          <input type=\"number\" class=\"stabilizeSteps lopt\" min=\"0\" step=\"1\" placeholder=\"off\" value=\"10\" data-key=\"custom.stabilizeSteps\">\r\n          <span style=\"margin-left: 0.5rem\">steps</span>\r\n        </label>\r\n        <label class=\"onlyVerticalContainer\"><button class=\"btn btn-primary layout stop\">Stop</button></label>\r\n\r\n        <label>How to manage edge points?\r\n          <select class=\"edgePointTreatment form-group\"><optgroup label=\"How to manage edge points?\">\r\n            <option value=\"delete\">Remove them</option>\r\n            <option value=\"vertex\" selected>Treat them as vertexes</option>\r\n            <option value=\"ignore\">Keep absolute position (ignore)<option>\r\n            <option value=\"relative\">Keep relative position between source & target</option>\r\n            <!--\r\n              1) treat them as vertex (default)\r\n              2) keep absolute position (ignore) (might cause a mess because they stand still)\r\n              3) keep relative position. Rimane a (x%, y%) distanza tra source e target, memorizzo un vettore direzione\r\n                 con modulo in percentuale sulla distanza tra i 2 vertici,\r\n                 così rispetto ai vertici rimane statico, anche se in realtà si è mosso assieme a loro.\r\n            -->\r\n          </optgroup></select>\r\n        </label>\r\n        <div>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"layout.hierarchical.enabled\">Hierarchical\r\n          </label>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"physics.enabled\">\r\n            Physics\r\n          </label>\r\n          <div uif=\"physics\">\r\n            <label>Simulation mode\r\n              <select class=\"dynamic_uif lopt\" data-key=\"physics.solver\">\r\n                <optgroup label=\"Simulation\">\r\n                  <option value=\"barnesHut\">BarnesHut</option>\r\n                  <option value=\"forceAtlas2Based\">Force Atlas 2</option>\r\n                  <option value=\"repulsion\">Repulsion</option>\r\n                  <option value=\"hierarchicalRepulsion\">hierarchicalRepulsion</option>\r\n                </optgroup>\r\n              </select>\r\n            </label>\r\n\r\n            <div uif=\"hr\">\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.blockShifting\">\r\n                Block shifting\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.edgeMinimization\">\r\n                Edge minimization\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.parentCentralization\">\r\n                Parent centralization\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.levelSeparation\" min=\"0\" step=\"1\">\r\n                Level separation\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.nodeSpacing\" min=\"0\" step=\"1\">\r\n                Node spacing\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.treeSpacing\" min=\"0\" step=\"1\">\r\n                Tree spacing\r\n              </label>\r\n              <label>Direction\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.direction\">\r\n                  <optgroup label=\"Direction\">\r\n                    <option value=\"UD\">Up - Down</option>\r\n                    <option value=\"DU\">Down - Up</option>\r\n                    <option value=\"LR\">Left - Right</option>\r\n                    <option value=\"RL\">Right - Left</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Sort method\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.sortMethod\">\r\n                  <optgroup label=\"Sort method\">\r\n                    <option value=\"hubsize\">hubsize</option>\r\n                    <option value=\"directed\">directed</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Shake towards\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.shakeTowards\">\r\n                  <optgroup label=\"Shake towards\">\r\n                    <option value=\"leaves\">leaves</option>\r\n                    <option value=\"roots\">roots</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n            </div>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.theta\"> Theta\r\n            </label>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" min=\"any\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.gravitationalConstant\"> Gravitational constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.centralGravity\"> Central gravity\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springLength\"> Spring length\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springConstant\"> Spring constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.damping\"> Damping\r\n            </label>\r\n            <label uif=\"atl || bar || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.avoidOverlap\"> Avoid overlap\r\n            </label>\r\n            <label uif=\"rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.nodeDistance\"> Node distance\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.minVelocity\"> Min velocity\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.maxVelocity\"> Max velocity\r\n            </label>\r\n\r\n            <label>\r\n              <input type=\"checkbox\" step=\"any\" class=\"dynamic_uif lopt\" data-key=\"physics.stabilization.enabled\"> Stabilization\r\n            </label>\r\n            <div uif=\"stabilization\">\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.iterations\"> Iterations\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.updateInterval\"> Update interval (ms)\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"custom.scale_factor\"> Scale factor\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.onlyDynamicEdges\"> onlyDynamicEdges???\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.fit\"> Fit??\r\n              </label>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n      <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n\r\n      <!-- start of new measurable -->\r\n\r\n      <div class=\"columnContainer\"><div class=\"measurablePlaceholder\"></div></div>\r\n\r\n\r\n      <!-- end of new measurable -->\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"iclass show\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autolayout\"><span>Include in Auto-layout</span></label>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <label class=\"\">\r\n        <input type=\"checkbox\" class=\"asDefault\">\r\n        <span>Use as default style</span>\r\n      </label>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <!--\r\n      <label>\r\n        <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid X</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid Y</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom</span>\r\n      </label>\r\n      <label display = \"none\">\r\n        <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom Y</span>\r\n      </label>\r\n      <label><input type=\"checkbox\" class=\"showGrid\"><span>Show grid</span></label>\r\n      <label><input type=\"color\" class=\"graphColor\"><span>Background color</span></label>\r\n      -->\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid X</td>\r\n        <td><input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Grid Y</td>\r\n        <td><input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"useGrid\">Use grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor1\">Grid color 1</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor2\">Grid color 2</label></td></tr>\r\n      </tbody></table>\r\n\r\n      <label class=\"onlyVerticalContainer\">\r\n        <button class=\"btn btn-primary colorschemeopener\">Manage color scheme</button>\r\n      </label>\r\n\r\n      <label class=\"onlyVerticalContainer\" uif=\"!running\">\r\n        <button class=\"btn btn-primary layout start dynamic_uif\">Start auto-layouting</button>\r\n      </label>\r\n\r\n\r\n      <div class=\"layoutingRoot\" uif=\"running\">\r\n        <h5>Auto-layout options</h5>\r\n        <label class=\"onlyVerticalContainer\">\r\n          <button class=\"btn btn-primary layout stabilize\">Stabilize</button>\r\n          <span style=\"margin:auto 0.5rem\">in</span>\r\n          <input type=\"number\" class=\"stabilizeSteps lopt\" min=\"0\" step=\"1\" placeholder=\"off\" value=\"10\" data-key=\"custom.stabilizeSteps\">\r\n          <span style=\"margin-left: 0.5rem\">steps</span>\r\n        </label>\r\n        <label class=\"onlyVerticalContainer\"><button class=\"btn btn-primary layout stop\">Stop</button></label>\r\n\r\n        <label>How to manage edge points?\r\n          <select class=\"edgePointTreatment form-group\"><optgroup label=\"How to manage edge points?\">\r\n            <option value=\"delete\">Remove them</option>\r\n            <option value=\"vertex\" selected>Treat them as vertexes</option>\r\n            <option value=\"ignore\">Keep absolute position (ignore)<option>\r\n            <option value=\"relative\">Keep relative position between source & target</option>\r\n            <!--\r\n              1) treat them as vertex (default)\r\n              2) keep absolute position (ignore) (might cause a mess because they stand still)\r\n              3) keep relative position. Rimane a (x%, y%) distanza tra source e target, memorizzo un vettore direzione\r\n                 con modulo in percentuale sulla distanza tra i 2 vertici,\r\n                 così rispetto ai vertici rimane statico, anche se in realtà si è mosso assieme a loro.\r\n            -->\r\n          </optgroup></select>\r\n        </label>\r\n        <div>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"layout.hierarchical.enabled\">Hierarchical\r\n          </label>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"physics.enabled\">\r\n            Physics\r\n          </label>\r\n          <div uif=\"physics\">\r\n            <label>Simulation mode\r\n              <select class=\"dynamic_uif lopt\" data-key=\"physics.solver\">\r\n                <optgroup label=\"Simulation\">\r\n                  <option value=\"barnesHut\">BarnesHut</option>\r\n                  <option value=\"forceAtlas2Based\">Force Atlas 2</option>\r\n                  <option value=\"repulsion\">Repulsion</option>\r\n                  <option value=\"hierarchicalRepulsion\">hierarchicalRepulsion</option>\r\n                </optgroup>\r\n              </select>\r\n            </label>\r\n\r\n            <div uif=\"hr\">\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.blockShifting\">\r\n                Block shifting\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.edgeMinimization\">\r\n                Edge minimization\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.parentCentralization\">\r\n                Parent centralization\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.levelSeparation\" min=\"0\" step=\"1\">\r\n                Level separation\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.nodeSpacing\" min=\"0\" step=\"1\">\r\n                Node spacing\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.treeSpacing\" min=\"0\" step=\"1\">\r\n                Tree spacing\r\n              </label>\r\n              <label>Direction\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.direction\">\r\n                  <optgroup label=\"Direction\">\r\n                    <option value=\"UD\">Up - Down</option>\r\n                    <option value=\"DU\">Down - Up</option>\r\n                    <option value=\"LR\">Left - Right</option>\r\n                    <option value=\"RL\">Right - Left</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Sort method\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.sortMethod\">\r\n                  <optgroup label=\"Sort method\">\r\n                    <option value=\"hubsize\">hubsize</option>\r\n                    <option value=\"directed\">directed</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Shake towards\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.shakeTowards\">\r\n                  <optgroup label=\"Shake towards\">\r\n                    <option value=\"leaves\">leaves</option>\r\n                    <option value=\"roots\">roots</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n            </div>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.theta\"> Theta\r\n            </label>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" min=\"any\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.gravitationalConstant\"> Gravitational constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.centralGravity\"> Central gravity\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springLength\"> Spring length\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springConstant\"> Spring constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.damping\"> Damping\r\n            </label>\r\n            <label uif=\"atl || bar || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.avoidOverlap\"> Avoid overlap\r\n            </label>\r\n            <label uif=\"rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.nodeDistance\"> Node distance\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.minVelocity\"> Min velocity\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.maxVelocity\"> Max velocity\r\n            </label>\r\n\r\n            <label>\r\n              <input type=\"checkbox\" step=\"any\" class=\"dynamic_uif lopt\" data-key=\"physics.stabilization.enabled\"> Stabilization\r\n            </label>\r\n            <div uif=\"stabilization\">\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.iterations\"> Iterations\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.updateInterval\"> Update interval (ms)\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"custom.scale_factor\"> Scale factor\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.onlyDynamicEdges\"> onlyDynamicEdges???\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.fit\"> Fit??\r\n              </label>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <!-- start of level header -->\r\n      <app-csseditor></app-csseditor>\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <!-- end of level header -->\r\n      <div class=\"cssdetailleveltoggler2\">\r\n        <ul class=\"UtabHeaderContainer\" style=\"background-color: inherit;\">\r\n          <li class=\"UtabHeader\" selected=\"true\" data-toggle=\"collapse\" data-target=\".cssdetailleveltoggler2 .collapse.c1\">\r\n            <span>\r\n              Simplified editor\r\n            </span>\r\n          </li>\r\n          <li class=\"UtabHeader\" selected=\"true\" data-toggle=\"collapse\" data-target=\".cssdetailleveltoggler2 .collapse.c2\">\r\n            <span>\r\n              Full editor\r\n            </span>\r\n          </li>\r\n        </ul>\r\n\r\n        <div class=\"collapse c1\" data-parent=\".cssdetailleveltoggler2\">\r\n          <!-- start of css editor -->\r\n          <div class=\"csseditorroot\">\r\n            <h4>Color scheme selector</h4>\r\n            <div class=\"cschemeroot\">\r\n\r\n              <!--div class=\"ui dropdown fluid multiple search selection\">\r\n                <input type=\"hidden\" name=\"color-schemes\" class=\"color-schemes\">\r\n                <i class=\"dropdown icon\"></i>\r\n                <div class=\"default text\">Select Color scheme (currently inherithing #####)</div>\r\n                <div class=\"menu\">\r\n                  <div class=\"item dropdown-item template\" data-value=\"cs-selectors\">\r\n                    <i class=\"af flag\"></i>Afghanistan\r\n                    <div class=\"text-center\">cs name</div>\r\n                    <div class=\"colorblock\"></div>\r\n                  </div>\r\n                </div>\r\n              </div-->\r\n\r\n              <div class=\"cstemplates template\">\r\n                <li class=\"cslistreadonly dropdownitem\">\r\n                  <div class=\"inheritedFromText cslistreadonly dropdownitem\"><span>from&nbsp;</span><span class=\"cs tag\"></span><span>&nbsp;(</span><span class=\"cs level\"></span><span>&nbsp;levels up)</span></div>\r\n                  <ul class=\"cs list p-0\"></ul>\r\n                </li>\r\n                <li class=\"csoption dropdownitem\">\r\n                  <div class=\"name text-center\"></div>\r\n                  <div class=\"colors d-flex\">\r\n                    <!-- contiene colorblocks creati a runtime -->\r\n                  </div>\r\n                </li>\r\n\r\n              </div>\r\n\r\n              <div class=\"dropdown hover-display readonly btn d-flex inheriting-color-scheme-list\">\r\n                <div class=\"title btn\">Inherited color schemes</div>\r\n                <i class=\"icon\"></i>\r\n                <ul class=\"dropdownmenu w-100\">\r\n                  <!-- contiene .template.cslistreadonly -->\r\n                </ul>\r\n              </div>\r\n\r\n              <div class=\"dropdown btn d-flex own-color-scheme-list\" tabindex=\"-1\">\r\n                <div class=\"title btn\">Own color schemes</div>\r\n                <i class=\"icon\"></i>\r\n                <ul class=\"dropdownmenu w-100\">\r\n                  <!-- contiene .template.cslistreadonly -->\r\n                </ul>\r\n                <!--span class=\"dropdown cscheme w-auto d-none roba vecchia inutilizzata\">\r\n                  <input type=\"hidden\" name=\"color-schemes\" class=\"color-schemes\">\r\n                  <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" fillwithvalue1>NOT INIT</button>\r\n                  <div class=\"dropdown-menu w-100\">\r\n                    <li class=\"dropdown-item\" data-csname=\"custom\">\r\n                        <div class=\"text-center\" value1>Custom</div>\r\n                        <div class=\"cscheme default\" value2>\r\n                          <div class=\"colorblock empty\"></div>\r\n                          <div class=\"colorblock empty\"></div>\r\n                          <div class=\"colorblock empty\"></div>\r\n                          <div class=\"colorblock empty\"></div>\r\n                        </div>\r\n                    </li>\r\n                    <li class=\"dropdown-item template\" data-csname=\"tofill\">\r\n                      <div class=\"text-center\" value1></div>\r\n                      <div class=\"cscheme\" value2></div>\r\n                    </li>\r\n                  </div>\r\n                </span-->\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <div class=\"css_editor\" uif=\"isCustomized\">\r\n              <h4>Css / color customizer</h4>\r\n              <div class=\"roww addclass\">\r\n                <input list=\"currentNodeClassList\">\r\n                <button class=\"btn btn-success addselector\">Add element</button>\r\n              </div>\r\n              <div>\r\n                <div class=\"roww cssBlocksContainer\">\r\n                  <div class=\"cssprop template roww\">\r\n                    <div class=\"g g0\">\r\n                      <button class=\"btn btn-danger delcssprop\">X</button>\r\n                    </div>\r\n                    <input class=\"form-group g1 cssprop\" list=\"cssrules\" value=\"border\">\r\n                    <div class=\"g g0\">\r\n                      <span>:</span>\r\n                    </div>\r\n                    <input class=\"form-group cssval g1 cssval\" placeholder=\"ph autocomplete todo\">\r\n                  </div>\r\n                  <div class=\"cssblock template\">\r\n                    <div class=\"colorPicker roww\">\r\n                      <div class=\"g g0\">\r\n                        <button class=\"btn btn-danger delcssprop\">X</button>\r\n                      </div>\r\n                      <div class=\"g g3\"><span class=\"title selector\">SELECTOR_TOFILL</span></div>\r\n                      <div class=\"g g1 mr-1 fontstyle\" style=\"flex-grow: 0;\"><label class=\"c fc\" style=\"margin-bottom: 15px;\">\r\n                        <div class=\"horizontalContainer verticalContainer\"><span class=\"HorizontalChild\">Font</span></div>\r\n                        <input type=\"color\" value=\"#000000\" class=\"m-0\" style=\"background: transparent;\">\r\n                        <input type=\"range\" class=\"form-control-range opacity\" min=\"0\" max=\"1\" step=\"any\">\r\n                      </label></div>\r\n                      <div class=\"g g1 mr-1 backstyle\" style=\"flex-grow: 0;\"><label class=\"c bc\" style=\"margin-bottom: 15px;\">\r\n                        <div class=\"horizontalContainer verticalContainer\"><span class=\"HorizontalChild\">Font</span></div>\r\n                        <input type=\"color\" value=\"#ffffff\" class=\"m-0\" style=\"background: transparent;\">\r\n                        <input type=\"range\" class=\"form-control-range opacity\" min=\"0\" max=\"1\" step=\"any\">\r\n                      </label></div>\r\n                      <div class=\"g g2\"><button class=\"btn btn-primary rc\" data-toggle=\"collapse\" data-target=\"#ac1\"><span class=\"rulecount\">X</span> css</button></div>\r\n                    </div>\r\n                    <div id=\"ac1\" class=\"csscontainer collapse\">\r\n                    <div class=\"d-flex csspropcontainer\">\r\n                      <button class=\"btn btn-success m-auto addcssprop\">Add css rule</button>\r\n                    </div>\r\n                  </div>\r\n                  </div>\r\n                </div>\r\n\r\n\r\n\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n          <!-- end of css editor -->\r\n        </div>\r\n        <div class=\"collapse c2 show\" data-parent=\".cssdetailleveltoggler2\">\r\n          <!-- start of html editor -->\r\n          <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n          <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n          <!-- end of html editor -->\r\n        </div>\r\n\r\n      </div>\r\n\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n\r\n      <!-- start of new measurable -->\r\n      <div class=\"columnContainer\"><div class=\"measurablePlaceholder\"></div></div>\r\n      <!-- end of new measurable -->\r\n\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"iclass show\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autolayout\"><span>Include in Auto-layout</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"edgeVisibility\"><span>Display edges</span></label>\r\n        <table class=\"edgePriority\">\r\n          <thead>\r\n          <tr>\r\n            <th colspan=\"3\">Edges visibility</th>\r\n          </tr>\r\n          <tr>\r\n            <th colspan=\"1\" rowspan=\"2\">Kind</th>\r\n            <th colspan=\"2\" rowspan=\"2\">Direction</th>\r\n          </tr>\r\n          <tr>\r\n            <td colspan=\"1\">In</td>\r\n            <td colspan=\"1\">Out</td>\r\n          </tr>\r\n          </thead>\r\n          <tbody>\r\n          <tr>\r\n            <th>Relationship</th>\r\n            <td><input kind=\"in-rel\" type=\"number\"></td>\r\n            <td><input kind=\"out-rel\" type=\"number\"></td>\r\n          </tr>\r\n          <tr>\r\n            <th>Inheritance</th>\r\n            <td><input kind=\"in-ext\" type=\"number\"></td>\r\n            <td><input kind=\"out-ext\" type=\"number\"></td>\r\n          </tr>\r\n          <tr>\r\n            <th>Other</th>\r\n            <td><input kind=\"in-oth\" type=\"number\"></td>\r\n            <td><input kind=\"out-oth\" type=\"number\"></td>\r\n          </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <label class=\"\">\r\n        <input type=\"checkbox\" class=\"asDefault\">\r\n        <span>Use as default style</span>\r\n      </label>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -214,7 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id='topbarShell'>\r\n  <div id='topbar'>\r\n    <div class=\"dropdownContainer root user\">\r\n      <button class=\"todo dropdownTitle\">User</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Logout</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Preferences</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Account</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root metametamodel\">\r\n      <button class=\"dropdownTitle\">Meta-Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding TypeMapping\">Type mapping</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding VertexStyle\">Vertex Style</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding EdgeStyle\">Edge Style</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root metamodel\">\r\n      <button class=\"dropdownTitle\">Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset vertex position</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (.jv)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset viewpoints</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Model To Text</div>\r\n            <ul class=\"dropdownContent right m2t-m2-list\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\" (click)=\"createM2T_Rule('m2')\">Create M2T rule</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\">Import M2T rule</div></li>\r\n              <li class=\"dropdownContent right separator\"></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('byText', m2t_byText_m2())\">By text</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('MySQL', m2t_mysql_m2())\">MySQL</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root model\">\r\n      <button class=\"dropdownTitle\">Model</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (XMI)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (JSON)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset vertex position</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (.jv)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset viewpoints</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Model To Text</div>\r\n            <ul class=\"dropdownContent right m2t-m2-list\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\" (click)=\"createM2T_Rule('m1')\">Create M2T rule</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\">Import M2T rule</div></li>\r\n              <li class=\"dropdownContent right separator\"></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('MySQL', m2t_mysql_m1())\">MySQL</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root themes\">\r\n      <button class=\"dropdownTitle\">Themes</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Dark\">\r\n            <span>Dark</span>\r\n          </label>\r\n        </div></li>\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Light\" checked>\r\n            <span>Light</span>\r\n          </label>\r\n        </div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root Changelog\">\r\n      <button class=\"dropdownTitle changelogbutton\">Changelog</button>\r\n    </div>\r\n  <div id=\"TypeMapper\" class=\"screenWideShadow\" data-closebuttontarget=\"1\" style=\"display: none;\">\r\n    <div id=\"TypeMapperContent\" class=\"popupContent\">\r\n      <h1>Type mapping</h1>\r\n      <button class=\"closeButton\" data-closebuttontarget=\"1\">X</button>\r\n      <br>\r\n      <div class=\"typemaprow columnContainer\">\r\n        <select class=\"typemapselector btn-sm\" (change)=\"topbar.changeTypeMap()\" style=\"margin: auto; margin-left:0;\">\r\n          <optgroup label=\"Predefined type mappings\">\r\n            <option value=\"predefined.java\">Java (default)</option>\r\n            <option value=\"predefined.c89\">C 89</option>\r\n            <option value=\"predefined.MySQL\">MySQL</option>\r\n          </optgroup>\r\n          <optgroup label=\"Customized type mappings\">\r\n            <option *ngFor=\"let typemap of topbar?.typemapArr\" value=\"{{typemap}}\">{{typemap.substring(typemap.indexOf('.') + 1)}}</option>\r\n          </optgroup>\r\n        </select>\r\n        <button style=\"margin:auto; margin-right: 0;\" class=\"btn btn-primary addcustomtypmap\"\r\n                (click)=\"topbar.createTypeMap($event)\">Add custom mapping</button>\r\n      </div>\r\n      <div class=\"TypeList\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n  <div class=\"changelogRoot\" style=\"display: none\">\r\n\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id='topbarShell'>\r\n  <div id='topbar'>\r\n    <div class=\"dropdownContainer root user\">\r\n      <button class=\"todo dropdownTitle\">User</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Logout</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Preferences</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding\">Account</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root metametamodel\">\r\n      <button class=\"dropdownTitle\">Meta-Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding TypeMapping\">Type mapping</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding VertexStyle\">Vertex Style</div></li>\r\n        <li class=\"dropdownContent\"><div class=\"todo dropdownpadding EdgeStyle\">Edge Style</div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root metamodel\">\r\n      <button class=\"dropdownTitle\">Metamodel</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (eCore/XMI)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (eCore/JSON)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset vertex position</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (.jv)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset viewpoints</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Model To Text</div>\r\n            <ul class=\"dropdownContent right m2t-m2-list\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\" (click)=\"createM2T_Rule('m2')\">Create M2T rule</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\">Import M2T rule</div></li>\r\n              <li class=\"dropdownContent right separator\"></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('byText', m2t_byText_m2())\">By text</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('MySQL', m2t_mysql_m2())\">MySQL</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root model\">\r\n      <button class=\"dropdownTitle\">Model</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\"><div class=\"dropdownpadding save\">Save</div></li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Recent</div>\r\n            <ul class=\"dropdownContent right recentSaveContainer\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 1</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 2</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 3</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding recentsave\">example 4</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Export</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON_String\">To eCore/JSON string</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_JSON\">Download eCore/JSON file</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding download_XMI\">Download eCore/XMI file</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadFile\">Download file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding downloadTxt\">To text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Import</div>\r\n            <ul class=\"dropdownContent right\">\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Model</div>\r\n                  <ul class=\"dropdownContent right model\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">New empty metamodel</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (XMI)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (JSON)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Vertices layout</div>\r\n                  <ul class=\"dropdownContent right vertex\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset vertex position</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jv)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text (.jv)</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n              <li class=\"dropdownContent right\">\r\n                <div class=\"dropdownContainer right\">\r\n                  <div class=\"dropdownTitle right\">Viewpoints</div>\r\n                  <ul class=\"dropdownContent right viewpoints\">\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadEmpty\">Reset viewpoints</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadFile\">From file (.jvp)</div></li>\r\n                    <li class=\"dropdownContent right\"><div class=\"dropdownpadding loadTxt\">From text</div></li>\r\n                  </ul>\r\n                </div>\r\n              </li>\r\n\r\n            </ul>\r\n          </div>\r\n        </li>\r\n\r\n        <li class=\"dropdownContent\">\r\n          <div class=\"dropdownContainer right\">\r\n            <div class=\"dropdownTitle right\">Model To Text</div>\r\n            <ul class=\"dropdownContent right m2t-m2-list\">\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\" (click)=\"createM2T_Rule('m1')\">Create M2T rule</div></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding todo\">Import M2T rule</div></li>\r\n              <li class=\"dropdownContent right separator\"></li>\r\n              <li class=\"dropdownContent right\"><div class=\"dropdownpadding\" (click)=\"displayResult('MySQL', m2t_mysql_m1())\">MySQL</div></li>\r\n            </ul>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root themes\">\r\n      <button class=\"dropdownTitle\">Themes</button>\r\n      <ul class=\"dropdownContent\">\r\n        <li class=\"dropdownContent\" style=\"display: none;\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Dark\">\r\n            <span>Dark</span>\r\n          </label>\r\n        </div></li>\r\n        <li class=\"dropdownContent\" style=\"display: none;\"><div class=\"dropdownpadding\">\r\n          <label>\r\n            <input class=\"themename\" type=\"radio\" name=\"themename\" value=\"Light\" checked>\r\n            <span>Light</span>\r\n          </label>\r\n        </div></li>\r\n        <li class=\"dropdownContent colorschemeopener\"><div class=\"dropdownpadding\">\r\n        <label>\r\n          <span>Color schemes</span>\r\n        </label>\r\n      </div></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"dropdownContainer root Changelog\">\r\n      <button class=\"dropdownTitle changelogbutton\">Changelog</button>\r\n    </div>\r\n  <div id=\"TypeMapper\" class=\"screenWideShadow\" data-closebuttontarget=\"1\" style=\"display: none;\">\r\n    <div id=\"TypeMapperContent\" class=\"popupContent\">\r\n      <h1>Type mapping</h1>\r\n      <button class=\"closeButton\" data-closebuttontarget=\"1\">X</button>\r\n      <br>\r\n      <div class=\"typemaprow columnContainer\">\r\n        <select class=\"typemapselector btn-sm\" (change)=\"topbar.changeTypeMap()\" style=\"margin: auto; margin-left:0;\">\r\n          <optgroup label=\"Predefined type mappings\">\r\n            <option value=\"predefined.java\">Java (default)</option>\r\n            <option value=\"predefined.c89\">C 89</option>\r\n            <option value=\"predefined.MySQL\">MySQL</option>\r\n          </optgroup>\r\n          <optgroup label=\"Customized type mappings\">\r\n            <option *ngFor=\"let typemap of topbar?.typemapArr\" value=\"{{typemap}}\">{{typemap.substring(typemap.indexOf('.') + 1)}}</option>\r\n          </optgroup>\r\n        </select>\r\n        <button style=\"margin:auto; margin-right: 0;\" class=\"btn btn-primary addcustomtypmap\"\r\n                (click)=\"topbar.createTypeMap($event)\">Add custom mapping</button>\r\n      </div>\r\n      <div class=\"TypeList\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n  <div class=\"changelogRoot\" style=\"display: none\">\r\n\r\n  </div>\r\n</div>\r\n\r\n<datalist id=\"currentNodeClassList\"><option>.VertexHeader</option><option>input</option></datalist>\r\n<datalist id=\"cssrules\"><option>.VertexHeader</option><option>input</option></datalist>\r\n");
 
 /***/ }),
 
@@ -862,10 +875,11 @@ class ViewHtmlSettings {
         this.forkCounter = json.forkCounter;
         this.ForkedFromStr_name = json.ForkedFromStr_name;
         this.ForkedFromStr_user = json.ForkedFromStr_user;
-        //this.htmlstr = json.htmlstr;
-        if (json.htmlstr)
-            this.html = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHtml(json.htmlstr);
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!(this.html instanceof Element), 'invalid htmlstr:', json.htmlstr, json);
+        // se è serializzato ha .htmlstr, se non lo è ha .html
+        const otherHtmlstr = json.getHtmlstr ? json.getHtmlstr() : json.htmlstr;
+        this.html = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHtml(otherHtmlstr);
+        // console.log('hhtmlo, json.htmlstr:', json, otherHtmlstr, this.html);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!(this.html instanceof Element), 'invalid htmlstr, otherHTMLstring:', otherHtmlstr, ' sourcejson:', json, 'result html', this.html);
     }
     setDependencyArray(featuredependency) {
         // todo: insert metadata into html, copy from ModelPieceStyleEntry
@@ -874,7 +888,7 @@ class ViewHtmlSettings {
     }
 }
 class ViewRule {
-    constructor(owner, target = null) {
+    constructor(owner = null, target = null) {
         this.target = null;
         this.targetStr = null;
         this.htmlo = null;
@@ -892,6 +906,14 @@ class ViewRule {
         this.target = target;
         this.setTargetStr();
     }
+    static sortCriteria(vr1, vr2) {
+        if (!vr1.viewpoint)
+            return -1;
+        if (!vr2.viewpoint)
+            return 1;
+        return ViewPoint.sortCriteria(vr1.viewpoint, vr2.viewpoint);
+    }
+    ;
     static getbyID(id) { return ViewRule.allByID[id]; }
     static getbyHtml(html0) {
         let html = html0;
@@ -923,7 +945,7 @@ class ViewRule {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.targetStr && !!this.target, 'failed to get targetstr from:', this.target);
     }
     updateViewpoint(vp = null) {
-        this.viewpoint = vp || ViewPoint.get(this.viewpointstr);
+        this.viewpoint = vp || ViewPoint.getByName(this.viewpointstr) || this.viewpoint;
         const arr = this.edgeViews ? this.edgeViews : [];
         let i;
         for (i = 0; i < arr.length; i++) {
@@ -931,7 +953,7 @@ class ViewRule {
         }
     }
     updateTarget() {
-        const root = this.viewpoint.target;
+        // const root: IModel = this.viewpoint.target;
         const path = JSON.parse(this.targetStr);
         const realindexfollowed = { indexFollowed: [], debugArr: [] };
         this.target = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getByKey(path, realindexfollowed);
@@ -939,6 +961,7 @@ class ViewRule {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'unable to find target of view:', this, ' search output:', realindexfollowed);
             this.target = null;
         }
+        this.apply();
     }
     clone(json) {
         if (json.setViewpointStr) {
@@ -947,8 +970,9 @@ class ViewRule {
         for (let key in json) {
             switch (key) {
                 default:
-                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected key', key, json);
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected key "', key, '"', json);
                     break;
+                case 'viewpoint': break; // si attacca tramite viewpoint dopo il clone, altrimenti non si aggiornano le liste-dizionari di viewpoint.
                 case 'id':
                 case 'target':
                 case 'isDefault': break;
@@ -963,6 +987,7 @@ class ViewRule {
                     if (!this.htmlo) {
                         this.htmlo = new ViewHtmlSettings();
                     }
+                    console.log('other htmlo:', json.htmlo, json);
                     this.htmlo.clone(json.htmlo);
                     break;
                 case 'htmli':
@@ -986,7 +1011,7 @@ class ViewRule {
                     const arr = json.edgeViews ? json.edgeViews : [];
                     let i;
                     for (i = 0; i < arr.length; i++) {
-                        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.edgeViews, new EdgeViewRule(this.viewpoint).clone(arr[i]));
+                        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.edgeViews, EdgeViewRule.duplicate(arr[i]));
                     }
                     break;
                 case 'viewpointstr':
@@ -1008,12 +1033,17 @@ class ViewRule {
     // should only be called from ViewPoint
     apply(target = null) {
         this.target = target || this.target || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getByKeyStr(this.targetStr);
+        if (!target)
+            this.detach();
         console.log(this);
+        if (!this.viewpoint)
+            return;
         this.viewpoint.viewsDictionary[this.target.id] = this;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.target.views, this);
     }
     // should only be called from ViewPoint
     detach() {
+        return;
         // if (!this.target) return; target must never be deleted in Viewww.
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.target.views, this);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.target.detachedViews, this);
@@ -1039,7 +1069,7 @@ class ViewRule {
         return vp.setDefault(false, this);
     }
     setDefault(isDefault = false) {
-        console.log('setDefault()', isDefault, this.target);
+        console.log('setDefault() 99x', isDefault, this.target, this);
         if (this.isDefault === isDefault)
             return this;
         if (!isDefault)
@@ -1051,25 +1081,80 @@ class ViewRule {
             return this;
         return vp.setDefault(true, this);
     }
+    static duplicate(json, appendToViewpoint) {
+        if (!json)
+            return json;
+        const ret = new ViewRule(appendToViewpoint);
+        console.log('99x', ret.viewpoint, ret);
+        ret.clone(json);
+        return ret;
+    }
+    toStyleComplexEntry(mp, htmlx, isOwnHtml, isInstanceHtml, isCustomGlobalhtml, isGlobalhtml) {
+        const ret = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["StyleComplexEntry"]();
+        ret.htmlobj = htmlx;
+        ret.html = ret.htmlobj.getHtml();
+        ret.view = this;
+        ret.ownermp = this.target; // was mp
+        ret.isownhtml = isOwnHtml;
+        ret.isinstanceshtml = isInstanceHtml;
+        ret.isCustomGlobalhtml = isCustomGlobalhtml;
+        ret.isGlobalhtml = isGlobalhtml;
+        return ret;
+    }
 }
 ViewRule.allByID = {};
 ViewRule.maxID = 0;
 class DefaultStyleMap {
+    constructor(vp) {
+        this.viewpoint = vp;
+    }
+    static duplicate(json, vp) {
+        if (!json)
+            return json;
+        const ret = new DefaultStyleMap(vp);
+        ret.clone(json);
+        return ret;
+    }
+    duplicate() { return DefaultStyleMap.duplicate(this, this.viewpoint); }
+    clone(defaultStyleMap) {
+        this.class = ViewRule.duplicate(defaultStyleMap.class, this.viewpoint);
+        this.enum = ViewRule.duplicate(defaultStyleMap.enum, this.viewpoint);
+        this.literal = ViewRule.duplicate(defaultStyleMap.literal, this.viewpoint);
+        this.attribute = ViewRule.duplicate(defaultStyleMap.attribute, this.viewpoint);
+        this.reference = ViewRule.duplicate(defaultStyleMap.reference, this.viewpoint);
+        this.operation = ViewRule.duplicate(defaultStyleMap.operation, this.viewpoint);
+        this.parameter = ViewRule.duplicate(defaultStyleMap.parameter, this.viewpoint);
+        this.edge = EdgeViewRule.duplicate(defaultStyleMap.edge);
+        this.extEdge = EdgeViewRule.duplicate(defaultStyleMap.extEdge);
+    }
+    toJSON(nameOrIndex) {
+        const copy0 = {};
+        for (let key in this) {
+            copy0[key] = this[key];
+        }
+        const copy = copy0;
+        delete copy.viewpoint;
+        return copy;
+    }
 }
 class ViewPoint extends ViewRule {
     // abstract _isApplied(): boolean;
     constructor(target, name = null) {
         super(null);
         this.isApplied = false;
+        ViewPoint.allByID[this.id] = this;
+        this.runtimeorder = ViewPoint.LAST_ORDER++;
         this.scroll = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](0, 0);
         this.zoom = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](1, 1);
         this.grid = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](20, 20);
         this.viewsDictionary = {};
         this.views = [];
-        this.defaultStyleMap = new DefaultStyleMap();
+        this.defaultStyleMap = new DefaultStyleMap(this);
         this.setname(name);
         this.updateTarget(target);
     }
+    static sortCriteria(vp1, vp2) { return vp2.runtimeorder - vp1.runtimeorder; }
+    ;
     /*
       static getAppliedViews_TOMOVE(m: ModelPiece): ViewRule[] {
         let i: number;
@@ -1080,8 +1165,11 @@ class ViewPoint extends ViewRule {
           if (v) arr.push(v);
         }
         return arr; }*/
-    static get(value) {
+    static getByName(value) {
         return ViewPoint.allnames[value];
+    }
+    static getByID(id) {
+        return ViewPoint.allByID[id];
     }
     updateTarget(m = null) { this.apply(m, true); }
     getMpStyle(m) { return this.viewsDictionary[m.id]; }
@@ -1228,6 +1316,7 @@ class ViewPoint extends ViewRule {
         if (json.target && json.setTargetStr)
             json.setTargetStr();
         let i;
+        this.viewsDictionary = {};
         for (let key in json) {
             switch (key) {
                 default:
@@ -1236,8 +1325,13 @@ class ViewPoint extends ViewRule {
                 case 'id':
                 case 'target':
                 case 'viewpoint':
-                case 'isDefault':
-                case 'defaultStyleMap': break;
+                case 'isDefault': break;
+                case 'defaultStyleMap':
+                    this.defaultStyleMap = DefaultStyleMap.duplicate(json.defaultStyleMap, this);
+                    break;
+                case 'runtimeorder':
+                    this.runtimeorder = json.runtimeorder;
+                    break; // preservo persino l'ordine di applicazione
                 case 'htmlo':
                     if (!json.htmlo) {
                         this.htmlo = null;
@@ -1285,11 +1379,10 @@ class ViewPoint extends ViewRule {
                     if (!json.views)
                         continue;
                     for (i = 0; i < json.views.length; i++) {
-                        const v = new ViewRule(this);
-                        v.clone(json.views[i]);
-                        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.views, v);
+                        ViewRule.duplicate(json.views[i], this);
                     }
                     break;
+                case 'viewsDictionary': break;
                 case 'grid':
                     this.grid = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Point"](json.grid.x, json.grid.y);
                     break;
@@ -1332,13 +1425,35 @@ class ViewPoint extends ViewRule {
     }
 }
 ViewPoint.allnames = {};
+ViewPoint.LAST_ORDER = 1;
 class EdgeViewRule extends ViewRule {
-    clone(obj0) {
-        return this;
+    static duplicate(json) {
+        if (!json)
+            return json;
+        const ret = new EdgeViewRule();
+        ret.clone(json);
+        return ret;
+    }
+    duplicate() { return EdgeViewRule.duplicate(this); }
+    clone(json) {
+        this.common = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"].duplicate(json.common);
+        this.highlight = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"].duplicate(json.highlight);
+        this.selected = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"].duplicate(json.selected);
+        this.midPoints = [];
+        this.edgeIndex = json.edgeIndex;
+        for (let mp of json.midPoints) {
+            this.midPoints.push(EdgePointView.duplicate(mp, this.viewpoint));
+        }
     }
 }
 class EdgePointView extends ViewRule {
-    clone(obj0) { }
+    static duplicate(json, vp) {
+        if (!json)
+            return json;
+        const ret = new EdgePointView();
+        ret.clone(json);
+        return ret;
+    }
 }
 
 
@@ -1546,7 +1661,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class MetaModel extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"] {
-    constructor(json, metaParent) { super(metaParent); this.parse(json, true); }
+    constructor(json, metaParent) {
+        super(metaParent);
+        MetaModel.genericObjectJson = {}; /*{
+          [ECoreClass.xsitype]: "ecore:EClass",
+          [ECoreClass.namee]: "G_Object",
+          [ECoreClass.interface]: "false",
+          [ECoreClass.abstract]: "false",
+          [ECoreClass.instanceTypeName]: "",
+          [ECoreClass.eSuperTypes]: "",
+          [ECoreClass.eStructuralFeatures]: [],
+          [ECoreClass.eOperations]: [] };*/
+        MetaModel.genericAttributeJson = "";
+        MetaModel.genericReferenceJson = [];
+        // MetaModel.genericObject.childrens = MetaModel.genericObject.attributes = MetaModel.genericObject.references = MetaModel.genericObject.operations = [];
+        this.parse(json, true);
+    }
     getAllClasses() { return super.getAllClasses(); }
     getAllReferences() { return super.getAllReferences(); }
     getClass(fullname, caseSensitive = false, throwErr = true, debug = true) {
@@ -1612,6 +1742,9 @@ class MetaModel extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"] {
     parse(json, destructive = true) {
         if (destructive) {
             this.childrens = [];
+            // MetaModel.genericObject = new M2Class(this.getDefaultPackage(), MetaModel.genericObjectJson, false);
+            // MetaModel.genericAttribute = new M2Attribute(MetaModel.genericObject, MetaModel.genericAttributeJson);
+            // MetaModel.genericReference = new M2Reference(MetaModel.genericObject, MetaModel.genericReferenceJson);
         }
         const childrens = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].getChildrens(json);
         const annotations = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].getAnnotations(json);
@@ -1741,7 +1874,7 @@ class Model extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"] {
             const namespacedclass = key;
             const mmclass = this.metaParent.getClassByNameSpace(namespacedclass, false, true);
             const value = json[key];
-            new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"](this.getDefaultPackage(), value, mmclass);
+            new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"](this.getDefaultPackage(), value, mmclass, true);
         }
         /*
         {
@@ -1991,11 +2124,12 @@ class IModel extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"] {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected');
         return 'error';
     }
-    getLastView() {
+    getForemostView(allowDisabled = false) {
         let i;
-        for (i = this.viewpoints.length; --i >= 0;) {
+        let vp = this.viewpoints.sort(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ViewPoint"].sortCriteria);
+        for (i = 0; i < vp.length; i++) {
             const vp = this.viewpoints[i];
-            if (vp.isApplied)
+            if (allowDisabled || vp.isApplied)
                 return vp;
         }
         return null;
@@ -2151,7 +2285,7 @@ class M2Package extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"] 
         return super.getClass(name, caseSensitive, throwErr, debug);
     }
     addEmptyClass() {
-        const c = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"](this, null);
+        const c = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"](this, null, false);
         if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic) {
             c.generateVertex();
         }
@@ -2251,6 +2385,8 @@ class M2Package extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"] 
         const enumarr = [];
         let i;
         for (i = 0; i < this.classes.length; i++) {
+            if (this.classes[i] === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject)
+                continue;
             classarr.push(this.classes[i].generateModel(loopDetectionObj));
         }
         for (i = 0; i < this.enums.length; i++) {
@@ -2308,7 +2444,7 @@ class MPackage extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"] {
         return super.getClass(name, caseSensitive, throwErr, debug);
     }
     addEmptyClass(metaVersion) {
-        const c = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"](this, null, metaVersion);
+        const c = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"](this, null, metaVersion, false);
         if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic)
             c.generateVertex();
         console.log('addEmptyClass(); package:', this, '; metaVersion: ', metaVersion, 'classe:', c);
@@ -2490,7 +2626,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProtectedModelPiece", function() { return ProtectedModelPiece; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/Joiner */ "./src/common/Joiner.ts");
-/* harmony import */ var _guiElements_mGraph_Vertex_Mark__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../guiElements/mGraph/Vertex/Mark */ "./src/guiElements/mGraph/Vertex/Mark.ts");
+/* harmony import */ var _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../GuiStyles/viewpoint */ "./src/GuiStyles/viewpoint.ts");
+/* harmony import */ var _guiElements_mGraph_Vertex_Mark__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../guiElements/mGraph/Vertex/Mark */ "./src/guiElements/mGraph/Vertex/Mark.ts");
+
 
 
 
@@ -2571,7 +2709,7 @@ class ModelPiece {
         this.name = null;
         // styleOfInstances:Element = null;
         // customStyleToErase: Element = null;
-        //  styleobj: ModelPieceStyleEntry = null;
+        // styleobj: ModelPieceStyleEntry = null;
         this.key = null;
         this.views = null;
         this.annotations = [];
@@ -2697,12 +2835,15 @@ class ModelPiece {
         return this.key = [mnum, ...pathIndex];
     }
     replaceVarsSetup() { return; }
-    linkToLogic(html0) {
+    linkToLogic(html0, asVertex = true) {
         let html = html0;
         if (this.id === null || this.id === undefined) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'undefined id:', this);
             return;
         }
+        if (asVertex)
+            html.classList.add(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ReservedClasses"].vertexRootG);
+        // html.classList.add('VertexShell');
         html.dataset.modelpieceid = '' + this.id;
     }
     getm2() {
@@ -2845,7 +2986,7 @@ class ModelPiece {
     }
     mark(markb, paired, key, color = null, radiusX = 10, radiusY = 10, width = 5, backColor = null, extraOffset = null) {
         if (markb)
-            new _guiElements_mGraph_Vertex_Mark__WEBPACK_IMPORTED_MODULE_2__["Mark"](this, paired, key, color, radiusX, radiusY, width, backColor, extraOffset).mark(true);
+            new _guiElements_mGraph_Vertex_Mark__WEBPACK_IMPORTED_MODULE_3__["Mark"](this, paired, key, color, radiusX, radiusY, width, backColor, extraOffset).mark(true);
         else
             this.Vmarks[key] && this.Vmarks[key].mark(false);
         return;
@@ -2910,7 +3051,7 @@ class ModelPiece {
         return ret;
     }
     // abstract conformability(metaparent: ModelPiece, outObj?: any/*.refPermutation, .attrPermutation*/, debug?: boolean): number;
-    setName0(value, refreshGUI = false, warnDuplicateFix = true, key, allowEmpty) {
+    setName0(value, refreshGUI = false, warnDuplicateFix = false, key, allowEmpty) {
         if (value === this['' + key])
             return this['' + key];
         const valueOld = this['' + key];
@@ -2950,7 +3091,7 @@ class ModelPiece {
             op.parent.checkViolations(true);
         }
         else
-            while (this.parent && this.parent['isChild' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].firstToUpper(key) + 'Taken'](value)) {
+            while (this.parent && this.parent['isChild' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].firstToUpper(key) + 'Taken'](value) && valueOld !== value) {
                 nameFixed = true;
                 value = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].increaseEndingNumber(value, false, false);
             }
@@ -2982,7 +3123,7 @@ class ModelPiece {
         return null;
     }
     preReplace() { this.className = this.getFriendlyClassName(); }
-    setName(value, refreshGUI = false, warnDuplicateFix = true) { return this.setName0(value, refreshGUI, warnDuplicateFix, 'name', false); }
+    setName(value, refreshGUI = false, warnDuplicateFix = false) { return this.setName0(value, refreshGUI, warnDuplicateFix, 'name', false); }
     /*  setNameOld(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true): string {
         const valueOld: string = this.name;
         const valueInputError = value;
@@ -3060,6 +3201,7 @@ class ModelPiece {
     }
     // nb: le sottoclassi lo devono sempre chiamare con refreshgui = false
     delete(refreshgui = true) {
+        console.trace("delete remove self", this, refreshgui);
         this.unmarkAll();
         if (this.parent) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.parent.childrens, this);
@@ -3069,6 +3211,7 @@ class ModelPiece {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.metaParent.instances, this);
             this.metaParent = null;
         }
+        console.log("delete remove childs", this, refreshgui);
         let i;
         let arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.views);
         for (i = 0; arr && i < arr.length; i++) {
@@ -3078,10 +3221,12 @@ class ModelPiece {
         for (i = 0; arr && i < arr.length; i++) {
             arr[i].delete();
         }
+        console.log("delete remove views", this, refreshgui);
         arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.childrens);
         for (i = 0; arr && i < arr.length; i++) {
             arr[i].delete(false);
         }
+        console.log("delete remove or convert instances", this, refreshgui);
         arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.instances);
         if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
             const instances = arr;
@@ -3105,6 +3250,7 @@ class ModelPiece {
                 arr[i].delete(false);
             }
         }
+        console.log("delete end, refresh gui", this, refreshgui);
         if (refreshgui)
             this.refreshGUI();
     }
@@ -3164,65 +3310,74 @@ class ModelPiece {
     }
     getInheritableStyle() {
         let i;
-        const ret = new StyleComplexEntry();
+        let matches = [];
         for (i = this.views.length; --i >= 0;) {
             let v = this.views[i];
             // if (!v.viewpoint.isApplied) continue;
-            if (!v.htmli || !v.htmli.getHtml())
+            if (!v.viewpoint.isApplied || !v.htmli || !v.htmli.getHtml())
                 continue;
-            ret.html = v.htmli.getHtml();
-            ret.htmlobj = v.htmli;
-            ret.view = v;
-            ret.ownermp = this;
-            ret.isinstanceshtml = true;
-            return ret;
+            matches.push(v);
         }
-        return null;
+        if (!matches.length)
+            return null;
+        matches = matches.sort(_GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_2__["ViewRule"].sortCriteria);
+        const v = matches[0];
+        return v.toStyleComplexEntry(this, v.htmli, false, true, false, false);
     }
-    getInheritedStyle() { return this.metaParent ? this.metaParent.getInheritableStyle() : null; }
-    getStyle() {
+    getInheritedStyle_lv2() { return this.metaParent ? this.metaParent.getInheritableStyle() : null; }
+    getOwnStyle_lv1() {
         let j;
-        let i;
-        const ret = new StyleComplexEntry();
-        // level 1: own style
+        let matches = [];
         for (j = this.views.length; --j >= 0;) {
             const v = this.views[j];
-            if (!v.htmlo || !v.htmlo.getHtml())
+            if (!v.viewpoint.isApplied || !v.htmlo || !v.htmlo.getHtml())
                 continue;
-            ret.html = v.htmlo.getHtml();
-            ret.htmlobj = v.htmlo;
-            ret.view = v;
-            ret.ownermp = this;
-            ret.isownhtml = true;
-            return ret;
+            matches.push(v);
         }
-        // level 2: inherited style
-        const tmpret = this.getInheritedStyle();
-        if (tmpret)
-            return tmpret;
-        // level 3: prendo lo stile default user-made
+        if (!matches.length)
+            return null;
+        matches = matches.sort(_GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_2__["ViewRule"].sortCriteria);
+        const v = matches[0];
+        return v.toStyleComplexEntry(this, v.htmlo, true, false, false, false);
+    }
+    getCustomGlobalStyle_lv3() {
         const model = this.getModelRoot();
-        for (j = model.viewpoints.length; --j >= 0;) {
-            const vp = model.viewpoints[j];
+        let vparr = model.viewpoints.sort(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ViewPoint"].sortCriteria);
+        for (let i = 0; i < vparr.length; i++) {
+            const vp = vparr[i];
             if (!vp.isApplied)
                 continue;
             const v = vp.getDefault(this, false);
-            if (!v)
-                continue;
-            ret.html = v.htmlo.getHtml();
-            ret.htmlobj = v.htmlo;
-            ret.view = v;
-            ret.ownermp = this;
-            ret.isCustomGlobalhtml = true;
-            return ret;
+            if (v)
+                return v.toStyleComplexEntry(this, v.htmlo, false, false, true, false);
         }
-        // level 4: se fallisce tutto, prendo lo stile statico default
+        return null;
+    }
+    getGlobalStyle_lv4() {
+        const ret = new StyleComplexEntry();
         ret.html = this.getGlobalLevelStyle();
         ret.htmlobj = null;
         ret.view = null;
         ret.ownermp = null;
         ret.isGlobalhtml = true;
         return ret;
+    }
+    getStyle() {
+        let ret;
+        // level 1: own style
+        ret = this.getOwnStyle_lv1();
+        if (ret)
+            return ret;
+        // level 2: inherited style
+        ret = this.getInheritedStyle_lv2();
+        if (ret)
+            return ret;
+        // level 3: prendo lo stile default user-made
+        ret = this.getCustomGlobalStyle_lv3();
+        if (ret)
+            return ret;
+        // level 4: se fallisce tutto, prendo lo stile statico default
+        return this.getGlobalStyle_lv4();
     }
     /*
     getStyleOld(): ViewHtmlSettings { return this.views.getHtml(this); }
@@ -3310,7 +3465,14 @@ class ModelPiece {
         }
         return null;
     }
-    getLastView() { return this.views[this.views.length - 1]; }
+    getForemostView(allowDisabled = false) {
+        const arr = this.views.sort(_GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_2__["ViewRule"].sortCriteria);
+        for (let i = 0; i < arr.length; i++) {
+            if (allowDisabled || arr[i].viewpoint.isApplied)
+                return arr[i];
+        }
+        return null;
+    }
     /*
       addView(v: ViewRule): void {
         // if (!v.viewpoint.viewsDictionary[this.id]) {  v.viewpoint.viewsDictionary[this.id] = []; }
@@ -3879,7 +4041,7 @@ class User {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep :root  {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainBorderWidth: 5px;\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n  --bluebordercolor: #0084ff;\r\n\r\n  --mainFontColor: transparent;\r\n  --mainBackgroundColor: transparent;\r\n  --mainBorderColor: transparent;\r\n  --secondaryBorderColor: transparent;\r\n  --popupBackgroundColor: transparent;\r\n  --altBackgroundColor: var(--mainBorderColor);\r\n  --altFontColor: transparent;\r\n\r\n  --DarkmainFontColor: #b2b2ba;\r\n  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;*/\r\n  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;*/\r\n  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;*/\r\n  --DarkpopupBackgroundColor: #44444c;\r\n  --DarkaltBackgroundColor: var(--mainBorderColor);\r\n  --DarkaltFontColor: var(--LightmainBorderColor);\r\n\r\n\r\n  --LightmainFontColor: var(--DarksecondaryBorderColor);\r\n  --LightmainBackgroundColor: white;\r\n  --LightmainBorderColor: #f0f0f0; /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/\r\n  --LightsecondaryBorderColor: #f5f5f5; /*#c5c5c5;*/\r\n  --LightpopupBackgroundColor: var(--DarkmainBorderColor);\r\n  --LightaltBackgroundColor: var(--mainBorderColor);\r\n  --LightaltFontColor: var(--DarkmainBorderColor);\r\n}\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0);\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n/*because color will be inherited, but background not (since input and selects cannot inherit and inherit behave like transparent.\r\n this is fine on the input itself but the optgroup cannot have transparent and will be always white.\r\n now, the problem is if you set a bacgkround-color: inherit / transparent select inside a black element with white text, the optgroup will be white with white text.\r\n */\r\n::ng-deep optgroup{\r\n  color: black;\r\n  background-color: white;\r\n}\r\n/*::-webkit-scrollbar {\r\ndisplay: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsa0JBQWtCLGtCQUFrQjtFQUNsQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpRUFBaUU7RUFDakUsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWiwwQkFBMEI7O0VBRTFCLDRCQUE0QjtFQUM1QixrQ0FBa0M7RUFDbEMsOEJBQThCO0VBQzlCLG1DQUFtQztFQUNuQyxtQ0FBbUM7RUFDbkMsNENBQTRDO0VBQzVDLDJCQUEyQjs7RUFFM0IsNEJBQTRCO0VBQzVCLGtDQUFrQyxDQUFDLGNBQWM7RUFDakQsOEJBQThCLENBQUMsV0FBVztFQUMxQyxtQ0FBbUMsQ0FBQyxXQUFXO0VBQy9DLG1DQUFtQztFQUNuQyxnREFBZ0Q7RUFDaEQsK0NBQStDOzs7RUFHL0MscURBQXFEO0VBQ3JELGlDQUFpQztFQUNqQywrQkFBK0IsRUFBRSxtREFBbUQ7RUFDcEYsb0NBQW9DLEVBQUUsV0FBVztFQUNqRCx1REFBdUQ7RUFDdkQsaURBQWlEO0VBQ2pELCtDQUErQztBQUNqRDtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLGlDQUFpQztFQUNqQyxvQ0FBb0M7RUFDcEMsNENBQTRDO0VBQzVDLHdDQUF3QztFQUN4QywyQkFBMkI7RUFDM0IseUNBQXlDO0VBQ3pDLDZDQUE2QztFQUM3QyxzQ0FBc0M7QUFDeEM7QUFDQTs7O0VBR0U7QUFDRjtFQUNFLFlBQVk7RUFDWix1QkFBdUI7QUFDekI7QUFDQTs7RUFFRTtBQUNGLGFBQWEsOEJBQThCLEVBQUU7QUFDN0Msc0JBQXNCLG9DQUFvQyxFQUFFO0FBQzVELG1CQUFtQixpQ0FBaUMsRUFBRTtBQUN0RDtFQUNFLGFBQWE7RUFDYiwyQkFBMkIsRUFBRSxTQUFTO0FBQ3hDO0FBQ0E7RUFDRSxrQ0FBa0M7QUFDcEM7QUFDQSxPQUFPO0FBRVAseUNBQXlDO0FBQ3pDO0VBQ0Usc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDRDQUE0QztFQUM1Qyx5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsdUNBQXVDO0VBQ3ZDLHlIQUF5SDtFQUN6SCw0REFBNEQ7QUFDOUQ7QUFDQTtFQUNFLDZCQUE2QjtFQUM3QjtnQkFDYztBQUNoQjtBQUNBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isd0JBQXVCO1VBQXZCLHVCQUF1QjtBQUN6QjtBQUNBOzs7Ozs7Ozs7Ozs7Ozs7OztFQWlCRTtBQUVGO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFFQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixVQUFVO0FBQ1o7QUFHQSwwRkFBMEY7QUFDMUY7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztDQXFCQztBQUNEO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQW1CO0VBQW5CLDZCQUFtQjtVQUFuQixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHlCQUE4QjtVQUE5Qiw4QkFBOEI7RUFDOUIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBeUI7RUFDekIsWUFBWSxDQUFDO0FBR2Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osdUdBQXVHO0VBQ3ZHLHdEQUF3RDtFQUN4RCx5QkFBeUIsQ0FBQyx3QkFBd0I7QUFDcEQ7QUFDQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjtBQU1BO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgOnJvb3QgIHsvKiBjc3MgdmFyaWFibGVzICovXHJcbiAgLS10b3BiYXJIOiA0MHB4O1xyXG4gIC0tc2lkZWJhclc6IDI4M3B4O1xyXG4gIC0tbWFpbkJvcmRlcldpZHRoOiA1cHg7XHJcbiAgLS1tYWluQm9yZGVyOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpIHNvbGlkIHZhcigtLW1haW5Cb3JkZXJXaWR0aCk7XHJcbiAgLS1zY3JvbGxiYXJXOiAwcHg7XHJcbiAgLS10YWJIOiAzMHB4O1xyXG4gIC0tYmx1ZWJvcmRlcmNvbG9yOiAjMDA4NGZmO1xyXG5cclxuICAtLW1haW5Gb250Q29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tYWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tYWx0Rm9udENvbG9yOiB0cmFuc3BhcmVudDtcclxuXHJcbiAgLS1EYXJrbWFpbkZvbnRDb2xvcjogI2IyYjJiYTtcclxuICAtLURhcmttYWluQmFja2dyb3VuZENvbG9yOiAjMWExYTFjOy8qd2hpdGVTbW9rZTsqL1xyXG4gIC0tRGFya21haW5Cb3JkZXJDb2xvcjogIzJlMmYzNDsvKiNlNWU1ZTU7Ki9cclxuICAtLURhcmtzZWNvbmRhcnlCb3JkZXJDb2xvcjogIzNjM2M0NDsvKiNjNWM1YzU7Ki9cclxuICAtLURhcmtwb3B1cEJhY2tncm91bmRDb2xvcjogIzQ0NDQ0YztcclxuICAtLURhcmthbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7XHJcbiAgLS1EYXJrYWx0Rm9udENvbG9yOiB2YXIoLS1MaWdodG1haW5Cb3JkZXJDb2xvcik7XHJcblxyXG5cclxuICAtLUxpZ2h0bWFpbkZvbnRDb2xvcjogdmFyKC0tRGFya3NlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAtLUxpZ2h0bWFpbkJhY2tncm91bmRDb2xvcjogd2hpdGU7XHJcbiAgLS1MaWdodG1haW5Cb3JkZXJDb2xvcjogI2YwZjBmMDsgLyojOWNhN2I4OyBvbiBpbnRlbGxpSmlkZWEgZGFya2VyIHNoYWRlIC8qI2U1ZTVlNTsqL1xyXG4gIC0tTGlnaHRzZWNvbmRhcnlCb3JkZXJDb2xvcjogI2Y1ZjVmNTsgLyojYzVjNWM1OyovXHJcbiAgLS1MaWdodHBvcHVwQmFja2dyb3VuZENvbG9yOiB2YXIoLS1EYXJrbWFpbkJvcmRlckNvbG9yKTtcclxuICAtLUxpZ2h0YWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tTGlnaHRhbHRGb250Q29sb3I6IHZhcigtLURhcmttYWluQm9yZGVyQ29sb3IpO1xyXG59XHJcbjo6bmctZGVlcCAqe1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgc2Nyb2xsYmFyLWJhc2UtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHNjcm9sbGJhci0zZGxpZ2h0LWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBzY3JvbGxiYXItaGlnaGxpZ2h0LWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItdHJhY2stY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIHNjcm9sbGJhci1hcnJvdy1jb2xvcjogIzAwMDtcclxuICBzY3JvbGxiYXItc2hhZG93LWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItZGFya3NoYWRvdy1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgLyogLW1vei1hcHBlYXJhbmNlOiBub25lICFpbXBvcnRhbnQ7ICovXHJcbn1cclxuLypiZWNhdXNlIGNvbG9yIHdpbGwgYmUgaW5oZXJpdGVkLCBidXQgYmFja2dyb3VuZCBub3QgKHNpbmNlIGlucHV0IGFuZCBzZWxlY3RzIGNhbm5vdCBpbmhlcml0IGFuZCBpbmhlcml0IGJlaGF2ZSBsaWtlIHRyYW5zcGFyZW50LlxyXG4gdGhpcyBpcyBmaW5lIG9uIHRoZSBpbnB1dCBpdHNlbGYgYnV0IHRoZSBvcHRncm91cCBjYW5ub3QgaGF2ZSB0cmFuc3BhcmVudCBhbmQgd2lsbCBiZSBhbHdheXMgd2hpdGUuXHJcbiBub3csIHRoZSBwcm9ibGVtIGlzIGlmIHlvdSBzZXQgYSBiYWNna3JvdW5kLWNvbG9yOiBpbmhlcml0IC8gdHJhbnNwYXJlbnQgc2VsZWN0IGluc2lkZSBhIGJsYWNrIGVsZW1lbnQgd2l0aCB3aGl0ZSB0ZXh0LCB0aGUgb3B0Z3JvdXAgd2lsbCBiZSB3aGl0ZSB3aXRoIHdoaXRlIHRleHQuXHJcbiAqL1xyXG46Om5nLWRlZXAgb3B0Z3JvdXB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG59XHJcbi8qOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbmRpc3BsYXk6IG5vbmU7XHJcbn0qL1xyXG4qOmRpc2FibGVkIHsgY3Vyc29yOiBub3QtYWxsb3dlZCAhaW1wb3J0YW50OyB9XHJcbmlucHV0W3R5cGU9Y2hlY2tib3hdeyAtbW96LWFwcGVhcmFuY2U6IGNoZWNrYm94ICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1yYWRpb117IC1tb3otYXBwZWFyYW5jZTogcmFkaW8gIWltcG9ydGFudDsgfVxyXG5pbnB1dDpkaXNhYmxlZHtcclxuICBvcGFjaXR5IDogLjc1O1xyXG4gIGZpbHRlciAgOiBhbHBoYShvcGFjaXR5PTc1KTsgLyogSUU8OSAqL1xyXG59XHJcbjo6bmctZGVlcCAuc3R5bGVFZGl0b3JTZWxlY3RlZHtcclxuICBvdXRsaW5lOiAzcHggZGFzaGVkIHJlZCAhaW1wb3J0YW50O1xyXG59XHJcbi8qb2xkcyovXHJcblxyXG4vKioqKioqKioqKioqKioqKioqIGF0dHJpYnV0ZUVkaXRvci5jc3MgKi9cclxuLmF0dHJpYnV0ZUVkaXRvciwgLnN0eWxlRWRpdG9ye1xyXG4gIC8qZGlzcGxheTppbmxpbmUtYm94OyovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAtbW96LWZpdC1jb250ZW50O1xyXG4gIHBhZGRpbmc6OHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIGJvcmRlcjogdmFyKC0tbWFpbkJvcmRlcik7XHJcbiAgbWF4LXdpZHRoOiAxMDB2dztcclxuICBtYXgtaGVpZ2h0OjEwMHZoO1xyXG4gIG92ZXJmbG93OiBhdXRvO1xyXG59XHJcbi5zdHlsZUVkaXRvcntcclxuICBsZWZ0OiB2YXIoLS1zaWRlYmFyVyk7XHJcbiAgdG9wOiBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpO1xyXG4gIC8qdm9nbGlvIGNoZSBzaWEgZGl2ZXJzYSBwZXJjaMOoIGRpIHNvbGl0byBwYXJ0ZSBjb24gYWx0ZXp6YSBwYXJpIGEgdG9wYmFyLmggZSB2b2dsaW8gY2hlIHNpYSBzY3JvbGxhYmlsZSBzZW56YSBzcG9zdGFybGEqL1xyXG4gIG1heC1oZWlnaHQ6IGNhbGMoMTAwdmggLSBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTtcclxufVxyXG5idXR0b24uYXR0cmlidXRlRWRpdG9yQ29uZmlybSwgYnV0dG9uLnN0eWxlRWRpdG9yQ29uZmlybXtcclxuICBtYXJnaW4tbGVmdDogY2FsYyg1MCUgLSA1MHB4KTtcclxuICAvKiB3aWR0aDoxMDBweDtcclxuICAgaGVpZ2h0OjMwcHg7Ki9cclxufVxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSAuYXR0cmlidXRlRWRpdG9yRmllbGROYW1lLCB0YWJsZS5zdHlsZVRhYmxlIC5zdHlsZUVkaXRvckZpZWxkTmFtZXtcclxuICBtYXgtd2lkdGg6MTUwcHg7XHJcbiAgbWF4LWhlaWdodDoxNTBweDtcclxuICBvdmVyZmxvdzphdXRvO1xyXG59XHJcbi5zdHlsZVRhYmxle1xyXG4gIG1hcmdpbi10b3A6MTBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLnN0eWxlVGFibGUgdGR7XHJcbiAgbWF4LXdpZHRoOiAzMDBweDtcclxufVxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUsIC5zdHlsZUVkaXRvclRpdGxle1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uZWRnZVJvd3tcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5lZGdlUm93Pip7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IDBweDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogNHB4O1xyXG4gIGZsZXgtYmFzaXM6IDBweDtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxufVxyXG4uaXNDb21wb3VuZEVkZ2V7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuLnN0eWxlQ29tcG91bmRXcmFwcGVye1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG4uY29tcG91bmRFZGdlU3RhcnQsIC5jb21wb3VuZEVkZ2VFbmR7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5TaWRlYmFyU3R5bGVIdG1sLCAuR3JhcGhTdHlsZUh0bWx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG4vKlxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB7XHJcbiAgICBib3JkZXI6bm9uZTtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkIHtcclxuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgIzAwMDtcclxuICAgIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICMwMDA7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmZpcnN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1sZWZ0OiBub25lO1xyXG59XHJcblxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB0ZDpsYXN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1yaWdodDogbm9uZTtcclxufSovXHJcblxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLCAuc3R5bGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwicmFkaW9cIl17XHJcbiAgbWFyZ2luOiA0cHg7XHJcbn1cclxuLlJlZmVyZW5jZVNlbGVjdG9ye1xyXG4gIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLnJvd01vZGVsRGV0YWlsLCAudmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICB3aWR0aDogMzNweDtcclxuICBoZWlnaHQ6IDMzcHg7XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxufVxyXG4udmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbiAgZmxvYXQ6bm9uZTtcclxufVxyXG5cclxuXHJcbi8qLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8gIGNzcy5jc3Mgbm90aGluZyBvZiB0aGlzIHNob3VsZCB3b3JrKi9cclxuLypcclxuLnNpZGViYXJTaGVsbCwgLmVkaXRvclNoZWxsLCAucHJvcGVydHlfc2lkZWJhcntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7LypmbGV4OyogL1xyXG4gIC8qIGhlaWdodDogY2FsYygxMDB2aCAtICh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7KiAvXHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICBmbGV4LXdyYXA6IHdyYXA7fVxyXG4uc2lkZWJhclNoZWxse1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LWJhc2lzOiBjYWxjKHZhcigtLXNpZGViYXJXKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbn1cclxuI3Byb3BlcnR5X3NpZGViYXJ7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4uZWRpdG9yU2hlbGx7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICB3aWR0aDogY2FsYygxMDB2dyAtIHZhcigtLXNpZGViYXJXKSk7XHJcbn1cclxuKi9cclxuI21ldGFtb2RlbF90YWIsICNtb2RlbF90YWJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XHJcbiAgYWxpZ24tY29udGVudDogZmxleC1zdGFydDtcclxuICB3aWR0aDogMTAwdnc7fVxyXG5cclxuXHJcbiNtZXRhbW9kZWxfZWRpdG9yLCAjbW9kZWxfZWRpdG9ye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICAvKndpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpIC0gdmFyKC0tc2Nyb2xsYmFyVykpOy8qTkI6IFRPIERPOiBxdWFuZG8gbmFzY29uZGkgbCdoaWRkZW5pbnB1dCAqL1xyXG4gIGhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM0NDQ0NGM7LypsaWdodGdvbGRlbnJvZHllbGxvdzsqL1xyXG59XHJcbiNpbnB1dHtcclxuICBkaXNwbGF5Om5vbmU7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogMzAwcHg7XHJcbiAgb3ZlcmZsb3cteTpzY3JvbGw7XHJcbn1cclxuXHJcblxyXG5cclxuXHJcblxyXG50YWJsZS5ub0JvcmRlcntcclxuICBib3JkZXI6IG5vbmU7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("::ng-deep body {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainBorderWidth: 5px;\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n  --bluebordercolor: #0084ff;\r\n/*\r\n  --mainFontColor: transparent;\r\n  --mainBackgroundColor: transparent;\r\n  --mainBorderColor: transparent;\r\n  --secondaryBorderColor: transparent;\r\n  --popupBackgroundColor: transparent;\r\n  --altBackgroundColor: var(--mainBorderColor);\r\n  --altFontColor: transparent;*/\r\n\r\n  /* todo: questi colori vengono sempre rimpiazzati dinamicamente, esistono solo in fallback se l'utente elimina tutti i color-scheme*/\r\n  --color-1: #f5f5f5;\r\n  --color-2: #3c3c44;\r\n  --color-3: #2e2f34;\r\n  --color-4: #1E90FF;\r\n  --color-bg-1: #ffffff;\r\n  --color-bg-2: #f0f0f0;\r\n  --color-bg-3: #2e2f34;\r\n  --color-bg-30: transparent;\r\n\r\n  /*\r\n  --LightsecondaryBorderColor: var(--color-1); /*#c5c5c5;* /\r\n  --LightmainFontColor: var(--color-2);\r\n  --LightaltFontColor: var(--color-3);\r\n  --LightmainBackgroundColor: var(--color-bg-1);\r\n  --LightmainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;* /\r\n  --LightpopupBackgroundColor: var(--color-bg-3);\r\n  /* --LightaltBackgroundColor: var(--color-bg-30);* /\r\n\r\n  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;* /--color-1\r\n  --DarkmainFontColor: #b2b2ba; --color-2\r\n  --DarkaltFontColor: #f0f0f0;/* var(--LightmainBorderColor); * /--color-3\r\n  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;* /--color-bg-1\r\n  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;* /--color-bg-2\r\n  --DarkpopupBackgroundColor: #44444c;--color-bg-3\r\n  /*--DarkaltBackgroundColor: var(--mainBorderColor);*/\r\n\r\n  --mainFontColor: var(--color-2);\r\n  --mainBackgroundColor: var(--color-bg-1);\r\n  --mainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/\r\n  --secondaryBorderColor: var(--color-1); /*#c5c5c5;*/\r\n  --popupBackgroundColor: var(--color-bg-3);\r\n  /*--altBackgroundColor: var(--color-bg-30);*/\r\n  --altFontColor: var(--color-3);\r\n}\r\n.Vertex{\r\n  --color-1: #FFFFFF;\r\n  --color-2: #000000;\r\n  --color-3: #000000;\r\n  --color-4: #1E90FF;\r\n  --color-5: #FF0000;\r\n}\r\n.Feature{\r\n   --color-1: #ff8c00;\r\n   --color-2: #28a745;\r\n   --color-3: #d3d3d3;\r\n   --color-4: #FFFFFF;\r\n }\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0); /* unused? totally transparent*/\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n::ng-deep .graph *{\r\n  overflow: inherit;\r\n  text-overflow: ellipsis;\r\n}\r\n/*because color will be inherited, but background not (since input and selects cannot inherit and inherit behave like transparent.\r\n this is fine on the input itself but the optgroup cannot have transparent and will be always white.\r\n now, the problem is if you set a bacgkround-color: inherit / transparent select inside a black element with white text, the optgroup will be white with white text.\r\n */\r\n::ng-deep select{\r\n  text-overflow: clip;\r\n}\r\n::ng-deep optgroup{\r\n  color: black;\r\n  background-color: white;\r\n}\r\n::ng-deep [title] {\r\n  cursor: help;\r\n}\r\n/*::-webkit-scrollbar {\r\ndisplay: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCLGtCQUFrQjtFQUNoQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpRUFBaUU7RUFDakUsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWiwwQkFBMEI7QUFDNUI7Ozs7Ozs7K0JBTytCOztFQUU3QixvSUFBb0k7RUFDcEksa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLDBCQUEwQjs7RUFFMUI7Ozs7Ozs7Ozs7Ozs7OztzREFlb0Q7O0VBRXBELCtCQUErQjtFQUMvQix3Q0FBd0M7RUFDeEMsb0NBQW9DLEVBQUUsbURBQW1EO0VBQ3pGLHNDQUFzQyxFQUFFLFdBQVc7RUFDbkQseUNBQXlDO0VBQ3pDLDRDQUE0QztFQUM1Qyw4QkFBOEI7QUFDaEM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQTtHQUNHLGtCQUFrQjtHQUNsQixrQkFBa0I7R0FDbEIsa0JBQWtCO0dBQ2xCLGtCQUFrQjtDQUNwQjtBQUVEO0VBQ0Usc0JBQXNCO0VBQ3RCLGlDQUFpQztFQUNqQyxvQ0FBb0M7RUFDcEMsNENBQTRDLEVBQUUsK0JBQStCO0VBQzdFLHdDQUF3QztFQUN4QywyQkFBMkI7RUFDM0IseUNBQXlDO0VBQ3pDLDZDQUE2QztFQUM3QyxzQ0FBc0M7QUFDeEM7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQix1QkFBdUI7QUFDekI7QUFDQTs7O0VBR0U7QUFDRjtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLHVCQUF1QjtBQUN6QjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7O0VBRUU7QUFDRixhQUFhLDhCQUE4QixFQUFFO0FBQzdDLHNCQUFzQixvQ0FBb0MsRUFBRTtBQUM1RCxtQkFBbUIsaUNBQWlDLEVBQUU7QUFDdEQ7RUFDRSxhQUFhO0VBQ2IsMkJBQTJCLEVBQUUsU0FBUztBQUN4QztBQUNBO0VBQ0Usa0NBQWtDO0FBQ3BDO0FBQ0EsT0FBTztBQUVQLHlDQUF5QztBQUN6QztFQUNFLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsdUJBQXVCO0VBQ3ZCLFdBQVc7RUFDWCw0Q0FBNEM7RUFDNUMseUJBQXlCO0VBQ3pCLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UscUJBQXFCO0VBQ3JCLHVDQUF1QztFQUN2Qyx5SEFBeUg7RUFDekgsNERBQTREO0FBQzlEO0FBQ0E7RUFDRSw2QkFBNkI7RUFDN0I7Z0JBQ2M7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFdBQVc7RUFDWCw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHdCQUF1QjtVQUF2Qix1QkFBdUI7QUFDekI7QUFDQTs7Ozs7Ozs7Ozs7Ozs7Ozs7RUFpQkU7QUFFRjtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBRUE7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxZQUFZO0VBQ1osZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsVUFBVTtBQUNaO0FBR0EsMEZBQTBGO0FBQzFGOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Q0FxQkM7QUFDRDtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFtQjtFQUFuQiw2QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLGVBQWU7RUFDZix5QkFBOEI7VUFBOUIsOEJBQThCO0VBQzlCLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIseUJBQXlCO0VBQ3pCLFlBQVksQ0FBQztBQUdmO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLHVHQUF1RztFQUN2Ryx3REFBd0Q7RUFDeEQseUJBQXlCLENBQUMsd0JBQXdCO0FBQ3BEO0FBQ0E7RUFDRSxZQUFZO0VBQ1osWUFBWTtFQUNaLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7QUFNQTtFQUNFLFlBQVk7QUFDZCIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIGJvZHkgey8qIGNzcyB2YXJpYWJsZXMgKi9cclxuICAtLXRvcGJhckg6IDQwcHg7XHJcbiAgLS1zaWRlYmFyVzogMjgzcHg7XHJcbiAgLS1tYWluQm9yZGVyV2lkdGg6IDVweDtcclxuICAtLW1haW5Cb3JkZXI6IHZhcigtLW1haW5Cb3JkZXJDb2xvcikgc29saWQgdmFyKC0tbWFpbkJvcmRlcldpZHRoKTtcclxuICAtLXNjcm9sbGJhclc6IDBweDtcclxuICAtLXRhYkg6IDMwcHg7XHJcbiAgLS1ibHVlYm9yZGVyY29sb3I6ICMwMDg0ZmY7XHJcbi8qXHJcbiAgLS1tYWluRm9udENvbG9yOiB0cmFuc3BhcmVudDtcclxuICAtLW1haW5CYWNrZ3JvdW5kQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tbWFpbkJvcmRlckNvbG9yOiB0cmFuc3BhcmVudDtcclxuICAtLXNlY29uZGFyeUJvcmRlckNvbG9yOiB0cmFuc3BhcmVudDtcclxuICAtLXBvcHVwQmFja2dyb3VuZENvbG9yOiB0cmFuc3BhcmVudDtcclxuICAtLWFsdEJhY2tncm91bmRDb2xvcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKTtcclxuICAtLWFsdEZvbnRDb2xvcjogdHJhbnNwYXJlbnQ7Ki9cclxuXHJcbiAgLyogdG9kbzogcXVlc3RpIGNvbG9yaSB2ZW5nb25vIHNlbXByZSByaW1waWF6emF0aSBkaW5hbWljYW1lbnRlLCBlc2lzdG9ubyBzb2xvIGluIGZhbGxiYWNrIHNlIGwndXRlbnRlIGVsaW1pbmEgdHV0dGkgaSBjb2xvci1zY2hlbWUqL1xyXG4gIC0tY29sb3ItMTogI2Y1ZjVmNTtcclxuICAtLWNvbG9yLTI6ICMzYzNjNDQ7XHJcbiAgLS1jb2xvci0zOiAjMmUyZjM0O1xyXG4gIC0tY29sb3ItNDogIzFFOTBGRjtcclxuICAtLWNvbG9yLWJnLTE6ICNmZmZmZmY7XHJcbiAgLS1jb2xvci1iZy0yOiAjZjBmMGYwO1xyXG4gIC0tY29sb3ItYmctMzogIzJlMmYzNDtcclxuICAtLWNvbG9yLWJnLTMwOiB0cmFuc3BhcmVudDtcclxuXHJcbiAgLypcclxuICAtLUxpZ2h0c2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLTEpOyAvKiNjNWM1YzU7KiAvXHJcbiAgLS1MaWdodG1haW5Gb250Q29sb3I6IHZhcigtLWNvbG9yLTIpO1xyXG4gIC0tTGlnaHRhbHRGb250Q29sb3I6IHZhcigtLWNvbG9yLTMpO1xyXG4gIC0tTGlnaHRtYWluQmFja2dyb3VuZENvbG9yOiB2YXIoLS1jb2xvci1iZy0xKTtcclxuICAtLUxpZ2h0bWFpbkJvcmRlckNvbG9yOiB2YXIoLS1jb2xvci1iZy0yKTsgLyojOWNhN2I4OyBvbiBpbnRlbGxpSmlkZWEgZGFya2VyIHNoYWRlIC8qI2U1ZTVlNTsqIC9cclxuICAtLUxpZ2h0cG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMpO1xyXG4gIC8qIC0tTGlnaHRhbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMwKTsqIC9cclxuXHJcbiAgLS1EYXJrc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6ICMzYzNjNDQ7LyojYzVjNWM1OyogLy0tY29sb3ItMVxyXG4gIC0tRGFya21haW5Gb250Q29sb3I6ICNiMmIyYmE7IC0tY29sb3ItMlxyXG4gIC0tRGFya2FsdEZvbnRDb2xvcjogI2YwZjBmMDsvKiB2YXIoLS1MaWdodG1haW5Cb3JkZXJDb2xvcik7ICogLy0tY29sb3ItM1xyXG4gIC0tRGFya21haW5CYWNrZ3JvdW5kQ29sb3I6ICMxYTFhMWM7Lyp3aGl0ZVNtb2tlOyogLy0tY29sb3ItYmctMVxyXG4gIC0tRGFya21haW5Cb3JkZXJDb2xvcjogIzJlMmYzNDsvKiNlNWU1ZTU7KiAvLS1jb2xvci1iZy0yXHJcbiAgLS1EYXJrcG9wdXBCYWNrZ3JvdW5kQ29sb3I6ICM0NDQ0NGM7LS1jb2xvci1iZy0zXHJcbiAgLyotLURhcmthbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7Ki9cclxuXHJcbiAgLS1tYWluRm9udENvbG9yOiB2YXIoLS1jb2xvci0yKTtcclxuICAtLW1haW5CYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTEpO1xyXG4gIC0tbWFpbkJvcmRlckNvbG9yOiB2YXIoLS1jb2xvci1iZy0yKTsgLyojOWNhN2I4OyBvbiBpbnRlbGxpSmlkZWEgZGFya2VyIHNoYWRlIC8qI2U1ZTVlNTsqL1xyXG4gIC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLTEpOyAvKiNjNWM1YzU7Ki9cclxuICAtLXBvcHVwQmFja2dyb3VuZENvbG9yOiB2YXIoLS1jb2xvci1iZy0zKTtcclxuICAvKi0tYWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1jb2xvci1iZy0zMCk7Ki9cclxuICAtLWFsdEZvbnRDb2xvcjogdmFyKC0tY29sb3ItMyk7XHJcbn1cclxuLlZlcnRleHtcclxuICAtLWNvbG9yLTE6ICNGRkZGRkY7XHJcbiAgLS1jb2xvci0yOiAjMDAwMDAwO1xyXG4gIC0tY29sb3ItMzogIzAwMDAwMDtcclxuICAtLWNvbG9yLTQ6ICMxRTkwRkY7XHJcbiAgLS1jb2xvci01OiAjRkYwMDAwO1xyXG59XHJcbi5GZWF0dXJle1xyXG4gICAtLWNvbG9yLTE6ICNmZjhjMDA7XHJcbiAgIC0tY29sb3ItMjogIzI4YTc0NTtcclxuICAgLS1jb2xvci0zOiAjZDNkM2QzO1xyXG4gICAtLWNvbG9yLTQ6ICNGRkZGRkY7XHJcbiB9XHJcblxyXG46Om5nLWRlZXAgKntcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIHNjcm9sbGJhci1iYXNlLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBzY3JvbGxiYXItM2RsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgc2Nyb2xsYmFyLWhpZ2hsaWdodC1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7IC8qIHVudXNlZD8gdG90YWxseSB0cmFuc3BhcmVudCovXHJcbiAgc2Nyb2xsYmFyLXRyYWNrLWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItYXJyb3ctY29sb3I6ICMwMDA7XHJcbiAgc2Nyb2xsYmFyLXNoYWRvdy1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgc2Nyb2xsYmFyLWRhcmtzaGFkb3ctY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIC8qIC1tb3otYXBwZWFyYW5jZTogbm9uZSAhaW1wb3J0YW50OyAqL1xyXG59XHJcbjo6bmctZGVlcCAuZ3JhcGggKntcclxuICBvdmVyZmxvdzogaW5oZXJpdDtcclxuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxufVxyXG4vKmJlY2F1c2UgY29sb3Igd2lsbCBiZSBpbmhlcml0ZWQsIGJ1dCBiYWNrZ3JvdW5kIG5vdCAoc2luY2UgaW5wdXQgYW5kIHNlbGVjdHMgY2Fubm90IGluaGVyaXQgYW5kIGluaGVyaXQgYmVoYXZlIGxpa2UgdHJhbnNwYXJlbnQuXHJcbiB0aGlzIGlzIGZpbmUgb24gdGhlIGlucHV0IGl0c2VsZiBidXQgdGhlIG9wdGdyb3VwIGNhbm5vdCBoYXZlIHRyYW5zcGFyZW50IGFuZCB3aWxsIGJlIGFsd2F5cyB3aGl0ZS5cclxuIG5vdywgdGhlIHByb2JsZW0gaXMgaWYgeW91IHNldCBhIGJhY2drcm91bmQtY29sb3I6IGluaGVyaXQgLyB0cmFuc3BhcmVudCBzZWxlY3QgaW5zaWRlIGEgYmxhY2sgZWxlbWVudCB3aXRoIHdoaXRlIHRleHQsIHRoZSBvcHRncm91cCB3aWxsIGJlIHdoaXRlIHdpdGggd2hpdGUgdGV4dC5cclxuICovXHJcbjo6bmctZGVlcCBzZWxlY3R7XHJcbiAgdGV4dC1vdmVyZmxvdzogY2xpcDtcclxufVxyXG46Om5nLWRlZXAgb3B0Z3JvdXB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG59XHJcbjo6bmctZGVlcCBbdGl0bGVdIHtcclxuICBjdXJzb3I6IGhlbHA7XHJcbn1cclxuLyo6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuZGlzcGxheTogbm9uZTtcclxufSovXHJcbio6ZGlzYWJsZWQgeyBjdXJzb3I6IG5vdC1hbGxvd2VkICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1jaGVja2JveF17IC1tb3otYXBwZWFyYW5jZTogY2hlY2tib3ggIWltcG9ydGFudDsgfVxyXG5pbnB1dFt0eXBlPXJhZGlvXXsgLW1vei1hcHBlYXJhbmNlOiByYWRpbyAhaW1wb3J0YW50OyB9XHJcbmlucHV0OmRpc2FibGVke1xyXG4gIG9wYWNpdHkgOiAuNzU7XHJcbiAgZmlsdGVyICA6IGFscGhhKG9wYWNpdHk9NzUpOyAvKiBJRTw5ICovXHJcbn1cclxuOjpuZy1kZWVwIC5zdHlsZUVkaXRvclNlbGVjdGVke1xyXG4gIG91dGxpbmU6IDNweCBkYXNoZWQgcmVkICFpbXBvcnRhbnQ7XHJcbn1cclxuLypvbGRzKi9cclxuXHJcbi8qKioqKioqKioqKioqKioqKiogYXR0cmlidXRlRWRpdG9yLmNzcyAqL1xyXG4uYXR0cmlidXRlRWRpdG9yLCAuc3R5bGVFZGl0b3J7XHJcbiAgLypkaXNwbGF5OmlubGluZS1ib3g7Ki9cclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IC1tb3otZml0LWNvbnRlbnQ7XHJcbiAgcGFkZGluZzo4cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbiAgYm9yZGVyOiB2YXIoLS1tYWluQm9yZGVyKTtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG1heC1oZWlnaHQ6MTAwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuLnN0eWxlRWRpdG9ye1xyXG4gIGxlZnQ6IHZhcigtLXNpZGViYXJXKTtcclxuICB0b3A6IGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSk7XHJcbiAgLyp2b2dsaW8gY2hlIHNpYSBkaXZlcnNhIHBlcmNow6ggZGkgc29saXRvIHBhcnRlIGNvbiBhbHRlenphIHBhcmkgYSB0b3BiYXIuaCBlIHZvZ2xpbyBjaGUgc2lhIHNjcm9sbGFiaWxlIHNlbnphIHNwb3N0YXJsYSovXHJcbiAgbWF4LWhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG59XHJcbmJ1dHRvbi5hdHRyaWJ1dGVFZGl0b3JDb25maXJtLCBidXR0b24uc3R5bGVFZGl0b3JDb25maXJte1xyXG4gIG1hcmdpbi1sZWZ0OiBjYWxjKDUwJSAtIDUwcHgpO1xyXG4gIC8qIHdpZHRoOjEwMHB4O1xyXG4gICBoZWlnaHQ6MzBweDsqL1xyXG59XHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIC5hdHRyaWJ1dGVFZGl0b3JGaWVsZE5hbWUsIHRhYmxlLnN0eWxlVGFibGUgLnN0eWxlRWRpdG9yRmllbGROYW1le1xyXG4gIG1heC13aWR0aDoxNTBweDtcclxuICBtYXgtaGVpZ2h0OjE1MHB4O1xyXG4gIG92ZXJmbG93OmF1dG87XHJcbn1cclxuLnN0eWxlVGFibGV7XHJcbiAgbWFyZ2luLXRvcDoxMHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uc3R5bGVUYWJsZSB0ZHtcclxuICBtYXgtd2lkdGg6IDMwMHB4O1xyXG59XHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSwgLnN0eWxlRWRpdG9yVGl0bGV7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5lZGdlUm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLmVkZ2VSb3c+KntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogMHB4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiA0cHg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcbi5pc0NvbXBvdW5kRWRnZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG4uc3R5bGVDb21wb3VuZFdyYXBwZXJ7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5jb21wb3VuZEVkZ2VTdGFydCwgLmNvbXBvdW5kRWRnZUVuZHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLlNpZGViYXJTdHlsZUh0bWwsIC5HcmFwaFN0eWxlSHRtbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcbi8qXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHtcclxuICAgIGJvcmRlcjpub25lO1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjMDAwO1xyXG4gICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgIzAwMDtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQ6Zmlyc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmxhc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG59Ki9cclxuXHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0sIC5zdHlsZUVkaXRvclRpdGxlIGlucHV0W3R5cGU9XCJyYWRpb1wiXXtcclxuICBtYXJnaW46IDRweDtcclxufVxyXG4uUmVmZXJlbmNlU2VsZWN0b3J7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcblxyXG4ucm93TW9kZWxEZXRhaWwsIC52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIHdpZHRoOiAzM3B4O1xyXG4gIGhlaWdodDogMzNweDtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG59XHJcbi52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBmbG9hdDpub25lO1xyXG59XHJcblxyXG5cclxuLyovLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLyAgY3NzLmNzcyBub3RoaW5nIG9mIHRoaXMgc2hvdWxkIHdvcmsqL1xyXG4vKlxyXG4uc2lkZWJhclNoZWxsLCAuZWRpdG9yU2hlbGwsIC5wcm9wZXJ0eV9zaWRlYmFye1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jazsvKmZsZXg7KiAvXHJcbiAgLyogaGVpZ2h0OiBjYWxjKDEwMHZoIC0gKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTsqIC9cclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIGZsZXgtd3JhcDogd3JhcDt9XHJcbi5zaWRlYmFyU2hlbGx7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4jcHJvcGVydHlfc2lkZWJhcntcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1iYXNpczogY2FsYyh2YXIoLS1zaWRlYmFyVykpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG59XHJcbi5lZGl0b3JTaGVsbHtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIHdpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpKTtcclxufVxyXG4qL1xyXG4jbWV0YW1vZGVsX3RhYiwgI21vZGVsX3RhYntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcclxuICBhbGlnbi1jb250ZW50OiBmbGV4LXN0YXJ0O1xyXG4gIHdpZHRoOiAxMDB2dzt9XHJcblxyXG5cclxuI21ldGFtb2RlbF9lZGl0b3IsICNtb2RlbF9lZGl0b3J7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIC8qd2lkdGg6IGNhbGMoMTAwdncgLSB2YXIoLS1zaWRlYmFyVykgLSB2YXIoLS1zY3JvbGxiYXJXKSk7LypOQjogVE8gRE86IHF1YW5kbyBuYXNjb25kaSBsJ2hpZGRlbmlucHV0ICovXHJcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gY2FsYyh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ0NDQ0YzsvKmxpZ2h0Z29sZGVucm9keWVsbG93OyovXHJcbn1cclxuI2lucHV0e1xyXG4gIGRpc3BsYXk6bm9uZTtcclxuICB3aWR0aDogMTAwdnc7XHJcbiAgaGVpZ2h0OiAzMDBweDtcclxuICBvdmVyZmxvdy15OnNjcm9sbDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuXHJcbnRhYmxlLm5vQm9yZGVye1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -3899,7 +4061,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let AppComponent = class AppComponent {
     constructor() {
-        this.title = 'untitled';
+        this.title = 'Jodel';
     }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -3918,7 +4080,7 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*******************************!*\
   !*** ./src/app/app.module.ts ***!
   \*******************************/
-/*! exports provided: AppModule, Status, main0 */
+/*! exports provided: AppModule, Status, main0, onModelsReceive */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3926,6 +4088,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return Status; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "main0", function() { return main0; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onModelsReceive", function() { return onModelsReceive; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
@@ -3951,6 +4114,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _guiElements_top_bar_m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../guiElements/top-bar/m2tcreator/m2tcreator.component */ "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./User */ "./src/app/User.ts");
+/* harmony import */ var _color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./color-scheme/color-scheme.component */ "./src/app/color-scheme/color-scheme.component.ts");
+
 
 
 
@@ -3993,10 +4158,10 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _guiElements_m_graph_html_m_graph_html_component__WEBPACK_IMPORTED_MODULE_14__["MGraphHtmlComponent"],
             _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_15__["DamContextMenuComponent"],
             _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_16__["StyleEditorComponent"],
-            _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBarComponent"],
             _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_17__["ConsoleComponent"],
-            _measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_18__["MeasurabletemplateComponent"],
             _guiElements_top_bar_m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_21__["M2tcreatorComponent"],
+            _color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_24__["ColorSchemeComponent"],
+            _measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_18__["MeasurabletemplateComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -4011,6 +4176,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBarComponent"],
             _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_17__["ConsoleComponent"],
             _guiElements_graph_tab_html_graph_tab_html_component__WEBPACK_IMPORTED_MODULE_10__["GraphTabHtmlComponent"],
+            _color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_24__["ColorSchemeComponent"],
             _measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_18__["MeasurabletemplateComponent"]
         ],
         // aggiunto da me
@@ -4044,6 +4210,7 @@ class Status {
         mmGrid = new GraphPoint(20, 20);
         mGrid = new GraphPoint(20, 20);*/
         this.user = new _User__WEBPACK_IMPORTED_MODULE_23__["User"]('mock_user');
+        this.isEmbed = window.parent !== window;
     }
     save() {
         return 'TO DO: SERIALIZE';
@@ -4074,27 +4241,25 @@ class Status {
 }
 Status.status = null;
 function main0(loadEvent, tentativi = 0) {
+    if (document.getElementById('MM_INPUT') === null) {
+        if (tentativi++ >= 10) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pe(true, 'failed to load html');
+        }
+        console.log('main0 wait(100)');
+        setTimeout(() => main0(null, tentativi), 100);
+        return;
+    }
     try {
         Status.status = new Status();
         window.global = window;
-        // (window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;
-        if (document.getElementById('MM_INPUT') === null) {
-            if (tentativi++ >= 10) {
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pe(true, 'failed to load MM_INPUT');
-            }
-            setTimeout(() => main0(null, tentativi), 100);
-            console.log('main0 wait(100)');
-            return;
-        } // else { mainForceTabChange(0); }
-        // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.js');
-        // U.loadScript('./app/common/jquery-ui-1.12.1/jquery-ui.structure.js');
-        // U.loadScript('https://code.jquery.com/ui/1.12.1/jquery-ui.min.js');
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].disableConsole();
         main();
         setTimeout(() => delayedMain(), 1);
     }
     catch (e) {
         const errormsg = 'initialization failed, this is likely caused by a failure on connection while downloading libraries or by unsupported browser.';
         console.error('first error:', e);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].disableConsole();
         try {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, errormsg);
         }
@@ -4199,6 +4364,7 @@ function globalevents() {
     window['Network'] = vis_network__WEBPACK_IMPORTED_MODULE_19__["Network"];
     window['Layouting'] = _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_20__["Layouting"];
     window['TopBar'] = _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"];
+    window['ColorSchemeComponent'] = _color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_24__["ColorSchemeComponent"];
     window['' + 'help'] = [
         'setBackup (backup <= saveToDB)',
         'backupSave (saveToDB <= backup)',
@@ -4235,6 +4401,10 @@ function globalevents() {
     window['' + 'setBackupGUI'] = () => { localStorage.setItem('backupGUI', localStorage.getItem('modelGraphSave_GUI_Damiano')); };
     window['' + 'setBackupMM'] = () => { localStorage.setItem('backupMM', localStorage.getItem('LastOpenedMM')); };
     window['' + 'setBackupM'] = () => { localStorage.setItem('backupM', localStorage.getItem('LastOpenedM')); };
+    $('#testbtn').on('click', function testClick() {
+        console.log("testbtn clicked");
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["VsCodeLayerOut"].send({ type: "jodel.test", body: { a: 'a', b: 5, c: { d: "nested test", e: 2.7 } } });
+    });
 }
 function setBootstrapOnLowestPriority() {
     let $s = $('style');
@@ -4249,6 +4419,7 @@ function main() {
     let tmp;
     let useless;
     let i;
+    _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["VsCodeLayerIn"].setupReceive();
     setBootstrapOnLowestPriority();
     window.U = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"];
     window.status = Status.status;
@@ -4280,8 +4451,14 @@ function main() {
     Status.status.typeAliasDictionary[ShortAttribETypes.EELIST] = 'EELIST';*/
     _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["EType"].staticInit();
     _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_15__["DamContextMenuComponent"].staticInit();
-    const savem2 = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["LocalStorage"].getLastOpened(2);
-    const savem1 = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["LocalStorage"].getLastOpened(1);
+    if (!Status.status.isEmbed) {
+        const savem2 = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["LocalStorage"].getLastOpened(2);
+        const savem1 = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["LocalStorage"].getLastOpened(1);
+        onModelsReceive(savem2, savem1);
+    }
+}
+function onModelsReceive(savem2, savem1) {
+    let useless;
     /*let MetaMetaModelStr = MetaMetaModel.emptyMetaMetaModel;
     let MetaModelinputStr = MetaModel.emptyModel;
     let ModelinputStr = Model.emptyModel;*/
@@ -4352,7 +4529,7 @@ function main() {
     const vertexposMat = [JSON.parse(savem2.vertexpos), JSON.parse(savem1.vertexpos)];
     // console.log(vpmatjson, Status.status.mm.graph.viewPointShell);
     // return;
-    let j;
+    let i, j;
     for (j = 0; j < vertexposMat.length; j++) {
         const vdic = vertexposMat[j];
         const m = marr[j];
@@ -4369,9 +4546,10 @@ function main() {
         }
     }
     for (j = 0; j < vpmatjson.length; j++) {
-        const vparr = vpmatjson[j];
+        let vparr = vpmatjson[j];
         const m = marr[j];
         let v;
+        vparr = vparr.sort(_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ViewPoint"].sortCriteria);
         for (i = 0; i < vparr.length; i++) {
             const jsonvp = vparr[i];
             // console.clear();
@@ -4379,6 +4557,7 @@ function main() {
             v = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ViewPoint"](m);
             v.clone(jsonvp);
             v.updateTarget(m);
+            v.runtimeorder = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ViewPoint"].LAST_ORDER++;
             m.graph.viewPointShell.add(v, false); // [persistent isApplied] STEP 1: qui setto checked sulla gui in base al v.isApplied salvato.
             v.isApplied = false; // STEP 2: qui affermo che non è stato ancora applicato
         }
@@ -4413,6 +4592,352 @@ document.addEventListener('DOMContentLoaded', main0);
 
 /***/ }),
 
+/***/ "./src/app/color-scheme/color-scheme.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/color-scheme/color-scheme.component.css ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("#colorSchemeEditorRoot th, #colorSchemeEditorRoot td{\r\n  vertical-align: middle;\r\n}\r\n#colorSchemeEditorRoot th{\r\n  text-align: center;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29sb3Itc2NoZW1lL2NvbG9yLXNjaGVtZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQXNCO0FBQ3hCO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9jb2xvci1zY2hlbWUvY29sb3Itc2NoZW1lLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjY29sb3JTY2hlbWVFZGl0b3JSb290IHRoLCAjY29sb3JTY2hlbWVFZGl0b3JSb290IHRke1xyXG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XHJcbn1cclxuI2NvbG9yU2NoZW1lRWRpdG9yUm9vdCB0aHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/color-scheme/color-scheme.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/color-scheme/color-scheme.component.ts ***!
+  \********************************************************/
+/*! exports provided: ColorScheme2, ColorSchemeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ColorScheme2", function() { return ColorScheme2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ColorSchemeComponent", function() { return ColorSchemeComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
+var ColorSchemeComponent_1;
+
+
+
+class ColorScheme2 {
+    constructor(name, selector, colorPrefix, isActive, foreColors) {
+        this.isActive = true;
+        this.foreColors = [];
+        this.name = name || 'cs-1';
+        this.isActive = isActive;
+        this.foreColors = foreColors || [];
+        this.colorPrefix = colorPrefix || "color-";
+        this.selector = selector || '';
+        this.id = ColorScheme2.maxID++;
+        this.autoGenerateSelector();
+        ColorScheme2.all[this.id] = this;
+    }
+    static get(id) { return ColorScheme2.all[id]; }
+    static getAll() { return Object.values(ColorScheme2.all); }
+    static duplicate(other) {
+        const ret = new ColorScheme2(null, null, null, null, null);
+        ret.clone(other);
+        return ret;
+    }
+    // warning: deve generare qualcosa di indipendente dagli altri dati, altrimenti se l'utente cambia gli altri dati si rompono i selettori auto-gestiti tramite la gui del dropdown
+    autoGenerateSelector() { return this.autoselector = 'g.VertexRoot [color-scheme*="CS-' + this.id + '|"]'; } // '[color-scheme*="' + this.validateStringForCssVarName(this.name) + '"]'; }
+    clone(json) {
+        let oldid = this.id;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneProperties(this, json);
+        this.autoGenerateSelector();
+        ColorScheme2.maxID = Math.max(ColorScheme2.maxID, this.id + 1);
+        ColorScheme2.all[oldid] = null;
+        ColorScheme2.all[this.id] = this;
+        return this;
+    }
+    static staticinit() {
+        const str = localStorage.getItem(ColorScheme2.storageKey) || '[]';
+        const arr = (JSON.parse(str) || []).map(e => ColorScheme2.duplicate(e));
+        ColorScheme2.maxID = arr.length ? Math.max(...(arr.map((e, i) => { return e.id; }))) + 1 : 0;
+        return []; // arr; todo: rimetti array vero
+    }
+    static loadDefault() {
+        let i = 0;
+        const ret = [
+            //   --color-1: '#f5f5f5', '#f0f0f0', '#3c3c44', '#2e2f34';
+            //   --color-bg-1: '#ffffff', '#f0f0f0', '#2e2f34';
+            new ColorScheme2('main theme Light', 'body', 'color-', true, ['#f5f5f5', '#3c3c44', '#2e2f34', '#1E90FF']),
+            // background was: ['#ffffff', '#f0f0f0', '#2e2f34']
+            new ColorScheme2('main theme Light bg', 'body', 'color-bg-', true, ['#f4f4f4', '#e0e0e0', '#2e2f34']),
+            new ColorScheme2('main theme Dark', 'body', 'color-', false, ['#3c3c44', '#b2b2ba', '#f0f0f0', '#1E90FF']),
+            new ColorScheme2('main theme Dark bg', 'body', 'color-bg-', false, ['#1a1a1c', '#2e2f34', '#44444c']),
+            new ColorScheme2('Vertex', 'g.VertexRoot', null, true, ['#ffffff', '#000000', '#000000', '#1E90FF', '#ff0000']),
+            new ColorScheme2('Feature', '.graph .Feature', null, true, ['#ff8c00', '#28a745', '#d3d3d3', '#FFFFFF']),
+            // examples
+            new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#364f6b', '#3fc1c9', '#f5f5f5', '#fc5185']),
+            new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#f9a828', '#ececeb', '#07617d', '#2e383f']),
+            new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#fa4659', '#effe40', '#a33e83', '#2eb872']),
+            new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#BE64FA', '#8459DE', '#5975DE', '#64ACFA']),
+        ];
+        return ret;
+    }
+    validateStringForCssVarName(name) {
+        name = name.trim().replace(/\s/gi, '-');
+        name = name.replace(/([^a-z0-9_\-]+)/gi, '');
+        if (!name.length) {
+            name = "color-scheme-1";
+        }
+        else if (!name.match(/^[a-zA-Z_]/)) {
+            name += "_";
+        }
+        return name;
+    }
+    getFullSelector(joinStr = ', ') {
+        if (!this.selector)
+            return this.autoselector;
+        if (_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(this.autoselector, '"', "'") === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(this.selector, '"', "'"))
+            return this.selector;
+        return this.selector + joinStr + this.autoselector;
+    }
+}
+ColorScheme2.all = {};
+ColorScheme2.maxID = 1;
+ColorScheme2.storageKey = 'jodelColorSchemes';
+let ColorSchemeComponent = ColorSchemeComponent_1 = class ColorSchemeComponent {
+    constructor() {
+        this.colorSchemes = [];
+    }
+    ngOnDestroy() {
+        localStorage.setItem(ColorScheme2.storageKey, JSON.stringify(this.colorSchemes));
+    }
+    ngOnInit() {
+        ColorSchemeComponent_1.cs = this;
+        this.temporaryInvisible = false;
+        this.colorSchemes = ColorScheme2.staticinit();
+        if (this.colorSchemes.length === 0) {
+            this.colorSchemes = ColorScheme2.loadDefault();
+        }
+        // this.display = 'none';
+        ColorSchemeComponent_1.$html = $('app-color-scheme > #colorSchemeEditorRoot');
+        ColorSchemeComponent_1.$styleNode = $('style#colorSchemeStyle');
+        ColorSchemeComponent_1.styleNode = ColorSchemeComponent_1.$styleNode[0];
+        this.updateCss();
+        ColorSchemeComponent_1.show();
+    }
+    toggleArchived(cs) {
+        cs.isActive = !cs.isActive;
+        this.enableOmonyms(cs);
+        this.updateCss();
+    }
+    enableOmonyms(master) {
+        let csarr = [...this.colorSchemes]; // must clone array, altrimenti updateOrder rompe l'iterazione forEach
+        csarr.forEach((cs) => {
+            if (cs.name.indexOf(master.name) !== 0)
+                return;
+            cs.isActive = master.isActive;
+            this.updateOrder(cs);
+        });
+    }
+    updateOrder(cs) {
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].arrayRemoveAll(this.colorSchemes, cs);
+        let lastActiveIndex = this.colorSchemes.length;
+        while (--lastActiveIndex) {
+            if (this.colorSchemes[lastActiveIndex].isActive)
+                break;
+        }
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].insertAt(this.colorSchemes, lastActiveIndex + 1, cs);
+    }
+    /*
+    disable(cs: ColorScheme2): void {
+      U.arrayRemoveAll(this.colorSchemes, cs);
+      let lastActiveIndex = this.colorSchemes.length;
+      while (--lastActiveIndex) {
+        if (this.colorSchemes[lastActiveIndex].isActive) break;
+      }
+      U.insertAt(this.colorSchemes, lastActiveIndex, cs);
+    }*/
+    removeColor($event, cs, arr) {
+        if (arr.length)
+            arr.length = arr.length - 1;
+        this.updateCss();
+    }
+    changeColor($event, cs, arr, index) {
+        const input = $event.target;
+        arr[index] = input.value;
+        this.updateCss();
+    }
+    addColor($event, cs, arr) {
+        console.log('addColor(', $event, cs, arr);
+        const objarr = arr.map((e, i) => _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].HexToHexObj(e));
+        const avg = { r: 0, g: 0, b: 0, a: 0 };
+        let weights = [];
+        let lastVal = 1; // 2^0
+        const sum = Math.pow(2, objarr.length + 1) - 2; // perchè l'array parte da 2 invece che da 1
+        for (let i = 0; i < objarr.length; i++) {
+            weights.push((lastVal *= 2) / sum);
+        }
+        if (objarr.length % 2 == 1) {
+            weights = weights.reverse();
+        }
+        console.log('objarr:', objarr, weights, sum);
+        const randomPart = 0.5;
+        if (objarr) {
+            for (let i = objarr.length; --i >= 0;) {
+                const color = objarr[i];
+                const randomWeight = randomPart * (2 * Math.random() - 1);
+                console.log('randomWeight', randomWeight);
+                const weight = weights[i] * (1 + randomWeight);
+                avg.a += color.a ? color.a * weight : 0;
+                avg.r += color.r * weight;
+                avg.g += color.g * weight;
+                avg.b += color.b * weight;
+                console.log('objarr adding::', color, weight, { r: color.r * weight, g: color.g * weight, b: color.b * weight }, _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneObj(avg));
+            } /*
+            avg.a /= objarr.length;
+            avg.r /= objarr.length;
+            avg.g /= objarr.length;
+            avg.b /= objarr.length;*/
+        }
+        avg.a = Math.max(0, Math.min(255, avg.a));
+        avg.r = Math.max(0, Math.min(255, avg.r));
+        avg.g = Math.max(0, Math.min(255, avg.g));
+        avg.b = Math.max(0, Math.min(255, avg.b));
+        arr.push(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].colorObjToArgb(avg, '#', '').rgbhex);
+        // this.colorSchemes = this.colorSchemes;// force trigger change?
+        this.updateCss();
+    }
+    addCS() {
+        const lastCS = this.colorSchemes[this.colorSchemes.length - 1];
+        const newCS = new ColorScheme2(null, null, null, true, null);
+        newCS.foreColors = lastCS.foreColors.map((e) => {
+            const color = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].HexToHexObj(e);
+            color.r = (color.r + 127) % 256;
+            color.g = (color.g + 127) % 256;
+            color.b = (color.b + 127) % 256;
+            color.a = (color.a + 127) % 256 || null;
+            return _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].colorObjToArgb(color, '#', '').rgbhex;
+        });
+        const index = this.colorSchemes.push(newCS);
+        this.changeName(null, newCS, newCS.name);
+        newCS.selector = newCS.autoGenerateSelector();
+        this.updateCss();
+    }
+    remove(cs) {
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].arrayRemoveAll(this.colorSchemes, cs);
+        ColorScheme2.all[cs.id] = null;
+        this.updateCss();
+    }
+    updateCss() {
+        // const scope = "body"; // ".Vertex";
+        let str = "";
+        for (let i = 0; i < this.colorSchemes.length; i++) {
+            let cs = this.colorSchemes[i];
+            if (!cs.isActive)
+                continue;
+            let selector = cs.getFullSelector(',\n');
+            str += selector + ' {'; // '[color-scheme="' + cs.name + '"] {\n';
+            str += '        /***  ' + cs.name + "  ***/";
+            for (let j = 0; j < cs.foreColors.length; j++) {
+                const color = cs.foreColors[j];
+                str += "\n    --" + cs.colorPrefix + (1 + j) + ": " + color + ";";
+            }
+            /*
+            for (let j = 0; j < cs.backColors.length; j++) {
+              const color = cs.backColors[j];
+              str += "\n    back-color-" + j + ": " + color + ";";
+            }*/
+            str += "\n}\n\n";
+        }
+        // str += "body{ color: red !important; background-color: wheat !important;}"
+        this.styleStr = str;
+        ColorSchemeComponent_1.styleNode.innerHTML = this.styleStr;
+    }
+    move($event, cs, csindex, direction) {
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].arrayRemoveAll(this.colorSchemes, cs);
+        if (csindex + direction === -1) {
+            csindex = this.colorSchemes.length;
+            direction = 0;
+        }
+        else if (csindex + direction === this.colorSchemes.length + 1) {
+            csindex = 0;
+            direction = 0;
+        }
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].insertAt(this.colorSchemes, csindex + direction, cs);
+        this.updateCss();
+    }
+    changeColorPrefix($event, cs) {
+        const input = $event && $event.target;
+        cs.colorPrefix = cs.validateStringForCssVarName(input.value);
+        this.updateCss();
+    }
+    changeSelector($event, cs) {
+        const input = $event && $event.target;
+        input.value = cs.selector = input.value.trim();
+        this.updateCss();
+    }
+    changeName($event, cs, namepar = null) {
+        // let regenerateSelector: boolean = cs.name && cs.autoGenerateSelector() === cs.selector;
+        const input = $event && $event.target;
+        let name = (namepar || input.value).trim();
+        if (!namepar && cs.name === name)
+            return;
+        const namearr = this.colorSchemes.map((e, i) => e.name);
+        const names = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ArrayToMap(namearr);
+        console.log('name map', names, namearr, 'name:', name);
+        while (names[name]) {
+            name = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].increaseEndingNumber(name);
+        }
+        input.value = cs.name = name;
+        // regenerateSelector = true;
+        // if (regenerateSelector) cs.selector = cs.autoGenerateSelector();
+        this.updateCss();
+    }
+    hide() {
+        ColorSchemeComponent_1.$html.hide();
+        // this.display = 'none';
+        console.log("cs.hide()");
+    }
+    /*
+      show(): void {
+        this.display = 'flex'; }*/
+    static show() {
+        // NB: il codice eseguito fuori da questo componente, o dentro componenti che NON hanno @ViewChild non viene osservato per cambiamenti,
+        // se modifico le variabili esternamente la grafica non viene aggiornata.
+        // quindi modifico direttamente html invece delle variabili
+        console.log("cs.show()");
+        ColorSchemeComponent_1.$html.show();
+    }
+    invisible() {
+        this.temporaryInvisible = true;
+    }
+    visible() {
+        this.temporaryInvisible = false;
+    }
+    static getAllSelectors(excludeDisabled = true) {
+        const ret = {};
+        for (let cs of ColorSchemeComponent_1.cs.colorSchemes) {
+            if (excludeDisabled && !cs.isActive)
+                continue;
+            const fullselector = cs.getFullSelector();
+            if (!ret[fullselector])
+                ret[fullselector] = [cs];
+            else
+                ret[fullselector].push(cs);
+        }
+        return ret;
+    }
+};
+ColorSchemeComponent = ColorSchemeComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-color-scheme',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./color-scheme.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/color-scheme/color-scheme.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./color-scheme.component.css */ "./src/app/color-scheme/color-scheme.component.css")).default]
+    })
+], ColorSchemeComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/measurabletemplate/measurabletemplate.component.css":
 /*!*********************************************************************!*\
   !*** ./src/app/measurabletemplate/measurabletemplate.component.css ***!
@@ -4422,7 +4947,7 @@ document.addEventListener('DOMContentLoaded', main0);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".labelmeasurable{\r\n  margin-left:auto;\r\n  margin-right:auto\r\n}\r\n\r\n.meas_acc0{\r\n  width: 100%;\r\n}\r\n\r\n.meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n  min-width: 0;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border: 2px solid transparent;\r\n  border-radius: 22.5px 0 0 22.5px;\r\n}\r\n\r\n.meas_acc0 .maintitle{\r\n  border-radius: 5px;\r\n}\r\n\r\n.meas_acc0 .ruletitle:hover{\r\n  border-color: gray;\r\n  background-color: rgba(127, 127, 127, 0.2); }\r\n\r\n.meas_acc0 .ruletitle:hover.ruletitle[counter]:not([counter=\"0\"]), .meas_acc0 .ruletitle[counter]:not([counter=\"0\"]):not(.collapsed),\r\n.meas_acc0 .maintitle:hover,  .meas_acc0 .maintitle:not(.collapsed){\r\n  border-color: dodgerblue;\r\n  background-color: rgba(30, 144, 255, 0.2); }\r\n\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n\r\n/* dynamically added*/\r\n\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: dodgerblue; }\r\n\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n\r\n.meas_acc0 .measurableoktext{\r\n  margin-left: 5px;\r\n  color: var(--success);\r\n}\r\n\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n\r\n.meas_acc0 .measurabledebug { display: none; }\r\n\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .measurabledebug .debugrows { display: none; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-flow: column; }\r\n\r\n.meas_acc0 .measurabledebug:focus-within .debugrows { display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .countershell { float: right; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n\r\n.meas_acc0 .directions > * { margin: auto; }\r\n\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n\r\n.meas_acc0 .rule.template { display: none !important; }\r\n\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n\r\n.meas_acc .rulesearch:focus {\r\n  border: 1px solid dodgerblue;\r\n  box-shadow: 0 0 0 1px dodgerblue;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0VBQ2hCO0FBQ0Y7O0FBRUE7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsY0FBYztBQUNoQjs7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7O0FBQ0E7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGNBQWM7RUFDZCxVQUFVO0VBQ1YsY0FBYztFQUNkLGFBQWE7QUFDZjs7QUFDQSxzQkFBc0IsaUJBQWlCLEVBQUU7O0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTs7QUFDekMsc0JBQXNCLGtCQUFrQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUN6RDtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0FBQ25COztBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDs7QUFDQSxvQkFBb0IsZUFBZSxFQUFFOztBQUNyQyx3QkFBd0Isa0JBQWtCLEVBQUU7O0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTs7QUFDakMsdUJBQXVCLGNBQWMsRUFBRSxrQkFBa0IsRUFBRSxtQkFBbUIsRUFBRTs7QUFDaEYsbUJBQW1CLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNsQyxnREFBZ0QsV0FBVyxFQUFFOztBQUM3RCw2Q0FBNkMsWUFBWSxFQUFFLHdCQUF3QixFQUFFOztBQUNyRixxQkFBcUIsb0JBQWEsRUFBYixhQUFhLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTs7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNqRSw2QkFBNkIsWUFBWSxFQUFFLFlBQVksRUFBRTs7QUFDekQ7RUFDRSx1QkFBdUI7QUFDekI7O0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7O0FBQ0E7RUFDRSxjQUFjO0VBQ2Qsa0JBQWtCO0FBQ3BCOztBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5Qjs7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7O0FBQ0E7RUFDRSw0QkFBUTtVQUFSLFFBQVE7RUFDUixjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLFVBQVU7RUFDVix1QkFBdUI7RUFDdkIsY0FBYztFQUNkLDBCQUFxQjtPQUFyQixxQkFBcUI7QUFDdkI7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7O0FBQ0Esc0NBQXNDLFlBQVksRUFBRTs7QUFDcEQ7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDZCQUE2QjtFQUM3QiwwQkFBa0I7RUFBbEIsdUJBQWtCO0VBQWxCLGtCQUFrQjtBQUNwQjs7QUFDQSxnREFBZ0QsZ0JBQWdCLEVBQUU7O0FBQ2xFO0VBQ0UscUJBQXFCO0VBQ3JCLGdEQUFnRDtBQUNsRDs7QUFFQSwwRUFBMEUsMkJBQTJCLEVBQUU7O0FBQ3ZHLHlDQUF5Qzs7QUFDekM7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7O0FBQ0E7R0FDRyxnQkFBZ0I7Q0FDbEI7O0FBQ0Q7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQiw0QkFBdUI7T0FBdkIsdUJBQXVCO0FBQ3pCOztBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7O0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFOztBQUNqRCwrQkFBK0IsZ0JBQWdCLEVBQUU7O0FBQ2pELHdDQUF3QyxlQUFlLEVBQUU7O0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0FBQ25FOztBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDZCQUE2QjtFQUM3QixnQ0FBZ0M7QUFDbEM7O0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsMENBQTBDLEVBQUU7O0FBRTlDOztFQUVFLHdCQUF3QjtFQUN4Qix5Q0FBeUMsRUFBRTs7QUFFN0MsbUNBQW1DLFlBQVksRUFBRTs7QUFBRSxxQkFBcUI7O0FBQ3hFLGtDQUFrQywyQkFBMkIsRUFBRTs7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFLHFCQUFxQixFQUFFLGlCQUFpQixFQUFFOztBQUNwRztFQUNFLDZCQUE2QjtFQUM3QiwwQkFBMEI7QUFDNUI7O0FBQ0E7OztFQUdFO29CQUNrQjtBQUNwQjs7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7O0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQW9CO0FBQ3RCOztBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2Qjs7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7QUFDekI7O0FBQ0EsMkJBQTJCLGtCQUFrQixFQUFFOztBQUMvQyw4QkFBOEIsYUFBYSxFQUFFOztBQUM3QyxrREFBa0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7O0FBQ2pFLHlDQUF5QyxhQUFhLEVBQUUsNEJBQWlCLEVBQWpCLDZCQUFpQixFQUFqQixpQkFBaUIsRUFBRTs7QUFDM0Usc0RBQXNELG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNyRSwyQkFBMkIsWUFBWSxFQUFFOztBQUN6QztFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDOztBQUNBO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7O0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEOztBQUNBO0VBQ0UscURBQXFELEVBQUU7O0FBQ3pEO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RCxFQUFFOztBQUMzRDtFQUNFLHFEQUFxRCxFQUFFOztBQUN6RDtFQUNFLHFEQUFxRCxFQUFFOztBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTs7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTs7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7O0FBQzNEO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQixFQUFFOztBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7O0FBQ25CO0VBQ0UsaUJBQWlCO0VBQ2pCLGlCQUFpQixFQUFFOztBQUNyQjtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTs7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTs7QUFDMUQ7RUFDRSxzREFBc0QsRUFBRTs7QUFFMUQ7RUFDRSxZQUFZO0VBQ1osZUFBZTtBQUNqQjs7QUFDQTtFQUNFLFlBQVksRUFBRTs7QUFDaEI7RUFDRSxZQUFZLEVBQUU7O0FBQ2hCO0VBQ0UsWUFBWTtFQUNaLFdBQVcsRUFBRTs7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7O0FBRWYsb0JBQW9CLDJCQUEyQixFQUFFOztBQUNqRDtFQUNFLFdBQVc7RUFDWCxZQUFZLEVBQUU7O0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7O0FBQ3hDO0VBQ0UsNEZBQW9GO1VBQXBGLG9GQUFvRixFQUFFOztBQUV4RjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixZQUFZLEVBQUU7O0FBQ2hCLDZCQUE2QixZQUFZLEVBQUU7O0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25COztBQUNBLGtDQUFrQyxhQUFhLEVBQUU7O0FBQ2pELDRCQUE0Qix3QkFBd0IsRUFBRTs7QUFDdEQsdUJBQXVCLG9DQUFvQyxFQUFFOztBQUU3RDtFQUNFLDRCQUE0QjtFQUM1QixnQ0FBZ0M7QUFDbEMiLCJmaWxlIjoic3JjL2FwcC9tZWFzdXJhYmxldGVtcGxhdGUvbWVhc3VyYWJsZXRlbXBsYXRlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubGFiZWxtZWFzdXJhYmxle1xyXG4gIG1hcmdpbi1sZWZ0OmF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OmF1dG9cclxufVxyXG5cclxuLm1lYXNfYWNjMHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlU2V0dGluZ1Jvb3R7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLm1lYXNfYWNjMCAuYm94ZXNyb290IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1iYXNpczogMDtcclxufVxyXG4ubWVhc19hY2MwIC5wcmVsZWZ0LCAubWVhc19hY2MwIC5wb3N0TmFtZSB7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG8gMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGNvbG9yOiBpbmhlcml0O1xyXG4gIGhlaWdodDogdW5zZXQ7XHJcbn1cclxuLm1lYXNfYWNjMCAucHJlbGVmdCB7IG1hcmdpbi1yaWdodDogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLnBvc3ROYW1lIHsgbWFyZ2luLWxlZnQ6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5ib3RtYXJnIHsgbWFyZ2luLWJvdHRvbTogNXB4OyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1vdmVtZW50Ym94cm9vdCwgLm1lYXNfYWNjMCAucmVzaXplYm94cm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbn1cclxuLm1lYXNfYWNjMCAuY29sdW1uY29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogcm93O1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5yb3djb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29sdW1uLCAubWVhc19hY2MwIC5yb3d7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5yb3cge1xyXG4gIG1heC13aWR0aDogMTAwJTtcclxuICBtYXJnaW4tcmlnaHQ6IHVuc2V0O1xyXG4gIG1hcmdpbi1sZWZ0OiB1bnNldDsgLyogZHVtYiBfZ3JpZC5zY3NzIGZpeGVyICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYnJlYWsgeyBmbGV4LXdyYXA6IHdyYXA7IH1cclxuLm1lYXNfYWNjMCAuYXV0b2JyZWFrIHsgZmxleC13cmFwOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLmZpbGwgeyBmbGV4LWdyb3c6IDE7IH1cclxuLm1lYXNfYWNjMCAuYm94dGl0bGUgeyBkaXNwbGF5OiBibG9jazsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUgeyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUubGVmdCwgLm1lYXNfYWNjMCAuc2lkZS5yaWdodCB7IHdpZHRoOiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUudG9wLCAubWVhc19hY2MwIC5zaWRlLmJvdCB7IGhlaWdodDogMTBweDsgd2lkdGg6IGNhbGMoMTAwJSAtIDIwcHgpOyB9XHJcbi5tZWFzX2FjYzAgLmNvcm5lciB7IGRpc3BsYXk6IGZsZXg7IHdpZHRoOiAxMHB4OyBoZWlnaHQ6IDEwcHg7IH1cclxuLm1lYXNfYWNjMCAubWlkZGxlIHsgYmFja2dyb3VuZC1jb2xvcjogZ29sZGVucm9kOyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSAubWlkZGxlIHsgd2lkdGg6IDEyMHB4OyBoZWlnaHQ6IDkwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuc2lkZSwgLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcclxufVxyXG4ubWVhc19hY2MwIC5ib3hyb290IHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAzMHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweCAwIDAgMjVweDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgZmxleC1iYXNpczogYXV0byAhaW1wb3J0YW50O1xyXG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3IudHJpZ2dlciB7XHJcbiAgb3JkZXI6IDI7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbiAgbWFyZ2luLWxlZnQ6IC00cHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBjb2xvcjogaW5oZXJpdDtcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGxlZnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29uZHJhZyAub3BlcmF0b3IudHJpZ2dlcntcclxuICB3aWR0aDogNTZweDtcclxufVxyXG4ubWVhc19hY2MwIC5fb25yZXNpemUgLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDY0cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29ucm90YXRpb24gLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDc3cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3IudHJpZ2dlcjpmb2N1c3tcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJveC1zaGFkb3c6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dC5hdHRybmFtZSB7XHJcbiAgb3JkZXI6IDM7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgcGFkZGluZy1sZWZ0OiAwO1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDA7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcclxuICBtaW4td2lkdGg6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICo6Zmlyc3QtY2hpbGQge1xyXG4gIG1hcmdpbi10b3A6IDFweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHdpZHRoOiBtaW4tY29udGVudDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcclxuICBib3JkZXItY29sb3I6ICM4MGJkZmY7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxyXG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3Ige1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIC8qbWFyZ2luLXRvcDogOHB4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3IuYXBwbHkge1xyXG4gICBtYXJnaW4tbGVmdDogMHB4O1xyXG4gfVxyXG4ubWVhc19hY2MwIC5vcGVyYXRvcmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIG1hcmdpbjogYXV0byA1cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIG1pbi13aWR0aDogMTIwcHg7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLm1lYXN1cmFibGVkZWJ1ZyB7IG1hcmdpbi10b3A6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XHJcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYWRkcnVsZSB7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIG1hcmdpbi10b3A6IC00cHg7XHJcbiAgcGFkZGluZzogNHB4IDEwcHg7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlIHtcclxuICBwYWRkaW5nLXJpZ2h0OiA0cHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgYm9yZGVyLXJhZGl1czogMjIuNXB4IDAgMCAyMi41cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAubWFpbnRpdGxle1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVye1xyXG4gIGJvcmRlci1jb2xvcjogZ3JheTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDEyNywgMTI3LCAxMjcsIDAuMik7IH1cclxuXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3Zlci5ydWxldGl0bGVbY291bnRlcl06bm90KFtjb3VudGVyPVwiMFwiXSksIC5tZWFzX2FjYzAgLnJ1bGV0aXRsZVtjb3VudGVyXTpub3QoW2NvdW50ZXI9XCIwXCJdKTpub3QoLmNvbGxhcHNlZCksXHJcbi5tZWFzX2FjYzAgLm1haW50aXRsZTpob3ZlciwgIC5tZWFzX2FjYzAgLm1haW50aXRsZTpub3QoLmNvbGxhcHNlZCl7XHJcbiAgYm9yZGVyLWNvbG9yOiBkb2RnZXJibHVlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMzAsIDE0NCwgMjU1LCAwLjIpOyB9XHJcblxyXG46Om5nLWRlZXAgLm1lYXNfYWNjMCAuaW5uZXJ0aXRsZSB7IG1hcmdpbjogYXV0bzsgfSAvKiBkeW5hbWljYWxseSBhZGRlZCovXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZS5jb2xsYXBzZWQgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVyIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBidXR0b247IHRleHQtZGVjb3JhdGlvbjogbm9uZTsgY29sb3I6IGRvZGdlcmJsdWU7IH1cclxuLm1lYXNfYWNjMCAuZm9ybS1jb250cm9sID4gLmZvcm0tY29udHJvbDpub3QoOmZpcnN0LWNoaWxkKXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiB1bnNldDtcclxuICAvKiBkaXNhYmxlIGJvb3RzdHJhcCBydWxlKi9cclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dDpmb2N1cyxcclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dDpmb2N1cyxcclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0OmZvY3Vze1xyXG4gIC8qb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lOyovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW9rdGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1zdWNjZXNzKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZXJyb3J0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLWRhbmdlcik7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXdhcm5pbmcpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lcnsgbWFyZ2luLWJvdHRvbTogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4OmZvY3VzLXdpdGhpbiAubWVhc3VyYWJsZWRlYnVneyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyAuZGVidWdyb3dzIHsgZGlzcGxheTogbm9uZTsgZmxleC1mbG93OiBjb2x1bW47IH1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnOmZvY3VzLXdpdGhpbiAuZGVidWdyb3dzIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5jb3VudGVyc2hlbGwgeyBmbG9hdDogcmlnaHQ7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+ICoge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAqLCAubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93diB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3RxeFhoazQvdGwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pndnB5d3ovdGxsLnBuZyk7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAuc2lkZS50b3Age1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL005ZkM3RFAvdC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1B6c21qeGYvdHIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1NOMlRITHQvdHJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vN2ptOUJCUS9sLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLmxlZnQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vcXJZV2RwSC9ibC5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5zaWRlLmJvdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vY1hjMG5tUy9iLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vSzBwVlZUNy9ici5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUXB3UlNzVC9icmwucG5nKTsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcclxuICBtYXJnaW4tYm90dG9tOiAzcHg7XHJcbiAgbWFyZ2luLXRvcDogLTNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcclxuICBtYXJnaW4tYm90dG9tOiAtM3B4O1xyXG4gIG1hcmdpbi10b3A6IDNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcclxuICBtYXJnaW4tcmlnaHQ6IC0zcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDNweDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pkM2p0YmMvbHIucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgbWluLXdpZHRoOiA1MHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA1MHB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdyB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93dntcclxuICB3aWR0aDogNzVweDtcclxuICBoZWlnaHQ6IDc1cHg7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmFycm93OmZvY3VzeyBvdXRsaW5lOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93OmNoZWNrZWR7XHJcbiAgZmlsdGVyOiBzZXBpYSg4MiUpIHNhdHVyYXRlKDM5MjUlKSBodWUtcm90YXRlKDU1ZGVnKSBicmlnaHRuZXNzKDEyNSUpIGNvbnRyYXN0KDEyMCUpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBtYXJnaW46IGF1dG87IH1cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyA+ICogeyBtYXJnaW46IGF1dG87IH1cclxuLm1lYXNfYWNjMCAuZHJhZ2dhYmxlLmJveHJvb3R7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICAvKmhlaWdodDogMjM3cHg7Ki9cclxufVxyXG4ubWVhc19hY2MwIC5jb2xsYXBzZTpub3QoLnNob3cpIHsgZGlzcGxheTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5ydWxlLnRlbXBsYXRlIHsgZGlzcGxheTogbm9uZSAhaW1wb3J0YW50OyB9XHJcbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XHJcblxyXG4ubWVhc19hY2MgLnJ1bGVzZWFyY2g6Zm9jdXMge1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGRvZGdlcmJsdWU7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMXB4IGRvZGdlcmJsdWU7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".labelmeasurable{\r\n  margin-left:auto;\r\n  margin-right:auto\r\n}\r\n\r\n.meas_acc0{\r\n  width: 100%;\r\n}\r\n\r\n.meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n\r\n.meas_acc0 .preleft, .meas_acc0 .postName {\r\n  border: none;\r\n  background: none;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto 0;\r\n  padding: 0;\r\n  color: inherit;\r\n  height: unset;\r\n}\r\n\r\n.meas_acc0 .preleft { margin-right: 5px; }\r\n\r\n.meas_acc0 .postName { margin-left: 5px; }\r\n\r\n.meas_acc0 .botmarg { margin-bottom: 5px; display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n\r\n.meas_acc0 .columncontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .rowcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: black;\r\n}\r\n\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n\r\n.meas_acc0 .operator.trigger {\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin: auto 0;\r\n  margin-left: -4px;\r\n  padding: 0;\r\n  background: transparent;\r\n  color: inherit;\r\n  -moz-text-align-last: left;\r\n       text-align-last: left;\r\n}\r\n\r\n.meas_acc0 ._ondrag .operator.trigger{\r\n  width: 56px;\r\n}\r\n\r\n.meas_acc0 ._onresize .operator.trigger{\r\n  width: 64px;\r\n}\r\n\r\n.meas_acc0 ._onrotation .operator.trigger{\r\n  width: 77px;\r\n}\r\n\r\n.meas_acc0 .operator.trigger:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n  border: none;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  -webkit-box-ordinal-group: 4;\r\n          order: 3;\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n  min-width: 0;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n  width: -webkit-min-content;\r\n  width: -moz-min-content;\r\n  width: min-content;\r\n}\r\n\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  /*margin-top: 8px;*/\r\n}\r\n\r\n.meas_acc0 .rightx span.operator.apply {\r\n   margin-left: 0px;\r\n }\r\n\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n}\r\n\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border: 2px solid transparent;\r\n  border-radius: 22.5px 0 0 22.5px;\r\n}\r\n\r\n.meas_acc0 .maintitle{\r\n  border-radius: 5px;\r\n}\r\n\r\n.meas_acc0 .ruletitle:hover{\r\n  border-color: gray;\r\n  background-color: rgba(127, 127, 127, 0.2); }\r\n\r\n.meas_acc0 .ruletitle:hover.ruletitle[counter]:not([counter=\"0\"]), .meas_acc0 .ruletitle[counter]:not([counter=\"0\"]):not(.collapsed),\r\n.meas_acc0 .maintitle:hover,  .meas_acc0 .maintitle:not(.collapsed){\r\n  border-color: var(--color-4);\r\n  background-color: rgba(30, 144, 255, 0.2); }\r\n\r\n::ng-deep .meas_acc0 .innertitle { margin: auto; }\r\n\r\n/* dynamically added*/\r\n\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; text-decoration: none; color: var(--color-4); }\r\n\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n\r\n.meas_acc0 .measurableoutputtext:focus,\r\n.meas_acc0 .measurableerrortext:focus,\r\n.meas_acc0 .measurablewarningtext:focus{\r\n  /*outline: none;\r\n  box-shadow: none;*/\r\n}\r\n\r\n.meas_acc0 .measurableoktext{\r\n  margin-left: 5px;\r\n  color: var(--success);\r\n}\r\n\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n\r\n.meas_acc0 .measurabledebug { display: none; }\r\n\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .measurabledebug .debugrows { display: none; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-flow: column; }\r\n\r\n.meas_acc0 .measurabledebug:focus-within .debugrows { display: -webkit-box; display: flex; }\r\n\r\n.meas_acc0 .countershell { float: right; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n\r\n.meas_acc0 .directions > * { margin: auto; }\r\n\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n\r\n.meas_acc0 .rule.template { display: none !important; }\r\n\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n\r\n.meas_acc .rulesearch:focus {\r\n  border: 1px solid var(--color-4);\r\n  box-shadow: 0 0 0 1px var(--color-4);\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVhc3VyYWJsZXRlbXBsYXRlL21lYXN1cmFibGV0ZW1wbGF0ZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWdCO0VBQ2hCO0FBQ0Y7O0FBRUE7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsY0FBYztBQUNoQjs7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7O0FBQ0E7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGNBQWM7RUFDZCxVQUFVO0VBQ1YsY0FBYztFQUNkLGFBQWE7QUFDZjs7QUFDQSxzQkFBc0IsaUJBQWlCLEVBQUU7O0FBQ3pDLHVCQUF1QixnQkFBZ0IsRUFBRTs7QUFDekMsc0JBQXNCLGtCQUFrQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUN6RDtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0FBQ25COztBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDs7QUFDQSxvQkFBb0IsZUFBZSxFQUFFOztBQUNyQyx3QkFBd0Isa0JBQWtCLEVBQUU7O0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTs7QUFDakMsdUJBQXVCLGNBQWMsRUFBRSxrQkFBa0IsRUFBRSxtQkFBbUIsRUFBRTs7QUFDaEYsbUJBQW1CLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNsQyxnREFBZ0QsV0FBVyxFQUFFOztBQUM3RCw2Q0FBNkMsWUFBWSxFQUFFLHdCQUF3QixFQUFFOztBQUNyRixxQkFBcUIsb0JBQWEsRUFBYixhQUFhLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTs7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNqRSw2QkFBNkIsWUFBWSxFQUFFLFlBQVksRUFBRTs7QUFDekQ7RUFDRSx1QkFBdUI7QUFDekI7O0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7O0FBQ0E7RUFDRSxjQUFjO0VBQ2Qsa0JBQWtCO0FBQ3BCOztBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5Qjs7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7O0FBQ0E7RUFDRSw0QkFBUTtVQUFSLFFBQVE7RUFDUixjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLFVBQVU7RUFDVix1QkFBdUI7RUFDdkIsY0FBYztFQUNkLDBCQUFxQjtPQUFyQixxQkFBcUI7QUFDdkI7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxXQUFXO0FBQ2I7O0FBQ0E7RUFDRSxhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7O0FBQ0Esc0NBQXNDLFlBQVksRUFBRTs7QUFDcEQ7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDZCQUE2QjtFQUM3QiwwQkFBa0I7RUFBbEIsdUJBQWtCO0VBQWxCLGtCQUFrQjtBQUNwQjs7QUFDQSxnREFBZ0QsZ0JBQWdCLEVBQUU7O0FBQ2xFO0VBQ0UscUJBQXFCO0VBQ3JCLGdEQUFnRDtBQUNsRDs7QUFFQSwwRUFBMEUsMkJBQTJCLEVBQUU7O0FBQ3ZHLHlDQUF5Qzs7QUFDekM7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7O0FBQ0E7R0FDRyxnQkFBZ0I7Q0FDbEI7O0FBQ0Q7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7O0FBQ0E7RUFDRSxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQiw0QkFBdUI7T0FBdkIsdUJBQXVCO0FBQ3pCOztBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7O0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFOztBQUNqRCwrQkFBK0IsZ0JBQWdCLEVBQUU7O0FBQ2pELHdDQUF3QyxlQUFlLEVBQUU7O0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0FBQ25FOztBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7O0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDZCQUE2QjtFQUM3QixnQ0FBZ0M7QUFDbEM7O0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsMENBQTBDLEVBQUU7O0FBRTlDOztFQUVFLDRCQUE0QjtFQUM1Qix5Q0FBeUMsRUFBRTs7QUFFN0MsbUNBQW1DLFlBQVksRUFBRTs7QUFBRSxxQkFBcUI7O0FBQ3hFLGtDQUFrQywyQkFBMkIsRUFBRTs7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFLHFCQUFxQixFQUFFLHFCQUFxQixFQUFFOztBQUN4RztFQUNFLDZCQUE2QjtFQUM3QiwwQkFBMEI7QUFDNUI7O0FBQ0E7OztFQUdFO29CQUNrQjtBQUNwQjs7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7O0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQW9CO0FBQ3RCOztBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2Qjs7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7QUFDekI7O0FBQ0EsMkJBQTJCLGtCQUFrQixFQUFFOztBQUMvQyw4QkFBOEIsYUFBYSxFQUFFOztBQUM3QyxrREFBa0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7O0FBQ2pFLHlDQUF5QyxhQUFhLEVBQUUsNEJBQWlCLEVBQWpCLDZCQUFpQixFQUFqQixpQkFBaUIsRUFBRTs7QUFDM0Usc0RBQXNELG9CQUFhLEVBQWIsYUFBYSxFQUFFOztBQUNyRSwyQkFBMkIsWUFBWSxFQUFFOztBQUN6QztFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDOztBQUNBO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7O0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEOztBQUNBO0VBQ0UscURBQXFELEVBQUU7O0FBQ3pEO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RCxFQUFFOztBQUMzRDtFQUNFLHFEQUFxRCxFQUFFOztBQUN6RDtFQUNFLHFEQUFxRCxFQUFFOztBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTs7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTs7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7O0FBQzNEO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQixFQUFFOztBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7O0FBQ25CO0VBQ0UsaUJBQWlCO0VBQ2pCLGlCQUFpQixFQUFFOztBQUNyQjtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTs7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTs7QUFDMUQ7RUFDRSxzREFBc0QsRUFBRTs7QUFFMUQ7RUFDRSxZQUFZO0VBQ1osZUFBZTtBQUNqQjs7QUFDQTtFQUNFLFlBQVksRUFBRTs7QUFDaEI7RUFDRSxZQUFZLEVBQUU7O0FBQ2hCO0VBQ0UsWUFBWTtFQUNaLFdBQVcsRUFBRTs7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7O0FBRWYsb0JBQW9CLDJCQUEyQixFQUFFOztBQUNqRDtFQUNFLFdBQVc7RUFDWCxZQUFZLEVBQUU7O0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7O0FBQ3hDO0VBQ0UsNEZBQW9GO1VBQXBGLG9GQUFvRixFQUFFOztBQUV4RjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixZQUFZLEVBQUU7O0FBQ2hCLDZCQUE2QixZQUFZLEVBQUU7O0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25COztBQUNBLGtDQUFrQyxhQUFhLEVBQUU7O0FBQ2pELDRCQUE0Qix3QkFBd0IsRUFBRTs7QUFDdEQsdUJBQXVCLG9DQUFvQyxFQUFFOztBQUU3RDtFQUNFLGdDQUFnQztFQUNoQyxvQ0FBb0M7QUFDdEMiLCJmaWxlIjoic3JjL2FwcC9tZWFzdXJhYmxldGVtcGxhdGUvbWVhc3VyYWJsZXRlbXBsYXRlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubGFiZWxtZWFzdXJhYmxle1xyXG4gIG1hcmdpbi1sZWZ0OmF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OmF1dG9cclxufVxyXG5cclxuLm1lYXNfYWNjMHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlU2V0dGluZ1Jvb3R7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLm1lYXNfYWNjMCAuYm94ZXNyb290IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1iYXNpczogMDtcclxufVxyXG4ubWVhc19hY2MwIC5wcmVsZWZ0LCAubWVhc19hY2MwIC5wb3N0TmFtZSB7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG8gMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGNvbG9yOiBpbmhlcml0O1xyXG4gIGhlaWdodDogdW5zZXQ7XHJcbn1cclxuLm1lYXNfYWNjMCAucHJlbGVmdCB7IG1hcmdpbi1yaWdodDogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLnBvc3ROYW1lIHsgbWFyZ2luLWxlZnQ6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5ib3RtYXJnIHsgbWFyZ2luLWJvdHRvbTogNXB4OyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1vdmVtZW50Ym94cm9vdCwgLm1lYXNfYWNjMCAucmVzaXplYm94cm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbn1cclxuLm1lYXNfYWNjMCAuY29sdW1uY29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogcm93O1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5yb3djb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29sdW1uLCAubWVhc19hY2MwIC5yb3d7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5yb3cge1xyXG4gIG1heC13aWR0aDogMTAwJTtcclxuICBtYXJnaW4tcmlnaHQ6IHVuc2V0O1xyXG4gIG1hcmdpbi1sZWZ0OiB1bnNldDsgLyogZHVtYiBfZ3JpZC5zY3NzIGZpeGVyICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYnJlYWsgeyBmbGV4LXdyYXA6IHdyYXA7IH1cclxuLm1lYXNfYWNjMCAuYXV0b2JyZWFrIHsgZmxleC13cmFwOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLmZpbGwgeyBmbGV4LWdyb3c6IDE7IH1cclxuLm1lYXNfYWNjMCAuYm94dGl0bGUgeyBkaXNwbGF5OiBibG9jazsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUgeyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUubGVmdCwgLm1lYXNfYWNjMCAuc2lkZS5yaWdodCB7IHdpZHRoOiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUudG9wLCAubWVhc19hY2MwIC5zaWRlLmJvdCB7IGhlaWdodDogMTBweDsgd2lkdGg6IGNhbGMoMTAwJSAtIDIwcHgpOyB9XHJcbi5tZWFzX2FjYzAgLmNvcm5lciB7IGRpc3BsYXk6IGZsZXg7IHdpZHRoOiAxMHB4OyBoZWlnaHQ6IDEwcHg7IH1cclxuLm1lYXNfYWNjMCAubWlkZGxlIHsgYmFja2dyb3VuZC1jb2xvcjogZ29sZGVucm9kOyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSAubWlkZGxlIHsgd2lkdGg6IDEyMHB4OyBoZWlnaHQ6IDkwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuc2lkZSwgLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcclxufVxyXG4ubWVhc19hY2MwIC5ib3hyb290IHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAzMHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweCAwIDAgMjVweDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgZmxleC1iYXNpczogYXV0byAhaW1wb3J0YW50O1xyXG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3IudHJpZ2dlciB7XHJcbiAgb3JkZXI6IDI7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbiAgbWFyZ2luLWxlZnQ6IC00cHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICBjb2xvcjogaW5oZXJpdDtcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGxlZnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29uZHJhZyAub3BlcmF0b3IudHJpZ2dlcntcclxuICB3aWR0aDogNTZweDtcclxufVxyXG4ubWVhc19hY2MwIC5fb25yZXNpemUgLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDY0cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAuX29ucm90YXRpb24gLm9wZXJhdG9yLnRyaWdnZXJ7XHJcbiAgd2lkdGg6IDc3cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAub3BlcmF0b3IudHJpZ2dlcjpmb2N1c3tcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJveC1zaGFkb3c6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dC5hdHRybmFtZSB7XHJcbiAgb3JkZXI6IDM7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgcGFkZGluZy1sZWZ0OiAwO1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDA7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcclxuICBtaW4td2lkdGg6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICo6Zmlyc3QtY2hpbGQge1xyXG4gIG1hcmdpbi10b3A6IDFweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIHdpZHRoOiBtaW4tY29udGVudDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcclxuICBib3JkZXItY29sb3I6ICM4MGJkZmY7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxyXG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3Ige1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIC8qbWFyZ2luLXRvcDogOHB4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3IuYXBwbHkge1xyXG4gICBtYXJnaW4tbGVmdDogMHB4O1xyXG4gfVxyXG4ubWVhc19hY2MwIC5vcGVyYXRvcmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIG1hcmdpbjogYXV0byA1cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIG1pbi13aWR0aDogMTIwcHg7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLm1lYXN1cmFibGVkZWJ1ZyB7IG1hcmdpbi10b3A6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XHJcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYWRkcnVsZSB7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIG1hcmdpbi10b3A6IC00cHg7XHJcbiAgcGFkZGluZzogNHB4IDEwcHg7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlIHtcclxuICBwYWRkaW5nLXJpZ2h0OiA0cHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdHJhbnNwYXJlbnQ7XHJcbiAgYm9yZGVyLXJhZGl1czogMjIuNXB4IDAgMCAyMi41cHg7XHJcbn1cclxuLm1lYXNfYWNjMCAubWFpbnRpdGxle1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVye1xyXG4gIGJvcmRlci1jb2xvcjogZ3JheTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDEyNywgMTI3LCAxMjcsIDAuMik7IH1cclxuXHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3Zlci5ydWxldGl0bGVbY291bnRlcl06bm90KFtjb3VudGVyPVwiMFwiXSksIC5tZWFzX2FjYzAgLnJ1bGV0aXRsZVtjb3VudGVyXTpub3QoW2NvdW50ZXI9XCIwXCJdKTpub3QoLmNvbGxhcHNlZCksXHJcbi5tZWFzX2FjYzAgLm1haW50aXRsZTpob3ZlciwgIC5tZWFzX2FjYzAgLm1haW50aXRsZTpub3QoLmNvbGxhcHNlZCl7XHJcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1jb2xvci00KTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDMwLCAxNDQsIDI1NSwgMC4yKTsgfVxyXG5cclxuOjpuZy1kZWVwIC5tZWFzX2FjYzAgLmlubmVydGl0bGUgeyBtYXJnaW46IGF1dG87IH0gLyogZHluYW1pY2FsbHkgYWRkZWQqL1xyXG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlciB7IC13ZWJraXQtYXBwZWFyYW5jZTogYnV0dG9uOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGNvbG9yOiB2YXIoLS1jb2xvci00KTsgfVxyXG4ubWVhc19hY2MwIC5mb3JtLWNvbnRyb2wgPiAuZm9ybS1jb250cm9sOm5vdCg6Zmlyc3QtY2hpbGQpe1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IHVuc2V0O1xyXG4gIC8qIGRpc2FibGUgYm9vdHN0cmFwIHJ1bGUqL1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0OmZvY3VzLFxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZXJyb3J0ZXh0OmZvY3VzLFxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxld2FybmluZ3RleHQ6Zm9jdXN7XHJcbiAgLypvdXRsaW5lOiBub25lO1xyXG4gIGJveC1zaGFkb3c6IG5vbmU7Ki9cclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb2t0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXN1Y2Nlc3MpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tZGFuZ2VyKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxld2FybmluZ3RleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0td2FybmluZyk7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZW91dHB1dHRleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tc2Vjb25kYXJ5KTtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyeyBtYXJnaW4tYm90dG9tOiA1cHg7IH1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnIHsgZGlzcGxheTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5yaWdodHg6Zm9jdXMtd2l0aGluIC5tZWFzdXJhYmxlZGVidWd7IGRpc3BsYXk6IGZsZXg7IH1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWRlYnVnIC5kZWJ1Z3Jvd3MgeyBkaXNwbGF5OiBub25lOyBmbGV4LWZsb3c6IGNvbHVtbjsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWc6Zm9jdXMtd2l0aGluIC5kZWJ1Z3Jvd3MgeyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLmNvdW50ZXJzaGVsbCB7IGZsb2F0OiByaWdodDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gKiB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+ICosIC5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2IHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLmxlZnQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vdHF4WGhrNC90bC5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmd2cHl3ei90bGwucG5nKTtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5zaWRlLnRvcCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vTTlmQzdEUC90LnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAucmlnaHQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUHpzbWp4Zi90ci5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vU04yVEhMdC90cmwucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby83am05QkJRL2wucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUllablZONS9yLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAubGVmdCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9xcllXZHBIL2JsLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9nREtGcnk1L2JsbC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnNpZGUuYm90IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9jWGMwbm1TL2IucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5yaWdodCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9LMHBWVlQ3L2JyLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9RcHdSU3NUL2JybC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS50b3Age1xyXG4gIG1hcmdpbi1ib3R0b206IDNweDtcclxuICBtYXJnaW4tdG9wOiAtM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5ib3Qge1xyXG4gIG1hcmdpbi1ib3R0b206IC0zcHg7XHJcbiAgbWFyZ2luLXRvcDogM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5sZWZ0IHtcclxuICBtYXJnaW4tcmlnaHQ6IDNweDtcclxuICBtYXJnaW4tbGVmdDogLTNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUucmlnaHQge1xyXG4gIG1hcmdpbi1yaWdodDogLTNweDtcclxuICBtYXJnaW4tbGVmdDogM3B4OyB9XHJcbi5tZWFzX2FjYzAgLmFycm93aCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmQzanRiYy9sci5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93diB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vakhUdFBEeC90Yi5wbmcpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+IC5jb3JuZXIge1xyXG4gIGhlaWdodDogNTBweDtcclxuICBtaW4td2lkdGg6IDUwcHg7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAqIHtcclxuICBoZWlnaHQ6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAqIHtcclxuICBoZWlnaHQ6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd2lkdGg6IDUwcHg7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmFycm93IHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2e1xyXG4gIHdpZHRoOiA3NXB4O1xyXG4gIGhlaWdodDogNzVweDsgfVxyXG5cclxuLm1lYXNfYWNjMCAuYXJyb3c6Zm9jdXN7IG91dGxpbmU6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuYXJyb3c6Y2hlY2tlZHtcclxuICBmaWx0ZXI6IHNlcGlhKDgyJSkgc2F0dXJhdGUoMzkyNSUpIGh1ZS1yb3RhdGUoNTVkZWcpIGJyaWdodG5lc3MoMTI1JSkgY29udHJhc3QoMTIwJSk7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIG1hcmdpbjogYXV0bzsgfVxyXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zID4gKiB7IG1hcmdpbjogYXV0bzsgfVxyXG4ubWVhc19hY2MwIC5kcmFnZ2FibGUuYm94cm9vdHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIC8qaGVpZ2h0OiAyMzdweDsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbGxhcHNlOm5vdCguc2hvdykgeyBkaXNwbGF5OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLnJ1bGUudGVtcGxhdGUgeyBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7IH1cclxuLm1lYXNfYWNjMCAuc2VsZWN0ZWQgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjMzdmZjY2ICFpbXBvcnRhbnQ7IH1cclxuXHJcbi5tZWFzX2FjYyAucnVsZXNlYXJjaDpmb2N1cyB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tY29sb3ItNCk7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMXB4IHZhcigtLWNvbG9yLTQpO1xyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -5063,13 +5588,15 @@ Database.db = new Database();
 /*!******************************!*\
   !*** ./src/common/Joiner.ts ***!
   \******************************/
-/*! exports provided: ansiUp, StringSimilarity, $, $b, Swal, prjson2xml, prxml2json, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, StyleComplexEntry, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, AccessModifier, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ModelUpdateMessage, SendManager, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
+/*! exports provided: ansiUp, StringSimilarity, CSS, JSCSS_CSSPARSER, $, $b, Swal, prjson2xml, prxml2json, Layouting, VsCodeLayerIn, VsCodeLayerOut, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, StyleComplexEntry, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, TagNames, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, ParseNumberOrBooleanOptions, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, CSSRuleSorted, Keystrokes, AutocompleteMatch, CSSParser, ColorScheme2, ColorSchemeComponent, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic, EditorContext, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, PropertyBarTabs, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, AccessModifier, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ModelUpdateMessage, SendManager, CSSEditor, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ansiUp", function() { return ansiUp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StringSimilarity", function() { return StringSimilarity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CSS", function() { return CSS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JSCSS_CSSPARSER", function() { return JSCSS_CSSPARSER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "$", function() { return $; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "$b", function() { return $b; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Swal", function() { return Swal; });
@@ -5083,312 +5610,346 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ansi_up__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ansi_up */ "./node_modules/ansi_up/ansi_up.js");
 /* harmony import */ var ansi_up__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(ansi_up__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/StringSimilarity.js */ "./src/common/StringSimilarity.js");
-/* harmony import */ var jqueryui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jqueryui */ "./node_modules/jqueryui/jquery-ui.js");
-/* harmony import */ var jqueryui__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jqueryui__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/prj_json2xml.js */ "./src/common/prj_json2xml.js");
-/* harmony import */ var _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/prj_xml2json.js */ "./src/common/prj_xml2json.js");
-/* harmony import */ var _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../GuiStyles/viewpoint */ "./src/GuiStyles/viewpoint.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewHtmlSettings", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["ViewHtmlSettings"]; });
+/* harmony import */ var cssjson__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! cssjson */ "./node_modules/cssjson/cssjson.js");
+/* harmony import */ var cssjson__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(cssjson__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jqueryui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jqueryui */ "./node_modules/jqueryui/jquery-ui.js");
+/* harmony import */ var jqueryui__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jqueryui__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/prj_json2xml.js */ "./src/common/prj_json2xml.js");
+/* harmony import */ var _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/prj_xml2json.js */ "./src/common/prj_xml2json.js");
+/* harmony import */ var _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../guiElements/mGraph/Layouting */ "./src/guiElements/mGraph/Layouting.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Layouting", function() { return _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_10__["Layouting"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewPoint", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["ViewPoint"]; });
+/* harmony import */ var _vscodeLayer_VsCodeLayer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../vscodeLayer/VsCodeLayer */ "./src/vscodeLayer/VsCodeLayer.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VsCodeLayerIn", function() { return _vscodeLayer_VsCodeLayer__WEBPACK_IMPORTED_MODULE_11__["VsCodeLayerIn"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewRule", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["ViewRule"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VsCodeLayerOut", function() { return _vscodeLayer_VsCodeLayer__WEBPACK_IMPORTED_MODULE_11__["VsCodeLayerOut"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeViewRule", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_9__["EdgeViewRule"]; });
+/* harmony import */ var _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../GuiStyles/viewpoint */ "./src/GuiStyles/viewpoint.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewHtmlSettings", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__["ViewHtmlSettings"]; });
 
-/* harmony import */ var _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Database/LocalStorage */ "./src/Database/LocalStorage.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalStorage", function() { return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_10__["LocalStorage"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewPoint", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__["ViewPoint"]; });
 
-/* harmony import */ var _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Model/modelPiece */ "./src/Model/modelPiece.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelPiece", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["ModelPiece"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewRule", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__["ViewRule"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Info", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["Info"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeViewRule", function() { return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__["EdgeViewRule"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelNone", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["ModelNone"]; });
+/* harmony import */ var _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../Database/LocalStorage */ "./src/Database/LocalStorage.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LocalStorage", function() { return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_13__["LocalStorage"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StyleComplexEntry", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_11__["StyleComplexEntry"]; });
+/* harmony import */ var _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Model/modelPiece */ "./src/Model/modelPiece.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelPiece", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__["ModelPiece"]; });
 
-/* harmony import */ var _Model_iModel__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Model/iModel */ "./src/Model/iModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreEnum", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreEnum"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Info", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__["Info"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EcoreLiteral", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["EcoreLiteral"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelNone", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__["ModelNone"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreParameter", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreParameter"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StyleComplexEntry", function() { return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__["StyleComplexEntry"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreOperation", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreOperation"]; });
+/* harmony import */ var _Model_iModel__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Model/iModel */ "./src/Model/iModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreEnum", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreEnum"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreAttribute", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreAttribute"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EcoreLiteral", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["EcoreLiteral"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreReference", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreReference"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreParameter", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreParameter"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreClass", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreClass"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreOperation", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreOperation"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECorePackage", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECorePackage"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreAttribute", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreAttribute"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreRoot", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreRoot"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreReference", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreReference"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreAnnotation", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreAnnotation"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreClass", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreClass"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreDetail", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["ECoreDetail"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECorePackage", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECorePackage"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "XMIModel", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["XMIModel"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreRoot", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreRoot"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IModel", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_12__["IModel"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreAnnotation", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreAnnotation"]; });
 
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./util */ "./src/common/util.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ShortAttribETypes", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["ShortAttribETypes"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ECoreDetail", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreDetail"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "U", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["U"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "XMIModel", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["XMIModel"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Json", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["Json"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IModel", function() { return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["IModel"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttribETypes", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["AttribETypes"]; });
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./util */ "./src/common/util.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TagNames", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["TagNames"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InputPopup", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["InputPopup"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ShortAttribETypes", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["ShortAttribETypes"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DetectZoom", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["DetectZoom"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "U", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["U"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Dictionary", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["Dictionary"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Json", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["Json"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IPoint", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["IPoint"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AttribETypes", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["AttribETypes"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Point", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["Point"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InputPopup", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["InputPopup"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GraphPoint", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["GraphPoint"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DetectZoom", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["DetectZoom"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ISize", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["ISize"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Dictionary", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["Dictionary"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Size", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["Size"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ParseNumberOrBooleanOptions", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["ParseNumberOrBooleanOptions"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GraphSize", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["GraphSize"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IPoint", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["IPoint"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "myFileReader", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["myFileReader"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Point", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["Point"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FocusHistoryEntry", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["FocusHistoryEntry"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GraphPoint", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["GraphPoint"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileReadTypeEnum", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["FileReadTypeEnum"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ISize", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["ISize"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EvalOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["EvalOutput"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Size", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["Size"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectorOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["SelectorOutput"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GraphSize", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["GraphSize"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON_JSTypes", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["TSON_JSTypes"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "myFileReader", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["myFileReader"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["TSON"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FocusHistoryEntry", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["FocusHistoryEntry"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON_UnsupportedTypes", function() { return _util__WEBPACK_IMPORTED_MODULE_13__["TSON_UnsupportedTypes"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FileReadTypeEnum", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["FileReadTypeEnum"]; });
 
-/* harmony import */ var _measurable__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./measurable */ "./src/common/measurable.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleParts", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableRuleParts"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EvalOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["EvalOutput"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Measurable", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["Measurable"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectorOutput", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["SelectorOutput"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableEvalContext", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableEvalContext"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON_JSTypes", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["TSON_JSTypes"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "measurableRules", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["measurableRules"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["TSON"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleLists", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableRuleLists"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TSON_UnsupportedTypes", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["TSON_UnsupportedTypes"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableOperators", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["MeasurableOperators"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CSSRuleSorted", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["CSSRuleSorted"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["DraggableOptionsImpl"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Keystrokes", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["Keystrokes"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["ResizableOptionsImpl"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AutocompleteMatch", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["AutocompleteMatch"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableOptions", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["RotatableOptions"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CSSParser", function() { return _util__WEBPACK_IMPORTED_MODULE_16__["CSSParser"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UnsafeMeasurableEvalContext", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["UnsafeMeasurableEvalContext"]; });
+/* harmony import */ var _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../app/color-scheme/color-scheme.component */ "./src/app/color-scheme/color-scheme.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ColorScheme2", function() { return _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_17__["ColorScheme2"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmittedsStatic", function() { return _measurable__WEBPACK_IMPORTED_MODULE_14__["ConstraintLeftAdmittedsStatic"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ColorSchemeComponent", function() { return _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_17__["ColorSchemeComponent"]; });
 
-/* harmony import */ var _src_app_app_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../src/app/app.module */ "./src/app/app.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return _src_app_app_module__WEBPACK_IMPORTED_MODULE_15__["Status"]; });
+/* harmony import */ var _measurable__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./measurable */ "./src/common/measurable.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleParts", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["MeasurableRuleParts"]; });
 
-/* harmony import */ var _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../guiElements/mGraph/iGraph */ "./src/guiElements/mGraph/iGraph.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IGraph", function() { return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_16__["IGraph"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Measurable", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["Measurable"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewPointShell", function() { return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_16__["ViewPointShell"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableEvalContext", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["MeasurableEvalContext"]; });
 
-/* harmony import */ var _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../guiElements/mGraph/Vertex/iVertex */ "./src/guiElements/mGraph/Vertex/iVertex.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IVertex", function() { return _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_17__["IVertex"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "measurableRules", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["measurableRules"]; });
 
-/* harmony import */ var _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../guiElements/mGraph/Field/iField */ "./src/guiElements/mGraph/Field/iField.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IField", function() { return _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_18__["IField"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableRuleLists", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["MeasurableRuleLists"]; });
 
-/* harmony import */ var _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../guiElements/isidebar/isidebar.component */ "./src/guiElements/isidebar/isidebar.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ISidebar", function() { return _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_19__["ISidebar"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableOperators", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["MeasurableOperators"]; });
 
-/* harmony import */ var _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/iEdge */ "./src/guiElements/mGraph/Edge/iEdge.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IEdge", function() { return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_20__["IEdge"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["DraggableOptionsImpl"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeModes", function() { return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_20__["EdgeModes"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableOptionsImpl", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["ResizableOptionsImpl"]; });
 
-/* harmony import */ var _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/ExtEdge */ "./src/guiElements/mGraph/Edge/ExtEdge.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ExtEdge", function() { return _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_21__["ExtEdge"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableOptions", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["RotatableOptions"]; });
 
-/* harmony import */ var _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/EdgePoint */ "./src/guiElements/mGraph/Edge/EdgePoint.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePoint", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__["EdgePoint"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UnsafeMeasurableEvalContext", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["UnsafeMeasurableEvalContext"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePointFittizio", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__["EdgePointFittizio"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmittedsStatic", function() { return _measurable__WEBPACK_IMPORTED_MODULE_18__["ConstraintLeftAdmittedsStatic"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CursorFollowerEP", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_22__["CursorFollowerEP"]; });
+/* harmony import */ var _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../guiElements/style-editor/style-editor.component */ "./src/guiElements/style-editor/style-editor.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EditorContext", function() { return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_19__["EditorContext"]; });
 
-/* harmony import */ var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/edgeStyle */ "./src/guiElements/mGraph/Edge/edgeStyle.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeStyle", function() { return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_23__["EdgeStyle"]; });
+/* harmony import */ var _src_app_app_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../src/app/app.module */ "./src/app/app.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return _src_app_app_module__WEBPACK_IMPORTED_MODULE_20__["Status"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePointStyle", function() { return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_23__["EdgePointStyle"]; });
+/* harmony import */ var _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../guiElements/mGraph/iGraph */ "./src/guiElements/mGraph/iGraph.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IGraph", function() { return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_21__["IGraph"]; });
 
-/* harmony import */ var _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../guiElements/propertyBar/propertyBar */ "./src/guiElements/propertyBar/propertyBar.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PropertyBarr", function() { return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_24__["PropertyBarr"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ViewPointShell", function() { return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_21__["ViewPointShell"]; });
 
-/* harmony import */ var _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../guiElements/top-bar/top-bar.component */ "./src/guiElements/top-bar/top-bar.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TopBar", function() { return _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_25__["TopBar"]; });
+/* harmony import */ var _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../guiElements/mGraph/Vertex/iVertex */ "./src/guiElements/mGraph/Vertex/iVertex.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IVertex", function() { return _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_22__["IVertex"]; });
 
-/* harmony import */ var _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../guiElements/style-editor/style-editor.component */ "./src/guiElements/style-editor/style-editor.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StyleEditor", function() { return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_26__["StyleEditor"]; });
+/* harmony import */ var _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../guiElements/mGraph/Field/iField */ "./src/guiElements/mGraph/Field/iField.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IField", function() { return _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_23__["IField"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SaveListEntry", function() { return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_10__["SaveListEntry"]; });
+/* harmony import */ var _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../guiElements/isidebar/isidebar.component */ "./src/guiElements/isidebar/isidebar.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ISidebar", function() { return _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_24__["ISidebar"]; });
 
-/* harmony import */ var _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../guiElements/console/console.component */ "./src/guiElements/console/console.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MyConsole", function() { return _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_27__["MyConsole"]; });
+/* harmony import */ var _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/iEdge */ "./src/guiElements/mGraph/Edge/iEdge.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IEdge", function() { return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_25__["IEdge"]; });
 
-/* harmony import */ var _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../Model/MetaMetaModel */ "./src/Model/MetaMetaModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MetaMetaModel", function() { return _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_28__["MetaMetaModel"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeModes", function() { return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_25__["EdgeModes"]; });
 
-/* harmony import */ var _Model_MetaModel__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../Model/MetaModel */ "./src/Model/MetaModel.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MetaModel", function() { return _Model_MetaModel__WEBPACK_IMPORTED_MODULE_29__["MetaModel"]; });
+/* harmony import */ var _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/ExtEdge */ "./src/guiElements/mGraph/Edge/ExtEdge.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ExtEdge", function() { return _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_26__["ExtEdge"]; });
 
-/* harmony import */ var _Model_Model__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../Model/Model */ "./src/Model/Model.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Model", function() { return _Model_Model__WEBPACK_IMPORTED_MODULE_30__["Model"]; });
+/* harmony import */ var _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/EdgePoint */ "./src/guiElements/mGraph/Edge/EdgePoint.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePoint", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_27__["EdgePoint"]; });
 
-/* harmony import */ var _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../Model/mPackage/iPackage */ "./src/Model/mPackage/iPackage.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IPackage", function() { return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_31__["IPackage"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePointFittizio", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_27__["EdgePointFittizio"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Package", function() { return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_31__["M3Package"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CursorFollowerEP", function() { return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_27__["CursorFollowerEP"]; });
 
-/* harmony import */ var _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../Model/mPackage/MMPackage */ "./src/Model/mPackage/MMPackage.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Package", function() { return _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_32__["M2Package"]; });
+/* harmony import */ var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../guiElements/mGraph/Edge/edgeStyle */ "./src/guiElements/mGraph/Edge/edgeStyle.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgeStyle", function() { return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_28__["EdgeStyle"]; });
 
-/* harmony import */ var _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../Model/mPackage/MPackage.component */ "./src/Model/mPackage/MPackage.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MPackage", function() { return _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_33__["MPackage"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EdgePointStyle", function() { return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_28__["EdgePointStyle"]; });
 
-/* harmony import */ var _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../mClass/IClassifier */ "./src/mClass/IClassifier.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IClassifier", function() { return _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_34__["IClassifier"]; });
+/* harmony import */ var _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../guiElements/propertyBar/propertyBar */ "./src/guiElements/propertyBar/propertyBar.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PropertyBarr", function() { return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_29__["PropertyBarr"]; });
 
-/* harmony import */ var _mClass_iClass__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../mClass/iClass */ "./src/mClass/iClass.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IClass", function() { return _mClass_iClass__WEBPACK_IMPORTED_MODULE_35__["IClass"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PropertyBarTabs", function() { return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_29__["PropertyBarTabs"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Class", function() { return _mClass_iClass__WEBPACK_IMPORTED_MODULE_35__["M3Class"]; });
+/* harmony import */ var _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../guiElements/top-bar/top-bar.component */ "./src/guiElements/top-bar/top-bar.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TopBar", function() { return _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_30__["TopBar"]; });
 
-/* harmony import */ var _mClass_m2Class__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../mClass/m2Class */ "./src/mClass/m2Class.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Class", function() { return _mClass_m2Class__WEBPACK_IMPORTED_MODULE_36__["M2Class"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StyleEditor", function() { return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_19__["StyleEditor"]; });
 
-/* harmony import */ var _mClass_MClass__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../mClass/MClass */ "./src/mClass/MClass.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MClass", function() { return _mClass_MClass__WEBPACK_IMPORTED_MODULE_37__["MClass"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SaveListEntry", function() { return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_13__["SaveListEntry"]; });
 
-/* harmony import */ var _mClass_EEnum__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../mClass/EEnum */ "./src/mClass/EEnum.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EEnum", function() { return _mClass_EEnum__WEBPACK_IMPORTED_MODULE_38__["EEnum"]; });
+/* harmony import */ var _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../guiElements/console/console.component */ "./src/guiElements/console/console.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MyConsole", function() { return _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_31__["MyConsole"]; });
 
-/* harmony import */ var _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../mClass/classChild/Type */ "./src/mClass/classChild/Type.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Type", function() { return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_39__["Type"]; });
+/* harmony import */ var _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../Model/MetaMetaModel */ "./src/Model/MetaMetaModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MetaMetaModel", function() { return _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_32__["MetaMetaModel"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EType", function() { return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_39__["EType"]; });
+/* harmony import */ var _Model_MetaModel__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../Model/MetaModel */ "./src/Model/MetaModel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MetaModel", function() { return _Model_MetaModel__WEBPACK_IMPORTED_MODULE_33__["MetaModel"]; });
 
-/* harmony import */ var _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../mClass/classChild/Typedd */ "./src/mClass/classChild/Typedd.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Typedd", function() { return _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_40__["Typedd"]; });
+/* harmony import */ var _Model_Model__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../Model/Model */ "./src/Model/Model.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Model", function() { return _Model_Model__WEBPACK_IMPORTED_MODULE_34__["Model"]; });
 
-/* harmony import */ var _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ../mClass/classChild/ELiteral */ "./src/mClass/classChild/ELiteral.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ELiteral", function() { return _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_41__["ELiteral"]; });
+/* harmony import */ var _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../Model/mPackage/iPackage */ "./src/Model/mPackage/iPackage.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IPackage", function() { return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_35__["IPackage"]; });
 
-/* harmony import */ var _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ../mClass/classChild/Features/iFeature */ "./src/mClass/classChild/Features/iFeature.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IFeature", function() { return _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_42__["IFeature"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Package", function() { return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_35__["M3Package"]; });
 
-/* harmony import */ var _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ../mClass/classChild/Features/References/iReference */ "./src/mClass/classChild/Features/References/iReference.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IReference", function() { return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_43__["IReference"]; });
+/* harmony import */ var _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../Model/mPackage/MMPackage */ "./src/Model/mPackage/MMPackage.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Package", function() { return _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_36__["M2Package"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Reference", function() { return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_43__["M3Reference"]; });
+/* harmony import */ var _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../Model/mPackage/MPackage.component */ "./src/Model/mPackage/MPackage.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MPackage", function() { return _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_37__["MPackage"]; });
 
-/* harmony import */ var _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ../mClass/classChild/Features/References/M2Reference */ "./src/mClass/classChild/Features/References/M2Reference.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Reference", function() { return _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_44__["M2Reference"]; });
+/* harmony import */ var _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ../mClass/IClassifier */ "./src/mClass/IClassifier.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IClassifier", function() { return _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_38__["IClassifier"]; });
 
-/* harmony import */ var _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../mClass/classChild/Features/References/MReference */ "./src/mClass/classChild/Features/References/MReference.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MReference", function() { return _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_45__["MReference"]; });
+/* harmony import */ var _mClass_iClass__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../mClass/iClass */ "./src/mClass/iClass.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IClass", function() { return _mClass_iClass__WEBPACK_IMPORTED_MODULE_39__["IClass"]; });
 
-/* harmony import */ var _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/iAttribute */ "./src/mClass/classChild/Features/Attributes/iAttribute.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IAttribute", function() { return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_46__["IAttribute"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Class", function() { return _mClass_iClass__WEBPACK_IMPORTED_MODULE_39__["M3Class"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Attribute", function() { return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_46__["M3Attribute"]; });
+/* harmony import */ var _mClass_m2Class__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../mClass/m2Class */ "./src/mClass/m2Class.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Class", function() { return _mClass_m2Class__WEBPACK_IMPORTED_MODULE_40__["M2Class"]; });
 
-/* harmony import */ var _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/mmAttribute */ "./src/mClass/classChild/Features/Attributes/mmAttribute.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Attribute", function() { return _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_47__["M2Attribute"]; });
+/* harmony import */ var _mClass_MClass__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ../mClass/MClass */ "./src/mClass/MClass.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MClass", function() { return _mClass_MClass__WEBPACK_IMPORTED_MODULE_41__["MClass"]; });
 
-/* harmony import */ var _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/MAttribute */ "./src/mClass/classChild/Features/Attributes/MAttribute.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MAttribute", function() { return _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_48__["MAttribute"]; });
+/* harmony import */ var _mClass_EEnum__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ../mClass/EEnum */ "./src/mClass/EEnum.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EEnum", function() { return _mClass_EEnum__WEBPACK_IMPORTED_MODULE_42__["EEnum"]; });
 
-/* harmony import */ var _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ../Model/EAnnotation */ "./src/Model/EAnnotation.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EAnnotation", function() { return _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_49__["EAnnotation"]; });
+/* harmony import */ var _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ../mClass/classChild/Type */ "./src/mClass/classChild/Type.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Type", function() { return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_43__["Type"]; });
 
-/* harmony import */ var _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ../Model/EAnnotationDetail */ "./src/Model/EAnnotationDetail.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EAnnotationDetail", function() { return _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_50__["EAnnotationDetail"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EType", function() { return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_43__["EType"]; });
 
-/* harmony import */ var _common_Database__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ../common/Database */ "./src/common/Database.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Database", function() { return _common_Database__WEBPACK_IMPORTED_MODULE_51__["Database"]; });
+/* harmony import */ var _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ../mClass/classChild/Typedd */ "./src/mClass/classChild/Typedd.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Typedd", function() { return _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_44__["Typedd"]; });
 
-/* harmony import */ var _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ../guiElements/dam-context-menu/dam-context-menu.component */ "./src/guiElements/dam-context-menu/dam-context-menu.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DamContextMenuComponent", function() { return _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_52__["DamContextMenuComponent"]; });
+/* harmony import */ var _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ../mClass/classChild/ELiteral */ "./src/mClass/classChild/ELiteral.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ELiteral", function() { return _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_45__["ELiteral"]; });
 
-/* harmony import */ var _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ../mClass/classChild/Operations/eOperation */ "./src/mClass/classChild/Operations/eOperation.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EOperation", function() { return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_53__["EOperation"]; });
+/* harmony import */ var _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ../mClass/classChild/Features/iFeature */ "./src/mClass/classChild/Features/iFeature.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IFeature", function() { return _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_46__["IFeature"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccessModifier", function() { return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_53__["AccessModifier"]; });
+/* harmony import */ var _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ../mClass/classChild/Features/References/iReference */ "./src/mClass/classChild/Features/References/iReference.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IReference", function() { return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_47__["IReference"]; });
 
-/* harmony import */ var _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ../mClass/classChild/Operations/eParameter */ "./src/mClass/classChild/Operations/eParameter.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EParameter", function() { return _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_54__["EParameter"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Reference", function() { return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_47__["M3Reference"]; });
 
-/* harmony import */ var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ../app/measurabletemplate/measurabletemplate.component */ "./src/app/measurabletemplate/measurabletemplate.component.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Draggableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["Draggableoptions"]; });
+/* harmony import */ var _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ../mClass/classChild/Features/References/M2Reference */ "./src/mClass/classChild/Features/References/M2Reference.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Reference", function() { return _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_48__["M2Reference"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Resizableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["Resizableoptions"]; });
+/* harmony import */ var _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ../mClass/classChild/Features/References/MReference */ "./src/mClass/classChild/Features/References/MReference.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MReference", function() { return _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_49__["MReference"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Rotatableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["Rotatableoptions"]; });
+/* harmony import */ var _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/iAttribute */ "./src/mClass/classChild/Features/Attributes/iAttribute.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IAttribute", function() { return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_50__["IAttribute"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["ResizableoptionsPH"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M3Attribute", function() { return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_50__["M3Attribute"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["DraggableOptionsPH"]; });
+/* harmony import */ var _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/mmAttribute */ "./src/mClass/classChild/Features/Attributes/mmAttribute.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "M2Attribute", function() { return _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_51__["M2Attribute"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["RotatableoptionsPH"]; });
+/* harmony import */ var _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ../mClass/classChild/Features/Attributes/MAttribute */ "./src/mClass/classChild/Features/Attributes/MAttribute.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MAttribute", function() { return _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_52__["MAttribute"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableTemplateGenerator", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["MeasurableTemplateGenerator"]; });
+/* harmony import */ var _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ../Model/EAnnotation */ "./src/Model/EAnnotation.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EAnnotation", function() { return _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_53__["EAnnotation"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurabletemplateComponent", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_55__["MeasurabletemplateComponent"]; });
+/* harmony import */ var _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ../Model/EAnnotationDetail */ "./src/Model/EAnnotationDetail.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EAnnotationDetail", function() { return _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_54__["EAnnotationDetail"]; });
 
-/* harmony import */ var _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ../guiElements/changelog/ChangelogEntry */ "./src/guiElements/changelog/ChangelogEntry.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogRoot", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["ChangelogRoot"]; });
+/* harmony import */ var _common_Database__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ../common/Database */ "./src/common/Database.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Database", function() { return _common_Database__WEBPACK_IMPORTED_MODULE_55__["Database"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogEntry", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["ChangelogEntry"]; });
+/* harmony import */ var _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ../guiElements/dam-context-menu/dam-context-menu.component */ "./src/guiElements/dam-context-menu/dam-context-menu.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DamContextMenuComponent", function() { return _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_56__["DamContextMenuComponent"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VersionUpload", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["VersionUpload"]; });
+/* harmony import */ var _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ../mClass/classChild/Operations/eOperation */ "./src/mClass/classChild/Operations/eOperation.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EOperation", function() { return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_57__["EOperation"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Feature", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["Feature"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccessModifier", function() { return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_57__["AccessModifier"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Bug", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["Bug"]; });
+/* harmony import */ var _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ../mClass/classChild/Operations/eParameter */ "./src/mClass/classChild/Operations/eParameter.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EParameter", function() { return _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_58__["EParameter"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BugFix", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_56__["BugFix"]; });
+/* harmony import */ var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ../app/measurabletemplate/measurabletemplate.component */ "./src/app/measurabletemplate/measurabletemplate.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Draggableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["Draggableoptions"]; });
 
-/* harmony import */ var _GuiStyles_global__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ../GuiStyles/global */ "./src/GuiStyles/global.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WebsiteTheme", function() { return _GuiStyles_global__WEBPACK_IMPORTED_MODULE_57__["WebsiteTheme"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Resizableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["Resizableoptions"]; });
 
-/* harmony import */ var _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ../ServerCommunication/Synchronization/ModelUpdateMessage */ "./src/ServerCommunication/Synchronization/ModelUpdateMessage.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelUpdateMessage", function() { return _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_58__["ModelUpdateMessage"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Rotatableoptions", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["Rotatableoptions"]; });
 
-/* harmony import */ var _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ../ServerCommunication/Synchronization/SendManager */ "./src/ServerCommunication/Synchronization/SendManager.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SendManager", function() { return _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_59__["SendManager"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ResizableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["ResizableoptionsPH"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DraggableOptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["DraggableOptionsPH"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RotatableoptionsPH", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["RotatableoptionsPH"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurableTemplateGenerator", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["MeasurableTemplateGenerator"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MeasurabletemplateComponent", function() { return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["MeasurabletemplateComponent"]; });
+
+/* harmony import */ var _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ../guiElements/changelog/ChangelogEntry */ "./src/guiElements/changelog/ChangelogEntry.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogRoot", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["ChangelogRoot"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ChangelogEntry", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["ChangelogEntry"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VersionUpload", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["VersionUpload"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Feature", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["Feature"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Bug", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["Bug"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BugFix", function() { return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["BugFix"]; });
+
+/* harmony import */ var _GuiStyles_global__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ../GuiStyles/global */ "./src/GuiStyles/global.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WebsiteTheme", function() { return _GuiStyles_global__WEBPACK_IMPORTED_MODULE_61__["WebsiteTheme"]; });
+
+/* harmony import */ var _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ../ServerCommunication/Synchronization/ModelUpdateMessage */ "./src/ServerCommunication/Synchronization/ModelUpdateMessage.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ModelUpdateMessage", function() { return _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_62__["ModelUpdateMessage"]; });
+
+/* harmony import */ var _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ../ServerCommunication/Synchronization/SendManager */ "./src/ServerCommunication/Synchronization/SendManager.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SendManager", function() { return _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_63__["SendManager"]; });
+
+/* harmony import */ var _src_guiElements_style_editor_csseditor_CssEditor__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ../../src/guiElements/style-editor/csseditor/CssEditor */ "./src/guiElements/style-editor/csseditor/CssEditor.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CSSEditor", function() { return _src_guiElements_style_editor_csseditor_CssEditor__WEBPACK_IMPORTED_MODULE_64__["CSSEditor"]; });
 
 /* NOTE: error in module.extends: devi importare i file rispettando l'ordine di dichiarazioni delle classi, se dichiaro class A nel file A, e class
  B extensa A nel file B, il file B non può essere importato prima del file A*/
@@ -5401,28 +5962,37 @@ __webpack_require__.r(__webpack_exports__);
 
 const ansiUp = new ansi_up__WEBPACK_IMPORTED_MODULE_1___default.a(); // https://github.com/drudru/ansi_up // ansi color formatter.
 
-let StringSimilarity = _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_2__;
+const StringSimilarity = _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_2__;
+
+const CSS = { toCSS: cssjson__WEBPACK_IMPORTED_MODULE_3__["toCSS"], toJSON: cssjson__WEBPACK_IMPORTED_MODULE_3__["toJSON"] };
+const JSCSS_CSSPARSER = window['CSSParser'] || {};
+/*import * as CSSS from 'css';
+export const CSS = CSSS;*/
 
 // import "jquery";
 
-const $ = window['' + '$'] = jquery__WEBPACK_IMPORTED_MODULE_4__;
+const $ = window['' + '$'] = jquery__WEBPACK_IMPORTED_MODULE_5__;
 
-const $b = bootstrap__WEBPACK_IMPORTED_MODULE_5__;
+const $b = bootstrap__WEBPACK_IMPORTED_MODULE_6__;
 
-const Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a;
+const Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a;
 /*
 import * as JQueryUII        from '../../node_modules/jqueryui';
 export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/
 
 
-const prjson2xml = _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_7__;
-const prxml2json = _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_8__;
+const prjson2xml = _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_8__;
+const prxml2json = _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_9__;
 /*export const $$$: JQueryStatic = require('jquery-ui');
 export const $ui: JQueryStatic = $$$;*/
 
 
 
+
+
 /*new*/ 
+
+
 
 
 
@@ -5475,13 +6045,14 @@ export {IModel, ECoreRoot, ECorePackage, ECoreClass, ECoreReference,
 
 
 
+
 class ReservedClasses {
 }
 // everytime i draw a vertex, i need to search in all the DOM sub-tree for all attributes starting with measurableRules.onRefresh and execute them.
 // hence i made a class tied with the presence of attributes starting with measurableRules.onRefresh for efficiency.
 ReservedClasses.onRefresh = 'onRefresh';
 ReservedClasses.template = 'template';
-ReservedClasses.vertexRoot = 'vertexRoot';
+ReservedClasses.vertexRootG = 'VertexRoot'; // on G element
 class ReservedAttributes {
 }
 ReservedAttributes.todo = 'todo';
@@ -6137,6 +6708,7 @@ class MeasurableRuleParts {
         };
         let debug = this.prefix === measurableRules.export;
         const doRollback = () => {
+            return;
             console.trace('doing rollback');
             try {
                 exportChanges0(rollbackContext, rollbackContext, true);
@@ -6361,7 +6933,7 @@ class MeasurableRuleParts {
                         vertex = vertexFoundsevt[pos];
                     }
                     else {
-                        vertex = html.classList.contains(_Joiner__WEBPACK_IMPORTED_MODULE_1__["ReservedClasses"].vertexRoot) ? _Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].getvertexByHtml(html) : null;
+                        vertex = _Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].getvertexByHtml(html);
                         htmlFoundsevt.push(html);
                         vertexFoundsevt.push(vertex);
                     }
@@ -7264,7 +7836,7 @@ function xml2json(xml, tab = '    '/*XML_DOM, string*/) {
 /*!****************************!*\
   !*** ./src/common/util.ts ***!
   \****************************/
-/*! exports provided: Dictionary, myFileReader, FocusHistoryEntry, InputPopup, ShortAttribETypes, EvalOutput, SelectorOutput, U, Keystrokes, AutocompleteMatch, TSON_JSTypes, TSON_UnsupportedTypes, TSON, AttribETypes, Json, DetectZoom, ISize, Size, GraphSize, IPoint, GraphPoint, Point, FileReadTypeEnum */
+/*! exports provided: Dictionary, myFileReader, FocusHistoryEntry, InputPopup, TagNames, CSSRuleSorted, CSSParser, ShortAttribETypes, EvalOutput, SelectorOutput, U, $s, Keystrokes, AutocompleteMatch, TSON_JSTypes, TSON_UnsupportedTypes, TSON, AttribETypes, ParseNumberOrBooleanOptions, Json, DetectZoom, ISize, Size, GraphSize, IPoint, GraphPoint, Point, FileReadTypeEnum */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7273,16 +7845,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "myFileReader", function() { return myFileReader; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FocusHistoryEntry", function() { return FocusHistoryEntry; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputPopup", function() { return InputPopup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TagNames", function() { return TagNames; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CSSRuleSorted", function() { return CSSRuleSorted; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CSSParser", function() { return CSSParser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShortAttribETypes", function() { return ShortAttribETypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EvalOutput", function() { return EvalOutput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectorOutput", function() { return SelectorOutput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "U", function() { return U; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "$s", function() { return $s; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Keystrokes", function() { return Keystrokes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AutocompleteMatch", function() { return AutocompleteMatch; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TSON_JSTypes", function() { return TSON_JSTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TSON_UnsupportedTypes", function() { return TSON_UnsupportedTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TSON", function() { return TSON; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AttribETypes", function() { return AttribETypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParseNumberOrBooleanOptions", function() { return ParseNumberOrBooleanOptions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Json", function() { return Json; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DetectZoom", function() { return DetectZoom; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ISize", function() { return ISize; });
@@ -7613,6 +8190,33 @@ class InputPopup {
     }
 }
 InputPopup.popupCounter = 0;
+class TagNames {
+}
+TagNames.FOREIGNOBJECT = "FOREIGNOBJECT";
+class CSSRuleSorted {
+    constructor(styleNode) {
+        const oldParent = styleNode.parentElement;
+        if (!oldParent)
+            document.body.append(styleNode);
+        let cssRuleList = styleNode.sheet['cssRules'] || styleNode.sheet['rules'];
+        this.all = [...cssRuleList];
+        if (!oldParent)
+            document.body.removeChild(styleNode);
+        // if (se aveva parent rimane attaccato lì e non serve fare questo) oldParent.append(styleNode);
+    }
+    getCSSMediaRule() {
+        return this.all.filter((e, i) => { return e instanceof CSSMediaRule; });
+    }
+    getCSSStyleRule() {
+        return this.all.filter((e, i) => { return e instanceof CSSStyleRule; });
+    }
+    notIn(list) {
+        return this.all.filter((e, i) => { return list.indexOf(e) !== -1; });
+    }
+}
+class CSSParser {
+    static parse(styleNode) { return new CSSRuleSorted(styleNode); }
+}
 var ShortAttribETypes;
 (function (ShortAttribETypes) {
     ShortAttribETypes["void"] = "void";
@@ -7802,12 +8406,8 @@ class U {
             str += '' + restArgs[i] + '\t\r\n';
         }
         console.error(s, ...restArgs);
-        if (!U.production && false) {
-            alert(str);
-        }
-        else {
-            U.bootstrapPopup(str, 'danger', 5000);
-        }
+        window['lastError'] = [restArgs];
+        U.bootstrapPopup(str, 'danger', 5000);
         return b['@makeMeCrash']['@makeMeCrash'];
     }
     static pw(b, s, ...restArgs) {
@@ -8341,14 +8941,14 @@ class U {
     static iterateDescendents(parent) {
         return parent.getElementsByTagName('*');
     }
-    static ancestorArray(domelem) {
+    static ancestorArray(domelem, stopNode = null, includeSelf = true) {
         // [0]=element, [1]=father, [2]=grandfather... [n]=document
         if (domelem === null || domelem === undefined) {
             return [];
         }
-        const arr = [domelem];
+        const arr = includeSelf ? [domelem] : [];
         let tmp = domelem.parentNode;
-        while (tmp !== null) {
+        while (tmp !== null && tmp != stopNode) {
             arr.push(tmp);
             tmp = tmp.parentNode;
         }
@@ -8360,6 +8960,12 @@ class U {
         o.innerHTML = html;
         return o.firstChild;
     }
+    static toHtmlValidate(text) {
+        const html = U.toHtml(text);
+        if (html.innerHTML === text.replace(/\s+/gi, ''))
+            return html;
+        return null;
+    }
     static toHtmlRow(html) {
         return U.toHtml(html, U.toHtml('<table><tbody></tbody></table>').firstChild);
     }
@@ -8370,9 +8976,12 @@ class U {
         if (container === null) {
             container = document.createElement(containerTag);
         }
+        if (!html || html === '')
+            return null;
         container.innerHTML = html;
         const ret = container.firstChild;
-        container.removeChild(ret);
+        if (ret)
+            container.removeChild(ret);
         return ret;
     }
     static toBase64Image(html, container = null, containerTag = 'div') {
@@ -8721,9 +9330,11 @@ class U {
         });
     }
     static insertAt(arr, index, elem) {
-        const oldl = arr.length;
-        const ret = arr.splice(index, 0, elem);
-        U.pe(oldl + 1 !== arr.length, oldl + ' --> ' + arr.length + '; arr not growing. ret:', ret, arr);
+        if (index >= arr.length) {
+            arr.push(elem);
+            return;
+        }
+        arr.splice(index, 0, elem);
     }
     static setViewBox(svg, size = null) {
         if (!size) {
@@ -8991,6 +9602,64 @@ class U {
         const tmp = U.strFirstDiff(s1, s2, 20);
         U.pif(debug, 'isValidHtml() ' + (tmp ? '|' + tmp[0] + '| vs |' + tmp[1] + '|' : 'tmp === null'));
         return ret;
+    }
+    static RGBAToHex(str, prefix = '#', postfix = '') {
+        return U.RGBAToHexObj(str, prefix, postfix).rgbahex;
+    }
+    static HexToHexObj(str) {
+        str = U.replaceAll(str, '#', '');
+        let byteLen;
+        switch (str.length) {
+            default: return null;
+            case 3:
+            case 4:
+                byteLen = 1;
+                break; // rgb & rgba con 1 byte color depth
+            case 6:
+            case 7:
+            case 8:
+                byteLen = 2;
+                break;
+        }
+        const arr = [];
+        let pos = 0;
+        let strval;
+        let val;
+        while (true) {
+            strval = str.substr(pos, byteLen);
+            if (!strval)
+                break;
+            if (strval.length === 1)
+                strval += strval; // f -> ff, 0 -> 00, 7 -> 77 nb: non usare byteLen, l'ultimo valore può avere bytelen diversa (RR GG BB A)
+            val = Number.parseInt(strval, 16);
+            if (isNaN(val))
+                return null;
+            arr.push(val);
+            pos += byteLen;
+        }
+        if (arr.length < 3)
+            return null;
+        return { r: arr[0], g: arr[1], b: arr[2], a: arr[3] };
+    }
+    static colorObjToArgb(colorObj, prefix = '#', postfix = '') {
+        const ret = colorObj;
+        let tmp = prefix + U.toHex(ret.r, 2) + U.toHex(ret.g, 2) + U.toHex(ret.b, 2);
+        ret.rgbhex = tmp + postfix;
+        ret.rgbahex = tmp + U.toHex(ret.a || ret.a === 0 ? ret.a : 255, 2) + postfix;
+        return ret;
+    }
+    static RGBAToHexObj(str, prefix = '#', postfix = '') {
+        str = U.replaceAll(str, 'a', '');
+        str = U.replaceAll(str, 'rgb', '');
+        str = U.replaceAll(U.replaceAll(str, '(', ''), ')', '');
+        const rgb = str.split(',');
+        const ret = {
+            r: parseInt(rgb[0]),
+            g: parseInt(rgb[1]),
+            b: parseInt(rgb[2]),
+            a: rgb[3] && rgb[3].length ? 255 * (+rgb[3]) : 255,
+        };
+        return U.colorObjToArgb(ret);
     }
     static getIndex(node) {
         if (!node.parentElement) {
@@ -9333,7 +10002,7 @@ class U {
         return o;
     }
     // returns true only if parameter is already a number by type. U.isNumber('3') will return false
-    static isNumber(o) { return +o === o && o !== NaN; }
+    static isNumber(o) { return +o === o && !isNaN(o); }
     // returns true only if parameter is a number or a stringified number. U.isNumber('3') will return true
     static isNumerizable(o) { return o !== null && o !== undefined && o !== '' && !isNaN(+o); }
     static isNumberArray(o, minn = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_INFINITY, ifItIsEmptyArrReturn = true) {
@@ -9884,11 +10553,43 @@ class U {
             return null;
         if (allowUndefined && (str === 'undefined'))
             return undefined;
-        if (defaultVal === false)
-            return str === "true" || str === 't' || str === '1'; // true solo se è esplicitamente true, false se ambiguo.
+        if (str === "true" || str === 't' || str === '1')
+            return true;
         // if (defaultVal === true) return str === "false" || str === 'f' || str === '0'; // false solo se è esplicitamente false, true se ambiguo.
-        if (defaultVal === true)
-            return !(str === "false" || str === 'f' || str === '0'); // false solo se è esplicitamente false, true se ambiguo.
+        if (str === "false" || str === 'f' || str === '0')
+            return false;
+        return defaultVal;
+    }
+    static parseNumberOrBoolean(val, params = new ParseNumberOrBooleanOptions()) {
+        let booleanTry = U.fromBoolString(val, '', true, true);
+        console.log("isAllowingEdge parsenumberorboolean:", booleanTry, "|", params, "|", val);
+        switch ('' + booleanTry) {
+            default:
+                U.pe(true, "dev error, unexpected case on U.parseNumberOfBoolean: ", val, ' = ', booleanTry);
+                break;
+            case 'true':
+                if (params.allowBooleans)
+                    return params.trueValue;
+                break;
+            case 'false':
+                if (params.allowBooleans)
+                    return params.falseValue;
+                break;
+            case 'undefined':
+                if (params.allowUndefined)
+                    return params.undefinedValue;
+                break;
+            case 'null':
+                if (params.allowNull)
+                    return params.nullValue;
+                break;
+            case '':
+                let valnumber = +val;
+                if (isNaN(valnumber))
+                    return params.allowedNan ? params.nanValue : params.defaultValue;
+                return valnumber;
+        }
+        return params.defaultValue;
     }
     static parseSvgPath(str) {
         let i;
@@ -10035,12 +10736,12 @@ class U {
             let targetElement = target instanceof Element ? target : null;
             tag = targetElement ? targetElement.tagName.toLowerCase() : null;
             if (tag === inputcheck || tag === selectcheck || tag === textareacheck) {
-                console.log('isInput:', target);
+                // console.log('isInput:', target);
                 return true;
             }
             attrcontenteditable = contenteditable && targetElement ? targetElement.getAttribute('contenteditable') : null;
             if (attrcontenteditable === '' || attrcontenteditable === 'true') {
-                console.log('isInput:', target);
+                // console.log('isInput:', target);
                 return true;
             }
             if (!deep_up)
@@ -10195,6 +10896,7 @@ class U {
         for (let i = 0; i < arr.length; i++) {
             ret['' + arr[i]] = useLastIndexAsValue ? i : true;
         }
+        // arr.reduce((accumulator,curr)=> (accumulator[curr]='',accumulator), {}); // geniale da stackoverflow (accumulator was "acc")
         return ret;
     }
     static isUnset(val, ignorespaces = true, parseStrings = true, ifemptystr = false, ifnull = true, ifundef = true, ifzero = false) {
@@ -10423,7 +11125,7 @@ class U {
         return retobj;
     }
     static toHex(num, lengthMin = 6) {
-        let ret = Number(num).toString(16);
+        let ret = Math.round(+num).toString(16);
         while (ret.length < lengthMin)
             ret = '0' + ret;
         return ret;
@@ -10892,7 +11594,7 @@ class U {
             ret = eval(tokens.join(' '));
         }
         catch (e) {
-            U.pw(true, 'Invalid conditional attribute (UIF), error:', e, 'html:', html, 'attrStr:', attrstr, 'tokens:', tokens, 'dic:', obj, 'caseSensitive:', caseSensitive);
+            // U.pw(true, 'Invalid conditional attribute (UIF), error:', e, 'html:', html, 'attrStr:', attrstr, 'tokens:', tokens, 'dic:', obj, 'caseSensitive:', caseSensitive);
             ret = null;
         }
         // if (ret === null) console.log('rrer', tokens);
@@ -10922,6 +11624,38 @@ class U {
             return value; // means it's a raw string different from 'true', 'null', ...
         }
         return ret;
+    }
+    static makeCssSheet() {
+        const style = document.createElement('style');
+        // Add a media (and/or media query) here if you'd like!
+        // style.setAttribute("media", "screen")
+        // style.setAttribute("media", "only screen and (max-width : 1024px)")
+        style.type = 'text/css';
+        style.appendChild(document.createTextNode("")); // necessario per un bug in webkit
+        return style;
+    }
+    static getActualInlineStyles(el) {
+        const ret = [];
+        for (let i = 0, len = el.style.length; i < len; ++i) {
+            let name = el.style[i];
+            ret.push([name, el.style[name]]);
+            // console.log(name, ':', value);
+        }
+        return ret;
+    }
+    static disableConsole() {
+        console['logg'] = console.log;
+        console.log = () => { };
+    }
+    static enableConsole() {
+        if (console['logg'])
+            console.log = console['logg'];
+    }
+    // copia propietà da un oggetto deserializzato (senza funzioni) in un oggetto non serializzato ma privo di dati
+    static cloneProperties(param, json) {
+        for (let key in json) {
+            param[key] = json[key];
+        }
     }
 }
 U.loopcounter = 0;
@@ -10963,6 +11697,21 @@ U.startSeparatorKeyMax = -1;
 U.focusHistoryEntriesAndIdleTimes = undefined;
 U.focusHistoryEntries = undefined;
 U.focusHistoryElements = undefined;
+const $smap = {};
+// selettore query "statico", per memorizzare in cache i nodi del DOM read-only per recuperarli più efficientemente. (es: nodi template)
+function $s(selector, clone = true) {
+    let ret;
+    if ($smap[selector]) {
+        ret = $smap[selector];
+    }
+    else {
+        ret = $(selector);
+        $smap[selector] = ret;
+    }
+    if (clone)
+        ret = ret.clone(false);
+    return ret;
+}
 var Keystrokes;
 (function (Keystrokes) {
     Keystrokes["escape"] = "Escape";
@@ -10976,6 +11725,7 @@ var Keystrokes;
     Keystrokes["pageUp"] = "PageUp";
     Keystrokes["pageDown"] = "PageDown";
     Keystrokes["enter"] = "Enter";
+    Keystrokes["numpadEnter"] = "NumpadEnter";
     Keystrokes["audioVolumeMute"] = "AudioVolumeMute";
     Keystrokes["audioVolumeUp"] = "AudioVolumeUp";
     Keystrokes["audioVolumeDown"] = "AudioVolumeDown";
@@ -11291,6 +12041,20 @@ var AttribETypes;
     // EELIST = 'ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList', // List<E> = List<?>
 })(AttribETypes || (AttribETypes = {}));
 // export type Json = object;
+class ParseNumberOrBooleanOptions {
+    constructor(defaultValue = null, allowNull = false, nullValue = null, allowUndefined = false, undefinedValue = undefined, allowedNan = false, nanValue = NaN, allowBooleans = true, trueValue = 1, falseValue = 0) {
+        this.defaultValue = defaultValue;
+        this.allowNull = allowNull;
+        this.nullValue = nullValue;
+        this.allowUndefined = allowUndefined;
+        this.undefinedValue = undefinedValue;
+        this.allowedNan = allowedNan;
+        this.nanValue = nanValue;
+        this.allowBooleans = allowBooleans;
+        this.trueValue = trueValue;
+        this.falseValue = falseValue;
+    }
+}
 class Json {
     constructor(j) { }
     static getAnnotations(thiss) {
@@ -12184,7 +12948,34 @@ class ChangelogRoot extends ChangelogEntry {
         v.addbf('zoom & pan', 'Zoom and pan weren\'t combining well, panning with a zoom level used to cause calculation error leading to graphical mismatch.');
         v.addf('Import / Export / Reset of viewpoint and vertices positions', 'Accessible through the top-bar, can be used to share a viewpoint while waiting for the store.\n' +
             'Resetting the viewpoint might fix errors caused by a wrong customization of a viewpoint.', null, true);
-        let searchterm = 'clog addbf ';
+        v = new VersionUpload(new Date('2021/01/23'), 'Hiding elements', '');
+        v.addf('Hiding edges', 'Edges can now be hidden according to source and target vertexes and to edge type.\n' +
+            'To hide all edges incoming/emitted by a vertex without questions, set keep-edges="false" on his root element.\n' +
+            'Default value is false for "Object" vertex and true for every other vertex.\n' +
+            'If keep-edges is true, you can hide a single kind of edge use one of show-<DIRECTION>-<KIND>-edges where <DIRECTION> is one of "in", "out" and <KIND> is one of "rel", "ext", "oth" ' +
+            'where "rel" stands for relationships, "ext" stands for extends, "oth" stands for indirect, deducted edges and anything outside previous categories.\n' +
+            'Values can be a boolean true evaluated to "+1", a boolean false evaluated to "-1" or directly any real number.' +
+            'If there are conflicting instructions, like if start vertex is hiding emitted edges of that kind ("-1") and end vertex is showing incoming edges of that kind (+1), ' +
+            'the conflicting values will be summed resulting in (-1 + 1 = 0) and the edge will be displayed if the result is strictly above 0.\n' +
+            'By default those properties have a value of "+1".' +
+            'GUI support will come at a later time.', null, false);
+        v.addf('Hiding vertices', 'Vertices can now be hidden simply by deleting their root node inside style editor.', null, false);
+        v.addb('Loading edges', 'Edges are loading on wrong position during initial render, it will be fixed by hovering on them or changing viewpoint.' +
+            ' Looking for a solution.', null, false);
+        v.addbf('Loading customized default style', 'Fixed a failure in loading a viewpoint with a <b>"customized default"</b> style (3° layer, last customizable priority level).', null, true);
+        v = new VersionUpload(new Date('2021/01/23'), 'Color schemes', 'Allow to define multiple color schemes and manage activation context for them, overriding the default coloring of vertices, edges, or the entire app.');
+        v.addf('Color scheme manager', 'Accessible through Graph\'s style editor or from Themes in top-bar. It can add, remove and modify existing color schemes. It also allows to choose the activation context of the color scheme (e.g.:whole app, only Attributes...).');
+        v.addf('Style editor integration', 'Once a visual element is clicked, you can manually assign an existing color scheme to that element through the style editor');
+        // v.addf('Style editor integration for edges', 'todo: All elements can have multiple color scheme enabled, but edges should always have multiple color schemes. It is suggested to use one for normal status, one for highlighted status and one for focused status');
+        // v.addf('Color scheme and Views', 'todo: Color scheme are stored inside Views.');
+        v = new VersionUpload(new Date('2021/04/13'), 'minor fixes while wip on v2', '');
+        v.addbf('color scheme', 'minor fix over styles rarely applied to incorrect elements.');
+        v.addb('contextmenu', 'There is a known severe bug with vertex contextmenu incorrectly disappearing over chrome+macOS. Tryed to fix but could not test could not test personally or reproduce on other browser+OS combinations, it is unknown if the bug is still present.');
+        v.addbf('contextmenu', 'Fixed a different bug on firefox that was rarely causing it to not appear at all.');
+        v.addbf('gui', 'minor gui issues fixed (vertex overflow).');
+        v.addbf('extend', 'removing an extension relationship was not removing the edge (graphic only bug).');
+        v.addb('type conversion', 'casting an object to a superclass is not removing properties for the subclass.');
+        let searchterm = 'clog addbf';
         // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
         // v.addf('fakegfeat', 'kkk');
         // v = new VersionUpload('v3'...);
@@ -12707,7 +13498,7 @@ class MyConsole {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#damContextMenuTemplateContainer{\r\n  display: none;\r\n}\r\n.contextMenuRoot{\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n}\r\n.popupRight{ display: none; }\r\n.popupRightParent:hover > .popupRight { display: block; }\r\n.popupRight {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.popupRightParent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.popupRight {\r\n  display: none;\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*cursor: default;*/\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:hover li:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: dodgerblue;\r\n}\r\n.typeli.dynamic, .refli.dynamic{\r\n  cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUNBLGFBQWEsYUFBYSxFQUFFO0FBQzVCLHdDQUF3QyxjQUFjLEVBQUU7QUFDeEQ7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQixFQUFFO0FBQ3ZCO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7QUFDZjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixNQUFNO0FBQ1I7QUFDQTtFQUNFLHVCQUF1QjtFQUN2Qix1QkFBdUI7RUFDdkIsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsV0FBVztFQUNYLFVBQVU7RUFDVixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFFQTtFQUNFLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCO0FBQzdCO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLDJCQUEyQixFQUFFO0FBRS9CO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7QUFFQTtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL2RhbS1jb250ZXh0LW1lbnUvZGFtLWNvbnRleHQtbWVudS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2RhbUNvbnRleHRNZW51VGVtcGxhdGVDb250YWluZXJ7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uY29udGV4dE1lbnVSb290e1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgbWF4LWhlaWdodDogMTAwdmg7XHJcbiAgbWF4LXdpZHRoOiAxMDB2dztcclxuICBvdmVyZmxvdzogdmlzaWJsZTtcclxufVxyXG4ucG9wdXBSaWdodHsgZGlzcGxheTogbm9uZTsgfVxyXG4ucG9wdXBSaWdodFBhcmVudDpob3ZlciA+IC5wb3B1cFJpZ2h0IHsgZGlzcGxheTogYmxvY2s7IH1cclxuLnBvcHVwUmlnaHQge1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4OyB9XHJcbi5yZWZsaSAuZmlyc3RlbXB0eXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnJlZmxpIGJ1dHRvbi5ieWluZGV4IHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG59XHJcbi5wb3B1cFJpZ2h0UGFyZW50e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4ucmVmbGkgLmluZGV4IHtcclxuICBwYWRkaW5nLWxlZnQ6IDNweDtcclxuICBjb2xvcjogb3JhbmdlO1xyXG59XHJcbi5yZWZsaSAudGV4dHtcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbn1cclxuYnV0dG9uLnJlZmxpLmRlbGV0ZXtcclxuICBwYWRkaW5nOiAwIDRweDtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5wb3B1cFJpZ2h0IHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIGxlZnQ6IGNhbGMoMTAwJSk7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmc6IDJweCA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICB0b3A6IDA7XHJcbn1cclxudWwuY29udGV4dE1lbnV7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBwYWRkaW5nLXRvcDogNnB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiA4cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxufVxyXG5saTpmaXJzdC1jaGlsZHtcclxuICBwYWRkaW5nLXRvcDogMDtcclxufVxyXG5saS5zZXBhcmF0b3J7XHJcbiAgbWFyZ2luLXRvcDogMnB4O1xyXG4gIGhlaWdodDogMXB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcclxuICBvcGFjaXR5OiAwLjQ7XHJcbn1cclxubGk6bGFzdC1jaGlsZHtcclxuICBib3JkZXItYm90dG9tOiBub25lO1xyXG59XHJcblxyXG5saXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBjdXJzb3I6IGRlZmF1bHQ7XHJcbiAgZm9udC1zaXplOiAwLjc1cmVtO1xyXG4gIHBhZGRpbmctdG9wOiAycHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDtcclxuICBjb2xvcjogdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbn1cclxubGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiBkb2RnZXJibHVlO1xyXG59XHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLypjdXJzb3I6IGRlZmF1bHQ7Ki9cclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTsgfVxyXG5cclxubGk6aG92ZXIgbGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiBkb2RnZXJibHVlO1xyXG59XHJcblxyXG4udHlwZWxpLmR5bmFtaWMsIC5yZWZsaS5keW5hbWlje1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("#damContextMenuTemplateContainer{\r\n  display: none;\r\n}\r\n.contextMenuRoot{\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n}\r\n.popupRight{ display: none; }\r\n.popupRightParent:hover > .popupRight { display: block; }\r\n.popupRight {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.popupRightParent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.popupRight {\r\n  display: none;\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nul.contextMenu li{\r\n  cursor: pointer;\r\n}\r\nul.contextMenu li.popupRightParent{\r\n  cursor: not-allowed;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: var(--color-4);\r\n}\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*cursor: default;*/\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:hover li:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: var(--color-4);\r\n}\r\n.typeli.dynamic, .refli.dynamic{\r\n  cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUVBLGFBQWEsYUFBYSxFQUFFO0FBQzVCLHdDQUF3QyxjQUFjLEVBQUU7QUFDeEQ7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQixFQUFFO0FBQ3ZCO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7QUFDZjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixNQUFNO0FBQ1I7QUFDQTtFQUNFLHVCQUF1QjtFQUN2Qix1QkFBdUI7RUFDdkIsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixXQUFXO0VBQ1gsVUFBVTtFQUNWLHNCQUFzQjtFQUN0QixZQUFZO0FBQ2Q7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUVBO0VBQ0UsY0FBYztFQUNkLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQiwyQkFBMkI7QUFDN0I7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCLEVBQUU7QUFFL0I7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtBQUN2QjtBQUVBO0VBQ0UsZUFBZTtBQUNqQiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvZGFtLWNvbnRleHQtbWVudS9kYW0tY29udGV4dC1tZW51LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjZGFtQ29udGV4dE1lbnVUZW1wbGF0ZUNvbnRhaW5lcntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi5jb250ZXh0TWVudVJvb3R7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXgtaGVpZ2h0OiAxMDB2aDtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG92ZXJmbG93OiB2aXNpYmxlO1xyXG59XHJcblxyXG4ucG9wdXBSaWdodHsgZGlzcGxheTogbm9uZTsgfVxyXG4ucG9wdXBSaWdodFBhcmVudDpob3ZlciA+IC5wb3B1cFJpZ2h0IHsgZGlzcGxheTogYmxvY2s7IH1cclxuLnBvcHVwUmlnaHQge1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4OyB9XHJcbi5yZWZsaSAuZmlyc3RlbXB0eXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnJlZmxpIGJ1dHRvbi5ieWluZGV4IHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG59XHJcbi5wb3B1cFJpZ2h0UGFyZW50e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4ucmVmbGkgLmluZGV4IHtcclxuICBwYWRkaW5nLWxlZnQ6IDNweDtcclxuICBjb2xvcjogb3JhbmdlO1xyXG59XHJcbi5yZWZsaSAudGV4dHtcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbn1cclxuYnV0dG9uLnJlZmxpLmRlbGV0ZXtcclxuICBwYWRkaW5nOiAwIDRweDtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5wb3B1cFJpZ2h0IHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIGxlZnQ6IGNhbGMoMTAwJSk7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmc6IDJweCA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICB0b3A6IDA7XHJcbn1cclxudWwuY29udGV4dE1lbnV7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBwYWRkaW5nLXRvcDogNnB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiA4cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxufVxyXG51bC5jb250ZXh0TWVudSBsaXtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxudWwuY29udGV4dE1lbnUgbGkucG9wdXBSaWdodFBhcmVudHtcclxuICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xyXG59XHJcbmxpOmZpcnN0LWNoaWxke1xyXG4gIHBhZGRpbmctdG9wOiAwO1xyXG59XHJcbmxpLnNlcGFyYXRvcntcclxuICBtYXJnaW4tdG9wOiAycHg7XHJcbiAgaGVpZ2h0OiAxcHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xyXG4gIG9wYWNpdHk6IDAuNDtcclxufVxyXG5saTpsYXN0LWNoaWxke1xyXG4gIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcbmxpe1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIGN1cnNvcjogZGVmYXVsdDtcclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTtcclxufVxyXG5saTpub3QoLnVuY2xpY2thYmxlKTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLWNvbG9yLTQpO1xyXG59XHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLypjdXJzb3I6IGRlZmF1bHQ7Ki9cclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTsgfVxyXG5cclxubGk6aG92ZXIgbGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1jb2xvci00KTtcclxufVxyXG5cclxuLnR5cGVsaS5keW5hbWljLCAucmVmbGkuZHluYW1pY3tcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -12752,7 +13543,7 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
     }
     ngOnInit() { }
     onContextMenu(evt) {
-        console.log('sinit click contextmenu');
+        console.log('rx click contextmenu');
         // evt.preventDefault(); evt.stopPropagation(); return false;
         const vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(evt.target, false);
         // evt.stopPropagation();
@@ -12775,13 +13566,19 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
         const ret = !mp || isInput && !gotMoved;
         // evt['passedThroughVertex'] = ret;
         console.log('ret:', ret, 'mp:', mp, 'moved:', gotMoved, 'isInput:', isInput);
+        const afterContextMenu = () => {
+            console.log('rx mouseup');
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext = null;
+        };
+        afterContextMenu();
         if (ret)
             return true;
         else {
             evt.preventDefault();
         }
-        if (gotMoved)
+        if (gotMoved) {
             return ret;
+        }
         DamContextMenuComponent_1.contextMenu.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Point"](evt.pageX, evt.pageY), evt.target);
         return ret;
     }
@@ -12795,7 +13592,10 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
             && originalTarget === document.activeElement; // se la selezione non è sul bottone, per me non l'ho premuto,
         // magari era un mousedown di selezione su un input terminato con mouseup su un button
         const clickedOutside = !_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(this.html, originalTarget);
-        console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
+        // clicking on a submenu header should not cause it to disappear making the user incorrectly believe they triggered an action
+        if (!clickedOutside && originalTarget.classList.contains('popupRightParent'))
+            return;
+        // console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
         if (isButton || clickedOutside || !isInput && !isDisabled && !focused) {
             this.hide();
         }
@@ -12819,6 +13619,7 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!target, 'target is null.');
         if (!mp)
             return;
+        mp.linkToLogic(this.html, false);
         console.log('contextmenu target:', this.clickTarget);
         const model = mp.getModelRoot();
         this.clickTarget = target;
@@ -12985,23 +13786,7 @@ let DamContextMenuComponent = DamContextMenuComponent_1 = class DamContextMenuCo
         $byindexInputAndButton.each((index, el) => { el.disabled = mr && upperbound === 0; });
         $firstempty[0].disabled = mr && upperbound === 0;
         $html.find('.refli .firstempty').off('click.setref').on('click.setref', (e) => {
-            let index = mr.getfirstEmptyTarget();
-            if (index === -1) {
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pw(true, 'This reference is already filled to his upperbound.');
-                e.preventDefault();
-                e.stopPropagation();
-                return;
-            }
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pw(upperbound === 0, 'Before setting a reference change set an Upperbound != 0 for his m2 counterpart.');
-            if (upperbound === 0)
-                return;
-            const edge = mr.edges[index];
-            if (!edge) {
-                const tmpend = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphPoint"].fromEvent(e);
-                new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IEdge"](mr, index, m.getVertex(), null, tmpend);
-                return;
-            }
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].linkVertexMouseDown(null, edge, graphLocation);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].linkVertexMouseDown(e, null, graphLocation);
         });
         $html.find('.refli button.byindex').off('click.setref').on('click.setref', (e) => {
             let index = +$indexinput[0].value;
@@ -13644,10 +14429,10 @@ __webpack_require__.r(__webpack_exports__);
 
 class ExtEdge extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"] {
     constructor(logic, startv, end, tmpend) { super(logic, null, startv, end, tmpend); }
-    canBeLinkedTo(target0) {
+    canBeLinkedTo(target0, print = true) {
         let out = { reason: '', indirectExtendChain: null };
         if (!this.logic.canExtend(target0, out)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(true, out.reason);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(print, out.reason);
             return false;
         }
         return true;
@@ -13697,18 +14482,33 @@ class EdgePointStyle {
         this.strokeWidth = strokeWidth;
         this.fillColor = fillColor;
     }
+    static duplicate(json) { const ret = new EdgePointStyle(); ret.clone(json); return ret; }
+    duplicate() { return EdgePointStyle.duplicate(this); }
+    clone(json) {
+        this.radius = json.radius;
+        this.strokeWidth = json.strokeWidth;
+        this.strokeColor = json.strokeColor;
+        this.fillColor = json.fillColor;
+    }
 }
 class EdgeHeadStyle {
-    constructor(width, height, fill, stroke) {
+    constructor(width = null, height = null, fill = null, stroke = null) {
         this.width = width;
         this.height = height;
         this.fill = fill;
         this.stroke = stroke;
     }
-    clone() { return new EdgeHeadStyle(this.width, this.height, this.fill, this.stroke); }
+    static duplicate(json) { const ret = new EdgeHeadStyle(); ret.clone(json); return ret; }
+    duplicate() { return EdgeHeadStyle.duplicate(this); }
+    clone(json) {
+        this.width = json.width;
+        this.height = json.height;
+        this.fill = json.fill;
+        this.stroke = json.stroke;
+    }
 }
 class EdgeStyle {
-    constructor(style = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].angular23Auto, width = 2, color = '#ffffff', edgePointStyle, edgeHeadStyle) {
+    constructor(style = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].angular23Auto, width = 2, color = '#ffffff', edgePointStyle = null, edgeHeadStyle = null) {
         this.style = null;
         this.width = null;
         this.color = null;
@@ -13718,7 +14518,15 @@ class EdgeStyle {
         this.width = width;
         this.color = color;
     }
-    clone() { return new EdgeStyle(this.style, this.width, this.color, this.edgePointStyle, this.edgeHeadStyle); }
+    static duplicate(json) { const ret = new EdgeStyle(); ret.clone(json); return ret; }
+    duplicate() { return EdgeStyle.duplicate(this); }
+    clone(json) {
+        this.style = json.style;
+        this.width = json.width;
+        this.color = json.color;
+        this.edgePointStyle = EdgePointStyle.duplicate(json.edgePointStyle);
+        this.edgeHeadStyle = EdgeHeadStyle.duplicate(json.edgeHeadStyle);
+    }
 }
 
 
@@ -13861,36 +14669,7 @@ class IEdge {
                 return;
             const v = mp.getVertex(); // IVertex.getvertexByHtml(target);
             const e = []; //U.shallowArrayCopy(IEdge.selecteds);// IEdge.getByHtml(target);
-            const ext = [];
-            const elogic = [];
-            const extlogic = [];
-            for (i = 0; i < IEdge.selecteds.length; i++) {
-                const elem = IEdge.selecteds[i];
-                if (elem instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"]) {
-                    ext.push(elem);
-                    extlogic.push(elem.logic);
-                }
-                else {
-                    e.push(elem);
-                    elogic.push(elem.logic);
-                }
-            }
             console.log('document.keydown.deletethings: ', evt, e, v, mp);
-            if (e && e.length) {
-                console.log('edge: evt.key.toLowerCase() = ', evt.key.toLowerCase());
-                switch (evt.key.toLowerCase()) {
-                    default: break;
-                    case 'delete':
-                        for (i = 0; i < elogic.length; i++) {
-                            elogic[i].delete(true);
-                        }
-                        for (i = 0; i < ext.length; i++) {
-                            ext[i].remove();
-                        }
-                        break;
-                }
-                return;
-            }
             if (v) {
                 switch (evt.key.toLowerCase()) {
                     default: break;
@@ -13999,6 +14778,7 @@ class IEdge {
         let pathStr = '';
         const pt1IsOnHorizontalSide = !prevVertexSize ? null : _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnHorizontalEdges(prevPt, prevVertexSize);
         const pt2IsOnHorizontalSide = !nextVertexSize ? null : _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnHorizontalEdges(nextPt, nextVertexSize);
+        debug = false;
         // if (prevVertexSize) { prevPt = prevVertexSize} //IVertex.closestIntersection(); }
         if (debug) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cclear();
@@ -14015,15 +14795,16 @@ class IEdge {
         // return '';
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'directions:', pt1IsOnHorizontalSide, pt2IsOnHorizontalSide);
         if (prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'prev not on border', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge, prevPt, prevVertexSize);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'prev not on border', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge, prevPt, prevVertexSize);
+            // può succedere quando cambi viewpoint in m2 che causa redraw e ridimensionamento in m1 mentre non è visibile.
             // return '';  può causare path di un solo punto (origine)
         }
         if (nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'next not on border', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge, nextPt, nextVertexSize);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug, 'next not on border', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge, nextPt, nextVertexSize);
             // return '';  può causare path di un solo punto (origine)
         }
         // U.pe(prevVertexSize && !U.isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !U.isOnEdge(nextPt, nextVertexSize), 'not on border');
-        if (debug && prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize)) {
+        if (debug && (prevVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(prevPt, prevVertexSize) || nextVertexSize && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(nextPt, nextVertexSize))) {
             const g = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph;
             g.markg(prevPt, true, 'green');
             g.markgS(prevVertexSize, false, 'green');
@@ -14158,7 +14939,9 @@ class IEdge {
             return;
         // || this.start.size.isinside(this.end.size) ||  this.end.size.isinside(this.start.size
         // quando startpoint o endpoint sono dentro un vertice size
-        if (!this.midNodes.length && (this.start === this.end)) { //this.start.size.intersection(this.end.size))) {
+        if (!this.midNodes.length && (this.start === this.end)
+            || this.start && !this.start.isAllowingEdge(this)
+            || this.end && !this.end.isAllowingEdge(this)) { //this.start.size.intersection(this.end.size))) {
             $(this.shell).hide();
             return;
         }
@@ -14362,9 +15145,39 @@ class IEdge {
             // if (U.isFunction((document.activeElement as any).blur)) this.shell.blur();
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.getActiveModel().graph.edgeChangingAbort(e);
         }
-        if (e.key !== _common_util__WEBPACK_IMPORTED_MODULE_2__["Keystrokes"].delete)
-            return;
-        this.remove();
+        console.log('edge: evt.key.toLowerCase() = ', e.key.toLowerCase());
+        let i;
+        const ext = [];
+        const edges = [];
+        const elogic = [];
+        const extlogic = [];
+        for (i = 0; i < IEdge.selecteds.length; i++) {
+            const elem = IEdge.selecteds[i];
+            if (elem instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"]) {
+                ext.push(elem);
+                extlogic.push(elem.logic);
+            }
+            else {
+                edges.push(elem);
+                elogic.push(elem.logic);
+            }
+        }
+        switch (e.key.toLowerCase()) {
+            default: break;
+            case 'delete':
+                for (i = 0; i < elogic.length; i++) {
+                    elogic[i].delete(true);
+                }
+                for (i = 0; i < ext.length; i++) {
+                    for (let extedge of ext) {
+                        console.log('delete extedge:', extedge);
+                        extedge.logic.unsetExtends(extedge.end.logic());
+                        extedge.remove();
+                    }
+                    //ext[i].remove();
+                }
+                break;
+        }
     }
     onBlur(e = null) {
         if (this.isDeleted)
@@ -15557,7 +16370,26 @@ class IVertex {
         if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging.owner.edgeChangingAbort(e);
         }
-        edge = edge ? edge : _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].get(e);
+        location = location || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"].fromEvent(e); //Status.status.getActiveModel().graph.toGraphCoord(new Point(e.pageX, e.pageY));
+        if (!edge) {
+            const mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(e.target);
+            const mr = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"] ? mp : null;
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!mr, 'button.linkVertex should only be inserted inside M1-references', mp, e);
+            let index = mr.getfirstEmptyTarget();
+            if (index === -1) {
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'This reference is already filled to his upperbound.');
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+            const upperbound = mr.getUpperbound();
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(upperbound === 0, 'Before setting a reference change set an Upperbound != 0 for his m2 counterpart.');
+            if (upperbound === 0)
+                return;
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!!mr.edges[index], "dev error, was trying to overwrite an existing edge");
+            edge = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"](mr, index, mp.getVertex(), null, location);
+        }
+        // edge = edge ? edge : IEdge.get(e);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!edge, 'IVertex.linkVertexMouseDown() failed to get edge:', e);
         const logic = edge.logic;
         const classe = logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] ? logic : null;
@@ -15623,6 +16455,41 @@ class IVertex {
             const vertex = IVertex.all[id];
             if (vertex.isMarkedWith('refhover', colorFilter)) {
                 ret.push(vertex);
+            }
+        }
+        return ret;
+    }
+    isAllowingEdge(edge) {
+        const start = edge.start;
+        const end = edge.end;
+        const startSvgForeign = start && start.getHtmlRawForeign();
+        const endSvgForeign = end && end.getHtmlRawForeign();
+        // start: null true true , end: null true false
+        console.log('isAllowingEdge pre-check keep-edges ', start && start.logic() && start.logic().name, ' - ', end && end.logic() && end.logic().name, ' start:', startSvgForeign && startSvgForeign.getAttribute('keep-edges'), start.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject, startSvgForeign && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(startSvgForeign.getAttribute('keep-edges'), start.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject), ', end:', endSvgForeign && endSvgForeign.getAttribute('keep-edges'), end && end.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject, endSvgForeign && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(endSvgForeign.getAttribute('keep-edges'), end.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject));
+        if (startSvgForeign && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(startSvgForeign.getAttribute('keep-edges'), start.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject))
+            return false;
+        if (endSvgForeign && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(endSvgForeign.getAttribute('keep-edges'), end.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject))
+            return false;
+        let kind;
+        if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"])
+            kind = "ext";
+        // if (this instanceof IndirectEdge) kind = "oth";
+        else
+            kind = "rel";
+        const conditionStart = start && IVertex.isAllowingEdges(startSvgForeign, ["out"], [kind]);
+        const conditionEnd = end && IVertex.isAllowingEdges(startSvgForeign, ["in"], [kind]);
+        console.log("isAllowingEdge(", edge, conditionStart, conditionEnd);
+        return (start ? conditionStart["out"][kind] : 0) + (end ? conditionEnd["in"][kind] : 0) > 0;
+    }
+    static isAllowingEdges(svgForeign, directions = ["in", "out"], kinds = ["rel", "ext", "oth"]) {
+        const ret = { in: {}, out: {} };
+        let defaultValues = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ParseNumberOrBooleanOptions"]();
+        defaultValues.defaultValue = 1;
+        defaultValues.trueValue = 1;
+        defaultValues.falseValue = -1;
+        for (let direction of directions) {
+            for (let kind of kinds) {
+                ret[direction][kind] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].parseNumberOrBoolean(svgForeign.getAttribute('show-' + direction + '-' + kind + '-edges'), defaultValues);
             }
         }
         return ret;
@@ -15726,7 +16593,8 @@ class IVertex {
         }
         pt = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"].closestIntersection(vertexGSize, prevPt, pt, this.owner.grid);
         // U.pe(!U.isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
+        const debug = false;
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(debug && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isOnEdge(pt, vertexGSize), 'not on Vertex edge.');
         return pt;
     }
     setSize(size, refreshVertex = false, refreshEdge = true, trigger = null && false) {
@@ -16142,7 +17010,7 @@ class IVertex {
         // console.log('drawing Vertex[' + data.name + '] with style:', htmlRaw, 'logic:', data);
         // console.log('drawVertex: template:', htmlRaw);
         const foreign = this.htmlForeign = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].textToSvg(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceVars(data, htmlRaw, true).outerHTML);
-        this.htmlForeign.classList.add(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ReservedClasses"].vertexRoot);
+        // this.htmlForeign.classList.add(ReservedClasses.vertexRoot);
         const $foreign = $(foreign);
         data.linkToLogic(foreign);
         const $elementWithID = $foreign.find('[id]');
@@ -16273,7 +17141,7 @@ class IVertex {
         // if (html.tagName.toLowerCase() === 'foreignobject' && html.dataset.modelpieceid )
         //   { html = html.firstChild as Element; }
         // while (!(html.classList.contains('Vertex'))) { console.log(html); html = html.parentNode as Element; }
-        // $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDownButton);
+        $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDown);
         const defaultResizeConfig = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ResizableOptionsImpl"]();
         const defaultDragConfig = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DraggableOptionsImpl"]();
         const defaultRotConfig = new _common_measurable__WEBPACK_IMPORTED_MODULE_2__["RotatableOptions"]();
@@ -16418,6 +17286,7 @@ class IVertex {
         }
         IVertex.selected = this;
         IVertex.startDragContext = new StartDragContext(this);
+        console.log('rx mousedown');
         if (IVertex.selectedGridWasOn.x === 'prevent_doublemousedowncheck') {
             IVertex.selectedGridWasOn.x = IVertex.selected.owner.grid.x;
         }
@@ -16452,6 +17321,7 @@ class IVertex {
         // while (html2 && html2.classList && !html2.classList.contains('vertexShell')) { html2 = html2.parentNode as Element;}
         let hoveringTarget = html2 ? _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(html2) : null;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!hoveringTarget || !(hoveringTarget instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClassifier"]), 'the currentTarget should point to the vertex root, only classifier should be retrieved.', hoveringTarget, e, html2);
+        console.log('linkable ? ', hoveringTarget, edge, edge.canBeLinkedTo(hoveringTarget));
         const linkable = hoveringTarget instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] ? edge.canBeLinkedTo(hoveringTarget) : false;
         const size = hoveringTarget.getVertex().getSize();
         const width = 3;
@@ -16532,7 +17402,7 @@ class IVertex {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!graph, 'Vertex should only be created after Graph initialization.');
         this.owner = graph;
     }
-    refreshGUI() { this.draw(); }
+    refreshGUI() { this.draw(); this.refreshEdgesGUI(); }
     refreshEdgesGUI() {
         const refEnd = this.edgesEnd; // this.getReferencesEnd();
         const refStart = this.edgesStart; // this.getReferencesStart();
@@ -16686,6 +17556,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
 /* harmony import */ var _Layouting__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Layouting */ "./src/guiElements/mGraph/Layouting.ts");
+/* harmony import */ var _common_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../common/util */ "./src/common/util.ts");
+
 
 
 
@@ -16756,46 +17628,65 @@ class ViewPointShell {
             for (i = 0; i < this.checkboxes.length; i++) {
                 this.checkboxes[i].checked = false;
             }
-            this.graph.model.refreshGUI_Alone();
+            // this.graph.model.refreshGUI_Alone();
         }
         const defaultradio = this.$html.find('input[type="radio"]')[0];
         defaultradio.checked = true;
         this.ignoreEvents = false;
+        this.refreshApplied();
     }
     refreshApplied() {
         // this.undoAll(false);
         let i;
         let stylecustomized = false;
         const makeSureAllCheckboxesAreProcessed = this.checkboxes.slice();
+        this.graph.propertyBar.styleEditor.hide();
         for (i = this.model.viewpoints.length; --i >= 0;) {
             const vp = this.model.viewpoints[i];
             const checkbox = this.getCheckbox(vp);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!checkbox, 'failed to get checkbox of:', vp, this);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(makeSureAllCheckboxesAreProcessed, checkbox);
             stylecustomized = stylecustomized || checkbox.checked;
-            if (vp.isApplied === checkbox.checked) {
-                continue;
-            }
-            if (vp.isApplied) {
-                vp.detach();
-            }
-            else {
-                vp.apply();
-            }
-        } /*
-        for (i = 0; i < makeSureAllCheckboxesAreProcessed.length; i++) {
-          const cbox: HTMLInputElement = makeSureAllCheckboxesAreProcessed[i];
-          const vp = ViewPoint.getbyID(+cbox.dataset.vpid);
-          if (vp.isApplied === checkbox.checked) { continue; }
-          if (vp.isApplied) { vp.detach(); } else { vp.apply(); }
-        }*/
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!!makeSureAllCheckboxesAreProcessed.length, 'Error: some checkbox are not yet processed.', makeSureAllCheckboxesAreProcessed, this);
-        // U.pe(true, 'stopped here still works? 2');
+            vp.apply();
+            vp.isApplied = checkbox.checked;
+            // if (vp.isApplied === checkbox.checked) { continue; }
+            // if (vp.isApplied) { vp.detach(); } else { vp.apply(); } // just used to set isapplied
+        }
         const defaultradio = this.$html.find('input[type="radio"]')[0];
         defaultradio.checked = !stylecustomized;
         this.updatelastvp();
-        this.graph.model.refreshGUI_Alone();
-        this.graph.propertyBar.refreshGUI();
+        const isM2 = true; // this.graph.model.isM2(); per qualche motivo è false se cambio una checkbox in m2, ha collegato modello sbagliato?
+        if (stylecustomized) {
+            this.graph.model.refreshGUI();
+            if (isM2)
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.refreshGUI();
+            this.graph.propertyBar.styleEditor.show();
+            if (isM2) {
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.styleEditor.show();
+            }
+        }
+        else {
+            try {
+                this.graph.model.refreshGUI_Alone();
+            }
+            catch (e) {
+                console.error('error while disabling all vp(0):', e);
+                this.graph.propertyBar.styleEditor.hide();
+            }
+        }
+        setTimeout(() => {
+            if (isM2)
+                try {
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.refreshGUI();
+                }
+                catch (e) {
+                    console.error('error while disabling all vp(1):', e);
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.styleEditor.hide();
+                }
+            this.graph.propertyBar.styleEditor.show();
+            if (isM2)
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.styleEditor.show();
+        }, 10);
     }
     duplicateEvent(e, oldvp, oldvpCheckbox, debug = false) {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'duplicate(' + (oldvp ? oldvp.name : null) + ') Start:', this.model.viewpoints);
@@ -16840,23 +17731,23 @@ class ViewPointShell {
             //
             // $rename.hide(); $delete.hide(); $duplicate.hide();
         });
-        const inputConfirm = (confirm = true) => {
-            if (confirm) {
-                v.setname(input.name);
+        const inputConfirm = (key) => {
+            console.log('vprename ?', key);
+            switch (key) {
+                default: return;
+                case _common_util__WEBPACK_IMPORTED_MODULE_3__["Keystrokes"].numpadEnter:
+                case _common_util__WEBPACK_IMPORTED_MODULE_3__["Keystrokes"].enter:
+                    v.setname(input.value);
+                    break;
+                case _common_util__WEBPACK_IMPORTED_MODULE_3__["Keystrokes"].escape: break;
             }
+            let oldVal = input.value;
             input.value = v.name;
             input.readOnly = true;
-            // $rename.show();
-            // $delete.show();
-            // $duplicate.show();
+            console.log('vprename ok:', v.name, input.value, oldVal);
         };
-        $input.on('keydown', (e) => { if (e.key === 'return') {
-            inputConfirm(true);
-        }
-        else if (e.key === 'escape') {
-            inputConfirm(false);
-        } });
-        $input.on('blur', (e) => { inputConfirm(false); });
+        $input.on('keydown', (e) => { inputConfirm(e.key); });
+        $input.on('blur', (e) => { inputConfirm(_common_util__WEBPACK_IMPORTED_MODULE_3__["Keystrokes"].enter); });
         $input.on('click', (e) => {
             // todo: se non lo fa già di suo: (per triggerare default.click() = this.undoAll();
             // if (input.readOnly) { this.undoAll(true); }
@@ -16865,22 +17756,27 @@ class ViewPointShell {
         input.value = v.name;
         checkbox.checked = v.isApplied;
         $checkbox.on('change', (e) => {
+            const checkbox = e.currentTarget;
+            const vp = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ViewPoint"].getByID(+checkbox.dataset.vpid);
+            vp.runtimeorder = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ViewPoint"].LAST_ORDER++;
+            console.log('changed cbox:', checkbox);
             if (this.ignoreEvents) {
                 e.preventDefault();
                 return false;
             }
-            this.refreshApplied();
+            setTimeout(() => this.refreshApplied(), 1); // devo dare tempo alla checkbox di settarsi
             return true;
         });
         if (allowApply && v.isApplied) {
             $checkbox.trigger('change');
         }
         li.classList.remove('template');
+        li.classList.add("linkedToModel_" + this.model.getPrefix());
         this.html.appendChild(li);
     }
     updatelastvp() {
         this.$html.find('li[islastvp]').removeAttr('islastvp');
-        const vp = this.model.getLastView();
+        const vp = this.model.getForemostView();
         console.log('updatelastvp() ', this.model.viewpoints, this.getViewpointGUI, this);
         if (!vp)
             return;
@@ -17121,17 +18017,17 @@ class IGraph {
         const vcontext = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].startDragContext;
         if (!v)
             return;
-        const afterContextMenu = () => { _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].startDragContext = null; };
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selected = null;
         v.owner.grid.x = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selectedGridWasOn.x;
         v.owner.grid.y = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selectedGridWasOn.y;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selectedGridWasOn.x = 'prevent_doublemousedowncheck';
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IVertex"].selectedGridWasOn.y = 'prevent_doublemousedowncheck';
-        const afterContextMenuTimeout = () => setTimeout(afterContextMenu, 0);
-        afterContextMenuTimeout(); // do it regardless of moved or not.
+        // const afterContextMenuTimeout = () => setTimeout(afterContextMenu, 0);
+        // afterContextMenuTimeout(); // do it regardless of moved or not.
         const gotMoved = !vcontext.size.tl().equals(v.size.tl(), 0);
-        if (!gotMoved)
+        if (!gotMoved) {
             return;
+        }
         v.owner.fitToGridS(v.size, false);
         v.setSize(v.size, false, true, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
         //NB: Ivertex.selected va cancellato per forza prima di gotMoved e setSize, perchè crea casini con dragEnd.
@@ -17660,7 +18556,7 @@ MsidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\ninput, select {\r\n  height: 21px;\r\n  border-radius: 5px;\r\n  border-bottom-right-radius: 12px; }\r\ninput:hover, select:hover, input:focus, select:focus {\r\n  outline: none;\r\n  border: 2px solid dodgerblue;\r\n  height: 22px;\r\n}\r\n/* label > input[type='checkbox']{ height: 21px; } */\r\n/* input[type='checkbox']:hover, input[type='checkbox']:focus { height: 23px; }*/\r\ninput[disabled]:hover, select[disabled]:hover{\r\n  outline: none;\r\n  border: 2px solid gray;\r\n  /* height: auto; */\r\n}\r\n/*propertyBar*/\r\n#modelTemplate, #packageTemplate, #classTemplate, #attributeTemplate, #referenceTemplate{\r\n  width: 100%;\r\n}\r\n.propertySidebarTemplates{\r\n  display: none;\r\n}\r\n.wastemplate {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.wastemplate > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate > *{\r\n  width: 100%;\r\n}\r\n.minimizer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-left: 2px dashed dodgerblue;\r\n  border-bottom: 2px dashed dodgerblue;\r\n  min-width: 8px !important;\r\n  height: auto;\r\n  width: 8px !important;\r\n}\r\n.wastemplate.minimized > *{\r\n  display: none;\r\n}\r\n.wastemplate.minimized:hover {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-color: var(--secondary);\r\n}\r\n.wastemplate.minimized:before {\r\n  color: dodgerblue;\r\n  content: '+';\r\n  font-size: 20px;\r\n  margin: auto;\r\n  line-height: 0;\r\n}\r\n.wastemplate.minimized:hover:before {\r\n  color: var(--secondary);\r\n}\r\n.minimizer:hover, .attributeMinimizer:hover{\r\n  border-left: 2px dashed var(--secondary);\r\n  border-bottom: 2px dashed var(--secondary);\r\n}\r\n.wastemplate.minimized{\r\n  border: 2px solid dodgerblue;\r\n  height: 20px;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate.minimized.list{\r\n  border-style: dashed;\r\n}\r\n.minimizer.single {\r\n  border-style: solid;\r\n  border-right: none;\r\n  border-top: none;\r\n}\r\n.content {\r\n  margin-left: 8px;\r\n  width: 100%;\r\n  height: -webkit-min-content;\r\n  height: -moz-min-content;\r\n  height: min-content;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*width: calc(100% - 16px);*/\r\n\r\n}\r\nlabel{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 24px;\r\n  line-height: 24px;\r\n  white-space: nowrap;\r\n}\r\nlabel > input:not([type]), label > input[type=\"\"], label > input[type=\"text\"], label > input[type=\"number\"],\r\nlabel > input[type=\"checkbox\"], label > select{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n  margin-right: 0;\r\n  margin-left: 20px;\r\n  width: inherit;\r\n  min-width: 60px;\r\n}\r\n/*\r\nlabel > input[type=\"checkbox\"]{\r\n   display: flex;\r\n   margin: auto;\r\n   margin-left: 0;\r\n   margin-right: 20px;\r\n   min-width: 20px;\r\n }*/\r\nlabel > input[type=\"number\"] {\r\n  min-width: 30px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9wcm9wZXJ0eS1iYXJyL3Byb3BlcnR5LWJhcnIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGdDQUFnQyxFQUFFO0FBQ3BDO0VBQ0UsYUFBYTtFQUNiLDRCQUE0QjtFQUM1QixZQUFZO0FBQ2Q7QUFFQSxvREFBb0Q7QUFFcEQsZ0ZBQWdGO0FBQ2hGO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7QUFDQSxjQUFjO0FBQ2Q7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGtDQUFrQztFQUNsQyxvQ0FBb0M7RUFDcEMseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQThCO0FBQ2hDO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUNBO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsMENBQTBDO0FBQzVDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQiw0QkFBNEI7O0FBRTlCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixXQUFXO0VBQ1gsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7QUFDQTs7RUFFRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QsZUFBZTtBQUNqQjtBQUNBOzs7Ozs7O0dBT0c7QUFDSDtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3Byb3BlcnR5LWJhcnIvcHJvcGVydHktYmFyci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbmlucHV0LCBzZWxlY3Qge1xyXG4gIGhlaWdodDogMjFweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDEycHg7IH1cclxuaW5wdXQ6aG92ZXIsIHNlbGVjdDpob3ZlciwgaW5wdXQ6Zm9jdXMsIHNlbGVjdDpmb2N1cyB7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDJweCBzb2xpZCBkb2RnZXJibHVlO1xyXG4gIGhlaWdodDogMjJweDtcclxufVxyXG5cclxuLyogbGFiZWwgPiBpbnB1dFt0eXBlPSdjaGVja2JveCddeyBoZWlnaHQ6IDIxcHg7IH0gKi9cclxuXHJcbi8qIGlucHV0W3R5cGU9J2NoZWNrYm94J106aG92ZXIsIGlucHV0W3R5cGU9J2NoZWNrYm94J106Zm9jdXMgeyBoZWlnaHQ6IDIzcHg7IH0qL1xyXG5pbnB1dFtkaXNhYmxlZF06aG92ZXIsIHNlbGVjdFtkaXNhYmxlZF06aG92ZXJ7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDJweCBzb2xpZCBncmF5O1xyXG4gIC8qIGhlaWdodDogYXV0bzsgKi9cclxufVxyXG4vKnByb3BlcnR5QmFyKi9cclxuI21vZGVsVGVtcGxhdGUsICNwYWNrYWdlVGVtcGxhdGUsICNjbGFzc1RlbXBsYXRlLCAjYXR0cmlidXRlVGVtcGxhdGUsICNyZWZlcmVuY2VUZW1wbGF0ZXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ucHJvcGVydHlTaWRlYmFyVGVtcGxhdGVze1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuLndhc3RlbXBsYXRlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG4ud2FzdGVtcGxhdGUgPiAqIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbi1ib3R0b206IDhweDtcclxufVxyXG5cclxuLndhc3RlbXBsYXRlID4gKntcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ubWluaW1pemVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGJvcmRlci1sZWZ0OiAycHggZGFzaGVkIGRvZGdlcmJsdWU7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IGRhc2hlZCBkb2RnZXJibHVlO1xyXG4gIG1pbi13aWR0aDogOHB4ICFpbXBvcnRhbnQ7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA4cHggIWltcG9ydGFudDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkID4gKntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6aG92ZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6YmVmb3JlIHtcclxuICBjb2xvcjogZG9kZ2VyYmx1ZTtcclxuICBjb250ZW50OiAnKyc7XHJcbiAgZm9udC1zaXplOiAyMHB4O1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBsaW5lLWhlaWdodDogMDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkOmhvdmVyOmJlZm9yZSB7XHJcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLm1pbmltaXplcjpob3ZlciwgLmF0dHJpYnV0ZU1pbmltaXplcjpob3ZlcntcclxuICBib3JkZXItbGVmdDogMnB4IGRhc2hlZCB2YXIoLS1zZWNvbmRhcnkpO1xyXG4gIGJvcmRlci1ib3R0b206IDJweCBkYXNoZWQgdmFyKC0tc2Vjb25kYXJ5KTtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVke1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIGRvZGdlcmJsdWU7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDhweDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkLmxpc3R7XHJcbiAgYm9yZGVyLXN0eWxlOiBkYXNoZWQ7XHJcbn1cclxuLm1pbmltaXplci5zaW5nbGUge1xyXG4gIGJvcmRlci1zdHlsZTogc29saWQ7XHJcbiAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG4gIGJvcmRlci10b3A6IG5vbmU7XHJcbn1cclxuLmNvbnRlbnQge1xyXG4gIG1hcmdpbi1sZWZ0OiA4cHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBtaW4tY29udGVudDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICAvKndpZHRoOiBjYWxjKDEwMCUgLSAxNnB4KTsqL1xyXG5cclxufVxyXG5sYWJlbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMjRweDtcclxuICBsaW5lLWhlaWdodDogMjRweDtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcbmxhYmVsID4gaW5wdXQ6bm90KFt0eXBlXSksIGxhYmVsID4gaW5wdXRbdHlwZT1cIlwiXSwgbGFiZWwgPiBpbnB1dFt0eXBlPVwidGV4dFwiXSwgbGFiZWwgPiBpbnB1dFt0eXBlPVwibnVtYmVyXCJdLFxyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJjaGVja2JveFwiXSwgbGFiZWwgPiBzZWxlY3R7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiAwO1xyXG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xyXG4gIHdpZHRoOiBpbmhlcml0O1xyXG4gIG1pbi13aWR0aDogNjBweDtcclxufVxyXG4vKlxyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJjaGVja2JveFwiXXtcclxuICAgZGlzcGxheTogZmxleDtcclxuICAgbWFyZ2luOiBhdXRvO1xyXG4gICBtYXJnaW4tbGVmdDogMDtcclxuICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG4gICBtaW4td2lkdGg6IDIwcHg7XHJcbiB9Ki9cclxubGFiZWwgPiBpbnB1dFt0eXBlPVwibnVtYmVyXCJdIHtcclxuICBtaW4td2lkdGg6IDMwcHg7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\ninput, select {\r\n  height: 21px;\r\n  border-radius: 5px;\r\n  border-bottom-right-radius: 12px; }\r\ninput:hover, select:hover, input:focus, select:focus {\r\n  outline: none;\r\n  border: 2px solid var(--color-4);\r\n  height: 22px;\r\n}\r\n/* label > input[type='checkbox']{ height: 21px; } */\r\n/* input[type='checkbox']:hover, input[type='checkbox']:focus { height: 23px; }*/\r\ninput[disabled]:hover, select[disabled]:hover{\r\n  outline: none;\r\n  border: 2px solid gray;\r\n  /* height: auto; */\r\n}\r\n/*propertyBar*/\r\n#modelTemplate, #packageTemplate, #classTemplate, #attributeTemplate, #referenceTemplate{\r\n  width: 100%;\r\n}\r\n.propertySidebarTemplates{\r\n  display: none;\r\n}\r\n.wastemplate {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.wastemplate > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate > *{\r\n  width: 100%;\r\n}\r\n.minimizer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-left: 2px dashed var(--color-4);\r\n  border-bottom: 2px dashed var(--color-4);\r\n  min-width: 8px !important;\r\n  height: auto;\r\n  width: 8px !important;\r\n}\r\n.wastemplate.minimized > *{\r\n  display: none;\r\n}\r\n.wastemplate.minimized:hover {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  border-color: var(--secondary);\r\n}\r\n.wastemplate.minimized:before {\r\n  color: var(--color-4);\r\n  content: '+';\r\n  font-size: 20px;\r\n  margin: auto;\r\n  line-height: 0;\r\n}\r\n.wastemplate.minimized:hover:before {\r\n  color: var(--secondary);\r\n}\r\n.minimizer:hover, .attributeMinimizer:hover{\r\n  border-left: 2px dashed var(--secondary);\r\n  border-bottom: 2px dashed var(--secondary);\r\n}\r\n.wastemplate.minimized{\r\n  border: 2px solid var(--color-4);\r\n  height: 20px;\r\n  margin-bottom: 8px;\r\n}\r\n.wastemplate.minimized.list{\r\n  border-style: dashed;\r\n}\r\n.minimizer.single {\r\n  border-style: solid;\r\n  border-right: none;\r\n  border-top: none;\r\n}\r\n.content {\r\n  margin-left: 8px;\r\n  width: 100%;\r\n  height: -webkit-min-content;\r\n  height: -moz-min-content;\r\n  height: min-content;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*width: calc(100% - 16px);*/\r\n\r\n}\r\nlabel{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 100%;\r\n  height: 24px;\r\n  line-height: 24px;\r\n  white-space: nowrap;\r\n}\r\nlabel > input:not([type]), label > input[type=\"\"], label > input[type=\"text\"], label > input[type=\"number\"],\r\nlabel > input[type=\"checkbox\"], label > select{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n  margin-right: 0;\r\n  margin-left: 20px;\r\n  width: inherit;\r\n  min-width: 60px;\r\n}\r\n/*\r\nlabel > input[type=\"checkbox\"]{\r\n   display: flex;\r\n   margin: auto;\r\n   margin-left: 0;\r\n   margin-right: 20px;\r\n   min-width: 20px;\r\n }*/\r\nlabel > input[type=\"number\"] {\r\n  min-width: 30px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9wcm9wZXJ0eS1iYXJyL3Byb3BlcnR5LWJhcnIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGdDQUFnQyxFQUFFO0FBQ3BDO0VBQ0UsYUFBYTtFQUNiLGdDQUFnQztFQUNoQyxZQUFZO0FBQ2Q7QUFFQSxvREFBb0Q7QUFFcEQsZ0ZBQWdGO0FBQ2hGO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7QUFDQSxjQUFjO0FBQ2Q7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHNDQUFzQztFQUN0Qyx3Q0FBd0M7RUFDeEMseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQThCO0FBQ2hDO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsWUFBWTtFQUNaLGVBQWU7RUFDZixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUNBO0VBQ0UsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsMENBQTBDO0FBQzVDO0FBQ0E7RUFDRSxnQ0FBZ0M7RUFDaEMsWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQiw0QkFBNEI7O0FBRTlCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixXQUFXO0VBQ1gsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7QUFDQTs7RUFFRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QsZUFBZTtBQUNqQjtBQUNBOzs7Ozs7O0dBT0c7QUFDSDtFQUNFLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3Byb3BlcnR5LWJhcnIvcHJvcGVydHktYmFyci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbmlucHV0LCBzZWxlY3Qge1xyXG4gIGhlaWdodDogMjFweDtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDEycHg7IH1cclxuaW5wdXQ6aG92ZXIsIHNlbGVjdDpob3ZlciwgaW5wdXQ6Zm9jdXMsIHNlbGVjdDpmb2N1cyB7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDJweCBzb2xpZCB2YXIoLS1jb2xvci00KTtcclxuICBoZWlnaHQ6IDIycHg7XHJcbn1cclxuXHJcbi8qIGxhYmVsID4gaW5wdXRbdHlwZT0nY2hlY2tib3gnXXsgaGVpZ2h0OiAyMXB4OyB9ICovXHJcblxyXG4vKiBpbnB1dFt0eXBlPSdjaGVja2JveCddOmhvdmVyLCBpbnB1dFt0eXBlPSdjaGVja2JveCddOmZvY3VzIHsgaGVpZ2h0OiAyM3B4OyB9Ki9cclxuaW5wdXRbZGlzYWJsZWRdOmhvdmVyLCBzZWxlY3RbZGlzYWJsZWRdOmhvdmVye1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiAycHggc29saWQgZ3JheTtcclxuICAvKiBoZWlnaHQ6IGF1dG87ICovXHJcbn1cclxuLypwcm9wZXJ0eUJhciovXHJcbiNtb2RlbFRlbXBsYXRlLCAjcGFja2FnZVRlbXBsYXRlLCAjY2xhc3NUZW1wbGF0ZSwgI2F0dHJpYnV0ZVRlbXBsYXRlLCAjcmVmZXJlbmNlVGVtcGxhdGV7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLnByb3BlcnR5U2lkZWJhclRlbXBsYXRlc3tcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi53YXN0ZW1wbGF0ZSB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuLndhc3RlbXBsYXRlID4gKiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tYm90dG9tOiA4cHg7XHJcbn1cclxuXHJcbi53YXN0ZW1wbGF0ZSA+ICp7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLm1pbmltaXplciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBib3JkZXItbGVmdDogMnB4IGRhc2hlZCB2YXIoLS1jb2xvci00KTtcclxuICBib3JkZXItYm90dG9tOiAycHggZGFzaGVkIHZhcigtLWNvbG9yLTQpO1xyXG4gIG1pbi13aWR0aDogOHB4ICFpbXBvcnRhbnQ7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA4cHggIWltcG9ydGFudDtcclxufVxyXG4ud2FzdGVtcGxhdGUubWluaW1pemVkID4gKntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6aG92ZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYm9yZGVyLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQ6YmVmb3JlIHtcclxuICBjb2xvcjogdmFyKC0tY29sb3ItNCk7XHJcbiAgY29udGVudDogJysnO1xyXG4gIGZvbnQtc2l6ZTogMjBweDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbGluZS1oZWlnaHQ6IDA7XHJcbn1cclxuLndhc3RlbXBsYXRlLm1pbmltaXplZDpob3ZlcjpiZWZvcmUge1xyXG4gIGNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi5taW5pbWl6ZXI6aG92ZXIsIC5hdHRyaWJ1dGVNaW5pbWl6ZXI6aG92ZXJ7XHJcbiAgYm9yZGVyLWxlZnQ6IDJweCBkYXNoZWQgdmFyKC0tc2Vjb25kYXJ5KTtcclxuICBib3JkZXItYm90dG9tOiAycHggZGFzaGVkIHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLndhc3RlbXBsYXRlLm1pbmltaXplZHtcclxuICBib3JkZXI6IDJweCBzb2xpZCB2YXIoLS1jb2xvci00KTtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogOHB4O1xyXG59XHJcbi53YXN0ZW1wbGF0ZS5taW5pbWl6ZWQubGlzdHtcclxuICBib3JkZXItc3R5bGU6IGRhc2hlZDtcclxufVxyXG4ubWluaW1pemVyLnNpbmdsZSB7XHJcbiAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcclxuICBib3JkZXItcmlnaHQ6IG5vbmU7XHJcbiAgYm9yZGVyLXRvcDogbm9uZTtcclxufVxyXG4uY29udGVudCB7XHJcbiAgbWFyZ2luLWxlZnQ6IDhweDtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IG1pbi1jb250ZW50O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIC8qd2lkdGg6IGNhbGMoMTAwJSAtIDE2cHgpOyovXHJcblxyXG59XHJcbmxhYmVse1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAyNHB4O1xyXG4gIGxpbmUtaGVpZ2h0OiAyNHB4O1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbn1cclxubGFiZWwgPiBpbnB1dDpub3QoW3R5cGVdKSwgbGFiZWwgPiBpbnB1dFt0eXBlPVwiXCJdLCBsYWJlbCA+IGlucHV0W3R5cGU9XCJ0ZXh0XCJdLCBsYWJlbCA+IGlucHV0W3R5cGU9XCJudW1iZXJcIl0sXHJcbmxhYmVsID4gaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLCBsYWJlbCA+IHNlbGVjdHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tcmlnaHQ6IDA7XHJcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XHJcbiAgd2lkdGg6IGluaGVyaXQ7XHJcbiAgbWluLXdpZHRoOiA2MHB4O1xyXG59XHJcbi8qXHJcbmxhYmVsID4gaW5wdXRbdHlwZT1cImNoZWNrYm94XCJde1xyXG4gICBkaXNwbGF5OiBmbGV4O1xyXG4gICBtYXJnaW46IGF1dG87XHJcbiAgIG1hcmdpbi1sZWZ0OiAwO1xyXG4gICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbiAgIG1pbi13aWR0aDogMjBweDtcclxuIH0qL1xyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xyXG4gIG1pbi13aWR0aDogMzBweDtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -17727,6 +18623,9 @@ class PropertyBarr {
         this.selectedModelPiece = null;
         const $root = this.get$root();
         this.container = $root.find('.propertySidebarCurrentContent')[0];
+        $($root[0].parentElement).on('contextmenu', (e) => {
+            e.stopPropagation();
+        });
         this.templateContainer = $root.find('.propertySidebarTemplates')[0];
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.container, 'property bar shell not found in: ', $root);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.templateContainer, 'property bar template shell not found in: ', $root);
@@ -18242,6 +19141,546 @@ class PropertyBarr {
 
 /***/ }),
 
+/***/ "./src/guiElements/style-editor/csseditor/CssEditor.ts":
+/*!*************************************************************!*\
+  !*** ./src/guiElements/style-editor/csseditor/CssEditor.ts ***!
+  \*************************************************************/
+/*! exports provided: CSSEditor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CSSEditor", function() { return CSSEditor; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../common/Joiner */ "./src/common/Joiner.ts");
+
+
+class CSSEditor {
+    static updateGUI(se, $html, mp, context) {
+        if (!CSSEditor.editor) {
+            CSSEditor.editor = new CSSEditor();
+            CSSEditor.staticInit();
+        }
+        return CSSEditor.editor.updateGUI(se, $html, mp, context);
+    }
+    static makeColorBlockReadonly(color) {
+        const el = document.createElement('div');
+        el.classList.add('colorblock');
+        el.style.backgroundColor = color;
+        return el;
+    }
+    static fillColorSchemeHtml($option, colorscheme) {
+        $option[0].classList.remove('template');
+        $option[0].dataset.csname = colorscheme.name;
+        $option.find('[value1]')[0].innerHTML = colorscheme.name;
+        const colorcontainer = $option.find('[value2]')[0];
+        colorcontainer.dataset.colors = colorscheme.colors.join(', ');
+        for (let color of colorscheme.colors) {
+            colorcontainer.appendChild(CSSEditor.makeColorBlockReadonly(color));
+        }
+    }
+    fillSelectorSuggestionDatalist(templateLevelRoot) {
+        const repeatedClasses = $(templateLevelRoot).find('[class]').addBack('[class]').toArray()['flatMap'](e => e.className.toString().split(/\s+/));
+        const set = new Set();
+        repeatedClasses.forEach(c => c && set.add(c));
+        const uniqueClasses = [...set].sort();
+        const suggestSelectorsDataList = $('#currentNodeClassList')[0];
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].clear(suggestSelectorsDataList);
+        const makeOption = (classname) => {
+            const opt = document.createElement('option');
+            opt.value = classname;
+            return opt;
+        };
+        const options = uniqueClasses.map((classname) => {
+            return makeOption('.' + classname);
+        });
+        options.push(makeOption('input'));
+        options.push(makeOption('textarea'));
+        options.push(makeOption('select'));
+        options.push(makeOption('h1, h2, h3, h4, h5, h6'));
+        console.log('dsa', suggestSelectorsDataList, options, uniqueClasses, templateLevelRoot);
+        /*window['CSSParser'] = CSSParser;
+        console.log("CSSParser", CSSParser);*/
+        suggestSelectorsDataList.append(...options);
+    }
+    fillInheritedColorSchemeDropdown(se, $html, mp, context, csTemplates) {
+        const ancestorLine = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ancestorArray(context.graphLevel, null, false);
+        const $ancestorLine = $(ancestorLine);
+        const allColorSchemeSelectors = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ColorSchemeComponent"].getAllSelectors();
+        const inheritingLine = new Map();
+        let $results;
+        for (let selector in allColorSchemeSelectors) {
+            try {
+                $results = $ancestorLine.filter(selector);
+                if (!$results)
+                    continue;
+                for (let result of $results) {
+                    const oldArr = inheritingLine.get(result) || [];
+                    oldArr.push(...allColorSchemeSelectors[selector]);
+                    inheritingLine.set(result, oldArr);
+                }
+            }
+            catch (e) {
+                ;
+            }
+        }
+        // dati presi, ora riempio la lista cs ereditati
+        let i;
+        // ritorna un singolo cs option template con lista colori
+        const fillListWithCs = ($element, arr) => {
+            for (let cs of arr) {
+                $element.append(csTemplates.getCsOptionEntry(cs));
+            }
+        };
+        const $inerhitingColorSchemeList = $html.find('.inheriting-color-scheme-list'); // todo direttamente dentro style editor, contiene niente e viene riempito dinamicamente.
+        const container = $inerhitingColorSchemeList.find('.dropdownmenu')[0];
+        for (i = 0; i < ancestorLine.length; i++) {
+            const ancestor = ancestorLine[i];
+            const csarr = inheritingLine.get(ancestor);
+            if (!csarr || !csarr.length)
+                continue;
+            const goUpCount = ancestorLine.length - i + 1;
+            const option = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cloneHtml(csTemplates.csList);
+            const $option = $(option);
+            $option.find('.cs.level').text('' + goUpCount);
+            $option.find('.cs.tag').text('' + ancestor.tagName + (ancestor.id ? '#' + ancestor.id : ''));
+            const $csList = $option.find('.cs.list');
+            fillListWithCs($csList, csarr);
+            container.append(option);
+        }
+    }
+    fillOwnColorSchemeDropDown(se, $html, mp, context, csTemplates) {
+        const $ownCsSelect = $html.find('.own-color-scheme-list');
+        const container = $ownCsSelect.find('.dropdownmenu')[0];
+        const colorSchemeAttrContent = context.templateLevel.getAttribute('color-scheme');
+        const currentCsIDList = colorSchemeAttrContent && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceAll(colorSchemeAttrContent, 'CS-', '').split('|') || [];
+        let currentCSList = currentCsIDList.filter((e) => !!e).map((e) => _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ColorScheme2"].get(+e));
+        console.log('csl attrcontent', colorSchemeAttrContent, 'idlist', currentCsIDList, ' list', currentCSList);
+        const debug = false;
+        const applyCsList = (list) => {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'focusout');
+            const strArr = list.map((e) => "CS-" + e.id + "|");
+            context.templateLevel.setAttribute('color-scheme', strArr.sort().join(''));
+        };
+        const onFocusLost = () => {
+            if (colorSchemeAttrContent !== context.templateLevel.getAttribute('color-scheme'))
+                context.applyNodeChangesToInput();
+        };
+        const toggleCsSelected = (option, cs) => {
+            const isSelected = !option.classList.contains('selected');
+            if (isSelected) {
+                option.classList.add('selected');
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(currentCSList, cs);
+            }
+            else {
+                option.classList.remove('selected');
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(currentCSList, cs);
+            }
+            applyCsList(currentCSList);
+        };
+        for (let cs of _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ColorScheme2"].getAll()) {
+            const option = csTemplates.getCsOptionEntry(cs);
+            if (currentCSList.indexOf(cs) >= 0) {
+                option.classList.add('selected');
+            }
+            $(option).on('click', (e) => toggleCsSelected(option, cs));
+            container.append(option);
+        }
+        $ownCsSelect.on('focusout', onFocusLost).on('blur', () => { console.log('evt blur'); }).on('focus', () => { console.log('evt blur'); });
+    }
+    updateGUI(se, $html, mp, context) {
+        let tmp; /*
+        ///////////////////////////////////////// setup dropdown with color scheme
+        const optiontemplate = $html.find('.dropdown-item.template')[0];
+        const optioncontainer = $html.find('.dropdown-menu')[0];
+        for (let colorscheme of CSSEditor.defaultColorSchemes) {
+          const $option: JQuery<HTMLElement> = $(U.cloneHtml(optiontemplate));
+          CSSEditor.fillColorSchemeHtml($option, colorscheme);
+          optioncontainer.appendChild($option[0]);
+        }
+        const $fillwithval1 = $html.find('[fillwithvalue1]');
+        const $fillwithval2 = $html.find('[fillwithvalue2]');
+        // NB: must be click, custom emulated select doesn't have 'change' or 'input' events.
+        let selectedcolorscheme = CSSEditor.defaultColorSchemes[0]; // todo: find initial color scheme analizing html. save it as root template dataset.
+        $html.find('.dropdown-item').on('click',(e: ClickEvent) => {
+          const $option = $(e.currentTarget);
+          const val1node = $option.find('[value1]')[0];
+          const val2node = $option.find('[value2]')[0];
+          $fillwithval1.html(val1node.innerHTML);
+          $fillwithval2.html(val2node.innerHTML);
+          selectedcolorscheme = null;
+          for (let cs of CSSEditor.defaultColorSchemes) {
+            console.log('hide detail:', cs.name !== val1node.innerHTML, ' === ', cs.name, val1node.innerHTML);
+            if (cs.name !== val1node.innerHTML) continue;
+            selectedcolorscheme = cs;
+            break;
+          }
+          tmp = U.computeConditionalHides($html, { isCustomized: !selectedcolorscheme} as Dictionary, false);
+          console.log('hide detail:', tmp);
+        });*/
+        /////// css editor
+        // fill used classes
+        let templateLevelRoot = context.templateLevel;
+        while (templateLevelRoot.parentElement)
+            templateLevelRoot = templateLevelRoot.parentElement;
+        this.fillSelectorSuggestionDatalist(templateLevelRoot);
+        CSSEditor.setupCssRuleBlocks($html, context);
+        ////// data presi, ora riempio la lista di cs ereditati
+        /*
+            let sortedInheritanceListodes: Element[] = [...inheritingLine.keys()].sort(
+              (e, e2) => { return ancestorLine.indexOf(e) - ancestorLine.indexOf(e2);
+              });*/
+        // ritorna il template di livello nodo + contenitore lista nomi dei color schemes
+        const $cstemplates = $html.find('.cstemplates.template');
+        const csTemplates = {};
+        csTemplates.csList = $cstemplates.find('.cslistreadonly')[0];
+        csTemplates.csOption = $cstemplates.find('.csoption')[0];
+        csTemplates.getCsOptionEntry = (cs) => {
+            const template = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cloneHtml(csTemplates.csOption); // todo: devi settargli-rimuovergli la classe selected (in questo preciso elemento) quando opportuno
+            const $template = $(template);
+            $template.find('.name').text(cs.name);
+            const $colorContainer = $template.find('.colors');
+            for (const color of cs.foreColors) {
+                $colorContainer.append(CSSEditor.makeColorBlockReadonly(color));
+            }
+            return template;
+        };
+        this.fillInheritedColorSchemeDropdown(se, $html, mp, context, csTemplates);
+        this.fillOwnColorSchemeDropDown(se, $html, mp, context, csTemplates);
+        const debug = true;
+        if (debug)
+            return;
+        // adesso faccio il dropdown personal con multiselect editabile
+        ////////////////////////////////////////////////// roba vecchia
+        /*
+        // colori attuali (con null = "custom" -> effettivamente colorato)
+        const cssElement: HTMLStyleElement = CSSEditor.getCustomCssElement($templateLevelRoot, context, true);
+        const inputColorScheme: ColorScheme = CSSEditor.getCurrentColorScheme(cssElement);
+        const mappedColorScheme: ColorScheme = CSSEditor.mapColorSchemeToPredefined(inputColorScheme); // null if custom
+        const $customOption: JQuery<HTMLElement> = $html.find('.dropdown.cscheme .dropdown-item[data-csname="custom"]');
+        const isCustom: boolean = true;
+        if (isCustom) {
+          inputColorScheme.name = 'custom';
+          CSSEditor.fillColorSchemeHtml($customOption, inputColorScheme);
+        }
+        const $selectedOption: JQuery<HTMLElement> = isCustom ? $customOption : $html.find('.dropdown.cscheme .dropdown-item[data-csname="' + mappedColorScheme.name + '"]');
+        optioncontainer.innerHTML = $selectedOption[0].outerHTML;
+        $selectedOption[0].classList.add('selected');
+        /// add rule button start
+    
+        const $csseditor: JQuery<HTMLElement> = $html.find('.css_editor');
+        // const $addselector: JQuery<HTMLElement> = $csseditor.find('.addselector');
+        const $addcssProp: JQuery<HTMLElement> = $csseditor.find('.addcssprop');
+        const ruletemplate: Element = $('.cssprop.template')[0];
+        const addRuleHtml = (key: string, value: string): void => {
+          const rulehtml = U.cloneHtml(ruletemplate);
+          const $rulehtml = $(rulehtml);
+          $rulehtml.find('.delcssprop').on('click', () => { U.remove(rulehtml); });
+          const $rulekey: JQuery<HTMLInputElement> = $rulehtml.find('.cssprop') as JQuery<HTMLInputElement>;
+          const $ruleval: JQuery<HTMLInputElement> = $rulehtml.find('.cssval') as JQuery<HTMLInputElement>;
+          const onRuleChange = () => {
+            context.templateLevel.setAttribute("style", context.templateLevel.getAttribute("style") + $rulekey[0].value + ':' + $ruleval[0].value + '; ');
+            context.applyNodeChangesToInput();
+          };
+          $rulekey[0].value = key;
+          $ruleval[0].value = value;
+          $rulekey.on('change', onRuleChange);
+          $ruleval.on('change', onRuleChange);
+          ruletemplate.parentElement.append(rulehtml);
+        };
+        $addcssProp.on('click', (e: ClickEvent) => { addRuleHtml('', ''); });
+        const actualInlineStyles: string[][] = U.getActualInlineStyles(context.templateLevel as HTMLElement);
+        for (let pair of actualInlineStyles) { addRuleHtml(pair[0], pair[1]); }
+      */
+        /*
+            todo: actually flip this shit and just make css rule editor con il color picker come primo row obbligatorio.
+            e il primo css rule editor è "this"
+            e il secondo obbligatorio contiene la singola css rule obbligatoria/autogenerata con tutte le variabili.
+              devo ripensarla quella rule obbligatoria e come collegarlo al dropwodn select con i colori
+            un secondo dropdown che contiene una lista di N classi?
+              a cui posso aggiungerne e incremento la size N del color picker
+            e ogni selector ti dà in suggerimento autocompletamento gli id e le classi esistenti nel vertice.
+        
+              |dropdown|
+        
+            |.vertex| (colorato con primo colore)
+            color picker .vertex
+              altre rule .vertex
+          |.Attribute| (colorato con secondo colore)
+            color picker .Attribute
+            altre rule .Attribute
+            |.type| (colorato con terzo colore)
+            color picker .type
+            altre rule .type*/
+        ///end
+        // U.computeConditionalHides($html, { isCustomized: !selectedcolorscheme} as Dictionary, false);
+    }
+    static setupCssRuleBlocks($html, context) {
+        return;
+        const $container = $html.find('.cssBlocksContainer');
+        const container = $container[0];
+        const $template = $container.find('.cssblock.template');
+        // todo: dovrei aggiungere dal css tutte le variabili assegnate a colori o che iniziano con "color" o roba simile --colorPrimary...
+        const targetEntryArray = ["this", ".Vertex", ".type", ".Feature", "input", "headings (rimappato a h1, h2, ...h6"];
+        for (let target of targetEntryArray) {
+            let rowhtml = CSSEditor.cloneTemplate($template, container);
+            let $rowhtml = $(rowhtml);
+            CSSEditor.setupCssRuleBlock($html, $rowhtml, context, context.templateLevel, target, undefined);
+            // CSSEditor.setupColorRow($rowhtml, context, context.templateLevel, target, undefined, undefined);
+        }
+    }
+    static setupCssRuleBlock($root, $cssBlock, context, targetNode, targetStr, targetStyle) {
+        const $colorPickerRow = $cssBlock.find('.colorPicker'); /*
+        const $container = $html.find('.csspropcontainer');
+        const container = $container[0];
+        const $template = $html.find('.template.cssprop');*/
+        let title = $cssBlock.find(".title.selector")[0];
+        title.innerText = targetStr;
+        let style = CSSEditor.getCustomCssElement($(context.templateRoot), context, true);
+        const cssParsed = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["CSS"].toJSON(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceAll(style.innerText, '#$##id$', ''));
+        console.log("cssParsed", cssParsed);
+        CSSEditor.setupColorRow($colorPickerRow, context, context.graphLevel, targetStr, undefined, undefined);
+        CSSEditor.setupCssRows($root, $cssBlock, context, context.templateLevel, undefined, undefined);
+    }
+    static cloneTemplate($template, container = null) {
+        const template = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cloneHtml($template[0]);
+        template.classList.remove('template');
+        if (container)
+            container.append(template);
+        return template;
+    }
+    static setupCssRows($root, $cssBlock, context, targetNode, selector, style) {
+        console.log("csspropcontainer", $root, $cssBlock);
+        const $container = $cssBlock.find('.csspropcontainer');
+        const container = $container[0];
+        const $template = $root.find('.template.cssprop');
+        const template = CSSEditor.cloneTemplate($template, container);
+    }
+    static setupCssRow($html, context, targetNode, targetStr, targetStyle) {
+    }
+    /*
+    private static setupColorRows($html: JQuery<Element>, context: EditorContext): void {
+      const $container = $html.find('.customColorsContainer'); nope, noty anymore
+      const container = $container[0];
+      const $template = $container.find('.template');
+      const template = $template[0];
+  
+  
+    }*/
+    static setupColorRow($html, context, targetNode, targetStr, targetStyle, cssentry) {
+        if (targetStr !== "this") {
+            targetNode = null;
+        }
+        const $toColor = $html.find('.c');
+        console.log("setupColorRow $html", $html);
+        const $fontinput = $html.find('.fontstyle .fc input[type="color"]');
+        const $backinput = $html.find('.backstyle .bc input[type="color"]');
+        const $fonttransp = $html.find('.fontstyle .fc .opacity');
+        const $backtransp = $html.find('.backstyle .bc .opacity');
+        let fontColor = '';
+        let backColor = '';
+        let fontOpacity = 255;
+        let backOpacity = 255;
+        let updateFontColor = () => {
+            // $.css('color') non funziona perchè setta RGB ignorando l'opacity
+            $toColor.each((i, e) => { e.style.color = fontColor + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(fontOpacity, 2); });
+        };
+        let updateBackColor = () => {
+            $toColor.each((i, e) => { e.style.backgroundColor = backColor + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(backOpacity, 2); });
+        };
+        $fontinput.on('input', (e) => {
+            fontColor = $fontinput[0].value;
+            updateFontColor();
+        });
+        $backinput.on('input', (e) => {
+            backColor = $backinput[0].value;
+            updateBackColor();
+        });
+        $fonttransp.on('input', (e) => {
+            fontOpacity = Math.floor(255 * +$fonttransp[0].value);
+            console.log('xopacity font:', fontOpacity, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(fontOpacity, 2), fontColor + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(fontOpacity, 2));
+            updateFontColor();
+        });
+        $backtransp.on('input', (e) => {
+            backOpacity = Math.floor(255 * +$backtransp[0].value);
+            console.log('xopacity back:', backOpacity, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(backOpacity, 2), backColor + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(backOpacity, 2));
+            updateBackColor();
+        });
+        let saveColors = (e) => {
+            let fontfinal = fontColor + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(fontOpacity, 2), backfinal = backColor + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].toHex(backOpacity, 2);
+            console.log("x fontfinal:", fontfinal, ' backfinal:', backfinal, 'opacities:', fontOpacity, backOpacity);
+            if (targetNode) {
+                targetNode.style.color = fontfinal;
+                targetNode.style.backgroundColor = backfinal;
+                context.applyNodeChangesToInput();
+            }
+            else {
+                // todo: come setto la ccs variabile nello stylesheet?
+                context.applyRootChangesToInput();
+                // todo: come salvo la css var? basta fare applyRootChangesToInput() ?
+            }
+        };
+        $fonttransp.on('change', saveColors);
+        $backtransp.on('change', saveColors);
+        $backinput.on('change', saveColors);
+        $fontinput.on('change', saveColors);
+        // setting current color
+        // const oldParent = context.graphRoot.parentElement;
+        // const graphHtml = se.propertyBar.model.graph.container;
+        // graphHtml.append(context.graphRoot);
+        const computedStyle = targetNode ? window.getComputedStyle(targetNode) : targetStyle; // todo get css rule from css-var in stylesheet, ma come??';
+        // if (oldParent) oldParent.append(context.graphRoot); else graphHtml.removeChild(context.graphRoot);
+        const fontColorObj = targetNode ? _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].RGBAToHexObj(computedStyle.color, '#', '') : null; // todo: nodeComputer ritorna "rgb(x,y,z,w)", css parser potrebbe ritornare #hexcolor, variabili...-
+        const backColorObj = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].RGBAToHexObj(computedStyle.backgroundColor, '#', '');
+        fontColor = fontColorObj.rgbhex;
+        fontOpacity = fontColorObj.a;
+        backColor = backColorObj.rgbhex;
+        backOpacity = backColorObj.a;
+        $fontinput[0].value = fontColor;
+        $backinput[0].value = backColor;
+        $fonttransp[0].value = '' + fontOpacity / 255;
+        $backtransp[0].value = '' + backOpacity / 255;
+        updateFontColor();
+        updateBackColor();
+        console.log('aa set colors:', fontColorObj, backColorObj);
+        console.log("aa set colors:", computedStyle.color, computedStyle.backgroundColor, context.templateLevel, context.graphLevel, $fontinput[0]);
+    }
+    static staticInit() {
+        const cssrules = $('#cssrules')[0];
+    }
+    static generateCssVarFromColorScheme(cs) {
+        const str = [('--colorSchemeName') + ':' + ('\'' + cs.name + '\'')];
+        for (let i = 0; i < cs.colors.length; i++) {
+            str.push(('--color' + (i)) + ':' + ('\'' + cs.colors[i] + '\''));
+        }
+        return str;
+    }
+    static getCustomCssElement($templateLevelRoot, context, allowCreation = true) {
+        let $style;
+        // se c'è style esplicitamente legato a color scheme uso quello
+        $style = $templateLevelRoot.find('style.colorScheme');
+        if ($style.length)
+            return $style[0];
+        // se non c'è, ma ce ne sono altri non legati, ne prendo uno style qualsiasi e lo faccio diventare lo style del color scheme
+        $style = $templateLevelRoot.find('style');
+        if ($style.length)
+            return $style[0];
+        if (!allowCreation)
+            return null;
+        // altrimenti lo creo e lo associo.
+        const style = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].makeCssSheet();
+        if ($templateLevelRoot[0].firstElementChild)
+            $templateLevelRoot[0].firstElementChild.append(style);
+        // insertRule: mono-stringa selettore + blocco valori, indiceInserimento (-1 = append);
+        // addRule: non standard, selettore e blocco valori separati, indiceInserimento (-1 = append);
+        let cs = CSSEditor.defaultColorScheme;
+        CSSEditor.applyColorScheme(context, cs, $templateLevelRoot, style);
+        return style;
+    }
+    static getCurrentColorScheme(stylenode) {
+        const oldParent = stylenode.parentElement;
+        document.body.append(stylenode);
+        const cssRules = stylenode.sheet['cssRules'];
+        const ruleindex = CSSEditor.getColorSchemeRuleIndex(stylenode);
+        window['lastcss'] = stylenode;
+        console.log('StyleNode', stylenode, 'cssRules:', cssRules, ', cssRules[' + ruleindex + ']', cssRules[ruleindex]);
+        const block = cssRules[ruleindex];
+        console.log('stylemap?', block);
+        const stylePropertyMap = block['styleMap'];
+        let ruleStartingWithColor = [];
+        let colorSchemeName = '?';
+        stylePropertyMap.forEach((v /*CSSUnparsedValue*/, k) => {
+            // console.log(k, v[0][0]);
+            k = k.trim().toLowerCase();
+            v = v[0][0].trim().toLowerCase();
+            if (k.indexOf('--') !== 0)
+                return;
+            if (k.toLowerCase().indexOf('--color') === 0)
+                ruleStartingWithColor.push(k + ':' + v);
+            if (k.toLowerCase().indexOf('--colorSchemeName') === 0)
+                colorSchemeName = v;
+        });
+        ruleStartingWithColor = ruleStartingWithColor.sort();
+        const cs = { name: colorSchemeName, colors: [] };
+        // prendo i colori in ordine alfabetico, non mi importa se non sono enumerate correttamente (--colorZ o buchi nei numeri)
+        for (let line of ruleStartingWithColor) {
+            const splitpos = line.indexOf(':');
+            // const cssvarname: string = line.substring(0, splitpos).trim();
+            const cssvarvalue = line.substring(splitpos + 1).trim();
+            cs.colors.push(cssvarvalue);
+        }
+        oldParent.append(stylenode);
+        return cs;
+    }
+    static addcssrule(styleNode, selector, rules, $templateRoot, context, index = -1) {
+        // const cssElem: HTMLStyleElement = CSSEditor.getCustomCssElement($templateRoot, context, false);
+        const oldParent = styleNode.parentElement;
+        document.body.append(styleNode);
+        const rawRule = '' + selector + ' {\n' + rules.join(';\n   ') + '}\n\n';
+        if (index < 0 || !index && (index !== 0))
+            index = styleNode.sheet['rules'].length;
+        styleNode.sheet['insertRule'](rawRule, index);
+        // cssElem.innerHTML += rawRule;
+        // cssElem.innerHTML += '*{ border: 2px solid red; }';
+        oldParent.append(styleNode);
+        context.applyRootChangesToInput();
+    }
+    static getColorSchemeRuleIndex(styleNode) {
+        const oldContainer = styleNode.parentElement;
+        document.body.append(styleNode);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(!styleNode || !styleNode.sheet || !styleNode.sheet['cssRules'], 'sheet.cssRules are null?', styleNode, styleNode && styleNode.sheet, styleNode && styleNode.sheet && styleNode.sheet['cssRules']);
+        let ruleList = styleNode.sheet['cssRules'] || styleNode.sheet['rules']; // sono alias.
+        let i;
+        for (i = 0; i < ruleList.length; i++) {
+            if (ruleList[i].selectorText === '.VertexRoot #$##id$') {
+                i = -1;
+                break;
+            } // comments are ignored
+        }
+        oldContainer.append(styleNode);
+        return i == ruleList.length ? -1 : i;
+        // const stylePropertyMap: any /*StylePropertyMap*/ = ruleList[0]['styleMap'];
+        // key-value for single ccs rule inside a selector
+        // stylePropertyMap.forEach( (v: any/*CSSUnparsedValue*/, k: string) => { console.log(k, v[0][0]); } );
+    }
+    static applyColorScheme(context, cs, $templateRoot, style) {
+        const sheet = style.sheet;
+        const colorSchemeRuleIndex = CSSEditor.getColorSchemeRuleIndex(style);
+        if (colorSchemeRuleIndex >= 0)
+            sheet['deleteRule'](colorSchemeRuleIndex); // problema: così quella regola css se viene estesa con altro oltre i colori lo perdi.
+        CSSEditor.addcssrule(style, '.VertexRoot #$##id$', CSSEditor.generateCssVarFromColorScheme(cs), $templateRoot, context, 0);
+    }
+    static mapColorSchemeToPredefined(inputColorScheme) {
+        for (const cs of CSSEditor.defaultColorSchemes) {
+            if (CSSEditor.compareColorScheme(inputColorScheme, cs, true) === 0)
+                return cs;
+        }
+        return null;
+    }
+    static compareColorScheme(cs1, cs2, ignoreName = true) {
+        if (!ignoreName && cs1.name !== cs2.name)
+            return cs1.name.localeCompare(cs2.name);
+        if (cs1.colors.length !== cs2.colors.length)
+            return cs1.colors.length - cs2.colors.length;
+        for (let i = 0; i < cs1.colors.length; i++) {
+            if (cs1.colors[i] !== cs2.colors[i])
+                return cs1.colors[i].localeCompare(cs2.colors[i]);
+        }
+        return 0;
+    }
+}
+CSSEditor.defaultColorScheme = { name: 'Default colors', colors: ['#ffffff', '#000000', '#1e90ff', '#ff8c00', '#28a745'] };
+CSSEditor.defaultColorSchemes = [
+    CSSEditor.defaultColorScheme,
+    { name: 'Color scheme 1', colors: ['#ffffff', '#364f6b', '#3fc1c9', '#f5f5f5', '#fc5185'] },
+    { name: 'Color scheme 2', colors: ['#ffffff', '#f9a828', '#ececeb', '#07617d', '#2e383f'] },
+    { name: 'Color scheme 3', colors: ['#ffffff', '#fa4659', '#effe40', '#a33e83', '#2eb872'] },
+    { name: 'Color scheme 4', colors: ['#ffffff', '#BE64FA', '#8459DE', '#5975DE', '#64ACFA'] },
+];
+
+
+/***/ }),
+
 /***/ "./src/guiElements/style-editor/style-editor.component.css":
 /*!*****************************************************************!*\
   !*** ./src/guiElements/style-editor/style-editor.component.css ***!
@@ -18251,7 +19690,7 @@ class PropertyBarr {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n.styleContainer{\n  /*position: relative;\n  height: 100%;\n  overflow-y: auto;\n  overflow-x: auto;\n  padding: 17px;\n  padding-right: calc(17px - 10px);*/\n}\n.template{\n  display: none;\n}\n.StyleEditorDisplay .template{\n  display: unset;\n}\n.preview{\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 10px;\n  border: 1px solid red;\n  background-color: transparent;\n  margin-bottom: 10px;\n  margin-top: 10px;\n}\n.preview:blank{\n  background-color: gray;\n  opacity: 0.4;\n}\n.separatorShell.top{\n  margin-top: 30px;\n}\ndiv[contenteditable=\"true\"]:focus {\n  max-height: unset;\n}\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\n  overflow: auto;\n  display: -webkit-box;\n  display: flex;\n  color: black;\n  border: 1px solid black;\n  min-height: 100px;\n  max-height: 200px;\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\ndiv[contenteditable=\"true\"] {\n  background-color: white;\n  cursor: text;\n}\ndiv[contenteditable=\"false\"] {\n  background-color: gray;\n  cursor: no-drop;\n  opacity: 0.4;\n}\nlabel.allowEdit {\n  color: goldenrod;\n}\nbutton {\n  margin: 5px;\n}\n.style.own, .style.instances{\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.detail{\n  border: 3px solid var(--bluebordercolor);\n  background: var(--);\n  color: var(--altFontColor);\n}\nbutton.detail {\n  margin: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  display: -webkit-box;\n  display: flex;\n  height: auto;\n  border-top-left-radius: 17px;\n  border-top-right-radius: 17px;\n  z-index: 1;\n }\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  margin-right: 0;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\nbutton.detail:last-child:not(:only-child){\n  margin-left: -3px;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\nbutton.detail:focus {\n  box-shadow: none !important;\n  outline: none !important;\n}\ndiv.detail{\n  padding: 5px;\n  margin-top: -3px;\n  width: calc(100%);\n}\n.saveasrow{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n}\nbutton.delete{\n  margin: auto;\n  margin-bottom: 5px;\n}\nbutton.saveas{\n  margin: auto;\n  margin-bottom: 5px;\n}\ninput.saveas {\n  margin: auto;\n  margin-bottom: 5px;\n  flex-basis: 100px;\n  -webkit-box-flex: 0.6;\n          flex-grow: 0.6;\n  width: 0;\n}\n.compatibleRow > label > span{\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n  margin-left: 0;\n}\n.saveasrow, .compatibleRow{\n  width: 100%;\n  display: -webkit-box;\n  display: flex;\n  flex-flow: wrap;\n}\n.compatibleRow > label > input {\n  -webkit-box-ordinal-group: 2;\n          order: 1;\n  margin-left: 0;\n  margin-right: 5px;\n}\n.detail > label {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  flex-wrap: nowrap;\n}\nbutton.detail > .opened, button.detail > .closed{\n  margin: auto;\n}\ntable {\n  width: 100%;\n}\ntd.title {\n  font-weight: bold;\n  padding-top: 10px;\n  text-align: center;\n}\nh1 {\n  text-align: center;\n}\nselect{\n  /* background: inherit;\n  border: none;\n  color: inherit;\n  font: inherit; */\n  /*flex-basis: 0;*/\n  flex-shrink: 1;\n  -webkit-box-flex: 0.9;\n          flex-grow: 0.9;\n  max-width: -webkit-max-content;\n  max-width: -moz-max-content;\n  max-width: max-content;\n  min-width: 0;\n}\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\nlabel > *:not(input), h6 > * {\n  display: -webkit-box;\n  display: flex;\n  /* flex-grow: 1;*/\n  margin: auto;\n  flex-wrap: wrap;\n}\nh6{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n\n}\n.separator > * {\n  text-align: center;\n}\n/*\nbutton {\n  background: #0084ff;\n  border: none;\n  border-radius: 5px;\n  padding: 8px 14px;\n  font-size: 15px;\n  color: #fff;\n}\n\nbutton:disabled{\n  background: gray;\n}*/\ninput[type=\"number\"] {\n  width: 40px;\n  margin-right: 5px;\n}\n.zoomX, .zoomY, .gridX, .gridY {\n  margin-left: 5px;\n  margin-right: 15px;}\nlabel>input[type=\"checkbox\"],\nlabel>input[type=\"color\"] {\n  margin-bottom: 3px;\n}\n#primary_color {\n  border-radius: 100%;\n  height: 60px;\n  width: 60px;\n  border: none;\n  outline: none;\n  -webkit-appearance: none;\n}\n[contenteditable=true]:empty:before {\n  content: attr(placeholder);\n  display: block;\n  /* For Firefox */\n  cursor: text;\n  vertical-align: middle;\n  color: darkgray;\n  text-align: center;\n  margin: auto;\n}\n.separatorShell {\n  min-height: 33px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: nowrap;\n  margin: auto;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  width: 100%;\n}\n.roww {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.separator {\n  margin: auto;\n  display: inline-block;\n}\n.stylelabel{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n  margin-right: 5px;\n}\nselect.stylename{\n  display: -webkit-box;\n  display: flex;\n  margin: auto;\n  margin-left: 0;\n}\n.HorizontalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.onlyVerticalContainer{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-flow: row;\n  flex-wrap: wrap;\n}\n.onlyVerticalContainer > * {\n  margin: auto 0;\n}\n.HorizontalChild{\n  display: -webkit-inline-box;\n  display: inline-flex;\n  margin: auto;\n}\n.opened{\n  display: none;\n}\n.helpButton, .styledelete {\n  display: -webkit-box;\n  display: flex;\n  width: 35px;\n  height: 35px;\n  margin: auto;\n  margin-right: 0;\n}\n.styledelete {\n  margin-right: 5px;\n  margin-left: 5px;\n}\n.helpButton {\n  background: rgb(0, 62, 127);\n  border-color: rgb(0, 62, 127); }\n.htmlstyle > .top {\n  display: -webkit-box;\n  display: flex;\n}\n.expressionRoot {\n  flex-wrap: nowrap !important;\n  max-width: 100%;\n}\ninput.fill{\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n  margin-left: 7px;\n}\n.leftside{\n  -webkit-box-flex: 3;\n          flex-grow: 3;\n  flex-basis: 0;\n  min-width: 0;\n  max-width: 150px;\n}\n.rightside{\n  -webkit-box-flex: 7;\n          flex-grow: 7;\n  flex-basis: 0;\n  min-width: 0;\n}\n.arrowContainer{\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 10px;\n}\nbutton.arrow{\n  display: -webkit-box;\n  display: flex;\n  line-height: unset;\n  padding: 0 6px;\n}\n.tsclass{\n  margin: auto;\n  display: inline;\n  text-align: center;\n}\n/* */\n/*\npre {\n  background:#EEE;\n  padding:5px;\n  width: 290px;\n}*/\n.addHeader{\n  display: -webkit-box;\n  display: flex;\n}\n.addHeader > button {\n  margin-left: 0;\n  -webkit-box-ordinal-group: 3;\n          order: 2;\n}\nselect.attributetypeadd{\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  min-width: 0;\n  margin-right: 10px;\n}\n.previewselector{\n  height: 23px;\n  outline: none;\n  border: 2px dashed #666666;\n}\n.showAsEdge{\n  margin-right: 5px !important;\n}\nbutton.delete, button.saveas{\n  font-size: 0.8rem;\n}\nbutton.deleteRule{\n  -webkit-box-flex: 0;\n          flex-grow: 0;\n  flex-basis: auto;\n  min-width: auto;\n  margin-top: 0;\n  margin-bottom: 0;\n  padding: 5px;\n}\n.nowrap{\n  flex-wrap: nowrap;\n}\n._root {\n  margin-bottom: 5px;\n}\ndiv.detail.measurable > div.template {\n  display: none;\n}\n.graphColor, .showGrid{\n  margin-left: 0;\n}\nselect.operator{\n  -moz-text-align-last: center;\n       text-align-last: center;\n  margin-left: 5px;\n  margin-right: 5px;\n  width: 25px;\n}\nspan.operatortext{\n  margin-left: 5px;\n  margin-right: 5px;\n}\nselect.operator:disabled{\n  display: none;\n  /*\n  background: inherit;\n  border: none;\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  margin: 0;*/\n}\nspan.nameprefix {\n  margin-left: 7px;\n  background: white;\n  border: 2px inset rgb(238, 238, 238);\n  height: 21px;\n  border-right: none;\n  color: black;\n  line-height: 16px;\n}\ninput.name {\n  margin-left: 0;\n  border-left: none;\n  padding-left: 0;\n}\nlabel:focus > input.name {\n  outline: none;\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\n}\ninput.name:focus {\n  outline: none;\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\n}\n.htmlstyle {\n  width: 100%;\n}\nlabel.allowEdit > span {\n  margin-left:0;\n}\nlabel > * {\n  margin-top: auto;\n  margin-bottom: auto;\n}\nlabel > input[type=\"checkbox\"] ~ * {\n  margin-left: 0;\n}\n.html[contenteditable] {\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\n  overflow-wrap: anywhere;\n  word-wrap: anywhere;\n  white-space: break-spaces;\n}\n.autosizecontainer{\n  display: inline-block;\n}\n.autosizecontainer > *{\n  display: inline-block;\n  margin-right: 5px;\n}\n.sizeContainer {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap; }\n.sizeContainerHalf {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.sizelabel {\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: reverse;\n          flex-flow: column-reverse;\n  margin-right: 10px;\n  margin-bottom: 10px;\n}\n@media screen and (max-width: 700px) {\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\n  .sizelabel{\n    display: inline-block;\n  }\n}\n.sizelabel > *{\n  display: inline;\n  margin: auto; }\n/* they fix outer css influence on measurable section. */\ninput[type=\"checkbox\"].arrow {\n  margin: 0; }\n.meas_acc0 button { margin: 0; }\n/***********              Measurable editor v2 start                 ********/\n.meas_acc0 .measurableSettingRoot{\n  width: 100%;\n  display: block;\n}\n.meas_acc0 .boxesroot {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  flex-basis: 0;\n}\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n}\n.meas_acc0 .column, .meas_acc0 .row{\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: nowrap;\n}\n.meas_acc0 .row {\n  max-width: 100%;\n  margin-right: unset;\n  margin-left: unset; /* dumb _grid.scss fixer */\n}\n.meas_acc0 .break { flex-wrap: wrap; }\n.meas_acc0 .autobreak { flex-wrap: initial; }\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\n.meas_acc0 .side { display: -webkit-box; display: flex; }\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\n  background-color: dimgray;\n}\n.meas_acc0 .boxroot {\n  display: block;\n  margin: auto;\n  flex-wrap: wrap;\n}\n.meas_acc0 .ruletitle{\n  display: block;\n  text-align: center;\n}\n.meas_acc0 button.ruledelete {\n  height: 100%;\n  width: 30px;\n  padding: 0;\n  margin-right: 5px;\n  border-radius: 25px 0 0 25px;\n}\n.meas_acc0 .compoundInputprefix {\n  max-width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  margin-bottom: 0;\n  padding: 0;\n  -webkit-box-flex: 0 !important;\n          flex-grow: 0 !important;\n  width: auto;\n  flex-basis: auto !important;\n  flex-shrink: 0 !important;\n}\n.meas_acc0 .compoundInputprefix > input.attrname {\n  border-left: none;\n  padding-left: 0;\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n.meas_acc0 .compoundInputprefix > * { border: none; }\n.meas_acc0 .compoundInputprefix > *:first-child {\n  margin-top: 1px;\n  padding-right: 0;\n  background-color: transparent;\n}\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\n.meas_acc0 .compoundInputprefix:focus-within {\n  border-color: #80bdff;\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\n}\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\n/* .meas_acc0 .rightx { min-width: 0; } */\n.meas_acc0 .rightx span.operator {\n  margin: auto;\n  margin-left: 5px;\n  margin-right: 5px;\n  margin-top: 8px;\n}\n.meas_acc0 .operatorcontainer {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 5px;\n}\n.meas_acc0 select.operator {\n  width: 45px;\n  margin: auto 5px;\n  text-align: center;\n  -moz-text-align-last: center;\n       text-align-last: center;\n}\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\n  margin-bottom: 5px;\n  min-width: 120px;\n  flex-basis: 0;\n  -webkit-box-flex: 1;\n          flex-grow: 1;\n}\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\n.meas_acc0 .attrname {\n  max-width: 200px !important; /* todo: remove when is autosizing */\n  min-width: 0;\n}\n.meas_acc0 .addrule {\n  float: right;\n  margin-top: -4px;\n  padding: 4px 10px;\n}\n.meas_acc0 .ruletitle {\n  padding-right: 4px;\n  margin-bottom: 5px;\n}\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\n.meas_acc0 .form-control > .form-control:not(:first-child){\n  border-top-left-radius: unset;\n  /* disable bootstrap rule*/\n}\n.meas_acc0 .measurableerrortext{\n  margin-left: 5px;\n  color: var(--danger);\n}\n.meas_acc0 .measurablewarningtext{\n  margin-left: 5px;\n  color: var(--warning);\n}\n.meas_acc0 .measurableoutputtext{\n  margin-left: 5px;\n  color: var(--secondary);\n}\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\n.meas_acc0 .measurabledebug { display: none; }\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\n.meas_acc0 .countershell { float: right; }\n.meas_acc0 .rectangledrawing.outer > * {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center center;\n}\n.meas_acc0 .rectangledrawing.outer > .top > .left {\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\n}\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\n.meas_acc0 .rectangledrawing.outer > .top > .right {\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\n.meas_acc0 input.side.top {\n  margin-bottom: 3px;\n  margin-top: -3px; }\n.meas_acc0 input.side.bot {\n  margin-bottom: -3px;\n  margin-top: 3px; }\n.meas_acc0 input.side.left {\n  margin-right: 3px;\n  margin-left: -3px; }\n.meas_acc0 input.side.right {\n  margin-right: -3px;\n  margin-left: 3px; }\n.meas_acc0 .arrowh {\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\n.meas_acc0 .arrowv {\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\n  height: 50px;\n  min-width: 50px;\n}\n.meas_acc0 .rectangledrawing.outer > .top > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .bot > * {\n  height: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\n  height: auto;\n  width: 50px; }\n.meas_acc0 .arrow { -webkit-appearance: initial; }\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\n  width: 75px;\n  height: 75px; }\n.meas_acc0 .arrow:focus{ outline: none; }\n.meas_acc0 .arrow:checked{\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\n.meas_acc0 .directions {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto; }\n.meas_acc0 .directions > * { margin: auto; }\n.meas_acc0 .draggable.boxroot{\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-flow: column;\n  /*height: 237px;*/\n}\n.meas_acc0 .collapse:not(.show) { display: none; }\n.meas_acc0 .selected { background-color: #37ff66 !important; }\n/***********              Measurable editor v2 end                   ********/\n.isinterface, .isabstract{\n  margin-right: 5px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0U7Ozs7O29DQUtrQztBQUNwQztBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsY0FBYztFQUNkLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLDZCQUE2QjtFQUM3QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFFQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsY0FBYztFQUNkLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxzQkFBc0I7RUFDdEIsZUFBZTtFQUNmLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLHdDQUF3QztFQUN4QyxtQkFBbUI7RUFDbkIsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osNEJBQTRCO0VBQzVCLDZCQUE2QjtFQUM3QixVQUFVO0NBQ1g7QUFDRCw0Q0FBNEMsaURBQWlEO0VBQzNGLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsNkJBQTZCO0FBQy9CO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLHdCQUF3QjtBQUMxQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHFCQUFjO1VBQWQsY0FBYztFQUNkLFFBQVE7QUFDVjtBQUNBO0VBQ0UsMkJBQW1CO0VBQW5CLHdCQUFtQjtFQUFuQixtQkFBbUI7RUFDbkIsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0VBQ1osNEJBQVE7VUFBUixRQUFRO0VBQ1IsY0FBYztBQUNoQjtBQUNBO0VBQ0UsV0FBVztFQUNYLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7QUFDakI7QUFDQTtFQUNFLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxXQUFXO0FBQ2I7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFOzs7a0JBR2dCO0VBQ2hCLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QscUJBQWM7VUFBZCxjQUFjO0VBQ2QsOEJBQXNCO0VBQXRCLDJCQUFzQjtFQUF0QixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBRUEsT0FBTyxvQkFBYSxDQUFiLGFBQWEsRUFBRSxrQkFBVyxFQUFYLFdBQVcsQ0FBQztBQUNsQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUVBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZOztBQUVkO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTs7Ozs7Ozs7Ozs7O0VBWUU7QUFDRjtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixrQkFBa0IsQ0FBQztBQUdyQjs7RUFFRSxrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osV0FBVztFQUNYLFlBQVk7RUFDWixhQUFhO0VBQ2Isd0JBQXdCO0FBQzFCO0FBRUE7RUFDRSwwQkFBMEI7RUFDMUIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsWUFBWTtBQUNkO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsV0FBVztBQUNiO0FBRUE7RUFDRSxZQUFZO0VBQ1oscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw4QkFBYztFQUFkLDZCQUFjO1VBQWQsY0FBYztFQUNkLGVBQWU7RUFDZixXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFjO0VBQWQsNkJBQWM7VUFBZCxjQUFjO0VBQ2QsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLFlBQVk7RUFDWixZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsMkJBQTJCO0VBQzNCLDZCQUE2QixFQUFFO0FBRWpDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLDRCQUE0QjtFQUM1QixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtFQUNaLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQSxJQUFJO0FBRUo7Ozs7O0VBS0U7QUFDRjtFQUNFLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsNEJBQVE7VUFBUixRQUFRO0FBQ1Y7QUFDQTtFQUNFLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLDBCQUEwQjtBQUM1QjtBQUVBO0VBQ0UsNEJBQTRCO0FBQzlCO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDRCQUF1QjtPQUF2Qix1QkFBdUI7RUFDdkIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixXQUFXO0FBQ2I7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGFBQWE7RUFDYjs7Ozs7YUFLVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsZUFBZTtBQUNqQjtBQUVBO0VBQ0UsYUFBYTtFQUNiLDJDQUEyQztBQUM3QztBQUVBO0VBQ0UsYUFBYTtFQUNiLGlGQUFpRjtBQUNuRjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9FQUFvRTtFQUNwRSx1QkFBdUI7RUFDdkIsbUJBQW1CO0VBQ25CLHlCQUF5QjtBQUMzQjtBQUVBO0VBQ0UscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlLEVBQUU7QUFDbkI7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQiw0QkFBeUI7RUFBekIsOEJBQXlCO1VBQXpCLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnTEFBZ0w7RUFDaEw7SUFDRSxxQkFBcUI7RUFDdkI7QUFDRjtBQUNBO0VBQ0UsZUFBZTtFQUNmLFlBQVksRUFBRTtBQVdkLHdEQUF3RDtBQUUxRDtFQUNFLFNBQVMsRUFBRTtBQUViLG9CQUFvQixTQUFTLEVBQUU7QUFLL0IsNkVBQTZFO0FBQzdFO0VBQ0UsV0FBVztFQUNYLGNBQWM7QUFDaEI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0FBQ25CO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGVBQWU7RUFDZixtQkFBbUI7RUFDbkIsa0JBQWtCLEVBQUUsMEJBQTBCO0FBQ2hEO0FBQ0Esb0JBQW9CLGVBQWUsRUFBRTtBQUNyQyx3QkFBd0Isa0JBQWtCLEVBQUU7QUFDNUMsbUJBQW1CLG1CQUFZLEVBQVosWUFBWSxFQUFFO0FBQ2pDLHVCQUF1QixjQUFjLEVBQUUsa0JBQWtCLEVBQUUsbUJBQW1CLEVBQUU7QUFDaEYsbUJBQW1CLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2xDLGdEQUFnRCxXQUFXLEVBQUU7QUFDN0QsNkNBQTZDLFlBQVksRUFBRSx3QkFBd0IsRUFBRTtBQUNyRixxQkFBcUIsb0JBQWEsRUFBYixhQUFhLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTtBQUMvRCxxQkFBcUIsMkJBQTJCLEVBQUUsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUsNkJBQTZCLFlBQVksRUFBRSxZQUFZLEVBQUU7QUFDekQ7RUFDRSx5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLGNBQWM7RUFDZCxZQUFZO0VBQ1osZUFBZTtBQUNqQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7RUFDWCxVQUFVO0VBQ1YsaUJBQWlCO0VBQ2pCLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsZUFBZTtFQUNmLDJCQUFtQjtFQUFuQix3QkFBbUI7RUFBbkIsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixVQUFVO0VBQ1YsOEJBQXVCO1VBQXZCLHVCQUF1QjtFQUN2QixXQUFXO0VBQ1gsMkJBQTJCO0VBQzNCLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZix5QkFBeUI7RUFDekIsNEJBQTRCO0FBQzlCO0FBQ0Esc0NBQXNDLFlBQVksRUFBRTtBQUNwRDtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsNkJBQTZCO0FBQy9CO0FBQ0EsZ0RBQWdELGdCQUFnQixFQUFFO0FBQ2xFO0VBQ0UscUJBQXFCO0VBQ3JCLGdEQUFnRDtBQUNsRDtBQUVBLDBFQUEwRSwyQkFBMkIsRUFBRTtBQUN2Ryx5Q0FBeUM7QUFDekM7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLDRCQUF1QjtPQUF2Qix1QkFBdUI7QUFDekI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsYUFBYTtFQUNiLG1CQUFZO1VBQVosWUFBWTtBQUNkO0FBQ0EsNEJBQTRCLG1CQUFtQixFQUFFO0FBQ2pELCtCQUErQixnQkFBZ0IsRUFBRTtBQUNqRCx3Q0FBd0MsZUFBZSxFQUFFO0FBQ3pEO0VBQ0UsMkJBQTJCLEVBQUUsb0NBQW9DO0VBQ2pFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQSxrQ0FBa0MsMkJBQTJCLEVBQUU7QUFDL0QsOEJBQThCLDBCQUEwQixFQUFFO0FBQzFEO0VBQ0UsNkJBQTZCO0VBQzdCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtBQUN0QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsZ0JBQWdCO0VBQ2hCLHVCQUF1QjtBQUN6QjtBQUNBLDJCQUEyQixrQkFBa0IsRUFBRTtBQUMvQyw4QkFBOEIsYUFBYSxFQUFFO0FBQzdDLGtEQUFrRCxvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNqRSwyQkFBMkIsWUFBWSxFQUFFO0FBQ3pDO0VBQ0Usd0JBQXdCO0VBQ3hCLDRCQUE0QjtFQUM1QixrQ0FBa0M7QUFDcEM7QUFDQTtFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVEO0FBQ3pEO0FBQ0E7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLDBEQUEwRDtFQUMxRCx1REFBdUQsRUFBRTtBQUMzRDtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0IsRUFBRTtBQUNwQjtFQUNFLG1CQUFtQjtFQUNuQixlQUFlLEVBQUU7QUFDbkI7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCLEVBQUU7QUFDckI7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxzREFBc0QsRUFBRTtBQUMxRDtFQUNFLHNEQUFzRCxFQUFFO0FBRTFEO0VBQ0UsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVksRUFBRTtBQUNoQjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFDZjtFQUNFLFlBQVk7RUFDWixXQUFXLEVBQUU7QUFFZixvQkFBb0IsMkJBQTJCLEVBQUU7QUFFakQ7RUFDRSxXQUFXO0VBQ1gsWUFBWSxFQUFFO0FBRWhCLHlCQUF5QixhQUFhLEVBQUU7QUFDeEM7RUFDRSw0RkFBb0Y7VUFBcEYsb0ZBQW9GLEVBQUU7QUFFeEY7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsWUFBWSxFQUFFO0FBRWhCLDZCQUE2QixZQUFZLEVBQUU7QUFDM0M7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7QUFDQSxrQ0FBa0MsYUFBYSxFQUFFO0FBQ2pELHVCQUF1QixvQ0FBb0MsRUFBRTtBQUM3RCw2RUFBNkU7QUFDN0U7RUFDRSxpQkFBaUI7QUFDbkIiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL3N0eWxlLWVkaXRvci9zdHlsZS1lZGl0b3IuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLnN0eWxlQ29udGFpbmVye1xuICAvKnBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBvdmVyZmxvdy15OiBhdXRvO1xuICBvdmVyZmxvdy14OiBhdXRvO1xuICBwYWRkaW5nOiAxN3B4O1xuICBwYWRkaW5nLXJpZ2h0OiBjYWxjKDE3cHggLSAxMHB4KTsqL1xufVxuLnRlbXBsYXRle1xuICBkaXNwbGF5OiBub25lO1xufVxuLlN0eWxlRWRpdG9yRGlzcGxheSAudGVtcGxhdGV7XG4gIGRpc3BsYXk6IHVuc2V0O1xufVxuLnByZXZpZXd7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBtaW4taGVpZ2h0OiAxMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCByZWQ7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuLnByZXZpZXc6Ymxhbmt7XG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbi5zZXBhcmF0b3JTaGVsbC50b3B7XG4gIG1hcmdpbi10b3A6IDMwcHg7XG59XG5cbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdOmZvY3VzIHtcbiAgbWF4LWhlaWdodDogdW5zZXQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSwgZGl2W2NvbnRlbnRlZGl0YWJsZT1cImZhbHNlXCJdIHtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGNvbG9yOiBibGFjaztcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xuICBtYXgtaGVpZ2h0OiAyMDBweDtcbiAgbWFyZ2luLXRvcDogNXB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuICBjdXJzb3I6IHRleHQ7XG59XG5kaXZbY29udGVudGVkaXRhYmxlPVwiZmFsc2VcIl0ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xuICBjdXJzb3I6IG5vLWRyb3A7XG4gIG9wYWNpdHk6IDAuNDtcbn1cbmxhYmVsLmFsbG93RWRpdCB7XG4gIGNvbG9yOiBnb2xkZW5yb2Q7XG59XG5idXR0b24ge1xuICBtYXJnaW46IDVweDtcbn1cbi5zdHlsZS5vd24sIC5zdHlsZS5pbnN0YW5jZXN7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogd3JhcDtcbn1cbi5kZXRhaWx7XG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLWJsdWVib3JkZXJjb2xvcik7XG4gIGJhY2tncm91bmQ6IHZhcigtLSk7XG4gIGNvbG9yOiB2YXIoLS1hbHRGb250Q29sb3IpO1xufVxuYnV0dG9uLmRldGFpbCB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgZGlzcGxheTogZmxleDtcbiAgaGVpZ2h0OiBhdXRvO1xuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxN3B4O1xuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMTdweDtcbiAgei1pbmRleDogMTtcbiB9XG5idXR0b24uZGV0YWlsOmZpcnN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7IC8qIGZpcnN0IHZpc2libGUgY2hpbGQgbm90IHBvc3NpYmxlIGljIHB1cmUgY3NzICovXG4gIGZsZXgtZmxvdzogY29sdW1uO1xuICBtYXJnaW4tcmlnaHQ6IDA7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwO1xuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6bGFzdC1jaGlsZDpub3QoOm9ubHktY2hpbGQpe1xuICBtYXJnaW4tbGVmdDogLTNweDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbmJ1dHRvbi5kZXRhaWw6Zm9jdXMge1xuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcbn1cbmRpdi5kZXRhaWx7XG4gIHBhZGRpbmc6IDVweDtcbiAgbWFyZ2luLXRvcDogLTNweDtcbiAgd2lkdGg6IGNhbGMoMTAwJSk7XG59XG4uc2F2ZWFzcm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG59XG5idXR0b24uZGVsZXRle1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cbmJ1dHRvbi5zYXZlYXN7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuaW5wdXQuc2F2ZWFzIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xuICBmbGV4LWdyb3c6IDAuNjtcbiAgd2lkdGg6IDA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gc3BhbntcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgb3JkZXI6IDI7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLnNhdmVhc3JvdywgLmNvbXBhdGlibGVSb3d7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWZsb3c6IHdyYXA7XG59XG4uY29tcGF0aWJsZVJvdyA+IGxhYmVsID4gaW5wdXQge1xuICBvcmRlcjogMTtcbiAgbWFyZ2luLWxlZnQ6IDA7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLmRldGFpbCA+IGxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG5idXR0b24uZGV0YWlsID4gLm9wZW5lZCwgYnV0dG9uLmRldGFpbCA+IC5jbG9zZWR7XG4gIG1hcmdpbjogYXV0bztcbn1cbnRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbnRkLnRpdGxlIHtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbmgxIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuc2VsZWN0e1xuICAvKiBiYWNrZ3JvdW5kOiBpbmhlcml0O1xuICBib3JkZXI6IG5vbmU7XG4gIGNvbG9yOiBpbmhlcml0O1xuICBmb250OiBpbmhlcml0OyAqL1xuICAvKmZsZXgtYmFzaXM6IDA7Ki9cbiAgZmxleC1zaHJpbms6IDE7XG4gIGZsZXgtZ3JvdzogMC45O1xuICBtYXgtd2lkdGg6IG1heC1jb250ZW50O1xuICBtaW4td2lkdGg6IDA7XG59XG5cbmxhYmVsIHtkaXNwbGF5OiBmbGV4OyBmbGV4LWdyb3c6MTt9XG5sYWJlbCA+ICo6bm90KGlucHV0KSwgaDYgPiAqIHtcbiAgZGlzcGxheTogZmxleDtcbiAgLyogZmxleC1ncm93OiAxOyovXG4gIG1hcmdpbjogYXV0bztcbiAgZmxleC13cmFwOiB3cmFwO1xufVxuXG5oNntcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcblxufVxuLnNlcGFyYXRvciA+ICoge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKlxuYnV0dG9uIHtcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDhweCAxNHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG5idXR0b246ZGlzYWJsZWR7XG4gIGJhY2tncm91bmQ6IGdyYXk7XG59Ki9cbmlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xuICB3aWR0aDogNDBweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7fVxuXG5cbmxhYmVsPmlucHV0W3R5cGU9XCJjaGVja2JveFwiXSxcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbn1cblxuI3ByaW1hcnlfY29sb3Ige1xuICBib3JkZXItcmFkaXVzOiAxMDAlO1xuICBoZWlnaHQ6IDYwcHg7XG4gIHdpZHRoOiA2MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG4gIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTtcbn1cblxuW2NvbnRlbnRlZGl0YWJsZT10cnVlXTplbXB0eTpiZWZvcmUge1xuICBjb250ZW50OiBhdHRyKHBsYWNlaG9sZGVyKTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIC8qIEZvciBGaXJlZm94ICovXG4gIGN1cnNvcjogdGV4dDtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgY29sb3I6IGRhcmtncmF5O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbjogYXV0bztcbn1cblxuLnNlcGFyYXRvclNoZWxsIHtcbiAgbWluLWhlaWdodDogMzNweDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogbm93cmFwO1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnJvd3cge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uc2VwYXJhdG9yIHtcbiAgbWFyZ2luOiBhdXRvO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uc3R5bGVsYWJlbHtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Quc3R5bGVuYW1le1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW46IGF1dG87XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLkhvcml6b250YWxDb250YWluZXJ7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZmxvdzogcm93O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIHdpZHRoOiAxMDAlO1xufVxuLm9ubHlWZXJ0aWNhbENvbnRhaW5lcntcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiByb3c7XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cbi5vbmx5VmVydGljYWxDb250YWluZXIgPiAqIHtcbiAgbWFyZ2luOiBhdXRvIDA7XG59XG4uSG9yaXpvbnRhbENoaWxke1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuLm9wZW5lZHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmhlbHBCdXR0b24sIC5zdHlsZWRlbGV0ZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHdpZHRoOiAzNXB4O1xuICBoZWlnaHQ6IDM1cHg7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiAwO1xufVxuLnN0eWxlZGVsZXRlIHtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG59XG4uaGVscEJ1dHRvbiB7XG4gIGJhY2tncm91bmQ6IHJnYigwLCA2MiwgMTI3KTtcbiAgYm9yZGVyLWNvbG9yOiByZ2IoMCwgNjIsIDEyNyk7IH1cblxuLmh0bWxzdHlsZSA+IC50b3Age1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmV4cHJlc3Npb25Sb290IHtcbiAgZmxleC13cmFwOiBub3dyYXAgIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xufVxuaW5wdXQuZmlsbHtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4LWJhc2lzOiAwO1xuICBtYXJnaW4tbGVmdDogN3B4O1xufVxuLmxlZnRzaWRle1xuICBmbGV4LWdyb3c6IDM7XG4gIGZsZXgtYmFzaXM6IDA7XG4gIG1pbi13aWR0aDogMDtcbiAgbWF4LXdpZHRoOiAxNTBweDtcbn1cbi5yaWdodHNpZGV7XG4gIGZsZXgtZ3JvdzogNztcbiAgZmxleC1iYXNpczogMDtcbiAgbWluLXdpZHRoOiAwO1xufVxuLmFycm93Q29udGFpbmVye1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuYnV0dG9uLmFycm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBsaW5lLWhlaWdodDogdW5zZXQ7XG4gIHBhZGRpbmc6IDAgNnB4O1xufVxuLnRzY2xhc3N7XG4gIG1hcmdpbjogYXV0bztcbiAgZGlzcGxheTogaW5saW5lO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4vKiAqL1xuXG4vKlxucHJlIHtcbiAgYmFja2dyb3VuZDojRUVFO1xuICBwYWRkaW5nOjVweDtcbiAgd2lkdGg6IDI5MHB4O1xufSovXG4uYWRkSGVhZGVye1xuICBkaXNwbGF5OiBmbGV4O1xufVxuLmFkZEhlYWRlciA+IGJ1dHRvbiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xuICBvcmRlcjogMjtcbn1cbnNlbGVjdC5hdHRyaWJ1dGV0eXBlYWRke1xuICBmbGV4LWJhc2lzOiAwO1xuICBmbGV4LWdyb3c6IDE7XG4gIG1pbi13aWR0aDogMDtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xufVxuLnByZXZpZXdzZWxlY3RvcntcbiAgaGVpZ2h0OiAyM3B4O1xuICBvdXRsaW5lOiBub25lO1xuICBib3JkZXI6IDJweCBkYXNoZWQgIzY2NjY2Njtcbn1cblxuLnNob3dBc0VkZ2V7XG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XG59XG5idXR0b24uZGVsZXRlLCBidXR0b24uc2F2ZWFze1xuICBmb250LXNpemU6IDAuOHJlbTtcbn1cbmJ1dHRvbi5kZWxldGVSdWxle1xuICBmbGV4LWdyb3c6IDA7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIG1pbi13aWR0aDogYXV0bztcbiAgbWFyZ2luLXRvcDogMDtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgcGFkZGluZzogNXB4O1xufVxuLm5vd3JhcHtcbiAgZmxleC13cmFwOiBub3dyYXA7XG59XG4uX3Jvb3Qge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG5kaXYuZGV0YWlsLm1lYXN1cmFibGUgPiBkaXYudGVtcGxhdGUge1xuICBkaXNwbGF5OiBub25lO1xufVxuLmdyYXBoQ29sb3IsIC5zaG93R3JpZHtcbiAgbWFyZ2luLWxlZnQ6IDA7XG59XG5zZWxlY3Qub3BlcmF0b3J7XG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgd2lkdGg6IDI1cHg7XG59XG5zcGFuLm9wZXJhdG9ydGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG59XG5zZWxlY3Qub3BlcmF0b3I6ZGlzYWJsZWR7XG4gIGRpc3BsYXk6IG5vbmU7XG4gIC8qXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgLW1vei1hcHBlYXJhbmNlOiBub25lO1xuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG4gIG1hcmdpbjogMDsqL1xufVxuXG5zcGFuLm5hbWVwcmVmaXgge1xuICBtYXJnaW4tbGVmdDogN3B4O1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xuICBoZWlnaHQ6IDIxcHg7XG4gIGJvcmRlci1yaWdodDogbm9uZTtcbiAgY29sb3I6IGJsYWNrO1xuICBsaW5lLWhlaWdodDogMTZweDtcbn1cbmlucHV0Lm5hbWUge1xuICBtYXJnaW4tbGVmdDogMDtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbn1cblxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcbiAgb3V0bGluZTogbm9uZTtcbiAgYm94LXNoYWRvdzogMCAycHggMnB4IDJweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cblxuaW5wdXQubmFtZTpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGJveC1zaGFkb3c6IDJweCAycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KSwgMnB4IC0ycHggMHB4IDBweCByZ2IoNzcsIDE0NCwgMjU0KTtcbn1cbi5odG1sc3R5bGUge1xuICB3aWR0aDogMTAwJTtcbn1cbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xuICBtYXJnaW4tbGVmdDowO1xufVxubGFiZWwgPiAqIHtcbiAgbWFyZ2luLXRvcDogYXV0bztcbiAgbWFyZ2luLWJvdHRvbTogYXV0bztcbn1cbmxhYmVsID4gaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdIH4gKiB7XG4gIG1hcmdpbi1sZWZ0OiAwO1xufVxuLmh0bWxbY29udGVudGVkaXRhYmxlXSB7XG4gIC8qSURFIGdpdmVzIGVycm9yIGJ1dCB0aGV5IGFsbCBhY3R1YWxseSBleGlzdCwgYXQgbGVhc3Qgb24gbW96aWxsYS4qL1xuICBvdmVyZmxvdy13cmFwOiBhbnl3aGVyZTtcbiAgd29yZC13cmFwOiBhbnl3aGVyZTtcbiAgd2hpdGUtc3BhY2U6IGJyZWFrLXNwYWNlcztcbn1cblxuLmF1dG9zaXplY29udGFpbmVye1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG4uYXV0b3NpemVjb250YWluZXIgPiAqe1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuLnNpemVDb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7IH1cbi5zaXplQ29udGFpbmVySGFsZiB7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIGZsZXgtZ3JvdzogMTtcbn1cbi5zaXplbGFiZWwge1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW4tcmV2ZXJzZTtcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xufVxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzAwcHgpIHtcbiAgLyogc3Ugdmlld3BvcnQgdHJvcHBvIHBpY2NvbGkgY2FtYmlvIGxhIHZpc3VhbGl6emF6aW9uZSBkYSBsYWJlbCBzb3ByYSBpbCB0ZXN0byAoYnVvbm8gcGVyIGZhcmUgbW9uby1yb3cpIGEgbGFiZWwgYWZmaWFuY2F0YSBhbCB0ZXN0byAocGVyIGZhcmUgNCByb3cgZSBzY29ycmVyZSB2ZXJ0aWNhbG1lbnRlKSovXG4gIC5zaXplbGFiZWx7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG59XG4uc2l6ZWxhYmVsID4gKntcbiAgZGlzcGxheTogaW5saW5lO1xuICBtYXJnaW46IGF1dG87IH1cblxuXG5cblxuXG5cblxuXG5cblxuICAvKiB0aGV5IGZpeCBvdXRlciBjc3MgaW5mbHVlbmNlIG9uIG1lYXN1cmFibGUgc2VjdGlvbi4gKi9cblxuaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLmFycm93IHtcbiAgbWFyZ2luOiAwOyB9XG5cbi5tZWFzX2FjYzAgYnV0dG9uIHsgbWFyZ2luOiAwOyB9XG5cblxuXG5cbi8qKioqKioqKioqKiAgICAgICAgICAgICAgTWVhc3VyYWJsZSBlZGl0b3IgdjIgc3RhcnQgICAgICAgICAgICAgICAgICoqKioqKioqL1xuLm1lYXNfYWNjMCAubWVhc3VyYWJsZVNldHRpbmdSb290e1xuICB3aWR0aDogMTAwJTtcbiAgZGlzcGxheTogYmxvY2s7XG59XG4ubWVhc19hY2MwIC5ib3hlc3Jvb3Qge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIGZsZXgtZ3JvdzogMTtcbiAgZmxleC1iYXNpczogMDtcbn1cbi5tZWFzX2FjYzAgLm1vdmVtZW50Ym94cm9vdCwgLm1lYXNfYWNjMCAucmVzaXplYm94cm9vdCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZ3JvdzogMTtcbiAgZmxleC1mbG93OiBjb2x1bW47XG59XG5cbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IG5vd3JhcDtcbn1cbi5tZWFzX2FjYzAgLnJvdyB7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcbiAgbWFyZ2luLWxlZnQ6IHVuc2V0OyAvKiBkdW1iIF9ncmlkLnNjc3MgZml4ZXIgKi9cbn1cbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XG4ubWVhc19hY2MwIC5hdXRvYnJlYWsgeyBmbGV4LXdyYXA6IGluaXRpYWw7IH1cbi5tZWFzX2FjYzAgLmZpbGwgeyBmbGV4LWdyb3c6IDE7IH1cbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxuLm1lYXNfYWNjMCAuc2lkZSB7IGRpc3BsYXk6IGZsZXg7IH1cbi5tZWFzX2FjYzAgLnNpZGUubGVmdCwgLm1lYXNfYWNjMCAuc2lkZS5yaWdodCB7IHdpZHRoOiAxMHB4OyB9XG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxuLm1lYXNfYWNjMCAuY29ybmVyIHsgZGlzcGxheTogZmxleDsgd2lkdGg6IDEwcHg7IGhlaWdodDogMTBweDsgfVxuLm1lYXNfYWNjMCAubWlkZGxlIHsgYmFja2dyb3VuZC1jb2xvcjogZ29sZGVucm9kOyBkaXNwbGF5OiBmbGV4OyB9XG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLmlubmVyID4gLnJvdyA+IC5zaWRlLCAubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLmlubmVyID4gLnJvdyA+IC5jb3JuZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBkaW1ncmF5O1xufVxuLm1lYXNfYWNjMCAuYm94cm9vdCB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IGF1dG87XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZXtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgYnV0dG9uLnJ1bGVkZWxldGUge1xuICBoZWlnaHQ6IDEwMCU7XG4gIHdpZHRoOiAzMHB4O1xuICBwYWRkaW5nOiAwO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgYm9yZGVyLXJhZGl1czogMjVweCAwIDAgMjVweDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXgge1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XG4gIG1hcmdpbi1ib3R0b206IDA7XG4gIHBhZGRpbmc6IDA7XG4gIGZsZXgtZ3JvdzogMCAhaW1wb3J0YW50O1xuICB3aWR0aDogYXV0bztcbiAgZmxleC1iYXNpczogYXV0byAhaW1wb3J0YW50O1xuICBmbGV4LXNocmluazogMCAhaW1wb3J0YW50O1xufVxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0LmF0dHJuYW1lIHtcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIHBhZGRpbmctbGVmdDogMDtcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDtcbn1cbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqIHsgYm9yZGVyOiBub25lOyB9XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gKjpmaXJzdC1jaGlsZCB7XG4gIG1hcmdpbi10b3A6IDFweDtcbiAgcGFkZGluZy1yaWdodDogMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XG59XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4OmZvY3VzLXdpdGhpbiB7XG4gIGJvcmRlci1jb2xvcjogIzgwYmRmZjtcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xufVxuXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxuLyogLm1lYXNfYWNjMCAucmlnaHR4IHsgbWluLXdpZHRoOiAwOyB9ICovXG4ubWVhc19hY2MwIC5yaWdodHggc3Bhbi5vcGVyYXRvciB7XG4gIG1hcmdpbjogYXV0bztcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIG1hcmdpbi10b3A6IDhweDtcbn1cbi5tZWFzX2FjYzAgLm9wZXJhdG9yY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xuICB3aWR0aDogNDVweDtcbiAgbWFyZ2luOiBhdXRvIDVweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbiAgbWluLXdpZHRoOiAxMjBweDtcbiAgZmxleC1iYXNpczogMDtcbiAgZmxleC1ncm93OiAxO1xufVxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eCA+IC50YXJnZXQgeyBtYXJnaW4tYm90dG9tOiAwOyB9XG4ubWVhc19hY2MwIC5yaWdodHggPiAubWVhc3VyYWJsZWRlYnVnIHsgbWFyZ2luLXRvcDogNXB4OyB9XG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XG4gIG1heC13aWR0aDogMjAwcHggIWltcG9ydGFudDsgLyogdG9kbzogcmVtb3ZlIHdoZW4gaXMgYXV0b3NpemluZyAqL1xuICBtaW4td2lkdGg6IDA7XG59XG4ubWVhc19hY2MwIC5hZGRydWxlIHtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBtYXJnaW4tdG9wOiAtNHB4O1xuICBwYWRkaW5nOiA0cHggMTBweDtcbn1cbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XG4gIHBhZGRpbmctcmlnaHQ6IDRweDtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlLmNvbGxhcHNlZCB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVyIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBidXR0b247IH1cbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IHVuc2V0O1xuICAvKiBkaXNhYmxlIGJvb3RzdHJhcCBydWxlKi9cbn1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVlcnJvcnRleHR7XG4gIG1hcmdpbi1sZWZ0OiA1cHg7XG4gIGNvbG9yOiB2YXIoLS1kYW5nZXIpO1xufVxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0e1xuICBtYXJnaW4tbGVmdDogNXB4O1xuICBjb2xvcjogdmFyKC0td2FybmluZyk7XG59XG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dHtcbiAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG59XG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyeyBtYXJnaW4tYm90dG9tOiA1cHg7IH1cbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyB7IGRpc3BsYXk6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLnJpZ2h0eDpmb2N1cy13aXRoaW4gLm1lYXN1cmFibGVkZWJ1Z3sgZGlzcGxheTogZmxleDsgfVxuLm1lYXNfYWNjMCAuY291bnRlcnNoZWxsIHsgZmxvYXQ6IHJpZ2h0OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gKiB7XG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAucm93ID4gKiwgLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Yge1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XG59XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby90cXhYaGs0L3RsLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmd2cHl3ei90bGwucG5nKTtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnNpZGUudG9wIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vTTlmQzdEUC90LnBuZyk7IH1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9QenNtanhmL3RyLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vU04yVEhMdC90cmwucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvLzdqbTlCQlEvbC5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5sZWZ0IHtcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9xcllXZHBIL2JsLnBuZyk7Ki9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAuc2lkZS5ib3Qge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9jWGMwbm1TL2IucG5nKTsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL0swcFZWVDcvYnIucG5nKTsqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9RcHdSU3NUL2JybC5wbmcpOyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xuICBtYXJnaW4tdG9wOiAtM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcbiAgbWFyZ2luLWJvdHRvbTogLTNweDtcbiAgbWFyZ2luLXRvcDogM3B4OyB9XG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XG4gIG1hcmdpbi1yaWdodDogM3B4O1xuICBtYXJnaW4tbGVmdDogLTNweDsgfVxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcbiAgbWFyZ2luLXJpZ2h0OiAtM3B4O1xuICBtYXJnaW4tbGVmdDogM3B4OyB9XG4ubWVhc19hY2MwIC5hcnJvd2gge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9aZDNqdGJjL2xyLnBuZyk7IH1cbi5tZWFzX2FjYzAgLmFycm93diB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxuXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+IC5jb3JuZXIge1xuICBoZWlnaHQ6IDUwcHg7XG4gIG1pbi13aWR0aDogNTBweDtcbn1cbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XG4gIGhlaWdodDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAqIHtcbiAgaGVpZ2h0OiA1MHB4OyB9XG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcbiAgaGVpZ2h0OiBhdXRvO1xuICB3aWR0aDogNTBweDsgfVxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xuICBoZWlnaHQ6IGF1dG87XG4gIHdpZHRoOiA1MHB4OyB9XG5cbi5tZWFzX2FjYzAgLmFycm93IHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XG5cbi5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2e1xuICB3aWR0aDogNzVweDtcbiAgaGVpZ2h0OiA3NXB4OyB9XG5cbi5tZWFzX2FjYzAgLmFycm93OmZvY3VzeyBvdXRsaW5lOiBub25lOyB9XG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xuICBmaWx0ZXI6IHNlcGlhKDgyJSkgc2F0dXJhdGUoMzkyNSUpIGh1ZS1yb3RhdGUoNTVkZWcpIGJyaWdodG5lc3MoMTI1JSkgY29udHJhc3QoMTIwJSk7IH1cblxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAgbWFyZ2luOiBhdXRvOyB9XG5cbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMgPiAqIHsgbWFyZ2luOiBhdXRvOyB9XG4ubWVhc19hY2MwIC5kcmFnZ2FibGUuYm94cm9vdHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1mbG93OiBjb2x1bW47XG4gIC8qaGVpZ2h0OiAyMzdweDsqL1xufVxuLm1lYXNfYWNjMCAuY29sbGFwc2U6bm90KC5zaG93KSB7IGRpc3BsYXk6IG5vbmU7IH1cbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XG4vKioqKioqKioqKiogICAgICAgICAgICAgIE1lYXN1cmFibGUgZWRpdG9yIHYyIGVuZCAgICAgICAgICAgICAgICAgICAqKioqKioqKi9cbi5pc2ludGVyZmFjZSwgLmlzYWJzdHJhY3R7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xufVxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".dropdown{\r\n  position: relative;\r\n  padding-left: 0;\r\n}\r\n.dropdown:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n}\r\n.dropdown:focus-within{\r\n  pointer-events: none;\r\n}\r\n.dropdown:focus-within>.dropdownmenu{\r\n  display: block;\r\n  z-index: 1000;\r\n}\r\n.dropdown.hover-display:hover>.dropdownmenu{\r\n  display: block;\r\n  z-index: 1001;\r\n}\r\n.dropdown:focus-within>.icon,\r\n.dropdown.hover-display:hover>.icon{\r\n  -webkit-transform: rotate(225deg);\r\n          transform: rotate(225deg);\r\n}\r\n.dropdown.hover-display.readonly .dropdownmenu{\r\n  pointer-events: none;\r\n}\r\n.dropdownmenu .dropdownitem{\r\n  border: 1px solid transparent; /* per evitare incrementi di dimensione*/\r\n}\r\n.dropdownmenu .dropdownitem.selected{\r\n  border: 1px solid var(--color-4);\r\n  /* outline: 2px solid var(--color-4); */\r\n  box-shadow: 0 0 3px 1px var(--color-4);\r\n  background: var(--color-bg-2);\r\n}\r\n/*.dropdown>.icon:hover, .dropdown:focus-within>.icon{\r\n  filter: brightness(0.9);\r\n}*/\r\n.dropdown>.dropdownmenu{\r\n  pointer-events: all;\r\n  position: absolute;\r\n  top: 100%;\r\n  left: 0;\r\n  display: none;\r\n  /*float: left;*/\r\n  padding: 0.5rem 0;\r\n  margin: 0;\r\n  font-size: 1rem;\r\n  /*color: #212529;*/\r\n  text-align: left;\r\n  list-style: none;\r\n  /*background-color: #fff;*/\r\n  background-clip: padding-box;\r\n  border: 1px solid rgba(0, 0, 0, 0.15);\r\n  border-radius: 0.25rem;\r\n  background: var(--color-bg-1);\r\n}\r\n.dropdownitem{\r\n  display: block;\r\n  width: 100%;\r\n  padding: 0.25rem 1.5rem;\r\n}\r\n.cslistreadonly.dropdownitem .inheritedFromText{\r\n  text-align:center;\r\n}\r\n.cslistreadonly.dropdownitem .inheritedFromText>*{\r\n  display: inline-block;\r\n}\r\n.dropdown>.icon{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  text-align: center;\r\n}\r\n.dropdown>.icon{\r\n  background: inherit;\r\n  margin: auto 10px;\r\n  border: solid;\r\n  border-width: 0 3px 3px 0;\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  -webkit-transform: rotate(45deg);\r\n          transform: rotate(45deg);\r\n  min-height: 20px;\r\n  min-width: 20px;\r\n}\r\n.dropdown .title{\r\n  margin: auto;\r\n}\r\n.colorblock{\r\n  margin-right: 2px;\r\n}\r\n.styleContainer{\r\n  /*position: relative;\r\n  height: 100%;\r\n  overflow-y: auto;\r\n  overflow-x: auto;\r\n  padding: 17px;\r\n  padding-right: calc(17px - 10px);*/\r\n}\r\n.template{\r\n  display: none;\r\n}\r\n.StyleEditorDisplay .template{\r\n  display: unset;\r\n}\r\n.preview{\r\n  position: relative;\r\n  display: block;\r\n  width: 100%;\r\n  min-height: 10px;\r\n  border: 1px solid red;\r\n  background-color: transparent;\r\n  margin-bottom: 10px;\r\n  margin-top: 10px;\r\n}\r\n.preview:blank{\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\n.separatorShell.top{\r\n  margin-top: 30px;\r\n}\r\ndiv[contenteditable=\"true\"]:focus {\r\n  max-height: unset;\r\n}\r\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\r\n  overflow: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  color: black;\r\n  border: 1px solid black;\r\n  min-height: 100px;\r\n  max-height: 200px;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n}\r\ndiv[contenteditable=\"true\"] {\r\n  background-color: white;\r\n  cursor: text;\r\n}\r\ndiv[contenteditable=\"false\"] {\r\n  background-color: gray;\r\n  cursor: no-drop;\r\n  opacity: 0.4;\r\n}\r\nlabel.allowEdit {\r\n  color: goldenrod;\r\n}\r\nbutton {\r\n  margin: 5px;\r\n}\r\n.style.own, .style.instances{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: wrap;\r\n}\r\n.detail{\r\n  border: 3px solid var(--bluebordercolor);\r\n  background: var(--);\r\n  color: var(--altFontColor);\r\n}\r\nbutton.detail {\r\n  margin: auto;\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  height: auto;\r\n  border-top-left-radius: 17px;\r\n  border-top-right-radius: 17px;\r\n  z-index: 1;\r\n }\r\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  margin-right: 0;\r\n  border-top-right-radius: 0;\r\n  border-bottom-right-radius: 0;\r\n}\r\nbutton.detail:last-child:not(:only-child){\r\n  margin-left: -3px;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\nbutton.detail:focus {\r\n  box-shadow: none !important;\r\n  outline: none !important;\r\n}\r\ndiv.detail{\r\n  padding: 5px;\r\n  margin-top: -3px;\r\n  width: calc(100%);\r\n}\r\n.saveasrow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n}\r\nbutton.delete{\r\n  margin: auto;\r\n  margin-bottom: 5px;\r\n}\r\nbutton.saveas{\r\n  margin: auto;\r\n  margin-bottom: 5px;\r\n}\r\ninput.saveas {\r\n  margin: auto;\r\n  margin-bottom: 5px;\r\n  flex-basis: 100px;\r\n  -webkit-box-flex: 0.6;\r\n          flex-grow: 0.6;\r\n  width: 0;\r\n}\r\n.compatibleRow > label > span{\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin-left: 0;\r\n}\r\n.saveasrow, .compatibleRow{\r\n  width: 100%;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: wrap;\r\n}\r\n.compatibleRow > label > input {\r\n  -webkit-box-ordinal-group: 2;\r\n          order: 1;\r\n  margin-left: 0;\r\n  margin-right: 5px;\r\n}\r\n.detail > label {\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  flex-wrap: nowrap;\r\n}\r\nbutton.detail > .opened, button.detail > .closed{\r\n  margin: auto;\r\n}\r\ntable {\r\n  width: 100%;\r\n}\r\ntd.title {\r\n  font-weight: bold;\r\n  padding-top: 10px;\r\n  text-align: center;\r\n}\r\nh1 {\r\n  text-align: center;\r\n}\r\nselect{\r\n  /* background: inherit;\r\n  border: none;\r\n  color: inherit;\r\n  font: inherit; */\r\n  /*flex-basis: 0;*/\r\n  flex-shrink: 1;\r\n  -webkit-box-flex: 0.9;\r\n          flex-grow: 0.9;\r\n  max-width: -webkit-max-content;\r\n  max-width: -moz-max-content;\r\n  max-width: max-content;\r\n  min-width: 0;\r\n}\r\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\r\nlabel > *:not(input), h6 > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /* flex-grow: 1;*/\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\nh6{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n\r\n}\r\n.separator > * {\r\n  text-align: center;\r\n}\r\n/*\r\nbutton {\r\n  background: #0084ff;\r\n  border: none;\r\n  border-radius: 5px;\r\n  padding: 8px 14px;\r\n  font-size: 15px;\r\n  color: #fff;\r\n}\r\n\r\nbutton:disabled{\r\n  background: gray;\r\n}*/\r\ninput[type=\"number\"] {\r\n  width: 40px;\r\n  margin-right: 5px;\r\n}\r\n.zoomX, .zoomY, .gridX, .gridY {\r\n  margin-left: 5px;\r\n  margin-right: 15px;}\r\nlabel>input[type=\"checkbox\"],\r\nlabel>input[type=\"color\"] {\r\n  margin-bottom: 3px;\r\n}\r\n#primary_color {\r\n  border-radius: 100%;\r\n  height: 60px;\r\n  width: 60px;\r\n  border: none;\r\n  outline: none;\r\n  -webkit-appearance: none;\r\n}\r\n[contenteditable=true]:empty:before {\r\n  content: attr(placeholder);\r\n  display: block;\r\n  /* For Firefox */\r\n  cursor: text;\r\n  vertical-align: middle;\r\n  color: darkgray;\r\n  text-align: center;\r\n  margin: auto;\r\n}\r\n.separatorShell {\r\n  min-height: 33px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n  margin: auto;\r\n  margin-top: 10px;\r\n  margin-bottom: 10px;\r\n  width: 100%;\r\n}\r\n.roww {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  width: 100%;\r\n}\r\n.separator {\r\n  margin: auto;\r\n  display: inline-block;\r\n}\r\n.stylelabel{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  margin-right: 5px;\r\n}\r\nselect.stylename{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n  margin-left: 0;\r\n}\r\n.HorizontalContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: wrap;\r\n  width: 100%;\r\n}\r\n.onlyVerticalContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: wrap;\r\n}\r\n.onlyVerticalContainer > * {\r\n  margin: auto 0;\r\n}\r\n.HorizontalChild{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n}\r\n.opened{\r\n  display: none;\r\n}\r\n.helpButton, .styledelete {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 35px;\r\n  height: 35px;\r\n  margin: auto;\r\n  margin-right: 0;\r\n}\r\n.styledelete {\r\n  margin-right: 5px;\r\n  margin-left: 5px;\r\n}\r\n.helpButton {\r\n  background: rgb(0, 62, 127);\r\n  border-color: rgb(0, 62, 127); }\r\n.htmlstyle > .top {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.expressionRoot {\r\n  flex-wrap: nowrap !important;\r\n  max-width: 100%;\r\n}\r\ninput.fill{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n  margin-left: 7px;\r\n}\r\n.leftside{\r\n  -webkit-box-flex: 3;\r\n          flex-grow: 3;\r\n  flex-basis: 0;\r\n  min-width: 0;\r\n  max-width: 150px;\r\n}\r\n.rightside{\r\n  -webkit-box-flex: 7;\r\n          flex-grow: 7;\r\n  flex-basis: 0;\r\n  min-width: 0;\r\n}\r\n.arrowContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 10px;\r\n}\r\nbutton.arrow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  line-height: unset;\r\n  padding: 0 6px;\r\n}\r\n.tsclass{\r\n  margin: auto;\r\n  display: inline;\r\n  text-align: center;\r\n}\r\n/* */\r\n/*\r\npre {\r\n  background:#EEE;\r\n  padding:5px;\r\n  width: 290px;\r\n}*/\r\n.addHeader{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.addHeader > button {\r\n  margin-left: 0;\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n}\r\nselect.attributetypeadd{\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  min-width: 0;\r\n  margin-right: 10px;\r\n}\r\n.previewselector{\r\n  height: 23px;\r\n  outline: none;\r\n  border: 2px dashed #666666;\r\n}\r\n.showAsEdge{\r\n  margin-right: 5px !important;\r\n}\r\nbutton.delete, button.saveas{\r\n  font-size: 0.8rem;\r\n}\r\nbutton.deleteRule{\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-basis: auto;\r\n  min-width: auto;\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  padding: 5px;\r\n}\r\n.nowrap{\r\n  flex-wrap: nowrap;\r\n}\r\n._root {\r\n  margin-bottom: 5px;\r\n}\r\ndiv.detail.measurable > div.template {\r\n  display: none;\r\n}\r\n.graphColor, .showGrid{\r\n  margin-left: 0;\r\n}\r\nselect.operator{\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  width: 25px;\r\n}\r\nspan.operatortext{\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n}\r\nselect.operator:disabled{\r\n  display: none;\r\n  /*\r\n  background: inherit;\r\n  border: none;\r\n  -moz-appearance: none;\r\n  -webkit-appearance: none;\r\n  margin: 0;*/\r\n}\r\nspan.nameprefix {\r\n  margin-left: 7px;\r\n  background: white;\r\n  border: 2px inset rgb(238, 238, 238);\r\n  height: 21px;\r\n  border-right: none;\r\n  color: black;\r\n  line-height: 16px;\r\n}\r\ninput.name {\r\n  margin-left: 0;\r\n  border-left: none;\r\n  padding-left: 0;\r\n}\r\nlabel:focus > input.name {\r\n  outline: none;\r\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\r\n}\r\ninput.name:focus {\r\n  outline: none;\r\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\r\n}\r\n.htmlstyle {\r\n  width: 100%;\r\n}\r\nlabel.allowEdit > span {\r\n  margin-left:0;\r\n}\r\nlabel > * {\r\n  margin-top: auto;\r\n  margin-bottom: auto;\r\n}\r\nlabel > input[type=\"checkbox\"] ~ * {\r\n  margin-left: 0;\r\n}\r\n.html[contenteditable] {\r\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\r\n  overflow-wrap: anywhere;\r\n  word-wrap: anywhere;\r\n  white-space: break-spaces;\r\n}\r\n.autosizecontainer{\r\n  display: inline-block;\r\n}\r\n.autosizecontainer > *{\r\n  display: inline-block;\r\n  margin-right: 5px;\r\n}\r\n.sizeContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap; }\r\n.sizeContainerHalf {\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.sizelabel {\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: reverse;\r\n          flex-flow: column-reverse;\r\n  margin-right: 10px;\r\n  margin-bottom: 10px;\r\n}\r\n@media screen and (max-width: 700px) {\r\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\r\n  .sizelabel{\r\n    display: inline-block;\r\n  }\r\n}\r\n.sizelabel > *{\r\n  display: inline;\r\n  margin: auto; }\r\n/* they fix outer css influence on measurable section. */\r\ninput[type=\"checkbox\"].arrow {\r\n  margin: 0; }\r\n.meas_acc0 button { margin: 0; }\r\n/***********              Measurable editor v2 start                 ********/\r\n.meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: dimgray;\r\n}\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n}\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  margin-top: 8px;\r\n}\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n  min-width: 0;\r\n}\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n.meas_acc0 .measurabledebug { display: none; }\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n.meas_acc0 .countershell { float: right; }\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n.meas_acc0 .directions > * { margin: auto; }\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n/***********              Measurable editor v2 end                   ********/\r\n.isinterface, .isabstract{\r\n  margin-right: 5px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBRUE7O0VBRUUsaUNBQXlCO1VBQXpCLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSw2QkFBNkIsRUFBRSx3Q0FBd0M7QUFDekU7QUFDQTtFQUNFLGdDQUFnQztFQUNoQyx1Q0FBdUM7RUFDdkMsc0NBQXNDO0VBQ3RDLDZCQUE2QjtBQUMvQjtBQUNBOztFQUVFO0FBQ0Y7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxPQUFPO0VBQ1AsYUFBYTtFQUNiLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsU0FBUztFQUNULGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQiwwQkFBMEI7RUFDMUIsNEJBQTRCO0VBQzVCLHFDQUFxQztFQUNyQyxzQkFBc0I7RUFDdEIsNkJBQTZCO0FBQy9CO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsV0FBVztFQUNYLHVCQUF1QjtBQUN6QjtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBRUE7RUFDRSxxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsbUJBQW1CO0VBQ25CLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IseUJBQXlCO0VBQ3pCLHFCQUFxQjtFQUNyQixzQkFBc0I7RUFDdEIsZ0NBQXdCO1VBQXhCLHdCQUF3QjtFQUN4QixnQkFBZ0I7RUFDaEIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFOzs7OztvQ0FLa0M7QUFDcEM7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGNBQWM7RUFDZCxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtFQUNyQiw2QkFBNkI7RUFDN0IsbUJBQW1CO0VBQ25CLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsdUJBQXVCO0VBQ3ZCLFlBQVk7QUFDZDtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsbUJBQW1CO0VBQ25CLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLDRCQUE0QjtFQUM1Qiw2QkFBNkI7RUFDN0IsVUFBVTtDQUNYO0FBQ0QsNENBQTRDLGlEQUFpRDtFQUMzRiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsMEJBQTBCO0VBQzFCLDZCQUE2QjtBQUMvQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLHlCQUF5QjtFQUN6Qiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLDJCQUEyQjtFQUMzQix3QkFBd0I7QUFDMUI7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixxQkFBYztVQUFkLGNBQWM7RUFDZCxRQUFRO0FBQ1Y7QUFDQTtFQUNFLDJCQUFtQjtFQUFuQix3QkFBbUI7RUFBbkIsbUJBQW1CO0VBQ25CLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7QUFDaEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSw0QkFBUTtVQUFSLFFBQVE7RUFDUixjQUFjO0VBQ2QsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRTs7O2tCQUdnQjtFQUNoQixpQkFBaUI7RUFDakIsY0FBYztFQUNkLHFCQUFjO1VBQWQsY0FBYztFQUNkLDhCQUFzQjtFQUF0QiwyQkFBc0I7RUFBdEIsc0JBQXNCO0VBQ3RCLFlBQVk7QUFDZDtBQUVBLE9BQU8sb0JBQWEsQ0FBYixhQUFhLEVBQUUsa0JBQVcsRUFBWCxXQUFXLENBQUM7QUFDbEM7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFFQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTs7QUFFZDtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7Ozs7Ozs7Ozs7OztFQVlFO0FBQ0Y7RUFDRSxXQUFXO0VBQ1gsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsa0JBQWtCLENBQUM7QUFHckI7O0VBRUUsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLFdBQVc7RUFDWCxZQUFZO0VBQ1osYUFBYTtFQUNiLHdCQUF3QjtBQUMxQjtBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLGNBQWM7RUFDZCxnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLFlBQVk7QUFDZDtBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFjO0VBQWQsNkJBQWM7VUFBZCxjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLFdBQVc7QUFDYjtBQUVBO0VBQ0UsWUFBWTtFQUNaLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0VBQ1osaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxlQUFlO0VBQ2YsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw4QkFBYztFQUFkLDZCQUFjO1VBQWQsY0FBYztFQUNkLGVBQWU7QUFDakI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFdBQVc7RUFDWCxZQUFZO0VBQ1osWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLDJCQUEyQjtFQUMzQiw2QkFBNkIsRUFBRTtBQUVqQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGFBQWE7RUFDYixZQUFZO0FBQ2Q7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLGNBQWM7QUFDaEI7QUFDQTtFQUNFLFlBQVk7RUFDWixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0EsSUFBSTtBQUVKOzs7OztFQUtFO0FBQ0Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsY0FBYztFQUNkLDRCQUFRO1VBQVIsUUFBUTtBQUNWO0FBQ0E7RUFDRSxhQUFhO0VBQ2IsbUJBQVk7VUFBWixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYiwwQkFBMEI7QUFDNUI7QUFFQTtFQUNFLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSw0QkFBdUI7T0FBdkIsdUJBQXVCO0VBQ3ZCLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsV0FBVztBQUNiO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxhQUFhO0VBQ2I7Ozs7O2FBS1c7QUFDYjtBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixvQ0FBb0M7RUFDcEMsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLGVBQWU7QUFDakI7QUFFQTtFQUNFLGFBQWE7RUFDYiwyQ0FBMkM7QUFDN0M7QUFFQTtFQUNFLGFBQWE7RUFDYixpRkFBaUY7QUFDbkY7QUFDQTtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvRUFBb0U7RUFDcEUsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQix5QkFBeUI7QUFDM0I7QUFFQTtFQUNFLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UscUJBQXFCO0VBQ3JCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZSxFQUFFO0FBQ25CO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsNEJBQXlCO0VBQXpCLDhCQUF5QjtVQUF6Qix5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsZ0xBQWdMO0VBQ2hMO0lBQ0UscUJBQXFCO0VBQ3ZCO0FBQ0Y7QUFDQTtFQUNFLGVBQWU7RUFDZixZQUFZLEVBQUU7QUFXZCx3REFBd0Q7QUFFMUQ7RUFDRSxTQUFTLEVBQUU7QUFFYixvQkFBb0IsU0FBUyxFQUFFO0FBSy9CLDZFQUE2RTtBQUM3RTtFQUNFLFdBQVc7RUFDWCxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtBQUNmO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDtBQUNBLG9CQUFvQixlQUFlLEVBQUU7QUFDckMsd0JBQXdCLGtCQUFrQixFQUFFO0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTtBQUNqQyx1QkFBdUIsY0FBYyxFQUFFLGtCQUFrQixFQUFFLG1CQUFtQixFQUFFO0FBQ2hGLG1CQUFtQixvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNsQyxnREFBZ0QsV0FBVyxFQUFFO0FBQzdELDZDQUE2QyxZQUFZLEVBQUUsd0JBQXdCLEVBQUU7QUFDckYscUJBQXFCLG9CQUFhLEVBQWIsYUFBYSxFQUFFLFdBQVcsRUFBRSxZQUFZLEVBQUU7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2pFLDZCQUE2QixZQUFZLEVBQUUsWUFBWSxFQUFFO0FBQ3pEO0VBQ0UseUJBQXlCO0FBQzNCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLGNBQWM7RUFDZCxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5QjtBQUNBLHNDQUFzQyxZQUFZLEVBQUU7QUFDcEQ7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDZCQUE2QjtBQUMvQjtBQUNBLGdEQUFnRCxnQkFBZ0IsRUFBRTtBQUNsRTtFQUNFLHFCQUFxQjtFQUNyQixnREFBZ0Q7QUFDbEQ7QUFFQSwwRUFBMEUsMkJBQTJCLEVBQUU7QUFDdkcseUNBQXlDO0FBQ3pDO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsZUFBZTtBQUNqQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQiw0QkFBdUI7T0FBdkIsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBLDRCQUE0QixtQkFBbUIsRUFBRTtBQUNqRCwrQkFBK0IsZ0JBQWdCLEVBQUU7QUFDakQsd0NBQXdDLGVBQWUsRUFBRTtBQUN6RDtFQUNFLDJCQUEyQixFQUFFLG9DQUFvQztFQUNqRSxZQUFZO0FBQ2Q7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCO0FBQ0Esa0NBQWtDLDJCQUEyQixFQUFFO0FBQy9ELDhCQUE4QiwwQkFBMEIsRUFBRTtBQUMxRDtFQUNFLDZCQUE2QjtFQUM3QiwwQkFBMEI7QUFDNUI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixvQkFBb0I7QUFDdEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7QUFDekI7QUFDQSwyQkFBMkIsa0JBQWtCLEVBQUU7QUFDL0MsOEJBQThCLGFBQWEsRUFBRTtBQUM3QyxrREFBa0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUsMkJBQTJCLFlBQVksRUFBRTtBQUN6QztFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSx3QkFBd0I7RUFDeEIsNEJBQTRCO0VBQzVCLGtDQUFrQztBQUNwQztBQUNBO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RDtBQUN6RDtBQUNBO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RCxFQUFFO0FBQzNEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxtQkFBbUI7RUFDbkIsZUFBZSxFQUFFO0FBQ25CO0VBQ0UsaUJBQWlCO0VBQ2pCLGlCQUFpQixFQUFFO0FBQ3JCO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQixFQUFFO0FBQ3BCO0VBQ0Usc0RBQXNELEVBQUU7QUFDMUQ7RUFDRSxzREFBc0QsRUFBRTtBQUUxRDtFQUNFLFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxZQUFZLEVBQUU7QUFDaEI7RUFDRSxZQUFZLEVBQUU7QUFDaEI7RUFDRSxZQUFZO0VBQ1osV0FBVyxFQUFFO0FBQ2Y7RUFDRSxZQUFZO0VBQ1osV0FBVyxFQUFFO0FBRWYsb0JBQW9CLDJCQUEyQixFQUFFO0FBRWpEO0VBQ0UsV0FBVztFQUNYLFlBQVksRUFBRTtBQUVoQix5QkFBeUIsYUFBYSxFQUFFO0FBQ3hDO0VBQ0UsNEZBQW9GO1VBQXBGLG9GQUFvRixFQUFFO0FBRXhGO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLFlBQVksRUFBRTtBQUVoQiw2QkFBNkIsWUFBWSxFQUFFO0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25CO0FBQ0Esa0NBQWtDLGFBQWEsRUFBRTtBQUNqRCx1QkFBdUIsb0NBQW9DLEVBQUU7QUFDN0QsNkVBQTZFO0FBQzdFO0VBQ0UsaUJBQWlCO0FBQ25CIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZHJvcGRvd257XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxufVxyXG4uZHJvcGRvd246Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lO1xyXG59XHJcbi5kcm9wZG93bjpmb2N1cy13aXRoaW57XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbn1cclxuLmRyb3Bkb3duOmZvY3VzLXdpdGhpbj4uZHJvcGRvd25tZW51e1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHotaW5kZXg6IDEwMDA7XHJcbn1cclxuLmRyb3Bkb3duLmhvdmVyLWRpc3BsYXk6aG92ZXI+LmRyb3Bkb3dubWVudXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB6LWluZGV4OiAxMDAxO1xyXG59XHJcblxyXG4uZHJvcGRvd246Zm9jdXMtd2l0aGluPi5pY29uLFxyXG4uZHJvcGRvd24uaG92ZXItZGlzcGxheTpob3Zlcj4uaWNvbntcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgyMjVkZWcpO1xyXG59XHJcbi5kcm9wZG93bi5ob3Zlci1kaXNwbGF5LnJlYWRvbmx5IC5kcm9wZG93bm1lbnV7XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbn1cclxuLmRyb3Bkb3dubWVudSAuZHJvcGRvd25pdGVte1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIHRyYW5zcGFyZW50OyAvKiBwZXIgZXZpdGFyZSBpbmNyZW1lbnRpIGRpIGRpbWVuc2lvbmUqL1xyXG59XHJcbi5kcm9wZG93bm1lbnUgLmRyb3Bkb3duaXRlbS5zZWxlY3RlZHtcclxuICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1jb2xvci00KTtcclxuICAvKiBvdXRsaW5lOiAycHggc29saWQgdmFyKC0tY29sb3ItNCk7ICovXHJcbiAgYm94LXNoYWRvdzogMCAwIDNweCAxcHggdmFyKC0tY29sb3ItNCk7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tY29sb3ItYmctMik7XHJcbn1cclxuLyouZHJvcGRvd24+Lmljb246aG92ZXIsIC5kcm9wZG93bjpmb2N1cy13aXRoaW4+Lmljb257XHJcbiAgZmlsdGVyOiBicmlnaHRuZXNzKDAuOSk7XHJcbn0qL1xyXG4uZHJvcGRvd24+LmRyb3Bkb3dubWVudXtcclxuICBwb2ludGVyLWV2ZW50czogYWxsO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB0b3A6IDEwMCU7XHJcbiAgbGVmdDogMDtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIC8qZmxvYXQ6IGxlZnQ7Ki9cclxuICBwYWRkaW5nOiAwLjVyZW0gMDtcclxuICBtYXJnaW46IDA7XHJcbiAgZm9udC1zaXplOiAxcmVtO1xyXG4gIC8qY29sb3I6ICMyMTI1Mjk7Ki9cclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgLypiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmOyovXHJcbiAgYmFja2dyb3VuZC1jbGlwOiBwYWRkaW5nLWJveDtcclxuICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xyXG4gIGJvcmRlci1yYWRpdXM6IDAuMjVyZW07XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tY29sb3ItYmctMSk7XHJcbn1cclxuLmRyb3Bkb3duaXRlbXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB3aWR0aDogMTAwJTtcclxuICBwYWRkaW5nOiAwLjI1cmVtIDEuNXJlbTtcclxufVxyXG4uY3NsaXN0cmVhZG9ubHkuZHJvcGRvd25pdGVtIC5pbmhlcml0ZWRGcm9tVGV4dHtcclxuICB0ZXh0LWFsaWduOmNlbnRlcjtcclxufVxyXG5cclxuLmNzbGlzdHJlYWRvbmx5LmRyb3Bkb3duaXRlbSAuaW5oZXJpdGVkRnJvbVRleHQ+KntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuLmRyb3Bkb3duPi5pY29ue1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5kcm9wZG93bj4uaWNvbntcclxuICBiYWNrZ3JvdW5kOiBpbmhlcml0O1xyXG4gIG1hcmdpbjogYXV0byAxMHB4O1xyXG4gIGJvcmRlcjogc29saWQ7XHJcbiAgYm9yZGVyLXdpZHRoOiAwIDNweCAzcHggMDtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSg0NWRlZyk7XHJcbiAgbWluLWhlaWdodDogMjBweDtcclxuICBtaW4td2lkdGg6IDIwcHg7XHJcbn1cclxuLmRyb3Bkb3duIC50aXRsZXtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuLmNvbG9yYmxvY2t7XHJcbiAgbWFyZ2luLXJpZ2h0OiAycHg7XHJcbn1cclxuLnN0eWxlQ29udGFpbmVye1xyXG4gIC8qcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBvdmVyZmxvdy15OiBhdXRvO1xyXG4gIG92ZXJmbG93LXg6IGF1dG87XHJcbiAgcGFkZGluZzogMTdweDtcclxuICBwYWRkaW5nLXJpZ2h0OiBjYWxjKDE3cHggLSAxMHB4KTsqL1xyXG59XHJcbi50ZW1wbGF0ZXtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi5TdHlsZUVkaXRvckRpc3BsYXkgLnRlbXBsYXRle1xyXG4gIGRpc3BsYXk6IHVuc2V0O1xyXG59XHJcbi5wcmV2aWV3e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB3aWR0aDogMTAwJTtcclxuICBtaW4taGVpZ2h0OiAxMHB4O1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIHJlZDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuLnByZXZpZXc6Ymxhbmt7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcclxuICBvcGFjaXR5OiAwLjQ7XHJcbn1cclxuLnNlcGFyYXRvclNoZWxsLnRvcHtcclxuICBtYXJnaW4tdG9wOiAzMHB4O1xyXG59XHJcblxyXG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXTpmb2N1cyB7XHJcbiAgbWF4LWhlaWdodDogdW5zZXQ7XHJcbn1cclxuZGl2W2NvbnRlbnRlZGl0YWJsZT1cInRydWVcIl0sIGRpdltjb250ZW50ZWRpdGFibGU9XCJmYWxzZVwiXSB7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBjb2xvcjogYmxhY2s7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgbWluLWhlaWdodDogMTAwcHg7XHJcbiAgbWF4LWhlaWdodDogMjAwcHg7XHJcbiAgbWFyZ2luLXRvcDogNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgY3Vyc29yOiB0ZXh0O1xyXG59XHJcbmRpdltjb250ZW50ZWRpdGFibGU9XCJmYWxzZVwiXSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcclxuICBjdXJzb3I6IG5vLWRyb3A7XHJcbiAgb3BhY2l0eTogMC40O1xyXG59XHJcbmxhYmVsLmFsbG93RWRpdCB7XHJcbiAgY29sb3I6IGdvbGRlbnJvZDtcclxufVxyXG5idXR0b24ge1xyXG4gIG1hcmdpbjogNXB4O1xyXG59XHJcbi5zdHlsZS5vd24sIC5zdHlsZS5pbnN0YW5jZXN7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHdyYXA7XHJcbn1cclxuLmRldGFpbHtcclxuICBib3JkZXI6IDNweCBzb2xpZCB2YXIoLS1ibHVlYm9yZGVyY29sb3IpO1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLSk7XHJcbiAgY29sb3I6IHZhcigtLWFsdEZvbnRDb2xvcik7XHJcbn1cclxuYnV0dG9uLmRldGFpbCB7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDA7XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGhlaWdodDogYXV0bztcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxN3B4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAxN3B4O1xyXG4gIHotaW5kZXg6IDE7XHJcbiB9XHJcbmJ1dHRvbi5kZXRhaWw6Zmlyc3QtY2hpbGQ6bm90KDpvbmx5LWNoaWxkKXsgLyogZmlyc3QgdmlzaWJsZSBjaGlsZCBub3QgcG9zc2libGUgaWMgcHVyZSBjc3MgKi9cclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICBtYXJnaW4tcmlnaHQ6IDA7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDA7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDA7XHJcbn1cclxuYnV0dG9uLmRldGFpbDpsYXN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7XHJcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xyXG59XHJcbmJ1dHRvbi5kZXRhaWw6Zm9jdXMge1xyXG4gIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcclxuICBvdXRsaW5lOiBub25lICFpbXBvcnRhbnQ7XHJcbn1cclxuZGl2LmRldGFpbHtcclxuICBwYWRkaW5nOiA1cHg7XHJcbiAgbWFyZ2luLXRvcDogLTNweDtcclxuICB3aWR0aDogY2FsYygxMDAlKTtcclxufVxyXG4uc2F2ZWFzcm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcbmJ1dHRvbi5kZWxldGV7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5idXR0b24uc2F2ZWFze1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuaW5wdXQuc2F2ZWFzIHtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xyXG4gIGZsZXgtZ3JvdzogMC42O1xyXG4gIHdpZHRoOiAwO1xyXG59XHJcbi5jb21wYXRpYmxlUm93ID4gbGFiZWwgPiBzcGFue1xyXG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG9yZGVyOiAyO1xyXG4gIG1hcmdpbi1sZWZ0OiAwO1xyXG59XHJcbi5zYXZlYXNyb3csIC5jb21wYXRpYmxlUm93e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiB3cmFwO1xyXG59XHJcbi5jb21wYXRpYmxlUm93ID4gbGFiZWwgPiBpbnB1dCB7XHJcbiAgb3JkZXI6IDE7XHJcbiAgbWFyZ2luLWxlZnQ6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbn1cclxuLmRldGFpbCA+IGxhYmVsIHtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuYnV0dG9uLmRldGFpbCA+IC5vcGVuZWQsIGJ1dHRvbi5kZXRhaWwgPiAuY2xvc2Vke1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG50YWJsZSB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbnRkLnRpdGxlIHtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbmgxIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuc2VsZWN0e1xyXG4gIC8qIGJhY2tncm91bmQ6IGluaGVyaXQ7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiBpbmhlcml0O1xyXG4gIGZvbnQ6IGluaGVyaXQ7ICovXHJcbiAgLypmbGV4LWJhc2lzOiAwOyovXHJcbiAgZmxleC1zaHJpbms6IDE7XHJcbiAgZmxleC1ncm93OiAwLjk7XHJcbiAgbWF4LXdpZHRoOiBtYXgtY29udGVudDtcclxuICBtaW4td2lkdGg6IDA7XHJcbn1cclxuXHJcbmxhYmVsIHtkaXNwbGF5OiBmbGV4OyBmbGV4LWdyb3c6MTt9XHJcbmxhYmVsID4gKjpub3QoaW5wdXQpLCBoNiA+ICoge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLyogZmxleC1ncm93OiAxOyovXHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG5cclxuaDZ7XHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG5cclxufVxyXG4uc2VwYXJhdG9yID4gKiB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi8qXHJcbmJ1dHRvbiB7XHJcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIHBhZGRpbmc6IDhweCAxNHB4O1xyXG4gIGZvbnQtc2l6ZTogMTVweDtcclxuICBjb2xvcjogI2ZmZjtcclxufVxyXG5cclxuYnV0dG9uOmRpc2FibGVke1xyXG4gIGJhY2tncm91bmQ6IGdyYXk7XHJcbn0qL1xyXG5pbnB1dFt0eXBlPVwibnVtYmVyXCJdIHtcclxuICB3aWR0aDogNDBweDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxufVxyXG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O31cclxuXHJcblxyXG5sYWJlbD5pbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0sXHJcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XHJcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xyXG59XHJcblxyXG4jcHJpbWFyeV9jb2xvciB7XHJcbiAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICBoZWlnaHQ6IDYwcHg7XHJcbiAgd2lkdGg6IDYwcHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiBub25lO1xyXG59XHJcblxyXG5bY29udGVudGVkaXRhYmxlPXRydWVdOmVtcHR5OmJlZm9yZSB7XHJcbiAgY29udGVudDogYXR0cihwbGFjZWhvbGRlcik7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgLyogRm9yIEZpcmVmb3ggKi9cclxuICBjdXJzb3I6IHRleHQ7XHJcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICBjb2xvcjogZGFya2dyYXk7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG5cclxuLnNlcGFyYXRvclNoZWxsIHtcclxuICBtaW4taGVpZ2h0OiAzM3B4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiByb3c7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ucm93dyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5zZXBhcmF0b3Ige1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuLnN0eWxlbGFiZWx7XHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG59XHJcbnNlbGVjdC5zdHlsZW5hbWV7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWxlZnQ6IDA7XHJcbn1cclxuLkhvcml6b250YWxDb250YWluZXJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHJvdztcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLm9ubHlWZXJ0aWNhbENvbnRhaW5lcntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG4ub25seVZlcnRpY2FsQ29udGFpbmVyID4gKiB7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbn1cclxuLkhvcml6b250YWxDaGlsZHtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuLm9wZW5lZHtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcblxyXG4uaGVscEJ1dHRvbiwgLnN0eWxlZGVsZXRlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAzNXB4O1xyXG4gIGhlaWdodDogMzVweDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiAwO1xyXG59XHJcbi5zdHlsZWRlbGV0ZSB7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxufVxyXG4uaGVscEJ1dHRvbiB7XHJcbiAgYmFja2dyb3VuZDogcmdiKDAsIDYyLCAxMjcpO1xyXG4gIGJvcmRlci1jb2xvcjogcmdiKDAsIDYyLCAxMjcpOyB9XHJcblxyXG4uaHRtbHN0eWxlID4gLnRvcCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4uZXhwcmVzc2lvblJvb3Qge1xyXG4gIGZsZXgtd3JhcDogbm93cmFwICFpbXBvcnRhbnQ7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG59XHJcbmlucHV0LmZpbGx7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgbWFyZ2luLWxlZnQ6IDdweDtcclxufVxyXG4ubGVmdHNpZGV7XHJcbiAgZmxleC1ncm93OiAzO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgbWluLXdpZHRoOiAwO1xyXG4gIG1heC13aWR0aDogMTUwcHg7XHJcbn1cclxuLnJpZ2h0c2lkZXtcclxuICBmbGV4LWdyb3c6IDc7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBtaW4td2lkdGg6IDA7XHJcbn1cclxuLmFycm93Q29udGFpbmVye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxufVxyXG5idXR0b24uYXJyb3d7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBsaW5lLWhlaWdodDogdW5zZXQ7XHJcbiAgcGFkZGluZzogMCA2cHg7XHJcbn1cclxuLnRzY2xhc3N7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGRpc3BsYXk6IGlubGluZTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLyogKi9cclxuXHJcbi8qXHJcbnByZSB7XHJcbiAgYmFja2dyb3VuZDojRUVFO1xyXG4gIHBhZGRpbmc6NXB4O1xyXG4gIHdpZHRoOiAyOTBweDtcclxufSovXHJcbi5hZGRIZWFkZXJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4uYWRkSGVhZGVyID4gYnV0dG9uIHtcclxuICBtYXJnaW4tbGVmdDogMDtcclxuICBvcmRlcjogMjtcclxufVxyXG5zZWxlY3QuYXR0cmlidXRldHlwZWFkZHtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBtaW4td2lkdGg6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG59XHJcbi5wcmV2aWV3c2VsZWN0b3J7XHJcbiAgaGVpZ2h0OiAyM3B4O1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiAycHggZGFzaGVkICM2NjY2NjY7XHJcbn1cclxuXHJcbi5zaG93QXNFZGdle1xyXG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuYnV0dG9uLmRlbGV0ZSwgYnV0dG9uLnNhdmVhc3tcclxuICBmb250LXNpemU6IDAuOHJlbTtcclxufVxyXG5idXR0b24uZGVsZXRlUnVsZXtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1iYXNpczogYXV0bztcclxuICBtaW4td2lkdGg6IGF1dG87XHJcbiAgbWFyZ2luLXRvcDogMDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIHBhZGRpbmc6IDVweDtcclxufVxyXG4ubm93cmFwe1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcbi5fcm9vdCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbmRpdi5kZXRhaWwubWVhc3VyYWJsZSA+IGRpdi50ZW1wbGF0ZSB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uZ3JhcGhDb2xvciwgLnNob3dHcmlke1xyXG4gIG1hcmdpbi1sZWZ0OiAwO1xyXG59XHJcbnNlbGVjdC5vcGVyYXRvcntcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIHdpZHRoOiAyNXB4O1xyXG59XHJcbnNwYW4ub3BlcmF0b3J0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbn1cclxuc2VsZWN0Lm9wZXJhdG9yOmRpc2FibGVke1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgLypcclxuICBiYWNrZ3JvdW5kOiBpbmhlcml0O1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICAtbW96LWFwcGVhcmFuY2U6IG5vbmU7XHJcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiBub25lO1xyXG4gIG1hcmdpbjogMDsqL1xyXG59XHJcblxyXG5zcGFuLm5hbWVwcmVmaXgge1xyXG4gIG1hcmdpbi1sZWZ0OiA3cHg7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xyXG4gIGhlaWdodDogMjFweDtcclxuICBib3JkZXItcmlnaHQ6IG5vbmU7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGxpbmUtaGVpZ2h0OiAxNnB4O1xyXG59XHJcbmlucHV0Lm5hbWUge1xyXG4gIG1hcmdpbi1sZWZ0OiAwO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxufVxyXG5cclxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJveC1zaGFkb3c6IDAgMnB4IDJweCAycHggcmdiKDc3LCAxNDQsIDI1NCk7XHJcbn1cclxuXHJcbmlucHV0Lm5hbWU6Zm9jdXMge1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm94LXNoYWRvdzogMnB4IDJweCAwcHggMHB4IHJnYig3NywgMTQ0LCAyNTQpLCAycHggLTJweCAwcHggMHB4IHJnYig3NywgMTQ0LCAyNTQpO1xyXG59XHJcbi5odG1sc3R5bGUge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xyXG4gIG1hcmdpbi1sZWZ0OjA7XHJcbn1cclxubGFiZWwgPiAqIHtcclxuICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IGF1dG87XHJcbn1cclxubGFiZWwgPiBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0gfiAqIHtcclxuICBtYXJnaW4tbGVmdDogMDtcclxufVxyXG4uaHRtbFtjb250ZW50ZWRpdGFibGVdIHtcclxuICAvKklERSBnaXZlcyBlcnJvciBidXQgdGhleSBhbGwgYWN0dWFsbHkgZXhpc3QsIGF0IGxlYXN0IG9uIG1vemlsbGEuKi9cclxuICBvdmVyZmxvdy13cmFwOiBhbnl3aGVyZTtcclxuICB3b3JkLXdyYXA6IGFueXdoZXJlO1xyXG4gIHdoaXRlLXNwYWNlOiBicmVhay1zcGFjZXM7XHJcbn1cclxuXHJcbi5hdXRvc2l6ZWNvbnRhaW5lcntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuLmF1dG9zaXplY29udGFpbmVyID4gKntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbn1cclxuLnNpemVDb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwOyB9XHJcbi5zaXplQ29udGFpbmVySGFsZiB7XHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG4uc2l6ZWxhYmVsIHtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbi1yZXZlcnNlO1xyXG4gIG1hcmdpbi1yaWdodDogMTBweDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgLyogc3Ugdmlld3BvcnQgdHJvcHBvIHBpY2NvbGkgY2FtYmlvIGxhIHZpc3VhbGl6emF6aW9uZSBkYSBsYWJlbCBzb3ByYSBpbCB0ZXN0byAoYnVvbm8gcGVyIGZhcmUgbW9uby1yb3cpIGEgbGFiZWwgYWZmaWFuY2F0YSBhbCB0ZXN0byAocGVyIGZhcmUgNCByb3cgZSBzY29ycmVyZSB2ZXJ0aWNhbG1lbnRlKSovXHJcbiAgLnNpemVsYWJlbHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB9XHJcbn1cclxuLnNpemVsYWJlbCA+ICp7XHJcbiAgZGlzcGxheTogaW5saW5lO1xyXG4gIG1hcmdpbjogYXV0bzsgfVxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuICAvKiB0aGV5IGZpeCBvdXRlciBjc3MgaW5mbHVlbmNlIG9uIG1lYXN1cmFibGUgc2VjdGlvbi4gKi9cclxuXHJcbmlucHV0W3R5cGU9XCJjaGVja2JveFwiXS5hcnJvdyB7XHJcbiAgbWFyZ2luOiAwOyB9XHJcblxyXG4ubWVhc19hY2MwIGJ1dHRvbiB7IG1hcmdpbjogMDsgfVxyXG5cclxuXHJcblxyXG5cclxuLyoqKioqKioqKioqICAgICAgICAgICAgICBNZWFzdXJhYmxlIGVkaXRvciB2MiBzdGFydCAgICAgICAgICAgICAgICAgKioqKioqKiovXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVTZXR0aW5nUm9vdHtcclxuICB3aWR0aDogMTAwJTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG4ubWVhc19hY2MwIC5ib3hlc3Jvb3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1vdmVtZW50Ym94cm9vdCwgLm1lYXNfYWNjMCAucmVzaXplYm94cm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbn1cclxuXHJcbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAucm93IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcclxuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XHJcbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5maWxsIHsgZmxleC1ncm93OiAxOyB9XHJcbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLmxlZnQsIC5tZWFzX2FjYzAgLnNpZGUucmlnaHQgeyB3aWR0aDogMTBweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxyXG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSB7IGJhY2tncm91bmQtY29sb3I6IGdvbGRlbnJvZDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZGltZ3JheTtcclxufVxyXG4ubWVhc19hY2MwIC5ib3hyb290IHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAzMHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweCAwIDAgMjVweDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgZmxleC1iYXNpczogYXV0byAhaW1wb3J0YW50O1xyXG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0LmF0dHJuYW1lIHtcclxuICBib3JkZXItbGVmdDogbm9uZTtcclxuICBwYWRkaW5nLWxlZnQ6IDA7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqIHsgYm9yZGVyOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcclxuICBtYXJnaW4tdG9wOiAxcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcclxuICBib3JkZXItY29sb3I6ICM4MGJkZmY7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxyXG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3Ige1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIG1hcmdpbi10b3A6IDhweDtcclxufVxyXG4ubWVhc19hY2MwIC5vcGVyYXRvcmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIG1hcmdpbjogYXV0byA1cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIG1pbi13aWR0aDogMTIwcHg7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLm1lYXN1cmFibGVkZWJ1ZyB7IG1hcmdpbi10b3A6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XHJcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXHJcbiAgbWluLXdpZHRoOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmFkZHJ1bGUge1xyXG4gIGZsb2F0OiByaWdodDtcclxuICBtYXJnaW4tdG9wOiAtNHB4O1xyXG4gIHBhZGRpbmc6IDRweCAxMHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XHJcbiAgcGFkZGluZy1yaWdodDogNHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlciB7IC13ZWJraXQtYXBwZWFyYW5jZTogYnV0dG9uOyB9XHJcbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogdW5zZXQ7XHJcbiAgLyogZGlzYWJsZSBib290c3RyYXAgcnVsZSovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1kYW5nZXIpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS13YXJuaW5nKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXJ7IG1hcmdpbi1ib3R0b206IDVweDsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgeyBkaXNwbGF5OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eDpmb2N1cy13aXRoaW4gLm1lYXN1cmFibGVkZWJ1Z3sgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5jb3VudGVyc2hlbGwgeyBmbG9hdDogcmlnaHQ7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+ICoge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAqLCAubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93diB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3RxeFhoazQvdGwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pndnB5d3ovdGxsLnBuZyk7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAuc2lkZS50b3Age1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL005ZkM3RFAvdC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1B6c21qeGYvdHIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1NOMlRITHQvdHJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vN2ptOUJCUS9sLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLmxlZnQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vcXJZV2RwSC9ibC5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5zaWRlLmJvdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vY1hjMG5tUy9iLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vSzBwVlZUNy9ici5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUXB3UlNzVC9icmwucG5nKTsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcclxuICBtYXJnaW4tYm90dG9tOiAzcHg7XHJcbiAgbWFyZ2luLXRvcDogLTNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcclxuICBtYXJnaW4tYm90dG9tOiAtM3B4O1xyXG4gIG1hcmdpbi10b3A6IDNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcclxuICBtYXJnaW4tcmlnaHQ6IC0zcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDNweDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pkM2p0YmMvbHIucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgbWluLXdpZHRoOiA1MHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA1MHB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdyB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxyXG5cclxuLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Z7XHJcbiAgd2lkdGg6IDc1cHg7XHJcbiAgaGVpZ2h0OiA3NXB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdzpmb2N1c3sgb3V0bGluZTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xyXG4gIGZpbHRlcjogc2VwaWEoODIlKSBzYXR1cmF0ZSgzOTI1JSkgaHVlLXJvdGF0ZSg1NWRlZykgYnJpZ2h0bmVzcygxMjUlKSBjb250cmFzdCgxMjAlKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luOiBhdXRvOyB9XHJcblxyXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zID4gKiB7IG1hcmdpbjogYXV0bzsgfVxyXG4ubWVhc19hY2MwIC5kcmFnZ2FibGUuYm94cm9vdHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIC8qaGVpZ2h0OiAyMzdweDsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbGxhcHNlOm5vdCguc2hvdykgeyBkaXNwbGF5OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XHJcbi8qKioqKioqKioqKiAgICAgICAgICAgICAgTWVhc3VyYWJsZSBlZGl0b3IgdjIgZW5kICAgICAgICAgICAgICAgICAgICoqKioqKioqL1xyXG4uaXNpbnRlcmZhY2UsIC5pc2Fic3RyYWN0e1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG59XHJcblxyXG5cclxuXHJcblxyXG5cclxuIl19 */");
 
 /***/ }),
 
@@ -18259,22 +19698,17 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************!*\
   !*** ./src/guiElements/style-editor/style-editor.component.ts ***!
   \****************************************************************/
-/*! exports provided: StyleEditorComponent, StyleEditor */
+/*! exports provided: StyleEditorComponent, EditorContext, StyleEditor */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyleEditorComponent", function() { return StyleEditorComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditorContext", function() { return EditorContext; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyleEditor", function() { return StyleEditor; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
-/* harmony import */ var _propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../propertyBar/propertyBar */ "./src/guiElements/propertyBar/propertyBar.ts");
-/* harmony import */ var _common_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../common/util */ "./src/common/util.ts");
-/* harmony import */ var _mGraph_Layouting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../mGraph/Layouting */ "./src/guiElements/mGraph/Layouting.ts");
-
-
-
 
 
 
@@ -18306,7 +19740,7 @@ StyleEditorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     })
 ], StyleEditorComponent);
 
-class editorcontext {
+class EditorContext {
 }
 class StyleEditor {
     constructor(propertyBar, $root) {
@@ -18335,31 +19769,39 @@ class StyleEditor {
         this.updateClickedGUIHighlight();
     }
     onPaste(e) {
+        // e.preventDefault();
+        // e.stopImmediatePropagation(); e.stopPropagation(); return;
         e.preventDefault();
         const div = e.currentTarget;
         let text = e.originalEvent.clipboardData.getData('text/plain');
         text = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(text, '\n', ' ');
         div.innerText = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(text, '\r', ' ');
     }
-    isVisible() { return _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["PropertyBarr"].isTabVisible(this.propertyBar.model, _propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_3__["PropertyBarTabs"].style); }
-    show(m, clickedLevel) {
+    isVisible() { return _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["PropertyBarr"].isTabVisible(this.propertyBar.model, _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["PropertyBarTabs"].style); }
+    hide() {
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].clear(this.display);
+        this.clickedLevel = null;
+    }
+    show(m = null, clickedLevel = null) {
         m = m || this.propertyBar.selectedModelPiece;
         if (!m)
             m = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.getActiveModel();
         // console.log('styleShow(', m, ')');
-        this.clickedLevel = null;
+        this.hide();
         if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IModel"]) {
+            this.clickedLevel = null;
             this.showM(m);
             this.updateClickedGUIHighlight();
             return;
         }
         if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IPackage"]) {
+            this.clickedLevel = null;
             this.showM(m.parent);
             this.updateClickedGUIHighlight();
             return;
         }
         // if (m instanceof IPackage) { this.showP(m); return; }
-        this.clickedLevel = clickedLevel = clickedLevel || m.getHtmlOnGraph();
+        this.clickedLevel = clickedLevel || m.getHtmlOnGraph();
         this.showMP(m, null, false, null);
         this.addEventListeners();
         this.updateClickedGUIHighlight();
@@ -18528,7 +19970,7 @@ class StyleEditor {
         obj.forkButton = $detail.find('button.saveas')[0];
         // let inheritableStyle: StyleComplexEntry = isInheritable ? mp.getInheritableStyle() : null;
         // let inheritedStyle: StyleComplexEntry = isInherited ? mp.getInheritedStyle() : null;
-        const lastvp = model.getLastView();
+        const lastvp = model.getForemostView();
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pif(debug, 'isOwn && !style.isownhtml || isInherited && !inheritedStyle.html || isInheritable && !inheritableStyle.html)', style);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pif(debug, !style ? '' : isOwn + ' && ' + style.isownhtml + ' || ' + isInherited + ' && ' + style.html + ' || ' + isInheritable + ' && ' + style.html);
         if (style && !(isOwn && !style.isownhtml || isInherited && !style.html || isInheritable && !style.html)) {
@@ -18587,10 +20029,12 @@ class StyleEditor {
         }
         /// start!
         obj.input.setAttribute('placeholder', _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceVarsString(mp, obj.input.getAttribute('placeholder')));
+        console.log('setting outerhtml: ', context.templateLevel.outerHTML);
         obj.input.innerText = context.templateLevel.outerHTML;
         $styleown.find('.htmllevel').html((isInherited ? 'Instances Html' : 'Own html')
             + ' (' + (indexedPath && indexedPath.length ? 'Level&nbsp;' + indexedPath.length : 'Root&nbsp;level') + ')');
         let graphRoot = mp.getHtmlOnGraph();
+        context.graphRoot = insideOwnSection && graphRoot;
         context.graphLevel = graphRoot && insideOwnSection && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(graphRoot, indexedPath, 'childNodes');
         // just not displayed U.pe(!graphRoot, 'failed to get graphroot', graphRoot, indexedPath, mp);
         // U.pe(insideOwnSection && !context.graphLevel, 'failed to get graphlv', graphRoot, indexedPath, mp);
@@ -18599,22 +20043,43 @@ class StyleEditor {
             obj.input.innerText = context.templateLevel.outerHTML;
             onStyleChange();
         };
+        context.applyRootChangesToInput = () => {
+            // console.log(templateLevel.outerHTML);
+            onStyleChange();
+        };
         const onStyleChange = () => {
             console.log('onStyleChange', _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getCaller(), _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getStackTrace());
-            const inputHtml = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtml(obj.input.innerText);
+            console.log('99jj set html:', obj.input.innerText);
+            let inputHtml = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toHtml(obj.input.innerText); //U.toHtmlValidate(obj.input.innerText);
+            // non c'è bisogno di validare, perchè corregge automaticamente e se metti chiusure di tag di troppo le toglie da solo!
+            // non può rompere oltre il nodo attuale
+            // if (!inputHtml) return;
             const disabledAttr = obj.input.getAttribute('disabled');
             if (disabledAttr === 'true' || disabledAttr === '')
                 return;
             // console.log('PRE: ', inputHtml, 'outer:', inputHtml.outerHTML, 'innertext:', obj.input.innerText);
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pif(debug, '*** setting inheritable PRE. style.htmlobj:', style.htmlobj, ', style:', style, ', context:', context, 'templatelvl.parent:', context.templateLevel.parentElement, ', inputHtml:', inputHtml);
             if (context.templateLevel.parentElement) {
-                context.templateLevel.parentElement.insertBefore(inputHtml, context.templateLevel);
-                context.templateLevel.parentElement.removeChild(context.templateLevel);
-                context.templateLevel = inputHtml;
+                if (inputHtml) {
+                    context.templateLevel.parentElement.insertBefore(inputHtml, context.templateLevel);
+                    context.templateLevel.parentElement.removeChild(context.templateLevel);
+                    context.templateLevel = inputHtml;
+                }
+                else {
+                    context.templateLevel.parentElement.removeChild(context.templateLevel);
+                    this.clickedLevel = context.graphLevel.parentElement;
+                    this.show(); // refresh
+                    /*context.templateLevel = context.templateLevel.parentElement; a questo approccio manca aggiornare contatore deep-level e i measurable del nodo e altri imprevisti
+                    obj.input.innerText = context.templateLevel.outerHTML;*/
+                }
             }
             else {
                 _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!style.view || style.isGlobalhtml || style.isCustomGlobalhtml, (style.isGlobalhtml ? 'native default html cannot be modified.' : 'overriden default html cannot be modified here. Change it from the element marked with "asDefault".') + ' default', style, 'todo: automatically make new ClassVieww');
                 // ??old message?: se tutto va bene qui deve dare errore, crea una nuova ClassVieww e applicalo al modelpiece ed edita quello.
+                console.log('99jj set html:', inputHtml);
+                if (!inputHtml) {
+                    inputHtml = StyleEditor.getInvisibleStyle();
+                }
                 style.htmlobj.setHtml(context.templateLevel = inputHtml);
                 _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pif(debug, '*** setting inheritable POST. style.htmlobj', style.htmlobj, 'style:', style);
             }
@@ -18631,6 +20096,7 @@ class StyleEditor {
                 this.clickedLevel = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(mp.getHtmlOnGraph(), indexedPath, 'childNodes');
             graphRoot = mp.getHtmlOnGraph();
             if (insideOwnSection) {
+                context.graphRoot = graphRoot;
                 context.graphLevel = graphRoot && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(graphRoot, indexedPath, 'childNodes');
                 this.updateClickedGUIHighlight();
             }
@@ -18659,7 +20125,9 @@ class StyleEditor {
         const $measurableCheckbox = $measurableRoot.find('input.ismeasurable');
         const measurableCheckbox = obj.measurableCheckbox = $measurableCheckbox[0];
         measurableCheckbox.disabled = obj.input.getAttribute('disabled') === 'true';
-        measurableCheckbox.checked = (context.templateLevel.classList.contains('measurable') || insideOwnSection && context.graphLevel && context.graphLevel.classList.contains('measurable'));
+        measurableCheckbox.checked =
+            context.templateLevel && context.templateLevel.classList &&
+                (context.templateLevel.classList.contains('measurable') || insideOwnSection && context.graphLevel && context.graphLevel.classList.contains('measurable'));
         const $measurableTitle = $measurableRoot.find('.meas_acc0 > .maintitle');
         $measurableTitle.on('click', (e) => {
             const $innerroot = $measurableBody;
@@ -18681,6 +20149,10 @@ class StyleEditor {
         if (!$measurableCheckbox[0].checked)
             $measurableTitle.hide();
         let templateParent = context.templateLevel && context.templateLevel.parentElement;
+        // avviene quando disabilito un vp mentre è selezionato un vertice con ownstyle e diventa "default"
+        if (!context.templateLevel.classList) {
+            return;
+        }
         $measurableCheckbox.on('click', stopPropagation).on('mousedown', stopPropagation).on('mouseup', stopPropagation)
             .off('change.enabledisablemeasurable').on('change.enabledisablemeasurable', (e) => {
             context.templateLevel.classList.remove('measurable');
@@ -18729,6 +20201,7 @@ class StyleEditor {
             this.addmeasurableAttributeButton(measurableSelect, $measurableRoot, mp, style, templateLevel as Element, ownhtmlinput, indexedPath, a, val)
           }
         }*/
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["CSSEditor"].updateGUI(this, $styleown.find('.csseditorroot'), mp, context);
         return indexedPath;
     }
     showMP(m, clickedLevel = null, asMeasurable = false, asEdge = null) {
@@ -18738,15 +20211,17 @@ class StyleEditor {
         // set htmls
         const style = m.getStyle();
         const styleinheritable = m.getInheritableStyle();
-        const styleinherited = m.getInheritedStyle();
+        const styleinherited = m.getInheritedStyle_lv2();
         const clickedRoot = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].getLogicalRootOfHtml(clickedLevel);
         const templateRoot = style.html;
+        console.log('gtt style:', style);
         // let templateLevel: Element = templateRoot;
         let indexedPath = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getIndexesPath(clickedLevel, 'parentNode', 'childNodes', clickedRoot);
         // console.log('clickedRoot', clickedRoot, 'clickedLevel', clickedLevel, 'path:', indexedPath);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(clickedRoot, indexedPath, 'childNodes') !== clickedLevel, 'mismatch.', indexedPath);
         const realindexfollowed = { indexFollowed: [], debugArr: [] };
-        let context = new editorcontext();
+        let context = new EditorContext();
+        context.templateRoot = templateRoot;
         context.templateLevel = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(templateRoot, indexedPath, 'childNodes', realindexfollowed);
         // console.log('clickedRoot:',clickedRoot, 'clikedLevel:', clickedLevel, 'indexedPath:', indexedPath, 'followed:', realindexfollowed,
         // 'templateRoot:', templateRoot, 'templateLevel:', templateLevel);
@@ -18776,9 +20251,10 @@ class StyleEditor {
         // const clickedonStyle: Element = U.followIndexesPath(style.html, htmlPath) as Element;
         $html.find('.tsclass').html('' + m.printableName()); // + (htmlDepth === 0 ? ' (root level)' : ' (level&nbsp;' + htmlDepth + ')') );
         // console.log('setStyleEditor inherited, ', styleinherited);
-        let inheritedcontext = new editorcontext();
+        let inheritedcontext = new EditorContext();
         if (styleinherited) {
             const inheritedTemplateRoot = styleinherited.html;
+            context.templateRoot = inheritedTemplateRoot;
             inheritedcontext.templateLevel = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(inheritedTemplateRoot, indexedPath, 'childNodes', realindexfollowed);
             // se ho cliccato su un non-radice non-ereditato, non posso prendere un frammento dell'ereditato, sarebbe un frammento diverso.
             if (inheritedcontext.templateLevel !== context.templateLevel) {
@@ -18792,7 +20268,7 @@ class StyleEditor {
             $styleInherited[0].innerHTML = '<h5 class="text-danger">Cannot get inheritance from M3 elements.</h5>';
         }
         // console.log('setStyleEditor inheritable, ', styleinheritable);
-        let inheritablecontext = new editorcontext();
+        let inheritablecontext = new EditorContext();
         inheritablecontext.templateLevel = styleinheritable ? styleinheritable.html : null;
         if (!model.isM1()) {
             this.setStyleEditor($styleInheritable, model, m, styleinheritable, inheritablecontext);
@@ -18810,6 +20286,8 @@ class StyleEditor {
         const $autosizew = $html.find('input.autowidth');
         const $autosizeh = $html.find('input.autoheight');
         const $autolayout = $html.find('input.autolayout');
+        if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClassifier"])
+            this.setupEdgesVisibility(context, $html);
         const autosizew = $autosizew[0];
         const autosizeh = $autosizeh[0];
         const autolayout = $autolayout[0];
@@ -18843,7 +20321,6 @@ class StyleEditor {
                 }
                 context.applyNodeChangesToInput();
                 v.refreshGUI();
-                v.refreshEdgesGUI();
             };
             $autosizew.on('change', () => { setAutosize(autosizew.checked, null); this.sizeInputw.disabled = autosizew.checked; });
             $autosizeh.on('change', () => { setAutosize(null, autosizeh.checked); this.sizeInputh.disabled = autosizeh.checked; });
@@ -18861,13 +20338,16 @@ class StyleEditor {
         else {
             $html.find('.sizeContainer').remove();
         }
-        autolayout.checked = v.autoLayout;
+        autolayout.checked = v && v.autoLayout;
         //// end autosize
         // <meta>
         //     <dependency><attributes><type>double</ </ </
         //     <preview><img src=imgurl</img> or html diretto.</
         // </meta>
         // pulsanti per settare preview: "takesnapshotOf / set as example... + select vertex with that style"
+        // avviene quando disabilito l'ultimo vp mentre ho selezionato un elemento con ownstyle
+        if (!htmlPath)
+            return;
         const $arrowupp = $html.find('button.arrow.upp').on('click', (e) => {
             this.propertyBar.show(null, clickedRoot, null, false);
         });
@@ -19416,6 +20896,7 @@ class StyleEditor {
         $(operator).off('change.operator').on('change.operator', operatorChanged);
         $(right).off('change.rightside').on('change.rightside', rightChanged);
         $(target).off('change.target').on('change.target', targetChanged);*/
+        /// todo: move rule up / down (execution ordeer)
         $newtemplate.find('button.ruledelete').off('click.delete').on('click.delete', () => {
             newtemplate.parentNode.removeChild(newtemplate);
             counter.innerHTML = '' + (+counter.innerHTML - 1);
@@ -19547,7 +21028,7 @@ class StyleEditor {
             if (prePath.charAt(0) === '.')
                 prePath = prePath.substr(1);
             for (i = 0; i < preChars.length; i++) {
-                autocompletekeys.push(new _common_util__WEBPACK_IMPORTED_MODULE_4__["AutocompleteMatch"](preChars[i] + prePath, key));
+                autocompletekeys.push(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["AutocompleteMatch"](preChars[i] + prePath, key));
             }
         };
         let contextobj = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableEvalContext"].fillFake();
@@ -19603,6 +21084,9 @@ class StyleEditor {
         $inputs.on('change', (e) => {
             this.setLayoutHtmlValue(layouting, e.currentTarget);
         });
+        const $colorSchemeOpener = this.$root.find('.colorschemeopener').on('click', (e) => {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ColorSchemeComponent"].show();
+        });
         const $start = this.$root.find('.layout.start').on('click', (e) => {
             layouting.start();
         });
@@ -19630,7 +21114,7 @@ class StyleEditor {
                     layouting.stabilizationSteps = value;
                     break;
                 case 'custom.scale_factor':
-                    _mGraph_Layouting__WEBPACK_IMPORTED_MODULE_5__["Layouting"].scaleFactor = value;
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Layouting"].scaleFactor = value;
                     break;
             }
         }
@@ -19682,7 +21166,7 @@ class StyleEditor {
                         val = '' + layouting.stabilizationSteps;
                         break;
                     case 'custom.scale_factor':
-                        val = '' + _mGraph_Layouting__WEBPACK_IMPORTED_MODULE_5__["Layouting"].scaleFactor;
+                        val = '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Layouting"].scaleFactor;
                         break;
                 }
             }
@@ -19696,6 +21180,44 @@ class StyleEditor {
             else
                 input.value = val;
             // console.log('newkeyy:', key, input, input.value);
+        }
+    }
+    static getInvisibleStyle(keepEdges = false) {
+        const ret = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneHtml($('.MMDefaultStyles.immutable .template.invisibleNode')[0]);
+        ret.classList.remove('template');
+        ret.setAttribute("keep-edges", _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].toBoolString(keepEdges));
+        return ret;
+    }
+    setupEdgesVisibility(context, $html) {
+        const $edgeVisibility = $html.find('input[type="checkbox"].edgeVisibility');
+        const $edgePriority = $html.find('.edgePriority input[kind]');
+        $edgeVisibility.on('change', (e) => {
+            let input = e.currentTarget;
+            context.templateRoot.setAttribute('allow-edges', input.checked);
+            context.applyRootChangesToInput();
+        });
+        $edgePriority.on('change', (e) => {
+            let input = e.currentTarget;
+            let direction_and_kind = input.getAttribute('kind');
+            context.templateRoot.setAttribute('show-' + direction_and_kind + '-edges', input.value);
+            context.applyRootChangesToInput();
+        });
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(context.templateRoot.tagName !== _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["TagNames"].FOREIGNOBJECT, 'vertex root must be a SVGFOREIGNOBJECT', context.templateRoot);
+        let keepEdges = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].fromBoolString(context.templateRoot.getAttribute('keep-edges'), this.propertyBar.selectedModelPiece !== _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MetaModel"].genericObject);
+        $edgeVisibility[0].checked = keepEdges;
+        if (keepEdges)
+            $edgePriority.show();
+        else
+            $edgePriority.hide();
+        const directions = ["in", "out"], kinds = ["rel", "ext", "oth"];
+        let results = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].isAllowingEdges(context.templateRoot);
+        for (let direction of directions) {
+            for (let kind of kinds) {
+                let attrstr = 'show-' + 'show-' + direction + '-' + kind + '-edges';
+                let $priobutton = $edgePriority.filter('[kind="' + direction + "-" + kind + '"]');
+                console.log("setting visibility edge input:", $priobutton, $edgePriority, '[kind="' + direction + "-" + kind + '"]');
+                $priobutton[0].value = '' + results[direction][kind];
+            }
         }
     }
 }
@@ -19759,7 +21281,7 @@ M2tcreatorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  color: var(--LightmainFontColor);\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n  max-height: 90vh;\r\n  overflow: auto;\r\n}\r\n::ng-deep .typeTable {\r\n  margin: auto;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  margin-bottom: 5px;\r\n}\r\n.typemaprow{\r\n  width: 450px;\r\n  margin-bottom: 15px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLGdDQUFnQztFQUNoQyxtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CLENBQUM7QUFDdEI7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7QUFDQTtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBSUEsdUhBQXVIO0FBRXZIO0VBQ0UseUJBQXlCLEVBQUUsOEJBQThCO0VBQ3pELFlBQVk7RUFDWixlQUFlO0VBQ2YsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLGVBQWU7RUFDZixXQUFXO0VBQ1gsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQiw0Q0FBNEM7RUFDNUMsZ0JBQWdCO0VBQ2hCLDRDQUE0QztFQUM1QyxVQUFVO0VBQ1YsNkNBQTZDO0VBQzdDLFVBQVU7RUFDVixTQUFTO0VBQ1QsU0FBUztBQUNYO0FBQ0E7RUFDRSxRQUFRO0VBQ1IsTUFBTTtFQUNOLFVBQVU7QUFDWjtBQUVBO0VBQ0UsVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixjQUFjO0FBQ2hCO0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBLGtEQUFrRCw0QkFBNEIsRUFBRTtBQUNoRiw2R0FBNkc7QUFDN0c7RUFDRSw2Q0FBNkM7RUFDN0Msc0JBQXNCO0VBQ3RCLGdDQUFnQztFQUNoQywrQkFBK0I7RUFDL0I7aUNBQytCO0FBQ2pDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsNkJBQTZCLENBQUM7QUFDaEM7RUFDRSw2Q0FBNkM7QUFDL0M7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZiw4QkFBOEI7RUFDOUIsaURBQWlELEVBQUUseUZBQXlGO0FBQzlJO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixjQUFjO0VBQ2QsWUFBWTtFQUNaLFlBQVksRUFBRTtBQUVoQjtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7QUFHQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsbUJBQVk7RUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLHdCQUF3QjtFQUN4QixZQUFZO0VBQ1osb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9DQUFvQztFQUNwQyw4QkFBOEI7QUFDaEM7QUFJQSx3Q0FBd0M7QUFDeEM7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4jdG9wYmFyU2hlbGx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAxMDB2dztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICAvKmJvcmRlci1ib3R0b206IHZhcigtLW1haW5Cb3JkZXIpOyovXHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbiAgbWF4LWhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbn1cclxuI3RvcGJhciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4jdG9wYmFyID4gKiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAvKm1hcmdpbjogYXV0byAwIGF1dG8gMTBweDsgLypUP1JCP0wqL1xyXG59LypcclxuI3RvcGJhciA+IGJ1dHRvbntcclxuICBoZWlnaHQ6IGNhbGModmFyKC0tdG9wYmFySCkgLSAxMHB4KTtcclxuICBmbGV4LWJhc2lzOiAxMDBweDtcclxuICBtaW4td2lkdGg6IDEwMHB4O1xyXG4gIG1heC13aWR0aDogMTAwcHg7XHJcbn0qL1xyXG4jdG9wYmFyIGJ1dHRvbi5kcm9wZG93blRpdGxlOmZvY3Vze1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbntcclxuICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAxMHB4O1xyXG4gIHRvcDogMTBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgd2lkdGg6IDQwcHg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKCAtLWFsdEJhY2tncm91bmRDb2xvcik7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpO1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxufVxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudCAuY2xvc2VCdXR0b246aG92ZXJ7XHJcbiAgcmlnaHQ6IDVweDtcclxuICB0b3A6IDVweDtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgd2lkdGg6IDUwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xyXG4gIGNvbG9yOiB2YXIoLS1MaWdodG1haW5Gb250Q29sb3IpO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkZXI7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcblxyXG46Om5nLWRlZXAgLnNjcmVlbldpZGVTaGFkb3d7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgdG9wOiAwO1xyXG4gIHotaW5kZXg6IDI7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjUpO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIHdpZHRoOiAxMDB2dztcclxufVxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudHtcclxuICB0b3A6IDUwJTtcclxuICBsZWZ0OiA1MCU7XHJcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGhlaWdodDogYXV0bztcclxuICBwYWRkaW5nOiAzMHB4IDYwcHg7XHJcbiAgYm9yZGVyOiA0cHggc29saWQgdmFyKC0tbWFpbkJvcmRlckNvbG9yKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICBtYXgtaGVpZ2h0OiA5MHZoO1xyXG4gIG92ZXJmbG93OiBhdXRvO1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVRhYmxlIHtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93IHtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcblxyXG4udHlwZW1hcHJvd3tcclxuICB3aWR0aDogNDUwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3c+KntcclxuICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IGF1dG87fVxyXG46Om5nLWRlZXAgLmFsaWFze1xyXG4gIHBhZGRpbmctbGVmdDogMTBweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdyA+ICp7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlTmFtZXtcclxuICBjb2xvcjogZGFya29yYW5nZTtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqICAgICBkcm9wZG93biBzdHlsZSAgICAgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuXHJcbi5kcm9wZG93blRpdGxlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0OyAvKnZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpOyovXHJcbiAgY29sb3I6IHVuc2V0O1xyXG4gIGZvbnQtc2l6ZTogMTZweDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgcGFkZGluZzogMTJweCAxNnB4O1xyXG4gIGN1cnNvcjogaW5oZXJpdDtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIge1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgLypoZWlnaHQ6IDgwJTsqL1xyXG4gIHdpZHRoOiBhdXRvO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXIucmlnaHQge1xyXG4gIG1pbi13aWR0aDogMTAwJTtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1pbi13aWR0aDogMTYwcHg7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAxNnB4IDBweCByZ2JhKDAsMCwwLDAuMik7XHJcbiAgei1pbmRleDogMTtcclxuICBib3JkZXI6IDNweCBzb2xpZCB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgcGFkZGluZzogMDtcclxuICBtYXJnaW46IDA7XHJcbiAgdG9wOiAxMDAlO1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudC5yaWdodHtcclxuICBtYXJnaW46MDtcclxuICB0b3A6IDA7XHJcbiAgbGVmdDogMTAwJTtcclxufVxyXG5cclxubGkuZHJvcGRvd25Db250ZW50IHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG5cclxudWwuZHJvcGRvd25Db250ZW50Om5vdCg6ZW1wdHkpe1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7XHJcbn1cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQsIC5kcm9wZG93bnBhZGRpbmd7XHJcbiAgZm9udC1zaXplOiBpbmhlcml0O1xyXG4gIHBhZGRpbmc6IDEycHggMTZweDtcclxufVxyXG5cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQ6aG92ZXIsIC5kcm9wZG93bkNvbnRhaW5lci5yaWdodDpob3ZlciwgLmRyb3Bkb3ducGFkZGluZzpob3ZlcntcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAyM3B4O1xyXG59XHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG8sIC5kcm9wZG93bnBhZGRpbmcudG9kb3sgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMDsgfVxyXG4vKi5kcm9wZG93blRpdGxlLnJpZ2h0LnRvZG86bGFzdC1jaGlsZCwgLmRyb3Bkb3ducGFkZGluZy50b2RvOmxhc3QtY2hpbGR7IGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMzcHg7IH0qL1xyXG5saS5kcm9wZG93bkNvbnRlbnQ6aG92ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICAvKnBhZGRpbmctbGVmdDogMTJweDsqL1xyXG4gIGJvcmRlci1sZWZ0OiA4cHggc29saWQgI2ZmMDAwMGEwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDMwcHg7XHJcbiAgLyptYXJnaW4tbGVmdDogLTEycHg7IGJvdHRvbS1yb3VuZCBib3JkZXIsIHRyb3VibGUgY29uIHN0aWxpIHNvdnJhcHBvc3RpIGNoZSBsbyByaS1zcXVhZHJhbm8uXHJcbiAgIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDI0cHg7Ki9cclxufVxyXG4jdG9wYmFyPi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj4uZHJvcGRvd25UaXRsZXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAzMHB4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAzMHB4O31cclxuI3RvcGJhcj4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+LmRyb3Bkb3duVGl0bGUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxufVxyXG5cclxuLmJ1dHRvbkdyaWRDb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIC8qIHdpZHRoOiBjYWxjKDQwcHggKiA1IC0gMSk7Ki9cclxuICB3aWR0aDogbWluKDI1dncsIGNhbGMoNDBweCAqIDUgKyAxMHB4ICogNSAtIDFweCkpOyAvKiBidXR0b24gc2l6ZSArIGJ1dHRvbnNoZWxsIG1hcmdpbiwgNCBwZXIgcmlnYSBjb24gbWFzc2ltbyBzcGF6aW8gYXZhbnphdG8gcHJpbWEgZGVsIDXCsCovXHJcbn1cclxuXHJcbi5idXR0b25HcmlkTWluTWFyZ2luIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LXNocmluazogMDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgcGFkZGluZzogNXB4OyB9XHJcblxyXG4uYnV0dG9uR3JpZCB7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG59XHJcblxyXG5cclxudWwuZHJvcGRvd25Db250ZW50e1xyXG4gIG1pbi1oZWlnaHQ6IDEwMCU7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPnVsLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyID4gdWwuZHJvcGRvd25Db250ZW50OmVtcHR5e1xyXG4gIGRpc3BsYXk6ZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6YmVmb3Jle1xyXG4gIGNvbnRlbnQ6ICcuLi4gRW1wdHkgLi4uJztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHk6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZGFya3JlZCAhaW1wb3J0YW50O1xyXG4gIGN1cnNvcjogbm90LWFsbG93ZWQgIWltcG9ydGFudDtcclxufVxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKiAgICAgY2hhbmdlbG9nICAgICAqKioqKioqKioqL1xyXG4uY2hhbmdlbG9nUm9vdHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  /*color: var(--color-2);*/\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n  max-height: 90vh;\r\n  overflow: auto;\r\n}\r\n::ng-deep .typeTable {\r\n  margin: auto;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  margin-bottom: 5px;\r\n}\r\n.typemaprow{\r\n  width: 450px;\r\n  margin-bottom: 15px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLHlCQUF5QjtFQUN6QixtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CLENBQUM7QUFDdEI7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7QUFDQTtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBSUEsdUhBQXVIO0FBRXZIO0VBQ0UseUJBQXlCLEVBQUUsOEJBQThCO0VBQ3pELFlBQVk7RUFDWixlQUFlO0VBQ2YsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLGVBQWU7RUFDZixXQUFXO0VBQ1gsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQiw0Q0FBNEM7RUFDNUMsZ0JBQWdCO0VBQ2hCLDRDQUE0QztFQUM1QyxVQUFVO0VBQ1YsNkNBQTZDO0VBQzdDLFVBQVU7RUFDVixTQUFTO0VBQ1QsU0FBUztBQUNYO0FBQ0E7RUFDRSxRQUFRO0VBQ1IsTUFBTTtFQUNOLFVBQVU7QUFDWjtBQUVBO0VBQ0UsVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixjQUFjO0FBQ2hCO0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBLGtEQUFrRCw0QkFBNEIsRUFBRTtBQUNoRiw2R0FBNkc7QUFDN0c7RUFDRSw2Q0FBNkM7RUFDN0Msc0JBQXNCO0VBQ3RCLGdDQUFnQztFQUNoQywrQkFBK0I7RUFDL0I7aUNBQytCO0FBQ2pDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsNkJBQTZCLENBQUM7QUFDaEM7RUFDRSw2Q0FBNkM7QUFDL0M7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZiw4QkFBOEI7RUFDOUIsaURBQWlELEVBQUUseUZBQXlGO0FBQzlJO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixjQUFjO0VBQ2QsWUFBWTtFQUNaLFlBQVksRUFBRTtBQUVoQjtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7QUFHQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsbUJBQVk7RUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLHdCQUF3QjtFQUN4QixZQUFZO0VBQ1osb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9DQUFvQztFQUNwQyw4QkFBOEI7QUFDaEM7QUFJQSx3Q0FBd0M7QUFDeEM7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4jdG9wYmFyU2hlbGx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAxMDB2dztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICAvKmJvcmRlci1ib3R0b206IHZhcigtLW1haW5Cb3JkZXIpOyovXHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbiAgbWF4LWhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbn1cclxuI3RvcGJhciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4jdG9wYmFyID4gKiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAvKm1hcmdpbjogYXV0byAwIGF1dG8gMTBweDsgLypUP1JCP0wqL1xyXG59LypcclxuI3RvcGJhciA+IGJ1dHRvbntcclxuICBoZWlnaHQ6IGNhbGModmFyKC0tdG9wYmFySCkgLSAxMHB4KTtcclxuICBmbGV4LWJhc2lzOiAxMDBweDtcclxuICBtaW4td2lkdGg6IDEwMHB4O1xyXG4gIG1heC13aWR0aDogMTAwcHg7XHJcbn0qL1xyXG4jdG9wYmFyIGJ1dHRvbi5kcm9wZG93blRpdGxlOmZvY3Vze1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbntcclxuICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAxMHB4O1xyXG4gIHRvcDogMTBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgd2lkdGg6IDQwcHg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKCAtLWFsdEJhY2tncm91bmRDb2xvcik7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpO1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxufVxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudCAuY2xvc2VCdXR0b246aG92ZXJ7XHJcbiAgcmlnaHQ6IDVweDtcclxuICB0b3A6IDVweDtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgd2lkdGg6IDUwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xyXG4gIC8qY29sb3I6IHZhcigtLWNvbG9yLTIpOyovXHJcbiAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAuc2NyZWVuV2lkZVNoYWRvd3tcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICB0b3A6IDA7XHJcbiAgei1pbmRleDogMjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNSk7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50e1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHBhZGRpbmc6IDMwcHggNjBweDtcclxuICBib3JkZXI6IDRweCBzb2xpZCB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1heC1oZWlnaHQ6IDkwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlVGFibGUge1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3cge1xyXG4gIGhlaWdodDogMjBweDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuXHJcbi50eXBlbWFwcm93e1xyXG4gIHdpZHRoOiA0NTBweDtcclxuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdz4qe1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgbWFyZ2luLWJvdHRvbTogYXV0bzt9XHJcbjo6bmctZGVlcCAuYWxpYXN7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93ID4gKntcclxufVxyXG46Om5nLWRlZXAgLnR5cGVOYW1le1xyXG4gIGNvbG9yOiBkYXJrb3JhbmdlO1xyXG59XHJcblxyXG5cclxuXHJcbi8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiogICAgIGRyb3Bkb3duIHN0eWxlICAgICAqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqL1xyXG5cclxuLmRyb3Bkb3duVGl0bGUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGluaGVyaXQ7IC8qdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7Ki9cclxuICBjb2xvcjogdW5zZXQ7XHJcbiAgZm9udC1zaXplOiAxNnB4O1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBwYWRkaW5nOiAxMnB4IDE2cHg7XHJcbiAgY3Vyc29yOiBpbmhlcml0O1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lciB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAvKmhlaWdodDogODAlOyovXHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lci5yaWdodCB7XHJcbiAgbWluLXdpZHRoOiAxMDAlO1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbiAgbWluLXdpZHRoOiAxNjBweDtcclxuICBib3gtc2hhZG93OiAwcHggOHB4IDE2cHggMHB4IHJnYmEoMCwwLDAsMC4yKTtcclxuICB6LWluZGV4OiAxO1xyXG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbjogMDtcclxuICB0b3A6IDEwMCU7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50LnJpZ2h0e1xyXG4gIG1hcmdpbjowO1xyXG4gIHRvcDogMDtcclxuICBsZWZ0OiAxMDAlO1xyXG59XHJcblxyXG5saS5kcm9wZG93bkNvbnRlbnQge1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcblxyXG51bC5kcm9wZG93bkNvbnRlbnQ6bm90KDplbXB0eSl7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMzNweDtcclxufVxyXG4uZHJvcGRvd25UaXRsZS5yaWdodCwgLmRyb3Bkb3ducGFkZGluZ3tcclxuICBmb250LXNpemU6IGluaGVyaXQ7XHJcbiAgcGFkZGluZzogMTJweCAxNnB4O1xyXG59XHJcblxyXG4uZHJvcGRvd25UaXRsZS5yaWdodDpob3ZlciwgLmRyb3Bkb3duQ29udGFpbmVyLnJpZ2h0OmhvdmVyLCAuZHJvcGRvd25wYWRkaW5nOmhvdmVye1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDIzcHg7XHJcbn1cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQudG9kbywgLmRyb3Bkb3ducGFkZGluZy50b2RveyBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwOyB9XHJcbi8qLmRyb3Bkb3duVGl0bGUucmlnaHQudG9kbzpsYXN0LWNoaWxkLCAuZHJvcGRvd25wYWRkaW5nLnRvZG86bGFzdC1jaGlsZHsgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMzNweDsgfSovXHJcbmxpLmRyb3Bkb3duQ29udGVudDpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG4gIC8qcGFkZGluZy1sZWZ0OiAxMnB4OyovXHJcbiAgYm9yZGVyLWxlZnQ6IDhweCBzb2xpZCAjZmYwMDAwYTA7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMzBweDtcclxuICAvKm1hcmdpbi1sZWZ0OiAtMTJweDsgYm90dG9tLXJvdW5kIGJvcmRlciwgdHJvdWJsZSBjb24gc3RpbGkgc292cmFwcG9zdGkgY2hlIGxvIHJpLXNxdWFkcmFuby5cclxuICAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMjRweDsqL1xyXG59XHJcbiN0b3BiYXI+LmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPi5kcm9wZG93blRpdGxle1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDMwcHg7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDMwcHg7fVxyXG4jdG9wYmFyPi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj4uZHJvcGRvd25UaXRsZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG59XHJcblxyXG4uYnV0dG9uR3JpZENvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgLyogd2lkdGg6IGNhbGMoNDBweCAqIDUgLSAxKTsqL1xyXG4gIHdpZHRoOiBtaW4oMjV2dywgY2FsYyg0MHB4ICogNSArIDEwcHggKiA1IC0gMXB4KSk7IC8qIGJ1dHRvbiBzaXplICsgYnV0dG9uc2hlbGwgbWFyZ2luLCA0IHBlciByaWdhIGNvbiBtYXNzaW1vIHNwYXppbyBhdmFuemF0byBwcmltYSBkZWwgNcKwKi9cclxufVxyXG5cclxuLmJ1dHRvbkdyaWRNaW5NYXJnaW4ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtc2hyaW5rOiAwO1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBwYWRkaW5nOiA1cHg7IH1cclxuXHJcbi5idXR0b25HcmlkIHtcclxuICB3aWR0aDogNDVweDtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbn1cclxuXHJcblxyXG51bC5kcm9wZG93bkNvbnRlbnR7XHJcbiAgbWluLWhlaWdodDogMTAwJTtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+dWwuZHJvcGRvd25Db250ZW50IHtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG4uZHJvcGRvd25Db250YWluZXI6aG92ZXIgPiB1bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHl7XHJcbiAgZGlzcGxheTpmbGV4O1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudDplbXB0eTpiZWZvcmV7XHJcbiAgY29udGVudDogJy4uLiBFbXB0eSAuLi4nO1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudDplbXB0eTpob3ZlcntcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBkYXJrcmVkICFpbXBvcnRhbnQ7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5cclxuXHJcbi8qKioqKioqKioqICAgICBjaGFuZ2Vsb2cgICAgICoqKioqKioqKiovXHJcbi5jaGFuZ2Vsb2dSb290e1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -19778,6 +21300,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/Joiner */ "./src/common/Joiner.ts");
 /* harmony import */ var _m2tcreator_m2tcreator_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./m2tcreator/m2tcreator.component */ "./src/guiElements/top-bar/m2tcreator/m2tcreator.component.ts");
+/* harmony import */ var _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../app/color-scheme/color-scheme.component */ "./src/app/color-scheme/color-scheme.component.ts");
+
 
 
 
@@ -20202,6 +21726,7 @@ class TopBar {
             const checkboxTriggered = e.currentTarget;
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["WebsiteTheme"].setTheme(checkboxTriggered);
         });
+        $t.find('.colorschemeopener').on('click', (e) => { _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_4__["ColorSchemeComponent"].show(); });
         $m2.find('.save').off('click.btn').on('click.btn', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.mm.save(false, true); });
         $m1.find('.save').off('click.btn').on('click.btn', (e) => { _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.m.save(false, true); });
         // download
@@ -20450,8 +21975,8 @@ class IClassifier extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiec
         }
         return IClassifier.defaultSidebarHtml();
     }
-    setName(value, refreshGUI = false) {
-        super.setName(value, refreshGUI);
+    setName(value, refreshGUI = false, warnDuplicateFix = true) {
+        super.setName(value, refreshGUI, warnDuplicateFix);
         if (refreshGUI)
             this.refreshInstancesGUI();
         // for (i = 0; model && i < model.instances.length; i++) { model.instances[i].sidebar.fullnameChanged(oldName, this.name); }
@@ -20507,13 +22032,49 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
     references: MReference[];
     referencesIN: MReference[];
   */
-    constructor(pkg, json, metaVersion) {
+    constructor(pkg, json, metaVersion, autodetection) {
         super(pkg, metaVersion);
         if (!pkg && !json && !metaVersion) {
             return;
         } // empty constructor for .duplicate();
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!metaVersion, 'null metaparent?');
         this.parse(json, true);
+        if (autodetection) {
+            // let possibleClasses: M2Class[] = newMetaParent.getAllSubClasses(true);
+            if (this.metaParent)
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.metaParent.instances, this);
+            let scores = this.metaParent.getTypeConversionScores(false, true);
+        }
+        this.changeMetaParent(metaVersion, false);
+    }
+    getAttribute(name, caseSensitive = false) {
+        let i;
+        if (!caseSensitive) {
+            name = name.toLowerCase();
+        }
+        let attributes = [...this.getAllAttributes()];
+        for (i = 0; i < attributes.length; i++) {
+            const s = attributes[i].metaParent.name;
+            if ((caseSensitive ? s : s.toLowerCase()) === name) {
+                return attributes[i];
+            }
+        }
+        return null;
+    }
+    getReference(name, caseSensitive = false) {
+        let i;
+        if (!caseSensitive) {
+            name = name.toLowerCase();
+        }
+        let references = [...this.getAllReferences()];
+        for (i = 0; i < references.length; i++) {
+            const s1 = references[i].metaParent.name;
+            console.log('find IReference[' + s1 + '] =?= ' + name + ' ? ' + (caseSensitive ? s1 : s1 && s1.toLowerCase()) === name);
+            if ((caseSensitive ? s1 : s1 && s1.toLowerCase()) === name) {
+                return references[i];
+            }
+        }
+        return null;
     }
     doUnsetExtends(superclass) {
         if (!superclass)
@@ -20673,7 +22234,7 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         throw new Error('M.conformability%() todo');
     }
     duplicate(nameAppend = null, newParent = null) {
-        const c = new MClass(null, null, null);
+        const c = new MClass(null, null, null, false);
         c.copy(this);
         c.refreshGUI_Alone();
         return c;
@@ -20715,7 +22276,7 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
                     continue;
                 }
                 const key = (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isPrimitive(value) ? inlineMarker : '') + child.metaParent.name;
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(json[key], 'overriding value inside MClass.generateModel()', ', key:', key, ', newVal:', value, ', json:', json, ', MClass:', this, ', feature:', child);
+                // U.pe(json[key], 'overriding value inside MClass.generateModel()', ', key:', key, ', newVal:', value, ', json:', json, ', MClass:', this, ', feature:', child);
                 /*let wind = window as any;
                 if (!wind.json) wind.json = {};
                 if (!wind.json[key]) wind.json[key] = [];
@@ -20724,6 +22285,51 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
             }
         }
         return json;
+    }
+    parse_asgeneric_broke(json, destructive = true) {
+        json = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cloneObj(json);
+        if (destructive) {
+            this.attributes = [];
+            this.references = [];
+            this.childrens = [];
+            this.referencesIN = [];
+        }
+        this.metaParent = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject;
+        // this.changeMetaParent(this.metaParent, true, false); // fill childrens, attributes, references con istanze delle m2feature ereditate.
+        const inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
+        let allKeys = Object.keys(json);
+        const xmiVersion = json[inlineMarker + 'xmi:version'];
+        delete json[inlineMarker + 'xmi:version'];
+        if (xmiVersion) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(+xmiVersion !== 2, "This xmi version (" + xmiVersion + ") is not supported");
+            this.setRoot(true);
+        }
+        for (let key of allKeys) {
+            if (!json.hasOwnProperty(key)) {
+                continue;
+            }
+            let keyParts = key.split(':');
+            const val = json[key];
+            switch (keyParts[0]) {
+                default:
+                    if (typeof val === 'string') {
+                        new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MAttribute"](this, null, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericAttribute);
+                    }
+                    else {
+                        new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"](this, null, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericReference);
+                    }
+                    // U.pe(true, 'unexpected entry while parsing M1Class:' + keyParts[0], keyParts);
+                    break;
+                case inlineMarker + 'xmlns':
+                    switch (keyParts[1]) {
+                        case 'xmi': break; //"-xmlns:xmi": "http://www.omg.org/XMI",
+                        default: // "-xmlns:org.eclipse.example.bowling": "https://org/eclipse/example/bowling",
+                            const value = json[key];
+                            // todo: (set / handle) the (package / namespace)
+                            break;
+                    }
+            }
+        }
     }
     parse(json, destructive = true) {
         if (destructive) {
@@ -20742,6 +22348,9 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
               { "-name": "asd" }             <-- class[1]
             ]
           }*/
+        // todo big bug: se un m1-object ha una reference a Mammifero{ età }, ma io gli assegno Balena{ età, peso }, si aspetta di trovare solo {età}
+        // ma potrei avergli assegnato una balena con anche il peso, e lui in questo parse assume che sia solo un mammifero senza peso.
+        // l'errore è sin da prima del parse, è quando gli passo il metaParent proprio
         const inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
         for (let key in json) {
             if (!json.hasOwnProperty(key)) {
@@ -20785,7 +22394,7 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
                         this.references[rindex].parse(value, true);
                     }
                     else {
-                        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'm1 model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', key, ', Iclass:', this.metaParent);
+                        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'm1 model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', key, ', Iclass:', this.metaParent);
                     }
                     break;
             }
@@ -20851,9 +22460,18 @@ class MClass extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
             }
         }
     }
-    getChildrenIndex_ByMetaParent(meta) { return MClass.getArrayIndex_ByMetaParentID(meta.id, this.childrens); }
-    getAttributeIndex_ByMetaParent(meta) { return MClass.getArrayIndex_ByMetaParentID(meta.id, this.attributes); }
-    getReferenceIndex_ByMetaParent(meta) { return MClass.getArrayIndex_ByMetaParentID(meta.id, this.references); }
+    getChildrenIndex_ByMetaParent(meta) {
+        const arr = this.getAllChildrens(true, true, true, true, false);
+        return MClass.getArrayIndex_ByMetaParentID(meta.id, arr);
+    }
+    getAttributeIndex_ByMetaParent(meta) {
+        const arr = [...this.getAllAttributes()];
+        return MClass.getArrayIndex_ByMetaParentID(meta.id, arr);
+    }
+    getReferenceIndex_ByMetaParent(meta) {
+        const arr = [...this.getAllReferences()];
+        return MClass.getArrayIndex_ByMetaParentID(meta.id, arr);
+    }
     static getArrayIndex_ByMetaParentID(id, array) {
         let i = -1;
         while (++i < array.length) {
@@ -21150,20 +22768,22 @@ class MAttribute extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute
         }
     }
     fieldChanged(e) {
-        const html = e.currentTarget;
-        switch (html.tagName.toLowerCase()) {
-            default:
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected tag:', html.tagName, ' of:', html, 'in event:', e);
-                break;
-            case 'textarea':
-            case 'input':
-                this.setValueStr(html.value);
-                html.value = this.getValueStr();
-                break;
-            case 'select':
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Unexpected non-disabled select field in a Vertex.MAttribute.');
-                break;
-        }
+        console.log('fieldchanged m1 attr', e);
+        const html = e && e.currentTarget;
+        if (e)
+            switch (html.tagName.toLowerCase()) {
+                default:
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected tag:', html.tagName, ' of:', html, 'in event:', e);
+                    break;
+                case 'textarea':
+                case 'input':
+                    this.setValueStr(html.value);
+                    html.value = this.getValueStr();
+                    break;
+                case 'select':
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Unexpected non-disabled select field in a Vertex.MAttribute.');
+                    break;
+            }
         super.fieldChanged(e, true);
     }
     setValueStr(valStr) {
@@ -21507,16 +23127,17 @@ class M2Reference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReferenc
         }
     }
     delete(refreshgui = true, linkStart = null, linkEnd = null) {
-        let oldParent = this.parent;
+        const oldParent = this.parent;
+        console.log('m2ref.delete()', refreshgui, oldParent);
         // total deletion
         if (linkStart === null && linkEnd === null) {
             if (this.type.classType)
                 _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.type.classType.referencesIN, this);
         }
         super.delete(false, linkStart, linkEnd);
-        if (refreshgui) {
-            oldParent.refreshGUI();
-            oldParent.refreshInstancesGUI();
+        console.log('m2ref.delete()', refreshgui, oldParent);
+        if (refreshgui && oldParent) {
+            setTimeout(() => { oldParent.refreshGUI(); oldParent.refreshInstancesGUI(); }, 0);
         }
     }
     /*
@@ -21668,13 +23289,14 @@ class MReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference
             this.setTarget(i, null);
         }
         if (refreshgui) {
-            oldParent.refreshGUI();
+            setTimeout(() => { oldParent.refreshGUI(); }, 0);
         }
     }
     getType() { return (this.metaParent ? this.metaParent.getType() : null); }
     canBeLinkedTo(hoveringTarget) {
-        const c1 = this.getType().classType;
-        const c2 = hoveringTarget.metaParent;
+        const c1 = hoveringTarget.metaParent;
+        const c2 = this.getType().classType;
+        console.log('canbelinkedm1 ? ', c1, c2);
         return c1.isExtending(c2, true);
     }
     // link(targetStr?: string, debug?: boolean): void { throw new Error('mreference.linkByStr() should never be called'); }
@@ -21748,7 +23370,7 @@ class MReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference
             if ($.isEmptyObject(json[i])) {
                 continue;
             }
-            const t = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"](pkg, json[i], targetMM);
+            const t = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"](pkg, json[i], targetMM, true);
             this.mtarget[i] = t;
         }
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(this.metaParent.upperbound !== -1 && this.mtarget.length !== +this.metaParent.upperbound, 'wrong mtarget length', this.mtarget, this.mtarget.length, this.metaParent.upperbound);
@@ -21889,8 +23511,9 @@ class IReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]
             if (edges[i])
                 edges[i].remove();
         }
-        if (refreshgui)
-            oldParent.refreshGUI();
+        if (refreshgui) {
+            setTimeout(() => oldParent.refreshGUI(), 0);
+        }
     }
     // abstract linkClass(classe?: IClass): void;
     getEdges() { return this.edges; }
@@ -21913,9 +23536,9 @@ class IReference extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]
         this.clearTargets();
         super.copy(r, nameAppend, newParent);
         this.generateEdges();
-        this.edgeStyleCommon = r.edgeStyleCommon.clone();
-        this.edgeStyleHighlight = r.edgeStyleHighlight.clone();
-        this.edgeStyleSelected = r.edgeStyleSelected.clone();
+        this.edgeStyleCommon = r.edgeStyleCommon.duplicate();
+        this.edgeStyleHighlight = r.edgeStyleHighlight.duplicate();
+        this.edgeStyleSelected = r.edgeStyleSelected.duplicate();
         // this.typeClassFullnameStr = r.typeClassFullnameStr;
         if (newParent) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(newParent.references, this);
@@ -22293,7 +23916,7 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         let parameterStr = '';
         maxarguments = Math.min(maxarguments, this.childrens.length);
         let i;
-        const debug = true;
+        const debug = false;
         const separator = ', ';
         for (i = 0; i < maxarguments; i++) {
             if (i !== 0) {
@@ -22366,7 +23989,7 @@ class EOperation extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Typedd"] {
         // super.unmarkAll((key: string) => { return key.indexOf('incompatibility') === 0; });
     }
     delete(refreshgui = true) {
-        super.delete(false);
+        super.delete(true);
     }
 }
 
@@ -22675,6 +24298,7 @@ class Type {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.printablename, this);
     }
     applyTypeStr0() {
+        // input: this.typestr
         const debug = false;
         let i;
         let oldClass = this.classType;
@@ -22705,8 +24329,9 @@ class Type {
                     break;
                 }
             }
+            // if (!this.classType) this.classType = MetaModel.genericObject;
         }
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.primitiveType && !this.enumType && !this.classType, 'failed to find target: |' + typestr + '|', _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm);
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.primitiveType && !this.enumType && !this.classType, 'failed to find target: |' + typestr + '|', this, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm);
         if (this.owner instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Reference"]) {
             if (oldClass === this.classType)
                 return;
@@ -22954,8 +24579,14 @@ class Typedd extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"] {
         U.pe(!this.getType(), 'found json ecore type that is not a classname or a primitive type.', eTypeLongStr);
         return; }*/
     fieldChanged(e, ignoreSwitch = false) {
-        const html = e.currentTarget;
         const graph = this.getModelRoot().graph;
+        console.log('fieldchanged typedd', e);
+        if (!e) {
+            // this.refreshGUI();
+            graph.propertyBar.refreshGUI();
+            return;
+        }
+        const html = e.currentTarget;
         const fromGraph = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isParentOf(graph.container, html);
         const fromSidebar = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isParentOf(graph.propertyBar.container, html);
         if (!ignoreSwitch)
@@ -23257,9 +24888,9 @@ class IClass extends _IClassifier__WEBPACK_IMPORTED_MODULE_2__["IClassifier"] {
         this.attributes = [];
         this.references = [];
         this.edges = [];
-        this.edgeStyleCommon = other.edgeStyleCommon.clone();
-        this.edgeStyleHighlight = other.edgeStyleHighlight.clone();
-        this.edgeStyleSelected = other.edgeStyleSelected.clone();
+        this.edgeStyleCommon = other.edgeStyleCommon.duplicate();
+        this.edgeStyleHighlight = other.edgeStyleHighlight.duplicate();
+        this.edgeStyleSelected = other.edgeStyleSelected.duplicate();
         let i;
         for (i = 0; i < this.childrens.length; i++) {
             const child = this.childrens[i];
@@ -23432,7 +25063,7 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
     */
     // isRoot(): boolean { U.pe(true, 'm2 class cannot be roots.'); return false; }
     // setRoot(value: boolean): void { U.pe(true, 'only usable in model version'); }
-    constructor(pkg, json) {
+    constructor(pkg, json, allowWarning = true) {
         super(pkg, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getAllClasses()[0]);
         // features: M2Feature[]; // M2Feature[];
         this.operations = [];
@@ -23443,7 +25074,8 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         if (!pkg && !json) {
             return;
         } // empty constructor for .duplicate();
-        this.parse(json, true);
+        this.parse(json, true, allowWarning);
+        this.setExtends(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject, true, false, false);
     }
     getAccessModifier() { return this.visibility; }
     getVisibility() { return this.getAccessModifier(); }
@@ -23550,10 +25182,10 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         }
         return false;
     }
-    setExtends(superclass, refreshGUI = true, force = false) {
+    setExtends(superclass, refreshGUI = true, force = false, print = true) {
         let out = { reason: '', indirectExtendChain: null };
         if (!this.canExtend(superclass, out)) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, out.reason);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(print, out.reason);
             if (!force)
                 return false;
         }
@@ -23582,6 +25214,10 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         if (!superclass)
             return;
         console.log('UnsetExtend:', this, this.name);
+        if (superclass === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'Cannot un-extend "' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject.name + '"');
+            return;
+        }
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.getModelRoot().isM2(), 'Only m2 IClassifier can un-extend other IClassifiers.');
         let index = this.extends.indexOf(superclass);
         if (index < 0)
@@ -23633,7 +25269,7 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
             }
         }
     }
-    getTypeConversionScores(allowSuperClass = true, allowSubClass = true) {
+    getTypeConversionScoresManual(candidateClasses) {
         const map = {};
         const ret = [];
         const sortingFunction = (e1, e2) => {
@@ -23658,11 +25294,6 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
               }
               return 0;*/
         };
-        let candidateClasses = [];
-        if (allowSuperClass)
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(candidateClasses, this.getAllSuperClasses(false));
-        if (allowSubClass)
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(candidateClasses, this.getAllSubClasses(false));
         candidateClasses = candidateClasses.filter((c) => !c.getInterface() && !c.getAbstract());
         const myFeatures = this.getAllChildrens(false, false);
         const myOperations = this.getAllChildrens(true, false, false, false);
@@ -23682,6 +25313,14 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         // let lowestKey: string = Object.keys(map).sort()[0];
         // return map[lowestKey];
         return ret.sort(sortingFunction);
+    }
+    getTypeConversionScores(allowSuperClass = true, allowSubClass = true) {
+        let candidateClasses = [];
+        if (allowSuperClass)
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(candidateClasses, this.getAllSuperClasses(false));
+        if (allowSubClass)
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayMerge(candidateClasses, this.getAllSubClasses(false));
+        return this.getTypeConversionScoresManual(candidateClasses);
     }
     // getDisplayedChildrens(): Set<EOperation | M2Feature> { return this.getBasicChildrens(); }
     //getBasicChildrens(): Set<M2Feature | EOperation> { return super.getBasicChildrens() as Set<M2Feature | EOperation>; }
@@ -23721,11 +25360,11 @@ class M2Class extends _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] {
         }
         return str + ':' + this.name;
     }
-    parse(json, destructive) {
+    parse(json, destructive, allowWarning = true) {
         //     console.log('M2Class.parse(); json:', json, '; metaVersion: ', this.metaParent, 'this:', this);
         /// own attributes.
         this.extendEdges = [];
-        this.setName(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreClass"].namee, 'Class_1'), false);
+        this.setName(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreClass"].namee, 'Class_1'), false, allowWarning);
         let key;
         for (key in json) {
             switch (key) {
@@ -24180,6 +25819,74 @@ if (_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].produc
 }
 Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])
     .catch(err => console.error(err));
+
+
+/***/ }),
+
+/***/ "./src/vscodeLayer/VsCodeLayer.ts":
+/*!****************************************!*\
+  !*** ./src/vscodeLayer/VsCodeLayer.ts ***!
+  \****************************************/
+/*! exports provided: VsCodeLayerOut, VsCodeLayerIn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VsCodeLayerOut", function() { return VsCodeLayerOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VsCodeLayerIn", function() { return VsCodeLayerIn; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/Joiner */ "./src/common/Joiner.ts");
+/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../app/app.module */ "./src/app/app.module.ts");
+
+
+
+class VsCodeLayerOut {
+    static send(message) {
+        console.log("sending data to:", VsCodeLayerOut.ancestorOrigin);
+        window.parent.postMessage(message, VsCodeLayerOut.ancestorOrigin, undefined);
+    }
+}
+VsCodeLayerOut.thisOrigin = location.origin;
+VsCodeLayerOut.ancestorOrigin = location.ancestorOrigins && location.ancestorOrigins[0];
+class VsCodeLayerIn {
+    static setupReceive() {
+        // todo: dovrei spedire un evento al parent per notificarlo che jodel è pronto a ricevere
+        console.log("1x adding event listener");
+        window.addEventListener('message', VsCodeLayerIn.receive);
+    }
+    static receive(e /*window event*/) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("1x jodel got message");
+            const msg = e && e.data;
+            const type = msg && msg.type;
+            let body = msg && msg.body;
+            switch (type) {
+                default:
+                    console.log("1x jodel received got message:", JSON.stringify(msg));
+                    break;
+                case "webpackWarnings":
+                    _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].enableConsole();
+                    break;
+                case "init":
+                    console.log("1x jodel received got message init!!:", JSON.stringify(body));
+                    let xmistring = body;
+                    const xmlDoc = new DOMParser().parseFromString(xmistring, "text/xml");
+                    console.log('xml:', xmlDoc);
+                    let jsonstr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["prxml2json"].xml2json(xmlDoc, '    ');
+                    console.log('1x jsonstr input: ', jsonstr);
+                    body = jsonstr;
+                    // U.pe(true, 'xml -> json', prxml2json, 'json -> xml', prjson2xml);
+                    const m2Bundle = {};
+                    m2Bundle.model = body;
+                    const m1Bundle = {};
+                    Object(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["onModelsReceive"])(m2Bundle, m1Bundle);
+                    break;
+                // case "webpackWarnings": break;
+            }
+        });
+    }
+    ;
+}
 
 
 /***/ }),

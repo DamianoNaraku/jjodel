@@ -361,7 +361,7 @@ export class MeasurableTemplateGenerator {
       datalist = document.createElement('datalist');
       document.body.appendChild(datalist);
       datalist.id = 'measurableList' + rulenames[i];
-      console.log('datasets:', datasets);
+      // console.log('datasets:', datasets);
       for (key in datasets[i]) {
         opt = document.createElement('option');
         datalist.appendChild(opt);

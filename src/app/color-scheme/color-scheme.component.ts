@@ -63,7 +63,7 @@ export class ColorScheme2{
       new ColorScheme2('main theme Dark', 'body', 'color-', false,  [ '#3c3c44', '#b2b2ba', '#f0f0f0', '#1E90FF']),
       new ColorScheme2('main theme Dark bg', 'body', 'color-bg-', false, ['#1a1a1c', '#2e2f34', '#44444c']),
       new ColorScheme2('Vertex', 'g.VertexRoot', null, true, ['#ffffff', '#000000', '#000000', '#1E90FF', '#ff0000']),
-      new ColorScheme2('Feature', '.graph .Feature', null, true, ['#ff8c00', '#28a745', '#d3d3d3', '#FFFFFF']),
+      new ColorScheme2('Feature', '.graph .Feature', 'color-f-', true, ['#ff8c00', '#28a745', '#d3d3d3']),
       // examples
       new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#364f6b', '#3fc1c9', '#f5f5f5', '#fc5185']),
       new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#f9a828', '#ececeb', '#07617d', '#2e383f']),
@@ -174,7 +174,8 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
   }
 
   addColor($event: Event, cs: ColorScheme2, arr: string[]): void{
-    console.log('addColor(', $event, cs, arr);
+    const debug: boolean = false;
+    debug&&console.log('addColor(', $event, cs, arr);
     const objarr: {r: number, g: number, b: number, a: number}[] = arr.map((e, i) => U.HexToHexObj(e));
     const avg: {r: number, g: number, b: number, a: number} = {r:0, g:0, b:0, a:0};
     let weights = [];
@@ -183,19 +184,19 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
     for (let i = 0; i < objarr.length; i++) { weights.push( (lastVal *= 2) / sum); }
     if (objarr.length % 2 == 1) { weights = weights.reverse(); }
 
-    console.log('objarr:', objarr, weights, sum);
+    debug&&console.log('objarr:', objarr, weights, sum);
     const randomPart = 0.5;
     if (objarr) {
       for (let i = objarr.length; --i >= 0;) {
         const color = objarr[i];
         const randomWeight = randomPart * (2 * Math.random() - 1);
-        console.log('randomWeight', randomWeight);
+        debug&&console.log('randomWeight', randomWeight);
         const weight = weights[i] * (1 + randomWeight);
         avg.a += color.a ? color.a * weight : 0;
         avg.r += color.r * weight;
         avg.g += color.g * weight;
         avg.b += color.b * weight;
-        console.log('objarr adding::', color, weight, {r:color.r * weight, g: color.g * weight, b: color.b * weight}, U.cloneObj(avg));
+        debug&&console.log('objarr adding::', color, weight, {r:color.r * weight, g: color.g * weight, b: color.b * weight}, U.cloneObj(avg));
       }/*
       avg.a /= objarr.length;
       avg.r /= objarr.length;
@@ -285,7 +286,7 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
     if (!namepar && cs.name === name) return;
     const namearr: string[] = this.colorSchemes.map( (e, i) => e.name );
     const names = U.ArrayToMap(namearr);
-    console.log('name map', names, namearr, 'name:', name);
+    // console.log('name map', names, namearr, 'name:', name);
     while (names[name]) { name = U.increaseEndingNumber(name); }
     input.value = cs.name = name;
     // regenerateSelector = true;
@@ -295,7 +296,8 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
   hide(): void {
     ColorSchemeComponent.$html.hide();
     // this.display = 'none';
-    console.log("cs.hide()"); }
+    //console.log("cs.hide()");
+  }
 /*
   show(): void {
     this.display = 'flex'; }*/
@@ -304,7 +306,7 @@ export class ColorSchemeComponent implements OnInit, OnDestroy {
     // NB: il codice eseguito fuori da questo componente, o dentro componenti che NON hanno @ViewChild non viene osservato per cambiamenti,
     // se modifico le variabili esternamente la grafica non viene aggiornata.
     // quindi modifico direttamente html invece delle variabili
-    console.log("cs.show()");
+    // console.log("cs.show()");
     ColorSchemeComponent.$html.show();
   }
 

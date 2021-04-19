@@ -14,7 +14,7 @@ import {
   IModel,
   IClass,
   Point,
-  DamContextMenuComponent,
+  DamContextMenu,
   Typedd,
   Status,
   Size,
@@ -65,6 +65,7 @@ import ResizableUIParams = JQueryUI.ResizableUIParams;
 import DraggableEventUIParams = JQueryUI.DraggableEventUIParams;
 import {FocusHistoryEntry} from '../../../common/util';
 import {RotatableOptions} from '../../../common/measurable';
+import MouseEventBase = JQuery.MouseEventBase;
 
 export class StartDragContext {
   size: GraphSize;
@@ -130,11 +131,27 @@ export class IVertex {
       if (!edge) edge = new IEdge(ref);
       IVertex.linkVertexMouseDown(e, edge); }*/
 
-  static linkVertexMouseDown(e: MouseDownEvent | ClickEvent, edge: IEdge = null, location: GraphPoint = null): void {
+  static linkVertexMouseUpOnSelf(e: MouseUpEvent): void {
+    if (IEdge.edgeChanging) {
+      // IEdge.edgeChanging.owner.edgeChangingAbort(e);
+      // e.stopPropagation();
+    }
+  }
+  static linkVertexMouseDown(e: MouseDownEvent | ClickEvent, edge: IEdge = null, location: GraphPoint = null, delayed: boolean = false): void {
     if (e) { e.stopPropagation(); }
-    if (IEdge.edgeChanging) { IEdge.edgeChanging.owner.edgeChangingAbort(e); }
+    if (IEdge.edgeChanging && e && e.target.classList.contains('LinkVertex')) {
+      if (U.isParentOf(IEdge.edgeChanging.start.htmlg, e.target)) {
+        IEdge.edgeChanging.owner.edgeChangingAbort(e);
+        return;
+      }
+      if (delayed) { U.pw(true, 'cannot start defining a new edge without confirming the previous'); return; }
+      // hack per fare in modo che questo venga eseguito dopo il mouseup nel caso sia stato premuto su un .linkVertex (confermo e avvio un nuovo edge)
+      setTimeout(() => IVertex.linkVertexMouseDown(e, edge, location, true), 200);
+      return;
+    }
+    // console.log('shouldstop?', {edge: IEdge.edgeChanging, target: e.target, e, thiss:this});
     location = location || GraphPoint.fromEvent(e); //Status.status.getActiveModel().graph.toGraphCoord(new Point(e.pageX, e.pageY));
-    if (!edge ) {
+    if (!edge) {
       const mp: ModelPiece = ModelPiece.getLogic(e.target);
       const mr: MReference = mp instanceof MReference ? mp : null;
       U.pe(!mr, 'button.linkVertex should only be inserted inside M1-references', mp, e);
@@ -161,7 +178,7 @@ export class IVertex {
     // edge.tmpEndVertex = ref.parent.getVertex();
     edge.refreshGui(); }
 
-  static getvertex(e: Event | MouseEvent | MouseDownEvent | MouseUpEvent | MouseMoveEvent | MouseEnterEvent | MouseLeaveEvent | ClickEvent
+  static getvertex(e: Event | MouseEventBase | MouseDownEvent | MouseUpEvent | MouseMoveEvent | MouseEnterEvent | MouseLeaveEvent | ClickEvent
     | KeyDownEvent | KeyUpEvent | KeyPressEvent | ChangeEvent, canUseMp: boolean = true): IVertex {
       return IVertex.getvertexByHtml(e.currentTarget as Element, canUseMp);
   }
@@ -245,8 +262,9 @@ export class IVertex {
     const end: IVertex = edge.end;
     const startSvgForeign: SVGForeignObjectElement = start && start.getHtmlRawForeign();
     const endSvgForeign: SVGForeignObjectElement = end && end.getHtmlRawForeign();
+    const debug = false;
     // start: null true true , end: null true false
-    console.log('isAllowingEdge pre-check keep-edges ', start && start.logic() && start.logic().name, ' - ', end && end.logic() && end.logic().name,
+    debug&&console.log('isAllowingEdge pre-check keep-edges ', start && start.logic() && start.logic().name, ' - ', end && end.logic() && end.logic().name,
       ' start:',
       startSvgForeign && startSvgForeign.getAttribute('keep-edges'),
       start.logic() !== MetaModel.genericObject,
@@ -264,7 +282,7 @@ export class IVertex {
     else kind = "rel";
     const conditionStart = start && IVertex.isAllowingEdges(startSvgForeign, ["out"], [kind]);
     const conditionEnd = end && IVertex.isAllowingEdges(startSvgForeign, ["in"], [kind]);
-    console.log("isAllowingEdge(", edge, conditionStart, conditionEnd);
+    debug&&console.log("isAllowingEdge(", edge, conditionStart, conditionEnd);
     return (start ? conditionStart["out"][kind] : 0) + (end ? conditionEnd["in"][kind] : 0) > 0;
   }
 
@@ -470,7 +488,7 @@ export class IVertex {
       cloned.id = oldid;
       scripts[i].innerHTML = '';
       document.body.appendChild(cloned);*/
-      console.log('eval:', cloned.innerHTML);
+      // console.log('eval:', cloned.innerHTML);
       try { eval(cloned.innerHTML); } catch(e) { U.pw(true, 'error in user script of "' + this.logic().printableName()+ '":', e, 'script:', cloned); }
     }
     if (parenttmp) { if (next) parenttmp.insertBefore(htmlRaw, next); else parenttmp.appendChild(htmlRaw); }
@@ -583,6 +601,7 @@ export class IVertex {
     const $childContainer = $(html).find('.ChildrenContainer, .ChildContainer, .AttributeContainer, .ReferenceContainer, .OperationContainer, .ParameterContainer');
 
 
+    const debug: boolean = false;
 
     // U.pe($attContainer.length !== 1, 'there must be exactly one element with class "AttributeContainer".', $attContainer);
     // U.pe($refContainer.length !== 1, 'there must be exactly one element with class "ReferenceContainer".', $refContainer);
@@ -619,19 +638,19 @@ export class IVertex {
       // U.pe(allowShadowed === false, childContainer.getAttribute('shadowed'), U.fromBoolString(childContainer.getAttribute('shadowed'), false, true));
       for (i = 0; i < childs.length; i++) {
 
-        console.log('mx ' + data.id + ' filtering children [' + i + " / " + childs.length + ']', childs);
+        debug && console.log('mx ' + data.id + ' filtering children [' + i + " / " + childs.length + ']', childs);
         let child = childs[i];
         let field;
         if (validator && !validator(childs[i], i, childs)) continue;
-        console.log('mx ' + data.id + ' validator ok ');
+        debug&&console.log('mx ' + data.id + ' validator ok ');
         if (!allowInheritance && child.parent !== data) continue;
-        console.log('mx ' + data.id + ' allowInheritance ok ');
+        debug&&console.log('mx ' + data.id + ' allowInheritance ok ');
         if (child instanceof IFeature) {
           // error: when i delete extedge shadowed attr will disappear
-          console.log('allowShadowed:', allowOnlyShadowed, child.isShadowed(data), child);
-          console.log('shadowed mx ' + data.id + '? ', allowOnlyShadowed, child.isShadowed(data), child, data);
+          debug&&console.log('allowShadowed:', allowOnlyShadowed, child.isShadowed(data), child);
+          debug&&console.log('shadowed mx ' + data.id + '? ', allowOnlyShadowed, child.isShadowed(data), child, data);
           if (allowOnlyShadowed !== null && child.isShadowed(data) !== allowOnlyShadowed) continue;
-          console.log('mx ' + data.id + ' shadowed ok');
+          debug&&console.log('mx ' + data.id + ' shadowed ok');
           if (allowAttributes && child instanceof IAttribute) field = this.drawA(child); else
           if (allowReferences && child instanceof IReference) field = this.drawR(child); else
             continue;
@@ -768,7 +787,7 @@ export class IVertex {
     $html.off('mouseenter.vertex').on('mouseenter.vertex', (e: MouseEnterEvent) => { this.onMouseEnter(e); });
     $html.off('mouseleave.vertex').on('mouseleave.vertex', (e: MouseLeaveEvent) => { this.onMouseLeave(e); });
     $html.off('click').on('click', (e: ClickEvent) => { this.onClick(e); });
-    // $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
+    // $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenu.contextMenu.onContextMenu(e); });
     // const $addFieldButtonContainer: JQuery<HTMLElement> = $html.find('.addFieldButtonContainer') as any as JQuery<HTMLElement>;
     // this.setAddButtonContainer($addFieldButtonContainer[0]);
    }
@@ -789,7 +808,8 @@ export class IVertex {
     // if (html.tagName.toLowerCase() === 'foreignobject' && html.dataset.modelpieceid )
     //   { html = html.firstChild as Element; }
     // while (!(html.classList.contains('Vertex'))) { console.log(html); html = html.parentNode as Element; }
-     $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDown);
+    $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDown);
+    // $html.find('.LinkVertex').off('mouseup.notImmediatelySetOnSelf').on('mousedown.notImmediatelySetOnSelf', IVertex.linkVertexMouseUpOnSelf);
     const defaultResizeConfig: ResizableOptions = new ResizableOptionsImpl();
     const defaultDragConfig: DraggableOptions = new DraggableOptionsImpl();
     const defaultRotConfig: RotatableOptions = new RotatableOptions();
@@ -863,7 +883,11 @@ export class IVertex {
 
 
   clickSetReference(e: ClickEvent | MouseUpEvent | MouseDownEvent, debug: boolean = true): void {
-    if (e) { e.stopPropagation(); e.preventDefault(); }
+    if (e) {
+      // undo se premo sullo stesso linkVertex che ha iniziato tutto, proseguo se ho premuto su un altro linkVertex
+      if (e.target.classList.contains('LinkVertex') && IEdge.edgeChanging && U.isParentOf(IEdge.edgeChanging.start.htmlg, e.target)) return;
+      e.stopPropagation(); e.preventDefault();
+    }
     const edge: IEdge = IEdge.edgeChanging;
     if (!edge) { return; }
     U.pif(debug, 'setreferenceClick success!');
@@ -1117,5 +1141,16 @@ export class IVertex {
     this.autoLayout = checked;
     if (this.autoLayout) { this.owner.layouting.addToLayout([this], true); }
     else { this.owner.layouting.removeFromLayout([this], true); }
+  }
+
+  // bug description: ogni volta che un elemento va in overflow è necessario re-inserire il foreignObject altrimenti si bugga,
+  // questo tristemente include gli elementi che si espandono con :hover
+  // quindi ho dovuto trasformare molti :hover in .hover aggiungendo a mano la classe, perchè se reinserisco il vertice perdo l' :hover.
+  fixFirefoxOverflowBug(){
+    if (!Status.status.isFirefox || !this.htmlg || !this.htmlg.parentElement) return;
+    // firefox bug fixer for overflowing elements https://bugzilla.mozilla.org/show_bug.cgi?id=1705916
+    const parent: Element = this.htmlg.parentElement;
+    parent.removeChild(this.htmlg);
+    parent.appendChild(this.htmlg);
   }
 }

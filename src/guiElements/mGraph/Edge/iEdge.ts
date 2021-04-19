@@ -555,7 +555,6 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     const $edgetail: JQuery<Element> = forheadtail ? $(this.headShell).add(this.tailShell) : $();
     const $shell: JQuery<Element> = foredge ? $(this.shell) : $();
     const $edgeparts = $(this.shell);// .find('>*');
-    console.log('EdgeParts:', $edgeparts);
     // $edgetail.attr('tabindex', '-1');
     $shell.attr('tabindex', '-1');
     // U.pe(!$shell.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail);
@@ -608,18 +607,11 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     switch(e.key.toLowerCase()) {
       default: break;
       case 'delete':
-        for (i = 0; i < elogic.length; i++) { (elogic[i] as ModelPiece).delete(true); }
-        for (i = 0; i < ext.length; i++) {
-          for (let extedge of ext) {
-            console.log('delete extedge:', extedge);
-            extedge.logic.unsetExtends(extedge.end.logic() as M2Class);
-            extedge.remove();
-          }
-          //ext[i].remove();
-        }
+        for (let e of edges) { e.remove(); }
+        for (let extedge of ext) { extedge.remove(); }
         break;
     }
-    }
+  }
 
   onBlur(e: BlurEvent = null) {
     if (this.isDeleted) return;// check dopo aver fatto edgeabort se continua a dare errore quando deselezioni premendo altrove.
@@ -835,7 +827,7 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     console.log('edge.remove()');
     this.isDeleted++;
     if (this.isDeleted > 1) {
-      if (!(this instanceof M2Reference)) U.pw(true, 'edge removed ' + this.isDeleted + ' times.', this);
+      U.pw(true, 'edge removed ' + this.isDeleted + ' times.', this);
       return; }
     U.arrayRemoveAll(this.start.edgesStart, this);
     if (this.end) U.arrayRemoveAll(this.end.edgesEnd, this);

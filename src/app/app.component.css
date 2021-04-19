@@ -58,10 +58,9 @@
   --color-5: #FF0000;
 }
 .Feature{
-   --color-1: #ff8c00;
-   --color-2: #28a745;
-   --color-3: #d3d3d3;
-   --color-4: #FFFFFF;
+   --color-f-1: #ff8c00;
+   --color-f-2: #28a745;
+   --color-f-3: #d3d3d3;
  }
 
 ::ng-deep *{

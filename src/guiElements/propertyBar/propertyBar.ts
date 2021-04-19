@@ -133,7 +133,7 @@ export class PropertyBarr {
         input.value = o.setName(input.value, true);
       });
     $html.find('.replaceVarOn').each( (i: number, elem: HTMLElement) => { U.replaceVars(o, elem, false); });
-    console.log('7x', $html, $html.find('.m1disable'), model.isM(), (model.isM() ? '.m1' : '.m2') + 'disable', $html.find((model.isM() ? '.m1' : '.m2') + 'disable'));
+    // console.log('7x', $html, $html.find('.m1disable'), model.isM(), (model.isM() ? '.m1' : '.m2') + 'disable', $html.find((model.isM() ? '.m1' : '.m2') + 'disable'));
     $html.find((model.isM() ? '.m1' : '.m2') + 'disable').attr('disabled', 'true');
     $html.find((model.isM() ? '.m1' : '.m2') + 'hide').remove();
     return $html; }
@@ -302,7 +302,6 @@ export class PropertyBarr {
     if (!m1class) { return $html[0]; }
     /// Se MClass
     const isRoot: HTMLInputElement = ($html.find('input.isRoot')[0]) as HTMLInputElement;
-    console.log('this:', m1class);
     isRoot.disabled = isRoot.checked = m1class.isRoot();
     $(isRoot).off('change.pbar').on('change.pbar',
       (evt: Event) => {

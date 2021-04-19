@@ -26,7 +26,7 @@ import {
   EEnum,
   ExtEdge,
   measurableRules,
-  DamContextMenuComponent,
+  DamContextMenu,
   Model, IClassifier
 } from '../../common/Joiner';
 import MouseDownEvent = JQuery.MouseDownEvent;
@@ -523,7 +523,7 @@ export class IGraph {
     if (IVertex.selected) return this.onMouseMoveVertexMove(evt, IVertex.selected);
     if (this.isMoving) return this.onMouseMoveDrag(evt);
   }
-  edgeChangingAbort(e: KeyDownEvent | MouseDownEvent | ClickEvent): void {
+  edgeChangingAbort(e: KeyDownEvent | MouseDownEvent | ClickEvent | MouseUpEvent): void {
     const edge: IEdge = IEdge.edgeChanging;
     if (!edge) { return; }
     IEdge.edgeChanging = null;
@@ -707,6 +707,7 @@ export class IGraph {
   private oldGridX: number = null;
   private oldGridY: number = null;
   refreshGridGUI() {
+    const debug = false;
     // if (this.grid.x === null) this.grid.x = this.oldGridX; crea un bug che mette i vertici trascinati che triggerano una rule (anche senza effetto o event senza targets) in vertexPos.y = 0;
     // if (this.grid.y === null) this.grid.y = this.oldGridY; forse perchè null è un valore valido che dice "non usare la griglia", almeno mentre trascini
 
@@ -717,8 +718,8 @@ export class IGraph {
     const x = isNaN(this.grid.x) || this.grid.x === null ? this.oldGridX : this.grid.x <= 0 ? maxSquareSize : this.grid.x; // if the size of squares in grid is zero or negative, i just use a big number.
     const y = isNaN(this.grid.y) || this.grid.y === null ? this.oldGridX : this.grid.y <= 0 ? maxSquareSize : this.grid.y;
     // NB: x è "displayed grid", grid.x è actual grid. se grid.x = null lo snap è disattivato ma continuo a mostrare old grid.
-    console.log('oldGridX:' + this.oldGridX, this.grid.x, x, this.gridDisplay);
-    console.log('oldGridY:' + this.oldGridY, this.grid.y, y);
+    debug&&console.log('oldGridX:' + this.oldGridX, this.grid.x, x, this.gridDisplay);
+    debug&&console.log('oldGridY:' + this.oldGridY, this.grid.y, y);
     if (x === null || y === null) /*todo: x = getOldX;*/ return;
 
     let drawx = this.grid.x === null || !(isNaN(this.grid.x) || this.grid.x <= 0 || this.grid.x >= maxSquareSize);

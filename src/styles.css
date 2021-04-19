@@ -223,7 +223,7 @@ body.Light button.remove:not(.btn) { background-image: url(../img/white/deletew.
 body.Light button.duplicate:not(.btn),
 body.Light button.copy:not(.btn) { background-image: url(../img/white/duplicatew.png); }
 body.Light button.edit:not(.btn) { background-image: url(../img/white/editw.png); }
-
+/*
 #metamodel_editor .allVertexContainer button.delete, #model_editor .allVertexContainer button.delete {
   padding: 0 5px;
   border: 1px solid black;
@@ -235,7 +235,7 @@ body.Light button.edit:not(.btn) { background-image: url(../img/white/editw.png)
 
 #metamodel_editor .allVertexContainer button.delete:hover, #model_editor .allVertexContainer button.delete:hover {
   background-color: red;
-}
+}*/
 
 .horizontalFillingContainer, .horizontalContainer {
   display: flex;
@@ -288,11 +288,13 @@ button {
   border-color: inherit;
   outline-color: inherit;
 }
+/*
 .Vertex input, .Vertex select, .Vertex button{
-  color: inherit; /* previene la sovrascrittura del colore da parte di bootstrap, voglio che erediti dal color scheme*/
+  color: inherit; /* previene la sovrascrittura del colore da parte di bootstrap, voglio che erediti dal color scheme* /
   border-color: inherit;
   outline-color: inherit;
 }
+*/
 .Vertex select{
   text-align-last: end;
 }
@@ -610,3 +612,38 @@ button {
 }
 
 /* css editor END */
+.graph .allVertexContainer{
+  overflow: visible;
+}
+.hover-unfade:hover, .hover-unfade:focus-within{
+  opacity: 1 !important;
+}
+/* direct child or with someone in the middle that is not excluded */
+[hover-base="v1"] [hover-display="v1"],
+[hover-base="f1"] [hover-display="f1"],
+[hover-base="p1"] [hover-display="p1"]{
+  visibility: hidden;
+}
+[hover-base="v1"]:hover [hover-display="v1"],
+[hover-base="f1"]:hover [hover-display="f1"],
+[hover-base="p1"]:hover [hover-display="p1"],
+
+[hover-base="v1"]:focus-within [hover-display="v1"],
+[hover-base="f1"]:focus-within [hover-display="f1"],
+[hover-base="p1"]:focus-within [hover-display="p1"]{
+  /* todo: proposta di cambiamento css perchè questa soluzione fa schifo, e non esistono soluzioni migliori nel css attuale.
+  * 1) [hover-base=@someVariable@] [hover-display=@someVariable@], would be great. (@somevariable@) is never defined in css, it just check if the html attrib content. match with children attrib content.
+  * 2) reference inside html, parent is pointing to children through id or selector (or same attrib value) and i do something like: parentSelector->childSelector, that is equal to: match parent, follow the reference (->) from that position in dom, match childSelector. benefits: similar to ">" operator but a child is logically defined instead of dom-position defined
+*/
+  /* direct child or with someone in the middle that is not excluded */
+  visibility: visible;
+}
+
+.graph .no-ov, .graph select, .graph input,
+.no-ov, select, input{
+  overflow: hidden;
+}
+.graph .ov,
+.ov{
+  overflow: visible;
+}

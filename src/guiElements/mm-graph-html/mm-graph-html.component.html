@@ -50,27 +50,45 @@
   </div>
   <div class="MMDefaultStyles customized"></div>
   <div class="MMDefaultStyles immutable">
-    <foreignobject class="template Vertex invisibleNode" x="0" y="0" width="200" height="40" style="display:none" keep-edges="false"
+    <foreignobject class="template Vertex invisibleNode" overflow="hidden" x="0" y="0" width="200" height="40" style="display:none" keep-edges="false"
                    show-in-rel-edges="false" show-in-ext-edges="false" show-in-oth-edges="false"
                    show-out-rel-edges="false" show-out-ext-edges="false" show-out-oth-edges="false">
       <div style="height:auto;"></div>
     </foreignobject>
-    <foreignobject class="template Vertex Class" x="0" y="0" width="200" height="40" style="overflow: hidden; outline: 1px solid var(--color-3); background:var(--color-1); color:var(--color-2);">
-      <div class="Class" style="background:var(--color-1); height:auto; width:100%; overflow: auto;" data-autosizey="1">
+    <foreignobject class="template Vertex Class" tabindex="-1" hover-base="v1" x="0" y="0" width="200" height="40" style="outline: 1px solid var(--color-3) !important; background:var(--color-1); color:var(--color-2);">
+      <div class="Class" style="background:var(--color-1); height:auto; width:100%;" data-autosizey="1">
         <div class="VertexHeader" style="height:20px; width:100%; text-align:center; display:flex;">
           <input value="$##name$" placeholder="Object name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*"
-                 style="background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; border:none; padding-right:4px;">
-          <div style="text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;">($##className$)</div>
+                 style="background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;">
+          <div class="no-ov" style="text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;">($##className$)</div>
+          <div hover-display="v1" class="hover-unfade open-options" tabindex="-1"
+               style="top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;">
+            <span>...</span>
+          </div>
         </div>
-        <div class="specialjs AttributeContainer" style="overflow: hidden; display: flex; flex-direction: column;"></div>
-        <div class="specialjs ReferenceContainer" style="overflow: hidden; display: flex; flex-direction: column;"></div>
-        <div class="specialjs OperationContainer" style="overflow: hidden; display: flex; flex-direction: column;"></div>
+        <div class="specialjs AttributeContainer hover-exclude" style="display: flex; flex-direction: column;"></div>
+        <div class="specialjs ReferenceContainer hover-exclude" style="display: flex; flex-direction: column;"></div>
+        <div class="specialjs OperationContainer hover-exclude" style="display: flex; flex-direction: column;"></div>
         <div class="addFieldButtonContainer" style="width: 100%; text-align: center;">
           <span style="display:flex; margin:auto;">Add</span>
           <style id="addfieldcss_class">
             ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}
             ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }
-            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }
+            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }
+            ::ng-deep .open-options.active{
+              opacity: 1;
+              visibility: visible; }
+            ::ng-deep .open-options{
+              position: absolute;
+              right: 0;
+              border: 2px solid var(--color-2);
+              background: var(--color-1);
+              width: 25px;
+              height: 25px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              opacity: 0.5; }
           </style>
           <select class="AddFieldSelect" style="background:transparent; display:flex; margin:auto;">
             <optgroup label="FeatureType">
@@ -85,19 +103,37 @@
       </div>
     </foreignobject>
 
-    <foreignobject class="template Vertex EEnum" x="0" y="0" width="200" height="40" style="overflow: hidden; outline: 1px solid var(--color-3); background:var(--color-1); color:var(--color-2);">
-      <div class="EEnum" style="background:var(--color-1); height:auto; width:100%; overflow: auto;" data-autosizey="1">
+    <foreignobject class="template Vertex EEnum" x="0" y="0" width="200" height="40" hover-base="v1" tabindex="-1" style="outline: 1px solid var(--color-3) !important;; background:var(--color-1); color:var(--color-2);">
+      <div class="EEnum" style="background:var(--color-1); height:auto; width:100%;" data-autosizey="1">
         <div class="VertexHeader" style="height:20px; width:100%; text-align:center; display:flex;">
           <input value="$##name$" placeholder="Object name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*"
                  style="background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;">
-          <div style="text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-5); margin:auto; padding-left:4px;">(Enum)</div>
+          <div class="no-ov" style="text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-5); margin:auto; padding-left:4px;">(Enum)</div>
+          <div hover-display="v1" class="hover-unfade open-options" tabindex="-1"
+               style="top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;">
+            <span>...</span>
+          </div>
         </div>
-        <div class="specialjs LiteralContainer" style="overflow: hidden; display: flex; flex-direction: column;"></div>
+        <div class="specialjs LiteralContainer hover-exclude" style="display: flex; flex-direction: column;"></div>
         <div class="addFieldButtonContainer" style="width: 100%; text-align: center;">
           <style id="addfieldcss_enum">
-            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}
-            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }
-            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }
+            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}
+            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }
+            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }
+            ::ng-deep .open-options.active{
+              opacity: 1;
+              visibility: visible; }
+            ::ng-deep .open-options{
+              position: absolute;
+              right: 0;
+              border: 2px solid var(--color-2);
+              background: var(--color-1);
+              width: 25px;
+              height: 25px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              opacity: 0.5; }
           </style>
           <span style="display:flex; margin:auto;">Add</span>
           <select class="AddFieldSelect" disabled style="background:transparent; display:flex; margin:auto;">
@@ -111,42 +147,61 @@
       </div>
     </foreignobject>
 
-    <div class="template Feature Reference" style="width:100%; height: 22px; padding-left:5px; display:flex;">
+    <div class="template Feature Reference ov" tabindex="-1" hover-base="f1" style="width:100%; height: 22px; padding-left:5px; display:flex; position: relative;">
       <select data-class="true" style="background:transparent; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;"></select>
       <input type="text" placeholder="Reference Name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" value="$##name$" style="background:transparent; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;">
+      <div hover-display="f1" class="hover-unfade open-options" tabindex="-1"
+           style="right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;">
+        <span>...</span>
+      </div>
     </div>
 
-    <div class="template Feature Attribute EString EInteger" style="width:100%; height:22px; padding-left:5px; display:flex;">
+    <div class="template Feature Attribute EString EInteger" tabindex="-1"  hover-base="f1" style="position: relative; width:100%; height:22px; padding-left:5px; display:flex;">
       <select data-primitive="true" data-enum="true" style="background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
       <input type="text" placeholder="Attribute Name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" value="$##name$" style="background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+      <div hover-display="f1" class="hover-unfade open-options" tabindex="-1"
+           style="right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;">
+        <span>...</span>
+      </div>
     </div>
 
-    <div class="template Feature ELiteral" style="width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;">
+    <div class="template Feature ELiteral" tabindex="-1"  hover-base="l1" style="position: relative; width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;">
       <input class="value" type="number" placeholder="auto" value="$##ordinal$" style="background:transparent; border:none; display: flex; width: 30px;">
       <input class="name" type="text" placeholder="name" value="$##name$" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" style="background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;">
       <input class="literal" type="text" placeholder="literal" value="$$#literal$" style="background:transparent; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;">
+      <div hover-display="l1" class="hover-unfade open-options" tabindex="-1"
+           style="right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;">
+        <span>...</span>
+      </div>
     </div>
 
-    <div class="template Feature Operation" style="width:100%; display:flex; flex-flow:column;">
+    <div class="template Feature Operation" tabindex="-1"  hover-base="f1" style="position: relative; width:100%; display:flex; flex-flow:column;">
       <div class="specialjs signature" data-maxargumentchars="10" data-maxarguments="2" style="height:22px; min-width:100%"></div>
-      <div class="specialjs operationDetail" style="margin:2px; padding:2px; order:2; border: 3px solid var(--color-2); border-top-color: transparent; margin-top:0;">
+      <div class="specialjs operationDetail" style="margin:2px; padding:2px; order:2; border: 3px solid var(--color-f-2); border-top-color: transparent; margin-top:0;">
         <div style="display: flex; width: 100%;">
           <select data-primitive="true" data-enum="true" data-class="true" data-void="true" style="background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
           <input disabled type="text" placeholder="Return Type" value="Return type" style="background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
         </div>
-        <div class="parameterList" style="display: flex; width: 100%; flex-flow:column;">
-          <button class="addParameterButton btn btn-sm" style="width: 100%; height: 22px; padding:0; text-align: center; background-color: var(--color-2); color:var(--color-4);">+</button>
+        <div class="parameterList parameterContainer" style="display: flex; width: 100%; flex-flow:column;">
+          <button class="addParameterButton btn btn-sm" style="width: 100%; height: 22px; padding:0; text-align: center; background-color: var(--color-f-2); color:var(--color-1);">+</button>
         </div>
+      </div>
+      <div hover-display="f1" class="hover-unfade open-options" tabindex="-1"
+           style="right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;">
+        <span>...</span>
       </div>
     </div>
 
-    <div class="template Parameter" style="width: 100%; height: 22px; border-bottom:1px solid var(--color-3); display:flex;">
+    <div class="template Parameter" tabindex="-1" hover-base="p1" style="position: relative; width: 100%; height: 22px; border-bottom:1px solid var(--color-f-3); display:flex;">
       <select data-primitive="true" data-enum="true" data-class="true" style="background:transparent; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;"></select>
       <input type="text" placeholder="Parameter Name" pattern="[a-zA-Z_\u0024]*[a-zA-Z\d_\u0024]+" value="$##name$" style="background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;">
-      <button class="delete" style="order: 3; padding:0 5px;">X</button>
+      <!--button class="delete" style="order: 3; padding:0 5px;">X</button-->
+      <div hover-display="p1" class="hover-unfade open-options" tabindex="-1"
+           style="right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;">
+        <span>...</span>
+      </div>
       <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\d_$]+$   ==    [a-zA-Z_\u0024][a-zA-Z\d_\u0024]*
        PS: luckily pattern always implies ^ and $ for start and end delimiters. because \u0024 might not work for end of line $ substitute -->
-    </div>
   </div>
 </div>
 

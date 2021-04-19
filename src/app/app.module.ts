@@ -66,12 +66,21 @@ import {
   WebsiteTheme,
   ChangelogRoot,
   TSON,
-  TSON_JSTypes, TSON_UnsupportedTypes, PropertyBarr, MeasurableEvalContext, InputPopup, ECoreEnum, MeasurableOperators, VsCodeLayerIn, VsCodeLayerOut,
+  TSON_JSTypes,
+  TSON_UnsupportedTypes,
+  PropertyBarr,
+  MeasurableEvalContext,
+  InputPopup,
+  ECoreEnum,
+  MeasurableOperators,
+  VsCodeLayerIn,
+  VsCodeLayerOut,
+  is,
 } from '../common/Joiner';
 
 import { PropertyBarrComponent }   from '../guiElements/property-barr/property-barr.component';
 import { MGraphHtmlComponent }     from '../guiElements/m-graph-html/m-graph-html.component';
-import { DamContextMenuComponent } from '../guiElements/dam-context-menu/dam-context-menu.component';
+import {DamContextMenu, DamContextMenuComponent} from '../guiElements/dam-context-menu/dam-context-menu.component';
 import { StyleEditorComponent }    from '../guiElements/style-editor/style-editor.component';
 import { ConsoleComponent }        from '../guiElements/console/console.component';
 import {MeasurabletemplateComponent} from './measurabletemplate/measurabletemplate.component';
@@ -160,6 +169,7 @@ export class Status {
   mGrid = new GraphPoint(20, 20);*/
   user: User = new User('mock_user');
   isEmbed: boolean = window.parent !== window;
+  isFirefox: boolean = is.firefox();
   constructor() { }
   save(): string {
     return 'TO DO: SERIALIZE'; }
@@ -182,8 +192,6 @@ export class Status {
   autosave(): void {
     this.mm.save(true, null);
     this.m.save(true, null);
-
-
     console.log('autosave completed.');
   }
 }
@@ -252,12 +260,11 @@ function globalevents(): void {
     let mp: ModelPiece = ModelPiece.get(e);
     if (!mp) return;
     let name: string =  mp.printableName(20, true);
-    console.log('clicked mp:', mp.id, name, mp);
     console.info('clicked mp:', mp.id, name, mp);
   });
   $document.off('keydown.preventBackslash').on('keydown.preventBackslash', U.preventBackSlashHistoryNavigation);
   $document.off('keydown.abortEdgeChange').on('keydown.abortEdgeChange', (e: KeyDownEvent): void  => {
-    console.log('documentKeyDown: ', e.key, e.keyCode);
+    // console.log('documentKeyDown: ', e.key, e.keyCode);
     if (e.key === 'Escape') { Status.status.getActiveModel().graph.edgeChangingAbort(e); }
   });
   window['' + 'U'] = U;
@@ -306,6 +313,8 @@ function globalevents(): void {
   window['Layouting'] = Layouting;
   window['TopBar'] = TopBar;
   window['ColorSchemeComponent'] = ColorSchemeComponent;
+  window['DamContextMenu'] = DamContextMenu;
+  window['is'] = is;
   window['' + 'help'] = [
     'setBackup (backup <= saveToDB)',
     'backupSave (saveToDB <= backup)',
@@ -366,7 +375,7 @@ function main() {
   (window as any).status = Status.status;
   U.focusHistorySetup();
   U.tabSetup();
-  U.resizableBorderSetup();
+  // U.resizableBorderSetup();
 
   const $resizableBorders: JQuery<HTMLElement> = $('.resizableBorder.side, .resizableBorder.corner');
   for (i = 0; i < $resizableBorders.length; i++) { $resizableBorders[i].style.borderColor = 'var(--mainBorderColor)'; }
@@ -397,7 +406,7 @@ function main() {
   Status.status.typeAliasDictionary[ShortAttribETypes.ELongObj] = 'ELongObj';
   Status.status.typeAliasDictionary[ShortAttribETypes.EELIST] = 'EELIST';*/
   EType.staticInit();
-  DamContextMenuComponent.staticInit();
+  DamContextMenu.staticInit();
 
   if (!Status.status.isEmbed) {
     const savem2 = LocalStorage.getLastOpened(2);
@@ -422,8 +431,7 @@ export function onModelsReceive(savem2: {model: string, vertexpos: string, view:
   try {
     Status.status.mm = new MetaModel(JSON.parse(savem2.model), Status.status.mmm);
   } catch(e) {
-    U.pw(true, 'Failed to load the metamodel.');
-    console.log(e, savem2.model);
+    U.pw(true, 'Failed to load the metamodel.', {e, model: savem2.model});
     Type.all = [];// reset invalid old parsed types, enums... they are no longer defined in the empty metamodel
     Status.status.mm = new MetaModel(JSON.parse(MetaModel.emptyModel), Status.status.mmm);
   }
@@ -435,11 +443,10 @@ export function onModelsReceive(savem2: {model: string, vertexpos: string, view:
   try {
     Status.status.m = new Model(JSON.parse(savem1.model), Status.status.mm);
   } catch(e) {
-    U.pw(true, 'Failed to load the model. Does it conform to the metamodel?');
-    console.log(e);
+    U.pw(true, 'Failed to load the model. Does it conform to the metamodel?', e);
     Status.status.m = new Model(JSON.parse(Model.emptyModel), Status.status.mm);
   }
-  console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m);
+  // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m);
   // Status.status.m.LinkToMetaParent(Status.status.mm);
   // Status.status.m.fixReferences(); already linked at parse time.
   Status.status.loadedLogic = true;
@@ -483,7 +490,7 @@ export function onModelsReceive(savem2: {model: string, vertexpos: string, view:
     const vdic: Dictionary<string, GraphPoint> = vertexposMat[j];
     const m: IModel = marr[j];
     for (let key in vdic) {
-      console.log('key:', key, 'varr:', vdic);
+      // console.log('key:', key, 'varr:', vdic);
       const mp: IClassifier = ModelPiece.getByKeyStr(key) as IClassifier;
       const size: GraphSize = new GraphSize().clone(vdic[key]);
       if (!mp || !(mp instanceof IClassifier)) {

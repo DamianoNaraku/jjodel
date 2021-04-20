@@ -59,11 +59,11 @@ export class DamContextMenu {
     $(document).off('contextmenu')
       .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenu.contextMenu.onContextMenu(e); });
   }
+
   constructor() {
     this.$html = $('#damContextMenuTemplateContainer');
     this.html = this.$html[0];
-    console.trace('sinit contextmenu constructor trace');
-    console.log('sinit contextmenu constructor', {$html: this.$html, html: this.html, thiss: this}, DamContextMenu.contextMenu);
+    // console.log('sinit contextmenu constructor', {$html: this.$html, html: this.html, thiss: this}, DamContextMenu.contextMenu);
     this.defaultContainer = this.html.parentElement;
     $(document).off('mouseup.hideContextMenu').on('mouseup.hideContextMenu', (e: MouseDownEvent) => this.checkIfHide(e));
     this.$vertexcontext = this.$html.find('ul.vertex') as JQuery<HTMLUListElement>;
@@ -73,11 +73,10 @@ export class DamContextMenu {
     this.edgecontext = this.$edgecontext[0];
     this.extedgecontext = this.$extedgecontext[0];
     // no contextmenù allowed inside my contextmenù
-    this.$html.on('contextmenu', (e: ContextMenuEvent): boolean => { e.preventDefault(); e.stopPropagation(); return false; });
+    this.$html.on('contextmenu', (e: ContextMenuEvent): boolean => {
+      console.log('cannot open contextmenu nested in a contextmenu');
+      e.preventDefault(); e.stopPropagation(); return false; });
     // viewpoints non va bene in quella posizione chiamalo layout (o syntax) layer non direttamente su canvas
-
-
-    //api theia documenta
 
   }
 
@@ -89,19 +88,19 @@ export class DamContextMenu {
     DamContextMenu.contextMenu.hide();
     // only if is focused input
     const lastSelected: FocusHistoryEntry = U.focusHistoryEntries[U.focusHistoryElements.length - 1];
-    const gotSelectedNow: boolean = lastSelected && U.isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
+    const gotSelectedNow: boolean = false;// lastSelected && U.isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
     const isInput = U.isInput(evt.target, true, false) && !gotSelectedNow;
 
     const clickStartedOutsideVertex: boolean = IVertex.startDragContext === null;
     // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato --> non triggerare contextmenu
     // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input --> non triggerare contextmenu
-    if (isInput && clickStartedOutsideVertex) evt.target.focus();
-    if (!isInput && gotSelectedNow) evt.target.blur();
+    // if (isInput && clickStartedOutsideVertex) evt.target.focus();
+    // if (!isInput && gotSelectedNow) evt.target.blur();
     // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
     const pixelMoved: number = !clickStartedOutsideVertex ? 0 : vertex && vertex.size.tl().subtract(IVertex.startDragContext.size.tl(), false).absolute();
     const gotMoved: boolean = vertex && !clickStartedOutsideVertex && pixelMoved >= vertex.tolleranzaRightClickMove;
     const mp: ModelPiece = ModelPiece.get(evt);
-    const ret: boolean = !mp || isInput && !gotMoved;
+    let ret: boolean;
     // evt['passedThroughVertex'] = ret;
     console.log('ret:', ret, 'mp:', mp, 'moved:', gotMoved, 'isInput:', isInput);
     const afterContextMenu = () => {
@@ -110,8 +109,9 @@ export class DamContextMenu {
 
     afterContextMenu();
 
-    if (ret) return true; else { evt.preventDefault(); }
+    if (isInput) return true; else { ret = false; evt.preventDefault(); }
     if (gotMoved) { return ret; }
+    if (!mp || isInput && !gotMoved) return ret;
     DamContextMenu.contextMenu.show(new Point(evt.pageX, evt.pageY), evt.target);
     return ret; }
 
@@ -128,25 +128,25 @@ export class DamContextMenu {
     }
   }
 
-  private checkIfHide(e: MouseEventBase) {
+  private checkIfHide(e: MouseEventBase, debug: boolean = true) {
     // do not hide if click on non-terminal options (but do on terminals)
-    console.log('cifhide()');
+    debug&&console.trace('contextMenuCheckHide()', e);
     if (e && e.target.getAttribute('tabIndex') && U.isParentOf(this.html, e.target)) {
       this.$html.find('.active').removeClass('active');
       this.setActiveAllAncestors(e.target, this.html);
       IVertex.getvertexByHtml(e.target).fixFirefoxOverflowBug();
-      console.log('cifhide hidden for click on non-terminal option', e.target, this.html);
+      debug&&console.log('contextMenuCheckHide-button-option: hidden for click on non-terminal option', e.target, this.html);
       return; }
     this.$html.find('.active').removeClass('active');
     // hide if tap again on the sam openOption button
     const openOptions = U.findFirstAncestor<HTMLElement>(e.target as HTMLElement, node => node.classList && node.classList.contains('open-options'));
     if (openOptions) {
       this.hide();
-      if (DamContextMenu.contextMenu.isShowingInside(openOptions)) {
-        console.log('cifhide hidden for double-tap on same option button');
+      if (this.isShowingInside(openOptions)) {
+        debug&&console.log('contextMenuCheckHide-button-option: hidden for double-tap on same option button');
         return; }
-      console.log('cifhide show for tap on option button');
-      DamContextMenu.contextMenu.show(new Point(e.pageX, e.pageY), openOptions, openOptions);
+      debug&&console.log('contextMenuCheckHide-button-option show for tap on option button');
+      this.show(new Point(e.pageX, e.pageY), openOptions, openOptions);
       return; }
     const originalTarget: Element = e.target;
     const isInput: boolean = U.isInput(originalTarget, true);
@@ -159,11 +159,18 @@ export class DamContextMenu {
 
     const clickedOutside = !U.isParentOf(this.html, originalTarget);
     // clicking on a submenu header should not cause it to disappear making the user incorrectly believe they triggered an action
-    if (!clickedOutside && originalTarget.classList.contains('popupRightParent')) return;
+    /*if (!clickedOutside && originalTarget.classList.contains('popupRightParent')) {
+      debug&&console.log('contextMenuCheckHide keep-visible because clicked on non-terminal entry inside the menu');
+      return;
+    }*/
 
     // console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
 
-    if (isButton || clickedOutside || !isInput && !isDisabled && !focused) { this.hide(); }
+    if (isButton || clickedOutside || !isInput && !isDisabled && !focused) {
+      debug&&console.log('contextMenuCheckHide hidden because:', {isButton, clickedOutside, isInput, isDisabled, focused,
+        condition: 'isButton || clickedOutside || !isInput && !isDisabled && !focused'});
+      this.hide();
+    }
 
   }
 
@@ -188,11 +195,13 @@ export class DamContextMenu {
     this.html.style.top = '' + location.y + 'px';
   }
 
-  public show(location: Point, target: Element, appendTo: HTMLElement = null) {
+  public show(location: Point, target: Element, appendTo: HTMLElement = null): void {
+    console.log('contextmenu show()');
     DamContextMenu.contextMenu.html.style.display = 'none';
+    const vertex: IVertex = IVertex.getvertexByHtml(appendTo);
     appendTo = appendTo || this.defaultContainer;
     if (this.html.parentElement !== appendTo) { appendTo.appendChild(this.html); }
-    const vertex: IVertex = IVertex.getvertexByHtml(appendTo);
+    if (appendTo === this.defaultContainer) appendTo = null;
     if (appendTo && Status.status.isFirefox) {
       this.setActiveAllAncestors(appendTo, vertex.getHtmlRawForeign());
       vertex.fixFirefoxOverflowBug();
@@ -203,6 +212,7 @@ export class DamContextMenu {
     mp.linkToLogic(this.html, false);
     console.log('contextmenu target:', this.clickTarget);
     const model: IModel = mp.getModelRoot();
+    if (model.isM3()) { U.pw(true, 'No context-menu is currently available for M3 elements'); return; }
     this.clickTarget = target;
     this.html.style.display = 'none'; // if was already displaying, start the scrollDown animation without doing the scrollUp()
     // const vertex: IVertex = IVertex.getvertexByHtml(target);
@@ -287,6 +297,7 @@ export class DamContextMenu {
     dic['annotation'] = mp instanceof EAnnotation;
     dic['edge'] = !!edge;
     dic['extedge'] = !!extedge;
+    dic['ongraph'] = !!U.isParentOf(model.graph.container, target);
     let ret = U.computeConditionalHides(this.$html, dic);
     console.log('rrer', ret);
     if (ret.show.length + ret.inaltered.length === 0) return;

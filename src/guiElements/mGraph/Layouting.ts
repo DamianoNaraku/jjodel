@@ -290,6 +290,7 @@ export class Layouting{
     this.net.on('stabilized', () => { this.onLayoutEnd(); } );
     // this.net.on('stabilizationIterationsDone', () => { this.onStabilizationStep(); } );
     this.net.on('stabilizationProgress', () => { this.onStabilizationStep(); } );
+
     /*
     this.net.startSimulation();
     this.net.stopSimulation();// ferma senza stabilizzare?, ma chiama l'evento stabilized.

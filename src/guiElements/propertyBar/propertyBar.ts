@@ -85,9 +85,6 @@ export class PropertyBarr {
     this.selectedModelPiece = null;
     const $root: JQuery<HTMLElement> = this.get$root();
     this.container = $root.find('.propertySidebarCurrentContent')[0] as HTMLElement;
-    $($root[0].parentElement).on('contextmenu', (e: ContextMenuEvent) => {
-      e.stopPropagation();
-    });
     this.templateContainer = $root.find('.propertySidebarTemplates')[0] as HTMLElement;
     U.pe( !this.container, 'property bar shell not found in: ', $root);
     U.pe( !this.templateContainer, 'property bar template shell not found in: ', $root);
@@ -220,6 +217,7 @@ export class PropertyBarr {
     const contentRoot = $container.find('>.wastemplate>.content')[0];
     U.clear(this.container);
     while (contentRoot.firstChild) { this.container.append(contentRoot.firstChild); }
+    o.linkToLogic(this.container);
   }
 
   private getM_I(o: IModel): HTMLElement {

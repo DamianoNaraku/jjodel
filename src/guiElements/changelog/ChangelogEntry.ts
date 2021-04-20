@@ -314,6 +314,7 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addbf('extend', 'removing an extension relationship was not removing the edge (graphic only bug).');
     let searchterm = 'clog addbf';
 
+    // todo: documenta api theia
     // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
     // v.addf('fakegfeat', 'kkk');
     // v = new VersionUpload('v3'...);

@@ -83,7 +83,7 @@ export class StartDragContext {
 export class IVertex {
   static all: Dictionary = {};
   static ID = 0;
-  static selected: IVertex = null;
+  static selected: IVertex = null; // todo: da cancellare in favore di IVertex.startDragContext?
   static selectedGridWasOn: GraphPoint = null;
   static selectedStartPt: GraphPoint = null;
   static startDragContext: StartDragContext;

@@ -2938,35 +2938,34 @@ export class U {
       }
       debug&&console.log('valid suggestions:', validSuggestions);
     }
-    $input.on('mouseup', (e: MouseUpEvent) => { updateSuggestions(); });
-    $input.on('keydown', (e: KeyDownEvent) => {
-      switch(e.key){ default: break;
-        case Keystrokes.tab:
-          e.preventDefault();
-          li = suggestionList.firstElementChild as HTMLLIElement;
-          if (!li) break;
-          $(li).trigger('click');
-          break;
-    }});
-    $input.on('keyup', (e: KeyUpEvent) => {
-      debug&&console.log('input keyup:', e);
-      switch(e.key){
-        default:
-          updateSuggestions();
-          break;
-        // case Keystrokes.tab: break;// can never happen on keyUP unless i stop default action on keydown.
+    $input
+      .on('mouseup', (e: MouseUpEvent) => { updateSuggestions(); })
+      .on('keydown', (e: KeyDownEvent) => {
+        switch(e.key){ default: break;
+          case Keystrokes.tab:
+            e.preventDefault();
+            li = suggestionList.firstElementChild as HTMLLIElement;
+            if (!li) break;
+            $(li).trigger('click');
+            break; }})
+      .on('keyup', (e: KeyUpEvent) => {
+        debug&&console.log('input keyup:', e);
+        switch(e.key){
+          default:
+            updateSuggestions();
+            break;
+          // case Keystrokes.tab: break;// can never happen on keyUP unless i stop default action on keydown.
 
-        case Keystrokes.arrowRight:
-          if (e.shiftKey) return;
-          li = suggestionList.firstElementChild as HTMLLIElement;
-          if (!li) { updateSuggestions(); break; } // as a normal arrow press
-          // as a suggestion accept
-          let char = (li.lastElementChild as HTMLElement).innerText.charAt(0);
-          insertStringAtCurrentCursorPosition(input, char, true, true);
-          $input.trigger(jQuery.Event('keyup', {key:char}));
-          break;
-      }
-    });
+          case Keystrokes.arrowRight:
+            if (e.shiftKey) return;
+            li = suggestionList.firstElementChild as HTMLLIElement;
+            if (!li) { updateSuggestions(); break; } // as a normal arrow press
+            // as a suggestion accept
+            let char = (li.lastElementChild as HTMLElement).innerText.charAt(0);
+            insertStringAtCurrentCursorPosition(input, char, true, true);
+            $input.trigger(jQuery.Event('keyup', {key:char}));
+            break;
+        } });
   }
 
   // NB: object.keys e for... in listano solo le proprietà enumerabili, le funzioni di classe in es6 non sono enumerabili.

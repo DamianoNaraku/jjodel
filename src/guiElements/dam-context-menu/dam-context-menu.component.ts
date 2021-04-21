@@ -30,6 +30,7 @@ import ClickEvent = JQuery.ClickEvent;
 import ContextMenuEvent = JQuery.ContextMenuEvent;
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseEventBase = JQuery.MouseEventBase;
+import MouseUpEvent = JQuery.MouseUpEvent;
 
 @Component({
   selector: 'app-dam-context-menu',
@@ -53,11 +54,13 @@ export class DamContextMenu {
   private readonly edgecontext: HTMLUListElement;
   private readonly extedgecontext: HTMLUListElement;
   private readonly defaultContainer: HTMLElement;
+  private shouldAppear: boolean = false;
   static staticInit() {
     DamContextMenu.contextMenu = new DamContextMenu();
     console.log('sinit contextmenu', DamContextMenu.contextMenu);
     $(document).off('contextmenu')
-      .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenu.contextMenu.onContextMenu(e); });
+      .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenu.contextMenu.onContextMenu(e); })
+      .on('mouseup', (e: MouseUpEvent) => { DamContextMenu.contextMenu.onMouseUp(e); })
   }
 
   constructor() {
@@ -80,8 +83,39 @@ export class DamContextMenu {
 
   }
 
-  public onContextMenu(evt: ContextMenuEvent): boolean {
+  public onContextMenu(evt: ContextMenuEvent): boolean{
     console.log('rx click contextmenu');
+    const isInput: boolean = U.isInput(evt.target, true, false);
+    const isDragging: boolean = this.checkIfDraggingVertex(evt);
+    if (isInput && !isDragging) return true;
+    evt.preventDefault();
+    return false; }
+
+  private checkIfDraggingVertex(evt: MouseEventBase): boolean {
+    const vertex: IVertex = IVertex.getvertexByHtml(evt.target, false);
+    const clickStartedOutsideVertex: boolean = IVertex.startDragContext === null;
+    // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato --> non triggerare contextmenu
+    // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input --> non triggerare contextmenu
+    // if (isInput && clickStartedOutsideVertex) evt.target.focus();
+    // if (!isInput && gotSelectedNow) evt.target.blur();
+    // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
+    const pixelMoved: number = clickStartedOutsideVertex ? -1 : vertex && vertex.size.tl().subtract(IVertex.startDragContext.size.tl(), false).absolute();
+    return vertex && !clickStartedOutsideVertex && pixelMoved >= vertex.tolleranzaRightClickMove; }
+
+  public onMouseUp(evt: MouseUpEvent): void {
+    console.log('rx mouseup contextmenu');
+    if (evt.button !== U.mouseRightButton) return;
+    const isInput = U.isInput(evt.target, true, false);
+    const mp: ModelPiece = ModelPiece.get(evt);
+    if (!mp) return;
+    const isDragging: boolean = this.checkIfDraggingVertex(evt);
+    if (isDragging || isInput) return;
+    this.show(new Point(evt.pageX, evt.pageY), evt.target);
+  }
+
+  public onContextMenuOld(evt: ContextMenuEvent): boolean {
+    console.log('rx click contextmenu');
+    this.shouldAppear = false;
     // evt.preventDefault();
     // evt.stopPropagation();
     const vertex: IVertex = IVertex.getvertexByHtml(evt.target, false);
@@ -112,7 +146,7 @@ export class DamContextMenu {
     if (isInput) return true; else { ret = false; evt.preventDefault(); }
     if (gotMoved) { return ret; }
     if (!mp || isInput && !gotMoved) return ret;
-    DamContextMenu.contextMenu.show(new Point(evt.pageX, evt.pageY), evt.target);
+    this.shouldAppear = true;
     return ret; }
 
   private setActiveAllAncestors(element: Element, stopElement: Element): void{
@@ -448,10 +482,14 @@ export class DamContextMenu {
 
   }
 
-  isOpened(): boolean {
-    return this.html.style.display !== 'none';
-  }
-  isShowingInside(target: Element): boolean{
-    return this.isOpened() && U.isParentOf(target, this.html);
+  isOpened(): boolean { return this.html.style.display !== 'none'; }
+  isShowingInside(target: Element): boolean{ return this.isOpened() && U.isParentOf(target, this.html); }
+
+  // problema: windows exegue contextmenu dopo il mouseup, mac lo esegue prima (e non esegue mai il mouseup se triggera contextmenu)
+  // fix compatibilità: prevengo il contextmenu nativo e ne lo emulo dopo il mouseup per garantire consistenza.
+  private emulateContextMenuAfterMouseUp(evt: JQuery.MouseUpEvent): void{
+    if (!this.shouldAppear) return;
+    this.shouldAppear = false;
+    this.show(new Point(evt.pageX, evt.pageY), evt.target);
   }
 }

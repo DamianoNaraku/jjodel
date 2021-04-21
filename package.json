@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "firstrun": "npm install",
     "start": "ng serve",
     "build": "ng build",
     "deploygh": "ng build --base-href \"/jjodel/dist/jjodel/\"",

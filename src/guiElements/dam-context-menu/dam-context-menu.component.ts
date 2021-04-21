@@ -87,7 +87,11 @@ export class DamContextMenu {
     console.log('rx click contextmenu');
     const isInput: boolean = U.isInput(evt.target, true, false);
     const isDragging: boolean = this.checkIfDraggingVertex(evt);
-    if (isInput && !isDragging) return true;
+    if (isInput && !isDragging) {
+      IVertex.startDragContext = null;
+      IVertex.selected = null;
+      return true;
+    }
     evt.preventDefault();
     return false; }
 

@@ -338,7 +338,7 @@ export abstract class IClass extends IClassifier {
     const isM2 = this.getModelRoot().isM2();
     for (j = 0; j < this.childrens.length; j++) {
       const child: Typedd = this.childrens[j];
-      console.log(child.metaParent, this.metaParent, child, this);
+      // console.log('getBasicChildrens', child.metaParent, this.metaParent, child, this);
       if (child instanceof IFeature && child.isInherited(this)) continue; // for m1
 
       if (!isM2 && (includeAttributes || includeReferences) && child instanceof IFeature) {

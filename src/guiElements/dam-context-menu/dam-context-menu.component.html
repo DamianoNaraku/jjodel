@@ -1,11 +1,11 @@
-<div id="damContextMenuTemplateContainer" class="contextMenuRoot">
-    <ul class="vertex contextMenu">
-      <li class="Vertex changeType popupRightParent" uif="classifier">
-        <span>Change type</span>
+<div id="damContextMenuTemplateContainer" class="contextMenuRoot" tabindex="-1">
+    <ul class="vertex contextMenu" tabindex="-1">
+      <li class="Vertex changeType popupRightParent" uif="classifier" tabindex="-1">
+        <span tabindex="-1">Change type</span>
         <ul class="typelist popupRight">
           <li class="typeli fallback unclickable" style="cursor: no-drop; color: red;">##ERROR MSG TO FILL##</li>
           <li class="typeli description unclickable"><span>Best match:</span></li>
-          <li class="typeli separator unclickable"></li>
+          <li class="typeli separator" tabindex="-1"></li>
           <li class="typeli description unclickable"><span>Other options</span></li>
           <li class="typeli template" data-index="-1">
             <span class="typeli change text"></span>
@@ -14,12 +14,13 @@
       <li class="Vertex delete" uif="classifier">Delete classifier</li>
 
       <li class="Vertex todo duplicate" uif="classifier">Duplicate classifier</li>
-      <li class="Vertex extend" uif="m2 && class">Extend class</li>
+      <li class="Vertex extend" uif="m2 && class && ongraph">Extend class</li>
       <li class="Vertex delete" uif="m2 && feature">Delete feature</li>
       <li class="Vertex todo duplicate" uif="m2 && feature">Duplicate feature</li>
       <li class="Vertex delete" uif="m2 && operation">Delete operation</li>
       <li class="Vertex todo duplicate" uif="m2 && operation">Duplicate operation</li>
-      <li class="Reference popupRightParent" uif="m1 && reference">References
+      <li class="Reference popupRightParent" uif="m1 && reference && ongraph" tabindex="-1">
+        <span tabindex="-1">References</span>
         <ul class="reflist popupRight">
           <li class="refli template" data-index="-1"><span class="index"></span><span class="text"></span><button class="refli delete btn btn-sm btn-danger">X</button></li>
           <li class="refli"><button class="firstempty btn btn-sm btn-primary">Select first empty</button></li>
@@ -28,15 +29,15 @@
       </li>
       <li class="Feature todo autofixinstances" uif="m2 && feature">Autofix instances</li>
       <li class="Feature todo autofix" uif="m1 && feature">Autofix conformity</li>
-      <li class="separator"  uif="classifier || m2 && feature || m2 && operation || m2 && annotation"></li>
-      <li class="Vertex up" uif="classifier">Push vertex Up (Z-order)</li>
-      <li class="Vertex down" uif="classifier">Push vertex Down (Z-order)</li>
-      <li class="Feature up" uif="m2 && feature">Move feature Up</li>
-      <li class="Feature down" uif="m2 && feature">Move feature Down</li>
-      <li class="Feature up" uif="m2 && operation">Move operation Up</li>
-      <li class="Feature down" uif="m2 && operation">Move operation Down</li>
-      <li class="Feature up" uif="m2 && annotation">Move annotation Up</li>
-      <li class="Feature down" uif="m2 && annotation">Move annotation Down</li>
+      <li class="separator" uif="classifier || m2 && feature || m2 && operation || m2 && annotation" tabindex="-1"></li>
+      <li class="Vertex up" uif="classifier && ongraph">Push vertex Up (Z-order)</li>
+      <li class="Vertex down" uif="classifier && ongraph">Push vertex Down (Z-order)</li>
+      <li class="Feature up" uif="m2 && feature && ongraph">Move feature Up</li>
+      <li class="Feature down" uif="m2 && feature && ongraph">Move feature Down</li>
+      <li class="Feature up" uif="m2 && operation && ongraph">Move operation Up</li>
+      <li class="Feature down" uif="m2 && operation && ongraph">Move operation Down</li>
+      <li class="Feature up" uif="m2 && annotation && ongraph">Move annotation Up</li>
+      <li class="Feature down" uif="m2 && annotation && ongraph">Move annotation Down</li>
     </ul>
     <ul class="extedge contextMenu" uif="extedge">
       <li class="edge delete">Delete generalization</li>

@@ -340,7 +340,7 @@ export abstract class ModelPiece {
     if (!Status.status.loadedLogic) { return; }
     let v: IVertex = this.getVertex();
     v.refreshGUI();
-    console.log('pbar selected:', v.owner.propertyBar.selectedModelPiece.name, 'me:', this.name);
+    // console.log('pbar selected:', v.owner.propertyBar.selectedModelPiece.name, 'me:', this.name);
     if (this.isChildrenOf(v.owner.propertyBar.selectedModelPiece, true, true)) v.owner.propertyBar.refreshGUI(); }
 
   isChildrenOf(parent: ModelPiece, includeEqual: boolean = false, includeGrandChildren: boolean = false): boolean {

@@ -28,6 +28,7 @@ import KeyUpEvent = JQuery.KeyUpEvent;
 import {isNewLine} from '@angular/compiler/src/chars';
 import {style} from '@angular/animations';
 import {by} from 'protractor';
+import {start} from 'repl';
 
   export class myFileReader {
   private static input: HTMLInputElement;
@@ -36,7 +37,8 @@ import {by} from 'protractor';
   // constructor(onchange: (e: ChangeEvent) => void = null, fileTypes: FileReadTypeEnum[] | string[] = null) { myFileReader.setinfos(fileTypes, onchange); }
   private static setinfos(fileTypes: FileReadTypeEnum[] | string[] = null, onchange: (e: ChangeEvent, files: FileList, contents: string[]) => void, readcontent: boolean) {
     myFileReader.fileTypes = (fileTypes || myFileReader.fileTypes) as string[];
-    console.log('fileTypes:', myFileReader.fileTypes, fileTypes);
+    const debug: boolean = false;
+    debug&&console.log('fileTypes:', myFileReader.fileTypes, fileTypes);
     myFileReader.input = document.createElement('input');
     const input: HTMLInputElement = myFileReader.input;
     myFileReader.onchange = function (e: ChangeEvent): void {
@@ -45,9 +47,9 @@ import {by} from 'protractor';
       let fileLetti: number = 0;
       for (let i: number = 0; i < input.files.length; i++) {
         const f: File = input.files[i];
-        console.log('filereadContent['+i+']( file:', f, ')');
+        debug&&console.log('filereadContent['+i+']( file:', f, ')');
         U.fileReadContent(f, (content: string) => {
-          console.log('file['+i+'] read complete. done: ' + ( 1 + fileLetti) + ' / ' + input.files.length, 'contentObj:', contentObj);
+          debug&&console.log('file['+i+'] read complete. done: ' + ( 1 + fileLetti) + ' / ' + input.files.length, 'contentObj:', contentObj);
           contentObj[i] = content; // cannot use array, i'm not sure the callbacks will be called in order. using push is safer but could alter order.
           // this is last file to read.
           if (++fileLetti === input.files.length) {
@@ -73,7 +75,7 @@ import {by} from 'protractor';
       for (let i = 0; i < myFileReader.fileTypes.length; i++) { filetypestr += U.startSeparator(sepkey, ',') + myFileReader.fileTypes[i]; }
       myFileReader.input.setAttribute('accept', filetypestr);
     }
-    console.log('fileTypes:', myFileReader.fileTypes, 'input:', myFileReader.input);
+    //console.log('fileTypes:', myFileReader.fileTypes, 'input:', myFileReader.input);
     $(myFileReader.input).on('change.custom', myFileReader.onchange).trigger('click');
     myFileReader.reset();
   }
@@ -204,7 +206,7 @@ export class InputPopup {
     if (nodeOrTag === null) return;
     if (typeof nodeOrTag === 'string') {
       this.input = document.createElement(nodeOrTag);
-      console.log('tadebug', nodeOrTag === 'textarea', nodeOrTag);
+      //console.log('tadebug', nodeOrTag === 'textarea', nodeOrTag);
       if (nodeOrTag === 'textarea') {
         // this.input.classList.add('form-control'); looks better without, mainly for font-size and overflowing outline
         // this.input.style.fontSize = 'inherit';
@@ -232,7 +234,7 @@ export class InputPopup {
           const pattern: string = input.getAttribute('pattern');
           if (!pattern) return true;
           const regex = new RegExp(pattern);
-          console.log('validating pattern:', regex, pattern, value);
+          //console.log('validating pattern:', regex, pattern, value);
           return regex.test(value);
         }, errormsg: 'pattern violated.'});
       this.$input.off('keydown.defaultvalidate').on('keydown.defaultvalidate', (e: KeyDownEvent) => { this.defaultKeydownEvt(e); });
@@ -302,7 +304,7 @@ export class InputPopup {
     for (i = 0; this.validators && i < this.validators.length; i++) {
       const valentry = this.validators[i];
       if (!valentry) continue;
-      console.log('this:', this, 'input:', input, 'value:', value);
+      //console.log('this:', this, 'input:', input, 'value:', value);
       if (!valentry.validatorCallback(value, input)) { this.setErrText(valentry.errormsg); valid = false; }
     }
     this.okButton.disabled = !valid; }
@@ -416,7 +418,7 @@ class EvalContext {
     EvalContext.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
     EvalContext.EC_ret = undefined;
     EvalContext.EC_exception = null;
-    console.log('evalincontext: this', this, 'context:', context);
+    //console.log('evalincontext: this', this, 'context:', context);
     delete this['str'];
     delete this['context'];
     delete this['allowContextEvalEdit'];
@@ -468,12 +470,11 @@ export class U {
   static mouseForwardButtons: number = 16;
   // static vertexOldPos: GraphPoint = null;
 
-  // todo: move @ start
   static checkDblClick(): boolean {
     const now: number = new Date().getTime();
     const old: number = U.dblclickchecker;
     U.dblclickchecker = now;
-    console.log('dblclick time:', now - old, now, old);
+    //console.log('dblclick time:', now - old, now, old);
     return (now - old <= U.dblclicktimerms); }
 
   public static remove(x: Node): void { if (x && x.parentElement) x.parentElement.removeChild(x); }
@@ -1653,7 +1654,7 @@ export class U {
     minSize.h *= vertic ? 2 : 1;
     minSize.x = size.x;
     minSize.y = size.y;
-    console.log('old, size, min', oldSize, size, minSize, oldSize.w && size.equals(minSize));
+    // console.log('old, size, min', oldSize, size, minSize, oldSize.w && size.equals(minSize));
     if (oldSize.w && size.equals(minSize)) {
       U.resizingContainer.style.width = U.resizingContainer.style.minWidth = U.resizingContainer.style.maxWidth = oldSize.w + 'px';
       U.resizingContainer.style.height = U.resizingContainer.style.minHeight = U.resizingContainer.style.maxHeight = oldSize.h + 'px'; }
@@ -1753,7 +1754,7 @@ export class U {
       html.setAttribute('original', 'true');
       while (container.classList.length > 0) { container.classList.remove(container.classList.item(0)); }
     }
-    console.log('container:', container, 'content:', content);
+    // console.log('container:', container, 'content:', content);
     U.pe(container.children.length !== 0, '');
     // U.copyStyle(html, container);
     html.parentNode.insertBefore(container, html);
@@ -1794,10 +1795,10 @@ export class U {
     br.dataset.resizeenabled = bottom && right ? 'true' : 'false';
     const style: CSSStyleDeclaration = getComputedStyle(html, null);
     // html.style.border = 'none';
-    t.style.borderTop = tl.style.borderTop = tr.style.borderTop = style.borderTop;
-    b.style.borderBottom = bl.style.borderBottom = br.style.borderBottom = style.borderBottom;
-    l.style.borderLeft = tl.style.borderLeft = bl.style.borderLeft = style.borderLeft;
-    r.style.borderRight = tr.style.borderRight = br.style.borderRight = style.borderRight;
+    t.style.borderTop = tl.style.borderTop = tr.style.borderTop = style.borderTop; // || '0';
+    b.style.borderBottom = bl.style.borderBottom = br.style.borderBottom = style.borderBottom; // || '0';
+    l.style.borderLeft = tl.style.borderLeft = bl.style.borderLeft = style.borderLeft; // || '0';
+    r.style.borderRight = tr.style.borderRight = br.style.borderRight = style.borderRight; // || '0';
 
     // per un bug lo stile viene sempre letto come "none"
     /*l.style.borderStyle = 'solid';
@@ -2047,7 +2048,7 @@ export class U {
         btn.style.borderBottomRightRadius = '0';
         $btn.find('.closed').hide();
         $btn.find('.opened').show()[0].style.width = (size.w - 15 * 2) + 'px';
-        console.log('others:', otherButtons, 'me:', $btn);
+        // console.log('others:', otherButtons, 'me:', $btn);
         $(otherButtons).data('on', '1').trigger('click', true);
         $detailPanel.show();
       }
@@ -2156,9 +2157,9 @@ export class U {
     let i: number = -1;
     if (!s1 || !s2) return -1;
     let minlen: number = Math.min(s1.length, s2.length);
-    console.log('strequal minlen:', minlen, '|'+s1+'|', '|'+s2+'|');
+    // console.log('strequal minlen:', minlen, '|'+s1+'|', '|'+s2+'|');
     for (i = -1; ++i < minlen && s1[i] === s2[i];) {
-      console.log('strequal:', i, 's1:', s1[i], 's2', s2[i], true);
+      // console.log('strequal:', i, 's1:', s1[i], 's2', s2[i], true);
     }
     return i; }
 
@@ -2202,7 +2203,7 @@ export class U {
     stylesKv1 = U.join(stylesKv1, stylesKv2, true, false);
     let style: string = '';
     for (key in stylesKv1) { style += key + ':' + stylesKv1[key] + '; '; }
-    console.log('final Style:', style, stylesKv1, stylesKv2, styles2);
+    // console.log('final Style:', style, stylesKv1, stylesKv2, styles2);
     html.setAttribute('style', style); }
 
   public static merge(a: object, b: object, overwriteNull: boolean = true, clone: boolean = true): object { return U.join(a, b, overwriteNull, clone); }
@@ -2327,7 +2328,7 @@ export class U {
 
   static parseNumberOrBoolean(val: string, params: ParseNumberOrBooleanOptions = new ParseNumberOrBooleanOptions()): number {
     let booleanTry: boolean | '' = U.fromBoolString(val, '', true, true);
-    console.log("isAllowingEdge parsenumberorboolean:", booleanTry, "|", params, "|", val);
+    // console.log("isAllowingEdge parsenumberorboolean:", booleanTry, "|", params, "|", val);
     switch ('' + booleanTry) {
       default: U.pe(true, "dev error, unexpected case on U.parseNumberOfBoolean: ", val, ' = ', booleanTry); break;
       case 'true': if (params.allowBooleans) return params.trueValue; break;
@@ -2539,11 +2540,12 @@ export class U {
   }
 
   static validateDatalist(input: HTMLInputElement, addinvalidclass: boolean = true, checkByValueAttribute: boolean = true): boolean {
-    console.log('input.list', input.list);
+    const debug: boolean = false;
+    debug&&console.log('validateDatalist() input.list', input.list);
     if (!input.list) return true;
     let valid: boolean;
     if (checkByValueAttribute) {
-      console.log($(input.list), '.find(\'option[value="' + input.value + '"]');
+      debug&&console.log($(input.list), '.find(\'option[value="' + input.value + '"]');
       valid = $(input.list).find('option[value="' + input.value + '"]').length >= 1;
     } else {
       const arr: JQuery<HTMLOptionElement> = $(input.list).find('option[value="' + input.value + '"]') as any;
@@ -2551,7 +2553,7 @@ export class U {
       valid = false;
       for (i = 0; i < arr.length; i++) { if (arr[i].innerText === input.value) { valid = true; break; }}
     }
-    console.log('input:', input, 'addclass:', addinvalidclass, 'valid:', valid);
+    debug&&console.log('input:', input, 'addclass:', addinvalidclass, 'valid:', valid);
     if (addinvalidclass){
       if (valid){ input.removeAttribute('invalidDataList'); }else{ input.setAttribute('invalidDataList', 'true'); }
     }
@@ -2614,14 +2616,12 @@ export class U {
       try { ret = new RegExp(s, flags); }
       catch (e) {
         U.pe(canThrow, 'evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
-        console.log('evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
         return null; }
       return ret; }
     if (flags !== '' + flags) { U.pe(canThrow, 'U.parseRegexString() "flags" argument must be a string.', flags); return null; }
     try { ret = new RegExp(s, flags); }
     catch (e) {
       U.pe(canThrow, 'evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
-      console.log('evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
       return null; }
     return ret; }
 
@@ -2892,6 +2892,7 @@ export class U {
     let li: HTMLLIElement;
     let $li: JQuery<HTMLLinkElement>;
     let $input = $(input);
+    const debug: boolean = false;
     let getSuggestionText = (li: HTMLLIElement) => { return (li.lastElementChild as HTMLElement).innerText; }
     let getPreCursorString = (): string => {
       let ret = U.getSelection(input);
@@ -2935,7 +2936,7 @@ export class U {
         if (validSuggestions.length > 0) $suggestionList.show(); else $suggestionList.hide();
         suggestionList.append(li);
       }
-      console.log('valid suggestions:', validSuggestions);
+      debug&&console.log('valid suggestions:', validSuggestions);
     }
     $input.on('mouseup', (e: MouseUpEvent) => { updateSuggestions(); });
     $input.on('keydown', (e: KeyDownEvent) => {
@@ -2948,7 +2949,7 @@ export class U {
           break;
     }});
     $input.on('keyup', (e: KeyUpEvent) => {
-      console.log('input keyup:', e);
+      debug&&console.log('input keyup:', e);
       switch(e.key){
         default:
           updateSuggestions();
@@ -3005,7 +3006,7 @@ export class U {
       if (str[endi] === '(') parcounter++; }
 
     let parameterStr = str.substring(starti + 1, endi);
-    console.log('starti:', starti, 'endi', endi, 'fname:', str.substr(0, starti), 'parameterStr:', parameterStr);
+    // console.log('getfuncsignature starti:', starti, 'endi', endi, 'fname:', str.substr(0, starti), 'parameterStr:', parameterStr);
     ret.fname = str.substr(0, starti).trim();
     ret.fname = ret.fname.substr(0, ret.fname.indexOf(' ')).trim();
     // 2 casi: anonimo "function (par1...){}" e "() => {}", oppure nominato: "function a1(){}"
@@ -3026,12 +3027,10 @@ export class U {
     if (ret.returns === '') ret.returns = null;
 
     // is lambda if do not have curly body or contains => between return comment and body
-    console.log('isLambda:', bodystarti, str.substring(Math.max(endi, returnendi)+1, bodystarti));
+    // console.log('isLambda:', bodystarti, str.substring(Math.max(endi, returnendi)+1, bodystarti));
     ret.isLambda =  bodystarti === -1 || str.substring(Math.max(endi, returnendi)+1, bodystarti).trim() === '=>';
 
     let regexp = /([^=\/\,]+)(=?)([^,]*?)(\/\*[^,]*?\*\/)?,/g; // only problem: the last parameter won't match because it does not end with ",", so i will append it everytime.
-    //console.clear(); console.log( parameterStr);
-    // parameterStr = 'l1=3/*float=3*/, l2= 2/*float= 2*/, l3 =3/*float =3*/';
     let match;
     while ((match = regexp.exec(parameterStr + ','))) {
       // match[0] is always the full match (not a capture group)
@@ -3225,7 +3224,12 @@ export class U {
     for (let key in json) { param[key] = json[key]; }
   }
 
-}
+  static findFirstAncestor<T extends Node>(startingNode: T, condition: (node) => boolean): T {
+    let current: T = startingNode;
+    while (current && !condition(current)) { current = current.parentNode as any; }
+    return current; }
+
+  }
 const $smap = {};
 // selettore query "statico", per memorizzare in cache i nodi del DOM read-only per recuperarli più efficientemente. (es: nodi template)
 export function $s<T extends Element>(selector: string, clone: boolean = true): JQuery<T>{

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {
-  AccessModifier, DamContextMenuComponent, Dictionary,
+  AccessModifier, DamContextMenu, Dictionary,
   Draggableoptions,
   DraggableOptionsPH,
   EdgeModes,
@@ -175,7 +175,7 @@ export class StyleEditor {
 
   addEventListeners(): void {
     // this.$root.find('[data-modelpieceid]').off('contextmenu')
-    // .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
+    // .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenu.contextMenu.onContextMenu(e); });
   }
   updateClickedGUIHighlight() {
     $(this.propertyBar.model.graph.container).find('.styleEditorSelected').removeClass('styleEditorSelected');
@@ -201,7 +201,7 @@ export class StyleEditor {
     return html; }
 
   showM(m: IModel) {
-    console.log('styleShowM(', m, ')');
+    // console.log('styleShowM(', m, ')');
     const html: HTMLElement = this.getCopyOfTemplate(m, '.model', this.display, true);
     const $html = $(html);
     const gridX: HTMLInputElement = $html.find('.gridX')[0] as HTMLInputElement;
@@ -254,7 +254,7 @@ export class StyleEditor {
       e.preventDefault(); // debug to see if angular change status
       m.graph.setUseGrid(input.checked);
     });
-    console.log('newk, layouuthtml setup pre');
+    // console.log('newk, layouuthtml setup pre');
     this.layoutHtmlSetup(m);
   }
 

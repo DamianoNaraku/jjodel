@@ -255,14 +255,14 @@ export class M2Class extends IClass {
     }
     let operations: EOperation[] = [...this.getAllOperations()];
 
-    console.log('3x operation: ', this, operations);
+    // console.log('civ operation: ', this, operations);
     for (j = 0; j < operations.length; j++) {
       let op1: EOperation = operations[j];
       op1.unmarkAllIncompatibility();
       for (i = 0; i < operations.length; i++) {
         let op2: EOperation = operations[i];
         let ret = op1.isCompatible(op2, true);
-        console.log('3x operation[' + j + '] = ', ret, op1.name, op2.name, op1, op2, this, operations);
+        // console.log('civ operation[' + j + '] = ', ret, op1.name, op2.name, op1, op2, this, operations);
 
       }
     }

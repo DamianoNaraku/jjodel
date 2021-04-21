@@ -298,20 +298,23 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addbf('Loading customized default style',
       'Fixed a failure in loading a viewpoint with a <b>"customized default"</b> style (3° layer, last customizable priority level).',
       null, true);
-    v = new VersionUpload(new Date('2021/01/23'), 'Color schemes', 'Allow to define multiple color schemes and manage activation context for them, overriding the default coloring of vertices, edges, or the entire app.');
+    v = new VersionUpload(new Date('2021/04/23'), 'Color schemes', 'Allow to define multiple color schemes and manage activation context for them, overriding the default coloring of vertices, edges, or the entire app.');
     v.addf('Color scheme manager', 'Accessible through Graph\'s style editor or from Themes in top-bar. It can add, remove and modify existing color schemes. It also allows to choose the activation context of the color scheme (e.g.:whole app, only Attributes...).');
     v.addf('Style editor integration', 'Once a visual element is clicked, you can manually assign an existing color scheme to that element through the style editor');
     // v.addf('Style editor integration for edges', 'todo: All elements can have multiple color scheme enabled, but edges should always have multiple color schemes. It is suggested to use one for normal status, one for highlighted status and one for focused status');
     // v.addf('Color scheme and Views', 'todo: Color scheme are stored inside Views.');
     v = new VersionUpload(new Date('2021/04/13'), 'minor fixes while wip on v2', '');
-    v.addbf('color scheme', 'minor fix over styles rarely applied to incorrect elements.');
     v.addb('contextmenu', 'There is a known severe bug with vertex contextmenu incorrectly disappearing over chrome+macOS. Tryed to fix but could not test could not test personally or reproduce on other browser+OS combinations, it is unknown if the bug is still present.');
-    v.addbf('contextmenu', 'Fixed a different bug on firefox that was rarely causing it to not appear at all.');
-    v.addbf('gui', 'minor gui issues fixed (vertex overflow).');
-    v.addbf('extend', 'removing an extension relationship was not removing the edge (graphic only bug).');
     v.addb('type conversion', 'casting an object to a superclass is not removing properties for the subclass.');
+    v.addb('usability', 'many interactions are not working on touchscreen devices, this is not a priority but is going to be fixed.');
+    v.addbf('usability', 'Inserted button-popups that can open the contextmenu without right-clicking (touch-friendly)');
+    v.addbf('contextmenu', 'Fixed a different bug on firefox that was rarely causing it to not appear at all.');
+    v.addbf('gui', 'minor gui issues (vertex overflow).');
+    v.addbf('color scheme', 'minor fix over styles rarely applied to incorrect elements.');
+    v.addbf('extend', 'removing an extension relationship was not removing the edge (graphic only bug).');
     let searchterm = 'clog addbf';
 
+    // todo: documenta api theia
     // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
     // v.addf('fakegfeat', 'kkk');
     // v = new VersionUpload('v3'...);

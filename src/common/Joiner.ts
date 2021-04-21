@@ -11,6 +11,8 @@
 
 export type MyException = any;
 import { default as AnsiUp } from 'ansi_up';
+import * as iss from 'is_js';
+export let is = iss;
 export const ansiUp = new AnsiUp(); // https://github.com/drudru/ansi_up // ansi color formatter.
 
 import * as stringsimilarity from '../common/StringSimilarity.js';
@@ -100,7 +102,7 @@ export {MAttribute} from '../mClass/classChild/Features/Attributes/MAttribute';
 export {EAnnotation} from '../Model/EAnnotation';
 export {EAnnotationDetail} from '../Model/EAnnotationDetail';
 /*new*/export {Database} from '../common/Database';
-export {DamContextMenuComponent} from '../guiElements/dam-context-menu/dam-context-menu.component';
+export {DamContextMenu} from '../guiElements/dam-context-menu/dam-context-menu.component';
 export {EOperation, AccessModifier} from '../mClass/classChild/Operations/eOperation';
 export {EParameter} from '../mClass/classChild/Operations/eParameter';
 export {Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH,

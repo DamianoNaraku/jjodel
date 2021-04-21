@@ -142,11 +142,11 @@ export class MClass extends IClass {
       let thisRefs: MReference[] = [... this.references];
       for (i = 0; i < thisAttrs.length; i++) {
         const elem: MAttribute = thisAttrs[i];
-        if (attributes.indexOf(elem.metaParent) >= 0) { refreshGui = true; console.log("7x removing attr", elem.metaParent); elem.delete(false); }
+        if (attributes.indexOf(elem.metaParent) >= 0) { refreshGui = true; elem.delete(false); }
       }
       for (i = 0; i < thisRefs.length; i++) {
         const elem: MReference = thisRefs[i];
-        if (references.indexOf(elem.metaParent) >= 0) { refreshGui = true; console.log("7x removing ref", elem.metaParent); elem.delete(false); }
+        if (references.indexOf(elem.metaParent) >= 0) { refreshGui = true; elem.delete(false); }
       }
     }
     // create the missing ones.
@@ -165,7 +165,7 @@ export class MClass extends IClass {
     const extChildrens: ModelPiece[] = [...this.childrens, ...this.metaParent.annotations, ...this.metaParent.operations];
     for (j = 0; j < extChildrens.length; j++) {
       const child: ModelPiece = extChildrens[j];
-      console.log(child.metaParent, this.metaParent, child, this);
+      // console.log('getAllChildrens', child.metaParent, this.metaParent, child, this);
       if (includeAttributes && child instanceof IAttribute) { arr.push(child); continue; }
       if (includeReferences && child instanceof IReference) { arr.push(child); continue; }
       if (includeOperations && child instanceof EOperation) { arr.push(child); continue; }

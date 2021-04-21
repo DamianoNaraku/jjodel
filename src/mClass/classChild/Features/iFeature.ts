@@ -48,14 +48,15 @@ export abstract class IFeature extends Typedd {
     if (myroot.isM1()) return this.metaParent.isShadowed(forClass.metaParent);
     let childs = forClass.getAllChildrens(false, false, true, true, false);
     let myIndex = childs.indexOf(this);
+    const debug = false;
     for (let i = 0; i < myIndex; i++) {
       if (childs[i].name === this.name) {
 
-        console.log (forClass.id + '_' + this.id + ' true 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map((e)=> e.parent.name + '.' + e.name));
+        debug&&console.log(forClass.id + '_' + this.id + ' true 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map((e)=> e.parent.name + '.' + e.name));
         return true;
       }
     }
-    console.log (forClass.id + '_' + this.id + ' false 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map((e)=> e.parent.name + '.' + e.name));
+    debug&&console.log(forClass.id + '_' + this.id + ' false 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map((e)=> e.parent.name + '.' + e.name));
 
     return false;
   }

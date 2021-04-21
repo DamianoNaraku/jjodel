@@ -22,6 +22,7 @@ export class ExtEdge extends IEdge{
 
   getContainedArray(): ExtEdge[] { return this.logic.extendEdges; }
   remove(): void {
+    console.log('delete extedge:', this);
     if (this.end) this.logic.unsetExtends(this.end.logic() as M2Class, false);
     super.remove();
   }

@@ -85,9 +85,6 @@ export class PropertyBarr {
     this.selectedModelPiece = null;
     const $root: JQuery<HTMLElement> = this.get$root();
     this.container = $root.find('.propertySidebarCurrentContent')[0] as HTMLElement;
-    $($root[0].parentElement).on('contextmenu', (e: ContextMenuEvent) => {
-      e.stopPropagation();
-    });
     this.templateContainer = $root.find('.propertySidebarTemplates')[0] as HTMLElement;
     U.pe( !this.container, 'property bar shell not found in: ', $root);
     U.pe( !this.templateContainer, 'property bar template shell not found in: ', $root);
@@ -133,7 +130,7 @@ export class PropertyBarr {
         input.value = o.setName(input.value, true);
       });
     $html.find('.replaceVarOn').each( (i: number, elem: HTMLElement) => { U.replaceVars(o, elem, false); });
-    console.log('7x', $html, $html.find('.m1disable'), model.isM(), (model.isM() ? '.m1' : '.m2') + 'disable', $html.find((model.isM() ? '.m1' : '.m2') + 'disable'));
+    // console.log('7x', $html, $html.find('.m1disable'), model.isM(), (model.isM() ? '.m1' : '.m2') + 'disable', $html.find((model.isM() ? '.m1' : '.m2') + 'disable'));
     $html.find((model.isM() ? '.m1' : '.m2') + 'disable').attr('disabled', 'true');
     $html.find((model.isM() ? '.m1' : '.m2') + 'hide').remove();
     return $html; }
@@ -220,6 +217,7 @@ export class PropertyBarr {
     const contentRoot = $container.find('>.wastemplate>.content')[0];
     U.clear(this.container);
     while (contentRoot.firstChild) { this.container.append(contentRoot.firstChild); }
+    o.linkToLogic(this.container);
   }
 
   private getM_I(o: IModel): HTMLElement {
@@ -302,7 +300,6 @@ export class PropertyBarr {
     if (!m1class) { return $html[0]; }
     /// Se MClass
     const isRoot: HTMLInputElement = ($html.find('input.isRoot')[0]) as HTMLInputElement;
-    console.log('this:', m1class);
     isRoot.disabled = isRoot.checked = m1class.isRoot();
     $(isRoot).off('change.pbar').on('change.pbar',
       (evt: Event) => {

@@ -1,6 +1,6 @@
 **Welcome to Jodel.**
 
-**For informations please read [the wiki section] (https://github.com/DamianoNaraku/jjodel/wiki)**
+**For informations please read [the wiki section](https://github.com/DamianoNaraku/jjodel/wiki)**
 
 
 # What is jodel?

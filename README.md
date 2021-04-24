@@ -1,9 +1,10 @@
-Welcome to Jodel.
+**Welcome to Jodel.**
 
+**For informations please read [the wiki section] (https://github.com/DamianoNaraku/jjodel/wiki)**
 
 
 # What is jodel?
-[Jodel is a (meta)modeling platform.](./wiki/What-is-jodel)
+[Jodel is a (meta)modeling platform.](https://github.com/DamianoNaraku/jjodel/wiki/What-is-jodel)
 
 
 
@@ -21,9 +22,9 @@ First install and serve will take a long time.
 
 
 # How can i master it?
-[User guide](./User-guide-summary)
+[User guide](https://github.com/DamianoNaraku/jjodel/wiki/User-guide-summary)
 
-[Public store server api](./wiki/Developer-guide-summary)
+[Public store server api](https://github.com/DamianoNaraku/jjodel/wiki/Developer-guide-summary)
 
 [Dev guide](/wiki/Developer-guide-summary)
 
@@ -33,9 +34,3 @@ Mail me at [damiano.divincenzo@student.univaq.it](mailto:damiano.divincenzo@stud
 Bug report at [issues](./issues/new) or [mail](mailto:damiano.divincenzo@student.univaq.it?subject=Jodel%20bug%20report%20-%20)
 
 
-# Jjodel
-
-Available online at https://damianonaraku.github.io/jjodel/dist/jjodel/
-
-For informations please read the wiki section
-https://github.com/DamianoNaraku/jjodel/wiki

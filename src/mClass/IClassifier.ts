@@ -84,8 +84,8 @@ export abstract class IClassifier extends ModelPiece{
     return Type.classTypePrefix + this.parent.name;
   }
 
-  delete(refreshgui: boolean = true): void {
+  delete(refreshgui: boolean = true, fromParent: boolean = false): void {
     if (!this.shouldBeDisplayedAsEdge()){ this.getVertex().remove(); }
-    super.delete(false);
+    super.delete(false, fromParent);
   }
 }

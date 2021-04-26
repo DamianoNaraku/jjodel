@@ -46,7 +46,7 @@ export class EEnum extends IClassifier {
     this.childrens = [];
     this.instanceTypeName = '';
     let i: number;
-    this.setName(Json.read<string>(json, ECoreEnum.namee, 'Enum_1'), false);
+    this.setName(Json.read(json, ECoreEnum.namee, 'Enum_1'), false);
 
     for (let key in json) {
       const value: Json = json[key];
@@ -119,9 +119,9 @@ export class EEnum extends IClassifier {
   private isChildLiteralTaken(s: string): boolean { return this.isChildNameTaken(s); }
 
 
-  delete(refreshgui: boolean = true): void {
+  delete(refreshgui: boolean = true, fromParent: boolean = false): void {
     const oldparent = this.parent;
-    super.delete(false);
+    super.delete(false, fromParent);
     if (oldparent) U.arrayRemoveAll(oldparent.enums, this);
     // todo: che fare con gli attributes che hanno questo enum come tipo? per ora cambio in stringa.
     let i: number = 0;

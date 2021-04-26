@@ -21,37 +21,37 @@ export class SendManager {
     this.timeout = timeout;
   }
 
+  /*
+    public update(uid: UniqueIdentifier, fieldName: string, newValue: any): void/*
+      const msg: ModelUpdateMessage = new ModelUpdateMessage(uid, fieldName, newValue);
+      const callback = () => {};
+      let request: JQuery.jqXHR = $.post( this.serverAdress, msg, callback);
+      /*request = $.ajax({
+        url: this.serverAdress,
+        type: "POST",
+        dataType: "json",
+        timeout: this.timeout,
+        success: function(response) { setTimeout( () => SendManager.manager.update(uid, fieldName, newValue)); },
+        error: function(xmlhttprequest: jqXHR, textstatus: ErrorTextStatus, message: string): void {
+          // 'success' | 'notmodified' | 'nocontent';
+          switch (textstatus) {
+            default: U.pe(true, 'unexpected return code from ajax request:', textstatus, msg); break;
+            case 'timeout':
 
-  public update(uid: UniqueIdentifier, fieldName: string, newValue: any) {
-    const msg: ModelUpdateMessage = new ModelUpdateMessage(uid, fieldName, newValue);
-    const callback = () => {};
-    let request: JQuery.jqXHR = $.post( this.serverAdress, msg, callback);
-    request = $.ajax({
-      url: this.serverAdress,
-      type: "POST",
-      dataType: "json",
-      timeout: this.timeout,
-      success: function(response) { setTimeout( () => SendManager.manager.update(uid, fieldName, newValue)); },
-      error: function(xmlhttprequest: jqXHR, textstatus: ErrorTextStatus, message: string) {
-        // 'success' | 'notmodified' | 'nocontent';
-        switch (textstatus) {
-          default: U.pe(true, 'unexpected return code from ajax request:', textstatus, msg); break;
-          case 'timeout':
-
-            break;
-          case 'error': U.pe(true, 'undefined error after synch server request send', msg); break;
-          case 'abort': U.pe(true, 'undefined abort after synch server request send', msg); break;
-          case 'parsererror': U.pe(true, 'undefined abort after synch server request send', msg); break;
+              break;
+            case 'error': U.pe(true, 'undefined error after synch server request send', msg); break;
+            case 'abort': U.pe(true, 'undefined abort after synch server request send', msg); break;
+            case 'parsererror': U.pe(true, 'undefined abort after synch server request send', msg); break;
+          }
+          if(textstatus==="timeout") {
+            alert("got timeout");
+          } else {
+            alert(textstatus);
+          }
         }
-        if(textstatus==="timeout") {
-          alert("got timeout");
-        } else {
-          alert(textstatus);
-        }
-      }
-    });​
-    request.state()
-  }
+      });
+      request.state();
+  }*/​
 
 
 }

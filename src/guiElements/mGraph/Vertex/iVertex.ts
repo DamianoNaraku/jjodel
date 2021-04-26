@@ -186,7 +186,7 @@ export class IVertex {
   static getvertexByHtml(node0: Element, canUseMp: boolean = true): IVertex {
     if (canUseMp) {
       const logic: ModelPiece = ModelPiece.getLogic(node0);
-      return logic && logic.getVertex();
+      return logic && logic.getVertex(false);
     }
 
     let node: HTMLElement = node0 as any;
@@ -314,7 +314,7 @@ export class IVertex {
       const vertexRoot: SVGForeignObjectElement = this.htmlForeign;
       const $inputs = $(vertexRoot).find('input, textarea, select, button');
       let cursor: string = null;
-      console.log('markedHover', markb, vertexRoot, $inputs);
+      // console.log('markedHover', markb, vertexRoot, $inputs);
       if (markb) {
         vertexRoot.style.cursor = cursor = (color === 'red' ? 'no-drop' : 'crosshair'); // NO important, bugga e non setta il campo.
       } else { vertexRoot.style.removeProperty('cursor'); }
@@ -904,7 +904,7 @@ export class IVertex {
     if (edge.logic instanceof M2Reference) edge.logic.setType((newTargetLogic as M2Class).getEcoreTypeName());
     if (edge instanceof ExtEdge) {
       if (edge.end && oldTargetLogic) edge.logic.unsetExtends(oldTargetLogic as M2Class, false); // unset old extend without removing this vertex
-      edge.logic.setExtends(this.logic() as M2Class); // extend the newly clicked vertex (this)
+      edge.logic.setExtends(this.logic() as M2Class, true, false, true); // extend the newly clicked vertex (this)
     } else {
       U.pe(edge.logic instanceof MClass, 'cst: class edges are currently not supported');
     }
@@ -1148,9 +1148,11 @@ export class IVertex {
   // quindi ho dovuto trasformare molti :hover in .hover aggiungendo a mano la classe, perchè se reinserisco il vertice perdo l' :hover.
   fixFirefoxOverflowBug(){
     if (!Status.status.isFirefox || !this.htmlg || !this.htmlg.parentElement) return;
+    console.warn('firefox overflow bugfix');
     // firefox bug fixer for overflowing elements https://bugzilla.mozilla.org/show_bug.cgi?id=1705916
     const parent: Element = this.htmlg.parentElement;
+    let nextSibling: Node = this.htmlg.nextSibling;
     parent.removeChild(this.htmlg);
-    parent.appendChild(this.htmlg);
+    parent.insertBefore(this.htmlg, nextSibling);
   }
 }

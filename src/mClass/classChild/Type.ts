@@ -9,7 +9,7 @@ import {
   M2Package,
   M2Reference,
   MAttribute, MetaModel,
-  ModelPiece,
+  ModelPiece, PropertyBarr,
   ShortAttribETypes,
   Status, TopBar,
   Typedd,
@@ -43,6 +43,7 @@ export class Type {
       ); }
 
   static updateTypeSelectors($searchRoot: JQuery<HTMLElement>, primitives: boolean = true, enums: boolean = true, classes: boolean = true): void{
+    if (!Status.status.loadedGUI) return;
     if (!$searchRoot) { $searchRoot = $(document.body); }
     let key = U.getStartSeparatorKey();
     const query = (primitives ? U.startSeparator(key) + 'select[data-primitive="true"]' : '') +
@@ -76,6 +77,7 @@ export class Type {
       selectedType = mp.getType();
       $(selectHtml).off('change.type').on('change.type', (e: ChangeEvent) => { mp.fieldChanged(e); });
     } else return; //U.pw(true, 'type selector inserted on non-typed element:', selectHtml, mp);
+    U.pe(!selectedType, 'select type is null', {selectedType, selectHtml, mp});
     selectHtml.dataset.typeid = '' + selectedType.id;
     selectHtml.dataset.primitive = '' + (addPrimitive ? "true" : "false");
     selectHtml.dataset.enum = '' + (addEnum ? "true" : "false") ;

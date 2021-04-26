@@ -137,13 +137,13 @@ export class EOperation extends Typedd {
     return info; }
 
   parse(json: Json, destructive?: boolean): void {
-    this.setName( (this.parent instanceof M3Class) ? 'Operation' : Json.read<string>(json, ECoreOperation.namee, 'Func_1'));
-    this.setType(Json.read<string>(json, ECoreOperation.eType, AttribETypes.void));
-    this.setLowerbound(+Json.read<number>(json, ECoreOperation.lowerBound, 'NAN_Trigger'));
-    this.setUpperbound(+Json.read<number>(json, ECoreOperation.upperBound, 'NAN_Trigger'));
-    this.exceptionsStr = Json.read<string>(json, ECoreOperation.eexceptions, '');
-    this.ordered = 'true' === '' + Json.read<boolean>(json, ECoreOperation.ordered, 'false');
-    this.unique = 'true ' === '' + Json.read<boolean>(json, ECoreOperation.unique, 'false');
+    this.setName( (this.parent instanceof M3Class) ? 'Operation' : Json.read(json, ECoreOperation.namee, 'Func_1'));
+    this.setType(Json.read(json, ECoreOperation.eType, AttribETypes.void));
+    this.setLowerbound(+Json.read(json, ECoreOperation.lowerBound, 'NAN_Trigger'));
+    this.setUpperbound(+Json.read(json, ECoreOperation.upperBound, 'NAN_Trigger'));
+    this.exceptionsStr = Json.read(json, ECoreOperation.eexceptions, '');
+    this.ordered = !!Json.read(json, ECoreOperation.ordered, 'false');
+    this.unique = !!Json.read(json, ECoreOperation.unique, 'false');
     this.visibility = AccessModifier.package;
     const parameters: Json[] = Json.getChildrens(json, false);
     let i: number;
@@ -263,8 +263,8 @@ export class EOperation extends Typedd {
 
 
 
-  delete(refreshgui: boolean = true): void{
-    super.delete(true);
+  delete(refreshgui: boolean = true, fromParent: boolean = false): void{
+    super.delete(true, fromParent);
   }
 
   markedCompatibility: {key: string, target: EOperation}[] = [];

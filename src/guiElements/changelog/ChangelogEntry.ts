@@ -245,6 +245,7 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addf('Class conversion:',
       'It is now possible to change type of a single M1-class, or of all instances of a target M2-class. (<a href="https://github.com/DamianoNaraku/jjodel/wiki/Class-deletion-&-Class-type-conversion">Full guide here</a>)\n' +
       'For example converting all "Date" instances to "DateTime" instances, adding a "time" attribute to all of them without changing the definition of the "Date" class.', null, true);
+    v.addb('Class conversion', 'casting an object to a superclass is not removing properties for the subclass.');
     v.addbf('children filtering:', 'was not working properly only on his generic version (childrenContainer) and not on AttributeContainer');
     v.addbf('validation:', 'was working on run-time edits, but not on the initial load of the model');
     v.addbf('class deletion:', 'When a class was used as function parameter, the removal was causing exceptions.' +
@@ -298,20 +299,26 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addbf('Loading customized default style',
       'Fixed a failure in loading a viewpoint with a <b>"customized default"</b> style (3° layer, last customizable priority level).',
       null, true);
-    v = new VersionUpload(new Date('2021/04/23'), 'Color schemes', 'Allow to define multiple color schemes and manage activation context for them, overriding the default coloring of vertices, edges, or the entire app.');
+    v = new VersionUpload(new Date('2021/04/26'), 'Color schemes & bug-fixing',
+      'The color scheme system allow to define multiple color schemes and manage activation context for them, overriding the default coloring of vertices, edges, or the entire app.');
     v.addf('Color scheme manager', 'Accessible through Graph\'s style editor or from Themes in top-bar. It can add, remove and modify existing color schemes. It also allows to choose the activation context of the color scheme (e.g.:whole app, only Attributes...).');
     v.addf('Style editor integration', 'Once a visual element is clicked, you can manually assign an existing color scheme to that element through the style editor');
     // v.addf('Style editor integration for edges', 'todo: All elements can have multiple color scheme enabled, but edges should always have multiple color schemes. It is suggested to use one for normal status, one for highlighted status and one for focused status');
     // v.addf('Color scheme and Views', 'todo: Color scheme are stored inside Views.');
-    v = new VersionUpload(new Date('2021/04/13'), 'minor fixes while wip on v2', '');
-    v.addb('contextmenu', 'There is a known severe bug with vertex contextmenu incorrectly disappearing over chrome+macOS. Tryed to fix but could not test could not test personally or reproduce on other browser+OS combinations, it is unknown if the bug is still present.');
-    v.addb('type conversion', 'casting an object to a superclass is not removing properties for the subclass.');
-    v.addb('usability', 'many interactions are not working on touchscreen devices, this is not a priority but is going to be fixed.');
+    // v = new VersionUpload(new Date('2021/04/26'), 'Mostly bug-fixes', '');
+    v.addbf('Class conversion', 'casting an object to a superclass was not removing properties for the subclass.');
+    v.addb('usability', 'many interactions are not working on touchscreen devices, this is not a priority but is slowly going to be fixed.');
     v.addbf('usability', 'Inserted button-popups that can open the contextmenu without right-clicking (touch-friendly)');
-    v.addbf('contextmenu', 'Fixed a different bug on firefox that was rarely causing it to not appear at all.');
-    v.addbf('gui', 'minor gui issues (vertex overflow).');
-    v.addbf('color scheme', 'minor fix over styles rarely applied to incorrect elements.');
-    v.addbf('extend', 'removing an extension relationship was not removing the edge (graphic only bug).');
+    v.addbf('contextmenu', 'There was a severe bug with vertex contextmenu incorrectly disappearing over chrome+macOS.');
+    v.addb('contextmenu', 'The newly introduced button to open the context-menù is not displaying the menù properly on firefox due to a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1705916">svg-related bug recently discovered</a> and without known workarounds.\n' +
+      '<p style="color: darkred">If the context-menù is accessed through right-click it is not affected by the bug, please use right-click on firefox until a workaround is discovered.</p>', null, true);
+    // v.addbf('gui', 'minor gui issues (vertex overflow).');
+    // v.addb('gui', 'opening contextmenu through left-clicking on the option hover is blurring the graph');
+    v.addbf('color scheme', 'Minor fix over styles rarely applied to incorrect elements.');
+    v.addbf('gui extend', 'Removing an extension relationship was not removing the edge (graphic only bug).');
+    v.addbf('attribute upperbound', 'Attributes upperbound could not be changed.');
+    v.addb('edges', 'Removing an edge not yet confirmed (preview while inserting) using DEL is causing invalid state, press ESC Instead for now.');
+    v.addb('lowerbound', 'Currently ignored.');
     let searchterm = 'clog addbf';
 
     // todo: documenta api theia

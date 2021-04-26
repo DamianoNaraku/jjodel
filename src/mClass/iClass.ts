@@ -120,9 +120,9 @@ export abstract class IClass extends IClassifier {
 
   getEdges(): IEdge[] { return this.edges; }
 
-  delete(refreshgui: boolean = true): void {
+  delete(refreshgui: boolean = true, fromParent: boolean = false): void {
     const oldparent = this.parent;
-    super.delete(false);
+    super.delete(false, fromParent);
     if (oldparent) U.arrayRemoveAll(oldparent.classes, this);
 
 

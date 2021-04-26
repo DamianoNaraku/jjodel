@@ -161,7 +161,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot\">\r\n    <ul class=\"vertex contextMenu\">\r\n      <li class=\"Vertex changeType popupRightParent\" uif=\"classifier\">\r\n        <span>Change type</span>\r\n        <ul class=\"typelist popupRight\">\r\n          <li class=\"typeli fallback unclickable\" style=\"cursor: no-drop; color: red;\">##ERROR MSG TO FILL##</li>\r\n          <li class=\"typeli description unclickable\"><span>Best match:</span></li>\r\n          <li class=\"typeli separator unclickable\"></li>\r\n          <li class=\"typeli description unclickable\"><span>Other options</span></li>\r\n          <li class=\"typeli template\" data-index=\"-1\">\r\n            <span class=\"typeli change text\"></span>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Vertex delete\" uif=\"classifier\">Delete classifier</li>\r\n\r\n      <li class=\"Vertex todo duplicate\" uif=\"classifier\">Duplicate classifier</li>\r\n      <li class=\"Vertex extend\" uif=\"m2 && class\">Extend class</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && feature\">Delete feature</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && feature\">Duplicate feature</li>\r\n      <li class=\"Vertex delete\" uif=\"m2 && operation\">Delete operation</li>\r\n      <li class=\"Vertex todo duplicate\" uif=\"m2 && operation\">Duplicate operation</li>\r\n      <li class=\"Reference popupRightParent\" uif=\"m1 && reference\">References\r\n        <ul class=\"reflist popupRight\">\r\n          <li class=\"refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n          <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n          <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n        </ul>\r\n      </li>\r\n      <li class=\"Feature todo autofixinstances\" uif=\"m2 && feature\">Autofix instances</li>\r\n      <li class=\"Feature todo autofix\" uif=\"m1 && feature\">Autofix conformity</li>\r\n      <li class=\"separator\"  uif=\"classifier || m2 && feature || m2 && operation || m2 && annotation\"></li>\r\n      <li class=\"Vertex up\" uif=\"classifier\">Push vertex Up (Z-order)</li>\r\n      <li class=\"Vertex down\" uif=\"classifier\">Push vertex Down (Z-order)</li>\r\n      <li class=\"Feature up\" uif=\"m2 && feature\">Move feature Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && feature\">Move feature Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && operation\">Move operation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && operation\">Move operation Down</li>\r\n      <li class=\"Feature up\" uif=\"m2 && annotation\">Move annotation Up</li>\r\n      <li class=\"Feature down\" uif=\"m2 && annotation\">Move annotation Down</li>\r\n    </ul>\r\n    <ul class=\"extedge contextMenu\" uif=\"extedge\">\r\n      <li class=\"edge delete\">Delete generalization</li>\r\n      <li class=\"edge change\">Edit generalization</li>\r\n    </ul>\r\n    <ul class=\"edge contextMenu\" uif=\"edge\">\r\n      <li class=\"edge delete\">Delete reference</li>\r\n      <li class=\"edge change\">Edit reference</li>\r\n    </ul>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"hidden-static-contextmenu-container\">\r\n<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot overflowFix\" tabindex=\"-1\">\r\n    <div class=\"overflowFixContent\">\r\n      <ul class=\"vertex contextMenu\" tabindex=\"-1\">\r\n        <li class=\"Vertex changeType popupRightParent\" uif=\"class\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\">Change type</span>\r\n          <ul class=\"typelist popupRight\">\r\n            <li class=\"typeli fallback unclickable\" style=\"cursor: no-drop; color: red;\">##ERROR MSG TO FILL##</li>\r\n            <li class=\"typeli description unclickable\"><span>Best match:</span></li>\r\n            <li class=\"typeli separator\" tabindex=\"-1\"></li>\r\n            <li class=\"typeli description unclickable\"><span>Other options</span></li>\r\n            <li class=\"typeli terminal template\" data-index=\"-1\">\r\n              <span class=\"typeli change text\"></span>\r\n          </ul>\r\n        </li>\r\n        <li class=\"terminal Vertex todo duplicate\" uif=\"classifier\">Duplicate classifier</li>\r\n        <li class=\"terminal Vertex extend\" uif=\"m2 && class && ongraph\">Extend class</li>\r\n        <li class=\"Vertex popupRightParent\" uif=\"m2 && class && ongraph\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\">Insert feature</span>\r\n          <ul class=\"reflist popupRight\">\r\n            <li class=\"terminal insert attribute\">Attribute</li>\r\n            <li class=\"terminal insert reference\">Reference</li>\r\n            <li class=\"terminal insert operation\">Operation</li>\r\n            <li class=\"terminal insert annotation todo\">Annotation</li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"Operation popupRightParent\" uif=\"m2 && !class && ongraph\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\">Insert children</span>\r\n          <ul class=\"reflist popupRight\">\r\n            <li class=\"terminal insert literal\" uif=\"enum\">Literal</li>\r\n            <li class=\"terminal insert parameter\" uif=\"operation\">Parameter</li>\r\n            <li class=\"terminal insert annotation todo\">Annotation</li>\r\n          </ul>\r\n        </li>\r\n\r\n\r\n\r\n        <li class=\"terminal Vertex delete\" uif=\"classifier\">Delete classifier</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && feature\">Delete feature</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && operation\">Delete operation</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && literal\">Delete literal</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && parameter\">Delete parameter</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && annotation\">Delete annotation</li>\r\n        <li class=\"terminal Vertex todo duplicate\" uif=\"m2 && feature\">Duplicate feature</li>\r\n        <li class=\"terminal Vertex todo duplicate\" uif=\"m2 && operation\">Duplicate operation</li>\r\n        <li class=\"Reference popupRightParent\" uif=\"m1 && reference && ongraph\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\">References</span>\r\n          <ul class=\"reflist popupRight\">\r\n            <li class=\"terminal refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n            <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n            <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"terminal Feature todo autofixinstances\" uif=\"m2 && feature\">Autofix instances</li>\r\n        <li class=\"terminal Feature todo autofix\" uif=\"m1 && feature\">Autofix conformity</li>\r\n        <li class=\"separator\" uif=\"classifier || m2 && feature || m2 && operation || m2 && annotation\" tabindex=\"-1\"></li>\r\n        <li class=\"terminal Vertex up\" uif=\"classifier && ongraph\">Push vertex Up (Z-order)</li>\r\n        <li class=\"terminal Vertex down\" uif=\"classifier && ongraph\">Push vertex Down (Z-order)</li>\r\n        <li class=\"terminal Feature up\" uif=\"m2 && feature && ongraph\">Move feature Up</li>\r\n        <li class=\"terminal Feature down\" uif=\"m2 && feature && ongraph\">Move feature Down</li>\r\n        <li class=\"terminal Feature up\" uif=\"m2 && operation && ongraph\">Move operation Up</li>\r\n        <li class=\"terminal Feature down\" uif=\"m2 && operation && ongraph\">Move operation Down</li>\r\n        <li class=\"terminal Feature up\" uif=\"m2 && annotation && ongraph\">Move annotation Up</li>\r\n        <li class=\"terminal Feature down\" uif=\"m2 && annotation && ongraph\">Move annotation Down</li>\r\n      </ul>\r\n      <ul class=\"extedge contextMenu\" uif=\"extedge\">\r\n        <li class=\"terminal edge delete\">Delete generalization</li>\r\n        <li class=\"terminal edge change\">Edit generalization</li>\r\n      </ul>\r\n      <ul class=\"edge contextMenu\" uif=\"edge\">\r\n        <li class=\"terminal edge delete\">Delete reference</li>\r\n        <li class=\"terminal edge change\">Edit reference</li>\r\n      </ul>\r\n    </div>\r\n</div>\r\n</div>\r\n";
     /***/
   },
 
@@ -221,7 +221,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"false\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"false\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Vertex Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"overflow: hidden; outline: 1px solid var(--color-3); background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <div style=\"text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;\">($##metaParent.name$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference\" style=\"width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:var(--color-1);\">*$##metaParent.type.printablename$</span>\r\n      <span style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:var(--color-1);\">$##metaParent.type.printablename$</span>\r\n      <span style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" style=\"width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; margin-top:0; padding:2px; order:2; border: 3px solid var(--color-2); border-top-color:transparent;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Parameter\" style=\"width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:0px; display: none;\">\r\n  <div id=\"m_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"m_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"false\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"false\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Vertex Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" hover-base=\"v1\" tabindex=\"-1\" style=\"outline: 1px solid var(--color-3) !important; background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex; justify-content: space-evenly\">\r\n          <div class=\"no-ov\" style=\"text-align:center; flex-grow:2; flex-shrink:1; color:var(--color-4);\">$##metaParent.name$</div>\r\n          <div class=\"no-ov\" style=\"text-align:center; flex-grow:1; color:var(--color-4);\">#$##id$</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span class=\"no-ov\" style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:var(--color-f-1);\">*$##metaParent.type.printablename$</span>\r\n      <span class=\"no-ov\" style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span class=\"no-ov\" style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:var(--color-f-1);\">$##metaParent.type.printablename$</span>\r\n      <span class=\"no-ov\" style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; margin-top:0; padding:2px; order:2; border: 3px solid var(--color-f-2); border-top-color:transparent;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Parameter\" tabindex=\"-1\" hover-base=\"p1\" style=\"position: relative; width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n      <div hover-display=\"p1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:0px; display: none;\">\r\n  <div id=\"m_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"m_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
     /***/
   },
 
@@ -241,7 +241,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"true\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"true\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Vertex invisibleNode\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"display:none\" keep-edges=\"false\"\r\n                   show-in-rel-edges=\"false\" show-in-ext-edges=\"false\" show-in-oth-edges=\"false\"\r\n                   show-out-rel-edges=\"false\" show-out-ext-edges=\"false\" show-out-oth-edges=\"false\">\r\n      <div style=\"height:auto;\"></div>\r\n    </foreignobject>\r\n    <foreignobject class=\"template Vertex Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"overflow: hidden; outline: 1px solid var(--color-3); background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; border:none; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;\">($##className$)</div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"addfieldcss_class\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template Vertex EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"overflow: hidden; outline: 1px solid var(--color-3); background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"EEnum\" style=\"background:var(--color-1); height:auto; width:100%; overflow: auto;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;\">\r\n          <div style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-5); margin:auto; padding-left:4px;\">(Enum)</div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer\" style=\"overflow: hidden; display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <style id=\"addfieldcss_enum\">\r\n            .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}\r\n            .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }\r\n            .Vertex:hover .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"background:rgba(127, 127, 127, 0.2);\">Go todo opac</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference\" style=\"width:100%; height: 22px; padding-left:5px; display:flex;\">\r\n      <select data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute EString EInteger\" style=\"width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Feature ELiteral\" style=\"width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" style=\"width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid var(--color-2); border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm\" style=\"width: 100%; height: 22px; padding:0; text-align: center; background-color: var(--color-2); color:var(--color-4);\">+</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" style=\"width: 100%; height: 22px; border-bottom:1px solid var(--color-3); display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:40px; display: none;\">\r\n  <div id=\"mm_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"mm_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"true\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"true\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Vertex invisibleNode\" overflow=\"hidden\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"display:none\" keep-edges=\"false\"\r\n                   show-in-rel-edges=\"false\" show-in-ext-edges=\"false\" show-in-oth-edges=\"false\"\r\n                   show-out-rel-edges=\"false\" show-out-ext-edges=\"false\" show-out-oth-edges=\"false\">\r\n      <div style=\"height:auto;\"></div>\r\n    </foreignobject>\r\n    <foreignobject class=\"template Vertex Class\" tabindex=\"-1\" hover-base=\"v1\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid var(--color-3) !important; background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;\">\r\n          <div class=\"no-ov\" style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;\">($##className$)</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"default-class-css\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden; width: 100%; text-align: center; opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n            ::ng-deep .addFieldButton{\r\n              background:rgba(127, 127, 127, 0.2);\r\n              border-bottom: none;\r\n              border-right: none;\r\n              padding: 0 0.5rem; }\r\n            ::ng-deep .open-options.active{\r\n              border-bottom-right-radius: 0 !important;\r\n              opacity: 1;\r\n              visibility: visible; }\r\n            ::ng-deep .open-options{\r\n              position: absolute;\r\n              right: 0;\r\n              border: 2px solid var(--color-2);\r\n              background: var(--color-1);\r\n              width: 25px;\r\n              height: 25px;\r\n              display: flex;\r\n              justify-content: center;\r\n              align-items: center;\r\n              opacity: 0.5; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template Vertex EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" hover-base=\"v1\" tabindex=\"-1\" style=\"outline: 1px solid var(--color-3) !important;; background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"EEnum\" style=\"background:var(--color-1); height:auto; width:100%;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;\">\r\n          <div class=\"no-ov\" style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-5); margin:auto; padding-left:4px;\">(Enum)</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\">\r\n          <style id=\"default-enum-css\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden; width: 100%; text-align: center; opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n            ::ng-deep .addFieldButton{\r\n              background:rgba(127, 127, 127, 0.2);\r\n              border-bottom: none;\r\n              border-right: none;\r\n              padding: 0 0.5rem; }\r\n            ::ng-deep .open-options.active{\r\n              border-bottom-right-radius: 0 !important;\r\n              opacity: 1;\r\n              visibility: visible; }\r\n            ::ng-deep .open-options{\r\n              position: absolute;\r\n              right: 0;\r\n              border: 2px solid var(--color-2);\r\n              background: var(--color-1);\r\n              width: 25px;\r\n              height: 25px;\r\n              display: flex;\r\n              justify-content: center;\r\n              align-items: center;\r\n              opacity: 0.5; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference ov\" tabindex=\"-1\" hover-base=\"f1\" style=\"width:100%; height: 22px; padding-left:5px; display:flex; position: relative;\">\r\n      <select data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute EString EInteger\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature ELiteral\" tabindex=\"-1\"  hover-base=\"l1\" style=\"position: relative; width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n      <div hover-display=\"l1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" tabindex=\"-1\"  hover-base=\"f1\" style=\"position: relative; width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid var(--color-f-2); border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList parameterContainer\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm\" style=\"width: 100%; height: 22px; padding:0; text-align: center; background-color: var(--color-f-2); color:var(--color-1);\">+</button>\r\n        </div>\r\n      </div>\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" tabindex=\"-1\" hover-base=\"p1\" style=\"position: relative; width: 100%; height: 22px; border-bottom:1px solid var(--color-f-3); display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <!--button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button-->\r\n      <div hover-display=\"p1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:40px; display: none;\">\r\n  <div id=\"mm_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"mm_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
     /***/
   },
 
@@ -341,7 +341,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <!--\r\n      <label>\r\n        <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid X</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid Y</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom</span>\r\n      </label>\r\n      <label display = \"none\">\r\n        <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom Y</span>\r\n      </label>\r\n      <label><input type=\"checkbox\" class=\"showGrid\"><span>Show grid</span></label>\r\n      <label><input type=\"color\" class=\"graphColor\"><span>Background color</span></label>\r\n      -->\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid X</td>\r\n        <td><input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Grid Y</td>\r\n        <td><input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"useGrid\">Use grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor1\">Grid color 1</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor2\">Grid color 2</label></td></tr>\r\n      </tbody></table>\r\n\r\n      <label class=\"onlyVerticalContainer\">\r\n        <button class=\"btn btn-primary colorschemeopener\">Manage color scheme</button>\r\n      </label>\r\n\r\n      <label class=\"onlyVerticalContainer\" uif=\"!running\">\r\n        <button class=\"btn btn-primary layout start dynamic_uif\">Start auto-layouting</button>\r\n      </label>\r\n\r\n\r\n      <div class=\"layoutingRoot\" uif=\"running\">\r\n        <h5>Auto-layout options</h5>\r\n        <label class=\"onlyVerticalContainer\">\r\n          <button class=\"btn btn-primary layout stabilize\">Stabilize</button>\r\n          <span style=\"margin:auto 0.5rem\">in</span>\r\n          <input type=\"number\" class=\"stabilizeSteps lopt\" min=\"0\" step=\"1\" placeholder=\"off\" value=\"10\" data-key=\"custom.stabilizeSteps\">\r\n          <span style=\"margin-left: 0.5rem\">steps</span>\r\n        </label>\r\n        <label class=\"onlyVerticalContainer\"><button class=\"btn btn-primary layout stop\">Stop</button></label>\r\n\r\n        <label>How to manage edge points?\r\n          <select class=\"edgePointTreatment form-group\"><optgroup label=\"How to manage edge points?\">\r\n            <option value=\"delete\">Remove them</option>\r\n            <option value=\"vertex\" selected>Treat them as vertexes</option>\r\n            <option value=\"ignore\">Keep absolute position (ignore)<option>\r\n            <option value=\"relative\">Keep relative position between source & target</option>\r\n            <!--\r\n              1) treat them as vertex (default)\r\n              2) keep absolute position (ignore) (might cause a mess because they stand still)\r\n              3) keep relative position. Rimane a (x%, y%) distanza tra source e target, memorizzo un vettore direzione\r\n                 con modulo in percentuale sulla distanza tra i 2 vertici,\r\n                 così rispetto ai vertici rimane statico, anche se in realtà si è mosso assieme a loro.\r\n            -->\r\n          </optgroup></select>\r\n        </label>\r\n        <div>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"layout.hierarchical.enabled\">Hierarchical\r\n          </label>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"physics.enabled\">\r\n            Physics\r\n          </label>\r\n          <div uif=\"physics\">\r\n            <label>Simulation mode\r\n              <select class=\"dynamic_uif lopt\" data-key=\"physics.solver\">\r\n                <optgroup label=\"Simulation\">\r\n                  <option value=\"barnesHut\">BarnesHut</option>\r\n                  <option value=\"forceAtlas2Based\">Force Atlas 2</option>\r\n                  <option value=\"repulsion\">Repulsion</option>\r\n                  <option value=\"hierarchicalRepulsion\">hierarchicalRepulsion</option>\r\n                </optgroup>\r\n              </select>\r\n            </label>\r\n\r\n            <div uif=\"hr\">\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.blockShifting\">\r\n                Block shifting\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.edgeMinimization\">\r\n                Edge minimization\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.parentCentralization\">\r\n                Parent centralization\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.levelSeparation\" min=\"0\" step=\"1\">\r\n                Level separation\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.nodeSpacing\" min=\"0\" step=\"1\">\r\n                Node spacing\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.treeSpacing\" min=\"0\" step=\"1\">\r\n                Tree spacing\r\n              </label>\r\n              <label>Direction\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.direction\">\r\n                  <optgroup label=\"Direction\">\r\n                    <option value=\"UD\">Up - Down</option>\r\n                    <option value=\"DU\">Down - Up</option>\r\n                    <option value=\"LR\">Left - Right</option>\r\n                    <option value=\"RL\">Right - Left</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Sort method\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.sortMethod\">\r\n                  <optgroup label=\"Sort method\">\r\n                    <option value=\"hubsize\">hubsize</option>\r\n                    <option value=\"directed\">directed</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Shake towards\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.shakeTowards\">\r\n                  <optgroup label=\"Shake towards\">\r\n                    <option value=\"leaves\">leaves</option>\r\n                    <option value=\"roots\">roots</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n            </div>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.theta\"> Theta\r\n            </label>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" min=\"any\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.gravitationalConstant\"> Gravitational constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.centralGravity\"> Central gravity\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springLength\"> Spring length\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springConstant\"> Spring constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.damping\"> Damping\r\n            </label>\r\n            <label uif=\"atl || bar || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.avoidOverlap\"> Avoid overlap\r\n            </label>\r\n            <label uif=\"rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.nodeDistance\"> Node distance\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.minVelocity\"> Min velocity\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.maxVelocity\"> Max velocity\r\n            </label>\r\n\r\n            <label>\r\n              <input type=\"checkbox\" step=\"any\" class=\"dynamic_uif lopt\" data-key=\"physics.stabilization.enabled\"> Stabilization\r\n            </label>\r\n            <div uif=\"stabilization\">\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.iterations\"> Iterations\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.updateInterval\"> Update interval (ms)\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"custom.scale_factor\"> Scale factor\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.onlyDynamicEdges\"> onlyDynamicEdges???\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.fit\"> Fit??\r\n              </label>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <!-- start of level header -->\r\n      <app-csseditor></app-csseditor>\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <!-- end of level header -->\r\n      <div class=\"cssdetailleveltoggler2\">\r\n        <ul class=\"UtabHeaderContainer\" style=\"background-color: inherit;\">\r\n          <li class=\"UtabHeader\" selected=\"true\" data-toggle=\"collapse\" data-target=\".cssdetailleveltoggler2 .collapse.c1\">\r\n            <span>\r\n              Simplified editor\r\n            </span>\r\n          </li>\r\n          <li class=\"UtabHeader\" selected=\"true\" data-toggle=\"collapse\" data-target=\".cssdetailleveltoggler2 .collapse.c2\">\r\n            <span>\r\n              Full editor\r\n            </span>\r\n          </li>\r\n        </ul>\r\n\r\n        <div class=\"collapse c1\" data-parent=\".cssdetailleveltoggler2\">\r\n          <!-- start of css editor -->\r\n          <div class=\"csseditorroot\">\r\n            <h4>Color scheme selector</h4>\r\n            <div class=\"cschemeroot\">\r\n\r\n              <!--div class=\"ui dropdown fluid multiple search selection\">\r\n                <input type=\"hidden\" name=\"color-schemes\" class=\"color-schemes\">\r\n                <i class=\"dropdown icon\"></i>\r\n                <div class=\"default text\">Select Color scheme (currently inherithing #####)</div>\r\n                <div class=\"menu\">\r\n                  <div class=\"item dropdown-item template\" data-value=\"cs-selectors\">\r\n                    <i class=\"af flag\"></i>Afghanistan\r\n                    <div class=\"text-center\">cs name</div>\r\n                    <div class=\"colorblock\"></div>\r\n                  </div>\r\n                </div>\r\n              </div-->\r\n\r\n              <div class=\"cstemplates template\">\r\n                <li class=\"cslistreadonly dropdownitem\">\r\n                  <div class=\"inheritedFromText cslistreadonly dropdownitem\"><span>from&nbsp;</span><span class=\"cs tag\"></span><span>&nbsp;(</span><span class=\"cs level\"></span><span>&nbsp;levels up)</span></div>\r\n                  <ul class=\"cs list p-0\"></ul>\r\n                </li>\r\n                <li class=\"csoption dropdownitem\">\r\n                  <div class=\"name text-center\"></div>\r\n                  <div class=\"colors d-flex\">\r\n                    <!-- contiene colorblocks creati a runtime -->\r\n                  </div>\r\n                </li>\r\n\r\n              </div>\r\n\r\n              <div class=\"dropdown hover-display readonly btn d-flex inheriting-color-scheme-list\">\r\n                <div class=\"title btn\">Inherited color schemes</div>\r\n                <i class=\"icon\"></i>\r\n                <ul class=\"dropdownmenu w-100\">\r\n                  <!-- contiene .template.cslistreadonly -->\r\n                </ul>\r\n              </div>\r\n\r\n              <div class=\"dropdown btn d-flex own-color-scheme-list\" tabindex=\"-1\">\r\n                <div class=\"title btn\">Own color schemes</div>\r\n                <i class=\"icon\"></i>\r\n                <ul class=\"dropdownmenu w-100\">\r\n                  <!-- contiene .template.cslistreadonly -->\r\n                </ul>\r\n                <!--span class=\"dropdown cscheme w-auto d-none roba vecchia inutilizzata\">\r\n                  <input type=\"hidden\" name=\"color-schemes\" class=\"color-schemes\">\r\n                  <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" fillwithvalue1>NOT INIT</button>\r\n                  <div class=\"dropdown-menu w-100\">\r\n                    <li class=\"dropdown-item\" data-csname=\"custom\">\r\n                        <div class=\"text-center\" value1>Custom</div>\r\n                        <div class=\"cscheme default\" value2>\r\n                          <div class=\"colorblock empty\"></div>\r\n                          <div class=\"colorblock empty\"></div>\r\n                          <div class=\"colorblock empty\"></div>\r\n                          <div class=\"colorblock empty\"></div>\r\n                        </div>\r\n                    </li>\r\n                    <li class=\"dropdown-item template\" data-csname=\"tofill\">\r\n                      <div class=\"text-center\" value1></div>\r\n                      <div class=\"cscheme\" value2></div>\r\n                    </li>\r\n                  </div>\r\n                </span-->\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <div class=\"css_editor\" uif=\"isCustomized\">\r\n              <h4 class=\"d-none\">Css / color customizer</h4>\r\n              <div class=\"d-none roww addclass\">\r\n                <input list=\"currentNodeClassList\">\r\n                <button class=\"btn btn-success addselector\">Add element</button>\r\n              </div>\r\n              <div>\r\n                <div class=\"roww cssBlocksContainer\">\r\n                  <div class=\"cssprop template roww\">\r\n                    <div class=\"g g0\">\r\n                      <button class=\"btn btn-danger delcssprop\">X</button>\r\n                    </div>\r\n                    <input class=\"form-group g1 cssprop\" list=\"cssrules\" value=\"border\">\r\n                    <div class=\"g g0\">\r\n                      <span>:</span>\r\n                    </div>\r\n                    <input class=\"form-group cssval g1 cssval\" placeholder=\"ph autocomplete todo\">\r\n                  </div>\r\n                  <div class=\"cssblock template\">\r\n                    <div class=\"colorPicker roww\">\r\n                      <div class=\"g g0\">\r\n                        <button class=\"btn btn-danger delcssprop\">X</button>\r\n                      </div>\r\n                      <div class=\"g g3\"><span class=\"title selector\">SELECTOR_TOFILL</span></div>\r\n                      <div class=\"g g1 mr-1 fontstyle\" style=\"flex-grow: 0;\"><label class=\"c fc\" style=\"margin-bottom: 15px;\">\r\n                        <div class=\"horizontalContainer verticalContainer\"><span class=\"HorizontalChild\">Font</span></div>\r\n                        <input type=\"color\" value=\"#000000\" class=\"m-0\" style=\"background: transparent;\">\r\n                        <input type=\"range\" class=\"form-control-range opacity\" min=\"0\" max=\"1\" step=\"any\">\r\n                      </label></div>\r\n                      <div class=\"g g1 mr-1 backstyle\" style=\"flex-grow: 0;\"><label class=\"c bc\" style=\"margin-bottom: 15px;\">\r\n                        <div class=\"horizontalContainer verticalContainer\"><span class=\"HorizontalChild\">Font</span></div>\r\n                        <input type=\"color\" value=\"#ffffff\" class=\"m-0\" style=\"background: transparent;\">\r\n                        <input type=\"range\" class=\"form-control-range opacity\" min=\"0\" max=\"1\" step=\"any\">\r\n                      </label></div>\r\n                      <div class=\"g g2\"><button class=\"btn btn-primary rc\" data-toggle=\"collapse\" data-target=\"#ac1\"><span class=\"rulecount\">X</span> css</button></div>\r\n                    </div>\r\n                    <div id=\"ac1\" class=\"csscontainer collapse\">\r\n                    <div class=\"d-flex csspropcontainer\">\r\n                      <button class=\"btn btn-success m-auto addcssprop\">Add css rule</button>\r\n                    </div>\r\n                  </div>\r\n                  </div>\r\n                </div>\r\n\r\n\r\n\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n          <!-- end of css editor -->\r\n        </div>\r\n        <div class=\"collapse c2 show\" data-parent=\".cssdetailleveltoggler2\">\r\n          <!-- start of html editor -->\r\n          <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n          <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n          <!-- end of html editor -->\r\n        </div>\r\n\r\n      </div>\r\n\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n\r\n      <!-- start of new measurable -->\r\n      <div class=\"columnContainer\"><div class=\"measurablePlaceholder\"></div></div>\r\n      <!-- end of new measurable -->\r\n\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"iclass show\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autolayout\"><span>Include in Auto-layout</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"edgeVisibility\"><span>Display edges</span></label>\r\n        <table class=\"edgePriority\">\r\n          <thead>\r\n          <tr>\r\n            <th colspan=\"3\">Edges visibility</th>\r\n          </tr>\r\n          <tr>\r\n            <th colspan=\"1\" rowspan=\"2\">Kind</th>\r\n            <th colspan=\"2\" rowspan=\"1\">Direction</th>\r\n          </tr>\r\n          <tr>\r\n            <td colspan=\"1\">In</td>\r\n            <td colspan=\"1\">Out</td>\r\n          </tr>\r\n          </thead>\r\n          <tbody>\r\n          <tr>\r\n            <th>Relationship</th>\r\n            <td><input kind=\"in-rel\" type=\"number\"></td>\r\n            <td><input kind=\"out-rel\" type=\"number\"></td>\r\n          </tr>\r\n          <tr>\r\n            <th>Inheritance</th>\r\n            <td><input kind=\"in-ext\" type=\"number\"></td>\r\n            <td><input kind=\"out-ext\" type=\"number\"></td>\r\n          </tr>\r\n          <tr>\r\n            <th>Other</th>\r\n            <td><input kind=\"in-oth\" type=\"number\"></td>\r\n            <td><input kind=\"out-oth\" type=\"number\"></td>\r\n          </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <label class=\"\">\r\n        <input type=\"checkbox\" class=\"asDefault\">\r\n        <span>Use as default style</span>\r\n      </label>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"styleContainer\">\r\n  <div class=\"StyleEditorDisplay\">\r\n\r\n  </div>\r\n  <div class=\"styleTemplates styleEditor\">\r\n    <div class=\"template model\">\r\n      <!--\r\n      <label>\r\n        <input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid X</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\" placeholder=\"off\">\r\n        <span>Grid Y</span>\r\n      </label>\r\n      <label>\r\n        <input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom</span>\r\n      </label>\r\n      <label display = \"none\">\r\n        <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\">\r\n        <span>Zoom Y</span>\r\n      </label>\r\n      <label><input type=\"checkbox\" class=\"showGrid\"><span>Show grid</span></label>\r\n      <label><input type=\"color\" class=\"graphColor\"><span>Background color</span></label>\r\n      -->\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Grid X</td>\r\n        <td><input type=\"number\" class=\"gridX\" min=\"0\" step=\"1\" placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Grid Y</td>\r\n        <td><input type=\"number\" class=\"gridY\" min=\"0\" step=\"1\"  placeholder=\"off\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Zoom</td>\r\n        <td><input type=\"number\" class=\"zoomX\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n        <td style=\"display: none\">X: <input type=\"number\" class=\"zoomXOLD\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"> Y: <input type=\"number\" class=\"zoomY\" min=\"0.0001\" step=\"0.1\" placeholder=\"1\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"showGrid\">Show grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"checkbox\" class=\"useGrid\">Use grid</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor1\">Grid color 1</label></td></tr>\r\n      <tr><td colspan=\"2\"><label><input type=\"color\" class=\"gridColor2\">Grid color 2</label></td></tr>\r\n      </tbody></table>\r\n\r\n      <label class=\"onlyVerticalContainer\">\r\n        <button class=\"btn btn-primary colorschemeopener\">Manage color scheme</button>\r\n      </label>\r\n\r\n      <label class=\"onlyVerticalContainer\" uif=\"!running\">\r\n        <button class=\"btn btn-primary layout start dynamic_uif\">Start auto-layouting</button>\r\n      </label>\r\n\r\n\r\n      <div class=\"layoutingRoot\" uif=\"running\">\r\n        <h5>Auto-layout options</h5>\r\n        <label class=\"onlyVerticalContainer\">\r\n          <button class=\"btn btn-primary layout stabilize\">Stabilize</button>\r\n          <span style=\"margin:auto 0.5rem\">in</span>\r\n          <input type=\"number\" class=\"stabilizeSteps lopt\" min=\"0\" step=\"1\" placeholder=\"off\" value=\"10\" data-key=\"custom.stabilizeSteps\">\r\n          <span style=\"margin-left: 0.5rem\">steps</span>\r\n        </label>\r\n        <label class=\"onlyVerticalContainer\"><button class=\"btn btn-primary layout stop\">Stop</button></label>\r\n\r\n        <label>How to manage edge points?\r\n          <select class=\"edgePointTreatment form-group\"><optgroup label=\"How to manage edge points?\">\r\n            <option value=\"delete\">Remove them</option>\r\n            <option value=\"vertex\" selected>Treat them as vertexes</option>\r\n            <option value=\"ignore\">Keep absolute position (ignore)<option>\r\n            <option value=\"relative\">Keep relative position between source & target</option>\r\n            <!--\r\n              1) treat them as vertex (default)\r\n              2) keep absolute position (ignore) (might cause a mess because they stand still)\r\n              3) keep relative position. Rimane a (x%, y%) distanza tra source e target, memorizzo un vettore direzione\r\n                 con modulo in percentuale sulla distanza tra i 2 vertici,\r\n                 così rispetto ai vertici rimane statico, anche se in realtà si è mosso assieme a loro.\r\n            -->\r\n          </optgroup></select>\r\n        </label>\r\n        <div>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"layout.hierarchical.enabled\">Hierarchical\r\n          </label>\r\n          <label>\r\n            <input type=\"checkbox\" class=\"lopt dynamic_uif\" data-key=\"physics.enabled\">\r\n            Physics\r\n          </label>\r\n          <div uif=\"physics\">\r\n            <label>Simulation mode\r\n              <select class=\"dynamic_uif lopt\" data-key=\"physics.solver\">\r\n                <optgroup label=\"Simulation\">\r\n                  <option value=\"barnesHut\">BarnesHut</option>\r\n                  <option value=\"forceAtlas2Based\">Force Atlas 2</option>\r\n                  <option value=\"repulsion\">Repulsion</option>\r\n                  <option value=\"hierarchicalRepulsion\">hierarchicalRepulsion</option>\r\n                </optgroup>\r\n              </select>\r\n            </label>\r\n\r\n            <div uif=\"hr\">\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.blockShifting\">\r\n                Block shifting\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.edgeMinimization\">\r\n                Edge minimization\r\n              </label>\r\n              <label>\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"layout.hierarchical.parentCentralization\">\r\n                Parent centralization\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.levelSeparation\" min=\"0\" step=\"1\">\r\n                Level separation\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.nodeSpacing\" min=\"0\" step=\"1\">\r\n                Node spacing\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" class=\"lopt\" data-key=\"layout.hierarchical.treeSpacing\" min=\"0\" step=\"1\">\r\n                Tree spacing\r\n              </label>\r\n              <label>Direction\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.direction\">\r\n                  <optgroup label=\"Direction\">\r\n                    <option value=\"UD\">Up - Down</option>\r\n                    <option value=\"DU\">Down - Up</option>\r\n                    <option value=\"LR\">Left - Right</option>\r\n                    <option value=\"RL\">Right - Left</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Sort method\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.sortMethod\">\r\n                  <optgroup label=\"Sort method\">\r\n                    <option value=\"hubsize\">hubsize</option>\r\n                    <option value=\"directed\">directed</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n              <label>Shake towards\r\n                <select class=\"lopt\" data-key=\"layout.hierarchical.shakeTowards\">\r\n                  <optgroup label=\"Shake towards\">\r\n                    <option value=\"leaves\">leaves</option>\r\n                    <option value=\"roots\">roots</option>\r\n                  </optgroup>\r\n                </select>\r\n              </label>\r\n            </div>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.theta\"> Theta\r\n            </label>\r\n            <label uif=\"atl || bar\">\r\n              <input type=\"number\" min=\"any\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.gravitationalConstant\"> Gravitational constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.centralGravity\"> Central gravity\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springLength\"> Spring length\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.springConstant\"> Spring constant\r\n            </label>\r\n            <label uif=\"atl || bar || rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.damping\"> Damping\r\n            </label>\r\n            <label uif=\"atl || bar || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.avoidOverlap\"> Avoid overlap\r\n            </label>\r\n            <label uif=\"rep || hr\">\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.bh.nodeDistance\"> Node distance\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.minVelocity\"> Min velocity\r\n            </label>\r\n            <label>\r\n              <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.maxVelocity\"> Max velocity\r\n            </label>\r\n\r\n            <label>\r\n              <input type=\"checkbox\" step=\"any\" class=\"dynamic_uif lopt\" data-key=\"physics.stabilization.enabled\"> Stabilization\r\n            </label>\r\n            <div uif=\"stabilization\">\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.iterations\"> Iterations\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"physics.stabilization.updateInterval\"> Update interval (ms)\r\n              </label>\r\n              <label>\r\n                <input type=\"number\" step=\"any\" class=\"lopt\" data-key=\"custom.scale_factor\"> Scale factor\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.onlyDynamicEdges\"> onlyDynamicEdges???\r\n              </label>\r\n              <label class=\"whatisthis\">\r\n                <input type=\"checkbox\" class=\"lopt\" data-key=\"physics.stabilization.fit\"> Fit??\r\n              </label>\r\n            </div>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template htmlstyle\">\r\n      <!-- start of level header -->\r\n      <app-csseditor></app-csseditor>\r\n      <div class=\"top\">\r\n        <label class=\"colChild\">\r\n          <div class=\"roww\">\r\n            <h6 class=\"vertexStyle separator htmllevel\"></h6>\r\n          </div>\r\n          <!--\r\n          <div class=\"colChild\">\r\n            <span class=\"stylelabel\">Applied view:</span>\r\n            <select class=\"stylename\"></select>\r\n          </div>\r\n          -->\r\n        </label>\r\n        <button class=\"btn btn-danger styledelete\" matTooltip=\"Remove style customization\">X</button>\r\n        <button class=\"helpButton btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <!-- end of level header -->\r\n      <div class=\"cssdetailleveltoggler2\">\r\n        <ul class=\"UtabHeaderContainer\" style=\"background-color: inherit;\">\r\n          <li class=\"UtabHeader\" selected=\"true\" data-toggle=\"collapse\" data-target=\".cssdetailleveltoggler2 .collapse.c1\">\r\n            <span>\r\n              Simplified editor\r\n            </span>\r\n          </li>\r\n          <li class=\"UtabHeader\" selected=\"true\" data-toggle=\"collapse\" data-target=\".cssdetailleveltoggler2 .collapse.c2\">\r\n            <span>\r\n              Full editor\r\n            </span>\r\n          </li>\r\n        </ul>\r\n\r\n        <div class=\"collapse c1\" data-parent=\".cssdetailleveltoggler2\">\r\n          <!-- start of css editor -->\r\n          <div class=\"csseditorroot\">\r\n            <h4>Color scheme selector</h4>\r\n            <div class=\"cschemeroot\">\r\n\r\n              <!--div class=\"ui dropdown fluid multiple search selection\">\r\n                <input type=\"hidden\" name=\"color-schemes\" class=\"color-schemes\">\r\n                <i class=\"dropdown icon\"></i>\r\n                <div class=\"default text\">Select Color scheme (currently inherithing #####)</div>\r\n                <div class=\"menu\">\r\n                  <div class=\"item dropdown-item template\" data-value=\"cs-selectors\">\r\n                    <i class=\"af flag\"></i>Afghanistan\r\n                    <div class=\"text-center\">cs name</div>\r\n                    <div class=\"colorblock\"></div>\r\n                  </div>\r\n                </div>\r\n              </div-->\r\n\r\n              <div class=\"cstemplates template\">\r\n                <li class=\"cslistreadonly dropdownitem\">\r\n                  <div class=\"inheritedFromText cslistreadonly dropdownitem\"><span>from&nbsp;</span><span class=\"cs tag\"></span><span>&nbsp;(</span><span class=\"cs level\"></span><span>&nbsp;levels up)</span></div>\r\n                  <ul class=\"cs list p-0\"></ul>\r\n                </li>\r\n                <li class=\"csoption dropdownitem\">\r\n                  <div class=\"name text-center\"></div>\r\n                  <div class=\"colors d-flex\">\r\n                    <!-- contiene colorblocks creati a runtime -->\r\n                  </div>\r\n                </li>\r\n\r\n              </div>\r\n\r\n              <div class=\"dropdown hover-display readonly btn d-flex inheriting-color-scheme-list\">\r\n                <div class=\"title btn\">Inherited color schemes</div>\r\n                <i class=\"icon\"></i>\r\n                <ul class=\"dropdownmenu w-100\">\r\n                  <li><h5 style=\"color:red\">READ ONLY</h5></li>\r\n                  <!-- contiene .template.cslistreadonly -->\r\n                </ul>\r\n              </div>\r\n\r\n              <div class=\"dropdown btn d-flex own-color-scheme-list\" tabindex=\"-1\">\r\n                <div class=\"title btn\">Own color schemes</div>\r\n                <i class=\"icon\"></i>\r\n                <ul class=\"dropdownmenu w-100\">\r\n                  <!-- contiene .template.cslistreadonly -->\r\n                </ul>\r\n                <!--span class=\"dropdown cscheme w-auto d-none roba vecchia inutilizzata\">\r\n                  <input type=\"hidden\" name=\"color-schemes\" class=\"color-schemes\">\r\n                  <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" fillwithvalue1>NOT INIT</button>\r\n                  <div class=\"dropdown-menu w-100\">\r\n                    <li class=\"dropdown-item\" data-csname=\"custom\">\r\n                        <div class=\"text-center\" value1>Custom</div>\r\n                        <div class=\"cscheme default\" value2>\r\n                          <div class=\"colorblock empty\"></div>\r\n                          <div class=\"colorblock empty\"></div>\r\n                          <div class=\"colorblock empty\"></div>\r\n                          <div class=\"colorblock empty\"></div>\r\n                        </div>\r\n                    </li>\r\n                    <li class=\"dropdown-item template\" data-csname=\"tofill\">\r\n                      <div class=\"text-center\" value1></div>\r\n                      <div class=\"cscheme\" value2></div>\r\n                    </li>\r\n                  </div>\r\n                </span-->\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <div class=\"css_editor\" uif=\"isCustomized\">\r\n              <h4 class=\"d-none\">Css / color customizer</h4>\r\n              <div class=\"d-none roww addclass\">\r\n                <input list=\"currentNodeClassList\">\r\n                <button class=\"btn btn-success addselector\">Add element</button>\r\n              </div>\r\n              <div>\r\n                <div class=\"roww cssBlocksContainer\">\r\n                  <div class=\"cssprop template roww\">\r\n                    <div class=\"g g0\">\r\n                      <button class=\"btn btn-danger delcssprop\">X</button>\r\n                    </div>\r\n                    <input class=\"form-group g1 cssprop\" list=\"cssrules\" value=\"border\">\r\n                    <div class=\"g g0\">\r\n                      <span>:</span>\r\n                    </div>\r\n                    <input class=\"form-group cssval g1 cssval\" placeholder=\"ph autocomplete todo\">\r\n                  </div>\r\n                  <div class=\"cssblock template\">\r\n                    <div class=\"colorPicker roww\">\r\n                      <div class=\"g g0\">\r\n                        <button class=\"btn btn-danger delcssprop\">X</button>\r\n                      </div>\r\n                      <div class=\"g g3\"><span class=\"title selector\">SELECTOR_TOFILL</span></div>\r\n                      <div class=\"g g1 mr-1 fontstyle\" style=\"flex-grow: 0;\"><label class=\"c fc\" style=\"margin-bottom: 15px;\">\r\n                        <div class=\"horizontalContainer verticalContainer\"><span class=\"HorizontalChild\">Font</span></div>\r\n                        <input type=\"color\" value=\"#000000\" class=\"m-0\" style=\"background: transparent;\">\r\n                        <input type=\"range\" class=\"form-control-range opacity\" min=\"0\" max=\"1\" step=\"any\">\r\n                      </label></div>\r\n                      <div class=\"g g1 mr-1 backstyle\" style=\"flex-grow: 0;\"><label class=\"c bc\" style=\"margin-bottom: 15px;\">\r\n                        <div class=\"horizontalContainer verticalContainer\"><span class=\"HorizontalChild\">Font</span></div>\r\n                        <input type=\"color\" value=\"#ffffff\" class=\"m-0\" style=\"background: transparent;\">\r\n                        <input type=\"range\" class=\"form-control-range opacity\" min=\"0\" max=\"1\" step=\"any\">\r\n                      </label></div>\r\n                      <div class=\"g g2\"><button class=\"btn btn-primary rc\" data-toggle=\"collapse\" data-target=\"#ac1\"><span class=\"rulecount\">X</span> css</button></div>\r\n                    </div>\r\n                    <div id=\"ac1\" class=\"csscontainer collapse\">\r\n                    <div class=\"d-flex csspropcontainer\">\r\n                      <button class=\"btn btn-success m-auto addcssprop\">Add css rule</button>\r\n                    </div>\r\n                  </div>\r\n                  </div>\r\n                </div>\r\n\r\n\r\n\r\n              </div>\r\n            </div>\r\n\r\n          </div>\r\n          <!-- end of css editor -->\r\n        </div>\r\n        <div class=\"collapse c2 show\" data-parent=\".cssdetailleveltoggler2\">\r\n          <!-- start of html editor -->\r\n          <label class=\"allowEdit\"><span>This style is being inherited and cannot be modified here.<br>You need a local copy to allow Edit.</span><button class=\"allowEdit btn btn-secondary\">Make it</button></label>\r\n          <div contenteditable=\"true\" class=\"html\" placeholder=\"Html for $##name$ (m2 class).\"></div>\r\n          <!-- end of html editor -->\r\n        </div>\r\n\r\n      </div>\r\n\r\n\r\n      <!--\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.measurable\" class=\"detail measurable btn btn-primary\">\r\n            <span class=\"closed\">\r\n              <label class=\"measurable\">\r\n                <input type=\"checkbox\">\r\n                <span>Measurable</span>\r\n              </label>\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span><span class=\"HorizontalChild\">⮟</span></div>\r\n            </span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.save\" class=\"detail save btn btn-primary\">\r\n          <span class=\"closed\">Save detail</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <div class=\"detail measurable\" style=\"display: none\">\r\n        < !--\r\n                          left\t  right\t  eval\r\n\r\n          r_\t\t      str\t    any\t    /     <-- add dataset to name input.\r\n          d_\t\t      str\t    any\t    /\r\n          _\t\t        /\t      js\t    any\r\n          _rule\t\t    $##a$  \tjs\t    any\r\n          _export\t\t  jq\t    js\t    any\r\n          _chainFinal\texport\r\n          _chain\t\t  export\r\n          _constraint\tsize\t  js\t    bool\tinequality\r\n          _dstyle\t\t  /\t      js->css\tstr\r\n          _import\t\t  size\t  js\t    any\r\n        -- >\r\n        <div class=\"template measurable _root roww columnContainer\">\r\n          <button class=\"deleteRule columnChild btn btn-danger\">X</button>\r\n          <div class=\"columnChild\">\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Name</span>\r\n                <span class=\"nameprefix\">_</span>\r\n                <input class=\"fill name\" type=\"text\" placeholder=\"attribute name\" pattern=\"[.]+\">\r\n              </label>\r\n            </div>\r\n            <label class=\"expressionRoot\">\r\n              <input class=\"leftside hideOn _ _dstyle _chain _chainFinal\" type=\"text\" placeholder=\"Left side\">\r\n              <span class=\"operatortext hideOn _constraint _ _dstyle operator\">=</span>\r\n              <select class=\"hideOn _ _dstyle operator\"><optgroup label=\"operator\">\r\n                <option value=\"<=\">&lt;=</option>\r\n                <option value=\"=\">=</option>\r\n                <option value=\">=\">&gt;=</option>\r\n              </optgroup></select>\r\n              <input class=\"rightside hideon_chain _chainFinal \" type=\"text\" placeholder=\"Right side\">\r\n            </label>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Relative target</span>\r\n                <input class=\"fill relativetarget\" type=\"text\" placeholder=\"jQuery selector\">\r\n              </label>\r\n            </div>\r\n            <div class=\"roww hideOn r_ d_\">\r\n              <label>\r\n                <span>Evaluation (debug)</span>\r\n                <input readonly class=\"fill evaluation\" type=\"text\" placeholder=\"empty string\">\r\n              </label>\r\n            </div>\r\n            <a class=\"roww outputerror left\"></a>\r\n            <a class=\"roww outputerror right\"></a>\r\n          </div>\r\n        </div>\r\n        < !-- TEMPLATES END -- >\r\n        <h6 class=\"addHeader\">\r\n          <button class=\"btn btn-secondary addmeasurable\">Add</button>\r\n          <select class=\"attributetypeadd\"><optgroup label=\"Attribute type\">\r\n            <option value=\"d_\">jQueryUI drag option</option>\r\n            <option value=\"r_\">jQueryUI resize option</option>\r\n            <option value=\"_rule\">_rule</option>\r\n            <option value=\"_dstyle\">_dstyle</option>\r\n            <option value=\"_export\">_export</option>\r\n            <option value=\"_constraint\">_constraint</option>\r\n            <option value=\"_import\">_import</option>\r\n            <option value=\"_chain\">_chain</option>\r\n            <option value=\"_chainFinal\">_chainFinal</option>\r\n            <option value=\"_\">_ (Pseudo-variable)</option>\r\n          </optgroup></select>\r\n        </h6>\r\n\r\n        <h6>_D</h6>\r\n        <div class=\"d_Container\"></div>\r\n        <h6>_R</h6>\r\n        <div class=\"r_Container\"></div>\r\n        <h6>_ (Pseudo-variables)</h6>\r\n        <div class=\"_Container\"></div>\r\n        <h6>_Rule</h6>\r\n        <div class=\"_ruleContainer\"></div>\r\n        <h6>_Export</h6>\r\n        <div class=\"_exportContainer\"></div>\r\n        <h6>_Constraint</h6>\r\n        <div class=\"_constraintContainer\"></div>\r\n        <h6>_Dstyle</h6>\r\n        <div class=\"_dstyleContainer\"></div>\r\n        <h6>_Import</h6>\r\n        <div class=\"_importContainer\"></div>\r\n        <h6>_Chain</h6>\r\n        <div class=\"_chainContainer\"></div>\r\n        <h6>_ChainFinal</h6>\r\n        <div class=\"_chainFinalContainer\"></div>\r\n      </div>\r\n      <div class=\"detail save\" style=\"display: none\">\r\n        <div class=\"saveasrow\">\r\n          <button class=\"delete btn btn-secondary\">Delete</button>\r\n          <button class=\"saveas btn btn-secondary\">Save as</button>\r\n          <input class=\"saveas form-control\" placeholder=\"new style name\">\r\n        </div>\r\n        <h6>Style is compatible with:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>M2 Elements</span><input class=\"metamodel\" type=\"checkbox\"></label>\r\n          <label><span>M1 Elements</span><input class=\"model\" type=\"checkbox\"></label>\r\n        </div>\r\n        <h6>And appliable to:</h6>\r\n        <div class=\"compatibleRow\">\r\n          <label><span>Class</span><input class=\"class\" type=\"checkbox\"></label>\r\n          <label><span>Attributes</span><input class=\"attribute\" type=\"checkbox\"></label>\r\n          <label><span>References</span><input class=\"reference\" type=\"checkbox\"></label>\r\n          <label><span>Operations</span><input class=\"operation\" type=\"checkbox\"></label>\r\n          <label><span>Parameters</span><input class=\"parameter\" type=\"checkbox\"></label>\r\n        </div>\r\n      </div>\r\n\r\n      < !-- <div class=\"separatorShell\">\r\n        <h6 class=\"vertexStyle separator\">\r\n          <label><span>Preview&nbsp;of&nbsp;</span>\r\n            <select class=\"previewselector\"></select>\r\n          </label></h6>\r\n        <button class=\"helpButton vertex btn btn-info\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div> -->\r\n\r\n      <!-- start of new measurable -->\r\n      <div class=\"columnContainer\"><div class=\"measurablePlaceholder\"></div></div>\r\n      <!-- end of new measurable -->\r\n\r\n    </div>\r\n\r\n    <div class=\"template modelpiece\">\r\n      <!-- https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows -->\r\n      <div class=\"arrowContainer\">\r\n        <button class=\"arrow up btn btn-primary\" title=\"Go up a level in the html DOM\">⇪</button>\r\n        <h6 class=\"tsclass\">TS_Class</h6>\r\n        <button class=\"arrow upp btn btn-primary\" title=\"Go to the root level\">🢁</button>\r\n        <button class=\"arrow down btn btn-primary\" style=\"display:none\" title=\"Go to the previous level\">⇩</button>\r\n      </div>\r\n      <label class=\"iclass show\">\r\n        <input type=\"checkbox\" class=\"showAsEdge\">\r\n        <span class=\"showAsEdgeText\">#####</span>\r\n      </label>\r\n      <div class=\"style own colContainer\"></div>\r\n      <div class=\"sizeContainer\" style=\"display: flex;\">\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizex\" digit=\"5\" type=\"number\">\r\n            <span>X</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizey\" digit=\"5\" type=\"number\">\r\n            <span>Y</span>\r\n          </label>\r\n        </div>\r\n        <div class=\"sizeContainerHalf\">\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizew\" digit=\"5\" type=\"number\">\r\n            <span>Width</span>\r\n          </label>\r\n          <label class=\"sizelabel\">\r\n            <input class=\"sizeh\" digit=\"5\" type=\"number\">\r\n            <span>Height</span>\r\n          </label>\r\n        </div>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autoheight\"><span>Adapt height to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autowidth\"><span>Adapt width to content</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"autolayout\"><span>Include in Auto-layout</span></label>\r\n        <label class=\"autosizecontainer\"><input type=\"checkbox\" class=\"edgeVisibility\"><span>Display edges</span></label>\r\n        <table class=\"edgePriority\">\r\n          <thead>\r\n          <tr>\r\n            <th colspan=\"3\">Edges visibility</th>\r\n          </tr>\r\n          <tr>\r\n            <th colspan=\"1\" rowspan=\"2\">Kind</th>\r\n            <th colspan=\"2\" rowspan=\"1\">Direction</th>\r\n          </tr>\r\n          <tr>\r\n            <td colspan=\"1\">In</td>\r\n            <td colspan=\"1\">Out</td>\r\n          </tr>\r\n          </thead>\r\n          <tbody>\r\n          <tr>\r\n            <th>Relationship</th>\r\n            <td><input kind=\"in-rel\" type=\"number\"></td>\r\n            <td><input kind=\"out-rel\" type=\"number\"></td>\r\n          </tr>\r\n          <tr>\r\n            <th>Inheritance</th>\r\n            <td><input kind=\"in-ext\" type=\"number\"></td>\r\n            <td><input kind=\"out-ext\" type=\"number\"></td>\r\n          </tr>\r\n          <tr>\r\n            <th>Other</th>\r\n            <td><input kind=\"in-oth\" type=\"number\"></td>\r\n            <td><input kind=\"out-oth\" type=\"number\"></td>\r\n          </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n\r\n      <div class=\"separatorShell\"></div>\r\n      <label class=\"\">\r\n        <input type=\"checkbox\" class=\"asDefault\">\r\n        <span>Use as default style</span>\r\n      </label>\r\n      <div class=\"roww nowrap detailButtonContainer\">\r\n        <button target=\"div.detail.style.inherited\" class=\"detail inherited btn btn-primary\">\r\n          <span class=\"closed\">Inherited Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n        <button target=\"div.detail.style.inheritable\" class=\"detail inheritable btn btn-primary\">\r\n          <span class=\"closed\">Inheritable Style</span>\r\n          <span class=\"opened\">\r\n              <div class=\"HorizontalContainer\"><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span><span class=\"HorizontalChild\">⮝</span></div>\r\n            </span>\r\n        </button>\r\n      </div>\r\n      <!-- detail style instances colContainer ... -->\r\n\r\n      <div class=\"detail style inheritable colContainer\"></div>\r\n      <div class=\"detail style inherited colContainer\"></div>\r\n    </div>\r\n    <div class=\"template edge\">\r\n      <h1>Edge style</h1>\r\n      <table><tbody>\r\n      <tr>\r\n        <td>Style</td>\r\n        <td><select class=\"edgeStyle\"><optgroup label=\"Edge style\">\r\n          <option value=\"straight\" title=\"./img/icons/edge/straight.jpg\">Straight</option>\r\n          <option value=\"angular23Auto\" title=\"./img/icons/edge/angular23.jpg\">Angulated (auto)</option>\r\n          <option value=\"angular2\" title=\"./img/icons/edge/angular2.jpg\">Angulated (2)</option>\r\n          <option value=\"angular3\" title=\"./img/icons/edge/angular3.jpg\">Angulated (3)</option>\r\n        </optgroup></select></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor common\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth common\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On highlight preview</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor highlight\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth highlight\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On selection</td></tr>\r\n      <tr>\r\n        <td>Color</td>\r\n        <td><input type=\"color\" class=\"edgeColor selected\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Width</td>\r\n        <td><input type=\"number\" class=\"edgeWidth selected\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <h1>EdgePoint style</h1>\r\n      <table><tbody>\r\n      <tr><td colspan=\"2\" class=\"title\">On normal status</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePoint radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePoint strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePoint fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">On bounding preview</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointPreview strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointPreview fill\"></td>\r\n      </tr>\r\n      <tr><td colspan=\"2\" class=\"title\">While moving</td></tr>\r\n      <tr>\r\n        <td>Radius</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected radius\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Width</td>\r\n        <td><input type=\"number\" class=\"edgePointSelected strokeW\" min=\"0\" step=\"0.1\" placeholder=\"0\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Border Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected stroke\"></td>\r\n      </tr>\r\n      <tr>\r\n        <td>Fill Color</td>\r\n        <td><input type=\"color\" class=\"edgePointSelected fill\"></td>\r\n      </tr>\r\n      </tbody></table>\r\n      <div contenteditable=\"true\" class=\"edgeStyle label html\" placeholder=\"Label of link. Not filled means without label.\"></div>\r\n      <div class=\"separatorShell\">\r\n        <h6 class=\"edgeStyle separator\">Preview:</h6>\r\n        <button class=\"helpButton edgeLabel\" matTooltip=\"todo: explain .EndPoint, .TypeSelector, .ClassSelector...\">?</button>\r\n      </div>\r\n      <div class=\"edgeStyle preview\"></div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
     /***/
   },
 
@@ -3792,8 +3792,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return null;
         }
       }, {
+        key: "gotDeleted",
+        value: function gotDeleted() {
+          return false;
+        } // todo
+
+      }, {
         key: "delete",
         value: function _delete() {
+          var refreshGUI = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           this.storage.remove(this.name, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["SaveListEntry"].model); // set empty (meta)model as most recent anonymous savefile and next to be opened.
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["LocalStorage"].deleteLastOpened(this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"] ? 2 : 1);
@@ -4044,6 +4052,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           ECoreAttribute.eType = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker + 'eType'; // "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
 
           ECoreAttribute.namee = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker + 'name';
+          ECoreAttribute.lowerbound = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker + 'lowerBound';
+          ECoreAttribute.upperbound = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker + 'upperBound';
           ECoreOperation.eParameters = 'eParameters';
           ECoreOperation.namee = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker + 'name'; // "EExceptionNameCustom",
 
@@ -4968,6 +4978,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.Vmarks = {};
         this.assignID();
+        this.name = null;
         this.parent = parent;
         this.metaParent = metaVersion;
         this.instances = [];
@@ -5076,16 +5087,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getModelRoot",
         value: function getModelRoot() {
+          var acceptNull = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
           var p = this;
           var i = 0;
 
-          while (p.parent && p !== p.parent && i++ < 6) {
+          while (p.parent && p !== p.parent && i++ < 6 * 10) {
             p = p.parent;
           }
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!p || !(p instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"]), 'failed to get model root:', this, 'm lastParent:', p);
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!acceptNull && (!p || !(p instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"])), 'failed to get model root:', this, 'lastParent:', p, i);
 
           return p;
+        }
+      }, {
+        key: "gotDeleted",
+        value: function gotDeleted() {
+          return !!this.getModelRoot(true);
         }
       }, {
         key: "isChildNameTaken",
@@ -5279,8 +5296,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           var v = this.getVertex();
-          v.refreshGUI();
-          console.log('pbar selected:', v.owner.propertyBar.selectedModelPiece.name, 'me:', this.name);
+          v.refreshGUI(); // console.log('pbar selected:', v.owner.propertyBar.selectedModelPiece.name, 'me:', this.name);
+
           if (this.isChildrenOf(v.owner.propertyBar.selectedModelPiece, true, true)) v.owner.propertyBar.refreshGUI();
         }
       }, {
@@ -5550,16 +5567,57 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.instances = [];
           this.refreshGUI();
+        }
+      }, {
+        key: "clog",
+        value: function clog() {
+          return [this.toString(), this];
         } // nb: le sottoclassi lo devono sempre chiamare con refreshgui = false
 
       }, {
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-          console.trace("delete remove self", this, refreshgui);
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          var i;
+          var arr;
+          var debug = true;
+          var root = this.getModelRoot(true);
+          debug && console.trace("mp.delete() start", this, refreshgui);
           this.unmarkAll();
+          {
+            // handle instances start
+            debug && console.log("delete remove or convert instances", this, refreshgui);
+            arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.instances);
+
+            if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
+              var instances = arr;
+              var scores = this.getTypeConversionScores();
+              var newType = scores.length && scores[0].class;
+
+              if (!newType) {
+                for (i = 0; instances && i < instances.length; i++) {
+                  instances[i].delete(false, false);
+                }
+              } else {
+                for (i = 0; instances && i < instances.length; i++) {
+                  instances[i].convertTo(newType);
+                }
+              } // posso promuovere le istanze ad una sottoclasse o superclasse di quella cancellata invece di eliminarle.
+
+            } else {
+              // not m2-class.
+              for (i = 0; arr && i < arr.length; i++) {
+                arr[i].delete(false);
+              }
+            }
+          } // handle instances end
+
+          var oldParent = null;
 
           if (this.parent) {
+            oldParent = this.parent;
+
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.parent.childrens, this);
 
             this.parent = null;
@@ -5571,10 +5629,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.metaParent = null;
           }
 
-          console.log("delete remove childs", this, refreshgui);
-          var i;
-
-          var arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.views);
+          debug && console.log("delete remove views", this, refreshgui);
+          arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.views);
 
           for (i = 0; arr && i < arr.length; i++) {
             arr[i].delete();
@@ -5586,40 +5642,54 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             arr[i].delete();
           }
 
-          console.log("delete remove views", this, refreshgui);
-          arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.childrens);
+          debug && console.log("delete remove childs", this, refreshgui);
 
-          for (i = 0; arr && i < arr.length; i++) {
-            arr[i].delete(false);
+          var childarr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.childrens);
+
+          for (i = 0; childarr && i < childarr.length; i++) {
+            childarr[i].delete(false, true);
           }
 
-          console.log("delete remove or convert instances", this, refreshgui);
-          arr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.instances);
+          if (oldParent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IPackage"]) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldParent.classes, this);
 
-          if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
-            var instances = arr;
-            var scores = this.getTypeConversionScores();
-            var newType = scores.length && scores[0].class;
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldParent.enums, this);
+          } else if (oldParent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EEnum"]) {// U.arrayRemoveAll(oldParent.literals, this as any as unknown);
+          } else if (oldParent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldParent.attributes, this);
 
-            if (!newType) {
-              for (i = 0; instances && i < instances.length; i++) {
-                instances[i].delete(false);
-              }
-            } else {
-              for (i = 0; instances && i < instances.length; i++) {
-                instances[i].convertTo(newType);
-              }
-            } // posso promuovere le istanze ad una sottoclasse o superclasse di quella cancellata invece di eliminarle.
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldParent.references, this);
 
-          } else {
-            // not m2-class.
-            for (i = 0; arr && i < arr.length; i++) {
-              arr[i].delete(false);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldParent.operations, this);
+          } else if (oldParent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]) {// U.arrayRemoveAll(oldParent.parameters, this as any as EParameter);
+          }
+
+          debug && console.log("mp.delete() end, refresh gui", this, refreshgui);
+
+          if (root && !fromParent) {
+            var pbar = root.graph.propertyBar;
+            var pbarselect = pbar.selectedModelPiece;
+
+            if (pbarselect.gotDeleted()) {
+              debug && console.log('pbar show, ', {
+                param: oldParent || root,
+                oldParent: oldParent,
+                root: root,
+                thiss: this,
+                thisss: this.toString()
+              });
+              pbar.show(oldParent || root);
             }
           }
 
-          console.log("delete end, refresh gui", this, refreshgui);
-          if (refreshgui) this.refreshGUI();
+          if (refreshgui) {
+            this.refreshGUI();
+          }
+        }
+      }, {
+        key: "toString",
+        value: function toString() {
+          return (this.metaParent && this.metaParent.name || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getTSClassName(this)) + "_" + this.id + "_" + this.name;
         }
       }, {
         key: "validate",
@@ -6005,7 +6075,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var arr;
           var parent = this.parent;
           var i;
-          if (untilStartOrEnd) offset = offset > 0 ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+          if (untilStartOrEnd) offset = offset > 0 ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY; // logically fix in ecore order
 
           if ((arr = parent.childrens) && (i = arr.indexOf(this)) !== -1) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(arr, this);
@@ -6044,6 +6114,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           this.updateKey();
+          if (!(this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClassifier"])) return; // GRAPHically fix
+
+          var vertex = this.getVertex(false);
+          if (!vertex) return;
+
+          var currentPosition = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].getChildIndex(vertex.htmlg.parentElement, vertex.htmlg);
+
+          console.log('pushUp', {
+            untilStartOrEnd: untilStartOrEnd,
+            offset: offset,
+            currentPosition: currentPosition
+          });
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].insertNodeAt(vertex.htmlg.parentElement, vertex.htmlg, currentPosition + offset);
+        }
+      }, {
+        key: "addAnnotation",
+        value: function addAnnotation() {// todo
         }
       }], [{
         key: "GetStyle",
@@ -6830,13 +6918,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ../../common/Joiner */
-    "./src/common/Joiner.ts"); // NB: se nel receiveManager ricevo un ordine di update di un ModelPieceID non esistente, devo bufferarlo.
+    "./node_modules/tslib/tslib.es6.js"); // NB: se nel receiveManager ricevo un ordine di update di un ModelPieceID non esistente, devo bufferarlo.
     // potrebbe essere una inversione di ordine dei messaggi nello strato di rete.
     // NB: se al server arrivano 2 renameModelPiece nell'ordine inverso, devo tenere traccia del timestamp,
     // e se l'ultimo rename sul mp è più recente di quello appena arrivato lo ignoro. (idempotenza, non cambia l'ordine dei messaggi)
@@ -6844,75 +6926,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     //  poi posso sempre salvare sia in eCore che nel mio nuovo formato.
 
 
-    var SendManager =
-    /*#__PURE__*/
-    function () {
-      function SendManager(serverAdress, timeout) {
-        _classCallCheck(this, SendManager);
+    var SendManager = function SendManager(serverAdress, timeout) {
+      _classCallCheck(this, SendManager);
 
-        // U.pe(!serverAdress, "fill server adress before testing");
-        this.serverAdress = serverAdress;
-        this.timeout = timeout;
-      }
-
-      _createClass(SendManager, [{
-        key: "update",
-        value: function update(uid, fieldName, newValue) {
-          var msg = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelUpdateMessage"](uid, fieldName, newValue);
-
-          var callback = function callback() {};
-
-          var request = $.post(this.serverAdress, msg, callback);
-          request = $.ajax({
-            url: this.serverAdress,
-            type: "POST",
-            dataType: "json",
-            timeout: this.timeout,
-            success: function success(response) {
-              setTimeout(function () {
-                return SendManager.manager.update(uid, fieldName, newValue);
-              });
-            },
-            error: function error(xmlhttprequest, textstatus, message) {
-              // 'success' | 'notmodified' | 'nocontent';
-              switch (textstatus) {
-                default:
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unexpected return code from ajax request:', textstatus, msg);
-
-                  break;
-
-                case 'timeout':
-                  break;
-
-                case 'error':
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'undefined error after synch server request send', msg);
-
-                  break;
-
-                case 'abort':
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'undefined abort after synch server request send', msg);
-
-                  break;
-
-                case 'parsererror':
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'undefined abort after synch server request send', msg);
-
-                  break;
-              }
-
-              if (textstatus === "timeout") {
-                alert("got timeout");
-              } else {
-                alert(textstatus);
-              }
-            }
-          });
-          request.state();
-        }
-      }]);
-
-      return SendManager;
-    }();
+      // U.pe(!serverAdress, "fill server adress before testing");
+      this.serverAdress = serverAdress;
+      this.timeout = timeout;
+    };
 
     SendManager.manager = new SendManager("", 5000);
     /***/
@@ -6983,7 +7003,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "::ng-deep body {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainBorderWidth: 5px;\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n  --bluebordercolor: #0084ff;\r\n/*\r\n  --mainFontColor: transparent;\r\n  --mainBackgroundColor: transparent;\r\n  --mainBorderColor: transparent;\r\n  --secondaryBorderColor: transparent;\r\n  --popupBackgroundColor: transparent;\r\n  --altBackgroundColor: var(--mainBorderColor);\r\n  --altFontColor: transparent;*/\r\n\r\n  /* todo: questi colori vengono sempre rimpiazzati dinamicamente, esistono solo in fallback se l'utente elimina tutti i color-scheme*/\r\n  --color-1: #f5f5f5;\r\n  --color-2: #3c3c44;\r\n  --color-3: #2e2f34;\r\n  --color-4: #1E90FF;\r\n  --color-bg-1: #ffffff;\r\n  --color-bg-2: #f0f0f0;\r\n  --color-bg-3: #2e2f34;\r\n  --color-bg-30: transparent;\r\n\r\n  /*\r\n  --LightsecondaryBorderColor: var(--color-1); /*#c5c5c5;* /\r\n  --LightmainFontColor: var(--color-2);\r\n  --LightaltFontColor: var(--color-3);\r\n  --LightmainBackgroundColor: var(--color-bg-1);\r\n  --LightmainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;* /\r\n  --LightpopupBackgroundColor: var(--color-bg-3);\r\n  /* --LightaltBackgroundColor: var(--color-bg-30);* /\r\n\r\n  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;* /--color-1\r\n  --DarkmainFontColor: #b2b2ba; --color-2\r\n  --DarkaltFontColor: #f0f0f0;/* var(--LightmainBorderColor); * /--color-3\r\n  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;* /--color-bg-1\r\n  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;* /--color-bg-2\r\n  --DarkpopupBackgroundColor: #44444c;--color-bg-3\r\n  /*--DarkaltBackgroundColor: var(--mainBorderColor);*/\r\n\r\n  --mainFontColor: var(--color-2);\r\n  --mainBackgroundColor: var(--color-bg-1);\r\n  --mainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/\r\n  --secondaryBorderColor: var(--color-1); /*#c5c5c5;*/\r\n  --popupBackgroundColor: var(--color-bg-3);\r\n  /*--altBackgroundColor: var(--color-bg-30);*/\r\n  --altFontColor: var(--color-3);\r\n}\r\n.Vertex{\r\n  --color-1: #FFFFFF;\r\n  --color-2: #000000;\r\n  --color-3: #000000;\r\n  --color-4: #1E90FF;\r\n  --color-5: #FF0000;\r\n}\r\n.Feature{\r\n   --color-1: #ff8c00;\r\n   --color-2: #28a745;\r\n   --color-3: #d3d3d3;\r\n   --color-4: #FFFFFF;\r\n }\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0); /* unused? totally transparent*/\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n::ng-deep .graph *{\r\n  overflow: inherit;\r\n  text-overflow: ellipsis;\r\n}\r\n/*because color will be inherited, but background not (since input and selects cannot inherit and inherit behave like transparent.\r\n this is fine on the input itself but the optgroup cannot have transparent and will be always white.\r\n now, the problem is if you set a bacgkround-color: inherit / transparent select inside a black element with white text, the optgroup will be white with white text.\r\n */\r\n::ng-deep select{\r\n  text-overflow: clip;\r\n}\r\n::ng-deep optgroup{\r\n  color: black;\r\n  background-color: white;\r\n}\r\n::ng-deep [title] {\r\n  cursor: help;\r\n}\r\n/*::-webkit-scrollbar {\r\ndisplay: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCLGtCQUFrQjtFQUNoQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpRUFBaUU7RUFDakUsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWiwwQkFBMEI7QUFDNUI7Ozs7Ozs7K0JBTytCOztFQUU3QixvSUFBb0k7RUFDcEksa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLDBCQUEwQjs7RUFFMUI7Ozs7Ozs7Ozs7Ozs7OztzREFlb0Q7O0VBRXBELCtCQUErQjtFQUMvQix3Q0FBd0M7RUFDeEMsb0NBQW9DLEVBQUUsbURBQW1EO0VBQ3pGLHNDQUFzQyxFQUFFLFdBQVc7RUFDbkQseUNBQXlDO0VBQ3pDLDRDQUE0QztFQUM1Qyw4QkFBOEI7QUFDaEM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQTtHQUNHLGtCQUFrQjtHQUNsQixrQkFBa0I7R0FDbEIsa0JBQWtCO0dBQ2xCLGtCQUFrQjtDQUNwQjtBQUVEO0VBQ0Usc0JBQXNCO0VBQ3RCLGlDQUFpQztFQUNqQyxvQ0FBb0M7RUFDcEMsNENBQTRDLEVBQUUsK0JBQStCO0VBQzdFLHdDQUF3QztFQUN4QywyQkFBMkI7RUFDM0IseUNBQXlDO0VBQ3pDLDZDQUE2QztFQUM3QyxzQ0FBc0M7QUFDeEM7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQix1QkFBdUI7QUFDekI7QUFDQTs7O0VBR0U7QUFDRjtFQUNFLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLHVCQUF1QjtBQUN6QjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7O0VBRUU7QUFDRixhQUFhLDhCQUE4QixFQUFFO0FBQzdDLHNCQUFzQixvQ0FBb0MsRUFBRTtBQUM1RCxtQkFBbUIsaUNBQWlDLEVBQUU7QUFDdEQ7RUFDRSxhQUFhO0VBQ2IsMkJBQTJCLEVBQUUsU0FBUztBQUN4QztBQUNBO0VBQ0Usa0NBQWtDO0FBQ3BDO0FBQ0EsT0FBTztBQUVQLHlDQUF5QztBQUN6QztFQUNFLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsdUJBQXVCO0VBQ3ZCLFdBQVc7RUFDWCw0Q0FBNEM7RUFDNUMseUJBQXlCO0VBQ3pCLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UscUJBQXFCO0VBQ3JCLHVDQUF1QztFQUN2Qyx5SEFBeUg7RUFDekgsNERBQTREO0FBQzlEO0FBQ0E7RUFDRSw2QkFBNkI7RUFDN0I7Z0JBQ2M7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsYUFBYTtBQUNmO0FBQ0E7RUFDRSxlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFdBQVc7RUFDWCw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLGVBQWU7RUFDZixtQkFBWTtVQUFaLFlBQVk7RUFDWixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixXQUFXO0FBQ2I7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHdCQUF1QjtVQUF2Qix1QkFBdUI7QUFDekI7QUFDQTs7Ozs7Ozs7Ozs7Ozs7Ozs7RUFpQkU7QUFFRjtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBRUE7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxZQUFZO0VBQ1osZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsVUFBVTtBQUNaO0FBR0EsMEZBQTBGO0FBQzFGOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Q0FxQkM7QUFDRDtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFtQjtFQUFuQiw2QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLGVBQWU7RUFDZix5QkFBOEI7VUFBOUIsOEJBQThCO0VBQzlCLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIseUJBQXlCO0VBQ3pCLFlBQVksQ0FBQztBQUdmO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLHVHQUF1RztFQUN2Ryx3REFBd0Q7RUFDeEQseUJBQXlCLENBQUMsd0JBQXdCO0FBQ3BEO0FBQ0E7RUFDRSxZQUFZO0VBQ1osWUFBWTtFQUNaLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7QUFNQTtFQUNFLFlBQVk7QUFDZCIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOjpuZy1kZWVwIGJvZHkgey8qIGNzcyB2YXJpYWJsZXMgKi9cclxuICAtLXRvcGJhckg6IDQwcHg7XHJcbiAgLS1zaWRlYmFyVzogMjgzcHg7XHJcbiAgLS1tYWluQm9yZGVyV2lkdGg6IDVweDtcclxuICAtLW1haW5Cb3JkZXI6IHZhcigtLW1haW5Cb3JkZXJDb2xvcikgc29saWQgdmFyKC0tbWFpbkJvcmRlcldpZHRoKTtcclxuICAtLXNjcm9sbGJhclc6IDBweDtcclxuICAtLXRhYkg6IDMwcHg7XHJcbiAgLS1ibHVlYm9yZGVyY29sb3I6ICMwMDg0ZmY7XHJcbi8qXHJcbiAgLS1tYWluRm9udENvbG9yOiB0cmFuc3BhcmVudDtcclxuICAtLW1haW5CYWNrZ3JvdW5kQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tbWFpbkJvcmRlckNvbG9yOiB0cmFuc3BhcmVudDtcclxuICAtLXNlY29uZGFyeUJvcmRlckNvbG9yOiB0cmFuc3BhcmVudDtcclxuICAtLXBvcHVwQmFja2dyb3VuZENvbG9yOiB0cmFuc3BhcmVudDtcclxuICAtLWFsdEJhY2tncm91bmRDb2xvcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKTtcclxuICAtLWFsdEZvbnRDb2xvcjogdHJhbnNwYXJlbnQ7Ki9cclxuXHJcbiAgLyogdG9kbzogcXVlc3RpIGNvbG9yaSB2ZW5nb25vIHNlbXByZSByaW1waWF6emF0aSBkaW5hbWljYW1lbnRlLCBlc2lzdG9ubyBzb2xvIGluIGZhbGxiYWNrIHNlIGwndXRlbnRlIGVsaW1pbmEgdHV0dGkgaSBjb2xvci1zY2hlbWUqL1xyXG4gIC0tY29sb3ItMTogI2Y1ZjVmNTtcclxuICAtLWNvbG9yLTI6ICMzYzNjNDQ7XHJcbiAgLS1jb2xvci0zOiAjMmUyZjM0O1xyXG4gIC0tY29sb3ItNDogIzFFOTBGRjtcclxuICAtLWNvbG9yLWJnLTE6ICNmZmZmZmY7XHJcbiAgLS1jb2xvci1iZy0yOiAjZjBmMGYwO1xyXG4gIC0tY29sb3ItYmctMzogIzJlMmYzNDtcclxuICAtLWNvbG9yLWJnLTMwOiB0cmFuc3BhcmVudDtcclxuXHJcbiAgLypcclxuICAtLUxpZ2h0c2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLTEpOyAvKiNjNWM1YzU7KiAvXHJcbiAgLS1MaWdodG1haW5Gb250Q29sb3I6IHZhcigtLWNvbG9yLTIpO1xyXG4gIC0tTGlnaHRhbHRGb250Q29sb3I6IHZhcigtLWNvbG9yLTMpO1xyXG4gIC0tTGlnaHRtYWluQmFja2dyb3VuZENvbG9yOiB2YXIoLS1jb2xvci1iZy0xKTtcclxuICAtLUxpZ2h0bWFpbkJvcmRlckNvbG9yOiB2YXIoLS1jb2xvci1iZy0yKTsgLyojOWNhN2I4OyBvbiBpbnRlbGxpSmlkZWEgZGFya2VyIHNoYWRlIC8qI2U1ZTVlNTsqIC9cclxuICAtLUxpZ2h0cG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMpO1xyXG4gIC8qIC0tTGlnaHRhbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMwKTsqIC9cclxuXHJcbiAgLS1EYXJrc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6ICMzYzNjNDQ7LyojYzVjNWM1OyogLy0tY29sb3ItMVxyXG4gIC0tRGFya21haW5Gb250Q29sb3I6ICNiMmIyYmE7IC0tY29sb3ItMlxyXG4gIC0tRGFya2FsdEZvbnRDb2xvcjogI2YwZjBmMDsvKiB2YXIoLS1MaWdodG1haW5Cb3JkZXJDb2xvcik7ICogLy0tY29sb3ItM1xyXG4gIC0tRGFya21haW5CYWNrZ3JvdW5kQ29sb3I6ICMxYTFhMWM7Lyp3aGl0ZVNtb2tlOyogLy0tY29sb3ItYmctMVxyXG4gIC0tRGFya21haW5Cb3JkZXJDb2xvcjogIzJlMmYzNDsvKiNlNWU1ZTU7KiAvLS1jb2xvci1iZy0yXHJcbiAgLS1EYXJrcG9wdXBCYWNrZ3JvdW5kQ29sb3I6ICM0NDQ0NGM7LS1jb2xvci1iZy0zXHJcbiAgLyotLURhcmthbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7Ki9cclxuXHJcbiAgLS1tYWluRm9udENvbG9yOiB2YXIoLS1jb2xvci0yKTtcclxuICAtLW1haW5CYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTEpO1xyXG4gIC0tbWFpbkJvcmRlckNvbG9yOiB2YXIoLS1jb2xvci1iZy0yKTsgLyojOWNhN2I4OyBvbiBpbnRlbGxpSmlkZWEgZGFya2VyIHNoYWRlIC8qI2U1ZTVlNTsqL1xyXG4gIC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLTEpOyAvKiNjNWM1YzU7Ki9cclxuICAtLXBvcHVwQmFja2dyb3VuZENvbG9yOiB2YXIoLS1jb2xvci1iZy0zKTtcclxuICAvKi0tYWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1jb2xvci1iZy0zMCk7Ki9cclxuICAtLWFsdEZvbnRDb2xvcjogdmFyKC0tY29sb3ItMyk7XHJcbn1cclxuLlZlcnRleHtcclxuICAtLWNvbG9yLTE6ICNGRkZGRkY7XHJcbiAgLS1jb2xvci0yOiAjMDAwMDAwO1xyXG4gIC0tY29sb3ItMzogIzAwMDAwMDtcclxuICAtLWNvbG9yLTQ6ICMxRTkwRkY7XHJcbiAgLS1jb2xvci01OiAjRkYwMDAwO1xyXG59XHJcbi5GZWF0dXJle1xyXG4gICAtLWNvbG9yLTE6ICNmZjhjMDA7XHJcbiAgIC0tY29sb3ItMjogIzI4YTc0NTtcclxuICAgLS1jb2xvci0zOiAjZDNkM2QzO1xyXG4gICAtLWNvbG9yLTQ6ICNGRkZGRkY7XHJcbiB9XHJcblxyXG46Om5nLWRlZXAgKntcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIHNjcm9sbGJhci1iYXNlLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBzY3JvbGxiYXItM2RsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgc2Nyb2xsYmFyLWhpZ2hsaWdodC1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7IC8qIHVudXNlZD8gdG90YWxseSB0cmFuc3BhcmVudCovXHJcbiAgc2Nyb2xsYmFyLXRyYWNrLWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItYXJyb3ctY29sb3I6ICMwMDA7XHJcbiAgc2Nyb2xsYmFyLXNoYWRvdy1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgc2Nyb2xsYmFyLWRhcmtzaGFkb3ctY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIC8qIC1tb3otYXBwZWFyYW5jZTogbm9uZSAhaW1wb3J0YW50OyAqL1xyXG59XHJcbjo6bmctZGVlcCAuZ3JhcGggKntcclxuICBvdmVyZmxvdzogaW5oZXJpdDtcclxuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxufVxyXG4vKmJlY2F1c2UgY29sb3Igd2lsbCBiZSBpbmhlcml0ZWQsIGJ1dCBiYWNrZ3JvdW5kIG5vdCAoc2luY2UgaW5wdXQgYW5kIHNlbGVjdHMgY2Fubm90IGluaGVyaXQgYW5kIGluaGVyaXQgYmVoYXZlIGxpa2UgdHJhbnNwYXJlbnQuXHJcbiB0aGlzIGlzIGZpbmUgb24gdGhlIGlucHV0IGl0c2VsZiBidXQgdGhlIG9wdGdyb3VwIGNhbm5vdCBoYXZlIHRyYW5zcGFyZW50IGFuZCB3aWxsIGJlIGFsd2F5cyB3aGl0ZS5cclxuIG5vdywgdGhlIHByb2JsZW0gaXMgaWYgeW91IHNldCBhIGJhY2drcm91bmQtY29sb3I6IGluaGVyaXQgLyB0cmFuc3BhcmVudCBzZWxlY3QgaW5zaWRlIGEgYmxhY2sgZWxlbWVudCB3aXRoIHdoaXRlIHRleHQsIHRoZSBvcHRncm91cCB3aWxsIGJlIHdoaXRlIHdpdGggd2hpdGUgdGV4dC5cclxuICovXHJcbjo6bmctZGVlcCBzZWxlY3R7XHJcbiAgdGV4dC1vdmVyZmxvdzogY2xpcDtcclxufVxyXG46Om5nLWRlZXAgb3B0Z3JvdXB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG59XHJcbjo6bmctZGVlcCBbdGl0bGVdIHtcclxuICBjdXJzb3I6IGhlbHA7XHJcbn1cclxuLyo6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuZGlzcGxheTogbm9uZTtcclxufSovXHJcbio6ZGlzYWJsZWQgeyBjdXJzb3I6IG5vdC1hbGxvd2VkICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1jaGVja2JveF17IC1tb3otYXBwZWFyYW5jZTogY2hlY2tib3ggIWltcG9ydGFudDsgfVxyXG5pbnB1dFt0eXBlPXJhZGlvXXsgLW1vei1hcHBlYXJhbmNlOiByYWRpbyAhaW1wb3J0YW50OyB9XHJcbmlucHV0OmRpc2FibGVke1xyXG4gIG9wYWNpdHkgOiAuNzU7XHJcbiAgZmlsdGVyICA6IGFscGhhKG9wYWNpdHk9NzUpOyAvKiBJRTw5ICovXHJcbn1cclxuOjpuZy1kZWVwIC5zdHlsZUVkaXRvclNlbGVjdGVke1xyXG4gIG91dGxpbmU6IDNweCBkYXNoZWQgcmVkICFpbXBvcnRhbnQ7XHJcbn1cclxuLypvbGRzKi9cclxuXHJcbi8qKioqKioqKioqKioqKioqKiogYXR0cmlidXRlRWRpdG9yLmNzcyAqL1xyXG4uYXR0cmlidXRlRWRpdG9yLCAuc3R5bGVFZGl0b3J7XHJcbiAgLypkaXNwbGF5OmlubGluZS1ib3g7Ki9cclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IC1tb3otZml0LWNvbnRlbnQ7XHJcbiAgcGFkZGluZzo4cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbiAgYm9yZGVyOiB2YXIoLS1tYWluQm9yZGVyKTtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG1heC1oZWlnaHQ6MTAwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuLnN0eWxlRWRpdG9ye1xyXG4gIGxlZnQ6IHZhcigtLXNpZGViYXJXKTtcclxuICB0b3A6IGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSk7XHJcbiAgLyp2b2dsaW8gY2hlIHNpYSBkaXZlcnNhIHBlcmNow6ggZGkgc29saXRvIHBhcnRlIGNvbiBhbHRlenphIHBhcmkgYSB0b3BiYXIuaCBlIHZvZ2xpbyBjaGUgc2lhIHNjcm9sbGFiaWxlIHNlbnphIHNwb3N0YXJsYSovXHJcbiAgbWF4LWhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG59XHJcbmJ1dHRvbi5hdHRyaWJ1dGVFZGl0b3JDb25maXJtLCBidXR0b24uc3R5bGVFZGl0b3JDb25maXJte1xyXG4gIG1hcmdpbi1sZWZ0OiBjYWxjKDUwJSAtIDUwcHgpO1xyXG4gIC8qIHdpZHRoOjEwMHB4O1xyXG4gICBoZWlnaHQ6MzBweDsqL1xyXG59XHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIC5hdHRyaWJ1dGVFZGl0b3JGaWVsZE5hbWUsIHRhYmxlLnN0eWxlVGFibGUgLnN0eWxlRWRpdG9yRmllbGROYW1le1xyXG4gIG1heC13aWR0aDoxNTBweDtcclxuICBtYXgtaGVpZ2h0OjE1MHB4O1xyXG4gIG92ZXJmbG93OmF1dG87XHJcbn1cclxuLnN0eWxlVGFibGV7XHJcbiAgbWFyZ2luLXRvcDoxMHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uc3R5bGVUYWJsZSB0ZHtcclxuICBtYXgtd2lkdGg6IDMwMHB4O1xyXG59XHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSwgLnN0eWxlRWRpdG9yVGl0bGV7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5lZGdlUm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLmVkZ2VSb3c+KntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogMHB4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiA0cHg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcbi5pc0NvbXBvdW5kRWRnZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG4uc3R5bGVDb21wb3VuZFdyYXBwZXJ7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5jb21wb3VuZEVkZ2VTdGFydCwgLmNvbXBvdW5kRWRnZUVuZHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLlNpZGViYXJTdHlsZUh0bWwsIC5HcmFwaFN0eWxlSHRtbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcbi8qXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHtcclxuICAgIGJvcmRlcjpub25lO1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjMDAwO1xyXG4gICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgIzAwMDtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQ6Zmlyc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmxhc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG59Ki9cclxuXHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0sIC5zdHlsZUVkaXRvclRpdGxlIGlucHV0W3R5cGU9XCJyYWRpb1wiXXtcclxuICBtYXJnaW46IDRweDtcclxufVxyXG4uUmVmZXJlbmNlU2VsZWN0b3J7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcblxyXG4ucm93TW9kZWxEZXRhaWwsIC52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIHdpZHRoOiAzM3B4O1xyXG4gIGhlaWdodDogMzNweDtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG59XHJcbi52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBmbG9hdDpub25lO1xyXG59XHJcblxyXG5cclxuLyovLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLyAgY3NzLmNzcyBub3RoaW5nIG9mIHRoaXMgc2hvdWxkIHdvcmsqL1xyXG4vKlxyXG4uc2lkZWJhclNoZWxsLCAuZWRpdG9yU2hlbGwsIC5wcm9wZXJ0eV9zaWRlYmFye1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jazsvKmZsZXg7KiAvXHJcbiAgLyogaGVpZ2h0OiBjYWxjKDEwMHZoIC0gKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTsqIC9cclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIGZsZXgtd3JhcDogd3JhcDt9XHJcbi5zaWRlYmFyU2hlbGx7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4jcHJvcGVydHlfc2lkZWJhcntcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1iYXNpczogY2FsYyh2YXIoLS1zaWRlYmFyVykpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG59XHJcbi5lZGl0b3JTaGVsbHtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIHdpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpKTtcclxufVxyXG4qL1xyXG4jbWV0YW1vZGVsX3RhYiwgI21vZGVsX3RhYntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcclxuICBhbGlnbi1jb250ZW50OiBmbGV4LXN0YXJ0O1xyXG4gIHdpZHRoOiAxMDB2dzt9XHJcblxyXG5cclxuI21ldGFtb2RlbF9lZGl0b3IsICNtb2RlbF9lZGl0b3J7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIC8qd2lkdGg6IGNhbGMoMTAwdncgLSB2YXIoLS1zaWRlYmFyVykgLSB2YXIoLS1zY3JvbGxiYXJXKSk7LypOQjogVE8gRE86IHF1YW5kbyBuYXNjb25kaSBsJ2hpZGRlbmlucHV0ICovXHJcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gY2FsYyh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ0NDQ0YzsvKmxpZ2h0Z29sZGVucm9keWVsbG93OyovXHJcbn1cclxuI2lucHV0e1xyXG4gIGRpc3BsYXk6bm9uZTtcclxuICB3aWR0aDogMTAwdnc7XHJcbiAgaGVpZ2h0OiAzMDBweDtcclxuICBvdmVyZmxvdy15OnNjcm9sbDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuXHJcbnRhYmxlLm5vQm9yZGVye1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4iXX0= */";
+    __webpack_exports__["default"] = "::ng-deep body {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainBorderWidth: 5px;\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n  --bluebordercolor: #0084ff;\r\n/*\r\n  --mainFontColor: transparent;\r\n  --mainBackgroundColor: transparent;\r\n  --mainBorderColor: transparent;\r\n  --secondaryBorderColor: transparent;\r\n  --popupBackgroundColor: transparent;\r\n  --altBackgroundColor: var(--mainBorderColor);\r\n  --altFontColor: transparent;*/\r\n\r\n  /* todo: questi colori vengono sempre rimpiazzati dinamicamente, esistono solo in fallback se l'utente elimina tutti i color-scheme*/\r\n  --color-1: #f5f5f5;\r\n  --color-2: #3c3c44;\r\n  --color-3: #2e2f34;\r\n  --color-4: #1E90FF;\r\n  --color-bg-1: #ffffff;\r\n  --color-bg-2: #f0f0f0;\r\n  --color-bg-3: #2e2f34;\r\n  --color-bg-30: transparent;\r\n\r\n  /*\r\n  --LightsecondaryBorderColor: var(--color-1); /*#c5c5c5;* /\r\n  --LightmainFontColor: var(--color-2);\r\n  --LightaltFontColor: var(--color-3);\r\n  --LightmainBackgroundColor: var(--color-bg-1);\r\n  --LightmainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;* /\r\n  --LightpopupBackgroundColor: var(--color-bg-3);\r\n  /* --LightaltBackgroundColor: var(--color-bg-30);* /\r\n\r\n  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;* /--color-1\r\n  --DarkmainFontColor: #b2b2ba; --color-2\r\n  --DarkaltFontColor: #f0f0f0;/* var(--LightmainBorderColor); * /--color-3\r\n  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;* /--color-bg-1\r\n  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;* /--color-bg-2\r\n  --DarkpopupBackgroundColor: #44444c;--color-bg-3\r\n  /*--DarkaltBackgroundColor: var(--mainBorderColor);*/\r\n\r\n  --mainFontColor: var(--color-2);\r\n  --mainBackgroundColor: var(--color-bg-1);\r\n  --mainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/\r\n  --secondaryBorderColor: var(--color-1); /*#c5c5c5;*/\r\n  --popupBackgroundColor: var(--color-bg-3);\r\n  /*--altBackgroundColor: var(--color-bg-30);*/\r\n  --altFontColor: var(--color-3);\r\n}\r\n.Vertex{\r\n  --color-1: #FFFFFF;\r\n  --color-2: #000000;\r\n  --color-3: #000000;\r\n  --color-4: #1E90FF;\r\n  --color-5: #FF0000;\r\n}\r\n.Feature{\r\n   --color-f-1: #ff8c00;\r\n   --color-f-2: #28a745;\r\n   --color-f-3: #d3d3d3;\r\n }\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0); /* unused? totally transparent*/\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n::ng-deep .graph *{\r\n  overflow: inherit;\r\n  text-overflow: ellipsis;\r\n}\r\n/*because color will be inherited, but background not (since input and selects cannot inherit and inherit behave like transparent.\r\n this is fine on the input itself but the optgroup cannot have transparent and will be always white.\r\n now, the problem is if you set a bacgkround-color: inherit / transparent select inside a black element with white text, the optgroup will be white with white text.\r\n */\r\n::ng-deep select{\r\n  text-overflow: clip;\r\n}\r\n::ng-deep optgroup{\r\n  color: black;\r\n  background-color: white;\r\n}\r\n::ng-deep [title] {\r\n  cursor: help;\r\n}\r\n/*::-webkit-scrollbar {\r\ndisplay: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCLGtCQUFrQjtFQUNoQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpRUFBaUU7RUFDakUsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWiwwQkFBMEI7QUFDNUI7Ozs7Ozs7K0JBTytCOztFQUU3QixvSUFBb0k7RUFDcEksa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLDBCQUEwQjs7RUFFMUI7Ozs7Ozs7Ozs7Ozs7OztzREFlb0Q7O0VBRXBELCtCQUErQjtFQUMvQix3Q0FBd0M7RUFDeEMsb0NBQW9DLEVBQUUsbURBQW1EO0VBQ3pGLHNDQUFzQyxFQUFFLFdBQVc7RUFDbkQseUNBQXlDO0VBQ3pDLDRDQUE0QztFQUM1Qyw4QkFBOEI7QUFDaEM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQTtHQUNHLG9CQUFvQjtHQUNwQixvQkFBb0I7R0FDcEIsb0JBQW9CO0NBQ3RCO0FBRUQ7RUFDRSxzQkFBc0I7RUFDdEIsaUNBQWlDO0VBQ2pDLG9DQUFvQztFQUNwQyw0Q0FBNEMsRUFBRSwrQkFBK0I7RUFDN0Usd0NBQXdDO0VBQ3hDLDJCQUEyQjtFQUMzQix5Q0FBeUM7RUFDekMsNkNBQTZDO0VBQzdDLHNDQUFzQztBQUN4QztBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLHVCQUF1QjtBQUN6QjtBQUNBOzs7RUFHRTtBQUNGO0VBQ0UsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFDQTs7RUFFRTtBQUNGLGFBQWEsOEJBQThCLEVBQUU7QUFDN0Msc0JBQXNCLG9DQUFvQyxFQUFFO0FBQzVELG1CQUFtQixpQ0FBaUMsRUFBRTtBQUN0RDtFQUNFLGFBQWE7RUFDYiwyQkFBMkIsRUFBRSxTQUFTO0FBQ3hDO0FBQ0E7RUFDRSxrQ0FBa0M7QUFDcEM7QUFDQSxPQUFPO0FBRVAseUNBQXlDO0FBQ3pDO0VBQ0Usc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDRDQUE0QztFQUM1Qyx5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsdUNBQXVDO0VBQ3ZDLHlIQUF5SDtFQUN6SCw0REFBNEQ7QUFDOUQ7QUFDQTtFQUNFLDZCQUE2QjtFQUM3QjtnQkFDYztBQUNoQjtBQUNBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isd0JBQXVCO1VBQXZCLHVCQUF1QjtBQUN6QjtBQUNBOzs7Ozs7Ozs7Ozs7Ozs7OztFQWlCRTtBQUVGO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFFQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixVQUFVO0FBQ1o7QUFHQSwwRkFBMEY7QUFDMUY7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztDQXFCQztBQUNEO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQW1CO0VBQW5CLDZCQUFtQjtVQUFuQixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHlCQUE4QjtVQUE5Qiw4QkFBOEI7RUFDOUIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBeUI7RUFDekIsWUFBWSxDQUFDO0FBR2Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osdUdBQXVHO0VBQ3ZHLHdEQUF3RDtFQUN4RCx5QkFBeUIsQ0FBQyx3QkFBd0I7QUFDcEQ7QUFDQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjtBQU1BO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgYm9keSB7LyogY3NzIHZhcmlhYmxlcyAqL1xyXG4gIC0tdG9wYmFySDogNDBweDtcclxuICAtLXNpZGViYXJXOiAyODNweDtcclxuICAtLW1haW5Cb3JkZXJXaWR0aDogNXB4O1xyXG4gIC0tbWFpbkJvcmRlcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKSBzb2xpZCB2YXIoLS1tYWluQm9yZGVyV2lkdGgpO1xyXG4gIC0tc2Nyb2xsYmFyVzogMHB4O1xyXG4gIC0tdGFiSDogMzBweDtcclxuICAtLWJsdWVib3JkZXJjb2xvcjogIzAwODRmZjtcclxuLypcclxuICAtLW1haW5Gb250Q29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tYWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tYWx0Rm9udENvbG9yOiB0cmFuc3BhcmVudDsqL1xyXG5cclxuICAvKiB0b2RvOiBxdWVzdGkgY29sb3JpIHZlbmdvbm8gc2VtcHJlIHJpbXBpYXp6YXRpIGRpbmFtaWNhbWVudGUsIGVzaXN0b25vIHNvbG8gaW4gZmFsbGJhY2sgc2UgbCd1dGVudGUgZWxpbWluYSB0dXR0aSBpIGNvbG9yLXNjaGVtZSovXHJcbiAgLS1jb2xvci0xOiAjZjVmNWY1O1xyXG4gIC0tY29sb3ItMjogIzNjM2M0NDtcclxuICAtLWNvbG9yLTM6ICMyZTJmMzQ7XHJcbiAgLS1jb2xvci00OiAjMUU5MEZGO1xyXG4gIC0tY29sb3ItYmctMTogI2ZmZmZmZjtcclxuICAtLWNvbG9yLWJnLTI6ICNmMGYwZjA7XHJcbiAgLS1jb2xvci1iZy0zOiAjMmUyZjM0O1xyXG4gIC0tY29sb3ItYmctMzA6IHRyYW5zcGFyZW50O1xyXG5cclxuICAvKlxyXG4gIC0tTGlnaHRzZWNvbmRhcnlCb3JkZXJDb2xvcjogdmFyKC0tY29sb3ItMSk7IC8qI2M1YzVjNTsqIC9cclxuICAtLUxpZ2h0bWFpbkZvbnRDb2xvcjogdmFyKC0tY29sb3ItMik7XHJcbiAgLS1MaWdodGFsdEZvbnRDb2xvcjogdmFyKC0tY29sb3ItMyk7XHJcbiAgLS1MaWdodG1haW5CYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTEpO1xyXG4gIC0tTGlnaHRtYWluQm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLWJnLTIpOyAvKiM5Y2E3Yjg7IG9uIGludGVsbGlKaWRlYSBkYXJrZXIgc2hhZGUgLyojZTVlNWU1OyogL1xyXG4gIC0tTGlnaHRwb3B1cEJhY2tncm91bmRDb2xvcjogdmFyKC0tY29sb3ItYmctMyk7XHJcbiAgLyogLS1MaWdodGFsdEJhY2tncm91bmRDb2xvcjogdmFyKC0tY29sb3ItYmctMzApOyogL1xyXG5cclxuICAtLURhcmtzZWNvbmRhcnlCb3JkZXJDb2xvcjogIzNjM2M0NDsvKiNjNWM1YzU7KiAvLS1jb2xvci0xXHJcbiAgLS1EYXJrbWFpbkZvbnRDb2xvcjogI2IyYjJiYTsgLS1jb2xvci0yXHJcbiAgLS1EYXJrYWx0Rm9udENvbG9yOiAjZjBmMGYwOy8qIHZhcigtLUxpZ2h0bWFpbkJvcmRlckNvbG9yKTsgKiAvLS1jb2xvci0zXHJcbiAgLS1EYXJrbWFpbkJhY2tncm91bmRDb2xvcjogIzFhMWExYzsvKndoaXRlU21va2U7KiAvLS1jb2xvci1iZy0xXHJcbiAgLS1EYXJrbWFpbkJvcmRlckNvbG9yOiAjMmUyZjM0Oy8qI2U1ZTVlNTsqIC8tLWNvbG9yLWJnLTJcclxuICAtLURhcmtwb3B1cEJhY2tncm91bmRDb2xvcjogIzQ0NDQ0YzstLWNvbG9yLWJnLTNcclxuICAvKi0tRGFya2FsdEJhY2tncm91bmRDb2xvcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKTsqL1xyXG5cclxuICAtLW1haW5Gb250Q29sb3I6IHZhcigtLWNvbG9yLTIpO1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdmFyKC0tY29sb3ItYmctMSk7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLWJnLTIpOyAvKiM5Y2E3Yjg7IG9uIGludGVsbGlKaWRlYSBkYXJrZXIgc2hhZGUgLyojZTVlNWU1OyovXHJcbiAgLS1zZWNvbmRhcnlCb3JkZXJDb2xvcjogdmFyKC0tY29sb3ItMSk7IC8qI2M1YzVjNTsqL1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMpO1xyXG4gIC8qLS1hbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMwKTsqL1xyXG4gIC0tYWx0Rm9udENvbG9yOiB2YXIoLS1jb2xvci0zKTtcclxufVxyXG4uVmVydGV4e1xyXG4gIC0tY29sb3ItMTogI0ZGRkZGRjtcclxuICAtLWNvbG9yLTI6ICMwMDAwMDA7XHJcbiAgLS1jb2xvci0zOiAjMDAwMDAwO1xyXG4gIC0tY29sb3ItNDogIzFFOTBGRjtcclxuICAtLWNvbG9yLTU6ICNGRjAwMDA7XHJcbn1cclxuLkZlYXR1cmV7XHJcbiAgIC0tY29sb3ItZi0xOiAjZmY4YzAwO1xyXG4gICAtLWNvbG9yLWYtMjogIzI4YTc0NTtcclxuICAgLS1jb2xvci1mLTM6ICNkM2QzZDM7XHJcbiB9XHJcblxyXG46Om5nLWRlZXAgKntcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIHNjcm9sbGJhci1iYXNlLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBzY3JvbGxiYXItM2RsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgc2Nyb2xsYmFyLWhpZ2hsaWdodC1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7IC8qIHVudXNlZD8gdG90YWxseSB0cmFuc3BhcmVudCovXHJcbiAgc2Nyb2xsYmFyLXRyYWNrLWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItYXJyb3ctY29sb3I6ICMwMDA7XHJcbiAgc2Nyb2xsYmFyLXNoYWRvdy1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgc2Nyb2xsYmFyLWRhcmtzaGFkb3ctY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIC8qIC1tb3otYXBwZWFyYW5jZTogbm9uZSAhaW1wb3J0YW50OyAqL1xyXG59XHJcbjo6bmctZGVlcCAuZ3JhcGggKntcclxuICBvdmVyZmxvdzogaW5oZXJpdDtcclxuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxufVxyXG4vKmJlY2F1c2UgY29sb3Igd2lsbCBiZSBpbmhlcml0ZWQsIGJ1dCBiYWNrZ3JvdW5kIG5vdCAoc2luY2UgaW5wdXQgYW5kIHNlbGVjdHMgY2Fubm90IGluaGVyaXQgYW5kIGluaGVyaXQgYmVoYXZlIGxpa2UgdHJhbnNwYXJlbnQuXHJcbiB0aGlzIGlzIGZpbmUgb24gdGhlIGlucHV0IGl0c2VsZiBidXQgdGhlIG9wdGdyb3VwIGNhbm5vdCBoYXZlIHRyYW5zcGFyZW50IGFuZCB3aWxsIGJlIGFsd2F5cyB3aGl0ZS5cclxuIG5vdywgdGhlIHByb2JsZW0gaXMgaWYgeW91IHNldCBhIGJhY2drcm91bmQtY29sb3I6IGluaGVyaXQgLyB0cmFuc3BhcmVudCBzZWxlY3QgaW5zaWRlIGEgYmxhY2sgZWxlbWVudCB3aXRoIHdoaXRlIHRleHQsIHRoZSBvcHRncm91cCB3aWxsIGJlIHdoaXRlIHdpdGggd2hpdGUgdGV4dC5cclxuICovXHJcbjo6bmctZGVlcCBzZWxlY3R7XHJcbiAgdGV4dC1vdmVyZmxvdzogY2xpcDtcclxufVxyXG46Om5nLWRlZXAgb3B0Z3JvdXB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG59XHJcbjo6bmctZGVlcCBbdGl0bGVdIHtcclxuICBjdXJzb3I6IGhlbHA7XHJcbn1cclxuLyo6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuZGlzcGxheTogbm9uZTtcclxufSovXHJcbio6ZGlzYWJsZWQgeyBjdXJzb3I6IG5vdC1hbGxvd2VkICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1jaGVja2JveF17IC1tb3otYXBwZWFyYW5jZTogY2hlY2tib3ggIWltcG9ydGFudDsgfVxyXG5pbnB1dFt0eXBlPXJhZGlvXXsgLW1vei1hcHBlYXJhbmNlOiByYWRpbyAhaW1wb3J0YW50OyB9XHJcbmlucHV0OmRpc2FibGVke1xyXG4gIG9wYWNpdHkgOiAuNzU7XHJcbiAgZmlsdGVyICA6IGFscGhhKG9wYWNpdHk9NzUpOyAvKiBJRTw5ICovXHJcbn1cclxuOjpuZy1kZWVwIC5zdHlsZUVkaXRvclNlbGVjdGVke1xyXG4gIG91dGxpbmU6IDNweCBkYXNoZWQgcmVkICFpbXBvcnRhbnQ7XHJcbn1cclxuLypvbGRzKi9cclxuXHJcbi8qKioqKioqKioqKioqKioqKiogYXR0cmlidXRlRWRpdG9yLmNzcyAqL1xyXG4uYXR0cmlidXRlRWRpdG9yLCAuc3R5bGVFZGl0b3J7XHJcbiAgLypkaXNwbGF5OmlubGluZS1ib3g7Ki9cclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IC1tb3otZml0LWNvbnRlbnQ7XHJcbiAgcGFkZGluZzo4cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbiAgYm9yZGVyOiB2YXIoLS1tYWluQm9yZGVyKTtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG1heC1oZWlnaHQ6MTAwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuLnN0eWxlRWRpdG9ye1xyXG4gIGxlZnQ6IHZhcigtLXNpZGViYXJXKTtcclxuICB0b3A6IGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSk7XHJcbiAgLyp2b2dsaW8gY2hlIHNpYSBkaXZlcnNhIHBlcmNow6ggZGkgc29saXRvIHBhcnRlIGNvbiBhbHRlenphIHBhcmkgYSB0b3BiYXIuaCBlIHZvZ2xpbyBjaGUgc2lhIHNjcm9sbGFiaWxlIHNlbnphIHNwb3N0YXJsYSovXHJcbiAgbWF4LWhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG59XHJcbmJ1dHRvbi5hdHRyaWJ1dGVFZGl0b3JDb25maXJtLCBidXR0b24uc3R5bGVFZGl0b3JDb25maXJte1xyXG4gIG1hcmdpbi1sZWZ0OiBjYWxjKDUwJSAtIDUwcHgpO1xyXG4gIC8qIHdpZHRoOjEwMHB4O1xyXG4gICBoZWlnaHQ6MzBweDsqL1xyXG59XHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIC5hdHRyaWJ1dGVFZGl0b3JGaWVsZE5hbWUsIHRhYmxlLnN0eWxlVGFibGUgLnN0eWxlRWRpdG9yRmllbGROYW1le1xyXG4gIG1heC13aWR0aDoxNTBweDtcclxuICBtYXgtaGVpZ2h0OjE1MHB4O1xyXG4gIG92ZXJmbG93OmF1dG87XHJcbn1cclxuLnN0eWxlVGFibGV7XHJcbiAgbWFyZ2luLXRvcDoxMHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uc3R5bGVUYWJsZSB0ZHtcclxuICBtYXgtd2lkdGg6IDMwMHB4O1xyXG59XHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSwgLnN0eWxlRWRpdG9yVGl0bGV7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5lZGdlUm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLmVkZ2VSb3c+KntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogMHB4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiA0cHg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcbi5pc0NvbXBvdW5kRWRnZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG4uc3R5bGVDb21wb3VuZFdyYXBwZXJ7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5jb21wb3VuZEVkZ2VTdGFydCwgLmNvbXBvdW5kRWRnZUVuZHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLlNpZGViYXJTdHlsZUh0bWwsIC5HcmFwaFN0eWxlSHRtbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcbi8qXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHtcclxuICAgIGJvcmRlcjpub25lO1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjMDAwO1xyXG4gICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgIzAwMDtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQ6Zmlyc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmxhc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG59Ki9cclxuXHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0sIC5zdHlsZUVkaXRvclRpdGxlIGlucHV0W3R5cGU9XCJyYWRpb1wiXXtcclxuICBtYXJnaW46IDRweDtcclxufVxyXG4uUmVmZXJlbmNlU2VsZWN0b3J7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcblxyXG4ucm93TW9kZWxEZXRhaWwsIC52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIHdpZHRoOiAzM3B4O1xyXG4gIGhlaWdodDogMzNweDtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG59XHJcbi52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBmbG9hdDpub25lO1xyXG59XHJcblxyXG5cclxuLyovLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLyAgY3NzLmNzcyBub3RoaW5nIG9mIHRoaXMgc2hvdWxkIHdvcmsqL1xyXG4vKlxyXG4uc2lkZWJhclNoZWxsLCAuZWRpdG9yU2hlbGwsIC5wcm9wZXJ0eV9zaWRlYmFye1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jazsvKmZsZXg7KiAvXHJcbiAgLyogaGVpZ2h0OiBjYWxjKDEwMHZoIC0gKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTsqIC9cclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIGZsZXgtd3JhcDogd3JhcDt9XHJcbi5zaWRlYmFyU2hlbGx7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4jcHJvcGVydHlfc2lkZWJhcntcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1iYXNpczogY2FsYyh2YXIoLS1zaWRlYmFyVykpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG59XHJcbi5lZGl0b3JTaGVsbHtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIHdpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpKTtcclxufVxyXG4qL1xyXG4jbWV0YW1vZGVsX3RhYiwgI21vZGVsX3RhYntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcclxuICBhbGlnbi1jb250ZW50OiBmbGV4LXN0YXJ0O1xyXG4gIHdpZHRoOiAxMDB2dzt9XHJcblxyXG5cclxuI21ldGFtb2RlbF9lZGl0b3IsICNtb2RlbF9lZGl0b3J7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIC8qd2lkdGg6IGNhbGMoMTAwdncgLSB2YXIoLS1zaWRlYmFyVykgLSB2YXIoLS1zY3JvbGxiYXJXKSk7LypOQjogVE8gRE86IHF1YW5kbyBuYXNjb25kaSBsJ2hpZGRlbmlucHV0ICovXHJcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gY2FsYyh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ0NDQ0YzsvKmxpZ2h0Z29sZGVucm9keWVsbG93OyovXHJcbn1cclxuI2lucHV0e1xyXG4gIGRpc3BsYXk6bm9uZTtcclxuICB3aWR0aDogMTAwdnc7XHJcbiAgaGVpZ2h0OiAzMDBweDtcclxuICBvdmVyZmxvdy15OnNjcm9sbDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuXHJcbnRhYmxlLm5vQm9yZGVye1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4iXX0= */";
     /***/
   },
 
@@ -7275,6 +7295,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.user = new _User__WEBPACK_IMPORTED_MODULE_23__["User"]('mock_user');
         this.isEmbed = window.parent !== window;
+        this.isFirefox = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["is"].firefox();
+        this.allowGenericObjects = false;
+        this.isProduction = window.location.href.indexOf('http://localhost') !== 0;
       }
 
       _createClass(Status, [{
@@ -7410,13 +7433,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         if (!mp) return;
         var name = mp.printableName(20, true);
-        console.log('clicked mp:', mp.id, name, mp);
         console.info('clicked mp:', mp.id, name, mp);
       });
       $document.off('keydown.preventBackslash').on('keydown.preventBackslash', _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].preventBackSlashHistoryNavigation);
       $document.off('keydown.abortEdgeChange').on('keydown.abortEdgeChange', function (e) {
-        console.log('documentKeyDown: ', e.key, e.keyCode);
-
+        // console.log('documentKeyDown: ', e.key, e.keyCode);
         if (e.key === 'Escape') {
           Status.status.getActiveModel().graph.edgeChangingAbort(e);
         }
@@ -7467,6 +7488,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       window['Layouting'] = _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_20__["Layouting"];
       window['TopBar'] = _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_9__["TopBar"];
       window['ColorSchemeComponent'] = _color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_24__["ColorSchemeComponent"];
+      window['DamContextMenu'] = _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_15__["DamContextMenu"];
+      window['is'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["is"];
+      window['Type'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Type"];
       window['' + 'help'] = ['setBackup (backup <= saveToDB)', 'backupSave (saveToDB <= backup)', 'destroy (the backup)', 'discardSave (stop autosave)'];
 
       window['' + 'destroy'] = function () {
@@ -7525,6 +7549,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         localStorage.setItem('backupM', localStorage.getItem('LastOpenedM'));
       };
 
+      window['' + 's'] = Status.status;
       $('#testbtn').on('click', function testClick() {
         console.log("testbtn clicked");
 
@@ -7556,18 +7581,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var tmp;
       var useless;
       var i;
+      document.body.classList.add(true ? 'production' : undefined);
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["VsCodeLayerIn"].setupReceive();
 
       setBootstrapOnLowestPriority();
-      window.U = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"];
-      window.status = Status.status;
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].focusHistorySetup();
 
-      _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].tabSetup();
+      _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].tabSetup(); // U.resizableBorderSetup();
 
-      _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].resizableBorderSetup();
 
       var $resizableBorders = $('.resizableBorder.side, .resizableBorder.corner');
 
@@ -7605,7 +7628,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["EType"].staticInit();
 
-      _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_15__["DamContextMenuComponent"].staticInit();
+      _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_15__["DamContextMenu"].staticInit();
 
       if (!Status.status.isEmbed) {
         var savem2 = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["LocalStorage"].getLastOpened(2);
@@ -7640,14 +7663,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       try {
         Status.status.mm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"](JSON.parse(savem2.model), Status.status.mmm);
       } catch (e) {
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, 'Failed to load the metamodel.');
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, 'Failed to load the metamodel.', {
+          e: e,
+          model: savem2.model
+        });
 
-        console.log(e, savem2.model);
         _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Type"].all = []; // reset invalid old parsed types, enums... they are no longer defined in the empty metamodel
 
         Status.status.mm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"](JSON.parse(_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"].emptyModel), Status.status.mmm);
-      } // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m); return;
+      }
 
+      window['' + 'mm'] = Status.status.mm; // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m); return;
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Type"].linkAll();
 
@@ -7658,13 +7684,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       try {
         Status.status.m = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Model"](JSON.parse(savem1.model), Status.status.mm);
       } catch (e) {
-        _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, 'Failed to load the model. Does it conform to the metamodel?');
+        _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, 'Failed to load the model. Does it conform to the metamodel?', e);
 
-        console.log(e);
         Status.status.m = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Model"](JSON.parse(_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Model"].emptyModel), Status.status.mm);
       }
 
-      console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m); // Status.status.m.LinkToMetaParent(Status.status.mm);
+      window['' + 'm'] = Status.status.m; // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m);
+      // Status.status.m.LinkToMetaParent(Status.status.mm);
       // Status.status.m.fixReferences(); already linked at parse time.
 
       Status.status.loadedLogic = true;
@@ -7721,8 +7747,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var m = marr[j];
 
         for (var _key2 in vdic) {
-          console.log('key:', _key2, 'varr:', vdic);
-
+          // console.log('key:', key, 'varr:', vdic);
           var mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ModelPiece"].getByKeyStr(_key2);
 
           var size = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["GraphSize"]().clone(vdic[_key2]);
@@ -7962,7 +7987,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var ret = [//   --color-1: '#f5f5f5', '#f0f0f0', '#3c3c44', '#2e2f34';
           //   --color-bg-1: '#ffffff', '#f0f0f0', '#2e2f34';
           new ColorScheme2('main theme Light', 'body', 'color-', true, ['#f5f5f5', '#3c3c44', '#2e2f34', '#1E90FF']), // background was: ['#ffffff', '#f0f0f0', '#2e2f34']
-          new ColorScheme2('main theme Light bg', 'body', 'color-bg-', true, ['#f4f4f4', '#e0e0e0', '#2e2f34']), new ColorScheme2('main theme Dark', 'body', 'color-', false, ['#3c3c44', '#b2b2ba', '#f0f0f0', '#1E90FF']), new ColorScheme2('main theme Dark bg', 'body', 'color-bg-', false, ['#1a1a1c', '#2e2f34', '#44444c']), new ColorScheme2('Vertex', 'g.VertexRoot', null, true, ['#ffffff', '#000000', '#000000', '#1E90FF', '#ff0000']), new ColorScheme2('Feature', '.graph .Feature', null, true, ['#ff8c00', '#28a745', '#d3d3d3', '#FFFFFF']), // examples
+          new ColorScheme2('main theme Light bg', 'body', 'color-bg-', true, ['#f4f4f4', '#e0e0e0', '#2e2f34']), new ColorScheme2('main theme Dark', 'body', 'color-', false, ['#3c3c44', '#b2b2ba', '#f0f0f0', '#1E90FF']), new ColorScheme2('main theme Dark bg', 'body', 'color-bg-', false, ['#1a1a1c', '#2e2f34', '#44444c']), new ColorScheme2('Vertex', 'g.VertexRoot', null, true, ['#ffffff', '#000000', '#000000', '#1E90FF', '#ff0000']), new ColorScheme2('Feature', '.graph .Feature', 'color-f-', true, ['#ff8c00', '#28a745', '#d3d3d3']), // examples
           new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#364f6b', '#3fc1c9', '#f5f5f5', '#fc5185']), new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#f9a828', '#ececeb', '#07617d', '#2e383f']), new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#fa4659', '#effe40', '#a33e83', '#2eb872']), new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#BE64FA', '#8459DE', '#5975DE', '#64ACFA'])];
           return ret;
         }
@@ -8068,7 +8093,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addColor",
         value: function addColor($event, cs, arr) {
-          console.log('addColor(', $event, cs, arr);
+          var debug = false;
+          debug && console.log('addColor(', $event, cs, arr);
           var objarr = arr.map(function (e, i) {
             return _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].HexToHexObj(e);
           });
@@ -8091,20 +8117,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             weights = weights.reverse();
           }
 
-          console.log('objarr:', objarr, weights, sum);
+          debug && console.log('objarr:', objarr, weights, sum);
           var randomPart = 0.5;
 
           if (objarr) {
             for (var _i2 = objarr.length; --_i2 >= 0;) {
               var color = objarr[_i2];
               var randomWeight = randomPart * (2 * Math.random() - 1);
-              console.log('randomWeight', randomWeight);
+              debug && console.log('randomWeight', randomWeight);
               var weight = weights[_i2] * (1 + randomWeight);
               avg.a += color.a ? color.a * weight : 0;
               avg.r += color.r * weight;
               avg.g += color.g * weight;
               avg.b += color.b * weight;
-              console.log('objarr adding::', color, weight, {
+              debug && console.log('objarr adding::', color, weight, {
                 r: color.r * weight,
                 g: color.g * weight,
                 b: color.b * weight
@@ -8228,9 +8254,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return e.name;
           });
 
-          var names = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ArrayToMap(namearr);
+          var names = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ArrayToMap(namearr); // console.log('name map', names, namearr, 'name:', name);
 
-          console.log('name map', names, namearr, 'name:', name);
 
           while (names[name]) {
             name = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].increaseEndingNumber(name);
@@ -8245,8 +8270,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "hide",
         value: function hide() {
           ColorSchemeComponent_1.$html.hide(); // this.display = 'none';
-
-          console.log("cs.hide()");
+          //console.log("cs.hide()");
         }
         /*
           show(): void {
@@ -8268,7 +8292,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           // NB: il codice eseguito fuori da questo componente, o dentro componenti che NON hanno @ViewChild non viene osservato per cambiamenti,
           // se modifico le variabili esternamente la grafica non viene aggiornata.
           // quindi modifico direttamente html invece delle variabili
-          console.log("cs.show()");
+          // console.log("cs.show()");
           ColorSchemeComponent_1.$html.show();
         }
       }, {
@@ -8823,8 +8847,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           for (i = 0; i < datasets.length; i++) {
             datalist = document.createElement('datalist');
             document.body.appendChild(datalist);
-            datalist.id = 'measurableList' + rulenames[i];
-            console.log('datasets:', datasets);
+            datalist.id = 'measurableList' + rulenames[i]; // console.log('datasets:', datasets);
 
             for (key in datasets[i]) {
               opt = document.createElement('option');
@@ -9206,13 +9229,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/common/Joiner.ts ***!
     \******************************/
 
-  /*! exports provided: ansiUp, StringSimilarity, CSS, JSCSS_CSSPARSER, $, $b, Swal, prjson2xml, prxml2json, Layouting, VsCodeLayerIn, VsCodeLayerOut, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, StyleComplexEntry, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, TagNames, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, ParseNumberOrBooleanOptions, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, CSSRuleSorted, Keystrokes, AutocompleteMatch, CSSParser, ColorScheme2, ColorSchemeComponent, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic, EditorContext, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, PropertyBarTabs, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenuComponent, EOperation, AccessModifier, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ModelUpdateMessage, SendManager, CSSEditor, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
+  /*! exports provided: is, ansiUp, StringSimilarity, CSS, JSCSS_CSSPARSER, $, $b, Swal, prjson2xml, prxml2json, Layouting, VsCodeLayerIn, VsCodeLayerOut, ViewHtmlSettings, ViewPoint, ViewRule, EdgeViewRule, LocalStorage, ModelPiece, Info, ModelNone, StyleComplexEntry, ECoreEnum, EcoreLiteral, ECoreParameter, ECoreOperation, ECoreAttribute, ECoreReference, ECoreClass, ECorePackage, ECoreRoot, ECoreAnnotation, ECoreDetail, XMIModel, IModel, TagNames, ShortAttribETypes, U, Json, AttribETypes, InputPopup, DetectZoom, Dictionary, ParseNumberOrBooleanOptions, IPoint, Point, GraphPoint, ISize, Size, GraphSize, myFileReader, FocusHistoryEntry, FileReadTypeEnum, EvalOutput, SelectorOutput, TSON_JSTypes, TSON, TSON_UnsupportedTypes, CSSRuleSorted, Keystrokes, AutocompleteMatch, CSSParser, ColorScheme2, ColorSchemeComponent, MeasurableRuleParts, Measurable, MeasurableEvalContext, measurableRules, MeasurableRuleLists, MeasurableOperators, DraggableOptionsImpl, ResizableOptionsImpl, RotatableOptions, UnsafeMeasurableEvalContext, ConstraintLeftAdmittedsStatic, EditorContext, Status, IGraph, ViewPointShell, IVertex, IField, ISidebar, IEdge, EdgeModes, ExtEdge, EdgePoint, EdgePointFittizio, CursorFollowerEP, EdgeStyle, EdgePointStyle, PropertyBarr, PropertyBarTabs, TopBar, StyleEditor, SaveListEntry, MyConsole, MetaMetaModel, MetaModel, Model, IPackage, M3Package, M2Package, MPackage, IClassifier, IClass, M3Class, M2Class, MClass, EEnum, Type, EType, Typedd, ELiteral, IFeature, IReference, M3Reference, M2Reference, MReference, IAttribute, M3Attribute, M2Attribute, MAttribute, EAnnotation, EAnnotationDetail, Database, DamContextMenu, EOperation, AccessModifier, EParameter, Draggableoptions, Resizableoptions, Rotatableoptions, ResizableoptionsPH, DraggableOptionsPH, RotatableoptionsPH, MeasurableTemplateGenerator, MeasurabletemplateComponent, ChangelogRoot, ChangelogEntry, VersionUpload, Feature, Bug, BugFix, WebsiteTheme, ModelUpdateMessage, SendManager, CSSEditor, ReservedClasses, ReservedAttributes, ReservedDatasets, ReservedStorageKey */
 
   /***/
   function srcCommonJoinerTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "is", function () {
+      return is;
+    });
     /* harmony export (binding) */
 
 
@@ -9312,1232 +9341,1244 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var is_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! is_js */
+    "./node_modules/is_js/is.js");
+    /* harmony import */
+
+
+    var is_js__WEBPACK_IMPORTED_MODULE_2___default =
+    /*#__PURE__*/
+    __webpack_require__.n(is_js__WEBPACK_IMPORTED_MODULE_2__);
+    /* harmony import */
+
+
+    var _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../common/StringSimilarity.js */
     "./src/common/StringSimilarity.js");
     /* harmony import */
 
 
-    var cssjson__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var cssjson__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! cssjson */
     "./node_modules/cssjson/cssjson.js");
     /* harmony import */
 
 
-    var cssjson__WEBPACK_IMPORTED_MODULE_3___default =
+    var cssjson__WEBPACK_IMPORTED_MODULE_4___default =
     /*#__PURE__*/
-    __webpack_require__.n(cssjson__WEBPACK_IMPORTED_MODULE_3__);
+    __webpack_require__.n(cssjson__WEBPACK_IMPORTED_MODULE_4__);
     /* harmony import */
 
 
-    var jqueryui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var jqueryui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! jqueryui */
     "./node_modules/jqueryui/jquery-ui.js");
     /* harmony import */
 
 
-    var jqueryui__WEBPACK_IMPORTED_MODULE_4___default =
+    var jqueryui__WEBPACK_IMPORTED_MODULE_5___default =
     /*#__PURE__*/
-    __webpack_require__.n(jqueryui__WEBPACK_IMPORTED_MODULE_4__);
+    __webpack_require__.n(jqueryui__WEBPACK_IMPORTED_MODULE_5__);
     /* harmony import */
 
 
-    var jquery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var jquery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! jquery */
     "./node_modules/jquery/dist/jquery.js");
     /* harmony import */
 
 
-    var jquery__WEBPACK_IMPORTED_MODULE_5___default =
+    var jquery__WEBPACK_IMPORTED_MODULE_6___default =
     /*#__PURE__*/
-    __webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_5__);
+    __webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_6__);
     /* harmony import */
 
 
-    var bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! bootstrap */
     "./node_modules/bootstrap/dist/js/bootstrap.js");
     /* harmony import */
 
 
-    var bootstrap__WEBPACK_IMPORTED_MODULE_6___default =
+    var bootstrap__WEBPACK_IMPORTED_MODULE_7___default =
     /*#__PURE__*/
-    __webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_6__);
+    __webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_7__);
     /* harmony import */
 
 
-    var sweetalert2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! sweetalert2 */
     "./node_modules/sweetalert2/dist/sweetalert2.all.js");
     /* harmony import */
 
 
-    var sweetalert2__WEBPACK_IMPORTED_MODULE_7___default =
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_8___default =
     /*#__PURE__*/
-    __webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_7__);
+    __webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_8__);
     /* harmony import */
 
 
-    var _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ../common/prj_json2xml.js */
     "./src/common/prj_json2xml.js");
     /* harmony import */
 
 
-    var _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ../common/prj_xml2json.js */
     "./src/common/prj_xml2json.js");
     /* harmony import */
 
 
-    var _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ../guiElements/mGraph/Layouting */
     "./src/guiElements/mGraph/Layouting.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Layouting", function () {
-      return _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_10__["Layouting"];
+      return _guiElements_mGraph_Layouting__WEBPACK_IMPORTED_MODULE_11__["Layouting"];
     });
     /* harmony import */
 
 
-    var _vscodeLayer_VsCodeLayer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _vscodeLayer_VsCodeLayer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ../vscodeLayer/VsCodeLayer */
     "./src/vscodeLayer/VsCodeLayer.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "VsCodeLayerIn", function () {
-      return _vscodeLayer_VsCodeLayer__WEBPACK_IMPORTED_MODULE_11__["VsCodeLayerIn"];
+      return _vscodeLayer_VsCodeLayer__WEBPACK_IMPORTED_MODULE_12__["VsCodeLayerIn"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "VsCodeLayerOut", function () {
-      return _vscodeLayer_VsCodeLayer__WEBPACK_IMPORTED_MODULE_11__["VsCodeLayerOut"];
+      return _vscodeLayer_VsCodeLayer__WEBPACK_IMPORTED_MODULE_12__["VsCodeLayerOut"];
     });
     /* harmony import */
 
 
-    var _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ../GuiStyles/viewpoint */
     "./src/GuiStyles/viewpoint.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ViewHtmlSettings", function () {
-      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__["ViewHtmlSettings"];
+      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_13__["ViewHtmlSettings"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ViewPoint", function () {
-      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__["ViewPoint"];
+      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_13__["ViewPoint"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ViewRule", function () {
-      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__["ViewRule"];
+      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_13__["ViewRule"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgeViewRule", function () {
-      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_12__["EdgeViewRule"];
+      return _GuiStyles_viewpoint__WEBPACK_IMPORTED_MODULE_13__["EdgeViewRule"];
     });
     /* harmony import */
 
 
-    var _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ../Database/LocalStorage */
     "./src/Database/LocalStorage.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "LocalStorage", function () {
-      return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_13__["LocalStorage"];
+      return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_14__["LocalStorage"];
     });
     /* harmony import */
 
 
-    var _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _Model_modelPiece__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ../Model/modelPiece */
     "./src/Model/modelPiece.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ModelPiece", function () {
-      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__["ModelPiece"];
+      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_15__["ModelPiece"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Info", function () {
-      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__["Info"];
+      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_15__["Info"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ModelNone", function () {
-      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__["ModelNone"];
+      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_15__["ModelNone"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "StyleComplexEntry", function () {
-      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_14__["StyleComplexEntry"];
+      return _Model_modelPiece__WEBPACK_IMPORTED_MODULE_15__["StyleComplexEntry"];
     });
     /* harmony import */
 
 
-    var _Model_iModel__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    var _Model_iModel__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
     /*! ../Model/iModel */
     "./src/Model/iModel.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreEnum", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreEnum"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECoreEnum"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EcoreLiteral", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["EcoreLiteral"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["EcoreLiteral"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreParameter", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreParameter"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECoreParameter"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreOperation", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreOperation"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECoreOperation"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreAttribute", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreAttribute"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECoreAttribute"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreReference", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreReference"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECoreReference"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreClass", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreClass"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECoreClass"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECorePackage", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECorePackage"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECorePackage"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreRoot", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreRoot"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECoreRoot"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreAnnotation", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreAnnotation"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECoreAnnotation"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ECoreDetail", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["ECoreDetail"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["ECoreDetail"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "XMIModel", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["XMIModel"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["XMIModel"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IModel", function () {
-      return _Model_iModel__WEBPACK_IMPORTED_MODULE_15__["IModel"];
+      return _Model_iModel__WEBPACK_IMPORTED_MODULE_16__["IModel"];
     });
     /* harmony import */
 
 
-    var _util__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    var _util__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! ./util */
     "./src/common/util.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "TagNames", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["TagNames"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["TagNames"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ShortAttribETypes", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["ShortAttribETypes"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["ShortAttribETypes"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "U", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["U"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["U"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Json", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["Json"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["Json"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "AttribETypes", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["AttribETypes"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["AttribETypes"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "InputPopup", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["InputPopup"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["InputPopup"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "DetectZoom", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["DetectZoom"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["DetectZoom"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Dictionary", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["Dictionary"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["Dictionary"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ParseNumberOrBooleanOptions", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["ParseNumberOrBooleanOptions"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["ParseNumberOrBooleanOptions"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IPoint", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["IPoint"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["IPoint"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Point", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["Point"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["Point"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "GraphPoint", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["GraphPoint"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["GraphPoint"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ISize", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["ISize"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["ISize"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Size", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["Size"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["Size"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "GraphSize", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["GraphSize"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["GraphSize"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "myFileReader", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["myFileReader"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["myFileReader"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "FocusHistoryEntry", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["FocusHistoryEntry"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["FocusHistoryEntry"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "FileReadTypeEnum", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["FileReadTypeEnum"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["FileReadTypeEnum"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EvalOutput", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["EvalOutput"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["EvalOutput"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "SelectorOutput", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["SelectorOutput"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["SelectorOutput"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "TSON_JSTypes", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["TSON_JSTypes"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["TSON_JSTypes"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "TSON", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["TSON"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["TSON"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "TSON_UnsupportedTypes", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["TSON_UnsupportedTypes"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["TSON_UnsupportedTypes"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "CSSRuleSorted", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["CSSRuleSorted"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["CSSRuleSorted"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Keystrokes", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["Keystrokes"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["Keystrokes"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "AutocompleteMatch", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["AutocompleteMatch"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["AutocompleteMatch"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "CSSParser", function () {
-      return _util__WEBPACK_IMPORTED_MODULE_16__["CSSParser"];
+      return _util__WEBPACK_IMPORTED_MODULE_17__["CSSParser"];
     });
     /* harmony import */
 
 
-    var _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    var _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
     /*! ../app/color-scheme/color-scheme.component */
     "./src/app/color-scheme/color-scheme.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ColorScheme2", function () {
-      return _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_17__["ColorScheme2"];
+      return _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_18__["ColorScheme2"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ColorSchemeComponent", function () {
-      return _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_17__["ColorSchemeComponent"];
+      return _app_color_scheme_color_scheme_component__WEBPACK_IMPORTED_MODULE_18__["ColorSchemeComponent"];
     });
     /* harmony import */
 
 
-    var _measurable__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    var _measurable__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ./measurable */
     "./src/common/measurable.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableRuleParts", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["MeasurableRuleParts"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["MeasurableRuleParts"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Measurable", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["Measurable"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["Measurable"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableEvalContext", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["MeasurableEvalContext"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["MeasurableEvalContext"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "measurableRules", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["measurableRules"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["measurableRules"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableRuleLists", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["MeasurableRuleLists"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["MeasurableRuleLists"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableOperators", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["MeasurableOperators"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["MeasurableOperators"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "DraggableOptionsImpl", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["DraggableOptionsImpl"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["DraggableOptionsImpl"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ResizableOptionsImpl", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["ResizableOptionsImpl"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["ResizableOptionsImpl"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "RotatableOptions", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["RotatableOptions"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["RotatableOptions"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "UnsafeMeasurableEvalContext", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["UnsafeMeasurableEvalContext"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["UnsafeMeasurableEvalContext"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ConstraintLeftAdmittedsStatic", function () {
-      return _measurable__WEBPACK_IMPORTED_MODULE_18__["ConstraintLeftAdmittedsStatic"];
+      return _measurable__WEBPACK_IMPORTED_MODULE_19__["ConstraintLeftAdmittedsStatic"];
     });
     /* harmony import */
 
 
-    var _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    var _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
     /*! ../guiElements/style-editor/style-editor.component */
     "./src/guiElements/style-editor/style-editor.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EditorContext", function () {
-      return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_19__["EditorContext"];
+      return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_20__["EditorContext"];
     });
     /* harmony import */
 
 
-    var _src_app_app_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    var _src_app_app_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
     /*! ../../src/app/app.module */
     "./src/app/app.module.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Status", function () {
-      return _src_app_app_module__WEBPACK_IMPORTED_MODULE_20__["Status"];
+      return _src_app_app_module__WEBPACK_IMPORTED_MODULE_21__["Status"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    var _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
     /*! ../guiElements/mGraph/iGraph */
     "./src/guiElements/mGraph/iGraph.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IGraph", function () {
-      return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_21__["IGraph"];
+      return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_22__["IGraph"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ViewPointShell", function () {
-      return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_21__["ViewPointShell"];
+      return _guiElements_mGraph_iGraph__WEBPACK_IMPORTED_MODULE_22__["ViewPointShell"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+    var _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
     /*! ../guiElements/mGraph/Vertex/iVertex */
     "./src/guiElements/mGraph/Vertex/iVertex.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IVertex", function () {
-      return _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_22__["IVertex"];
+      return _guiElements_mGraph_Vertex_iVertex__WEBPACK_IMPORTED_MODULE_23__["IVertex"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+    var _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
     /*! ../guiElements/mGraph/Field/iField */
     "./src/guiElements/mGraph/Field/iField.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IField", function () {
-      return _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_23__["IField"];
+      return _guiElements_mGraph_Field_iField__WEBPACK_IMPORTED_MODULE_24__["IField"];
     });
     /* harmony import */
 
 
-    var _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+    var _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
     /*! ../guiElements/isidebar/isidebar.component */
     "./src/guiElements/isidebar/isidebar.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ISidebar", function () {
-      return _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_24__["ISidebar"];
+      return _guiElements_isidebar_isidebar_component__WEBPACK_IMPORTED_MODULE_25__["ISidebar"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+    var _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
     /*! ../guiElements/mGraph/Edge/iEdge */
     "./src/guiElements/mGraph/Edge/iEdge.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IEdge", function () {
-      return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_25__["IEdge"];
+      return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_26__["IEdge"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgeModes", function () {
-      return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_25__["EdgeModes"];
+      return _guiElements_mGraph_Edge_iEdge__WEBPACK_IMPORTED_MODULE_26__["EdgeModes"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
+    var _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
     /*! ../guiElements/mGraph/Edge/ExtEdge */
     "./src/guiElements/mGraph/Edge/ExtEdge.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ExtEdge", function () {
-      return _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_26__["ExtEdge"];
+      return _guiElements_mGraph_Edge_ExtEdge__WEBPACK_IMPORTED_MODULE_27__["ExtEdge"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
+    var _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
     /*! ../guiElements/mGraph/Edge/EdgePoint */
     "./src/guiElements/mGraph/Edge/EdgePoint.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgePoint", function () {
-      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_27__["EdgePoint"];
+      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_28__["EdgePoint"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgePointFittizio", function () {
-      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_27__["EdgePointFittizio"];
+      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_28__["EdgePointFittizio"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "CursorFollowerEP", function () {
-      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_27__["CursorFollowerEP"];
+      return _guiElements_mGraph_Edge_EdgePoint__WEBPACK_IMPORTED_MODULE_28__["CursorFollowerEP"];
     });
     /* harmony import */
 
 
-    var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
+    var _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
     /*! ../guiElements/mGraph/Edge/edgeStyle */
     "./src/guiElements/mGraph/Edge/edgeStyle.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgeStyle", function () {
-      return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_28__["EdgeStyle"];
+      return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_29__["EdgeStyle"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EdgePointStyle", function () {
-      return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_28__["EdgePointStyle"];
+      return _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_29__["EdgePointStyle"];
     });
     /* harmony import */
 
 
-    var _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
+    var _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
     /*! ../guiElements/propertyBar/propertyBar */
     "./src/guiElements/propertyBar/propertyBar.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "PropertyBarr", function () {
-      return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_29__["PropertyBarr"];
+      return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_30__["PropertyBarr"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "PropertyBarTabs", function () {
-      return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_29__["PropertyBarTabs"];
+      return _guiElements_propertyBar_propertyBar__WEBPACK_IMPORTED_MODULE_30__["PropertyBarTabs"];
     });
     /* harmony import */
 
 
-    var _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
+    var _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
     /*! ../guiElements/top-bar/top-bar.component */
     "./src/guiElements/top-bar/top-bar.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "TopBar", function () {
-      return _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_30__["TopBar"];
+      return _guiElements_top_bar_top_bar_component__WEBPACK_IMPORTED_MODULE_31__["TopBar"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "StyleEditor", function () {
-      return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_19__["StyleEditor"];
+      return _guiElements_style_editor_style_editor_component__WEBPACK_IMPORTED_MODULE_20__["StyleEditor"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "SaveListEntry", function () {
-      return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_13__["SaveListEntry"];
+      return _Database_LocalStorage__WEBPACK_IMPORTED_MODULE_14__["SaveListEntry"];
     });
     /* harmony import */
 
 
-    var _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
+    var _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
     /*! ../guiElements/console/console.component */
     "./src/guiElements/console/console.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MyConsole", function () {
-      return _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_31__["MyConsole"];
+      return _guiElements_console_console_component__WEBPACK_IMPORTED_MODULE_32__["MyConsole"];
     });
     /* harmony import */
 
 
-    var _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
+    var _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
     /*! ../Model/MetaMetaModel */
     "./src/Model/MetaMetaModel.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MetaMetaModel", function () {
-      return _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_32__["MetaMetaModel"];
+      return _Model_MetaMetaModel__WEBPACK_IMPORTED_MODULE_33__["MetaMetaModel"];
     });
     /* harmony import */
 
 
-    var _Model_MetaModel__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
+    var _Model_MetaModel__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
     /*! ../Model/MetaModel */
     "./src/Model/MetaModel.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MetaModel", function () {
-      return _Model_MetaModel__WEBPACK_IMPORTED_MODULE_33__["MetaModel"];
+      return _Model_MetaModel__WEBPACK_IMPORTED_MODULE_34__["MetaModel"];
     });
     /* harmony import */
 
 
-    var _Model_Model__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
+    var _Model_Model__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
     /*! ../Model/Model */
     "./src/Model/Model.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Model", function () {
-      return _Model_Model__WEBPACK_IMPORTED_MODULE_34__["Model"];
+      return _Model_Model__WEBPACK_IMPORTED_MODULE_35__["Model"];
     });
     /* harmony import */
 
 
-    var _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
+    var _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(
     /*! ../Model/mPackage/iPackage */
     "./src/Model/mPackage/iPackage.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IPackage", function () {
-      return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_35__["IPackage"];
+      return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_36__["IPackage"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M3Package", function () {
-      return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_35__["M3Package"];
+      return _Model_mPackage_iPackage__WEBPACK_IMPORTED_MODULE_36__["M3Package"];
     });
     /* harmony import */
 
 
-    var _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(
+    var _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(
     /*! ../Model/mPackage/MMPackage */
     "./src/Model/mPackage/MMPackage.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M2Package", function () {
-      return _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_36__["M2Package"];
+      return _Model_mPackage_MMPackage__WEBPACK_IMPORTED_MODULE_37__["M2Package"];
     });
     /* harmony import */
 
 
-    var _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(
+    var _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(
     /*! ../Model/mPackage/MPackage.component */
     "./src/Model/mPackage/MPackage.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MPackage", function () {
-      return _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_37__["MPackage"];
+      return _Model_mPackage_MPackage_component__WEBPACK_IMPORTED_MODULE_38__["MPackage"];
     });
     /* harmony import */
 
 
-    var _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(
+    var _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
     /*! ../mClass/IClassifier */
     "./src/mClass/IClassifier.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IClassifier", function () {
-      return _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_38__["IClassifier"];
+      return _mClass_IClassifier__WEBPACK_IMPORTED_MODULE_39__["IClassifier"];
     });
     /* harmony import */
 
 
-    var _mClass_iClass__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
+    var _mClass_iClass__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(
     /*! ../mClass/iClass */
     "./src/mClass/iClass.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IClass", function () {
-      return _mClass_iClass__WEBPACK_IMPORTED_MODULE_39__["IClass"];
+      return _mClass_iClass__WEBPACK_IMPORTED_MODULE_40__["IClass"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M3Class", function () {
-      return _mClass_iClass__WEBPACK_IMPORTED_MODULE_39__["M3Class"];
+      return _mClass_iClass__WEBPACK_IMPORTED_MODULE_40__["M3Class"];
     });
     /* harmony import */
 
 
-    var _mClass_m2Class__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(
+    var _mClass_m2Class__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(
     /*! ../mClass/m2Class */
     "./src/mClass/m2Class.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M2Class", function () {
-      return _mClass_m2Class__WEBPACK_IMPORTED_MODULE_40__["M2Class"];
+      return _mClass_m2Class__WEBPACK_IMPORTED_MODULE_41__["M2Class"];
     });
     /* harmony import */
 
 
-    var _mClass_MClass__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(
+    var _mClass_MClass__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(
     /*! ../mClass/MClass */
     "./src/mClass/MClass.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MClass", function () {
-      return _mClass_MClass__WEBPACK_IMPORTED_MODULE_41__["MClass"];
+      return _mClass_MClass__WEBPACK_IMPORTED_MODULE_42__["MClass"];
     });
     /* harmony import */
 
 
-    var _mClass_EEnum__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(
+    var _mClass_EEnum__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(
     /*! ../mClass/EEnum */
     "./src/mClass/EEnum.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EEnum", function () {
-      return _mClass_EEnum__WEBPACK_IMPORTED_MODULE_42__["EEnum"];
+      return _mClass_EEnum__WEBPACK_IMPORTED_MODULE_43__["EEnum"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(
+    var _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(
     /*! ../mClass/classChild/Type */
     "./src/mClass/classChild/Type.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Type", function () {
-      return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_43__["Type"];
+      return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_44__["Type"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EType", function () {
-      return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_43__["EType"];
+      return _mClass_classChild_Type__WEBPACK_IMPORTED_MODULE_44__["EType"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(
+    var _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(
     /*! ../mClass/classChild/Typedd */
     "./src/mClass/classChild/Typedd.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Typedd", function () {
-      return _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_44__["Typedd"];
+      return _mClass_classChild_Typedd__WEBPACK_IMPORTED_MODULE_45__["Typedd"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(
+    var _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
     /*! ../mClass/classChild/ELiteral */
     "./src/mClass/classChild/ELiteral.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ELiteral", function () {
-      return _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_45__["ELiteral"];
+      return _mClass_classChild_ELiteral__WEBPACK_IMPORTED_MODULE_46__["ELiteral"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
+    var _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
     /*! ../mClass/classChild/Features/iFeature */
     "./src/mClass/classChild/Features/iFeature.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IFeature", function () {
-      return _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_46__["IFeature"];
+      return _mClass_classChild_Features_iFeature__WEBPACK_IMPORTED_MODULE_47__["IFeature"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
+    var _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
     /*! ../mClass/classChild/Features/References/iReference */
     "./src/mClass/classChild/Features/References/iReference.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IReference", function () {
-      return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_47__["IReference"];
+      return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_48__["IReference"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M3Reference", function () {
-      return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_47__["M3Reference"];
+      return _mClass_classChild_Features_References_iReference__WEBPACK_IMPORTED_MODULE_48__["M3Reference"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
+    var _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
     /*! ../mClass/classChild/Features/References/M2Reference */
     "./src/mClass/classChild/Features/References/M2Reference.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M2Reference", function () {
-      return _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_48__["M2Reference"];
+      return _mClass_classChild_Features_References_M2Reference__WEBPACK_IMPORTED_MODULE_49__["M2Reference"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
+    var _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
     /*! ../mClass/classChild/Features/References/MReference */
     "./src/mClass/classChild/Features/References/MReference.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MReference", function () {
-      return _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_49__["MReference"];
+      return _mClass_classChild_Features_References_MReference__WEBPACK_IMPORTED_MODULE_50__["MReference"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
+    var _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(
     /*! ../mClass/classChild/Features/Attributes/iAttribute */
     "./src/mClass/classChild/Features/Attributes/iAttribute.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "IAttribute", function () {
-      return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_50__["IAttribute"];
+      return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_51__["IAttribute"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M3Attribute", function () {
-      return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_50__["M3Attribute"];
+      return _mClass_classChild_Features_Attributes_iAttribute__WEBPACK_IMPORTED_MODULE_51__["M3Attribute"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(
+    var _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(
     /*! ../mClass/classChild/Features/Attributes/mmAttribute */
     "./src/mClass/classChild/Features/Attributes/mmAttribute.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "M2Attribute", function () {
-      return _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_51__["M2Attribute"];
+      return _mClass_classChild_Features_Attributes_mmAttribute__WEBPACK_IMPORTED_MODULE_52__["M2Attribute"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(
+    var _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(
     /*! ../mClass/classChild/Features/Attributes/MAttribute */
     "./src/mClass/classChild/Features/Attributes/MAttribute.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MAttribute", function () {
-      return _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_52__["MAttribute"];
+      return _mClass_classChild_Features_Attributes_MAttribute__WEBPACK_IMPORTED_MODULE_53__["MAttribute"];
     });
     /* harmony import */
 
 
-    var _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(
+    var _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(
     /*! ../Model/EAnnotation */
     "./src/Model/EAnnotation.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EAnnotation", function () {
-      return _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_53__["EAnnotation"];
+      return _Model_EAnnotation__WEBPACK_IMPORTED_MODULE_54__["EAnnotation"];
     });
     /* harmony import */
 
 
-    var _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(
+    var _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(
     /*! ../Model/EAnnotationDetail */
     "./src/Model/EAnnotationDetail.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EAnnotationDetail", function () {
-      return _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_54__["EAnnotationDetail"];
+      return _Model_EAnnotationDetail__WEBPACK_IMPORTED_MODULE_55__["EAnnotationDetail"];
     });
     /* harmony import */
 
 
-    var _common_Database__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(
+    var _common_Database__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(
     /*! ../common/Database */
     "./src/common/Database.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Database", function () {
-      return _common_Database__WEBPACK_IMPORTED_MODULE_55__["Database"];
+      return _common_Database__WEBPACK_IMPORTED_MODULE_56__["Database"];
     });
     /* harmony import */
 
 
-    var _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(
+    var _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(
     /*! ../guiElements/dam-context-menu/dam-context-menu.component */
     "./src/guiElements/dam-context-menu/dam-context-menu.component.ts");
     /* harmony reexport (safe) */
 
 
-    __webpack_require__.d(__webpack_exports__, "DamContextMenuComponent", function () {
-      return _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_56__["DamContextMenuComponent"];
+    __webpack_require__.d(__webpack_exports__, "DamContextMenu", function () {
+      return _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_57__["DamContextMenu"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(
+    var _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(
     /*! ../mClass/classChild/Operations/eOperation */
     "./src/mClass/classChild/Operations/eOperation.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EOperation", function () {
-      return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_57__["EOperation"];
+      return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_58__["EOperation"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "AccessModifier", function () {
-      return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_57__["AccessModifier"];
+      return _mClass_classChild_Operations_eOperation__WEBPACK_IMPORTED_MODULE_58__["AccessModifier"];
     });
     /* harmony import */
 
 
-    var _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(
+    var _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(
     /*! ../mClass/classChild/Operations/eParameter */
     "./src/mClass/classChild/Operations/eParameter.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "EParameter", function () {
-      return _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_58__["EParameter"];
+      return _mClass_classChild_Operations_eParameter__WEBPACK_IMPORTED_MODULE_59__["EParameter"];
     });
     /* harmony import */
 
 
-    var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(
+    var _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(
     /*! ../app/measurabletemplate/measurabletemplate.component */
     "./src/app/measurabletemplate/measurabletemplate.component.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Draggableoptions", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["Draggableoptions"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_60__["Draggableoptions"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Resizableoptions", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["Resizableoptions"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_60__["Resizableoptions"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Rotatableoptions", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["Rotatableoptions"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_60__["Rotatableoptions"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ResizableoptionsPH", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["ResizableoptionsPH"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_60__["ResizableoptionsPH"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "DraggableOptionsPH", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["DraggableOptionsPH"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_60__["DraggableOptionsPH"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "RotatableoptionsPH", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["RotatableoptionsPH"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_60__["RotatableoptionsPH"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurableTemplateGenerator", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["MeasurableTemplateGenerator"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_60__["MeasurableTemplateGenerator"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "MeasurabletemplateComponent", function () {
-      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_59__["MeasurabletemplateComponent"];
+      return _app_measurabletemplate_measurabletemplate_component__WEBPACK_IMPORTED_MODULE_60__["MeasurabletemplateComponent"];
     });
     /* harmony import */
 
 
-    var _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(
+    var _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(
     /*! ../guiElements/changelog/ChangelogEntry */
     "./src/guiElements/changelog/ChangelogEntry.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ChangelogRoot", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["ChangelogRoot"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_61__["ChangelogRoot"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ChangelogEntry", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["ChangelogEntry"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_61__["ChangelogEntry"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "VersionUpload", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["VersionUpload"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_61__["VersionUpload"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Feature", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["Feature"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_61__["Feature"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "Bug", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["Bug"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_61__["Bug"];
     });
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "BugFix", function () {
-      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_60__["BugFix"];
+      return _guiElements_changelog_ChangelogEntry__WEBPACK_IMPORTED_MODULE_61__["BugFix"];
     });
     /* harmony import */
 
 
-    var _GuiStyles_global__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(
+    var _GuiStyles_global__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(
     /*! ../GuiStyles/global */
     "./src/GuiStyles/global.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "WebsiteTheme", function () {
-      return _GuiStyles_global__WEBPACK_IMPORTED_MODULE_61__["WebsiteTheme"];
+      return _GuiStyles_global__WEBPACK_IMPORTED_MODULE_62__["WebsiteTheme"];
     });
     /* harmony import */
 
 
-    var _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(
+    var _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(
     /*! ../ServerCommunication/Synchronization/ModelUpdateMessage */
     "./src/ServerCommunication/Synchronization/ModelUpdateMessage.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "ModelUpdateMessage", function () {
-      return _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_62__["ModelUpdateMessage"];
+      return _ServerCommunication_Synchronization_ModelUpdateMessage__WEBPACK_IMPORTED_MODULE_63__["ModelUpdateMessage"];
     });
     /* harmony import */
 
 
-    var _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(
+    var _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(
     /*! ../ServerCommunication/Synchronization/SendManager */
     "./src/ServerCommunication/Synchronization/SendManager.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "SendManager", function () {
-      return _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_63__["SendManager"];
+      return _ServerCommunication_Synchronization_SendManager__WEBPACK_IMPORTED_MODULE_64__["SendManager"];
     });
     /* harmony import */
 
 
-    var _src_guiElements_style_editor_csseditor_CssEditor__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(
+    var _src_guiElements_style_editor_csseditor_CssEditor__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(
     /*! ../../src/guiElements/style-editor/csseditor/CssEditor */
     "./src/guiElements/style-editor/csseditor/CssEditor.ts");
     /* harmony reexport (safe) */
 
 
     __webpack_require__.d(__webpack_exports__, "CSSEditor", function () {
-      return _src_guiElements_style_editor_csseditor_CssEditor__WEBPACK_IMPORTED_MODULE_64__["CSSEditor"];
+      return _src_guiElements_style_editor_csseditor_CssEditor__WEBPACK_IMPORTED_MODULE_65__["CSSEditor"];
     });
     /* NOTE: error in module.extends: devi importare i file rispettando l'ordine di dichiarazioni delle classi, se dichiaro class A nel file A, e class
      B extensa A nel file B, il file B non può essere importato prima del file A*/
@@ -10549,27 +10590,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     // ParameterView} from '../GuiStyles/viewpoint';
 
 
+    var is = is_js__WEBPACK_IMPORTED_MODULE_2__;
     var ansiUp = new ansi_up__WEBPACK_IMPORTED_MODULE_1___default.a(); // https://github.com/drudru/ansi_up // ansi color formatter.
 
-    var StringSimilarity = _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_2__;
+    var StringSimilarity = _common_StringSimilarity_js__WEBPACK_IMPORTED_MODULE_3__;
     var CSS = {
-      toCSS: cssjson__WEBPACK_IMPORTED_MODULE_3__["toCSS"],
-      toJSON: cssjson__WEBPACK_IMPORTED_MODULE_3__["toJSON"]
+      toCSS: cssjson__WEBPACK_IMPORTED_MODULE_4__["toCSS"],
+      toJSON: cssjson__WEBPACK_IMPORTED_MODULE_4__["toJSON"]
     };
     var JSCSS_CSSPARSER = window['CSSParser'] || {};
     /*import * as CSSS from 'css';
     export const CSS = CSSS;*/
     // import "jquery";
 
-    var $ = window['' + '$'] = jquery__WEBPACK_IMPORTED_MODULE_5__;
-    var $b = bootstrap__WEBPACK_IMPORTED_MODULE_6__;
-    var Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a;
+    var $ = window['' + '$'] = jquery__WEBPACK_IMPORTED_MODULE_6__;
+    var $b = bootstrap__WEBPACK_IMPORTED_MODULE_7__;
+    var Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_8___default.a;
     /*
     import * as JQueryUII        from '../../node_modules/jqueryui';
     export const JQueryUI: JQueryUII = JQueryUII.JQueryUI;*/
 
-    var prjson2xml = _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_8__;
-    var prxml2json = _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_9__;
+    var prjson2xml = _common_prj_json2xml_js__WEBPACK_IMPORTED_MODULE_9__;
+    var prxml2json = _common_prj_xml2json_js__WEBPACK_IMPORTED_MODULE_10__;
     /*export const $$$: JQueryStatic = require('jquery-ui');
     export const $ui: JQueryStatic = $$$;*/
 
@@ -13205,7 +13247,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var onchange = arguments.length > 1 ? arguments[1] : undefined;
           var readcontent = arguments.length > 2 ? arguments[2] : undefined;
           myFileReader.fileTypes = fileTypes || myFileReader.fileTypes;
-          console.log('fileTypes:', myFileReader.fileTypes, fileTypes);
+          var debug = false;
+          debug && console.log('fileTypes:', myFileReader.fileTypes, fileTypes);
           myFileReader.input = document.createElement('input');
           var input = myFileReader.input;
 
@@ -13220,9 +13263,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             var _loop2 = function _loop2(i) {
               var f = input.files[i];
-              console.log('filereadContent[' + i + ']( file:', f, ')');
+              debug && console.log('filereadContent[' + i + ']( file:', f, ')');
               U.fileReadContent(f, function (content) {
-                console.log('file[' + i + '] read complete. done: ' + (1 + fileLetti) + ' / ' + input.files.length, 'contentObj:', contentObj);
+                debug && console.log('file[' + i + '] read complete. done: ' + (1 + fileLetti) + ' / ' + input.files.length, 'contentObj:', contentObj);
                 contentObj[i] = content; // cannot use array, i'm not sure the callbacks will be called in order. using push is safer but could alter order.
                 // this is last file to read.
 
@@ -13267,9 +13310,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
 
             myFileReader.input.setAttribute('accept', filetypestr);
-          }
+          } //console.log('fileTypes:', myFileReader.fileTypes, 'input:', myFileReader.input);
 
-          console.log('fileTypes:', myFileReader.fileTypes, 'input:', myFileReader.input);
+
           $(myFileReader.input).on('change.custom', myFileReader.onchange).trigger('click');
           myFileReader.reset();
         }
@@ -13446,8 +13489,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (nodeOrTag === null) return;
 
           if (typeof nodeOrTag === 'string') {
-            this.input = document.createElement(nodeOrTag);
-            console.log('tadebug', nodeOrTag === 'textarea', nodeOrTag);
+            this.input = document.createElement(nodeOrTag); //console.log('tadebug', nodeOrTag === 'textarea', nodeOrTag);
 
             if (nodeOrTag === 'textarea') {
               // this.input.classList.add('form-control'); looks better without, mainly for font-size and overflowing outline
@@ -13485,8 +13527,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               validatorCallback: function validatorCallback(value, input) {
                 var pattern = input.getAttribute('pattern');
                 if (!pattern) return true;
-                var regex = new RegExp(pattern);
-                console.log('validating pattern:', regex, pattern, value);
+                var regex = new RegExp(pattern); //console.log('validating pattern:', regex, pattern, value);
+
                 return regex.test(value);
               },
               errormsg: 'pattern violated.'
@@ -13567,8 +13609,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           for (i = 0; this.validators && i < this.validators.length; i++) {
             var valentry = this.validators[i];
-            if (!valentry) continue;
-            console.log('this:', this, 'input:', input, 'value:', value);
+            if (!valentry) continue; //console.log('this:', this, 'input:', input, 'value:', value);
 
             if (!valentry.validatorCallback(value, input)) {
               this.setErrText(valentry.errormsg);
@@ -13735,8 +13776,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       EvalContext.EC_TmpParContext = context;
       EvalContext.EC_TmpAllowcontextEvalEdit = allowContextEvalEdit;
       EvalContext.EC_ret = undefined;
-      EvalContext.EC_exception = null;
-      console.log('evalincontext: this', this, 'context:', context);
+      EvalContext.EC_exception = null; //console.log('evalincontext: this', this, 'context:', context);
+
       delete this['str'];
       delete this['context'];
       delete this['allowContextEvalEdit']; // tengo tutte le chiavi al di fuori per non sporcare "this" con variabili locali mentre faccio diventare "this" una shallowcopy di "context"
@@ -13772,12 +13813,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(U, null, [{
         key: "checkDblClick",
         // static vertexOldPos: GraphPoint = null;
-        // todo: move @ start
         value: function checkDblClick() {
           var now = new Date().getTime();
           var old = U.dblclickchecker;
-          U.dblclickchecker = now;
-          console.log('dblclick time:', now - old, now, old);
+          U.dblclickchecker = now; //console.log('dblclick time:', now - old, now, old);
+
           return now - old <= U.dblclicktimerms;
         }
       }, {
@@ -14407,8 +14447,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           htmlStr = U.QuoteReplaceVarString(obj, htmlStr, '\'', debug); // replaces what's left outside any quotation. (eventually escaping <>)
 
-          htmlStr = U.replaceVarsString0(obj, htmlStr, ['<', '>'], ['&lt;', '&gt;']); // check here aaaaaaaaaaaaaa $$$$$$$$$$$
-
+          htmlStr = U.replaceVarsString0(obj, htmlStr, ['<', '>'], ['&lt;', '&gt;']);
           return htmlStr;
         }
       }, {
@@ -14743,6 +14782,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "iterateDescendents",
         value: function iterateDescendents(parent) {
           return parent.getElementsByTagName('*');
+        }
+      }, {
+        key: "ancestorFilter",
+        value: function ancestorFilter(selector, domelem) {
+          var stopNode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var includeSelf = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+          return $(U.ancestorArray(domelem, stopNode, includeSelf)).filter(selector);
         }
       }, {
         key: "ancestorArray",
@@ -15812,8 +15858,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           minSize.w *= horiz ? 2 : 1;
           minSize.h *= vertic ? 2 : 1;
           minSize.x = size.x;
-          minSize.y = size.y;
-          console.log('old, size, min', oldSize, size, minSize, oldSize.w && size.equals(minSize));
+          minSize.y = size.y; // console.log('old, size, min', oldSize, size, minSize, oldSize.w && size.equals(minSize));
 
           if (oldSize.w && size.equals(minSize)) {
             U.resizingContainer.style.width = U.resizingContainer.style.minWidth = U.resizingContainer.style.maxWidth = oldSize.w + 'px';
@@ -15966,9 +16011,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             while (container.classList.length > 0) {
               container.classList.remove(container.classList.item(0));
             }
-          }
+          } // console.log('container:', container, 'content:', content);
 
-          console.log('container:', container, 'content:', content);
+
           U.pe(container.children.length !== 0, ''); // U.copyStyle(html, container);
 
           html.parentNode.insertBefore(container, html);
@@ -16020,10 +16065,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           br.dataset.resizeenabled = bottom && right ? 'true' : 'false';
           var style = getComputedStyle(html, null); // html.style.border = 'none';
 
-          t.style.borderTop = tl.style.borderTop = tr.style.borderTop = style.borderTop;
-          b.style.borderBottom = bl.style.borderBottom = br.style.borderBottom = style.borderBottom;
-          l.style.borderLeft = tl.style.borderLeft = bl.style.borderLeft = style.borderLeft;
-          r.style.borderRight = tr.style.borderRight = br.style.borderRight = style.borderRight; // per un bug lo stile viene sempre letto come "none"
+          t.style.borderTop = tl.style.borderTop = tr.style.borderTop = style.borderTop; // || '0';
+
+          b.style.borderBottom = bl.style.borderBottom = br.style.borderBottom = style.borderBottom; // || '0';
+
+          l.style.borderLeft = tl.style.borderLeft = bl.style.borderLeft = style.borderLeft; // || '0';
+
+          r.style.borderRight = tr.style.borderRight = br.style.borderRight = style.borderRight; // || '0';
+          // per un bug lo stile viene sempre letto come "none"
 
           /*l.style.borderStyle = 'solid';
           r.style.borderStyle = 'solid';
@@ -16452,8 +16501,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               btn.style.borderBottomLeftRadius = '0';
               btn.style.borderBottomRightRadius = '0';
               $btn.find('.closed').hide();
-              $btn.find('.opened').show()[0].style.width = size.w - 15 * 2 + 'px';
-              console.log('others:', otherButtons, 'me:', $btn);
+              $btn.find('.opened').show()[0].style.width = size.w - 15 * 2 + 'px'; // console.log('others:', otherButtons, 'me:', $btn);
+
               $(otherButtons).data('on', '1').trigger('click', true);
               $detailPanel.show();
             }
@@ -16720,11 +16769,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function strFirstDiffIndex(s1, s2) {
           var i = -1;
           if (!s1 || !s2) return -1;
-          var minlen = Math.min(s1.length, s2.length);
-          console.log('strequal minlen:', minlen, '|' + s1 + '|', '|' + s2 + '|');
+          var minlen = Math.min(s1.length, s2.length); // console.log('strequal minlen:', minlen, '|'+s1+'|', '|'+s2+'|');
 
-          for (i = -1; ++i < minlen && s1[i] === s2[i];) {
-            console.log('strequal:', i, 's1:', s1[i], 's2', s2[i], true);
+          for (i = -1; ++i < minlen && s1[i] === s2[i];) {// console.log('strequal:', i, 's1:', s1[i], 's2', s2[i], true);
           }
 
           return i;
@@ -16797,9 +16844,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           for (key in stylesKv1) {
             style += key + ':' + stylesKv1[key] + '; ';
-          }
+          } // console.log('final Style:', style, stylesKv1, stylesKv2, styles2);
 
-          console.log('final Style:', style, stylesKv1, stylesKv2, styles2);
+
           html.setAttribute('style', style);
         }
       }, {
@@ -17043,8 +17090,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "parseNumberOrBoolean",
         value: function parseNumberOrBoolean(val) {
           var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : new ParseNumberOrBooleanOptions();
-          var booleanTry = U.fromBoolString(val, '', true, true);
-          console.log("isAllowingEdge parsenumberorboolean:", booleanTry, "|", params, "|", val);
+          var booleanTry = U.fromBoolString(val, '', true, true); // console.log("isAllowingEdge parsenumberorboolean:", booleanTry, "|", params, "|", val);
 
           switch ('' + booleanTry) {
             default:
@@ -17407,12 +17453,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function validateDatalist(input) {
           var addinvalidclass = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
           var checkByValueAttribute = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-          console.log('input.list', input.list);
+          var debug = false;
+          debug && console.log('validateDatalist() input.list', input.list);
           if (!input.list) return true;
           var valid;
 
           if (checkByValueAttribute) {
-            console.log($(input.list), '.find(\'option[value="' + input.value + '"]');
+            debug && console.log($(input.list), '.find(\'option[value="' + input.value + '"]');
             valid = $(input.list).find('option[value="' + input.value + '"]').length >= 1;
           } else {
             var arr = $(input.list).find('option[value="' + input.value + '"]');
@@ -17427,7 +17474,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           }
 
-          console.log('input:', input, 'addclass:', addinvalidclass, 'valid:', valid);
+          debug && console.log('input:', input, 'addclass:', addinvalidclass, 'valid:', valid);
 
           if (addinvalidclass) {
             if (valid) {
@@ -17553,7 +17600,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               ret = new RegExp(s, flags);
             } catch (e) {
               U.pe(canThrow, 'evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
-              console.log('evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
               return null;
             }
 
@@ -17569,7 +17615,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             ret = new RegExp(s, flags);
           } catch (e) {
             U.pe(canThrow, 'evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
-            console.log('evaluation of regex string failed:', s, onlyIfDelimitedByOneOf);
             return null;
           }
 
@@ -17968,6 +18013,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var li;
           var $li;
           var $input = $(input);
+          var debug = false;
 
           var getSuggestionText = function getSuggestionText(li) {
             return li.lastElementChild.innerText;
@@ -18028,13 +18074,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               if (_ret2 === "continue") continue;
             }
 
-            console.log('valid suggestions:', validSuggestions);
+            debug && console.log('valid suggestions:', validSuggestions);
           };
 
           $input.on('mouseup', function (e) {
             updateSuggestions();
-          });
-          $input.on('keydown', function (e) {
+          }).on('keydown', function (e) {
             switch (e.key) {
               default:
                 break;
@@ -18046,9 +18091,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 $(li).trigger('click');
                 break;
             }
-          });
-          $input.on('keyup', function (e) {
-            console.log('input keyup:', e);
+          }).on('keyup', function (e) {
+            debug && console.log('input keyup:', e);
 
             switch (e.key) {
               default:
@@ -18142,8 +18186,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (str[endi] === '(') parcounter++;
           }
 
-          var parameterStr = str.substring(starti + 1, endi);
-          console.log('starti:', starti, 'endi', endi, 'fname:', str.substr(0, starti), 'parameterStr:', parameterStr);
+          var parameterStr = str.substring(starti + 1, endi); // console.log('getfuncsignature starti:', starti, 'endi', endi, 'fname:', str.substr(0, starti), 'parameterStr:', parameterStr);
+
           ret.fname = str.substr(0, starti).trim();
           ret.fname = ret.fname.substr(0, ret.fname.indexOf(' ')).trim(); // 2 casi: anonimo "function (par1...){}" e "() => {}", oppure nominato: "function a1(){}"
 
@@ -18163,12 +18207,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (ret.returns === '') ret.returns = null; // is lambda if do not have curly body or contains => between return comment and body
+          // console.log('isLambda:', bodystarti, str.substring(Math.max(endi, returnendi)+1, bodystarti));
 
-          console.log('isLambda:', bodystarti, str.substring(Math.max(endi, returnendi) + 1, bodystarti));
           ret.isLambda = bodystarti === -1 || str.substring(Math.max(endi, returnendi) + 1, bodystarti).trim() === '=>';
           var regexp = /([^=\/\,]+)(=?)([^,]*?)(\/\*[^,]*?\*\/)?,/g; // only problem: the last parameter won't match because it does not end with ",", so i will append it everytime.
-          //console.clear(); console.log( parameterStr);
-          // parameterStr = 'l1=3/*float=3*/, l2= 2/*float= 2*/, l3 =3/*float =3*/';
 
           var match;
 
@@ -18429,6 +18471,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             param[_key23] = json[_key23];
           }
         }
+      }, {
+        key: "findFirstAncestor",
+        value: function findFirstAncestor(startingNode, condition) {
+          var current = startingNode;
+
+          while (current && !condition(current)) {
+            current = current.parentNode;
+          }
+
+          return current;
+        }
+      }, {
+        key: "insertNodeAt",
+        value: function insertNodeAt(parent, child, index) {
+          var futureNextSibling = index < 0 ? parent.firstElementChild : index > parent.children.length ? null : parent.children[index];
+          parent.insertBefore(child, futureNextSibling);
+        }
       }]);
 
       return U;
@@ -18445,7 +18504,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     U.resizingBorder = null;
     U.resizingContainer = null; // static he = null;
 
-    U.production = false;
     U.addCssAvoidDuplicates = {};
     U.varTextToSvg = null;
     U.dblclickchecker = new Date().getTime(); // todo: move @ start
@@ -20386,6 +20444,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           v = new VersionUpload(new Date('2020/7/31'), '', '');
           v.addf('Interface and Abstract classes support', 'Accessible through the structured tree view on the right bar.');
           v.addf('Class conversion:', 'It is now possible to change type of a single M1-class, or of all instances of a target M2-class. (<a href="https://github.com/DamianoNaraku/jjodel/wiki/Class-deletion-&-Class-type-conversion">Full guide here</a>)\n' + 'For example converting all "Date" instances to "DateTime" instances, adding a "time" attribute to all of them without changing the definition of the "Date" class.', null, true);
+          v.addb('Class conversion', 'casting an object to a superclass is not removing properties for the subclass.');
           v.addbf('children filtering:', 'was not working properly only on his generic version (childrenContainer) and not on AttributeContainer');
           v.addbf('validation:', 'was working on run-time edits, but not on the initial load of the model');
           v.addbf('class deletion:', 'When a class was used as function parameter, the removal was causing exceptions.' + '\nNow it will change the parmaeter\'s type using class conversion, or removing it if conversion is impossible.');
@@ -20404,19 +20463,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           v.addf('Hiding vertices', 'Vertices can now be hidden simply by deleting their root node inside style editor.', null, false);
           v.addb('Loading edges', 'Edges are loading on wrong position during initial render, it will be fixed by hovering on them or changing viewpoint.' + ' Looking for a solution.', null, false);
           v.addbf('Loading customized default style', 'Fixed a failure in loading a viewpoint with a <b>"customized default"</b> style (3° layer, last customizable priority level).', null, true);
-          v = new VersionUpload(new Date('2021/01/23'), 'Color schemes', 'Allow to define multiple color schemes and manage activation context for them, overriding the default coloring of vertices, edges, or the entire app.');
+          v = new VersionUpload(new Date('2021/04/26'), 'Color schemes & bug-fixing', 'The color scheme system allow to define multiple color schemes and manage activation context for them, overriding the default coloring of vertices, edges, or the entire app.');
           v.addf('Color scheme manager', 'Accessible through Graph\'s style editor or from Themes in top-bar. It can add, remove and modify existing color schemes. It also allows to choose the activation context of the color scheme (e.g.:whole app, only Attributes...).');
           v.addf('Style editor integration', 'Once a visual element is clicked, you can manually assign an existing color scheme to that element through the style editor'); // v.addf('Style editor integration for edges', 'todo: All elements can have multiple color scheme enabled, but edges should always have multiple color schemes. It is suggested to use one for normal status, one for highlighted status and one for focused status');
           // v.addf('Color scheme and Views', 'todo: Color scheme are stored inside Views.');
+          // v = new VersionUpload(new Date('2021/04/26'), 'Mostly bug-fixes', '');
 
-          v = new VersionUpload(new Date('2021/04/13'), 'minor fixes while wip on v2', '');
-          v.addbf('color scheme', 'minor fix over styles rarely applied to incorrect elements.');
-          v.addb('contextmenu', 'There is a known severe bug with vertex contextmenu incorrectly disappearing over chrome+macOS. Tryed to fix but could not test could not test personally or reproduce on other browser+OS combinations, it is unknown if the bug is still present.');
-          v.addbf('contextmenu', 'Fixed a different bug on firefox that was rarely causing it to not appear at all.');
-          v.addbf('gui', 'minor gui issues fixed (vertex overflow).');
-          v.addbf('extend', 'removing an extension relationship was not removing the edge (graphic only bug).');
-          v.addb('type conversion', 'casting an object to a superclass is not removing properties for the subclass.');
-          var searchterm = 'clog addbf'; // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
+          v.addbf('Class conversion', 'casting an object to a superclass was not removing properties for the subclass.');
+          v.addb('usability', 'many interactions are not working on touchscreen devices, this is not a priority but is slowly going to be fixed.');
+          v.addbf('usability', 'Inserted button-popups that can open the contextmenu without right-clicking (touch-friendly)');
+          v.addbf('contextmenu', 'There was a severe bug with vertex contextmenu incorrectly disappearing over chrome+macOS.');
+          v.addb('contextmenu', 'The newly introduced button to open the context-menù is not displaying the menù properly on firefox due to a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1705916">svg-related bug recently discovered</a> and without known workarounds.\n' + '<p style="color: darkred">If the context-menù is accessed through right-click it is not affected by the bug, please use right-click on firefox until a workaround is discovered.</p>', null, true); // v.addbf('gui', 'minor gui issues (vertex overflow).');
+          // v.addb('gui', 'opening contextmenu through left-clicking on the option hover is blurring the graph');
+
+          v.addbf('color scheme', 'Minor fix over styles rarely applied to incorrect elements.');
+          v.addbf('gui extend', 'Removing an extension relationship was not removing the edge (graphic only bug).');
+          v.addbf('attribute upperbound', 'Attributes upperbound could not be changed.');
+          v.addb('edges', 'Removing an edge not yet confirmed (preview while inserting) using DEL is causing invalid state, press ESC Instead for now.');
+          v.addb('lowerbound', 'Currently ignored.');
+          var searchterm = 'clog addbf'; // todo: documenta api theia
+          // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
           // v.addf('fakegfeat', 'kkk');
           // v = new VersionUpload('v3'...);
         }
@@ -21167,7 +21233,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "#damContextMenuTemplateContainer{\r\n  display: none;\r\n}\r\n.contextMenuRoot{\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n}\r\n.popupRight{ display: none; }\r\n.popupRightParent:hover > .popupRight { display: block; }\r\n.popupRight {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.popupRightParent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.popupRight {\r\n  display: none;\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nul.contextMenu li{\r\n  cursor: pointer;\r\n}\r\nul.contextMenu li.popupRightParent{\r\n  cursor: not-allowed;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: var(--color-4);\r\n}\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*cursor: default;*/\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:hover li:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: var(--color-4);\r\n}\r\n.typeli.dynamic, .refli.dynamic{\r\n  cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtBQUNuQjtBQUVBLGFBQWEsYUFBYSxFQUFFO0FBQzVCLHdDQUF3QyxjQUFjLEVBQUU7QUFDeEQ7RUFDRSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQixFQUFFO0FBQ3ZCO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7QUFDZjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixNQUFNO0FBQ1I7QUFDQTtFQUNFLHVCQUF1QjtFQUN2Qix1QkFBdUI7RUFDdkIsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixXQUFXO0VBQ1gsVUFBVTtFQUNWLHNCQUFzQjtFQUN0QixZQUFZO0FBQ2Q7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUVBO0VBQ0UsY0FBYztFQUNkLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQiwyQkFBMkI7QUFDN0I7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCLEVBQUU7QUFFL0I7RUFDRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtBQUN2QjtBQUVBO0VBQ0UsZUFBZTtBQUNqQiIsImZpbGUiOiJzcmMvZ3VpRWxlbWVudHMvZGFtLWNvbnRleHQtbWVudS9kYW0tY29udGV4dC1tZW51LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjZGFtQ29udGV4dE1lbnVUZW1wbGF0ZUNvbnRhaW5lcntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi5jb250ZXh0TWVudVJvb3R7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXgtaGVpZ2h0OiAxMDB2aDtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG92ZXJmbG93OiB2aXNpYmxlO1xyXG59XHJcblxyXG4ucG9wdXBSaWdodHsgZGlzcGxheTogbm9uZTsgfVxyXG4ucG9wdXBSaWdodFBhcmVudDpob3ZlciA+IC5wb3B1cFJpZ2h0IHsgZGlzcGxheTogYmxvY2s7IH1cclxuLnBvcHVwUmlnaHQge1xyXG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4OyB9XHJcbi5yZWZsaSAuZmlyc3RlbXB0eXtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnJlZmxpIGJ1dHRvbi5ieWluZGV4IHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG59XHJcbi5wb3B1cFJpZ2h0UGFyZW50e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4ucmVmbGkgLmluZGV4IHtcclxuICBwYWRkaW5nLWxlZnQ6IDNweDtcclxuICBjb2xvcjogb3JhbmdlO1xyXG59XHJcbi5yZWZsaSAudGV4dHtcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbn1cclxuYnV0dG9uLnJlZmxpLmRlbGV0ZXtcclxuICBwYWRkaW5nOiAwIDRweDtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5wb3B1cFJpZ2h0IHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIGxlZnQ6IGNhbGMoMTAwJSk7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmc6IDJweCA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICB0b3A6IDA7XHJcbn1cclxudWwuY29udGV4dE1lbnV7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZzogMTBweDtcclxuICBwYWRkaW5nLXRvcDogNnB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiA4cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxufVxyXG51bC5jb250ZXh0TWVudSBsaXtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxudWwuY29udGV4dE1lbnUgbGkucG9wdXBSaWdodFBhcmVudHtcclxuICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xyXG59XHJcbmxpOmZpcnN0LWNoaWxke1xyXG4gIHBhZGRpbmctdG9wOiAwO1xyXG59XHJcbmxpLnNlcGFyYXRvcntcclxuICBtYXJnaW4tdG9wOiAycHg7XHJcbiAgaGVpZ2h0OiAxcHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xyXG4gIG9wYWNpdHk6IDAuNDtcclxufVxyXG5saTpsYXN0LWNoaWxke1xyXG4gIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcbmxpe1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIGN1cnNvcjogZGVmYXVsdDtcclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTtcclxufVxyXG5saTpub3QoLnVuY2xpY2thYmxlKTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLWNvbG9yLTQpO1xyXG59XHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLypjdXJzb3I6IGRlZmF1bHQ7Ki9cclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTsgfVxyXG5cclxubGk6aG92ZXIgbGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1jb2xvci00KTtcclxufVxyXG5cclxuLnR5cGVsaS5keW5hbWljLCAucmVmbGkuZHluYW1pY3tcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIl19 */";
+    __webpack_exports__["default"] = "/*#damContextMenuTemplateContainer{\r\n  position: absolute;\r\n  /*right: 20000px;\r\n  width: 2000px;\r\n  height: 2000px;\r\n  z-index: 1000;\r\n}\r\n#damContextMenuTemplateContainer::before{\r\n  content:'';\r\n  position: absolute;\r\n  right: 0;\r\n  width: 20px;\r\n  height: 20px;\r\n  background: red;\r\n}*/\r\n.overflowFix{\r\n  position: absolute;\r\n  top: -10000px;\r\n  left: -10000px;\r\n  width: 20000px;\r\n  height: 20000px;\r\n/*  opacity: 0.5;\r\n  background: red;*/\r\n  z-index: 1000;\r\n  pointer-events: none;\r\n}\r\n.overflowFixContent{\r\n  top: 0;\r\n  left: 0;\r\n  min-width: -webkit-max-content;\r\n  min-width: -moz-max-content;\r\n  min-width: max-content;\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n  pointer-events: all;\r\n}\r\n.popupRight{ display: none; }\r\n.popupRightParent.active > .popupRight,\r\n.popupRightParent:hover > .popupRight,\r\n.popupRightParent:focus-within > .popupRight {\r\n  display: block;\r\n}\r\n.popupRight {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.popupRightParent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.popupRight {\r\n  display: none;\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nul.contextMenu li{\r\n  cursor: pointer;\r\n}\r\nul.contextMenu li.popupRightParent{\r\n  cursor: not-allowed;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:not(.unclickable):focus-within,\r\nli:not(.unclickable).active,\r\nli:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: var(--color-4);\r\n}\r\nli:focus-within li,\r\nli.active li,\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*cursor: default;*/\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:focus-within li:not(.unclickable):focus-within,\r\nli:focus-within li:not(.unclickable):hover,\r\nli:focus-within li:not(.unclickable).active,\r\nli.active li:not(.unclickable).active,\r\nli:hover li:not(.unclickable).active,\r\nli.active li:not(.unclickable):hover,\r\nli:hover li:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: var(--color-4);\r\n}\r\n.typeli.dynamic, .refli.dynamic{\r\n  cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7RUFjRTtBQUNGO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixjQUFjO0VBQ2QsY0FBYztFQUNkLGVBQWU7QUFDakI7bUJBQ21CO0VBQ2pCLGFBQWE7RUFDYixvQkFBb0I7QUFDdEI7QUFDQTtFQUNFLE1BQU07RUFDTixPQUFPO0VBQ1AsOEJBQXNCO0VBQXRCLDJCQUFzQjtFQUF0QixzQkFBc0I7RUFDdEIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7QUFFQSxhQUFhLGFBQWEsRUFBRTtBQUM1Qjs7O0VBR0UsY0FBYztBQUNoQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBbUIsRUFBRTtBQUV2QjtFQUNFLFdBQVc7QUFDYjtBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsTUFBTTtBQUNSO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsdUJBQXVCO0VBQ3ZCLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsbUJBQW1CO0FBQ3JCO0FBRUE7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsV0FBVztFQUNYLFVBQVU7RUFDVixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFFQTtFQUNFLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCO0FBQzdCO0FBRUE7OztFQUdFLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIscUJBQXFCO0FBQ3ZCO0FBQ0E7OztFQUdFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQiwyQkFBMkIsRUFBRTtBQUUvQjs7Ozs7OztFQU9FLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIscUJBQXFCO0FBQ3ZCO0FBRUE7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qI2RhbUNvbnRleHRNZW51VGVtcGxhdGVDb250YWluZXJ7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIC8qcmlnaHQ6IDIwMDAwcHg7XHJcbiAgd2lkdGg6IDIwMDBweDtcclxuICBoZWlnaHQ6IDIwMDBweDtcclxuICB6LWluZGV4OiAxMDAwO1xyXG59XHJcbiNkYW1Db250ZXh0TWVudVRlbXBsYXRlQ29udGFpbmVyOjpiZWZvcmV7XHJcbiAgY29udGVudDonJztcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDA7XHJcbiAgd2lkdGg6IDIwcHg7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIGJhY2tncm91bmQ6IHJlZDtcclxufSovXHJcbi5vdmVyZmxvd0ZpeHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiAtMTAwMDBweDtcclxuICBsZWZ0OiAtMTAwMDBweDtcclxuICB3aWR0aDogMjAwMDBweDtcclxuICBoZWlnaHQ6IDIwMDAwcHg7XHJcbi8qICBvcGFjaXR5OiAwLjU7XHJcbiAgYmFja2dyb3VuZDogcmVkOyovXHJcbiAgei1pbmRleDogMTAwMDtcclxuICBwb2ludGVyLWV2ZW50czogbm9uZTtcclxufVxyXG4ub3ZlcmZsb3dGaXhDb250ZW50e1xyXG4gIHRvcDogMDtcclxuICBsZWZ0OiAwO1xyXG4gIG1pbi13aWR0aDogbWF4LWNvbnRlbnQ7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXgtaGVpZ2h0OiAxMDB2aDtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG92ZXJmbG93OiB2aXNpYmxlO1xyXG4gIHBvaW50ZXItZXZlbnRzOiBhbGw7XHJcbn1cclxuXHJcbi5wb3B1cFJpZ2h0eyBkaXNwbGF5OiBub25lOyB9XHJcbi5wb3B1cFJpZ2h0UGFyZW50LmFjdGl2ZSA+IC5wb3B1cFJpZ2h0LFxyXG4ucG9wdXBSaWdodFBhcmVudDpob3ZlciA+IC5wb3B1cFJpZ2h0LFxyXG4ucG9wdXBSaWdodFBhcmVudDpmb2N1cy13aXRoaW4gPiAucG9wdXBSaWdodCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbi5wb3B1cFJpZ2h0IHtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDsgfVxyXG5cclxuLnJlZmxpIC5maXJzdGVtcHR5e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4ucmVmbGkgYnV0dG9uLmJ5aW5kZXgge1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbn1cclxuLnBvcHVwUmlnaHRQYXJlbnR7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG59XHJcbi5yZWZsaSAuaW5kZXgge1xyXG4gIHBhZGRpbmctbGVmdDogM3B4O1xyXG4gIGNvbG9yOiBvcmFuZ2U7XHJcbn1cclxuLnJlZmxpIC50ZXh0e1xyXG4gIHBhZGRpbmctbGVmdDogNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDVweDtcclxufVxyXG5idXR0b24ucmVmbGkuZGVsZXRle1xyXG4gIHBhZGRpbmc6IDAgNHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLnBvcHVwUmlnaHQge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgbGVmdDogY2FsYygxMDAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgcGFkZGluZzogMnB4IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIHRvcDogMDtcclxufVxyXG51bC5jb250ZXh0TWVudXtcclxuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIHBhZGRpbmctdG9wOiA2cHg7XHJcbiAgcGFkZGluZy1ib3R0b206IDhweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG59XHJcbnVsLmNvbnRleHRNZW51IGxpe1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG51bC5jb250ZXh0TWVudSBsaS5wb3B1cFJpZ2h0UGFyZW50e1xyXG4gIGN1cnNvcjogbm90LWFsbG93ZWQ7XHJcbn1cclxuXHJcbmxpOmZpcnN0LWNoaWxke1xyXG4gIHBhZGRpbmctdG9wOiAwO1xyXG59XHJcbmxpLnNlcGFyYXRvcntcclxuICBtYXJnaW4tdG9wOiAycHg7XHJcbiAgaGVpZ2h0OiAxcHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xyXG4gIG9wYWNpdHk6IDAuNDtcclxufVxyXG5saTpsYXN0LWNoaWxke1xyXG4gIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcbmxpe1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIGN1cnNvcjogZGVmYXVsdDtcclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTtcclxufVxyXG5cclxubGk6bm90KC51bmNsaWNrYWJsZSk6Zm9jdXMtd2l0aGluLFxyXG5saTpub3QoLnVuY2xpY2thYmxlKS5hY3RpdmUsXHJcbmxpOm5vdCgudW5jbGlja2FibGUpOmhvdmVye1xyXG4gIHBhZGRpbmctbGVmdDogNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tY29sb3ItNCk7XHJcbn1cclxubGk6Zm9jdXMtd2l0aGluIGxpLFxyXG5saS5hY3RpdmUgbGksXHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLypjdXJzb3I6IGRlZmF1bHQ7Ki9cclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTsgfVxyXG5cclxubGk6Zm9jdXMtd2l0aGluIGxpOm5vdCgudW5jbGlja2FibGUpOmZvY3VzLXdpdGhpbixcclxubGk6Zm9jdXMtd2l0aGluIGxpOm5vdCgudW5jbGlja2FibGUpOmhvdmVyLFxyXG5saTpmb2N1cy13aXRoaW4gbGk6bm90KC51bmNsaWNrYWJsZSkuYWN0aXZlLFxyXG5saS5hY3RpdmUgbGk6bm90KC51bmNsaWNrYWJsZSkuYWN0aXZlLFxyXG5saTpob3ZlciBsaTpub3QoLnVuY2xpY2thYmxlKS5hY3RpdmUsXHJcbmxpLmFjdGl2ZSBsaTpub3QoLnVuY2xpY2thYmxlKTpob3ZlcixcclxubGk6aG92ZXIgbGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1jb2xvci00KTtcclxufVxyXG5cclxuLnR5cGVsaS5keW5hbWljLCAucmVmbGkuZHluYW1pY3tcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -21177,7 +21243,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/guiElements/dam-context-menu/dam-context-menu.component.ts ***!
     \************************************************************************/
 
-  /*! exports provided: DamContextMenuComponent */
+  /*! exports provided: DamContextMenuComponent, DamContextMenu */
 
   /***/
   function srcGuiElementsDamContextMenuDamContextMenuComponentTs(module, __webpack_exports__, __webpack_require__) {
@@ -21189,6 +21255,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     __webpack_require__.d(__webpack_exports__, "DamContextMenuComponent", function () {
       return DamContextMenuComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DamContextMenu", function () {
+      return DamContextMenu;
     });
     /* harmony import */
 
@@ -21209,20 +21281,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ../../common/Joiner */
     "./src/common/Joiner.ts");
 
-    var DamContextMenuComponent_1;
+    var DamContextMenuComponent = function DamContextMenuComponent() {
+      _classCallCheck(this, DamContextMenuComponent);
+    };
 
-    var DamContextMenuComponent = DamContextMenuComponent_1 =
+    DamContextMenuComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-dam-context-menu',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./dam-context-menu.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/guiElements/dam-context-menu/dam-context-menu.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./dam-context-menu.component.css */
+      "./src/guiElements/dam-context-menu/dam-context-menu.component.css")).default]
+    })], DamContextMenuComponent);
+
+    var DamContextMenu =
     /*#__PURE__*/
     function () {
-      function DamContextMenuComponent() {
+      function DamContextMenu() {
         var _this27 = this;
 
-        _classCallCheck(this, DamContextMenuComponent);
+        _classCallCheck(this, DamContextMenu);
 
         this.html = null;
         this.$html = null;
+        this.shouldAppear = false;
         this.$html = $('#damContextMenuTemplateContainer');
-        this.html = this.$html[0];
+        this.html = this.$html[0]; // console.log('sinit contextmenu constructor', {$html: this.$html, html: this.html, thiss: this}, DamContextMenu.contextMenu);
+
+        this.defaultContainer = this.html.parentElement;
         $(document).off('mouseup.hideContextMenu').on('mouseup.hideContextMenu', function (e) {
           return _this27.checkIfHide(e);
         });
@@ -21234,40 +21321,87 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.extedgecontext = this.$extedgecontext[0]; // no contextmenù allowed inside my contextmenù
 
         this.$html.on('contextmenu', function (e) {
+          console.log('cannot open contextmenu nested in a contextmenu');
           e.preventDefault();
           e.stopPropagation();
           return false;
-        });
+        }); // viewpoints non va bene in quella posizione chiamalo layout (o syntax) layer non direttamente su canvas
       }
 
-      _createClass(DamContextMenuComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }, {
+      _createClass(DamContextMenu, [{
         key: "onContextMenu",
         value: function onContextMenu(evt) {
-          console.log('rx click contextmenu'); // evt.preventDefault(); evt.stopPropagation(); return false;
+          console.log('rx click contextmenu');
 
-          var vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(evt.target, false); // evt.stopPropagation();
+          var isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(evt.target, true, false);
 
+          var isDragging = this.checkIfDraggingVertex(evt);
 
-          DamContextMenuComponent_1.contextMenu.hide(); // only if is focused input
+          if (isInput && !isDragging) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext = null;
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].selected = null;
+            return true;
+          }
+
+          evt.preventDefault();
+          return false;
+        }
+      }, {
+        key: "checkIfDraggingVertex",
+        value: function checkIfDraggingVertex(evt) {
+          var vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(evt.target, false);
+
+          var clickStartedOutsideVertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext === null; // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato --> non triggerare contextmenu
+          // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input --> non triggerare contextmenu
+          // if (isInput && clickStartedOutsideVertex) evt.target.focus();
+          // if (!isInput && gotSelectedNow) evt.target.blur();
+          // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
+
+          var pixelMoved = clickStartedOutsideVertex ? -1 : vertex && vertex.size.tl().subtract(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext.size.tl(), false).absolute();
+          return vertex && !clickStartedOutsideVertex && pixelMoved >= vertex.tolleranzaRightClickMove;
+        }
+      }, {
+        key: "onMouseUp",
+        value: function onMouseUp(evt) {
+          console.log('rx mouseup contextmenu');
+          if (evt.button !== _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].mouseRightButton) return;
+
+          var isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(evt.target, true, false);
+
+          var mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].get(evt);
+
+          if (!mp) return;
+          var isDragging = this.checkIfDraggingVertex(evt);
+          if (isDragging || isInput) return;
+          this.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Point"](evt.pageX, evt.pageY), evt.target);
+        }
+      }, {
+        key: "onContextMenuOld",
+        value: function onContextMenuOld(evt) {
+          console.log('rx click contextmenu');
+          this.shouldAppear = false; // evt.preventDefault();
+          // evt.stopPropagation();
+
+          var vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(evt.target, false);
+
+          DamContextMenu.contextMenu.hide(); // only if is focused input
 
           var lastSelected = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].focusHistoryEntries[_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].focusHistoryElements.length - 1];
-          var gotSelectedNow = lastSelected && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(lastSelected.element, evt.target) && new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000;
+          var gotSelectedNow = false; // lastSelected && U.isParentOf(lastSelected.element, evt.target) && (new Date().valueOf() - lastSelected.time.valueOf() < 0.3 * 1000);
+
           var isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(evt.target, true, false) && !gotSelectedNow;
           var clickStartedOutsideVertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext === null; // quando clickStartedOutsideVertex capita contextmenu dell'input senza che sia selezionato --> non triggerare contextmenu
           // quando contextmenù e gotSelectedNow fà il contextmenù personalizzato ma seleziona l'input --> non triggerare contextmenu
-
-          if (isInput && clickStartedOutsideVertex) evt.target.focus();
-          if (!isInput && gotSelectedNow) evt.target.blur(); // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
+          // if (isInput && clickStartedOutsideVertex) evt.target.focus();
+          // if (!isInput && gotSelectedNow) evt.target.blur();
+          // happens when rightMouseDownClicked outside a vertex and rightMouseUpped inside a vertex.
 
           var pixelMoved = !clickStartedOutsideVertex ? 0 : vertex && vertex.size.tl().subtract(_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].startDragContext.size.tl(), false).absolute();
           var gotMoved = vertex && !clickStartedOutsideVertex && pixelMoved >= vertex.tolleranzaRightClickMove;
 
           var mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].get(evt);
 
-          var ret = !mp || isInput && !gotMoved; // evt['passedThroughVertex'] = ret;
+          var ret; // evt['passedThroughVertex'] = ret;
 
           console.log('ret:', ret, 'mp:', mp, 'moved:', gotMoved, 'isInput:', isInput);
 
@@ -21277,7 +21411,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
 
           afterContextMenu();
-          if (ret) return true;else {
+          if (isInput) return true;else {
+            ret = false;
             evt.preventDefault();
           }
 
@@ -21285,12 +21420,72 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return ret;
           }
 
-          DamContextMenuComponent_1.contextMenu.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Point"](evt.pageX, evt.pageY), evt.target);
+          if (!mp || isInput && !gotMoved) return ret;
+          this.shouldAppear = true;
           return ret;
+        }
+      }, {
+        key: "setActiveAllAncestors",
+        value: function setActiveAllAncestors(element, stopElement) {
+          while (element !== stopElement && element && element.classList) {
+            if (element.hasAttribute('tabIndex')) element.classList.add('active');
+            element = element.parentElement;
+          }
+        }
+      }, {
+        key: "unsetActiveAllAncestors",
+        value: function unsetActiveAllAncestors(element, stopElement) {
+          while (element !== stopElement && element && element.classList) {
+            if (element.hasAttribute('tabIndex')) element.classList.remove('active');
+            element = element.parentElement;
+          }
         }
       }, {
         key: "checkIfHide",
         value: function checkIfHide(e) {
+          var debug = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          // do not hide if click on non-terminal options (but do on terminals)
+          debug && console.trace('contextMenuCheckHide()', {
+            e: e,
+            etarget: e.target,
+            thishtml: this.html
+          });
+
+          if (e && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(this.html, e.target)) {
+            var vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(e.target, false);
+
+            var $ancestors = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].ancestorFilter('button, .terminal', e.target, this.html);
+
+            if (!$ancestors.length && vertex) {
+              /*vertex.fixFirefoxOverflowBug();*/
+              return;
+            } // this.setActiveAllAncestors(e.target, this.html);
+
+
+            debug && console.log('contextMenuCheckHide: hidden for click on .terminal or button element', e.target, this.html);
+            this.hide();
+            return;
+          }
+
+          this.$html.find('.active').removeClass('active'); // hide if tap again on the sam openOption button
+
+          var openOptions = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].findFirstAncestor(e.target, function (node) {
+            return node.classList && node.classList.contains('open-options');
+          });
+
+          if (openOptions) {
+            this.hide();
+
+            if (this.isShowingInside(openOptions)) {
+              debug && console.log('contextMenuCheckHide-button-option: hidden for double-tap on same option button');
+              return;
+            }
+
+            debug && console.log('contextMenuCheckHide-button-option show for tap on option button');
+            this.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Point"](e.pageX, e.pageY), openOptions, openOptions);
+            return;
+          }
+
           var originalTarget = e.target;
 
           var isInput = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isInput(originalTarget, true);
@@ -21302,40 +21497,82 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var clickedOutside = !_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(this.html, originalTarget); // clicking on a submenu header should not cause it to disappear making the user incorrectly believe they triggered an action
 
-          if (!clickedOutside && originalTarget.classList.contains('popupRightParent')) return; // console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
+          /*if (!clickedOutside && originalTarget.classList.contains('popupRightParent')) {
+            debug&&console.log('contextMenuCheckHide keep-visible because clicked on non-terminal entry inside the menu');
+            return;
+          }*/
+          // console.log('isInput:', isInput, 'isButton:', isButton, 'clickedOutside:', clickedOutside, '!focused:', !focused, originalTarget, document.activeElement, e);
 
           if (isButton || clickedOutside || !isInput && !isDisabled && !focused) {
+            debug && console.log('contextMenuCheckHide hidden because:', {
+              isButton: isButton,
+              clickedOutside: clickedOutside,
+              isInput: isInput,
+              isDisabled: isDisabled,
+              focused: focused,
+              condition: 'isButton || clickedOutside || !isInput && !isDisabled && !focused'
+            });
             this.hide();
           }
         }
       }, {
         key: "computePosition",
         value: function computePosition(location) {
-          var templateSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].sizeof(this.html);
+          var appendTo = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+          var templateSize = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].sizeof(this.html.firstElementChild);
 
           var viewPortSize = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Size"](0, 0, window.innerWidth, window.innerHeight);
           location.x = Math.max(0, location.x);
           location.y = Math.max(0, location.y);
-          location.x = Math.min(viewPortSize.w - templateSize.w, location.x);
-          console.log('vp.w:', viewPortSize.w, ' - t.w:', templateSize.w, ', loc.x', location.x, ', t.size:', templateSize, this.html);
-          console.log('vp.h:', viewPortSize.h, ' - t.h:', templateSize.h, ', loc.y', location.y, ', t.size:', templateSize, this.html);
+          location.x = Math.min(viewPortSize.w - templateSize.w, location.x); // console.log('contextmenu compute position:', {viewPortSize, templateSize, location, thishtml: this.html});
+
           location.y = Math.min(viewPortSize.h - templateSize.h, location.y);
-          this.html.style.position = 'absolute';
-          this.html.style.zIndex = '1000';
-          this.html.style.left = '' + location.x + 'px';
-          this.html.style.top = '' + location.y + 'px';
+
+          if (appendTo) {
+            var size = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].sizeof(appendTo);
+
+            console.log('sizeof', appendTo, size);
+            this.html.firstElementChild.style.left = 10000 - 2 + 'px';
+            this.html.firstElementChild.style.top = 10000 + size.h - 2 + 'px';
+            return;
+          }
+
+          this.html.firstElementChild.style.left = 10000 + location.x + 'px';
+          this.html.firstElementChild.style.top = 10000 + location.y + 'px';
         }
       }, {
         key: "show",
         value: function show(location, target) {
+          var appendTo = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          console.log('contextmenu show()');
+          DamContextMenu.contextMenu.html.style.display = 'none';
+
+          var vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(appendTo);
+
+          appendTo = appendTo || this.defaultContainer;
+
+          if (this.html.parentElement !== appendTo) {
+            appendTo.appendChild(this.html);
+          }
+
+          if (appendTo === this.defaultContainer) appendTo = null;
+
           var mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].getLogic(target);
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!target, 'target is null.');
 
           if (!mp) return;
           mp.linkToLogic(this.html, false);
-          console.log('contextmenu target:', this.clickTarget);
+          console.log('contextmenu target:', this.clickTarget, 'this.html:', this.html);
           var model = mp.getModelRoot();
+
+          if (model.isM3()) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pw(true, 'No context-menu is currently available for M3 elements');
+
+            return;
+          }
+
           this.clickTarget = target;
           this.html.style.display = 'none'; // if was already displaying, start the scrollDown animation without doing the scrollUp()
           // const vertex: IVertex = IVertex.getvertexByHtml(target);
@@ -21427,15 +21664,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           dic['m1'] = model.isM1();
           dic['m2'] = model.isM2();
           dic['class'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"];
+          dic['enum'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EEnum"];
           dic['classifier'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClassifier"];
           dic['feature'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IFeature"];
           dic['attribute'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IAttribute"];
           dic['reference'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IReference"];
           dic['operation'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EOperation"];
-          dic['param'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EParameter"];
+          dic['parameter'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EParameter"];
           dic['annotation'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["EAnnotation"];
+          dic['literal'] = mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ELiteral"];
           dic['edge'] = !!edge;
           dic['extedge'] = !!extedge;
+          dic['ongraph'] = !!_common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(model.graph.container, target);
 
           var ret = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].computeConditionalHides(this.$html, dic);
 
@@ -21443,15 +21683,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (ret.show.length + ret.inaltered.length === 0) return;
           this.addEventListeners(location, mp); // [??? what?] must be done here, per facilità di fare binding usando variabili esterne agli eventi.
 
-          this.computePosition(location); // computePosition() needs to be after deciding sub-elements visibility and before sliding down, because needs to compute
+          this.computePosition(location, appendTo); // computePosition() needs to be after deciding sub-elements visibility and before sliding down, because needs to compute
           // the final height with correct children display and without slideDown temporary height hard-limiter with inline css.
 
+          if (vertex) {
+            vertex.htmlg.style.transform = 'translateZ(1px)';
+            vertex.htmlg.dataset.oldindex = '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getIndex(vertex.htmlg); // vertex.htmlg.style.transform = 'translateZ(1px) scale(2, 2)'; zoom = 0.5
+          }
+
           this.$html.slideDown();
+          /*
+          let $expansibleElements = this.$html.find('[tabindex]');
+          $expansibleElements.addClass('active');
+          this.$html.show(); // slideDown();*/
+
+          if (appendTo && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.isFirefox) {
+            this.setActiveAllAncestors(appendTo, vertex.getHtmlRawForeign());
+            vertex.fixFirefoxOverflowBug();
+          }
+
+          console.log('endShow', {
+            html: this.html,
+            parent: this.html.parentElement
+          });
+          /*
+          $expansibleElements.removeClass('active');*/
         }
       }, {
         key: "hide",
         value: function hide() {
-          this.$html.slideUp();
+          // double tap on "..." su firefox non nasconde (ri-esegue show() e riattiva l'overflow bug7')
+          var parent = this.html.parentNode;
+          if (!parent) return;
+
+          var vertex = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IVertex"].getvertexByHtml(parent);
+
+          if (vertex) {
+            this.unsetActiveAllAncestors(parent, vertex.getHtmlRawForeign());
+            vertex.htmlg.style.removeProperty('transform');
+          }
+
+          this.$html.hide(); // slideUp('fast', null);
         }
       }, {
         key: "fillTypeLi",
@@ -21507,7 +21779,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var graphLocation = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.getActiveModel().graph.toGraphCoord(location);
 
           var html = this.html;
-          var $html = $(html); // const v: IVertex = IVertex.getvertexByHtml(this.clickTarget);
+          var $html = this.$html; // const v: IVertex = IVertex.getvertexByHtml(this.clickTarget);
           // const m: ModelPiece = ModelPiece.getLogic(this.clickTarget);
 
           console.log('contextMenu target:', this.clickTarget, 'modelPiece:', m);
@@ -21624,31 +21896,61 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             m.pushDown(false);
             m.refreshGUI();
           });
+          $html.find('.terminal.insert.attribute').off('click.ctxMenu').on('click.ctxMenu', function (e) {
+            m.addAttribute();
+          });
+          $html.find('.terminal.insert.reference').off('click.ctxMenu').on('click.ctxMenu', function (e) {
+            m.addReference();
+          });
+          $html.find('.terminal.insert.operation').off('click.ctxMenu').on('click.ctxMenu', function (e) {
+            m.addOperation();
+          });
+          $html.find('.terminal.insert.literal').off('click.ctxMenu').on('click.ctxMenu', function (e) {
+            m.addLiteral();
+          });
+          $html.find('.terminal.insert.parameter').off('click.ctxMenu').on('click.ctxMenu', function (e) {
+            m.addParameter();
+          });
+          $html.find('.terminal.insert.annotation').off('click.ctxMenu').on('click.ctxMenu', function (e) {
+            m.addAnnotation();
+          });
+        }
+      }, {
+        key: "isOpened",
+        value: function isOpened() {
+          return this.html.style.display !== 'none';
+        }
+      }, {
+        key: "isShowingInside",
+        value: function isShowingInside(target) {
+          return this.isOpened() && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].isParentOf(target, this.html);
+        } // problema: windows exegue contextmenu dopo il mouseup, mac lo esegue prima (e non esegue mai il mouseup se triggera contextmenu)
+        // fix compatibilità: prevengo il contextmenu nativo e ne lo emulo dopo il mouseup per garantire consistenza.
+
+      }, {
+        key: "emulateContextMenuAfterMouseUp",
+        value: function emulateContextMenuAfterMouseUp(evt) {
+          if (!this.shouldAppear) return;
+          this.shouldAppear = false;
+          this.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Point"](evt.pageX, evt.pageY), evt.target);
         }
       }], [{
         key: "staticInit",
         value: function staticInit() {
-          DamContextMenuComponent_1.contextMenu = new DamContextMenuComponent_1();
-          console.log('sinit contextmenu');
+          DamContextMenu.contextMenu = new DamContextMenu();
+          console.log('sinit contextmenu', DamContextMenu.contextMenu);
           $(document).off('contextmenu').on('contextmenu', function (e) {
-            return DamContextMenuComponent_1.contextMenu.onContextMenu(e);
+            return DamContextMenu.contextMenu.onContextMenu(e);
+          }).on('mouseup', function (e) {
+            DamContextMenu.contextMenu.onMouseUp(e);
           });
         }
       }]);
 
-      return DamContextMenuComponent;
+      return DamContextMenu;
     }();
 
-    DamContextMenuComponent.contextMenu = null;
-    DamContextMenuComponent = DamContextMenuComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-dam-context-menu',
-      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./dam-context-menu.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/guiElements/dam-context-menu/dam-context-menu.component.html")).default,
-      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./dam-context-menu.component.css */
-      "./src/guiElements/dam-context-menu/dam-context-menu.component.css")).default]
-    })], DamContextMenuComponent);
+    DamContextMenu.contextMenu = null;
     /***/
   },
 
@@ -21986,7 +22288,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "/************************************************** statici */\r\n\r\n.template, .MDefaultStyles{\r\n  display: none;\r\n}\r\n\r\n.tabContent{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: nowrap;/*?*/\r\n  /*margin-top: calc( var(--mainBorderWidth) * 2 );*/\r\n}\r\n\r\n/*olds*/\r\n\r\n#defaultMGraphHtmlVertex, #defaultMSidebarHtmlVertex, replace{\r\n  display:none;\r\n}\r\n\r\n.HiddenStructures > *{\r\n  display: none;\r\n}\r\n\r\n#mproperty_sidebar, .sidebarShell, .editorShell, .propertyBarContainer{\r\n  flex-basis: 0;/* calc(var(--sidebarW));*/\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-right: var(--mainBorder);*/\r\n  width: calc(var(--sidebarW));\r\n  /*height: calc(100vh - (var(--topbarH) + var(--tabH)));*/\r\n  overflow: hidden;\r\n  /*flex-wrap: wrap;\r\n  margin-top: 5px;\r\n  border-top: var(--mainBorder);*/\r\n}\r\n\r\n.sidebarShell{ border-right: var(--mainBorder); }\r\n\r\n.propertyBarContainer{ border-left: var(--mainBorder); }\r\n\r\n.editorShell{\r\n  -webkit-box-flex: 3;\r\n          flex-grow: 3;\r\n}\r\n\r\n/*#sidebar, */\r\n\r\n#metamodel_sidebar, #model_sidebar, .property_sidebar{\r\n                -webkit-box-orient: horizontal;\r\n                -webkit-box-direction: normal;\r\n                        flex-direction: row;\r\n                flex-wrap: wrap;\r\n                -webkit-box-pack: justify;\r\n                        justify-content: space-between;/*si attiva solo se entra tutto in una riga e avanza pure spazio*/\r\n                -webkit-box-align: start;\r\n                        align-items: flex-start;\r\n                align-content: flex-start;/*accatasta tutto verticalmente verso la cima invece di spaziarli.*/\r\n                padding-right:5px;\r\n              }\r\n\r\n#msidebar>*:first-child, #metamodel_sidebar>*:first-child, #model_sidebar>*:first-child{\r\n  background-color: var(--mainBorderColor);\r\n  width: var(--mainBorderWidth);\r\n  right: 0px;\r\n}\r\n\r\n#msidebar>*:not(:first-child), #metamodel_sidebar>*:not(:first-child), #model_sidebar>*:not(:first-child){\r\n  padding: 2px;\r\n  max-width: 200px;\r\n  min-width: 75px;\r\n  flex-basis: 75px;/*should === min-width per mantenere l'effetto.*/\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-shrink: 1;\r\n}\r\n\r\n.sidebarVertex:hover{\r\n  background-color: var(--mainBorderColor);\r\n  border: 2px solid var(--secondaryBorderColor);\r\n  padding: 0px;\r\n}\r\n\r\n.sidebarVertex{\r\n  min-width: 50px;\r\n  min-height: 50px;\r\n  flex-basis:50px;\r\n}\r\n\r\n@media all and (min-width: 200px) {\r\n  .sidebarVertex {\r\n    -webkit-box-flex: 0;\r\n            flex-grow: 0; }\r\n}\r\n\r\n#metamodel_editor, #model_editor{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.rawContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  height: 100%;\r\n}\r\n\r\nh2.rawTitle{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n\r\n.rawecore{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex:1;\r\n          flex-grow:1;\r\n  flex-shrink:1;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9tLWdyYXBoLWh0bWwvbS1ncmFwaC1odG1sLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsNkRBQTZEOztBQUU3RDtFQUNFLGFBQWE7QUFDZjs7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGlCQUFpQixDQUFDLElBQUk7RUFDdEIsa0RBQWtEO0FBQ3BEOztBQUVBLE9BQU87O0FBR1A7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxhQUFhO0FBQ2Y7O0FBRUE7RUFDRSxhQUFhLENBQUMsMEJBQTBCO0VBQ3hDLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRDQUE0QztFQUM1QyxtQ0FBbUM7RUFDbkMsNEJBQTRCO0VBQzVCLHdEQUF3RDtFQUN4RCxnQkFBZ0I7RUFDaEI7O2lDQUUrQjtBQUNqQzs7QUFDQSxlQUFlLCtCQUErQixFQUFFOztBQUNoRCx1QkFBdUIsOEJBQThCLEVBQUU7O0FBQ3ZEO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7O0FBQ0EsYUFBYTs7QUFBQztnQkFDRSw4QkFBbUI7Z0JBQW5CLDZCQUFtQjt3QkFBbkIsbUJBQW1CO2dCQUNuQixlQUFlO2dCQUNmLHlCQUE4Qjt3QkFBOUIsOEJBQThCLENBQUMsaUVBQWlFO2dCQUNoRyx3QkFBdUI7d0JBQXZCLHVCQUF1QjtnQkFDdkIseUJBQXlCLENBQUMsbUVBQW1FO2dCQUM3RixpQkFBaUI7Y0FDbkI7O0FBRWQ7RUFDRSx3Q0FBd0M7RUFDeEMsNkJBQTZCO0VBQzdCLFVBQVU7QUFDWjs7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGdCQUFnQixDQUFDLGdEQUFnRDtFQUNqRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixjQUFjO0FBQ2hCOztBQUNBO0VBQ0Usd0NBQXdDO0VBQ3hDLDZDQUE2QztFQUM3QyxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGVBQWU7QUFDakI7O0FBRUE7RUFDRTtJQUNFLG1CQUFZO1lBQVosWUFBWSxFQUFFO0FBQ2xCOztBQUNBO0VBQ0UsV0FBVztFQUNYLFlBQVk7QUFDZDs7QUFHQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLFlBQVk7QUFDZDs7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEI7O0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixrQkFBVztVQUFYLFdBQVc7RUFDWCxhQUFhO0FBQ2YiLCJmaWxlIjoic3JjL2d1aUVsZW1lbnRzL20tZ3JhcGgtaHRtbC9tLWdyYXBoLWh0bWwuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiBzdGF0aWNpICovXHJcblxyXG4udGVtcGxhdGUsIC5NRGVmYXVsdFN0eWxlc3tcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcblxyXG4udGFiQ29udGVudHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogbm93cmFwOy8qPyovXHJcbiAgLyptYXJnaW4tdG9wOiBjYWxjKCB2YXIoLS1tYWluQm9yZGVyV2lkdGgpICogMiApOyovXHJcbn1cclxuXHJcbi8qb2xkcyovXHJcblxyXG5cclxuI2RlZmF1bHRNR3JhcGhIdG1sVmVydGV4LCAjZGVmYXVsdE1TaWRlYmFySHRtbFZlcnRleCwgcmVwbGFjZXtcclxuICBkaXNwbGF5Om5vbmU7XHJcbn1cclxuXHJcbi5IaWRkZW5TdHJ1Y3R1cmVzID4gKntcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcblxyXG4jbXByb3BlcnR5X3NpZGViYXIsIC5zaWRlYmFyU2hlbGwsIC5lZGl0b3JTaGVsbCwgLnByb3BlcnR5QmFyQ29udGFpbmVye1xyXG4gIGZsZXgtYmFzaXM6IDA7LyogY2FsYyh2YXIoLS1zaWRlYmFyVykpOyovXHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIC8qYm9yZGVyLXJpZ2h0OiB2YXIoLS1tYWluQm9yZGVyKTsqL1xyXG4gIHdpZHRoOiBjYWxjKHZhcigtLXNpZGViYXJXKSk7XHJcbiAgLypoZWlnaHQ6IGNhbGMoMTAwdmggLSAodmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpOyovXHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAvKmZsZXgtd3JhcDogd3JhcDtcclxuICBtYXJnaW4tdG9wOiA1cHg7XHJcbiAgYm9yZGVyLXRvcDogdmFyKC0tbWFpbkJvcmRlcik7Ki9cclxufVxyXG4uc2lkZWJhclNoZWxseyBib3JkZXItcmlnaHQ6IHZhcigtLW1haW5Cb3JkZXIpOyB9XHJcbi5wcm9wZXJ0eUJhckNvbnRhaW5lcnsgYm9yZGVyLWxlZnQ6IHZhcigtLW1haW5Cb3JkZXIpOyB9XHJcbi5lZGl0b3JTaGVsbHtcclxuICBmbGV4LWdyb3c6IDM7XHJcbn1cclxuLyojc2lkZWJhciwgKi8jbWV0YW1vZGVsX3NpZGViYXIsICNtb2RlbF9zaWRlYmFyLCAucHJvcGVydHlfc2lkZWJhcntcclxuICAgICAgICAgICAgICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgICAgICAgICAgICAgICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgICAgICAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47LypzaSBhdHRpdmEgc29sbyBzZSBlbnRyYSB0dXR0byBpbiB1bmEgcmlnYSBlIGF2YW56YSBwdXJlIHNwYXppbyovXHJcbiAgICAgICAgICAgICAgICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcclxuICAgICAgICAgICAgICAgIGFsaWduLWNvbnRlbnQ6IGZsZXgtc3RhcnQ7LyphY2NhdGFzdGEgdHV0dG8gdmVydGljYWxtZW50ZSB2ZXJzbyBsYSBjaW1hIGludmVjZSBkaSBzcGF6aWFybGkuKi9cclxuICAgICAgICAgICAgICAgIHBhZGRpbmctcmlnaHQ6NXB4O1xyXG4gICAgICAgICAgICAgIH1cclxuXHJcbiNtc2lkZWJhcj4qOmZpcnN0LWNoaWxkLCAjbWV0YW1vZGVsX3NpZGViYXI+KjpmaXJzdC1jaGlsZCwgI21vZGVsX3NpZGViYXI+KjpmaXJzdC1jaGlsZHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIHdpZHRoOiB2YXIoLS1tYWluQm9yZGVyV2lkdGgpO1xyXG4gIHJpZ2h0OiAwcHg7XHJcbn1cclxuI21zaWRlYmFyPio6bm90KDpmaXJzdC1jaGlsZCksICNtZXRhbW9kZWxfc2lkZWJhcj4qOm5vdCg6Zmlyc3QtY2hpbGQpLCAjbW9kZWxfc2lkZWJhcj4qOm5vdCg6Zmlyc3QtY2hpbGQpe1xyXG4gIHBhZGRpbmc6IDJweDtcclxuICBtYXgtd2lkdGg6IDIwMHB4O1xyXG4gIG1pbi13aWR0aDogNzVweDtcclxuICBmbGV4LWJhc2lzOiA3NXB4Oy8qc2hvdWxkID09PSBtaW4td2lkdGggcGVyIG1hbnRlbmVyZSBsJ2VmZmV0dG8uKi9cclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1zaHJpbms6IDE7XHJcbn1cclxuLnNpZGViYXJWZXJ0ZXg6aG92ZXJ7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKTtcclxuICBib3JkZXI6IDJweCBzb2xpZCB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgcGFkZGluZzogMHB4O1xyXG59XHJcblxyXG4uc2lkZWJhclZlcnRleHtcclxuICBtaW4td2lkdGg6IDUwcHg7XHJcbiAgbWluLWhlaWdodDogNTBweDtcclxuICBmbGV4LWJhc2lzOjUwcHg7XHJcbn1cclxuXHJcbkBtZWRpYSBhbGwgYW5kIChtaW4td2lkdGg6IDIwMHB4KSB7XHJcbiAgLnNpZGViYXJWZXJ0ZXgge1xyXG4gICAgZmxleC1ncm93OiAwOyB9XHJcbn1cclxuI21ldGFtb2RlbF9lZGl0b3IsICNtb2RlbF9lZGl0b3J7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG5cclxuLnJhd0NvbnRhaW5lcntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG5oMi5yYXdUaXRsZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIG1hcmdpbi1yaWdodDogYXV0bztcclxufVxyXG4ucmF3ZWNvcmV7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6MTtcclxuICBmbGV4LXNocmluazoxO1xyXG59XHJcbiJdfQ== */";
+    __webpack_exports__["default"] = "/************************************************** statici */\r\n\r\n.template, .MDefaultStyles{\r\n  display: none;\r\n}\r\n\r\n.tabContent{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: nowrap;/*?*/\r\n  /*margin-top: calc( var(--mainBorderWidth) * 2 );*/\r\n}\r\n\r\n/*olds*/\r\n\r\n#defaultMGraphHtmlVertex, #defaultMSidebarHtmlVertex, replace{\r\n  display:none;\r\n}\r\n\r\n.HiddenStructures > *{\r\n  display: none;\r\n}\r\n\r\n#mproperty_sidebar, .sidebarShell, .editorShell, .propertyBarContainer{\r\n  flex-basis: 0;/* calc(var(--sidebarW));*/\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-right: var(--mainBorder);*/\r\n  width: calc(var(--sidebarW));\r\n  /*height: calc(100vh - (var(--topbarH) + var(--tabH)));*/\r\n  overflow: hidden;\r\n  /*flex-wrap: wrap;\r\n  margin-top: 5px;\r\n  border-top: var(--mainBorder);*/\r\n}\r\n\r\n.sidebarShell{\r\n  border-right: var(--mainBorder);\r\n}\r\n\r\n.propertyBarContainer{\r\n  border-left: var(--mainBorder);\r\n}\r\n\r\n.editorShell{\r\n  -webkit-box-flex: 3;\r\n          flex-grow: 3;\r\n}\r\n\r\n/*#sidebar, */\r\n\r\n#metamodel_sidebar, #model_sidebar, .property_sidebar{\r\n                -webkit-box-orient: horizontal;\r\n                -webkit-box-direction: normal;\r\n                        flex-direction: row;\r\n                flex-wrap: wrap;\r\n                -webkit-box-pack: justify;\r\n                        justify-content: space-between;/*si attiva solo se entra tutto in una riga e avanza pure spazio*/\r\n                -webkit-box-align: start;\r\n                        align-items: flex-start;\r\n                align-content: flex-start;/*accatasta tutto verticalmente verso la cima invece di spaziarli.*/\r\n                padding-right:5px;\r\n              }\r\n\r\n#msidebar>*:first-child, #metamodel_sidebar>*:first-child, #model_sidebar>*:first-child{\r\n  background-color: var(--mainBorderColor);\r\n  width: var(--mainBorderWidth);\r\n  right: 0px;\r\n}\r\n\r\n#msidebar>*:not(:first-child), #metamodel_sidebar>*:not(:first-child), #model_sidebar>*:not(:first-child){\r\n  padding: 2px;\r\n  max-width: 200px;\r\n  min-width: 75px;\r\n  flex-basis: 75px;/*should === min-width per mantenere l'effetto.*/\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-shrink: 1;\r\n}\r\n\r\n.sidebarVertex:hover{\r\n  background-color: var(--mainBorderColor);\r\n  border: 2px solid var(--secondaryBorderColor);\r\n  padding: 0px;\r\n}\r\n\r\n.sidebarVertex{\r\n  min-width: 50px;\r\n  min-height: 50px;\r\n  flex-basis:50px;\r\n}\r\n\r\n@media all and (min-width: 200px) {\r\n  .sidebarVertex {\r\n    -webkit-box-flex: 0;\r\n            flex-grow: 0; }\r\n}\r\n\r\n#metamodel_editor, #model_editor{\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.rawContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  height: 100%;\r\n}\r\n\r\nh2.rawTitle{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n}\r\n\r\n.rawecore{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex:1;\r\n          flex-grow:1;\r\n  flex-shrink:1;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9tLWdyYXBoLWh0bWwvbS1ncmFwaC1odG1sLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsNkRBQTZEOztBQUU3RDtFQUNFLGFBQWE7QUFDZjs7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGlCQUFpQixDQUFDLElBQUk7RUFDdEIsa0RBQWtEO0FBQ3BEOztBQUVBLE9BQU87O0FBR1A7RUFDRSxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxhQUFhO0FBQ2Y7O0FBRUE7RUFDRSxhQUFhLENBQUMsMEJBQTBCO0VBQ3hDLG1CQUFZO1VBQVosWUFBWTtFQUNaLDRDQUE0QztFQUM1QyxtQ0FBbUM7RUFDbkMsNEJBQTRCO0VBQzVCLHdEQUF3RDtFQUN4RCxnQkFBZ0I7RUFDaEI7O2lDQUUrQjtBQUNqQzs7QUFDQTtFQUNFLCtCQUErQjtBQUNqQzs7QUFDQTtFQUNFLDhCQUE4QjtBQUNoQzs7QUFDQTtFQUNFLG1CQUFZO1VBQVosWUFBWTtBQUNkOztBQUNBLGFBQWE7O0FBQUM7Z0JBQ0UsOEJBQW1CO2dCQUFuQiw2QkFBbUI7d0JBQW5CLG1CQUFtQjtnQkFDbkIsZUFBZTtnQkFDZix5QkFBOEI7d0JBQTlCLDhCQUE4QixDQUFDLGlFQUFpRTtnQkFDaEcsd0JBQXVCO3dCQUF2Qix1QkFBdUI7Z0JBQ3ZCLHlCQUF5QixDQUFDLG1FQUFtRTtnQkFDN0YsaUJBQWlCO2NBQ25COztBQUVkO0VBQ0Usd0NBQXdDO0VBQ3hDLDZCQUE2QjtFQUM3QixVQUFVO0FBQ1o7O0FBQ0E7RUFDRSxZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLGVBQWU7RUFDZixnQkFBZ0IsQ0FBQyxnREFBZ0Q7RUFDakUsbUJBQVk7VUFBWixZQUFZO0VBQ1osY0FBYztBQUNoQjs7QUFDQTtFQUNFLHdDQUF3QztFQUN4Qyw2Q0FBNkM7RUFDN0MsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixlQUFlO0FBQ2pCOztBQUVBO0VBQ0U7SUFDRSxtQkFBWTtZQUFaLFlBQVksRUFBRTtBQUNsQjs7QUFDQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7O0FBR0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixZQUFZO0FBQ2Q7O0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCOztBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQVc7VUFBWCxXQUFXO0VBQ1gsYUFBYTtBQUNmIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy9tLWdyYXBoLWh0bWwvbS1ncmFwaC1odG1sLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiogc3RhdGljaSAqL1xyXG5cclxuLnRlbXBsYXRlLCAuTURlZmF1bHRTdHlsZXN7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG5cclxuLnRhYkNvbnRlbnR7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IG5vd3JhcDsvKj8qL1xyXG4gIC8qbWFyZ2luLXRvcDogY2FsYyggdmFyKC0tbWFpbkJvcmRlcldpZHRoKSAqIDIgKTsqL1xyXG59XHJcblxyXG4vKm9sZHMqL1xyXG5cclxuXHJcbiNkZWZhdWx0TUdyYXBoSHRtbFZlcnRleCwgI2RlZmF1bHRNU2lkZWJhckh0bWxWZXJ0ZXgsIHJlcGxhY2V7XHJcbiAgZGlzcGxheTpub25lO1xyXG59XHJcblxyXG4uSGlkZGVuU3RydWN0dXJlcyA+ICp7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG5cclxuI21wcm9wZXJ0eV9zaWRlYmFyLCAuc2lkZWJhclNoZWxsLCAuZWRpdG9yU2hlbGwsIC5wcm9wZXJ0eUJhckNvbnRhaW5lcntcclxuICBmbGV4LWJhc2lzOiAwOy8qIGNhbGModmFyKC0tc2lkZWJhclcpKTsqL1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICAvKmJvcmRlci1yaWdodDogdmFyKC0tbWFpbkJvcmRlcik7Ki9cclxuICB3aWR0aDogY2FsYyh2YXIoLS1zaWRlYmFyVykpO1xyXG4gIC8qaGVpZ2h0OiBjYWxjKDEwMHZoIC0gKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTsqL1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgLypmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luLXRvcDogNXB4O1xyXG4gIGJvcmRlci10b3A6IHZhcigtLW1haW5Cb3JkZXIpOyovXHJcbn1cclxuLnNpZGViYXJTaGVsbHtcclxuICBib3JkZXItcmlnaHQ6IHZhcigtLW1haW5Cb3JkZXIpO1xyXG59XHJcbi5wcm9wZXJ0eUJhckNvbnRhaW5lcntcclxuICBib3JkZXItbGVmdDogdmFyKC0tbWFpbkJvcmRlcik7XHJcbn1cclxuLmVkaXRvclNoZWxse1xyXG4gIGZsZXgtZ3JvdzogMztcclxufVxyXG4vKiNzaWRlYmFyLCAqLyNtZXRhbW9kZWxfc2lkZWJhciwgI21vZGVsX3NpZGViYXIsIC5wcm9wZXJ0eV9zaWRlYmFye1xyXG4gICAgICAgICAgICAgICAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICAgICAgICAgICAgICAgIGZsZXgtd3JhcDogd3JhcDtcclxuICAgICAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjsvKnNpIGF0dGl2YSBzb2xvIHNlIGVudHJhIHR1dHRvIGluIHVuYSByaWdhIGUgYXZhbnphIHB1cmUgc3BhemlvKi9cclxuICAgICAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBmbGV4LXN0YXJ0O1xyXG4gICAgICAgICAgICAgICAgYWxpZ24tY29udGVudDogZmxleC1zdGFydDsvKmFjY2F0YXN0YSB0dXR0byB2ZXJ0aWNhbG1lbnRlIHZlcnNvIGxhIGNpbWEgaW52ZWNlIGRpIHNwYXppYXJsaS4qL1xyXG4gICAgICAgICAgICAgICAgcGFkZGluZy1yaWdodDo1cHg7XHJcbiAgICAgICAgICAgICAgfVxyXG5cclxuI21zaWRlYmFyPio6Zmlyc3QtY2hpbGQsICNtZXRhbW9kZWxfc2lkZWJhcj4qOmZpcnN0LWNoaWxkLCAjbW9kZWxfc2lkZWJhcj4qOmZpcnN0LWNoaWxke1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5Cb3JkZXJDb2xvcik7XHJcbiAgd2lkdGg6IHZhcigtLW1haW5Cb3JkZXJXaWR0aCk7XHJcbiAgcmlnaHQ6IDBweDtcclxufVxyXG4jbXNpZGViYXI+Kjpub3QoOmZpcnN0LWNoaWxkKSwgI21ldGFtb2RlbF9zaWRlYmFyPio6bm90KDpmaXJzdC1jaGlsZCksICNtb2RlbF9zaWRlYmFyPio6bm90KDpmaXJzdC1jaGlsZCl7XHJcbiAgcGFkZGluZzogMnB4O1xyXG4gIG1heC13aWR0aDogMjAwcHg7XHJcbiAgbWluLXdpZHRoOiA3NXB4O1xyXG4gIGZsZXgtYmFzaXM6IDc1cHg7LypzaG91bGQgPT09IG1pbi13aWR0aCBwZXIgbWFudGVuZXJlIGwnZWZmZXR0by4qL1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBmbGV4LXNocmluazogMTtcclxufVxyXG4uc2lkZWJhclZlcnRleDpob3ZlcntcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkIHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICBwYWRkaW5nOiAwcHg7XHJcbn1cclxuXHJcbi5zaWRlYmFyVmVydGV4e1xyXG4gIG1pbi13aWR0aDogNTBweDtcclxuICBtaW4taGVpZ2h0OiA1MHB4O1xyXG4gIGZsZXgtYmFzaXM6NTBweDtcclxufVxyXG5cclxuQG1lZGlhIGFsbCBhbmQgKG1pbi13aWR0aDogMjAwcHgpIHtcclxuICAuc2lkZWJhclZlcnRleCB7XHJcbiAgICBmbGV4LWdyb3c6IDA7IH1cclxufVxyXG4jbWV0YW1vZGVsX2VkaXRvciwgI21vZGVsX2VkaXRvcntcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcblxyXG4ucmF3Q29udGFpbmVye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcbmgyLnJhd1RpdGxle1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xyXG59XHJcbi5yYXdlY29yZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzoxO1xyXG4gIGZsZXgtc2hyaW5rOjE7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -22680,6 +22982,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "remove",
         value: function remove() {
+          console.log('delete extedge:', this);
           if (this.end) this.logic.unsetExtends(this.end.logic(), false);
 
           _get(_getPrototypeOf(ExtEdge.prototype), "remove", this).call(this);
@@ -23341,8 +23644,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var $edgetail = forheadtail ? $(this.headShell).add(this.tailShell) : $();
           var $shell = foredge ? $(this.shell) : $();
           var $edgeparts = $(this.shell); // .find('>*');
-
-          console.log('EdgeParts:', $edgeparts); // $edgetail.attr('tabindex', '-1');
+          // $edgetail.attr('tabindex', '-1');
 
           $shell.attr('tabindex', '-1'); // U.pe(!$shell.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail);
           //  U.pe(!$edgetail.length, 'html+', $htmlplus, 'html', $html, 'tailhead', $edgetail, 'head-tail:', this.edgeHead, this.edgeTail);
@@ -23422,35 +23724,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               break;
 
             case 'delete':
-              for (i = 0; i < elogic.length; i++) {
-                elogic[i].delete(true);
+              var _iteratorNormalCompletion4 = true;
+              var _didIteratorError4 = false;
+              var _iteratorError4 = undefined;
+
+              try {
+                for (var _iterator4 = edges[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                  var _e2 = _step4.value;
+
+                  _e2.remove();
+                }
+              } catch (err) {
+                _didIteratorError4 = true;
+                _iteratorError4 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
+                    _iterator4.return();
+                  }
+                } finally {
+                  if (_didIteratorError4) {
+                    throw _iteratorError4;
+                  }
+                }
               }
 
-              for (i = 0; i < ext.length; i++) {
-                var _iteratorNormalCompletion4 = true;
-                var _didIteratorError4 = false;
-                var _iteratorError4 = undefined;
+              var _iteratorNormalCompletion5 = true;
+              var _didIteratorError5 = false;
+              var _iteratorError5 = undefined;
 
+              try {
+                for (var _iterator5 = ext[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                  var extedge = _step5.value;
+                  extedge.remove();
+                }
+              } catch (err) {
+                _didIteratorError5 = true;
+                _iteratorError5 = err;
+              } finally {
                 try {
-                  for (var _iterator4 = ext[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-                    var extedge = _step4.value;
-                    console.log('delete extedge:', extedge);
-                    extedge.logic.unsetExtends(extedge.end.logic());
-                    extedge.remove();
-                  } //ext[i].remove();
-
-                } catch (err) {
-                  _didIteratorError4 = true;
-                  _iteratorError4 = err;
+                  if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
+                    _iterator5.return();
+                  }
                 } finally {
-                  try {
-                    if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
-                      _iterator4.return();
-                    }
-                  } finally {
-                    if (_didIteratorError4) {
-                      throw _iteratorError4;
-                    }
+                  if (_didIteratorError5) {
+                    throw _iteratorError5;
                   }
                 }
               }
@@ -23828,7 +24146,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.isDeleted++;
 
           if (this.isDeleted > 1) {
-            if (!(this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Reference"])) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'edge removed ' + this.isDeleted + ' times.', this);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'edge removed ' + this.isDeleted + ' times.', this);
+
             return;
           }
 
@@ -24787,13 +25106,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "addToLayout",
         value: function addToLayout(vertexes, restart) {
           if (restart) return this.restart();
-          var _iteratorNormalCompletion5 = true;
-          var _didIteratorError5 = false;
-          var _iteratorError5 = undefined;
+          var _iteratorNormalCompletion6 = true;
+          var _didIteratorError6 = false;
+          var _iteratorError6 = undefined;
 
           try {
-            for (var _iterator5 = vertexes[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-              var v = _step5.value;
+            for (var _iterator6 = vertexes[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+              var v = _step6.value;
               if (!v.autoLayout) continue;
               var node = this.vertexToVis(v);
               if (node) return; // already exists
@@ -24819,16 +25138,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               this.data.nodes.push(node);
             }
           } catch (err) {
-            _didIteratorError5 = true;
-            _iteratorError5 = err;
+            _didIteratorError6 = true;
+            _iteratorError6 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
-                _iterator5.return();
+              if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
+                _iterator6.return();
               }
             } finally {
-              if (_didIteratorError5) {
-                throw _iteratorError5;
+              if (_didIteratorError6) {
+                throw _iteratorError6;
               }
             }
           }
@@ -24845,13 +25164,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "removeFromLayout",
         value: function removeFromLayout(vertexes, restart) {
           if (restart) return this.restart();
-          var _iteratorNormalCompletion6 = true;
-          var _didIteratorError6 = false;
-          var _iteratorError6 = undefined;
+          var _iteratorNormalCompletion7 = true;
+          var _didIteratorError7 = false;
+          var _iteratorError7 = undefined;
 
           try {
-            for (var _iterator6 = vertexes[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-              var v = _step6.value;
+            for (var _iterator7 = vertexes[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+              var v = _step7.value;
               if (v.autoLayout) continue;
               var node = this.vertexToVis(v);
 
@@ -24860,16 +25179,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               delete this.vertexMap[v.id];
             }
           } catch (err) {
-            _didIteratorError6 = true;
-            _iteratorError6 = err;
+            _didIteratorError7 = true;
+            _iteratorError7 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
-                _iterator6.return();
+              if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
+                _iterator7.return();
               }
             } finally {
-              if (_didIteratorError6) {
-                throw _iteratorError6;
+              if (_didIteratorError7) {
+                throw _iteratorError7;
               }
             }
           }
@@ -24892,13 +25211,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function applyScaleFactor(factor) {
           var clone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           var data = clone ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneObj(this.data) : this.data;
-          var _iteratorNormalCompletion7 = true;
-          var _didIteratorError7 = false;
-          var _iteratorError7 = undefined;
+          var _iteratorNormalCompletion8 = true;
+          var _didIteratorError8 = false;
+          var _iteratorError8 = undefined;
 
           try {
-            for (var _iterator7 = data.nodes[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-              var node = _step7.value;
+            for (var _iterator8 = data.nodes[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+              var node = _step8.value;
               console.log('vis node loop', node, data); // node.scaling ??
 
               node.x = node.x && node.x / factor;
@@ -24911,33 +25230,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             }
           } catch (err) {
-            _didIteratorError7 = true;
-            _iteratorError7 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
-                _iterator7.return();
-              }
-            } finally {
-              if (_didIteratorError7) {
-                throw _iteratorError7;
-              }
-            }
-          }
-
-          var _iteratorNormalCompletion8 = true;
-          var _didIteratorError8 = false;
-          var _iteratorError8 = undefined;
-
-          try {
-            for (var _iterator8 = data.edges[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-              var edge = _step8.value;
-              edge.length = edge.length && edge.length / factor;
-              edge.width = edge.width && edge.width / factor;
-              edge.hoverWidth = edge.hoverWidth && edge.hoverWidth / factor;
-              edge.selectionWidth = edge.selectionWidth && edge.selectionWidth / factor;
-            }
-          } catch (err) {
             _didIteratorError8 = true;
             _iteratorError8 = err;
           } finally {
@@ -24948,6 +25240,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             } finally {
               if (_didIteratorError8) {
                 throw _iteratorError8;
+              }
+            }
+          }
+
+          var _iteratorNormalCompletion9 = true;
+          var _didIteratorError9 = false;
+          var _iteratorError9 = undefined;
+
+          try {
+            for (var _iterator9 = data.edges[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+              var edge = _step9.value;
+              edge.length = edge.length && edge.length / factor;
+              edge.width = edge.width && edge.width / factor;
+              edge.hoverWidth = edge.hoverWidth && edge.hoverWidth / factor;
+              edge.selectionWidth = edge.selectionWidth && edge.selectionWidth / factor;
+            }
+          } catch (err) {
+            _didIteratorError9 = true;
+            _iteratorError9 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion9 && _iterator9.return != null) {
+                _iterator9.return();
+              }
+            } finally {
+              if (_didIteratorError9) {
+                throw _iteratorError9;
               }
             }
           }
@@ -25484,9 +25803,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var start = edge.start;
           var end = edge.end;
           var startSvgForeign = start && start.getHtmlRawForeign();
-          var endSvgForeign = end && end.getHtmlRawForeign(); // start: null true true , end: null true false
+          var endSvgForeign = end && end.getHtmlRawForeign();
+          var debug = false; // start: null true true , end: null true false
 
-          console.log('isAllowingEdge pre-check keep-edges ', start && start.logic() && start.logic().name, ' - ', end && end.logic() && end.logic().name, ' start:', startSvgForeign && startSvgForeign.getAttribute('keep-edges'), start.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject, startSvgForeign && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(startSvgForeign.getAttribute('keep-edges'), start.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject), ', end:', endSvgForeign && endSvgForeign.getAttribute('keep-edges'), end && end.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject, endSvgForeign && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(endSvgForeign.getAttribute('keep-edges'), end.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject));
+          debug && console.log('isAllowingEdge pre-check keep-edges ', start && start.logic() && start.logic().name, ' - ', end && end.logic() && end.logic().name, ' start:', startSvgForeign && startSvgForeign.getAttribute('keep-edges'), start.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject, startSvgForeign && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(startSvgForeign.getAttribute('keep-edges'), start.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject), ', end:', endSvgForeign && endSvgForeign.getAttribute('keep-edges'), end && end.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject, endSvgForeign && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(endSvgForeign.getAttribute('keep-edges'), end.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject));
           if (startSvgForeign && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(startSvgForeign.getAttribute('keep-edges'), start.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject)) return false;
           if (endSvgForeign && !_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(endSvgForeign.getAttribute('keep-edges'), end.logic() !== _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject)) return false;
           var kind;
@@ -25494,7 +25814,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           else kind = "rel";
           var conditionStart = start && IVertex.isAllowingEdges(startSvgForeign, ["out"], [kind]);
           var conditionEnd = end && IVertex.isAllowingEdges(startSvgForeign, ["in"], [kind]);
-          console.log("isAllowingEdge(", edge, conditionStart, conditionEnd);
+          debug && console.log("isAllowingEdge(", edge, conditionStart, conditionEnd);
           return (start ? conditionStart["out"][kind] : 0) + (end ? conditionEnd["in"][kind] : 0) > 0;
         }
       }, {
@@ -25537,8 +25857,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             // crosshair (+), alias (default+link), cell (excel)
             var vertexRoot = this.htmlForeign;
             var $inputs = $(vertexRoot).find('input, textarea, select, button');
-            var cursor = null;
-            console.log('markedHover', markb, vertexRoot, $inputs);
+            var cursor = null; // console.log('markedHover', markb, vertexRoot, $inputs);
 
             if (markb) {
               vertexRoot.style.cursor = cursor = color === 'red' ? 'no-drop' : 'crosshair'; // NO important, bugga e non setta il campo.
@@ -25813,8 +26132,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             cloned.id = oldid;
             scripts[i].innerHTML = '';
             document.body.appendChild(cloned);*/
-
-            console.log('eval:', cloned.innerHTML);
+            // console.log('eval:', cloned.innerHTML);
 
             try {
               eval(cloned.innerHTML);
@@ -26014,7 +26332,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var html = this.htmlForeign; /// append childrens:
 
-          var $childContainer = $(html).find('.ChildrenContainer, .ChildContainer, .AttributeContainer, .ReferenceContainer, .OperationContainer, .ParameterContainer'); // U.pe($attContainer.length !== 1, 'there must be exactly one element with class "AttributeContainer".', $attContainer);
+          var $childContainer = $(html).find('.ChildrenContainer, .ChildContainer, .AttributeContainer, .ReferenceContainer, .OperationContainer, .ParameterContainer');
+          var debug = false; // U.pe($attContainer.length !== 1, 'there must be exactly one element with class "AttributeContainer".', $attContainer);
           // U.pe($refContainer.length !== 1, 'there must be exactly one element with class "ReferenceContainer".', $refContainer);
           // U.pe($opContainer.length !== 1, 'there must be exactly one element with class "OperationContainer".', $opContainer);
           // const attContainer = $attContainer[0];
@@ -26065,20 +26384,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
             for (i = 0; i < childs.length; i++) {
-              console.log('mx ' + data.id + ' filtering children [' + i + " / " + childs.length + ']', childs);
+              debug && console.log('mx ' + data.id + ' filtering children [' + i + " / " + childs.length + ']', childs);
               var child = childs[i];
               var field = void 0;
               if (validator && !validator(childs[i], i, childs)) continue;
-              console.log('mx ' + data.id + ' validator ok ');
+              debug && console.log('mx ' + data.id + ' validator ok ');
               if (!allowInheritance && child.parent !== data) continue;
-              console.log('mx ' + data.id + ' allowInheritance ok ');
+              debug && console.log('mx ' + data.id + ' allowInheritance ok ');
 
               if (child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]) {
                 // error: when i delete extedge shadowed attr will disappear
-                console.log('allowShadowed:', allowOnlyShadowed, child.isShadowed(data), child);
-                console.log('shadowed mx ' + data.id + '? ', allowOnlyShadowed, child.isShadowed(data), child, data);
+                debug && console.log('allowShadowed:', allowOnlyShadowed, child.isShadowed(data), child);
+                debug && console.log('shadowed mx ' + data.id + '? ', allowOnlyShadowed, child.isShadowed(data), child, data);
                 if (allowOnlyShadowed !== null && child.isShadowed(data) !== allowOnlyShadowed) continue;
-                console.log('mx ' + data.id + ' shadowed ok');
+                debug && console.log('mx ' + data.id + ' shadowed ok');
                 if (allowAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"]) field = this.drawA(child);else if (allowReferences && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"]) field = this.drawR(child);else continue;
               } else if (allowOperations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]) field = this.drawO(child);else if (allowLiterals && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ELiteral"]) field = this.drawL(child);else if (allowParameters && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EParameter"]) field = this.drawParam(child);else if (allowAnnotations && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EAnnotation"]) field = this.drawAnnotation(child);else continue;
 
@@ -26296,7 +26615,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           $html.off('click').on('click', function (e) {
             _this36.onClick(e);
-          }); // $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
+          }); // $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenu.contextMenu.onContextMenu(e); });
           // const $addFieldButtonContainer: JQuery<HTMLElement> = $html.find('.addFieldButtonContainer') as any as JQuery<HTMLElement>;
           // this.setAddButtonContainer($addFieldButtonContainer[0]);
         }
@@ -26327,7 +26646,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           //   { html = html.firstChild as Element; }
           // while (!(html.classList.contains('Vertex'))) { console.log(html); html = html.parentNode as Element; }
 
-          $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDown);
+          $html.find('.LinkVertex').off('mousedown.setReference').on('mousedown.setReference', IVertex.linkVertexMouseDown); // $html.find('.LinkVertex').off('mouseup.notImmediatelySetOnSelf').on('mousedown.notImmediatelySetOnSelf', IVertex.linkVertexMouseUpOnSelf);
+
           var defaultResizeConfig = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ResizableOptionsImpl"]();
           var defaultDragConfig = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["DraggableOptionsImpl"]();
           var defaultRotConfig = new _common_measurable__WEBPACK_IMPORTED_MODULE_2__["RotatableOptions"](); // NB: do not delete the apparantly useless dynamic functions.
@@ -26437,6 +26757,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var debug = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
           if (e) {
+            // undo se premo sullo stesso linkVertex che ha iniziato tutto, proseguo se ho premuto su un altro linkVertex
+            if (e.target.classList.contains('LinkVertex') && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isParentOf(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging.start.htmlg, e.target)) return;
             e.stopPropagation();
             e.preventDefault();
           }
@@ -26467,7 +26789,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (edge instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ExtEdge"]) {
             if (edge.end && oldTargetLogic) edge.logic.unsetExtends(oldTargetLogic, false); // unset old extend without removing this vertex
 
-            edge.logic.setExtends(this.logic()); // extend the newly clicked vertex (this)
+            edge.logic.setExtends(this.logic(), true, false, true); // extend the newly clicked vertex (this)
           } else {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(edge.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"], 'cst: class edges are currently not supported');
           }
@@ -26885,6 +27207,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else {
             this.owner.layouting.removeFromLayout([this], true);
           }
+        } // bug description: ogni volta che un elemento va in overflow è necessario re-inserire il foreignObject altrimenti si bugga,
+        // questo tristemente include gli elementi che si espandono con :hover
+        // quindi ho dovuto trasformare molti :hover in .hover aggiungendo a mano la classe, perchè se reinserisco il vertice perdo l' :hover.
+
+      }, {
+        key: "fixFirefoxOverflowBug",
+        value: function fixFirefoxOverflowBug() {
+          if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.isFirefox || !this.htmlg || !this.htmlg.parentElement) return;
+          console.warn('firefox overflow bugfix'); // firefox bug fixer for overflowing elements https://bugzilla.mozilla.org/show_bug.cgi?id=1705916
+
+          var parent = this.htmlg.parentElement;
+          var nextSibling = this.htmlg.nextSibling;
+          parent.removeChild(this.htmlg);
+          parent.insertBefore(this.htmlg, nextSibling);
         }
       }], [{
         key: "staticinit",
@@ -26911,18 +27247,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             IVertex.linkVertexMouseDown(e, edge); }*/
 
       }, {
+        key: "linkVertexMouseUpOnSelf",
+        value: function linkVertexMouseUpOnSelf(e) {
+          if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging) {// IEdge.edgeChanging.owner.edgeChangingAbort(e);
+            // e.stopPropagation();
+          }
+        }
+      }, {
         key: "linkVertexMouseDown",
         value: function linkVertexMouseDown(e) {
           var edge = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
           var location = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var delayed = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
 
           if (e) {
             e.stopPropagation();
           }
 
-          if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging.owner.edgeChangingAbort(e);
-          }
+          if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging && e && e.target.classList.contains('LinkVertex')) {
+            if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isParentOf(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging.start.htmlg, e.target)) {
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IEdge"].edgeChanging.owner.edgeChangingAbort(e);
+
+              return;
+            }
+
+            if (delayed) {
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'cannot start defining a new edge without confirming the previous');
+
+              return;
+            } // hack per fare in modo che questo venga eseguito dopo il mouseup nel caso sia stato premuto su un .linkVertex (confermo e avvio un nuovo edge)
+
+
+            setTimeout(function () {
+              return IVertex.linkVertexMouseDown(e, edge, location, true);
+            }, 200);
+            return;
+          } // console.log('shouldstop?', {edge: IEdge.edgeChanging, target: e.target, e, thiss:this});
+
 
           location = location || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"].fromEvent(e); //Status.status.getActiveModel().graph.toGraphCoord(new Point(e.pageX, e.pageY));
 
@@ -26986,7 +27347,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (canUseMp) {
             var logic = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getLogic(node0);
 
-            return logic && logic.getVertex();
+            return logic && logic.getVertex(false);
           }
 
           var node = node0;
@@ -27076,48 +27437,48 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           defaultValues.defaultValue = 1;
           defaultValues.trueValue = 1;
           defaultValues.falseValue = -1;
-          var _iteratorNormalCompletion9 = true;
-          var _didIteratorError9 = false;
-          var _iteratorError9 = undefined;
+          var _iteratorNormalCompletion10 = true;
+          var _didIteratorError10 = false;
+          var _iteratorError10 = undefined;
 
           try {
-            for (var _iterator9 = directions[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-              var direction = _step9.value;
-              var _iteratorNormalCompletion10 = true;
-              var _didIteratorError10 = false;
-              var _iteratorError10 = undefined;
+            for (var _iterator10 = directions[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+              var direction = _step10.value;
+              var _iteratorNormalCompletion11 = true;
+              var _didIteratorError11 = false;
+              var _iteratorError11 = undefined;
 
               try {
-                for (var _iterator10 = kinds[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-                  var kind = _step10.value;
+                for (var _iterator11 = kinds[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+                  var kind = _step11.value;
                   ret[direction][kind] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].parseNumberOrBoolean(svgForeign.getAttribute('show-' + direction + '-' + kind + '-edges'), defaultValues);
                 }
               } catch (err) {
-                _didIteratorError10 = true;
-                _iteratorError10 = err;
+                _didIteratorError11 = true;
+                _iteratorError11 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion10 && _iterator10.return != null) {
-                    _iterator10.return();
+                  if (!_iteratorNormalCompletion11 && _iterator11.return != null) {
+                    _iterator11.return();
                   }
                 } finally {
-                  if (_didIteratorError10) {
-                    throw _iteratorError10;
+                  if (_didIteratorError11) {
+                    throw _iteratorError11;
                   }
                 }
               }
             }
           } catch (err) {
-            _didIteratorError9 = true;
-            _iteratorError9 = err;
+            _didIteratorError10 = true;
+            _iteratorError10 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion9 && _iterator9.return != null) {
-                _iterator9.return();
+              if (!_iteratorNormalCompletion10 && _iterator10.return != null) {
+                _iterator10.return();
               }
             } finally {
-              if (_didIteratorError9) {
-                throw _iteratorError9;
+              if (_didIteratorError10) {
+                throw _iteratorError10;
               }
             }
           }
@@ -27131,7 +27492,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     IVertex.all = {};
     IVertex.ID = 0;
-    IVertex.selected = null;
+    IVertex.selected = null; // todo: da cancellare in favore di IVertex.startDragContext?
+
     IVertex.selectedGridWasOn = null;
     IVertex.selectedStartPt = null;
     IVertex.minSize = null;
@@ -28126,8 +28488,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "refreshGridGUI",
         value: function refreshGridGUI() {
-          // if (this.grid.x === null) this.grid.x = this.oldGridX; crea un bug che mette i vertici trascinati che triggerano una rule (anche senza effetto o event senza targets) in vertexPos.y = 0;
+          var debug = false; // if (this.grid.x === null) this.grid.x = this.oldGridX; crea un bug che mette i vertici trascinati che triggerano una rule (anche senza effetto o event senza targets) in vertexPos.y = 0;
           // if (this.grid.y === null) this.grid.y = this.oldGridY; forse perchè null è un valore valido che dice "non usare la griglia", almeno mentre trascini
+
           if (this.grid.x !== null) this.oldGridX = this.grid.x;
           if (this.grid.y !== null) this.oldGridY = this.grid.y;
           var maxSquareSize = 1000; // Number.MAX_SAFE_INTEGER sarebbe meglio maxint, ma temo per il consumo di memoria.
@@ -28136,8 +28499,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var y = isNaN(this.grid.y) || this.grid.y === null ? this.oldGridX : this.grid.y <= 0 ? maxSquareSize : this.grid.y; // NB: x è "displayed grid", grid.x è actual grid. se grid.x = null lo snap è disattivato ma continuo a mostrare old grid.
 
-          console.log('oldGridX:' + this.oldGridX, this.grid.x, x, this.gridDisplay);
-          console.log('oldGridY:' + this.oldGridY, this.grid.y, y);
+          debug && console.log('oldGridX:' + this.oldGridX, this.grid.x, x, this.gridDisplay);
+          debug && console.log('oldGridY:' + this.oldGridY, this.grid.y, y);
           if (x === null || y === null)
             /*todo: x = getOldX;*/
             return;
@@ -28706,9 +29069,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.selectedModelPiece = null;
         var $root = this.get$root();
         this.container = $root.find('.propertySidebarCurrentContent')[0];
-        $($root[0].parentElement).on('contextmenu', function (e) {
-          e.stopPropagation();
-        });
         this.templateContainer = $root.find('.propertySidebarTemplates')[0];
 
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!this.container, 'property bar shell not found in: ', $root);
@@ -28801,8 +29161,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           $html.find('.replaceVarOn').each(function (i, elem) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceVars(o, elem, false);
-          });
-          console.log('7x', $html, $html.find('.m1disable'), model.isM(), (model.isM() ? '.m1' : '.m2') + 'disable', $html.find((model.isM() ? '.m1' : '.m2') + 'disable'));
+          }); // console.log('7x', $html, $html.find('.m1disable'), model.isM(), (model.isM() ? '.m1' : '.m2') + 'disable', $html.find((model.isM() ? '.m1' : '.m2') + 'disable'));
+
           $html.find((model.isM() ? '.m1' : '.m2') + 'disable').attr('disabled', 'true');
           $html.find((model.isM() ? '.m1' : '.m2') + 'hide').remove();
           return $html;
@@ -28843,8 +29203,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this44 = this;
 
           var o = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-          var clickedLevel = arguments.length > 1 ? arguments[1] : undefined;
-          var isEdge = arguments.length > 2 ? arguments[2] : undefined;
+          var clickedLevel = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+          var isEdge = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
           var forceRefresh = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
           var oldClickedLevel = this.clickedLevel;
           var oldMP = this.selectedModelPiece;
@@ -28952,6 +29312,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           while (contentRoot.firstChild) {
             this.container.append(contentRoot.firstChild);
           }
+
+          o.linkToLogic(this.container);
         }
       }, {
         key: "getM_I",
@@ -29076,7 +29438,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
           var isRoot = $html.find('input.isRoot')[0];
-          console.log('this:', m1class);
           isRoot.disabled = isRoot.checked = m1class.isRoot();
           $(isRoot).off('change.pbar').on('change.pbar', function (evt) {
             var input = evt.currentTarget;
@@ -29462,8 +29823,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           options.push(makeOption('input'));
           options.push(makeOption('textarea'));
           options.push(makeOption('select'));
-          options.push(makeOption('h1, h2, h3, h4, h5, h6'));
-          console.log('dsa', suggestSelectorsDataList, options, uniqueClasses, templateLevelRoot);
+          options.push(makeOption('h1, h2, h3, h4, h5, h6')); // console.log('dsa', suggestSelectorsDataList, options, uniqueClasses, templateLevelRoot);
+
           /*window['CSSParser'] = CSSParser;
           console.log("CSSParser", CSSParser);*/
 
@@ -29485,28 +29846,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             try {
               $results = $ancestorLine.filter(selector);
               if (!$results) continue;
-              var _iteratorNormalCompletion11 = true;
-              var _didIteratorError11 = false;
-              var _iteratorError11 = undefined;
+              var _iteratorNormalCompletion12 = true;
+              var _didIteratorError12 = false;
+              var _iteratorError12 = undefined;
 
               try {
-                for (var _iterator11 = $results[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-                  var result = _step11.value;
+                for (var _iterator12 = $results[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
+                  var result = _step12.value;
                   var oldArr = inheritingLine.get(result) || [];
                   oldArr.push.apply(oldArr, _toConsumableArray(allColorSchemeSelectors[selector]));
                   inheritingLine.set(result, oldArr);
                 }
               } catch (err) {
-                _didIteratorError11 = true;
-                _iteratorError11 = err;
+                _didIteratorError12 = true;
+                _iteratorError12 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion11 && _iterator11.return != null) {
-                    _iterator11.return();
+                  if (!_iteratorNormalCompletion12 && _iterator12.return != null) {
+                    _iterator12.return();
                   }
                 } finally {
-                  if (_didIteratorError11) {
-                    throw _iteratorError11;
+                  if (_didIteratorError12) {
+                    throw _iteratorError12;
                   }
                 }
               }
@@ -29519,26 +29880,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var i; // ritorna un singolo cs option template con lista colori
 
           var fillListWithCs = function fillListWithCs($element, arr) {
-            var _iteratorNormalCompletion12 = true;
-            var _didIteratorError12 = false;
-            var _iteratorError12 = undefined;
+            var _iteratorNormalCompletion13 = true;
+            var _didIteratorError13 = false;
+            var _iteratorError13 = undefined;
 
             try {
-              for (var _iterator12 = arr[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
-                var cs = _step12.value;
+              for (var _iterator13 = arr[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
+                var cs = _step13.value;
                 $element.append(csTemplates.getCsOptionEntry(cs));
               }
             } catch (err) {
-              _didIteratorError12 = true;
-              _iteratorError12 = err;
+              _didIteratorError13 = true;
+              _iteratorError13 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion12 && _iterator12.return != null) {
-                  _iterator12.return();
+                if (!_iteratorNormalCompletion13 && _iterator13.return != null) {
+                  _iterator13.return();
                 }
               } finally {
-                if (_didIteratorError12) {
-                  throw _iteratorError12;
+                if (_didIteratorError13) {
+                  throw _iteratorError13;
                 }
               }
             }
@@ -29552,7 +29913,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var ancestor = ancestorLine[i];
             var csarr = inheritingLine.get(ancestor);
             if (!csarr || !csarr.length) continue;
-            var goUpCount = ancestorLine.length - i + 1;
+            var goUpCount = i + 1;
 
             var option = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].cloneHtml(csTemplates.csList);
 
@@ -29575,8 +29936,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return !!e;
           }).map(function (e) {
             return _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ColorScheme2"].get(+e);
-          });
-          console.log('csl attrcontent', colorSchemeAttrContent, 'idlist', currentCsIDList, ' list', currentCSList);
+          }); //console.log('csl attrcontent', colorSchemeAttrContent, 'idlist', currentCsIDList, ' list', currentCSList);
+
           var debug = false;
 
           var applyCsList = function applyCsList(list) {
@@ -29608,13 +29969,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             applyCsList(currentCSList);
           };
 
-          var _iteratorNormalCompletion13 = true;
-          var _didIteratorError13 = false;
-          var _iteratorError13 = undefined;
+          var _iteratorNormalCompletion14 = true;
+          var _didIteratorError14 = false;
+          var _iteratorError14 = undefined;
 
           try {
             var _loop6 = function _loop6() {
-              var cs = _step13.value;
+              var cs = _step14.value;
               var option = csTemplates.getCsOptionEntry(cs);
 
               if (currentCSList.indexOf(cs) >= 0) {
@@ -29627,20 +29988,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               container.append(option);
             };
 
-            for (var _iterator13 = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ColorScheme2"].getAll()[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
+            for (var _iterator14 = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ColorScheme2"].getAll()[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
               _loop6();
             }
           } catch (err) {
-            _didIteratorError13 = true;
-            _iteratorError13 = err;
+            _didIteratorError14 = true;
+            _iteratorError14 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion13 && _iterator13.return != null) {
-                _iterator13.return();
+              if (!_iteratorNormalCompletion14 && _iterator14.return != null) {
+                _iterator14.return();
               }
             } finally {
-              if (_didIteratorError13) {
-                throw _iteratorError13;
+              if (_didIteratorError14) {
+                throw _iteratorError14;
               }
             }
           }
@@ -29714,26 +30075,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var $template = $(template);
             $template.find('.name').text(cs.name);
             var $colorContainer = $template.find('.colors');
-            var _iteratorNormalCompletion14 = true;
-            var _didIteratorError14 = false;
-            var _iteratorError14 = undefined;
+            var _iteratorNormalCompletion15 = true;
+            var _didIteratorError15 = false;
+            var _iteratorError15 = undefined;
 
             try {
-              for (var _iterator14 = cs.foreColors[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
-                var color = _step14.value;
+              for (var _iterator15 = cs.foreColors[Symbol.iterator](), _step15; !(_iteratorNormalCompletion15 = (_step15 = _iterator15.next()).done); _iteratorNormalCompletion15 = true) {
+                var color = _step15.value;
                 $colorContainer.append(CSSEditor.makeColorBlockReadonly(color));
               }
             } catch (err) {
-              _didIteratorError14 = true;
-              _iteratorError14 = err;
+              _didIteratorError15 = true;
+              _iteratorError15 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion14 && _iterator14.return != null) {
-                  _iterator14.return();
+                if (!_iteratorNormalCompletion15 && _iterator15.return != null) {
+                  _iterator15.return();
                 }
               } finally {
-                if (_didIteratorError14) {
-                  throw _iteratorError14;
+                if (_didIteratorError15) {
+                  throw _iteratorError15;
                 }
               }
             }
@@ -29836,26 +30197,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $option.find('[value1]')[0].innerHTML = colorscheme.name;
           var colorcontainer = $option.find('[value2]')[0];
           colorcontainer.dataset.colors = colorscheme.colors.join(', ');
-          var _iteratorNormalCompletion15 = true;
-          var _didIteratorError15 = false;
-          var _iteratorError15 = undefined;
+          var _iteratorNormalCompletion16 = true;
+          var _didIteratorError16 = false;
+          var _iteratorError16 = undefined;
 
           try {
-            for (var _iterator15 = colorscheme.colors[Symbol.iterator](), _step15; !(_iteratorNormalCompletion15 = (_step15 = _iterator15.next()).done); _iteratorNormalCompletion15 = true) {
-              var color = _step15.value;
+            for (var _iterator16 = colorscheme.colors[Symbol.iterator](), _step16; !(_iteratorNormalCompletion16 = (_step16 = _iterator16.next()).done); _iteratorNormalCompletion16 = true) {
+              var color = _step16.value;
               colorcontainer.appendChild(CSSEditor.makeColorBlockReadonly(color));
             }
           } catch (err) {
-            _didIteratorError15 = true;
-            _iteratorError15 = err;
+            _didIteratorError16 = true;
+            _iteratorError16 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion15 && _iterator15.return != null) {
-                _iterator15.return();
+              if (!_iteratorNormalCompletion16 && _iterator16.return != null) {
+                _iterator16.return();
               }
             } finally {
-              if (_didIteratorError15) {
-                throw _iteratorError15;
+              if (_didIteratorError16) {
+                throw _iteratorError16;
               }
             }
           }
@@ -30090,29 +30451,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             colors: []
           }; // prendo i colori in ordine alfabetico, non mi importa se non sono enumerate correttamente (--colorZ o buchi nei numeri)
 
-          var _iteratorNormalCompletion16 = true;
-          var _didIteratorError16 = false;
-          var _iteratorError16 = undefined;
+          var _iteratorNormalCompletion17 = true;
+          var _didIteratorError17 = false;
+          var _iteratorError17 = undefined;
 
           try {
-            for (var _iterator16 = ruleStartingWithColor[Symbol.iterator](), _step16; !(_iteratorNormalCompletion16 = (_step16 = _iterator16.next()).done); _iteratorNormalCompletion16 = true) {
-              var line = _step16.value;
+            for (var _iterator17 = ruleStartingWithColor[Symbol.iterator](), _step17; !(_iteratorNormalCompletion17 = (_step17 = _iterator17.next()).done); _iteratorNormalCompletion17 = true) {
+              var line = _step17.value;
               var splitpos = line.indexOf(':'); // const cssvarname: string = line.substring(0, splitpos).trim();
 
               var cssvarvalue = line.substring(splitpos + 1).trim();
               cs.colors.push(cssvarvalue);
             }
           } catch (err) {
-            _didIteratorError16 = true;
-            _iteratorError16 = err;
+            _didIteratorError17 = true;
+            _iteratorError17 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion16 && _iterator16.return != null) {
-                _iterator16.return();
+              if (!_iteratorNormalCompletion17 && _iterator17.return != null) {
+                _iterator17.return();
               }
             } finally {
-              if (_didIteratorError16) {
-                throw _iteratorError16;
+              if (_didIteratorError17) {
+                throw _iteratorError17;
               }
             }
           }
@@ -30172,26 +30533,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "mapColorSchemeToPredefined",
         value: function mapColorSchemeToPredefined(inputColorScheme) {
-          var _iteratorNormalCompletion17 = true;
-          var _didIteratorError17 = false;
-          var _iteratorError17 = undefined;
+          var _iteratorNormalCompletion18 = true;
+          var _didIteratorError18 = false;
+          var _iteratorError18 = undefined;
 
           try {
-            for (var _iterator17 = CSSEditor.defaultColorSchemes[Symbol.iterator](), _step17; !(_iteratorNormalCompletion17 = (_step17 = _iterator17.next()).done); _iteratorNormalCompletion17 = true) {
-              var cs = _step17.value;
+            for (var _iterator18 = CSSEditor.defaultColorSchemes[Symbol.iterator](), _step18; !(_iteratorNormalCompletion18 = (_step18 = _iterator18.next()).done); _iteratorNormalCompletion18 = true) {
+              var cs = _step18.value;
               if (CSSEditor.compareColorScheme(inputColorScheme, cs, true) === 0) return cs;
             }
           } catch (err) {
-            _didIteratorError17 = true;
-            _iteratorError17 = err;
+            _didIteratorError18 = true;
+            _iteratorError18 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion17 && _iterator17.return != null) {
-                _iterator17.return();
+              if (!_iteratorNormalCompletion18 && _iterator18.return != null) {
+                _iterator18.return();
               }
             } finally {
-              if (_didIteratorError17) {
-                throw _iteratorError17;
+              if (_didIteratorError18) {
+                throw _iteratorError18;
               }
             }
           }
@@ -30455,7 +30816,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addEventListeners",
         value: function addEventListeners() {// this.$root.find('[data-modelpieceid]').off('contextmenu')
-          // .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenuComponent.contextMenu.onContextMenu(e); });
+          // .on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenu.contextMenu.onContextMenu(e); });
         }
       }, {
         key: "updateClickedGUIHighlight",
@@ -30494,7 +30855,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "showM",
         value: function showM(m) {
-          console.log('styleShowM(', m, ')');
+          // console.log('styleShowM(', m, ')');
           var html = this.getCopyOfTemplate(m, '.model', this.display, true);
           var $html = $(html);
           var gridX = $html.find('.gridX')[0];
@@ -30553,8 +30914,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             e.preventDefault(); // debug to see if angular change status
 
             m.graph.setUseGrid(input.checked);
-          });
-          console.log('newk, layouuthtml setup pre');
+          }); // console.log('newk, layouuthtml setup pre');
+
           this.layoutHtmlSetup(m);
         }
       }, {
@@ -30718,8 +31079,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } /// start!
 
 
-          obj.input.setAttribute('placeholder', _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceVarsString(mp, obj.input.getAttribute('placeholder')));
-          console.log('setting outerhtml: ', context.templateLevel.outerHTML);
+          obj.input.setAttribute('placeholder', _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceVarsString(mp, obj.input.getAttribute('placeholder'))); // console.log('setting outerhtml: ', context.templateLevel.outerHTML);
+
           obj.input.innerText = context.templateLevel.outerHTML;
           $styleown.find('.htmllevel').html((isInherited ? 'Instances Html' : 'Own html') + ' (' + (indexedPath && indexedPath.length ? 'Level&nbsp;' + indexedPath.length : 'Root&nbsp;level') + ')');
           var graphRoot = mp.getHtmlOnGraph();
@@ -30902,8 +31263,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             } else {
               if (context.templateLevel instanceof HTMLElement) context.templateLevel.style.position = ''; // restore default
+              //        console.log(context.templateLevel, context);
 
-              console.log(context.templateLevel, context);
               if (templateParent) templateParent.style.position = '';
 
               if ($measurableBody[0].classList.contains('show')) {
@@ -30952,8 +31313,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var clickedRoot = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].getLogicalRootOfHtml(clickedLevel);
 
-          var templateRoot = style.html;
-          console.log('gtt style:', style); // let templateLevel: Element = templateRoot;
+          var templateRoot = style.html; // console.log('gtt style:', style);
+          // let templateLevel: Element = templateRoot;
 
           var indexedPath = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].getIndexesPath(clickedLevel, 'parentNode', 'childNodes', clickedRoot); // console.log('clickedRoot', clickedRoot, 'clickedLevel', clickedLevel, 'path:', indexedPath);
 
@@ -32179,29 +32540,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           for (var _i10 = 0, _directions = directions; _i10 < _directions.length; _i10++) {
             var direction = _directions[_i10];
-            var _iteratorNormalCompletion18 = true;
-            var _didIteratorError18 = false;
-            var _iteratorError18 = undefined;
+            var _iteratorNormalCompletion19 = true;
+            var _didIteratorError19 = false;
+            var _iteratorError19 = undefined;
 
             try {
-              for (var _iterator18 = kinds[Symbol.iterator](), _step18; !(_iteratorNormalCompletion18 = (_step18 = _iterator18.next()).done); _iteratorNormalCompletion18 = true) {
-                var kind = _step18.value;
+              for (var _iterator19 = kinds[Symbol.iterator](), _step19; !(_iteratorNormalCompletion19 = (_step19 = _iterator19.next()).done); _iteratorNormalCompletion19 = true) {
+                var kind = _step19.value;
                 var attrstr = 'show-' + 'show-' + direction + '-' + kind + '-edges';
-                var $priobutton = $edgePriority.filter('[kind="' + direction + "-" + kind + '"]');
-                console.log("setting visibility edge input:", $priobutton, $edgePriority, '[kind="' + direction + "-" + kind + '"]');
+                var $priobutton = $edgePriority.filter('[kind="' + direction + "-" + kind + '"]'); // console.log("setting visibility edge input:", $priobutton, $edgePriority, '[kind="' + direction + "-" + kind + '"]');
+
                 $priobutton[0].value = '' + results[direction][kind];
               }
             } catch (err) {
-              _didIteratorError18 = true;
-              _iteratorError18 = err;
+              _didIteratorError19 = true;
+              _iteratorError19 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion18 && _iterator18.return != null) {
-                  _iterator18.return();
+                if (!_iteratorNormalCompletion19 && _iterator19.return != null) {
+                  _iterator19.return();
                 }
               } finally {
-                if (_didIteratorError18) {
-                  throw _iteratorError18;
+                if (_didIteratorError19) {
+                  throw _iteratorError19;
                 }
               }
             }
@@ -32454,13 +32815,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           };
 
-          var _iteratorNormalCompletion19 = true;
-          var _didIteratorError19 = false;
-          var _iteratorError19 = undefined;
+          var _iteratorNormalCompletion20 = true;
+          var _didIteratorError20 = false;
+          var _iteratorError20 = undefined;
 
           try {
-            for (var _iterator19 = classes[Symbol.iterator](), _step19; !(_iteratorNormalCompletion19 = (_step19 = _iterator19.next()).done); _iteratorNormalCompletion19 = true) {
-              var classe = _step19.value;
+            for (var _iterator20 = classes[Symbol.iterator](), _step20; !(_iteratorNormalCompletion20 = (_step20 = _iterator20.next()).done); _iteratorNormalCompletion20 = true) {
+              var classe = _step20.value;
               var tableStr = 'CREATE TABLE ' + classe.name + ' {\n';
               var foreignkey = ''; // let pkFeatures: M2Feature[] = [];
 
@@ -32470,13 +32831,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               var indent = '    ';
               var hasIDField = false;
-              var _iteratorNormalCompletion20 = true;
-              var _didIteratorError20 = false;
-              var _iteratorError20 = undefined;
+              var _iteratorNormalCompletion21 = true;
+              var _didIteratorError21 = false;
+              var _iteratorError21 = undefined;
 
               try {
-                for (var _iterator20 = attributes[Symbol.iterator](), _step20; !(_iteratorNormalCompletion20 = (_step20 = _iterator20.next()).done); _iteratorNormalCompletion20 = true) {
-                  var attr = _step20.value;
+                for (var _iterator21 = attributes[Symbol.iterator](), _step21; !(_iteratorNormalCompletion21 = (_step21 = _iterator21.next()).done); _iteratorNormalCompletion21 = true) {
+                  var attr = _step21.value;
 
                   if (attr.name.toLowerCase() === 'id' && attr.type.primitiveType.short === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EInt) {
                     hasIDField = true;
@@ -32485,38 +32846,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
                   tableStr += indent + attr.name + ' ' + getType(attr) + ',\n';
-                }
-              } catch (err) {
-                _didIteratorError20 = true;
-                _iteratorError20 = err;
-              } finally {
-                try {
-                  if (!_iteratorNormalCompletion20 && _iterator20.return != null) {
-                    _iterator20.return();
-                  }
-                } finally {
-                  if (_didIteratorError20) {
-                    throw _iteratorError20;
-                  }
-                }
-              }
-
-              var _iteratorNormalCompletion21 = true;
-              var _didIteratorError21 = false;
-              var _iteratorError21 = undefined;
-
-              try {
-                for (var _iterator21 = references[Symbol.iterator](), _step21; !(_iteratorNormalCompletion21 = (_step21 = _iterator21.next()).done); _iteratorNormalCompletion21 = true) {
-                  var ref = _step21.value;
-
-                  if (ref.name.toLowerCase() === 'id') {
-                    hasIDField = true;
-                  } // if (ref.name.toLowerCase() === 'id') { pkFeatures = [ref]; }
-                  // if (pkAttributes.length !== 1 && pkFeatures[0].name.toLowerCase() !== 'id') { pkFeatures.push(ref); }
-
-
-                  tableStr += indent + ref.name + ' INT,\n';
-                  foreignKeys.push('ALTER TABLE ' + classe.name + '\n' + indent + 'ADD FOREIGN KEY (' + ref.name + ') REFERENCES ' + ref.getTarget().name + '(id);');
                 }
               } catch (err) {
                 _didIteratorError21 = true;
@@ -32533,6 +32862,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
 
+              var _iteratorNormalCompletion22 = true;
+              var _didIteratorError22 = false;
+              var _iteratorError22 = undefined;
+
+              try {
+                for (var _iterator22 = references[Symbol.iterator](), _step22; !(_iteratorNormalCompletion22 = (_step22 = _iterator22.next()).done); _iteratorNormalCompletion22 = true) {
+                  var ref = _step22.value;
+
+                  if (ref.name.toLowerCase() === 'id') {
+                    hasIDField = true;
+                  } // if (ref.name.toLowerCase() === 'id') { pkFeatures = [ref]; }
+                  // if (pkAttributes.length !== 1 && pkFeatures[0].name.toLowerCase() !== 'id') { pkFeatures.push(ref); }
+
+
+                  tableStr += indent + ref.name + ' INT,\n';
+                  foreignKeys.push('ALTER TABLE ' + classe.name + '\n' + indent + 'ADD FOREIGN KEY (' + ref.name + ') REFERENCES ' + ref.getTarget().name + '(id);');
+                }
+              } catch (err) {
+                _didIteratorError22 = true;
+                _iteratorError22 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion22 && _iterator22.return != null) {
+                    _iterator22.return();
+                  }
+                } finally {
+                  if (_didIteratorError22) {
+                    throw _iteratorError22;
+                  }
+                }
+              }
+
               if (!hasIDField) {
                 return "ERROR on class: " + classe.name + ".\nFor this beta version of mysql m2t all tables must have an \"id\" integer field.";
               } // todo: PrimaryKey dovrebbe essere una annotation presente su [1,N] features.
@@ -32542,16 +32903,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               tables.push(tableStr);
             }
           } catch (err) {
-            _didIteratorError19 = true;
-            _iteratorError19 = err;
+            _didIteratorError20 = true;
+            _iteratorError20 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion19 && _iterator19.return != null) {
-                _iterator19.return();
+              if (!_iteratorNormalCompletion20 && _iterator20.return != null) {
+                _iterator20.return();
               }
             } finally {
-              if (_didIteratorError19) {
-                throw _iteratorError19;
+              if (_didIteratorError20) {
+                throw _iteratorError20;
               }
             }
           }
@@ -33330,9 +33691,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           var oldparent = this.parent;
 
-          _get(_getPrototypeOf(EEnum.prototype), "delete", this).call(this, false);
+          _get(_getPrototypeOf(EEnum.prototype), "delete", this).call(this, false, fromParent);
 
           if (oldparent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldparent.enums, this); // todo: che fare con gli attributes che hanno questo enum come tipo? per ora cambio in stringa.
 
@@ -33484,12 +33846,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
           if (!this.shouldBeDisplayedAsEdge()) {
             this.getVertex().remove();
           }
 
-          _get(_getPrototypeOf(IClassifier.prototype), "delete", this).call(this, false);
+          _get(_getPrototypeOf(IClassifier.prototype), "delete", this).call(this, false, fromParent);
         }
       }], [{
         key: "defaultSidebarHtml",
@@ -33669,23 +34032,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.metaParent = newMetaParent;
           this.metaParent.instances.push(this);
 
-          var attributes = _toConsumableArray(newMetaParent.getAllAttributes()); // need shallow copy
+          var newattributes = _toConsumableArray(newMetaParent.getAllAttributes()); // need shallow copy
 
 
-          var references = _toConsumableArray(newMetaParent.getAllReferences());
+          var newreferences = _toConsumableArray(newMetaParent.getAllReferences());
 
-          var i; // exclude the ones already instantiated (intersection)
-
-          for (i = 0; i < this.attributes.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(attributes, this.attributes[i].metaParent);
-          }
-
-          for (i = 0; i < this.references.length; i++) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(references, this.references[i].metaParent);
-          }
+          var i; // remove features not present in new type
 
           if (allowFeatureRemoval) {
-            // remove the exceeding ones
             var thisAttrs = _toConsumableArray(this.attributes);
 
             var thisRefs = _toConsumableArray(this.references);
@@ -33693,9 +34047,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             for (i = 0; i < thisAttrs.length; i++) {
               var elem = thisAttrs[i];
 
-              if (attributes.indexOf(elem.metaParent) >= 0) {
+              if (newattributes.indexOf(elem.metaParent) < 0) {
                 refreshGui = true;
-                console.log("7x removing attr", elem.metaParent);
                 elem.delete(false);
               }
             }
@@ -33703,22 +34056,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             for (i = 0; i < thisRefs.length; i++) {
               var _elem = thisRefs[i];
 
-              if (references.indexOf(_elem.metaParent) >= 0) {
+              if (newreferences.indexOf(_elem.metaParent) < 0) {
                 refreshGui = true;
-                console.log("7x removing ref", _elem.metaParent);
 
                 _elem.delete(false);
               }
             }
+          } // exclude the ones already instantiated (avoid duplicates)
+
+
+          for (i = 0; i < this.attributes.length; i++) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(newattributes, this.attributes[i].metaParent);
+          }
+
+          for (i = 0; i < this.references.length; i++) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(newreferences, this.references[i].metaParent);
           } // create the missing ones.
 
 
-          for (i = 0; i < attributes.length; i++) {
-            new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MAttribute"](this, null, attributes[i]);
+          for (i = 0; i < newattributes.length; i++) {
+            new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MAttribute"](this, null, newattributes[i]);
           }
 
-          for (i = 0; i < references.length; i++) {
-            new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"](this, null, references[i]);
+          for (i = 0; i < newreferences.length; i++) {
+            new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"](this, null, newreferences[i]);
           }
 
           if (refreshGui) this.refreshGUI_Alone();
@@ -33739,8 +34100,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var extChildrens = [].concat(_toConsumableArray(this.childrens), _toConsumableArray(this.metaParent.annotations), _toConsumableArray(this.metaParent.operations));
 
           for (j = 0; j < extChildrens.length; j++) {
-            var child = extChildrens[j];
-            console.log(child.metaParent, this.metaParent, child, this);
+            var child = extChildrens[j]; // console.log('getAllChildrens', child.metaParent, this.metaParent, child, this);
 
             if (includeAttributes && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IAttribute"]) {
               arr.push(child);
@@ -33841,7 +34201,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getModelRoot",
         value: function getModelRoot() {
-          return _get(_getPrototypeOf(MClass.prototype), "getModelRoot", this).call(this);
+          var acceptNull = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          return _get(_getPrototypeOf(MClass.prototype), "getModelRoot", this).call(this, acceptNull);
         }
       }, {
         key: "isRoot",
@@ -34182,13 +34543,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-          _get(_getPrototypeOf(MClass.prototype), "delete", this).call(this, false); // NB: gli m1-link a questo oggetto sono già stati rimossi da setType in m2 o da delete vertex in IClass
+          _get(_getPrototypeOf(MClass.prototype), "delete", this).call(this, false, fromParent); // NB: gli m1-link a questo oggetto sono già stati rimossi da setType in m2 o da delete vertex in IClass
 
         }
       }, {
         key: "convertTo",
         value: function convertTo(classe) {
+          console.log('m1-convertTo()', {
+            thiss: this,
+            currentMeta: [this.metaParent.toString(), this.metaParent],
+            nextMeta: [classe.toString(), classe]
+          });
           this.changeMetaParent(classe, true, true);
         }
       }], [{
@@ -34303,7 +34670,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "parse",
         value: function parse(json) {
           var destructive = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-          this.ordinal = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EcoreLiteral"].value, Number.NEGATIVE_INFINITY);
+          this.ordinal = +_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EcoreLiteral"].value, Number.NEGATIVE_INFINITY);
           this.setLiteral(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EcoreLiteral"].literal, ''), false);
 
           var name = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EcoreLiteral"].namee, this.ordinal === Number.NEGATIVE_INFINITY ? null : this.parent.name + '_' + this.ordinal);
@@ -34314,8 +34681,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          var oldParent = this.parent;
 
-          _get(_getPrototypeOf(ELiteral.prototype), "delete", this).call(this, false); // todo: che fare con gli attributes che hanno questo literal come valore?
+          _get(_getPrototypeOf(ELiteral.prototype), "delete", this).call(this, false, fromParent); // todo: che fare con gli attributes che hanno questo literal come valore?
 
 
           var i;
@@ -34325,7 +34694,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all[i].owner instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MAttribute"]) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all[i].owner.valuesAutofix();
           }
 
-          if (refreshgui) this.refreshGUI();
+          if (refreshgui && oldParent) oldParent.refreshGUI();
         }
       }, {
         key: "fieldChanged",
@@ -34498,7 +34867,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getModelRoot",
         value: function getModelRoot() {
-          return _get(_getPrototypeOf(MAttribute.prototype), "getModelRoot", this).call(this);
+          var acceptNull = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          return _get(_getPrototypeOf(MAttribute.prototype), "getModelRoot", this).call(this, acceptNull);
         }
       }, {
         key: "parse",
@@ -34698,16 +35068,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "setValueStr",
         value: function setValueStr(valStr) {
+          valStr = valStr && valStr.trim() || ''; // .replace(/\s'|,'/g, '"').replace(/\\\\'/g, "\\'") || '';
+
           if (this.metaParent.upperbound === 1) {
             // this.setValues(JSON.parse( '"' + U.replaceAll(valStr, '"', '\\"') + '"'));
             this.setValues([valStr]);
             return;
           }
 
+          if (valStr[0] !== '[') valStr = '[' + valStr + ']';
+
           try {
-            this.setValues(JSON.parse(valStr));
+            this.setValues(eval(valStr));
           } catch (e) {
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'This attribute have upperbound > 1 and the input is not a valid JSON string: ' + valStr);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'This attribute have upperbound > 1 and the input is not a valid JSON string: ' + valStr, e);
 
             return;
           } finally {}
@@ -34726,6 +35100,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.values[index] = values;
           }
 
+          debug = true;
+          debug = true;
           var values0 = values;
 
           if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isEmptyObject(values, true, true) || Array.isArray(values) && (values.length === 0 || values.length === 1 && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isEmptyObject(values[0]))) {
@@ -34740,7 +35116,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (debug) console.trace();
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, this.metaParent.fullname() + '.setvalue: |', values0, '| --> ', values, 'defaultv:', this.getType().defaultValue(), 'type:', this.getType());
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, this.metaParent.fullname() + '.setvalue: |', values0, '| --> ', values, {
+            defaultv: this.getType().defaultValue(),
+            type: this.getType(),
+            upperbound: this.getUpperbound()
+          });
 
           this.values = values;
 
@@ -34852,13 +35232,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, this.values);
 
-          var val = this.getValueStr();
+          var val = this.getValueStr() || '';
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'val:', val, ', this.values:', this.values, ', this:', this);
 
-          this.valuesStr = val ? _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceAll(val, '\n', '', debug) : '';
+          this.valuesStr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].replaceAll(val, '\n', '', debug); // this.valuesStr = '["1", "2", "33"]'
 
-          if (this.valuesStr && this.valuesStr[0] === '[') {
+          if (this.valuesStr && this.getUpperbound() !== 1 && this.valuesStr[0] === '[') {
             this.valuesStr = this.valuesStr.substr(1, this.valuesStr.length - 2);
           }
 
@@ -34954,6 +35334,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
       _createClass(IAttribute, [{
+        key: "getUpperbound",
+        value: function getUpperbound() {
+          if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Attribute"]) {
+            return this.upperbound;
+          }
+
+          if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MAttribute"]) {
+            return this.metaParent.upperbound;
+          }
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'getUpperbound unrecognized class.');
+        }
+      }, {
+        key: "getLowerbound",
+        value: function getLowerbound() {
+          if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Attribute"]) {
+            return this.lowerbound;
+          }
+
+          if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MAttribute"]) {
+            return this.metaParent.lowerbound;
+          }
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, ' getLowerbound unrecognized class.');
+        }
+      }, {
         key: "copy",
         value: function copy(other) {
           var nameAppend = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '_Copy';
@@ -35085,12 +35491,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(M2Attribute, [{
         key: "getModelRoot",
         value: function getModelRoot() {
-          return _get(_getPrototypeOf(M2Attribute.prototype), "getModelRoot", this).call(this);
+          var acceptNull = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          return _get(_getPrototypeOf(M2Attribute.prototype), "getModelRoot", this).call(this, acceptNull);
         }
       }, {
         key: "parse",
         value: function parse(json, destructive) {
           this.setName(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].namee, 'Attribute_1'));
+          this.setLowerbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].lowerbound, 0));
+          this.setUpperbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].upperbound, 1));
           this.type.changeType(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].eType, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AttribETypes"].EString));
           /*
           this.views = [];
@@ -35112,6 +35521,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(model, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].eType, this.type.toEcoreString());
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(model, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].namee, this.name);
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(model, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].lowerbound, '' + this.getLowerbound());
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].write(model, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreAttribute"].upperbound, '' + this.getUpperbound());
 
           return model;
         }
@@ -35185,7 +35598,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, M2Reference);
 
         _this62 = _possibleConstructorReturn(this, _getPrototypeOf(M2Reference).call(this, classe, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getReference()));
-        _this62.containment = false && false;
+        _this62.containment = false;
 
         if (!classe && !json) {
           return _possibleConstructorReturn(_this62);
@@ -35200,7 +35613,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(M2Reference, [{
         key: "getModelRoot",
         value: function getModelRoot() {
-          return _get(_getPrototypeOf(M2Reference.prototype), "getModelRoot", this).call(this);
+          var acceptNull = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          return _get(_getPrototypeOf(M2Reference.prototype), "getModelRoot", this).call(this, acceptNull);
         }
       }, {
         key: "parse",
@@ -35212,7 +35626,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           // this.parsePrintableTypeName(eType);
           // this.linkClass();
 
-          this.containment = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].containment, false);
+          this.containment = !!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].containment, false);
           this.setLowerbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].lowerbound, 0));
           this.setUpperbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].upperbound, 1));
           var i;
@@ -35237,7 +35651,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].lowerbound] = +this.lowerbound;
           }
 
-          if (this.upperbound != null && !isNaN(+this.lowerbound)) {
+          if (this.upperbound != null && !isNaN(+this.upperbound)) {
             model[_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].upperbound] = +this.upperbound;
           }
 
@@ -35291,15 +35705,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               mref.mtarget.length = mref.edges.length = n;
             }
 
-            mref.delete(true, n, Number.POSITIVE_INFINITY);
+            mref.delete(true, false, n, Number.POSITIVE_INFINITY);
           }
         }
       }, {
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-          var linkStart = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-          var linkEnd = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          var linkStart = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var linkEnd = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
           var oldParent = this.parent;
           console.log('m2ref.delete()', refreshgui, oldParent); // total deletion
 
@@ -35307,15 +35722,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (this.type.classType) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.type.classType.referencesIN, this);
           }
 
-          _get(_getPrototypeOf(M2Reference.prototype), "delete", this).call(this, false, linkStart, linkEnd);
+          _get(_getPrototypeOf(M2Reference.prototype), "delete", this).call(this, false, fromParent, linkStart, linkEnd);
 
-          console.log('m2ref.delete()', refreshgui, oldParent);
+          console.log('m2ref.delete()', {
+            refreshgui: refreshgui,
+            oldParent: oldParent,
+            fromParent: fromParent
+          });
 
-          if (refreshgui && oldParent) {
-            setTimeout(function () {
-              oldParent.refreshGUI();
-              oldParent.refreshInstancesGUI();
-            }, 0);
+          if (!fromParent && refreshgui && oldParent) {
+            //setTimeout( ()=> {
+            oldParent.refreshGUI();
+            oldParent.refreshInstancesGUI(); //}, 0); }
           }
         }
         /*
@@ -35557,12 +35975,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-          var linkStart = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-          var linkEnd = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          var linkStart = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var linkEnd = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
           var oldParent = this.parent;
           var i;
 
-          _get(_getPrototypeOf(MReference.prototype), "delete", this).call(this, false, linkStart, linkEnd); // remove edges
+          _get(_getPrototypeOf(MReference.prototype), "delete", this).call(this, false, fromParent, linkStart, linkEnd); // remove edges
 
 
           linkEnd = Math.min(this.mtarget.length, linkEnd);
@@ -35909,12 +36328,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-          var linkStart = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-          var linkEnd = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          var linkStart = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+          var linkEnd = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
           var oldParent = this.parent;
 
           if (linkStart === null && linkEnd === null) {
-            _get(_getPrototypeOf(IReference.prototype), "delete", this).call(this, false);
+            _get(_getPrototypeOf(IReference.prototype), "delete", this).call(this, false, fromParent);
 
             linkStart = 0;
             linkEnd = this.edges.length;
@@ -36268,17 +36688,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (myroot.isM1()) return this.metaParent.isShadowed(forClass.metaParent);
           var childs = forClass.getAllChildrens(false, false, true, true, false);
           var myIndex = childs.indexOf(this);
+          var debug = false;
 
           for (var _i14 = 0; _i14 < myIndex; _i14++) {
             if (childs[_i14].name === this.name) {
-              console.log(forClass.id + '_' + this.id + ' true 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map(function (e) {
+              debug && console.log(forClass.id + '_' + this.id + ' true 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map(function (e) {
                 return e.parent.name + '.' + e.name;
               }));
               return true;
             }
           }
 
-          console.log(forClass.id + '_' + this.id + ' false 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map(function (e) {
+          debug && console.log(forClass.id + '_' + this.id + ' false 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map(function (e) {
             return e.parent.name + '.' + e.name;
           }));
           return false;
@@ -36562,8 +36983,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.setLowerbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].lowerBound, 'NAN_Trigger'));
           this.setUpperbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].upperBound, 'NAN_Trigger'));
           this.exceptionsStr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].eexceptions, '');
-          this.ordered = 'true' === '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].ordered, 'false');
-          this.unique = 'true ' === '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].unique, 'false');
+          this.ordered = !!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].ordered, 'false');
+          this.unique = !!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].unique, 'false');
           this.visibility = AccessModifier.package;
 
           var parameters = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].getChildrens(json, false);
@@ -36729,8 +37150,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-          _get(_getPrototypeOf(EOperation.prototype), "delete", this).call(this, true);
+          _get(_getPrototypeOf(EOperation.prototype), "delete", this).call(this, true, fromParent);
         }
       }]);
 
@@ -36901,8 +37323,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.setName(this.parent.parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M3Class"] ? 'Parameter' : _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreParameter"].namee, 'Param_1'));
           this.setLowerbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].lowerBound, 'NAN_Trigger'));
           this.setUpperbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].upperBound, 'NAN_Trigger'));
-          this.ordered = 'true' === '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].ordered, 'false');
-          this.unique = 'true ' === '' + _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].unique, 'false');
+          this.ordered = !!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].ordered, 'false');
+          this.unique = !!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreOperation"].unique, 'false');
           this.setType(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreParameter"].eType, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AttribETypes"].EString));
           var i;
           /*
@@ -37178,6 +37600,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var primitives = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
           var enums = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
           var classes = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+          if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedGUI) return;
 
           if (!$searchRoot) {
             $searchRoot = $(document.body);
@@ -37225,6 +37648,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
           } else return; //U.pw(true, 'type selector inserted on non-typed element:', selectHtml, mp);
 
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!selectedType, 'select type is null', {
+            selectedType: selectedType,
+            selectHtml: selectHtml,
+            mp: mp
+          });
 
           selectHtml.dataset.typeid = '' + selectedType.id;
           selectHtml.dataset.primitive = '' + (addPrimitive ? "true" : "false");
@@ -37299,15 +37728,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var classarr = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.getAllClasses();
 
             for (i = 0; i < classarr.length; i++) {
-              var _e2 = classarr[i];
+              var _e3 = classarr[i];
 
               var _opt2 = document.createElement('option');
 
               grpClass.appendChild(_opt2);
-              _opt2.value = _e2.getEcoreTypeName();
-              _opt2.innerHTML = _e2.name;
+              _opt2.value = _e3.getEcoreTypeName();
+              _opt2.innerHTML = _e3.name;
 
-              if (_e2 === selectedType.classType) {
+              if (_e3 === selectedType.classType) {
                 foundit(_opt2);
               }
             }
@@ -37780,9 +38209,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           var oldparent = this.parent;
 
-          _get(_getPrototypeOf(Typedd.prototype), "delete", this).call(this, false);
+          _get(_getPrototypeOf(Typedd.prototype), "delete", this).call(this, false, fromParent);
 
           if (oldparent) {
             if (oldparent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"]) {
@@ -37808,7 +38238,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var classe = oldparent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] ? oldparent : null;
 
-          if (classe) {
+          if (!fromParent && classe) {
             if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EParameter"] || this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EOperation"]) classe.checkViolations(true);else classe.checkViolations(true);
           }
         } // getClassType(): M2Class { return this.type.classType; }
@@ -38029,9 +38459,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           var oldparent = this.parent;
 
-          _get(_getPrototypeOf(IClass.prototype), "delete", this).call(this, false);
+          _get(_getPrototypeOf(IClass.prototype), "delete", this).call(this, false, fromParent);
 
           if (oldparent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(oldparent.classes, this);
           /*
@@ -38246,8 +38677,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var isM2 = this.getModelRoot().isM2();
 
           for (j = 0; j < this.childrens.length; j++) {
-            var child = this.childrens[j];
-            console.log(child.metaParent, this.metaParent, child, this);
+            var child = this.childrens[j]; // console.log('getBasicChildrens', child.metaParent, this.metaParent, child, this);
+
             if (child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"] && child.isInherited(this)) continue; // for m1
 
             if (!isM2 && (includeAttributes || includeReferences) && child instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IFeature"]) {
@@ -38706,7 +39137,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function setExtends(superclass) {
           var refreshGUI = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
           var force = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-          var print = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+          var print = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+          var debug = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+          debug && console.trace('SetExtend:', this, this.name);
           var out = {
             reason: '',
             indirectExtendChain: null
@@ -38723,18 +39156,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(superclass.gotExtendedBy, this);
 
           var i;
-          if (this instanceof M2Class) for (i = 0; i < this.instances.length; i++) {
-            this.instances[i].changeMetaParent(this, true, true);
+
+          var instances = _toConsumableArray(this.instances);
+
+          if (this instanceof M2Class) {
+            var _iteratorNormalCompletion23 = true;
+            var _didIteratorError23 = false;
+            var _iteratorError23 = undefined;
+
+            try {
+              for (var _iterator23 = instances[Symbol.iterator](), _step23; !(_iteratorNormalCompletion23 = (_step23 = _iterator23.next()).done); _iteratorNormalCompletion23 = true) {
+                var instance = _step23.value;
+                instance.convertTo(this);
+              }
+            } catch (err) {
+              _didIteratorError23 = true;
+              _iteratorError23 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion23 && _iterator23.return != null) {
+                  _iterator23.return();
+                }
+              } finally {
+                if (_didIteratorError23) {
+                  throw _iteratorError23;
+                }
+              }
+            }
           }
+
           if (refreshGUI) this.refreshGUI_Alone();
           var extendChildrens = this.getAllSuperClasses(true);
-          console.log('calculateViolationsExtend childrens:' + extendChildrens, this);
+          debug && console.log('calculateViolationsExtend childrens:' + extendChildrens, this);
           if (refreshGUI) for (i = 0; i < extendChildrens.length; i++) {
             var extChild = extendChildrens[i];
-            console.log('calculateViolationsExtend');
+            debug && console.log('calculateViolationsExtend');
             extChild.checkViolations(false);
-          } // if (this.vertex) this.vertex.owner.propertyBar.refreshGUI();
+          }
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(print, instances.length + ' instances adapted.'); // if (this.vertex) this.vertex.owner.propertyBar.refreshGUI();
           // if (this.vertex) this.vertex.owner.propertyBar.show(this,null, true, true);
+
 
           return true;
         }
@@ -38803,9 +39265,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           }
 
-          var operations = _toConsumableArray(this.getAllOperations());
+          var operations = _toConsumableArray(this.getAllOperations()); // console.log('civ operation: ', this, operations);
 
-          console.log('3x operation: ', this, operations);
 
           for (j = 0; j < operations.length; j++) {
             var op1 = operations[j];
@@ -38813,8 +39274,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             for (i = 0; i < operations.length; i++) {
               var op2 = operations[i];
-              var ret = op1.isCompatible(op2, true);
-              console.log('3x operation[' + j + '] = ', ret, op1.name, op2.name, op1, op2, this, operations);
+              var ret = op1.isCompatible(op2, true); // console.log('civ operation[' + j + '] = ', ret, op1.name, op2.name, op1, op2, this, operations);
             }
           }
         }
@@ -38948,7 +39408,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getModelRoot",
         value: function getModelRoot() {
-          return _get(_getPrototypeOf(M2Class.prototype), "getModelRoot", this).call(this);
+          var acceptNull = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          return _get(_getPrototypeOf(M2Class.prototype), "getModelRoot", this).call(this, acceptNull);
         }
       }, {
         key: "getNamespaced",
@@ -39236,19 +39697,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete() {
           var refreshgui = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+          var fromParent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           var scores = this.getTypeConversionScores(true, true);
           var newType = scores.length > 0 && scores[0].class;
           if (newType) this.convertInstancesTo(newType);
-          this.forceChangeType(newType);
+          if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.allowGenericObjects) this.forceChangeType(newType);
 
-          _get(_getPrototypeOf(M2Class.prototype), "delete", this).call(this, false); // will remove remaining unconverted instances
+          _get(_getPrototypeOf(M2Class.prototype), "delete", this).call(this, false, fromParent); // will remove remaining unconverted instances
 
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.refreshGUI();
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.refreshInstancesGUI();
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mm.refreshInstancesGUI(); // Type.updateTypeSelectors(null, false, false, true);
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, false, true);
         }
       }, {
         key: "forceChangeType",
@@ -39506,21 +39967,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "convertInstancesTo",
         value: function convertInstancesTo(classe) {
-          var i;
-          var convertCount = 0;
+          var instances = _toConsumableArray(this.instances);
 
-          var instances = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].shallowArrayCopy(this.instances);
+          var _iteratorNormalCompletion24 = true;
+          var _didIteratorError24 = false;
+          var _iteratorError24 = undefined;
 
-          for (i = 0; i < instances.length; i++) {
-            var instance = instances[i];
+          try {
+            for (var _iterator24 = instances[Symbol.iterator](), _step24; !(_iteratorNormalCompletion24 = (_step24 = _iterator24.next()).done); _iteratorNormalCompletion24 = true) {
+              var instance = _step24.value;
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(instance.metaParent !== this, "invalid state: mismatch on instances and metaParent:", instance, this);
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(instance.metaParent !== this, "invalid state: mismatch on instances and metaParent:", instance, this);
 
-            instance.convertTo(classe);
-            convertCount++;
+              instance.convertTo(classe);
+            }
+          } catch (err) {
+            _didIteratorError24 = true;
+            _iteratorError24 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion24 && _iterator24.return != null) {
+                _iterator24.return();
+              }
+            } finally {
+              if (_didIteratorError24) {
+                throw _iteratorError24;
+              }
+            }
           }
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(!!convertCount, convertCount + " subclasses converted to " + classe.name);
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(instances && !!instances.length, instances.length + " subclasses converted to " + classe.name);
         }
       }], [{
         key: "updateSuperClasses",
@@ -39540,7 +40016,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!target, 'e1, failed to find extended class.extendsStr[' + j + ']:', classe.extendsStr[j], 'in classList:', classes, 'classe to extend:', classe, 'dictionary:', dictionary);
 
-              classe.setExtends(target, false, true);
+              classe.setExtends(target, false, true, false);
             }
 
             classe.extendsStr = [];

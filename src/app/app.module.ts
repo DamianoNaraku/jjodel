@@ -170,6 +170,8 @@ export class Status {
   user: User = new User('mock_user');
   isEmbed: boolean = window.parent !== window;
   isFirefox: boolean = is.firefox();
+  allowGenericObjects: boolean = false;
+  isProduction: any = window.location.href.indexOf('http://localhost') !== 0;
   constructor() { }
   save(): string {
     return 'TO DO: SERIALIZE'; }
@@ -315,6 +317,7 @@ function globalevents(): void {
   window['ColorSchemeComponent'] = ColorSchemeComponent;
   window['DamContextMenu'] = DamContextMenu;
   window['is'] = is;
+  window['Type'] = Type;
   window['' + 'help'] = [
     'setBackup (backup <= saveToDB)',
     'backupSave (saveToDB <= backup)',
@@ -348,6 +351,7 @@ function globalevents(): void {
   window['' + 'setBackupGUI'] = () => { localStorage.setItem('backupGUI', localStorage.getItem('modelGraphSave_GUI_Damiano')); };
   window['' + 'setBackupMM'] = () => { localStorage.setItem('backupMM', localStorage.getItem('LastOpenedMM')); };
   window['' + 'setBackupM'] = () => { localStorage.setItem('backupM', localStorage.getItem('LastOpenedM')); };
+  window['' + 's'] = Status.status;
 
 
 
@@ -369,10 +373,9 @@ function main() {
   let tmp: any;
   let useless: any;
   let i: number;
+  document.body.classList.add(true || Status.status.isProduction ? 'production' : 'debug');
   VsCodeLayerIn.setupReceive();
   setBootstrapOnLowestPriority();
-  (window as any).U = U;
-  (window as any).status = Status.status;
   U.focusHistorySetup();
   U.tabSetup();
   // U.resizableBorderSetup();
@@ -435,6 +438,7 @@ export function onModelsReceive(savem2: {model: string, vertexpos: string, view:
     Type.all = [];// reset invalid old parsed types, enums... they are no longer defined in the empty metamodel
     Status.status.mm = new MetaModel(JSON.parse(MetaModel.emptyModel), Status.status.mmm);
   }
+  window['' + 'mm'] = Status.status.mm;
   // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m); return;
   Type.linkAll();
   M2Class.updateSuperClasses();
@@ -446,6 +450,8 @@ export function onModelsReceive(savem2: {model: string, vertexpos: string, view:
     U.pw(true, 'Failed to load the model. Does it conform to the metamodel?', e);
     Status.status.m = new Model(JSON.parse(Model.emptyModel), Status.status.mm);
   }
+
+  window['' + 'm'] = Status.status.m;
   // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m);
   // Status.status.m.LinkToMetaParent(Status.status.mm);
   // Status.status.m.fixReferences(); already linked at parse time.

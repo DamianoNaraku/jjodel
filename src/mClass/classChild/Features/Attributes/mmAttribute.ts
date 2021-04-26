@@ -22,11 +22,13 @@ export class M2Attribute extends IAttribute {
     if (!classe && !json) { return; } // empty constructor for .duplicate();
     this.parse(json, true); }
 
-  getModelRoot(): MetaModel { return super.getModelRoot() as MetaModel; }
+  getModelRoot(acceptNull: boolean = false): MetaModel { return super.getModelRoot(acceptNull) as MetaModel; }
 
   parse(json: Json, destructive: boolean) {
-    this.setName(Json.read<string>(json, ECoreAttribute.namee, 'Attribute_1'));
-    this.type.changeType(Json.read<string>(json, ECoreAttribute.eType, AttribETypes.EString));
+    this.setName(Json.read(json, ECoreAttribute.namee, 'Attribute_1'));
+    this.setLowerbound(+Json.read(json, ECoreAttribute.lowerbound, 0));
+    this.setUpperbound(+Json.read(json, ECoreAttribute.upperbound, 1));
+    this.type.changeType(Json.read(json, ECoreAttribute.eType, AttribETypes.EString));
     /*
     this.views = [];
     let i: number;
@@ -42,6 +44,8 @@ export class M2Attribute extends IAttribute {
     Json.write(model, ECoreAttribute.xsitype, 'ecore:EAttribute');
     Json.write(model, ECoreAttribute.eType, this.type.toEcoreString());
     Json.write(model, ECoreAttribute.namee, this.name);
+    Json.write(model, ECoreAttribute.lowerbound, '' + this.getLowerbound());
+    Json.write(model, ECoreAttribute.upperbound, '' + this.getUpperbound());
     return model; }
 
   duplicate(nameAppend: string = '_Copy', newParent: M2Class = null): M2Attribute {

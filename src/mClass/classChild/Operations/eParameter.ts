@@ -83,12 +83,12 @@ export class EParameter extends Typedd {
 				"_upperBound": "2",
 				"_eType": "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" }*/
     U.pe(!this.parent || !this.parent.parent, 'json:', json, 'this: ', this, 'this.parent:', this.parent, 'this.p.p:', this.parent ? this.parent.parent : undefined);
-    this.setName(this.parent.parent instanceof M3Class ? 'Parameter' : Json.read<string>(json, ECoreParameter.namee, 'Param_1'));
-    this.setLowerbound(+Json.read<number>(json, ECoreOperation.lowerBound, 'NAN_Trigger'));
-    this.setUpperbound(+Json.read<number>(json, ECoreOperation.upperBound, 'NAN_Trigger'));
-    this.ordered = 'true' === '' + Json.read<boolean>(json, ECoreOperation.ordered, 'false');
-    this.unique = 'true ' === '' + Json.read<boolean>(json, ECoreOperation.unique, 'false');
-    this.setType(Json.read<string>(json, ECoreParameter.eType, AttribETypes.EString));
+    this.setName(this.parent.parent instanceof M3Class ? 'Parameter' : Json.read(json, ECoreParameter.namee, 'Param_1'));
+    this.setLowerbound(+Json.read(json, ECoreOperation.lowerBound, 'NAN_Trigger'));
+    this.setUpperbound(+Json.read(json, ECoreOperation.upperBound, 'NAN_Trigger'));
+    this.ordered = !!Json.read(json, ECoreOperation.ordered, 'false');
+    this.unique = !!Json.read(json, ECoreOperation.unique, 'false');
+    this.setType(Json.read(json, ECoreParameter.eType, AttribETypes.EString));
     let i: number;/*
     this.views = [];
     for(i = 0; i < this.parent.views.length; i++) {

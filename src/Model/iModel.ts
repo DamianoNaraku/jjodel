@@ -136,7 +136,8 @@ export abstract class IModel extends ModelPiece {
     if (this instanceof Model) return Model.emptyModel;
     return null; }
 
-  delete(): void {
+  gotDeleted(): boolean { return false; } // todo
+  delete(refreshGUI: boolean = false, fromParent: boolean = false): void {
     this.storage.remove(this.name, SaveListEntry.model);
     // set empty (meta)model as most recent anonymous savefile and next to be opened.
     LocalStorage.deleteLastOpened(this instanceof MetaModel ? 2 : 1);
@@ -277,6 +278,8 @@ export class ECoreRoot {
     ECoreAttribute.xsitype = Status.status.XMLinlineMarker + 'xsi:type'; // "ecore:EAttribute",
     ECoreAttribute.eType = Status.status.XMLinlineMarker + 'eType'; // "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
     ECoreAttribute.namee = Status.status.XMLinlineMarker + 'name';
+    ECoreAttribute.lowerbound = Status.status.XMLinlineMarker + 'lowerBound';
+    ECoreAttribute.upperbound = Status.status.XMLinlineMarker + 'upperBound';
 
 
     ECoreOperation.eParameters = 'eParameters';
@@ -367,6 +370,8 @@ export class ECoreAttribute {
   static xsitype: string;
   static eType: string;
   static namee: string;
+  static lowerbound: string;
+  static upperbound: string;
 }
 
 export class ECoreOperation {

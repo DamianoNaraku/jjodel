@@ -14,6 +14,7 @@ import {
   U, WebsiteTheme
 } from '../../../../common/Joiner';
 import {EdgeHeadStyle} from '../../../../guiElements/mGraph/Edge/edgeStyle';
+import {from} from 'rxjs';
 
 export abstract class IReference extends IFeature {
   // static all: any[] = [];
@@ -62,10 +63,10 @@ export abstract class IReference extends IFeature {
 
   abstract duplicate(nameAppend?: string, newParent?: IClass): IReference;
 
-  delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
+  delete(refreshgui: boolean = true, fromParent: boolean = false, linkStart: number = null, linkEnd: number = null): void {
     let oldParent = this.parent;
     if (linkStart === null && linkEnd === null) {
-      super.delete(false);
+      super.delete(false, fromParent);
       linkStart = 0;
       linkEnd = this.edges.length; }
     const edges: IEdge[] = U.ArrayCopy(this.getEdges(), false);

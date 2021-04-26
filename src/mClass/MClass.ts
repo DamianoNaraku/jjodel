@@ -130,28 +130,31 @@ export class MClass extends IClass {
     if (this.metaParent) U.arrayRemoveAll(this.metaParent.instances, this);
     this.metaParent = newMetaParent;
     this.metaParent.instances.push(this);
-    const attributes: M2Attribute[] = [...newMetaParent.getAllAttributes()]; // need shallow copy
-    const references: M2Reference[] = [...newMetaParent.getAllReferences()];
+    const newattributes: M2Attribute[] = [...newMetaParent.getAllAttributes()]; // need shallow copy
+    const newreferences: M2Reference[] = [...newMetaParent.getAllReferences()];
     let i: number;
-    // exclude the ones already instantiated (intersection)
-    for (i = 0; i < this.attributes.length; i++) { U.arrayRemoveAll(attributes, this.attributes[i].metaParent); }
-    for (i = 0; i < this.references.length; i++) { U.arrayRemoveAll(references, this.references[i].metaParent); }
 
-    if (allowFeatureRemoval) { // remove the exceeding ones
+    // remove features not present in new type
+    if (allowFeatureRemoval) {
       let thisAttrs: MAttribute[] = [... this.attributes];
       let thisRefs: MReference[] = [... this.references];
       for (i = 0; i < thisAttrs.length; i++) {
         const elem: MAttribute = thisAttrs[i];
-        if (attributes.indexOf(elem.metaParent) >= 0) { refreshGui = true; elem.delete(false); }
+        if (newattributes.indexOf(elem.metaParent) < 0) { refreshGui = true; elem.delete(false); }
       }
       for (i = 0; i < thisRefs.length; i++) {
         const elem: MReference = thisRefs[i];
-        if (references.indexOf(elem.metaParent) >= 0) { refreshGui = true; elem.delete(false); }
+        if (newreferences.indexOf(elem.metaParent) < 0) { refreshGui = true; elem.delete(false); }
       }
     }
+
+    // exclude the ones already instantiated (avoid duplicates)
+    for (i = 0; i < this.attributes.length; i++) { U.arrayRemoveAll(newattributes, this.attributes[i].metaParent); }
+    for (i = 0; i < this.references.length; i++) { U.arrayRemoveAll(newreferences, this.references[i].metaParent); }
+
     // create the missing ones.
-    for (i = 0; i < attributes.length; i++) { new MAttribute(this, null, attributes[i]); }
-    for (i = 0; i < references.length; i++) { new MReference(this, null, references[i]); }
+    for (i = 0; i < newattributes.length; i++) { new MAttribute(this, null, newattributes[i]); }
+    for (i = 0; i < newreferences.length; i++) { new MReference(this, null, newreferences[i]); }
 
     if (refreshGui) this.refreshGUI_Alone();
   }
@@ -205,7 +208,7 @@ export class MClass extends IClass {
     if (this.references.length > 0) { return this.references[0].endingName(valueMaxLength); }
     return ''; }
 
-  getModelRoot(): Model { return super.getModelRoot() as Model; }
+  getModelRoot(acceptNull: boolean = false): Model { return super.getModelRoot(acceptNull) as Model; }
 
   isRoot(): boolean { return this === Status.status.m.classRoot; }
   setRoot(value: boolean): void {
@@ -432,12 +435,13 @@ export class MClass extends IClass {
     while (++i < array.length) { if (id === array[i].metaParent.id) { return i; } }
     return -1; }
 
-    delete(refreshgui: boolean = true): void{
-      super.delete(false);
+    delete(refreshgui: boolean = true, fromParent: boolean = false): void{
+      super.delete(false, fromParent);
       // NB: gli m1-link a questo oggetto sono già stati rimossi da setType in m2 o da delete vertex in IClass
     }
 
   convertTo(classe: M2Class): void{
+    console.log('m1-convertTo()', {thiss: this, currentMeta: [this.metaParent.toString(), this.metaParent], nextMeta: [classe.toString(), classe]});
     this.changeMetaParent(classe, true, true);
   }
   /*

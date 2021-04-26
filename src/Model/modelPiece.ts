@@ -41,7 +41,7 @@ import {
   IGraph,
   Typedd,
   IField,
-  TSON_JSTypes, ViewPoint, Size, ISize, ReservedClasses
+  TSON_JSTypes, ViewPoint, Size, ISize, ReservedClasses, PropertyBarr
 } from '../common/Joiner';
 
 import ClickEvent = JQuery.ClickEvent;
@@ -188,6 +188,7 @@ export abstract class ModelPiece {
 
   constructor(parent: ModelPiece, metaVersion: ModelPiece) {
     this.assignID();
+    this.name = null;
     this.parent = parent;
     this.metaParent = metaVersion;
     this.instances = [];
@@ -235,12 +236,14 @@ export abstract class ModelPiece {
     if (root instanceof MetaMetaModel) { return root.instances[0]; }
     U.pe(true, 'failed to get root.'); }
 
-  getModelRoot(): IModel {
+  getModelRoot(acceptNull: boolean = false): IModel {
     let p: ModelPiece = this;
     let i = 0;
-    while (p.parent && p !== p.parent && i++ < 6) { p = p.parent; }
-    U.pe(!p  || !(p instanceof IModel), 'failed to get model root:', this, 'm lastParent:', p);
+    while (p.parent && p !== p.parent && i++ < 6*10) { p = p.parent; }
+    U.pe(!acceptNull && (!p  || !(p instanceof IModel)), 'failed to get model root:', this, 'lastParent:', p, i);
     return p as any as IModel; }
+
+  gotDeleted(): boolean { return !!this.getModelRoot(true); }
 
   isChildNameTaken(s: string, caseSensitive: boolean = false): boolean {
     let i;
@@ -517,48 +520,85 @@ export abstract class ModelPiece {
     this.instances = [];
     this.refreshGUI(); }
 
+  public clog(): any[] { return [this.toString(), this]; }
+
   // nb: le sottoclassi lo devono sempre chiamare con refreshgui = false
-  delete(refreshgui: boolean = true): void {
-    console.trace("delete remove self", this, refreshgui);
+  delete(refreshgui: boolean = true, fromParent: boolean = false): void {
+    let i: number;
+    let arr;
+    let debug: boolean = true;
+    const root: IModel = this.getModelRoot(true);
+    debug&&console.trace("mp.delete() start", this, refreshgui);
     this.unmarkAll();
+    { // handle instances start
+      debug&&console.log("delete remove or convert instances", this, refreshgui);
+      arr = U.shallowArrayCopy<ModelPiece>(this.instances);
+      if (this instanceof M2Class){
+        const instances: MClass[] = arr as any;
+        const scores = this.getTypeConversionScores();
+        const newType: M2Class = scores.length && scores[0].class;
+        if (!newType) {
+          for (i = 0; instances && i < instances.length; i++) { instances[i].delete(false, false); }
+        }
+        else {
+          for (i = 0; instances && i < instances.length; i++) { instances[i].convertTo(newType); }
+        }
+        // posso promuovere le istanze ad una sottoclasse o superclasse di quella cancellata invece di eliminarle.
+
+      } else {
+        // not m2-class.
+        for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
+      }
+    }// handle instances end
+    let oldParent: ModelPiece = null;
     if (this.parent) {
+      oldParent = this.parent;
       U.arrayRemoveAll(this.parent.childrens, this);
       this.parent = null; }
     if (this.metaParent) {
       U.arrayRemoveAll(this.metaParent.instances, this);
       this.metaParent = null; }
-    console.log("delete remove childs", this, refreshgui);
-    let i: number;
-    let arr: any = U.shallowArrayCopy<ViewRule>(this.views);
+    debug&&console.log("delete remove views", this, refreshgui);
+    arr = U.shallowArrayCopy<ViewRule>(this.views);
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
     arr = U.shallowArrayCopy<ViewRule>(this.detachedViews);
     for (i = 0; arr && i < arr.length; i++) { arr[i].delete(); }
-    console.log("delete remove views", this, refreshgui);
-    arr = U.shallowArrayCopy<ModelPiece>(this.childrens);
-    for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
-
-    console.log("delete remove or convert instances", this, refreshgui);
-    arr = U.shallowArrayCopy<ModelPiece>(this.instances);
-    if (this instanceof M2Class){
-      const instances: MClass[] = arr as any;
-      const scores = this.getTypeConversionScores();
-      const newType: M2Class = scores.length && scores[0].class;
-      if (!newType){
-        for (i = 0; instances && i < instances.length; i++) { instances[i].delete(false); }
-      }
-      else {
-        for (i = 0; instances && i < instances.length; i++) { instances[i].convertTo(newType); }
-      }
-      // posso promuovere le istanze ad una sottoclasse o superclasse di quella cancellata invece di eliminarle.
-
-    } else {
-      // not m2-class.
-      for (i = 0; arr && i < arr.length; i++) { arr[i].delete(false); }
+    debug&&console.log("delete remove childs", this, refreshgui);
+    let childarr = U.shallowArrayCopy<ModelPiece>(this.childrens);
+    for (i = 0; childarr && i < childarr.length; i++) { childarr[i].delete(false, true); }
+    if (oldParent instanceof IPackage) {
+      U.arrayRemoveAll(oldParent.classes, this as unknown);
+      U.arrayRemoveAll(oldParent.enums, this as unknown);
+    } else
+    if (oldParent instanceof EEnum) {
+      // U.arrayRemoveAll(oldParent.literals, this as any as unknown);
+    } else
+    if (oldParent instanceof IClass) {
+      U.arrayRemoveAll(oldParent.attributes, this as unknown);
+      U.arrayRemoveAll(oldParent.references, this as unknown);
+      U.arrayRemoveAll(oldParent.operations, this as unknown);
+    } else
+    if (oldParent instanceof EOperation) {
+      // U.arrayRemoveAll(oldParent.parameters, this as any as EParameter);
     }
-    console.log("delete end, refresh gui", this, refreshgui);
-    if (refreshgui) this.refreshGUI();
-  }
 
+    debug&&console.log("mp.delete() end, refresh gui", this, refreshgui);
+    if (root && !fromParent) {
+      const pbar = root.graph.propertyBar;
+      const pbarselect: ModelPiece = pbar.selectedModelPiece;
+      if (pbarselect.gotDeleted()) {
+        debug&&console.log('pbar show, ', {param: oldParent || root, oldParent, root, thiss: this, thisss:this.toString()});
+        pbar.show(oldParent || root);
+      }
+    }
+    if (refreshgui){
+      this.refreshGUI();
+  }
+}
+
+  toString(): string {
+    return (this.metaParent && this.metaParent.name || U.getTSClassName(this)) + "_" + this.id + "_" + this.name;
+  }
 
   validate(isDeprecated: boolean = true): boolean {
     const names: Dictionary<string, ModelPiece> = {};
@@ -797,6 +837,7 @@ export abstract class ModelPiece {
     let parent: any = this.parent;
     let i: number;
     if (untilStartOrEnd) offset = offset > 0 ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+    // logically fix in ecore order
     if ((arr = parent.childrens) && (i = arr.indexOf(this)) !== -1){
       U.arrayRemoveAll(arr, this);
       U.arrayInsertAt(arr, i + offset, this); }
@@ -815,7 +856,19 @@ export abstract class ModelPiece {
     if ((arr = parent.operations) && (i = arr.indexOf(this)) !== -1){
       U.arrayRemoveAll(arr, this);
       U.arrayInsertAt(arr, i + offset, this); }
-    this.updateKey(); }
+    this.updateKey();
+    if (!(this instanceof IClassifier)) return;
+    // GRAPHically fix
+    const vertex: IVertex = this.getVertex(false);
+    if (!vertex) return;
+    let currentPosition: number = U.getChildIndex(vertex.htmlg.parentElement, vertex.htmlg);
+    console.log('pushUp', {untilStartOrEnd, offset, currentPosition});
+    U.insertNodeAt(vertex.htmlg.parentElement, vertex.htmlg, currentPosition + offset);
+  }
+
+  addAnnotation(): void{
+    // todo
+  }
 }
 
 export abstract class ModelNone extends ModelPiece {}

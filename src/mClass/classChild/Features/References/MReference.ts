@@ -109,10 +109,10 @@ export class MReference extends IReference {
       Info.set(info, '' + i, t); }
     return info; }
 
-  delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
+  delete(refreshgui: boolean = true, fromParent: boolean = false, linkStart: number = null, linkEnd: number = null): void {
     let oldParent = this.parent;
     let i: number;
-    super.delete(false, linkStart, linkEnd);
+    super.delete(false, fromParent, linkStart, linkEnd);
     // remove edges
     linkEnd = Math.min(this.mtarget.length, linkEnd);
     linkStart = Math.max(0, linkStart);

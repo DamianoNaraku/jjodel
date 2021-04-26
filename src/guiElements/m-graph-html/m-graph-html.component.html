@@ -52,8 +52,9 @@
   <div class="MDefaultStyles immutable">
     <foreignobject class="template Vertex Class" x="0" y="0" width="200" height="40" hover-base="v1" tabindex="-1" style="outline: 1px solid var(--color-3) !important; background:var(--color-1); color:var(--color-2);">
       <div class="Class" style="background:var(--color-1); height:auto; width:100%;" data-autosizey="1">
-        <div class="VertexHeader" style="height:20px; width:100%; text-align:center; display:flex;">
-          <div class="no-ov" style="text-align:center; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;">($##metaParent.name$)</div>
+        <div class="VertexHeader" style="height:20px; width:100%; text-align:center; display:flex; justify-content: space-evenly">
+          <div class="no-ov" style="text-align:center; flex-grow:2; flex-shrink:1; color:var(--color-4);">$##metaParent.name$</div>
+          <div class="no-ov" style="text-align:center; flex-grow:1; color:var(--color-4);">#$##id$</div>
           <div hover-display="v1" class="hover-unfade open-options" tabindex="-1"
                style="top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;">
             <span>...</span>
@@ -66,7 +67,7 @@
     </foreignobject>
 
     <div class="template Feature Reference" tabindex="-1" hover-base="f1" style="position: relative; width:100%; height:22px; padding-left:5px; display:flex; margin:auto;">
-      <span class="no-ov" style="display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:var(--color-1);">*$##metaParent.type.printablename$</span>
+      <span class="no-ov" style="display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:var(--color-f-1);">*$##metaParent.type.printablename$</span>
       <span class="no-ov" style="display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;">$##metaParent.name$</span>
       <button class="LinkVertex" style="order:3; width:22px; height:22px; padding:0; margin:auto;">-></button>
       <div hover-display="f1" class="hover-unfade open-options" tabindex="-1"

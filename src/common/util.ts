@@ -451,7 +451,6 @@ export class U {
   private static resizingBorder: HTMLElement = null;
   private static resizingContainer: HTMLElement = null;
   // static he = null;
-  public static production = false;
   private static addCssAvoidDuplicates: Dictionary<string, HTMLStyleElement> = {};
   static $measurableRelativeTargetRoot: JQuery<Element>;
   static varTextToSvg: SVGSVGElement = null;
@@ -815,7 +814,7 @@ export class U {
     // only replace content inside ' quotes. (eventually escaping ')
     htmlStr = U.QuoteReplaceVarString(obj, htmlStr, '\'', debug);
     // replaces what's left outside any quotation. (eventually escaping <>)
-    htmlStr = U.replaceVarsString0(obj, htmlStr, ['<', '>'], ['&lt;', '&gt;']); // check here aaaaaaaaaaaaaa $$$$$$$$$$$
+    htmlStr = U.replaceVarsString0(obj, htmlStr, ['<', '>'], ['&lt;', '&gt;']);
     return htmlStr; }
 
   private static QuoteReplaceVarString(obj: object, htmlStr: string, quote: string, debug: boolean = false): string {
@@ -1024,6 +1023,10 @@ export class U {
     return parent.getElementsByTagName('*');
   }
 
+
+  static ancestorFilter<T extends Element>(selector: string, domelem: T, stopNode: Element = null, includeSelf: boolean = true): JQuery<T> {
+    return $(U.ancestorArray(domelem, stopNode, includeSelf)).filter(selector); }
+
   static ancestorArray<T extends Element>(domelem: T, stopNode: Element = null, includeSelf: boolean = true): Array<T> {
     // [0]=element, [1]=father, [2]=grandfather... [n]=document
     if (domelem === null || domelem === undefined) { return []; }
@@ -1162,7 +1165,7 @@ export class U {
     // if (modelRoot === Status.status.mmm || !Status.status.mmm && modelRoot instanceof MetaMetaModel) { return null; }
     // if (modelRoot === Status.status.mm) { return null; }
     const ParentMetaParent: ParentT = parent.metaParent as ParentT;
-    const metaParentName = Json.read<string>(childJson, XMIModel.namee, null);
+    const metaParentName = Json.read(childJson, XMIModel.namee, null);
     // U.pe(!metaParentName, 'type not found.', childJson);
     let i;
     let ret: childT = null;
@@ -2221,7 +2224,7 @@ export class U {
     if (allNodes) { return Array.prototype.indexOf.call(html.parentNode.childNodes, html); }
     return Array.prototype.indexOf.call(html.parentNode.children, html); }
 
-  public static getChildIndex(array: any, child: any): number {
+  public static getChildIndex<T>(array: T[] | any, child: T | any): number {
     return Array.prototype.indexOf.call(array, child); }
 
   public static getIndexesPath_old(parent: Element, child: Element) {
@@ -3228,7 +3231,11 @@ export class U {
     while (current && !condition(current)) { current = current.parentNode as any; }
     return current; }
 
+  static insertNodeAt(parent: Element, child: Element, index: number): void {
+    let futureNextSibling: Element = index < 0 ? parent.firstElementChild : (index > parent.children.length ? null : parent.children[index]);
+    parent.insertBefore(child, futureNextSibling);
   }
+}
 const $smap = {};
 // selettore query "statico", per memorizzare in cache i nodi del DOM read-only per recuperarli più efficientemente. (es: nodi template)
 export function $s<T extends Element>(selector: string, clone: boolean = true): JQuery<T>{
@@ -3561,7 +3568,7 @@ export class Json {
     if (Array.isArray(ret)) { return ret; } else { return [ret]; }
   }
 
-  static read<T>(json: Json, field: string, valueIfNotFound: any = 'read<T>()CanThrowError'): T {
+  static read(json: Json, field: string, valueIfNotFound: any = 'read<T>()CanThrowError'): string {
     let ret: any = json ? json[field] : null;
     if (ret !== null && ret !== undefined &&  field.indexOf(Status.status.XMLinlineMarker) !== -1) {
       U.pe(U.isObject(ret, false, false, true), 'inline value |' + field + '| must be primitive.', ret);
@@ -3570,12 +3577,12 @@ export class Json {
     if ((ret === null || ret === undefined)) {
       U.pe(valueIfNotFound === 'read<T>()CanThrowError', 'Json.read<',  '> failed: field[' + field + '], json: ', json);
       return valueIfNotFound; }
-    return ret as T ; }
+    return ret; }
 
-  static write(json: Json, field: string, val: any): string {
+  static write(json: Json, field: string, val: string | any[]): string | any[] {
     if (val !== null && field.indexOf(Status.status.XMLinlineMarker) !== -1) {
       U.pe(val !== '' + val, 'inline value |' + field + '| must be a string.', val);
-      val = U.multiReplaceAll(val, ['&', '\'', '"'], ['&amp;', '&#38;', '&quot;']);
+      val = U.multiReplaceAll(val as string, ['&', '\'', '"'], ['&amp;', '&#38;', '&quot;']);
     }
     else U.pe(val !== '' + val || !U.isObject(val, true), 'primitive values should be inserted only inline in the xml:', field, val);
     json[field] = val;

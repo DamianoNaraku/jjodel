@@ -62,7 +62,7 @@ export class CSSEditor {
     options.push(makeOption('textarea'));
     options.push(makeOption('select'));
     options.push(makeOption('h1, h2, h3, h4, h5, h6'));
-    console.log('dsa', suggestSelectorsDataList, options, uniqueClasses, templateLevelRoot);
+    // console.log('dsa', suggestSelectorsDataList, options, uniqueClasses, templateLevelRoot);
     /*window['CSSParser'] = CSSParser;
     console.log("CSSParser", CSSParser);*/
     suggestSelectorsDataList.append( ...options );
@@ -99,7 +99,7 @@ export class CSSEditor {
       const ancestor = ancestorLine[i];
       const csarr: ColorScheme2[] = inheritingLine.get(ancestor);
       if (!csarr || !csarr.length) continue;
-      const goUpCount = ancestorLine.length - i + 1;
+      const goUpCount = i + 1;
       const option = U.cloneHtml(csTemplates.csList);
       const $option = $(option);
       $option.find('.cs.level').text('' + goUpCount);
@@ -116,8 +116,7 @@ export class CSSEditor {
     const colorSchemeAttrContent: string = context.templateLevel.getAttribute('color-scheme');
     const currentCsIDList: string[] = colorSchemeAttrContent && U.replaceAll(colorSchemeAttrContent, 'CS-', '').split('|') || [];
     let currentCSList: ColorScheme2[] = currentCsIDList.filter( (e) => !!e).map(  (e) => ColorScheme2.get(+e));
-
-    console.log('csl attrcontent', colorSchemeAttrContent, 'idlist', currentCsIDList, ' list', currentCSList);
+    //console.log('csl attrcontent', colorSchemeAttrContent, 'idlist', currentCsIDList, ' list', currentCSList);
     const debug: boolean = false;
     const applyCsList = (list: ColorScheme2[]) => {
       U.pif(debug, 'focusout');

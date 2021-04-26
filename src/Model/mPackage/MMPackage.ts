@@ -57,10 +57,10 @@ export class M2Package extends IPackage {
     json[ECorePackage.name];
     json[ECorePackage.eClassifiers]; */
     /// own attributes.
-    const name: string = Json.read<string>(json, ECorePackage.namee, 'defaultPackage');
+    const name: string = Json.read(json, ECorePackage.namee, 'defaultPackage');
     if (name) this.setName(name);
-    const uri: string = Json.read<string>(json, ECorePackage.nsURI, null);
-    const nsPrefix: string = Json.read<string>(json, ECorePackage.nsPrefix, null);
+    const uri: string = Json.read(json, ECorePackage.nsURI, null);
+    const nsPrefix: string = Json.read(json, ECorePackage.nsPrefix, null);
     this.parent.uri(uri);
     this.parent.namespace(nsPrefix);
     /// childrens

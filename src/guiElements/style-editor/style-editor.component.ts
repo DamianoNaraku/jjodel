@@ -377,7 +377,7 @@ export class StyleEditor {
     }
     /// start!
     obj.input.setAttribute('placeholder', U.replaceVarsString(mp, obj.input.getAttribute('placeholder')));
-    console.log('setting outerhtml: ', context.templateLevel.outerHTML);
+    // console.log('setting outerhtml: ', context.templateLevel.outerHTML);
     obj.input.innerText = context.templateLevel.outerHTML;
 
     $styleown.find('.htmllevel').html((isInherited ? 'Instances Html' : 'Own html')
@@ -515,7 +515,7 @@ export class StyleEditor {
       }
       else {
         if (context.templateLevel instanceof HTMLElement) context.templateLevel.style.position = ''; // restore default
-        console.log(context.templateLevel, context);
+//        console.log(context.templateLevel, context);
         if (templateParent) templateParent.style.position = '';
         if ($measurableBody[0].classList.contains('show')) { $measurableTitle.trigger('click'); }
         $measurableTitle.slideUp(); }
@@ -549,7 +549,7 @@ export class StyleEditor {
     const styleinherited: StyleComplexEntry = m.getInheritedStyle_lv2();
     const clickedRoot: Element = ModelPiece.getLogicalRootOfHtml(clickedLevel);
     const templateRoot: Element = style.html;
-    console.log('gtt style:', style);
+    // console.log('gtt style:', style);
     // let templateLevel: Element = templateRoot;
     let indexedPath: number[] = U.getIndexesPath(clickedLevel, 'parentNode', 'childNodes', clickedRoot);
     // console.log('clickedRoot', clickedRoot, 'clickedLevel', clickedLevel, 'path:', indexedPath);
@@ -1484,7 +1484,7 @@ export class StyleEditor {
       for (let kind of kinds) {
         let attrstr = 'show-' + 'show-' + direction + '-' + kind + '-edges'
         let $priobutton = $edgePriority.filter('[kind="' + direction + "-" + kind + '"]');
-        console.log("setting visibility edge input:", $priobutton, $edgePriority, '[kind="' + direction + "-" + kind + '"]');
+        // console.log("setting visibility edge input:", $priobutton, $edgePriority, '[kind="' + direction + "-" + kind + '"]');
         $priobutton[0].value = '' + results[direction][kind];
       }
     }

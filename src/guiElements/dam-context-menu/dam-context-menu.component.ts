@@ -24,7 +24,7 @@ import {
   FocusHistoryEntry,
   Dictionary,
   EOperation,
-  EParameter, EAnnotation, is
+  EParameter, EAnnotation, is, ISize, EEnum, ELiteral
 } from '../../common/Joiner';
 import ClickEvent = JQuery.ClickEvent;
 import ContextMenuEvent = JQuery.ContextMenuEvent;
@@ -166,14 +166,17 @@ export class DamContextMenu {
     }
   }
 
-  private checkIfHide(e: MouseEventBase, debug: boolean = true) {
+  private checkIfHide(e: MouseEventBase, debug: boolean = false) {
     // do not hide if click on non-terminal options (but do on terminals)
-    debug&&console.trace('contextMenuCheckHide()', e);
-    if (e && e.target.getAttribute('tabIndex') && U.isParentOf(this.html, e.target)) {
-      this.$html.find('.active').removeClass('active');
-      this.setActiveAllAncestors(e.target, this.html);
-      IVertex.getvertexByHtml(e.target).fixFirefoxOverflowBug();
-      debug&&console.log('contextMenuCheckHide-button-option: hidden for click on non-terminal option', e.target, this.html);
+    debug&&console.trace('contextMenuCheckHide()', {e, etarget: e.target, thishtml: this.html});
+
+    if (e && U.isParentOf(this.html, e.target)) {
+      const vertex: IVertex = IVertex.getvertexByHtml(e.target, false);
+      const $ancestors = U.ancestorFilter('button, .terminal', e.target, this.html);
+      if (!$ancestors.length && vertex) { /*vertex.fixFirefoxOverflowBug();*/ return; }
+      // this.setActiveAllAncestors(e.target, this.html);
+      debug&&console.log('contextMenuCheckHide: hidden for click on .terminal or button element', e.target, this.html);
+      this.hide();
       return; }
     this.$html.find('.active').removeClass('active');
     // hide if tap again on the sam openOption button
@@ -213,24 +216,21 @@ export class DamContextMenu {
   }
 
   private computePosition(location: Point, appendTo: HTMLElement = null): void {
-    const templateSize: Size = U.sizeof(this.html);
+    const templateSize: Size = U.sizeof(this.html.firstElementChild);
     const viewPortSize: Size = new Size(0, 0, window.innerWidth, window.innerHeight);
     location.x = Math.max(0, location.x );
     location.y = Math.max(0, location.y );
     location.x = Math.min(viewPortSize.w - (templateSize.w), location.x );
-    console.log('vp.w:', viewPortSize.w, ' - t.w:', templateSize.w, ', loc.x', location.x, ', t.size:', templateSize, this.html);
-    console.log('vp.h:', viewPortSize.h, ' - t.h:', templateSize.h, ', loc.y', location.y, ', t.size:', templateSize, this.html);
+    // console.log('contextmenu compute position:', {viewPortSize, templateSize, location, thishtml: this.html});
     location.y = Math.min(viewPortSize.h - (templateSize.h), location.y );
-    this.html.style.position = 'absolute';
-    this.html.style.zIndex = '1000';
-    this.html.style.width = 'max-content';
     if (appendTo) {
-      this.html.style.left = '-2px';
-      this.html.style.top = 'calc(100% - 2px)';
-      return;
-    }
-    this.html.style.left = '' + location.x + 'px';
-    this.html.style.top = '' + location.y + 'px';
+      let size: ISize = U.sizeof(appendTo);
+      console.log('sizeof', appendTo, size);
+      (this.html.firstElementChild as HTMLElement).style.left = 10000 - 2 + 'px';
+      (this.html.firstElementChild as HTMLElement).style.top = 10000 + size.h - 2 + 'px';
+      return; }
+    (this.html.firstElementChild as HTMLElement).style.left = 10000 + location.x + 'px';
+    (this.html.firstElementChild as HTMLElement).style.top = 10000 + location.y + 'px';
   }
 
   public show(location: Point, target: Element, appendTo: HTMLElement = null): void {
@@ -240,15 +240,11 @@ export class DamContextMenu {
     appendTo = appendTo || this.defaultContainer;
     if (this.html.parentElement !== appendTo) { appendTo.appendChild(this.html); }
     if (appendTo === this.defaultContainer) appendTo = null;
-    if (appendTo && Status.status.isFirefox) {
-      this.setActiveAllAncestors(appendTo, vertex.getHtmlRawForeign());
-      vertex.fixFirefoxOverflowBug();
-    }
     const mp: ModelPiece = ModelPiece.getLogic(target);
     U.pe(!target, 'target is null.');
     if (!mp) return;
     mp.linkToLogic(this.html, false);
-    console.log('contextmenu target:', this.clickTarget);
+    console.log('contextmenu target:', this.clickTarget, 'this.html:', this.html);
     const model: IModel = mp.getModelRoot();
     if (model.isM3()) { U.pw(true, 'No context-menu is currently available for M3 elements'); return; }
     this.clickTarget = target;
@@ -326,13 +322,15 @@ export class DamContextMenu {
     dic['m1'] = model.isM1();
     dic['m2'] = model.isM2();
     dic['class'] = mp instanceof IClass;
+    dic['enum'] = mp instanceof EEnum;
     dic['classifier'] = mp instanceof IClassifier;
     dic['feature'] = mp instanceof IFeature;
     dic['attribute'] = mp instanceof IAttribute;
     dic['reference'] = mp instanceof IReference;
     dic['operation'] = mp instanceof EOperation;
-    dic['param'] = mp instanceof EParameter;
+    dic['parameter'] = mp instanceof EParameter;
     dic['annotation'] = mp instanceof EAnnotation;
+    dic['literal'] = mp instanceof ELiteral;
     dic['edge'] = !!edge;
     dic['extedge'] = !!extedge;
     dic['ongraph'] = !!U.isParentOf(model.graph.container, target);
@@ -343,15 +341,35 @@ export class DamContextMenu {
     this.computePosition(location, appendTo);
     // computePosition() needs to be after deciding sub-elements visibility and before sliding down, because needs to compute
     // the final height with correct children display and without slideDown temporary height hard-limiter with inline css.
+    if (vertex) {
+      vertex.htmlg.style.transform = 'translateZ(1px)';
+      vertex.htmlg.dataset.oldindex = '' + U.getIndex(vertex.htmlg);
+      // vertex.htmlg.style.transform = 'translateZ(1px) scale(2, 2)'; zoom = 0.5
+    }
+
     this.$html.slideDown();
+    /*
+    let $expansibleElements = this.$html.find('[tabindex]');
+    $expansibleElements.addClass('active');
+    this.$html.show(); // slideDown();*/
+    if (appendTo && Status.status.isFirefox) {
+      this.setActiveAllAncestors(appendTo, vertex.getHtmlRawForeign());
+      vertex.fixFirefoxOverflowBug();
+    }
+    console.log('endShow', {html: this.html, parent: this.html.parentElement});
+    /*
+    $expansibleElements.removeClass('active');*/
   }
   private hide(): void {
     // double tap on "..." su firefox non nasconde (ri-esegue show() e riattiva l'overflow bug7')
     const parent = this.html.parentNode as HTMLElement;
     if (!parent) return;
     const vertex: IVertex = IVertex.getvertexByHtml(parent);
-    if (vertex) this.unsetActiveAllAncestors(parent, vertex.getHtmlRawForeign());
-    this.$html.slideUp('fast', null);
+    if (vertex) {
+      this.unsetActiveAllAncestors(parent, vertex.getHtmlRawForeign());
+      vertex.htmlg.style.removeProperty('transform');
+    }
+    this.$html.hide(); // slideUp('fast', null);
   }
 
   private fillTypeLi(mp: IClass, lishow: ($jq: JQuery<HTMLElement>) => JQuery<HTMLElement>): void {
@@ -483,7 +501,12 @@ export class DamContextMenu {
       (e: ClickEvent) => { m.pushUp(false); m.refreshGUI(); });
     $html.find('.Feature.down').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { m.pushDown(false); m.refreshGUI(); });
-
+    $html.find('.terminal.insert.attribute').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { (m as M2Class).addAttribute(); });
+    $html.find('.terminal.insert.reference').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { (m as M2Class).addReference(); });
+    $html.find('.terminal.insert.operation').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { (m as M2Class).addOperation(); });
+    $html.find('.terminal.insert.literal').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { (m as EEnum).addLiteral(); });
+    $html.find('.terminal.insert.parameter').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { (m as EOperation).addParameter(); });
+    $html.find('.terminal.insert.annotation').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { (m).addAnnotation(); });
   }
 
   isOpened(): boolean { return this.html.style.display !== 'none'; }

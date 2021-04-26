@@ -62,7 +62,7 @@ export class MAttribute extends IAttribute {
 
     }
 
-  getModelRoot(): Model { return super.getModelRoot() as Model; }
+  getModelRoot(acceptNull: boolean = false): Model { return super.getModelRoot(acceptNull) as Model; }
 
   parse(json: Json, destructive: boolean): void {
     // if (!json) { json = }
@@ -173,18 +173,24 @@ export class MAttribute extends IAttribute {
   }
 
   setValueStr(valStr: string) {
+    valStr = valStr && valStr.trim() || ''; // .replace(/\s'|,'/g, '"').replace(/\\\\'/g, "\\'") || '';
     if (this.metaParent.upperbound === 1) {
       // this.setValues(JSON.parse( '"' + U.replaceAll(valStr, '"', '\\"') + '"'));
       this.setValues([ valStr ]);
       return; }
-    try { this.setValues(JSON.parse(valStr)); } catch (e) {
-      U.pw(true, 'This attribute have upperbound > 1 and the input is not a valid JSON string: ' + valStr);
+    if (valStr[0] !== '[') valStr = '[' + valStr + ']';
+    try {
+      this.setValues(eval(valStr));
+    } catch (e) {
+      U.pw(true, 'This attribute have upperbound > 1 and the input is not a valid JSON string: ' + valStr, e);
       return; } finally {}
   }
   // setValues: applicabile alle M1-Feature, se index < 1  index = upperbound - index, se index = null values deve essere array.
   setValues(values: any[] | any = null, index: number = null, autofix: boolean = true, debug: boolean = false): void {
     if (index < 0) index = (this.getUpperbound() - index) % this.getUpperbound();
     if (index !== null && index !== undefined) { this.values[index] = values; }
+    debug = true;
+    debug = true;
     const values0 = values;
     if (U.isEmptyObject(values, true, true)
      || (Array.isArray(values) && (values.length === 0 || (values.length === 1 && U.isEmptyObject(values[0])))))
@@ -192,7 +198,7 @@ export class MAttribute extends IAttribute {
     if (!Array.isArray(values)) { values = [values]; }
     // U.pe(values0 === null && values.length === 1 && values[0] === [0], 'wtf?', values0, values, this);
     if (debug) console.trace();
-    U.pif(debug, this.metaParent.fullname() +  '.setvalue: |', values0, '| --> ', values, 'defaultv:', this.getType().defaultValue(), 'type:', this.getType());
+    U.pif(debug, this.metaParent.fullname() +  '.setvalue: |', values0, '| --> ', values, {defaultv: this.getType().defaultValue(), type: this.getType(), upperbound: this.getUpperbound()});
     this.values = values;
     if (this.getUpperbound() >= 0) { this.values.length = this.getUpperbound(); }
     U.pe('' + values === '' + undefined || '' + values === '' + null, 'undef:', values, this);
@@ -248,10 +254,11 @@ export class MAttribute extends IAttribute {
     super.replaceVarsSetup();
     const old = this.valuesStr;
     U.pif(debug, this.values);
-    const val: string = this.getValueStr();
+    const val: string = this.getValueStr() || '';
     U.pif(debug, 'val:', val, ', this.values:', this.values, ', this:', this);
-    this.valuesStr = val ? U.replaceAll(val, '\n', '', debug) : '';
-    if (this.valuesStr && this.valuesStr[0] === '[') {this.valuesStr = this.valuesStr.substr(1, this.valuesStr.length - 2); }
+    this.valuesStr = U.replaceAll(val, '\n', '', debug);
+    // this.valuesStr = '["1", "2", "33"]'
+    if (this.valuesStr && this.getUpperbound() !== 1 && this.valuesStr[0] === '[') {this.valuesStr = this.valuesStr.substr(1, this.valuesStr.length - 2); }
     U.pif(debug, 'valuesSTR: |' + old + '| --> |' + this.valuesStr + '|'); }
 
 }

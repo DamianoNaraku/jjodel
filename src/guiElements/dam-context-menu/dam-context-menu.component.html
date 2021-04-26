@@ -1,50 +1,76 @@
-<div id="damContextMenuTemplateContainer" class="contextMenuRoot" tabindex="-1">
-    <ul class="vertex contextMenu" tabindex="-1">
-      <li class="Vertex changeType popupRightParent" uif="classifier" tabindex="-1">
-        <span tabindex="-1">Change type</span>
-        <ul class="typelist popupRight">
-          <li class="typeli fallback unclickable" style="cursor: no-drop; color: red;">##ERROR MSG TO FILL##</li>
-          <li class="typeli description unclickable"><span>Best match:</span></li>
-          <li class="typeli separator" tabindex="-1"></li>
-          <li class="typeli description unclickable"><span>Other options</span></li>
-          <li class="typeli template" data-index="-1">
-            <span class="typeli change text"></span>
-        </ul>
-      </li>
-      <li class="Vertex delete" uif="classifier">Delete classifier</li>
+<div class="hidden-static-contextmenu-container">
+<div id="damContextMenuTemplateContainer" class="contextMenuRoot overflowFix" tabindex="-1">
+    <div class="overflowFixContent">
+      <ul class="vertex contextMenu" tabindex="-1">
+        <li class="Vertex changeType popupRightParent" uif="class" tabindex="-1">
+          <span tabindex="-1">Change type</span>
+          <ul class="typelist popupRight">
+            <li class="typeli fallback unclickable" style="cursor: no-drop; color: red;">##ERROR MSG TO FILL##</li>
+            <li class="typeli description unclickable"><span>Best match:</span></li>
+            <li class="typeli separator" tabindex="-1"></li>
+            <li class="typeli description unclickable"><span>Other options</span></li>
+            <li class="typeli terminal template" data-index="-1">
+              <span class="typeli change text"></span>
+          </ul>
+        </li>
+        <li class="terminal Vertex todo duplicate" uif="classifier">Duplicate classifier</li>
+        <li class="terminal Vertex extend" uif="m2 && class && ongraph">Extend class</li>
+        <li class="Vertex popupRightParent" uif="m2 && class && ongraph" tabindex="-1">
+          <span tabindex="-1">Insert feature</span>
+          <ul class="reflist popupRight">
+            <li class="terminal insert attribute">Attribute</li>
+            <li class="terminal insert reference">Reference</li>
+            <li class="terminal insert operation">Operation</li>
+            <li class="terminal insert annotation todo">Annotation</li>
+          </ul>
+        </li>
+        <li class="Operation popupRightParent" uif="m2 && !class && ongraph" tabindex="-1">
+          <span tabindex="-1">Insert children</span>
+          <ul class="reflist popupRight">
+            <li class="terminal insert literal" uif="enum">Literal</li>
+            <li class="terminal insert parameter" uif="operation">Parameter</li>
+            <li class="terminal insert annotation todo">Annotation</li>
+          </ul>
+        </li>
 
-      <li class="Vertex todo duplicate" uif="classifier">Duplicate classifier</li>
-      <li class="Vertex extend" uif="m2 && class && ongraph">Extend class</li>
-      <li class="Vertex delete" uif="m2 && feature">Delete feature</li>
-      <li class="Vertex todo duplicate" uif="m2 && feature">Duplicate feature</li>
-      <li class="Vertex delete" uif="m2 && operation">Delete operation</li>
-      <li class="Vertex todo duplicate" uif="m2 && operation">Duplicate operation</li>
-      <li class="Reference popupRightParent" uif="m1 && reference && ongraph" tabindex="-1">
-        <span tabindex="-1">References</span>
-        <ul class="reflist popupRight">
-          <li class="refli template" data-index="-1"><span class="index"></span><span class="text"></span><button class="refli delete btn btn-sm btn-danger">X</button></li>
-          <li class="refli"><button class="firstempty btn btn-sm btn-primary">Select first empty</button></li>
-          <li class="refli"><label><input class="byindex" type="number" digit="2" value="0" min="0" step="1"><button class="byindex btn btn-sm btn-outline-primary">Select by index</button></label></li>
-        </ul>
-      </li>
-      <li class="Feature todo autofixinstances" uif="m2 && feature">Autofix instances</li>
-      <li class="Feature todo autofix" uif="m1 && feature">Autofix conformity</li>
-      <li class="separator" uif="classifier || m2 && feature || m2 && operation || m2 && annotation" tabindex="-1"></li>
-      <li class="Vertex up" uif="classifier && ongraph">Push vertex Up (Z-order)</li>
-      <li class="Vertex down" uif="classifier && ongraph">Push vertex Down (Z-order)</li>
-      <li class="Feature up" uif="m2 && feature && ongraph">Move feature Up</li>
-      <li class="Feature down" uif="m2 && feature && ongraph">Move feature Down</li>
-      <li class="Feature up" uif="m2 && operation && ongraph">Move operation Up</li>
-      <li class="Feature down" uif="m2 && operation && ongraph">Move operation Down</li>
-      <li class="Feature up" uif="m2 && annotation && ongraph">Move annotation Up</li>
-      <li class="Feature down" uif="m2 && annotation && ongraph">Move annotation Down</li>
-    </ul>
-    <ul class="extedge contextMenu" uif="extedge">
-      <li class="edge delete">Delete generalization</li>
-      <li class="edge change">Edit generalization</li>
-    </ul>
-    <ul class="edge contextMenu" uif="edge">
-      <li class="edge delete">Delete reference</li>
-      <li class="edge change">Edit reference</li>
-    </ul>
+
+
+        <li class="terminal Vertex delete" uif="classifier">Delete classifier</li>
+        <li class="terminal Vertex delete" uif="m2 && feature">Delete feature</li>
+        <li class="terminal Vertex delete" uif="m2 && operation">Delete operation</li>
+        <li class="terminal Vertex delete" uif="m2 && literal">Delete literal</li>
+        <li class="terminal Vertex delete" uif="m2 && parameter">Delete parameter</li>
+        <li class="terminal Vertex delete" uif="m2 && annotation">Delete annotation</li>
+        <li class="terminal Vertex todo duplicate" uif="m2 && feature">Duplicate feature</li>
+        <li class="terminal Vertex todo duplicate" uif="m2 && operation">Duplicate operation</li>
+        <li class="Reference popupRightParent" uif="m1 && reference && ongraph" tabindex="-1">
+          <span tabindex="-1">References</span>
+          <ul class="reflist popupRight">
+            <li class="terminal refli template" data-index="-1"><span class="index"></span><span class="text"></span><button class="refli delete btn btn-sm btn-danger">X</button></li>
+            <li class="refli"><button class="firstempty btn btn-sm btn-primary">Select first empty</button></li>
+            <li class="refli"><label><input class="byindex" type="number" digit="2" value="0" min="0" step="1"><button class="byindex btn btn-sm btn-outline-primary">Select by index</button></label></li>
+          </ul>
+        </li>
+        <li class="terminal Feature todo autofixinstances" uif="m2 && feature">Autofix instances</li>
+        <li class="terminal Feature todo autofix" uif="m1 && feature">Autofix conformity</li>
+        <li class="separator" uif="classifier || m2 && feature || m2 && operation || m2 && annotation" tabindex="-1"></li>
+        <li class="terminal Vertex up" uif="classifier && ongraph">Push vertex Up (Z-order)</li>
+        <li class="terminal Vertex down" uif="classifier && ongraph">Push vertex Down (Z-order)</li>
+        <li class="terminal Feature up" uif="m2 && feature && ongraph">Move feature Up</li>
+        <li class="terminal Feature down" uif="m2 && feature && ongraph">Move feature Down</li>
+        <li class="terminal Feature up" uif="m2 && operation && ongraph">Move operation Up</li>
+        <li class="terminal Feature down" uif="m2 && operation && ongraph">Move operation Down</li>
+        <li class="terminal Feature up" uif="m2 && annotation && ongraph">Move annotation Up</li>
+        <li class="terminal Feature down" uif="m2 && annotation && ongraph">Move annotation Down</li>
+      </ul>
+      <ul class="extedge contextMenu" uif="extedge">
+        <li class="terminal edge delete">Delete generalization</li>
+        <li class="terminal edge change">Edit generalization</li>
+      </ul>
+      <ul class="edge contextMenu" uif="edge">
+        <li class="terminal edge delete">Delete reference</li>
+        <li class="terminal edge change">Edit reference</li>
+      </ul>
+    </div>
+</div>
 </div>

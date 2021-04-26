@@ -1,12 +1,39 @@
-#damContextMenuTemplateContainer{
-  display: none;
+/*#damContextMenuTemplateContainer{
+  position: absolute;
+  /*right: 20000px;
+  width: 2000px;
+  height: 2000px;
+  z-index: 1000;
 }
-.contextMenuRoot{
+#damContextMenuTemplateContainer::before{
+  content:'';
+  position: absolute;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: red;
+}*/
+.overflowFix{
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+  width: 20000px;
+  height: 20000px;
+/*  opacity: 0.5;
+  background: red;*/
+  z-index: 1000;
+  pointer-events: none;
+}
+.overflowFixContent{
+  top: 0;
+  left: 0;
+  min-width: max-content;
   position: absolute;
   display: inline-block;
   max-height: 100vh;
   max-width: 100vw;
   overflow: visible;
+  pointer-events: all;
 }
 
 .popupRight{ display: none; }

@@ -3,7 +3,7 @@ import {
   IClass,
   IFeature,
   Json,
-  M2Attribute, M3Class, M3Feature, M3Reference, ModelPiece, PropertyBarr,
+  M2Attribute, M2Reference, M3Class, M3Feature, M3Reference, MAttribute, ModelPiece, MReference, PropertyBarr,
   ShortAttribETypes,
   Status, Type,
   U
@@ -47,6 +47,16 @@ export abstract class IAttribute extends IFeature {
     for (i = 0; i < $selector.length; i++) { PropertyBarr.makePrimitiveTypeSelector($selector[0], this.getType()); }
     // EType.updateTypeSelector($selector[0] as HTMLSelectElement, this.getType());
     return htmlRaw; }*/
+
+  getUpperbound(): number {
+    if (this instanceof M2Attribute) { return this.upperbound; }
+    if (this instanceof MAttribute) { return this.metaParent.upperbound; }
+    U.pe(true, 'getUpperbound unrecognized class.'); }
+
+  getLowerbound(): number {
+    if (this instanceof M2Attribute) { return this.lowerbound; }
+    if (this instanceof MAttribute) { return this.metaParent.lowerbound; }
+    U.pe(true, ' getLowerbound unrecognized class.'); }
 
   copy(other: IAttribute, nameAppend: string = '_Copy', newParent: IClass = null): void {
     super.copy(other, nameAppend, newParent);

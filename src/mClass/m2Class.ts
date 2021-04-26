@@ -195,7 +195,8 @@ export class M2Class extends IClass {
     }
     return false; }
 
-  setExtends(superclass: M2Class, refreshGUI: boolean = true, force: boolean = false, print: boolean = true): boolean {
+  setExtends(superclass: M2Class, refreshGUI: boolean = true, force: boolean = false, print: boolean = false, debug: boolean = false): boolean {
+    debug&&console.trace('SetExtend:', this, this.name);
     let out: {reason: string, indirectExtendChain: IClass[]} = {reason: '', indirectExtendChain: null};
     if (!this.canExtend(superclass, out)) {
       U.pw(print, out.reason);
@@ -203,16 +204,18 @@ export class M2Class extends IClass {
     this.extends.push(superclass);
     U.ArrayAdd(superclass.gotExtendedBy, this);
     let i: number;
-    if (this instanceof M2Class) for (i = 0; i < this.instances.length; i++) { (this).instances[i].changeMetaParent(this, true, true); }
+    let instances = [...this.instances];
+    if (this instanceof M2Class) for (let instance of instances) { instance.convertTo(this); }
     if (refreshGUI) this.refreshGUI_Alone();
     const extendChildrens: IClass[] = this.getAllSuperClasses(true);
 
-    console.log('calculateViolationsExtend childrens:'  + extendChildrens, this);
+    debug&&console.log('calculateViolationsExtend childrens:'  + extendChildrens, this);
     if (refreshGUI) for (i = 0; i < extendChildrens.length; i++) {
       let extChild: IClass = extendChildrens[i];
-      console.log('calculateViolationsExtend');
+      debug&&console.log('calculateViolationsExtend');
       extChild.checkViolations(false);
     }
+    U.ps(print, instances.length + ' instances adapted.');
     // if (this.vertex) this.vertex.owner.propertyBar.refreshGUI();
     // if (this.vertex) this.vertex.owner.propertyBar.show(this,null, true, true);
     return true; }
@@ -359,7 +362,7 @@ export class M2Class extends IClass {
   getBasicOperations(): Set<EOperation> { return new Set(this.operations); }
   getBasicAnnotations(): EAnnotation[] { return (this.annotations); }
 
-  getModelRoot(): MetaModel { return super.getModelRoot() as MetaModel; }
+  getModelRoot(acceptNull: boolean = false): MetaModel { return super.getModelRoot(acceptNull) as MetaModel; }
 
   getNamespaced(): string {
     const str: string = this.getModelRoot().namespace();
@@ -370,7 +373,7 @@ export class M2Class extends IClass {
 //     console.log('M2Class.parse(); json:', json, '; metaVersion: ', this.metaParent, 'this:', this);
     /// own attributes.
     this.extendEdges = [];
-    this.setName(Json.read<string>(json, ECoreClass.namee, 'Class_1'), false, allowWarning);
+    this.setName(Json.read(json, ECoreClass.namee, 'Class_1'), false, allowWarning);
     let key: string;
     for (key in json) {
       switch (key) {
@@ -383,10 +386,10 @@ export class M2Class extends IClass {
       case ECoreClass.abstract:
       case ECoreClass.interface:
       case ECoreClass.namee: break; } }
-    this.instanceTypeName = Json.read<string>(json, ECoreClass.instanceTypeName, '');
-    this.isInterface = Json.read<string>(json, ECoreClass.interface, 'false') === 'true';
-    this.isAbstract = Json.read<string>(json, ECoreClass.abstract, 'false') === 'true';
-    let tmps: string = Json.read<string>(json, ECoreClass.eSuperTypes, null);
+    this.instanceTypeName = Json.read(json, ECoreClass.instanceTypeName, '');
+    this.isInterface = Json.read(json, ECoreClass.interface, 'false') === 'true';
+    this.isAbstract = Json.read(json, ECoreClass.abstract, 'false') === 'true';
+    let tmps: string = Json.read(json, ECoreClass.eSuperTypes, null);
     this.extendsStr = tmps ? tmps.split(' ') : [];
     // U.pe(true, 'extendsStr:', this.extendsStr, 'tmps', tmps, 'typeof tmps:' + typeof(tmps), 'json:', json);
     /*this.name = Json.read<string>(this.json, ECoreClass.name);
@@ -402,7 +405,7 @@ export class M2Class extends IClass {
     for (i = 0; i < features.length; i++) {
       // console.log('reading class children[' + i + '/' + childs.length + '] of: ', childs, 'of', json);
       const child: Json = features[i];
-      const xsiType = Json.read<string>(child, ECoreAttribute.xsitype);
+      const xsiType = Json.read(child, ECoreAttribute.xsitype);
       U.pe(!destructive, 'Non-destructive class parse: to do');
       switch (xsiType) {
         default: U.pe(true, 'unexpected xsi:type: ', xsiType, ' in feature:', child); break;
@@ -538,15 +541,15 @@ export class M2Class extends IClass {
     }
     return false;
   }*/
-  delete(refreshgui: boolean = true): void{
+  delete(refreshgui: boolean = true, fromParent: boolean = false): void{
     const scores = this.getTypeConversionScores(true, true);
     const newType: M2Class = scores.length > 0 && scores[0].class;
     if (newType) this.convertInstancesTo(newType);
-    this.forceChangeType(newType);
-    super.delete(false); // will remove remaining unconverted instances
+    if (Status.status.allowGenericObjects) this.forceChangeType(newType);
+    super.delete(false, fromParent); // will remove remaining unconverted instances
     Status.status.mm.refreshGUI();
     Status.status.mm.refreshInstancesGUI();
-    Type.updateTypeSelectors(null, false, false, true);
+    // Type.updateTypeSelectors(null, false, false, true);
 }
 
   private forceChangeType(newType: M2Class = null): void {
@@ -578,7 +581,7 @@ export class M2Class extends IClass {
         const target: M2Class = dictionary[classe.extendsStr[j]];
         U.pe(!target, 'e1, failed to find extended class.extendsStr[' + j + ']:', classe.extendsStr[j], 'in classList:', classes,
           'classe to extend:', classe, 'dictionary:', dictionary);
-        classe.setExtends(target, false, true);
+        classe.setExtends(target, false, true, false);
       }
       classe.extendsStr = [];
     }
@@ -760,15 +763,11 @@ export class M2Class extends IClass {
     return true;
   }*/
   public convertInstancesTo(classe: M2Class): void {
-    let i: number;
-    let convertCount = 0;
-    const instances: MClass[] = U.shallowArrayCopy(this.instances);
-    for (i = 0; i < instances.length; i++) {
-      const instance: MClass = instances[i];
+    const instances: MClass[] = [...this.instances];
+    for (let instance of instances) {
       U.pe(instance.metaParent !== this, "invalid state: mismatch on instances and metaParent:", instance, this);
       instance.convertTo(classe);
-      convertCount++;
     }
-    U.ps(!!convertCount, convertCount + " subclasses converted to " + classe.name);
+    U.ps(instances && !!instances.length, instances.length + " subclasses converted to " + classe.name);
   }
 }

@@ -33,8 +33,12 @@
   margin-top: 5px;
   border-top: var(--mainBorder);*/
 }
-.sidebarShell{ border-right: var(--mainBorder); }
-.propertyBarContainer{ border-left: var(--mainBorder); }
+.sidebarShell{
+  border-right: var(--mainBorder);
+}
+.propertyBarContainer{
+  border-left: var(--mainBorder);
+}
 .editorShell{
   flex-grow: 3;
 }

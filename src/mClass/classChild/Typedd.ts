@@ -133,9 +133,9 @@ export abstract class Typedd extends ModelPiece {
 
   // refreshGUI_Alone(debug: boolean = true): void { this.getField().refreshGUI(true); }
 
-  delete(refreshgui: boolean = true): void {
+  delete(refreshgui: boolean = true, fromParent: boolean = false): void {
     let oldparent = this.parent;
-    super.delete(false);
+    super.delete(false, fromParent);
     if (oldparent) {
       if (oldparent instanceof IClass) {
         U.arrayRemoveAll(oldparent.attributes, this as any);
@@ -150,7 +150,7 @@ export abstract class Typedd extends ModelPiece {
     if (refreshgui) { oldparent.refreshGUI(); oldparent.refreshInstancesGUI(); }
     while (oldparent && !(oldparent instanceof IClassifier)) { oldparent = oldparent.parent; }
     let classe: IClass = oldparent instanceof IClass ? oldparent : null;
-    if (classe) {
+    if (!fromParent && classe) {
       if (this instanceof EParameter || this instanceof EOperation) classe.checkViolations(true);
       else classe.checkViolations(true);
     }

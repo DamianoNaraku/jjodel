@@ -276,8 +276,13 @@ body.Light button.edit:not(.btn) { background-image: url(../img/white/editw.png)
   height: 100%;
   width: 100%;}
 
-.todo{
+body.production .todo{
+  display: none !important;
+}
+body.debug .todo{
   background-color: darkred !important;
+}
+.todo{
   cursor: not-allowed !important;
   color: white !important;
 }
@@ -611,8 +616,12 @@ button {
   width: 100%;
 }
 
+.resizableContent{
+  flex-grow: 1 !important;
+}
 /* css editor END */
 .graph .allVertexContainer{
+  transform-style: preserve-3d;
   overflow: visible;
 }
 .hover-unfade:hover, .hover-unfade:focus-within{

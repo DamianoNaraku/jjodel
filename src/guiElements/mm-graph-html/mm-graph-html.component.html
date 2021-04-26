@@ -71,11 +71,16 @@
         <div class="specialjs OperationContainer hover-exclude" style="display: flex; flex-direction: column;"></div>
         <div class="addFieldButtonContainer" style="width: 100%; text-align: center;">
           <span style="display:flex; margin:auto;">Add</span>
-          <style id="addfieldcss_class">
-            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}
-            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }
+          <style id="default-class-css">
+            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden; width: 100%; text-align: center; opacity: 0; padding-top: 20px; }
             ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }
+            ::ng-deep .addFieldButton{
+              background:rgba(127, 127, 127, 0.2);
+              border-bottom: none;
+              border-right: none;
+              padding: 0 0.5rem; }
             ::ng-deep .open-options.active{
+              border-bottom-right-radius: 0 !important;
               opacity: 1;
               visibility: visible; }
             ::ng-deep .open-options{
@@ -115,12 +120,17 @@
           </div>
         </div>
         <div class="specialjs LiteralContainer hover-exclude" style="display: flex; flex-direction: column;"></div>
-        <div class="addFieldButtonContainer" style="width: 100%; text-align: center;">
-          <style id="addfieldcss_enum">
-            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden;}
-            ::ng-deep .addFieldButtonContainer{ opacity: 0; padding-top: 20px; }
+        <div class="addFieldButtonContainer">
+          <style id="default-enum-css">
+            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden; width: 100%; text-align: center; opacity: 0; padding-top: 20px; }
             ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }
+            ::ng-deep .addFieldButton{
+              background:rgba(127, 127, 127, 0.2);
+              border-bottom: none;
+              border-right: none;
+              padding: 0 0.5rem; }
             ::ng-deep .open-options.active{
+              border-bottom-right-radius: 0 !important;
               opacity: 1;
               visibility: visible; }
             ::ng-deep .open-options{
@@ -142,7 +152,7 @@
             </optgroup>
           </select>
           <span style="display:flex; margin:auto;">field</span>
-          <button class="addFieldButton" style="background:rgba(127, 127, 127, 0.2);">Go todo opac</button>
+          <button class="addFieldButton">Go</button>
         </div>
       </div>
     </foreignobject>
@@ -156,7 +166,7 @@
       </div>
     </div>
 
-    <div class="template Feature Attribute EString EInteger" tabindex="-1"  hover-base="f1" style="position: relative; width:100%; height:22px; padding-left:5px; display:flex;">
+    <div class="template Feature Attribute EString EInteger" tabindex="-1" hover-base="f1" style="position: relative; width:100%; height:22px; padding-left:5px; display:flex;">
       <select data-primitive="true" data-enum="true" style="background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;"></select>
       <input type="text" placeholder="Attribute Name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" value="$##name$" style="background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
       <div hover-display="f1" class="hover-unfade open-options" tabindex="-1"

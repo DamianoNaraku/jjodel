@@ -151,7 +151,7 @@ export class PropertyBarr {
     if (!textArea) { return; }
     textArea.value = o.generateModelString(); }
 
-  public show(o: ModelPiece = null, clickedLevel: Element, isEdge: IEdge, forceRefresh: boolean = true): void {
+  public show(o: ModelPiece = null, clickedLevel: Element = null, isEdge: IEdge = null, forceRefresh: boolean = true): void {
     const oldClickedLevel: Element = this.clickedLevel;
     const oldMP: ModelPiece = this.selectedModelPiece;
     const oldisEdge: IEdge = this.selectedModelPieceIsEdge;

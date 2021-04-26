@@ -71,21 +71,22 @@ export class ELiteral extends Typedd {
     return this.setName0(value, refreshGUI, warnDuplicateFix, 'literal', true); }
 
   parse(json: Json, destructive: boolean = true): void {
-    this.ordinal = Json.read<number>(json, EcoreLiteral.value, Number.NEGATIVE_INFINITY);
-    this.setLiteral(Json.read<string>(json, EcoreLiteral.literal, ''), false);
-    let name: string = Json.read<string>(json, EcoreLiteral.namee, this.ordinal === Number.NEGATIVE_INFINITY ? null : this.parent.name + '_' + this.ordinal);
+    this.ordinal = +Json.read(json, EcoreLiteral.value, Number.NEGATIVE_INFINITY);
+    this.setLiteral(Json.read(json, EcoreLiteral.literal, ''), false);
+    let name: string = Json.read(json, EcoreLiteral.namee, this.ordinal === Number.NEGATIVE_INFINITY ? null : this.parent.name + '_' + this.ordinal);
     if (name) this.setName(name, false); else this.name = null;
   }
 
 
-  delete(refreshgui: boolean = true): void {
-    super.delete(false);
+  delete(refreshgui: boolean = true, fromParent: boolean = false): void {
+    let oldParent = this.parent;
+    super.delete(false, fromParent);
     // todo: che fare con gli attributes che hanno questo literal come valore?
     let i: number;
     for (i = 0; i < Type.all.length; i++) {
       if (Type.all[i].enumType !== this.parent) continue;
       if (Type.all[i].owner instanceof MAttribute) (Type.all[i].owner as MAttribute).valuesAutofix();}
-    if (refreshgui) this.refreshGUI();
+    if (refreshgui && oldParent) oldParent.refreshGUI();
   }
 
   fieldChanged(e: ChangeEvent) {

@@ -33,29 +33,26 @@ export class M2Reference extends IReference {
   parent: M2Class;
   metaParent: M3Reference;
   instances: MReference[];
-
-  upperbound: number;
-  lowerbound: number;
-  containment: boolean = false && false;
+  containment: boolean = false;
 
   constructor(classe: M2Class, json: Json) {
     super(classe, Status.status.mmm.getReference());
     if (!classe && !json) { return; } // empty constructor for .duplicate();
     this.parse(json, true); }
 
-  getModelRoot(): MetaModel { return super.getModelRoot() as MetaModel; }
+  getModelRoot(acceptNull: boolean = false): MetaModel { return super.getModelRoot(acceptNull) as MetaModel; }
 
   parse(json: Json, destructive: boolean): void {
     /// own attributes.
-    this.setName(Json.read<string>(json, ECoreReference.namee, 'Ref_1'));
-    this.type.changeType(Json.read<string>(json, ECoreReference.eType, this.parent.getEcoreTypeName() ));
+    this.setName(Json.read(json, ECoreReference.namee, 'Ref_1'));
+    this.type.changeType(Json.read(json, ECoreReference.eType, this.parent.getEcoreTypeName() ));
     //const eType = Json.read<string>(json, ECoreReference.eType, '#//' + this.parent.name );
     // this.type = AttribETypes.reference;
     // this.parsePrintableTypeName(eType);
     // this.linkClass();
-    this.containment = Json.read<boolean>(json, ECoreReference.containment, false);
-    this.setLowerbound(+Json.read<number>(json, ECoreReference.lowerbound, 0));
-    this.setUpperbound(+Json.read<number>(json, ECoreReference.upperbound, 1));
+    this.containment = !!Json.read(json, ECoreReference.containment, false);
+    this.setLowerbound(+Json.read(json, ECoreReference.lowerbound, 0));
+    this.setUpperbound(+Json.read(json, ECoreReference.upperbound, 1));
     let i: number;/*
     this.views = [];
     for(i = 0; i < this.parent.views.length; i++) {
@@ -71,7 +68,7 @@ export class M2Reference extends IReference {
     model[ECoreReference.eType] = this.type.toEcoreString();
     model[ECoreReference.namee] = this.name;
     if (this.lowerbound != null && !isNaN(+this.lowerbound)) { model[ECoreReference.lowerbound] = +this.lowerbound; }
-    if (this.upperbound != null && !isNaN(+this.lowerbound)) { model[ECoreReference.upperbound] = +this.upperbound; }
+    if (this.upperbound != null && !isNaN(+this.upperbound)) { model[ECoreReference.upperbound] = +this.upperbound; }
     if (this.containment != null) { model[ECoreReference.containment] = this.containment; }
     return model; }
 
@@ -103,18 +100,22 @@ export class M2Reference extends IReference {
     while (++i < this.instances.length) {
       const mref: MReference = this.instances[i];
       if (n !== -1) { mref.mtarget.length = mref.edges.length = n; }
-      mref.delete(true, n, Number.POSITIVE_INFINITY); } }
+      mref.delete(true, false, n, Number.POSITIVE_INFINITY); } }
 
-  delete(refreshgui: boolean = true, linkStart: number = null, linkEnd: number = null): void {
+  delete(refreshgui: boolean = true, fromParent: boolean = false, linkStart: number = null, linkEnd: number = null): void {
     const oldParent = this.parent;
     console.log('m2ref.delete()', refreshgui, oldParent);
     // total deletion
     if (linkStart === null && linkEnd === null) {
       if (this.type.classType) U.arrayRemoveAll(this.type.classType.referencesIN, this);}
-    super.delete(false, linkStart, linkEnd);
-    console.log('m2ref.delete()', refreshgui, oldParent);
+    super.delete(false, fromParent, linkStart, linkEnd);
+    console.log('m2ref.delete()', {refreshgui, oldParent, fromParent});
 
-    if (refreshgui && oldParent) { setTimeout( ()=> {oldParent.refreshGUI(); oldParent.refreshInstancesGUI();}, 0); }
+    if (!fromParent && refreshgui && oldParent) {
+      //setTimeout( ()=> {
+        oldParent.refreshGUI(); oldParent.refreshInstancesGUI();
+        //}, 0); }
+    }
   }
 /*
   getStyle(debug: boolean = true): HTMLElement | SVGElement {

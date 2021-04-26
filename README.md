@@ -1,29 +1,36 @@
-# Jjodel
+**Welcome to Jodel.**
 
-Available online at https://damianonaraku.github.io/jjodel/dist/jjodel/
+**For informations please read [the wiki section](https://github.com/DamianoNaraku/jjodel/wiki)**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
-## Development server
+# What is jodel?
+[Jodel is a (meta)modeling platform.](https://github.com/DamianoNaraku/jjodel/wiki/What-is-jodel)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Where can i launch it?
+The application is publicly accessible at [this link.](https://damianonaraku.github.io/jjodel/dist/jjodel/)
 
-## Build
+If you want to run it locally, clone this repository and run the following commands with a terminal opened at project's root folder
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`npm install`
 
-## Running unit tests
+`ng serve`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+First install and serve will take a long time.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+# How can i master it?
+[User guide](https://github.com/DamianoNaraku/jjodel/wiki/User-guide-summary)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[Public store server api](https://github.com/DamianoNaraku/jjodel/wiki/Developer-guide-summary)
+
+[Dev guide](/wiki/Developer-guide-summary)
+
+# Feedback, contact me, ask me anything
+Mail me at [damiano.divincenzo@student.univaq.it](mailto:damiano.divincenzo@student.univaq.it?subject=Jodel%20-%20)
+
+Bug report at [issues](./issues/new) or [mail](mailto:damiano.divincenzo@student.univaq.it?subject=Jodel%20bug%20report%20-%20)
+
+

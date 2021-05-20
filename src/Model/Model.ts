@@ -13,6 +13,7 @@ import {
   EdgeStyle, MPackage,
   ModelPiece, Status, MClass, ECoreClass, ModelNone, M3Class, M3Reference, M2Package, MReference, IClass, Dictionary
 } from '../common/Joiner';
+import {RawEdge, RawGraph, RawVertex} from '../common/util';
 
 export class Model extends IModel {
   public static emptyModel = '{}';
@@ -107,4 +108,29 @@ export class Model extends IModel {
     m.copy(this);
     m.refreshGUI();
     return m; }
+
+  fixReferences(): void{
+    let refs: MReference[] = this.getAllReferences();
+    for (let ref of refs) { ref.fixReferences(this.classRoot); }
+  }
+
+  findContainmentLoop(): MClass[] {
+    const allContainmentRefs: MReference[] = this.getAllReferences().filter( r => r.isContainment());
+    // dag con nodi e archi oggetti grezzi general purpose, prendo nodi = classi e archi = (class1, class2) salvo tutto con un id eseguo il dag e rispondo riprendendo le logiche tramite id dopo aver beccato il loop
+    const nodesLogic: MClass[] = [...new Set([... (allContainmentRefs as any).flatMap( r => r.mtarget), ...(allContainmentRefs as any).map( r => r.parent)])];
+
+    const vertexIDMap: Dictionary<string, RawVertex> = {};
+    const rawVertex: RawVertex[] = nodesLogic.map(c => { return vertexIDMap['' + c.id] = new RawVertex('' + c.id, c); });
+    let i: number = 0;
+    const rawEdges: RawEdge[] = (allContainmentRefs as any).flatMap( (r: MReference) => {
+      const sourcev: RawVertex = vertexIDMap['' + r.parent.id];
+      return r.mtarget.map( (target: MClass) => {
+        const targetv: RawVertex = vertexIDMap['' + target.id];
+        return new RawEdge('e' + i++, sourcev, targetv, r);
+      });
+    });
+    const out: {elementsInLoop: RawVertex[]} = {elementsInLoop: []};
+    new RawGraph(rawVertex, rawEdges).getDagOrder(true, out);
+    return out.elementsInLoop.map( e => ModelPiece.getByID(+e.id)) as MClass[];
+  }
 }

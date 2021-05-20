@@ -71,6 +71,7 @@
   background-color: var(--mainBackgroundColor);
   max-height: 90vh;
   overflow: auto;
+  border-radius: 10px;
 }
 ::ng-deep .typeTable {
   margin: auto;

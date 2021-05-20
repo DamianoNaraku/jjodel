@@ -71,6 +71,7 @@ export enum EdgeModes {
   useMidNodes: boolean = true || true;
   useRealEndVertex: boolean = true || true;
   id: number = null;
+  pathLetter: string;//char
   private isDeleted: number = 0;
 
   static staticInit(): IEdge[] {
@@ -185,6 +186,7 @@ export enum EdgeModes {
     this.edgeTail = null;
     this.headShell = null;
     this.tailShell = null;
+    this.pathLetter = 'L';
 
     this.owner.edgeContainer.append(this.shell);
     this.shell.classList.add('EdgeShell');
@@ -414,14 +416,28 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     let debugi: number = window['' + 'debug'];
     if (debugi === 1) return;
     // || this.start.size.isinside(this.end.size) ||  this.end.size.isinside(this.start.size
-    // quando startpoint o endpoint sono dentro un vertice size
+    // quando startpoint o endpoint sono dentro un vertex size
 
-    if (!this.midNodes.length && (this.start === this.end)
-      || this.start && !this.start.isAllowingEdge(this)
+    if (this.start && !this.start.isAllowingEdge(this)
       || this.end && !this.end.isAllowingEdge(this)
     ) { //this.start.size.intersection(this.end.size))) {
       $(this.shell).hide();
       return; } else $(this.shell).show();
+
+    // remove non-persistant edgepoints (feature da rimuovere quando faccio gli edgepoint con posizionamento relativo, questo è un fallback dove li rigenero.)
+    let midNodesTmp = [...this.midNodes];
+    for (let midnode of midNodesTmp) { if (!midnode.isPersistent) midnode.detach(false); }
+
+    // self loop
+    if (!this.midNodes.length && this.start && (this.start === this.end)) {
+      let vsize: GraphSize = this.start.getSize();
+      this.midNodes.push(new EdgePoint(this, new GraphPoint(vsize.x + vsize.w * 3/4, vsize.y), null, false));
+      this.midNodes.push(new EdgePoint(this, new GraphPoint(vsize.x + vsize.w * 3/4, vsize.y + vsize.h * -1/3), null, false));
+      this.midNodes.push(new EdgePoint(this, new GraphPoint(vsize.x + vsize.w * 5/4, vsize.y + vsize.h * -1/3), null, false));
+      this.midNodes.push(new EdgePoint(this, new GraphPoint(vsize.x + vsize.w * 5/4, vsize.y + vsize.h * +1/3), null, false));
+      this.midNodes.push(new EdgePoint(this, new GraphPoint(vsize.x + vsize.w, vsize.y + vsize.h* +1/3), null, false));
+      this.pathLetter = 'L';// todo: path letter dovrebbe essere vincolato agli edgepoint, così posso avere una linea mista curva-dritta, ma con un valore didefault personalizzabile se non è stato specificato su ogni singolo edgepoint.
+    } else this.pathLetter = 'L';
 
     // if (this.tmpEnd && !this.end) { this.shell.focus(); }
     this.isSelected = U.hasFocusWithin(this.shell);
@@ -492,12 +508,12 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
       U.pif(debug, 'pathStr: RealPts:' + '[' + i + '] = ' + currPt.toString() + '; prev:' + prevPt.toString());
       U.pif(debug, 'pathStr[' + (i) + '/' + allRealPt.length + ']: ' + oldpathStr + ' --> ' + pathStr);
 
-      U.pe( pathStr.lastIndexOf('L') === -1,
+      U.pe( pathStr.lastIndexOf(this.pathLetter) === -1,
         '0: the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
     }
 
 
-    U.pe( pathStr.lastIndexOf('L') === -1,
+    U.pe( pathStr.lastIndexOf(this.pathLetter) === -1,
       'the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
 
     if (debugi === 3) return;
@@ -632,8 +648,8 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
 
   getAllFakePoints(debug: boolean = false): EdgePointFittizio[] {
     // if (!this.html) { return null; }
-    const d = this.html.getAttributeNS(null, 'd'); // .replace('M', 'L');
-    // let dArr: string[] = d.split('L'); /// consider instead: U.parseSvgPath(pathStr).pts;
+    const d = this.html.getAttributeNS(null, 'd'); // .replace('M', this.pathLetter);
+    // let dArr: string[] = d.split(this.pathLetter); /// consider instead: U.parseSvgPath(pathStr).pts;
     // if (dArr.length === 1) { dArr = [dArr[0], dArr[0]]; }
     let i;
     const realMidPoints: EdgePoint[] = this.getAllRealMidPoints();
@@ -836,7 +852,8 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     const index = this.getIndex();
     this.getContainedArray()[index] = null;
     if (this.logic && this.logic.edges) U.arrayRemoveAll(this.logic.edges, this);
-    if (this.logic instanceof MReference) { this.logic.mtarget[index] = null; }
+    console.log('edge.remove()', {thiss: this, logic: this.logic, index});
+    if (this.logic instanceof MReference) { this.logic.setTarget(index, null); }
     if (this.logic instanceof M2Reference) { (this.logic as M2Reference).delete(true, null, null); }
     this.shell.parentNode.removeChild(this.shell);
 
@@ -873,6 +890,8 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     private getEdgeTail(): SVGSVGElement { return this.getEdgeHeadTail(false); }
 // bug: https://bugzilla.mozilla.org/show_bug.cgi?id=577785#c2
     private getEdgeHeadTail(isHead: boolean, debug: boolean = false): SVGSVGElement {
+      if (isHead) { this.edgeHead && this.edgeHead.parentElement.removeChild(this.edgeHead); }
+      else { this.edgeTail && this.edgeTail.parentElement.removeChild(this.edgeTail); }
       const logic: IReference | IClass = this.logic;
       const logicref: IReference = logic instanceof IReference ? logic : null;
       const logicclass: IClass = logic instanceof IClass ? logic : null;
@@ -927,15 +946,15 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     let pt2: Point;
     if (!tail) {
       endsub = pathStr.length;
-      startsub = pathStr.lastIndexOf('L');
+      startsub = pathStr.lastIndexOf(this.pathLetter);
       U.pe(startsub === -1, 'the pathString have no L (but should have at least 2 points)', pathStr);
-      startsub = pathStr.lastIndexOf('L', startsub - 1);
+      startsub = pathStr.lastIndexOf(this.pathLetter, startsub - 1);
       if (startsub === -1) { startsub = 0; }
     } else {
       startsub = 0;
-      endsub = pathStr.indexOf('L');
+      endsub = pathStr.indexOf(this.pathLetter);
       U.pe(endsub === -1, 'the pathString have no L (but should have at least 2 points)');
-      endsub = pathStr.indexOf('L', endsub + 1);
+      endsub = pathStr.indexOf(this.pathLetter, endsub + 1);
       if (endsub === -1) { endsub = pathStr.length; } }
     pathStr = pathStr.substring(startsub, endsub);
     U.pif(debug, 'pathStr: ' + oldPathStr + ' --> ' + pathStr, 'onEnd ? ', !tail);
@@ -956,13 +975,13 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     const firstEdgePointHtml: Node = this.html.nextElementSibling;
     if (!shell) {
       shell = U.newSvg('g');
-      shell.appendChild(svg);
       if (tail) { this.tailShell = shell; } else { this.headShell = shell; }
       if (firstEdgePointHtml) {
         this.shell.insertBefore(shell, firstEdgePointHtml); }
       else { this.shell.appendChild(shell); }
       this.addEventListeners(false, true);
-    }
+    } else { U.clear(shell); }
+    shell.appendChild(svg);
     if (debug) { this.owner.markg(pt1, true, 'red'); this.owner.markg(pt2real, false, 'green'); }
     U.pif(debug, 'size of head: ', HeadSize, 'pt1:', pt1, 'pt2:', pt2real, 'm:', m);
 

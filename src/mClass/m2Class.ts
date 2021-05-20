@@ -770,4 +770,9 @@ export class M2Class extends IClass {
     }
     U.ps(instances && !!instances.length, instances.length + " subclasses converted to " + classe.name);
   }
+
+  getContainer(): M2Reference{
+    for (let ref of this.referencesIN) if (ref.isContainment()) return ref;
+    return null;
+  }
 }

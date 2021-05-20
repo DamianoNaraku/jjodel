@@ -161,7 +161,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"hidden-static-contextmenu-container\">\r\n<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot overflowFix\" tabindex=\"-1\">\r\n    <div class=\"overflowFixContent\">\r\n      <ul class=\"vertex contextMenu\" tabindex=\"-1\">\r\n        <li class=\"Vertex changeType popupRightParent\" uif=\"class\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\">Change type</span>\r\n          <ul class=\"typelist popupRight\">\r\n            <li class=\"typeli fallback unclickable\" style=\"cursor: no-drop; color: red;\">##ERROR MSG TO FILL##</li>\r\n            <li class=\"typeli description unclickable\"><span>Best match:</span></li>\r\n            <li class=\"typeli separator\" tabindex=\"-1\"></li>\r\n            <li class=\"typeli description unclickable\"><span>Other options</span></li>\r\n            <li class=\"typeli terminal template\" data-index=\"-1\">\r\n              <span class=\"typeli change text\"></span>\r\n          </ul>\r\n        </li>\r\n        <li class=\"terminal Vertex todo duplicate\" uif=\"classifier\">Duplicate classifier</li>\r\n        <li class=\"terminal Vertex extend\" uif=\"m2 && class && ongraph\">Extend class</li>\r\n        <li class=\"Vertex popupRightParent\" uif=\"m2 && class && ongraph\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\">Insert feature</span>\r\n          <ul class=\"reflist popupRight\">\r\n            <li class=\"terminal insert attribute\">Attribute</li>\r\n            <li class=\"terminal insert reference\">Reference</li>\r\n            <li class=\"terminal insert operation\">Operation</li>\r\n            <li class=\"terminal insert annotation todo\">Annotation</li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"Operation popupRightParent\" uif=\"m2 && !class && ongraph\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\">Insert children</span>\r\n          <ul class=\"reflist popupRight\">\r\n            <li class=\"terminal insert literal\" uif=\"enum\">Literal</li>\r\n            <li class=\"terminal insert parameter\" uif=\"operation\">Parameter</li>\r\n            <li class=\"terminal insert annotation todo\">Annotation</li>\r\n          </ul>\r\n        </li>\r\n\r\n\r\n\r\n        <li class=\"terminal Vertex delete\" uif=\"classifier\">Delete classifier</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && feature\">Delete feature</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && operation\">Delete operation</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && literal\">Delete literal</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && parameter\">Delete parameter</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && annotation\">Delete annotation</li>\r\n        <li class=\"terminal Vertex todo duplicate\" uif=\"m2 && feature\">Duplicate feature</li>\r\n        <li class=\"terminal Vertex todo duplicate\" uif=\"m2 && operation\">Duplicate operation</li>\r\n        <li class=\"Reference popupRightParent\" uif=\"m1 && reference && ongraph\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\">References</span>\r\n          <ul class=\"reflist popupRight\">\r\n            <li class=\"terminal refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n            <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n            <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"terminal Feature todo autofixinstances\" uif=\"m2 && feature\">Autofix instances</li>\r\n        <li class=\"terminal Feature todo autofix\" uif=\"m1 && feature\">Autofix conformity</li>\r\n        <li class=\"separator\" uif=\"classifier || m2 && feature || m2 && operation || m2 && annotation\" tabindex=\"-1\"></li>\r\n        <li class=\"terminal Vertex up\" uif=\"classifier && ongraph\">Push vertex Up (Z-order)</li>\r\n        <li class=\"terminal Vertex down\" uif=\"classifier && ongraph\">Push vertex Down (Z-order)</li>\r\n        <li class=\"terminal Feature up\" uif=\"m2 && feature && ongraph\">Move feature Up</li>\r\n        <li class=\"terminal Feature down\" uif=\"m2 && feature && ongraph\">Move feature Down</li>\r\n        <li class=\"terminal Feature up\" uif=\"m2 && operation && ongraph\">Move operation Up</li>\r\n        <li class=\"terminal Feature down\" uif=\"m2 && operation && ongraph\">Move operation Down</li>\r\n        <li class=\"terminal Feature up\" uif=\"m2 && annotation && ongraph\">Move annotation Up</li>\r\n        <li class=\"terminal Feature down\" uif=\"m2 && annotation && ongraph\">Move annotation Down</li>\r\n      </ul>\r\n      <ul class=\"extedge contextMenu\" uif=\"extedge\">\r\n        <li class=\"terminal edge delete\">Delete generalization</li>\r\n        <li class=\"terminal edge change\">Edit generalization</li>\r\n      </ul>\r\n      <ul class=\"edge contextMenu\" uif=\"edge\">\r\n        <li class=\"terminal edge delete\">Delete reference</li>\r\n        <li class=\"terminal edge change\">Edit reference</li>\r\n      </ul>\r\n    </div>\r\n</div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"hidden-static-contextmenu-container\">\r\n<div id=\"damContextMenuTemplateContainer\" class=\"contextMenuRoot overflowFix\" tabindex=\"-1\">\r\n    <div class=\"overflowFixContent\">\r\n      <ul class=\"vertex contextMenu\" tabindex=\"-1\">\r\n        <li class=\"Vertex changeType popupRightParent\" uif=\"class\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\" uif=\"m2\"><icon magic></icon>Change instances type</span>\r\n          <span tabindex=\"-1\" uif=\"m1\"><icon edit></icon>Change type</span>\r\n          <ul class=\"typelist popupRight\">\r\n            <li class=\"typeli fallback unclickable\" style=\"cursor: no-drop; color: red;\">##ERROR MSG TO FILL##</li>\r\n            <li class=\"typeli description unclickable\"><span>Best match:</span></li>\r\n            <li class=\"typeli separator\" tabindex=\"-1\"></li>\r\n            <li class=\"typeli description unclickable\"><span>Other options</span></li>\r\n            <li class=\"typeli terminal template\" data-index=\"-1\">\r\n              <span class=\"typeli change text\"></span>\r\n          </ul>\r\n        </li>\r\n        <li class=\"terminal Vertex todo duplicate\" uif=\"classifier\"><icon duplicate></icon>Duplicate classifier</li>\r\n        <li class=\"terminal Vertex extend\" uif=\"m2 && class && ongraph\"><icon extend></icon>Extend class</li>\r\n        <li class=\"Vertex popupRightParent\" uif=\"m2 && class && ongraph\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\"><icon add></icon>Insert feature</span>\r\n          <ul class=\"reflist popupRight\">\r\n            <li class=\"terminal insert attribute\">Attribute</li>\r\n            <li class=\"terminal insert reference\">Reference</li>\r\n            <li class=\"terminal insert operation\">Operation</li>\r\n            <li class=\"terminal insert annotation todo\">Annotation</li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"Operation popupRightParent\" uif=\"m2 && !class && ongraph\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\"><icon add></icon>Insert children</span>\r\n          <ul class=\"reflist popupRight\">\r\n            <li class=\"terminal insert literal\" uif=\"enum\">Literal</li>\r\n            <li class=\"terminal insert parameter\" uif=\"operation\">Parameter</li>\r\n            <li class=\"terminal insert annotation todo\">Annotation</li>\r\n          </ul>\r\n        </li>\r\n\r\n\r\n\r\n        <li class=\"terminal Vertex delete\" uif=\"classifier\"><icon trash></icon>Delete classifier</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && feature\"><icon trash></icon>Delete feature</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && operation\"><icon trash></icon>Delete operation</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && literal\"><icon trash></icon>Delete literal</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && parameter\"><icon trash></icon>Delete parameter</li>\r\n        <li class=\"terminal Vertex delete\" uif=\"m2 && annotation\"><icon trash></icon>Delete annotation</li>\r\n        <li class=\"terminal Vertex todo duplicate\" uif=\"m2 && feature\"><icon duplicate></icon>Duplicate feature</li>\r\n        <li class=\"terminal Vertex todo duplicate\" uif=\"m2 && operation\"><icon duplicate></icon>Duplicate operation</li>\r\n        <li class=\"Reference popupRightParent\" uif=\"m1 && reference && ongraph\" tabindex=\"-1\">\r\n          <span tabindex=\"-1\"><icon right></icon>References</span>\r\n          <ul class=\"reflist popupRight\">\r\n            <li class=\"terminal refli template\" data-index=\"-1\"><span class=\"index\"></span><span class=\"text\"></span><button class=\"refli delete btn btn-sm btn-danger\">X</button></li>\r\n            <li class=\"refli\"><button class=\"firstempty btn btn-sm btn-primary\">Select first empty</button></li>\r\n            <li class=\"refli\"><label><input class=\"byindex\" type=\"number\" digit=\"2\" value=\"0\" min=\"0\" step=\"1\"><button class=\"byindex btn btn-sm btn-outline-primary\">Select by index</button></label></li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"terminal Feature todo autofixinstances\" uif=\"m2 && feature\"><icon magic></icon>Autofix instances</li>\r\n        <li class=\"terminal Feature todo autofix\" uif=\"m1 && feature\"><icon magic></icon>Autofix conformity</li>\r\n        <li class=\"separator\" uif=\"classifier || m2 && feature || m2 && operation || m2 && annotation\" tabindex=\"-1\"></li>\r\n        <li class=\"terminal Vertex up\" uif=\"classifier && ongraph\"><icon up></icon>Push vertex Up (Z-order)</li>\r\n        <li class=\"terminal Vertex down\" uif=\"classifier && ongraph\"><icon down></icon>Push vertex Down (Z-order)</li>\r\n        <li class=\"terminal Feature up\" uif=\"m2 && feature && ongraph\"><icon up></icon>Move feature Up</li>\r\n        <li class=\"terminal Feature down\" uif=\"m2 && feature && ongraph\"><icon down></icon>Move feature Down</li>\r\n        <li class=\"terminal Feature up\" uif=\"m2 && operation && ongraph\"><icon up></icon>Move operation Up</li>\r\n        <li class=\"terminal Feature down\" uif=\"m2 && operation && ongraph\"><icon down></icon>Move operation Down</li>\r\n        <li class=\"terminal Feature up\" uif=\"m2 && annotation && ongraph\"><icon up></icon>Move annotation Up</li>\r\n        <li class=\"terminal Feature down\" uif=\"m2 && annotation && ongraph\"><icon down></icon>Move annotation Down</li>\r\n      </ul>\r\n      <ul class=\"extedge contextMenu\" uif=\"extedge\">\r\n        <li class=\"terminal edge delete\"><icon trash></icon>Delete generalization</li>\r\n        <li class=\"terminal edge change\" style=\"display: none;\"><icon edit></icon>Edit generalization</li>\r\n      </ul>\r\n      <ul class=\"edge contextMenu\" uif=\"edge\">\r\n        <li class=\"terminal edge delete\"><icon trash></icon>Delete reference</li>\r\n        <li class=\"terminal edge change\" style=\"display: none;\"><icon down></icon>Edit reference</li>\r\n      </ul>\r\n    </div>\r\n</div>\r\n</div>\r\n";
     /***/
   },
 
@@ -221,7 +221,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"false\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"false\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n    <foreignobject class=\"template Vertex Class\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" hover-base=\"v1\" tabindex=\"-1\" style=\"outline: 1px solid var(--color-3) !important; background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex; justify-content: space-evenly\">\r\n          <div class=\"no-ov\" style=\"text-align:center; flex-grow:2; flex-shrink:1; color:var(--color-4);\">$##metaParent.name$</div>\r\n          <div class=\"no-ov\" style=\"text-align:center; flex-grow:1; color:var(--color-4);\">#$##id$</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span class=\"no-ov\" style=\"display:flex; order:0; flex-grow:1; flex-shrink:1; margin:auto; color:var(--color-f-1);\">*$##metaParent.type.printablename$</span>\r\n      <span class=\"no-ov\" style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertex\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto;\">-></button>\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span class=\"no-ov\" style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:var(--color-f-1);\">$##metaParent.type.printablename$</span>\r\n      <span class=\"no-ov\" style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; margin-top:0; padding:2px; order:2; border: 3px solid var(--color-f-2); border-top-color:transparent;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Parameter\" tabindex=\"-1\" hover-base=\"p1\" style=\"position: relative; width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n      <div hover-display=\"p1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:0px; display: none;\">\r\n  <div id=\"m_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"m_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='model_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='model_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='model_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"false\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"false\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MDefaultStyles customized\"></div>\r\n  <div class=\"MDefaultStyles immutable\">\r\n\r\n    <foreignobject class=\"template Vertex Class\" tabindex=\"-1\" hover-base=\"v1\" x=\"50\" y=\"50\" width=\"300\" style=\"cursor: pointer; position: relative; border-radius:7px; box-shadow: 0 0 3pt 0.5pt var(--color-3); background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%; border-radius:7px; display: inline-flex; flex-flow: column;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"text-align:center; display:flex; padding: 8px 0; width:100%; font-size:1rem; border-bottom: 0.5px solid #77777777;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"display:none; background:transparent; border:none; text-align:right; order:1; flex-basis: 50%; min-width:10px;\">\r\n          <div class=\"no-ov\" style=\"text-align: center; order:2; flex-grow:1; color:var(--color-4); margin:auto;\">$##metaParent.name$</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; right: 7px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs hideempty childcontainer AttributeContainer hover-exclude\"></div>\r\n        <div class=\"specialjs hideempty childcontainer ReferenceContainer hover-exclude\"></div>\r\n        <div class=\"specialjs hideempty childcontainer OperationContainer hover-exclude\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"old_templateVertexClass\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" hover-base=\"v1\" tabindex=\"-1\" style=\"cursor: pointer; outline: 1px solid var(--color-3) !important; background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex; justify-content: space-evenly\">\r\n          <div class=\"no-ov\" style=\"text-align:center; flex-grow:2; flex-shrink:1; color:var(--color-4);\">$##metaParent.name$</div>\r\n          <div class=\"no-ov\" style=\"text-align:center; flex-grow:1; color:var(--color-4);\">#$##id$</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height:22px; padding-left:5px; display:flex; margin:auto;\">\r\n      <span class=\"no-ov\" style=\"display:flex; order:0; margin:auto; margin-right:0.75rem; flex-shrink:2; color:var(--color-f-1);\">*$##metaParent.type.printablename$</span>\r\n      <span class=\"no-ov\" style=\"display:flex; order:1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto;\">$##metaParent.name$</span>\r\n      <button class=\"LinkVertexOld\" style=\"order:3; width:22px; height:22px; padding:0; margin:auto; display: none\">-></button>\r\n      <icon class=\"LinkVertex\" right style=\"order:3; width:22px; height: 22px; border: 1px solid gray; border-radius:7.5px; margin:0; background-color: var(--color-1);\"></icon>\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <span class=\"no-ov\" style=\"order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:var(--color-f-1);\">$##metaParent.type.printablename$</span>\r\n      <span class=\"no-ov\" style=\"order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;\">$##metaParent.name$&nbsp;=&nbsp;</span>\r\n      <input type=\"text\" placeholder=\"empty string\" value=\"$##valuesStr$\" style=\"background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height: 22px; padding-left: 5px; display:flex;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; margin-top:0; padding:2px; order:2; border: 3px solid var(--color-f-2); border-top-color:transparent;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Operation Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList\" style=\"display: flex; width: 100%;\"></div>\r\n      </div>\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Parameter\" tabindex=\"-1\" hover-base=\"p1\" style=\"position: relative; width:100%; height:22px; padding-left: 5px; display:flex;\">\r\n      <select disabled data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none;display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input disabled type=\"text\" placeholder=\"Parameter Name\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n      <div hover-display=\"p1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:0px; display: none;\">\r\n  <div id=\"m_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"m_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
     /***/
   },
 
@@ -241,7 +241,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"true\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"true\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Vertex invisibleNode\" overflow=\"hidden\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"display:none\" keep-edges=\"false\"\r\n                   show-in-rel-edges=\"false\" show-in-ext-edges=\"false\" show-in-oth-edges=\"false\"\r\n                   show-out-rel-edges=\"false\" show-out-ext-edges=\"false\" show-out-oth-edges=\"false\">\r\n      <div style=\"height:auto;\"></div>\r\n    </foreignobject>\r\n    <foreignobject class=\"template Vertex Class\" tabindex=\"-1\" hover-base=\"v1\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"outline: 1px solid var(--color-3) !important; background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;\">\r\n          <div class=\"no-ov\" style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;\">($##className$)</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"default-class-css\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden; width: 100%; text-align: center; opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n            ::ng-deep .addFieldButton{\r\n              background:rgba(127, 127, 127, 0.2);\r\n              border-bottom: none;\r\n              border-right: none;\r\n              padding: 0 0.5rem; }\r\n            ::ng-deep .open-options.active{\r\n              border-bottom-right-radius: 0 !important;\r\n              opacity: 1;\r\n              visibility: visible; }\r\n            ::ng-deep .open-options{\r\n              position: absolute;\r\n              right: 0;\r\n              border: 2px solid var(--color-2);\r\n              background: var(--color-1);\r\n              width: 25px;\r\n              height: 25px;\r\n              display: flex;\r\n              justify-content: center;\r\n              align-items: center;\r\n              opacity: 0.5; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template Vertex EEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" hover-base=\"v1\" tabindex=\"-1\" style=\"outline: 1px solid var(--color-3) !important;; background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"EEnum\" style=\"background:var(--color-1); height:auto; width:100%;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;\">\r\n          <div class=\"no-ov\" style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-5); margin:auto; padding-left:4px;\">(Enum)</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\">\r\n          <style id=\"default-enum-css\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden; width: 100%; text-align: center; opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n            ::ng-deep .addFieldButton{\r\n              background:rgba(127, 127, 127, 0.2);\r\n              border-bottom: none;\r\n              border-right: none;\r\n              padding: 0 0.5rem; }\r\n            ::ng-deep .open-options.active{\r\n              border-bottom-right-radius: 0 !important;\r\n              opacity: 1;\r\n              visibility: visible; }\r\n            ::ng-deep .open-options{\r\n              position: absolute;\r\n              right: 0;\r\n              border: 2px solid var(--color-2);\r\n              background: var(--color-1);\r\n              width: 25px;\r\n              height: 25px;\r\n              display: flex;\r\n              justify-content: center;\r\n              align-items: center;\r\n              opacity: 0.5; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference ov\" tabindex=\"-1\" hover-base=\"f1\" style=\"width:100%; height: 22px; padding-left:5px; display:flex; position: relative;\">\r\n      <select data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:3; flex-grow:1; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute EString EInteger\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature ELiteral\" tabindex=\"-1\"  hover-base=\"l1\" style=\"position: relative; width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n      <div hover-display=\"l1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" tabindex=\"-1\"  hover-base=\"f1\" style=\"position: relative; width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid var(--color-f-2); border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList parameterContainer\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm\" style=\"width: 100%; height: 22px; padding:0; text-align: center; background-color: var(--color-f-2); color:var(--color-1);\">+</button>\r\n        </div>\r\n      </div>\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" tabindex=\"-1\" hover-base=\"p1\" style=\"position: relative; width: 100%; height: 22px; border-bottom:1px solid var(--color-f-3); display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <!--button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button-->\r\n      <div hover-display=\"p1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:40px; display: none;\">\r\n  <div id=\"mm_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"mm_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"verticalFillingContainer\">\r\n  <div class=\"verticalFiller horizontalFillingContainer\">\r\n    <div class=\"sidebarShell resizableBorder\" data-resizableRight=\"true\">\r\n      <div id='metamodel_sidebar'></div>\r\n    </div>\r\n    <div class=\"editorShell horizontalFiller\">\r\n      <ul class =\"viewpointShell\">\r\n        <h6>Viewpoints</h6>\r\n        <li class=\"viewpointrow default\">\r\n          <label class=\"name\">\r\n            <input type=\"radio\" checked>\r\n            <input class=\"name form-control-sm\" type=\"text\" value=\"Default\" readonly><button class=\"duplicate\"></button>\r\n          </label>\r\n        </li>\r\n        <li class=\"viewpointrow template\">\r\n          <label class=\"checkbox\"><input type=\"checkbox\"></label>\r\n          <label class=\"name\"><input class=\"name form-control-sm\" type=\"text\">\r\n            <span class=\"buttons\">\r\n            <button class=\"duplicate\"></button><button class=\"edit\"></button><button class=\"remove\"></button>\r\n          </span>\r\n          </label>\r\n        </li>\r\n      </ul>\r\n      <svg class=\"graph\" id='metamodel_editor'>\r\n        <g class=\"gridContainer\">\r\n          <defs></defs>\r\n          <rect class=\"grid\"></rect>\r\n        </g>\r\n      </svg>\r\n      <div id='metamodel_navigatorOutlineContainer'></div>\r\n    </div>\r\n    <!-- style of propertybar must be inline for resizableBorder js -->\r\n    <div class=\"UtabContainer propertyBarContainer resizableBorder\" data-resizableLeft=\"true\" data-selectedTab=\"2\" style=\"width: 283px;\">\r\n      <ul class=\"UtabHeaderContainer\">\r\n        <li class=\"UtabHeader\" data-target=\"1\">Style</li>\r\n        <li class=\"UtabHeader\" data-target=\"2\">Structured</li>\r\n        <li class=\"UtabHeader\" data-target=\"3\">Raw</li>\r\n      </ul>\r\n      <div class=\"UtabContentContainer\">\r\n        <div class=\"UtabContent\" data-target=\"1\"><app-style-editor [isM2]=\"true\"></app-style-editor></div>\r\n        <div class=\"UtabContent\" data-target=\"2\"><app-property-barr [isM2]=\"true\"></app-property-barr></div>\r\n        <div class=\"UtabContent\" data-target=\"3\">\r\n          <div class=\"rawContainer\">\r\n            <h2 class=\"rawTitle\">Raw eCore fragment</h2>\r\n            <textarea class=\"rawecore\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"MMDefaultStyles customized\"></div>\r\n  <div class=\"MMDefaultStyles immutable\">\r\n    <foreignobject class=\"template Vertex invisibleNode\" overflow=\"hidden\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"display:none\" keep-edges=\"false\"\r\n                   show-in-rel-edges=\"false\" show-in-ext-edges=\"false\" show-in-oth-edges=\"false\"\r\n                   show-out-rel-edges=\"false\" show-out-ext-edges=\"false\" show-out-oth-edges=\"false\">\r\n      <div style=\"height:auto;\"></div>\r\n    </foreignobject>\r\n    <foreignobject class=\"old_template_Vertex_Class\" tabindex=\"-1\" hover-base=\"v1\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" style=\"cursor: pointer; outline: 1px solid var(--color-3) !important; background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; width:100%;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;\">\r\n          <div class=\"no-ov\" style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-4); margin:auto; padding-left:4px;\">($##className$)</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs AttributeContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs ReferenceContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"specialjs OperationContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\" style=\"width: 100%; text-align: center;\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"old-default-class-css\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden; width: 100%; text-align: center; opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n            ::ng-deep .addFieldButton{\r\n              background:rgba(127, 127, 127, 0.2);\r\n              border-bottom: none;\r\n              border-right: none;\r\n              padding: 0 0.5rem; }\r\n            ::ng-deep .open-options.active{\r\n              border-bottom-right-radius: 0 !important;\r\n              opacity: 1;\r\n              visibility: visible; }\r\n            ::ng-deep .open-options{\r\n              position: absolute;\r\n              right: 0;\r\n              border: 2px solid var(--color-2);\r\n              background: var(--color-1);\r\n              width: 25px;\r\n              height: 25px;\r\n              display: flex;\r\n              justify-content: center;\r\n              align-items: center;\r\n              opacity: 0.5; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template Vertex Class\" tabindex=\"-1\" hover-base=\"v1\" x=\"50\" y=\"50\" width=\"300\" style=\"cursor: pointer; position: relative; border-radius:7px; box-shadow: 0 0 3pt 0.5pt var(--color-3); background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; min-height: 75px; width:100%; border-radius:7px; display: inline-flex; flex-flow: column;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"text-align:center; display:flex; padding: 8px 0; width:100%; font-size:1rem; border-bottom: 0.5px solid #77777777;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-basis: 50%; min-width:10px;\">\r\n          <div class=\"no-ov\" style=\"text-align:left; order:2; flex-grow:1; color:var(--color-4); margin:auto;\">: Concept</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; right: 7px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs hideempty childcontainer AttributeContainer hover-exclude\"></div>\r\n        <div class=\"specialjs hideempty childcontainer ReferenceContainer hover-exclude\"></div>\r\n        <div class=\"specialjs hideempty childcontainer OperationContainer hover-exclude\"></div>\r\n        <div class=\"addFieldButtonContainer\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"default-class-css\">\r\n            ::ng-deep .addFieldButtonContainer{ margin-top: auto; width: 100%; text-align: center; display: flex; max-height: 20px; min-height: 20px; overflow: hidden; opacity: 0; }\r\n            ::ng-deep .Vertex ::ng-deep .childcontainer{ display: flex; flex-direction: column; border-bottom: 0.5px solid #77777777; background: #00000013;\r\n            }\r\n            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{\r\n              background: var(--color-1);\r\n              border-radius: 7px 0 7px 7px;\r\n              opacity: 1; }\r\n            ::ng-deep .addFieldButton{\r\n              background:rgba(127, 127, 127, 0.2);\r\n              border-bottom: none;\r\n              border-right: none;\r\n              padding: 0 0.5rem; }\r\n            ::ng-deep .open-options.active{\r\n              border-bottom-right-radius: 0 !important;\r\n              opacity: 1;\r\n              visibility: visible; }\r\n            ::ng-deep .Feature{\r\n              margin: 2px 0;\r\n            }\r\n            ::ng-deep .open-options{\r\n              position: absolute;\r\n              right: 0;\r\n              border: 2px solid var(--color-2);\r\n              background: var(--color-1);\r\n              width: 25px;\r\n              height: 25px;\r\n              display: flex;\r\n              justify-content: center;\r\n              align-items: center;\r\n              opacity: 0.5; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Attribute\" selected=\"\">Attribute</option>\r\n              <option value=\"Reference\">Reference</option>\r\n              <option value=\"Operation\">Operation</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"template Vertex EEnum\" tabindex=\"-1\" hover-base=\"v1\" x=\"50\" y=\"50\" width=\"300\" style=\"cursor: pointer; position: relative; border-radius:7px; box-shadow: 0 0 3pt 0.5pt var(--color-3); background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"Class\" style=\"background:var(--color-1); height:auto; min-height: 75px; width:100%; border-radius:7px; display: inline-flex; flex-flow: column;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"text-align:center; display:flex; padding: 8px 0; width:100%; font-size:1rem; border-bottom: 0.5px solid #77777777;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-basis: 50%; min-width:10px;\">\r\n          <div class=\"no-ov\" style=\"text-align:left; order:2; flex-grow:1; color:var(--color-4); margin:auto;\">: $##className$</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; right: 7px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs hideempty childcontainer LiteralContainer hover-exclude\"></div>\r\n        <div class=\"addFieldButtonContainer\">\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <style id=\"default-enum-css\">\r\n            ::ng-deep .addFieldButtonContainer{ margin-top: auto; width: 100%; text-align: center; display: flex; max-height: 20px; min-height: 20px; overflow: hidden; opacity: 0; }\r\n            ::ng-deep .Vertex ::ng-deep .childcontainer{ display: flex; flex-direction: column; border-bottom: 0.5px solid #77777777;\r\n            }\r\n            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{\r\n              background: var(--color-1);\r\n              border-radius: 7px 0 7px 7px;\r\n              opacity: 1; }\r\n            ::ng-deep .addFieldButton{\r\n              background:rgba(127, 127, 127, 0.2);\r\n              border-bottom: none;\r\n              border-right: none;\r\n              padding: 0 0.5rem; }\r\n            ::ng-deep .open-options.active{\r\n              border-bottom-right-radius: 0 !important;\r\n              opacity: 1;\r\n              visibility: visible; }\r\n            ::ng-deep .open-options{\r\n              position: absolute;\r\n              right: 0;\r\n              border: 2px solid var(--color-2);\r\n              background: var(--color-1);\r\n              width: 25px;\r\n              height: 25px;\r\n              display: flex;\r\n              justify-content: center;\r\n              align-items: center;\r\n              opacity: 0.5; }\r\n          </style>\r\n          <select class=\"AddFieldSelect\" style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\" style=\"background:rgba(127, 127, 127, 0.2);\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <foreignobject class=\"oldTemplateVertexEEnum\" x=\"0\" y=\"0\" width=\"200\" height=\"40\" hover-base=\"v1\" tabindex=\"-1\" style=\"cursor: pointer; outline: 1px solid var(--color-3) !important;; background:var(--color-1); color:var(--color-2);\">\r\n      <div class=\"EEnum\" style=\"background:var(--color-1); height:auto; width:100%;\" data-autosizey=\"1\">\r\n        <div class=\"VertexHeader\" style=\"height:20px; width:100%; text-align:center; display:flex;\">\r\n          <input value=\"$##name$\" placeholder=\"Object name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\"\r\n                 style=\"background:transparent; border:none; text-align:right; order:1; flex-grow:1; flex-shrink:1; flex-basis:10px; min-width:10px; padding-right:4px;\">\r\n          <div class=\"no-ov\" style=\"text-align:left; order:2; flex-grow:1; flex-shrink:1; flex-basis:10px; color:var(--color-5); margin:auto; padding-left:4px;\">(Enum)</div>\r\n          <div hover-display=\"v1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n               style=\"top: -25px; border-top-right-radius: 999px; border-top-left-radius: 999px;\">\r\n            <span>...</span>\r\n          </div>\r\n        </div>\r\n        <div class=\"specialjs LiteralContainer hover-exclude\" style=\"display: flex; flex-direction: column;\"></div>\r\n        <div class=\"addFieldButtonContainer\">\r\n          <style id=\"old-default-enum-css\">\r\n            ::ng-deep .addFieldButtonContainer{ display: flex; max-height: 20px; min-height: 20px; overflow: hidden; width: 100%; text-align: center; opacity: 0; padding-top: 20px; }\r\n            ::ng-deep .Vertex:hover ::ng-deep .addFieldButtonContainer{ opacity: 1; padding-top: 0; }\r\n            ::ng-deep .addFieldButton{\r\n              background:rgba(127, 127, 127, 0.2);\r\n              border-bottom: none;\r\n              border-right: none;\r\n              padding: 0 0.5rem; }\r\n            ::ng-deep .open-options.active{\r\n              border-bottom-right-radius: 0 !important;\r\n              opacity: 1;\r\n              visibility: visible; }\r\n            ::ng-deep .open-options{\r\n              position: absolute;\r\n              right: 0;\r\n              border: 2px solid var(--color-2);\r\n              background: var(--color-1);\r\n              width: 25px;\r\n              height: 25px;\r\n              display: flex;\r\n              justify-content: center;\r\n              align-items: center;\r\n              opacity: 0.5; }\r\n          </style>\r\n          <span style=\"display:flex; margin:auto;\">Add</span>\r\n          <select class=\"AddFieldSelect\" disabled style=\"background:transparent; display:flex; margin:auto;\">\r\n            <optgroup label=\"FeatureType\">\r\n              <option value=\"Literal\" selected=\"\">Literal</option>\r\n            </optgroup>\r\n          </select>\r\n          <span style=\"display:flex; margin:auto;\">field</span>\r\n          <button class=\"addFieldButton\">Go</button>\r\n        </div>\r\n      </div>\r\n    </foreignobject>\r\n\r\n    <div class=\"template Feature Reference ov\" tabindex=\"-1\" hover-base=\"f1\" style=\"width:100%; height: 22px; padding-left:5px; display:flex; position: relative;\">\r\n      <select data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:3; flex-grow:2; flex-shrink:2; flex-basis:0; min-width:0;\"></select>\r\n      <input type=\"text\" placeholder=\"Reference Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; order: 1; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px;\">\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Attribute EString EInteger\" tabindex=\"-1\" hover-base=\"f1\" style=\"position: relative; width:100%; height:22px; padding-left:5px; display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Attribute Name\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature ELiteral\" tabindex=\"-1\"  hover-base=\"l1\" style=\"position: relative; width:100%; height:22px; display:flex; padding-left:5px; padding-right:10px;\">\r\n      <input class=\"value\" type=\"number\" placeholder=\"auto\" value=\"$##ordinal$\" style=\"background:transparent; border:none; display: flex; width: 30px;\">\r\n      <input class=\"name\" type=\"text\" placeholder=\"name\" value=\"$##name$\" pattern=\"[a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\" style=\"background:transparent; border:none; display:flex; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px;\">\r\n      <input class=\"literal\" type=\"text\" placeholder=\"literal\" value=\"$$#literal$\" style=\"background:transparent; border:none; display:flex; flex-grow:1; text-align: right; flex-basis:3px; min-width:3px;\">\r\n      <div hover-display=\"l1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Feature Operation\" tabindex=\"-1\"  hover-base=\"f1\" style=\"position: relative; width:100%; display:flex; flex-flow:column;\">\r\n      <div class=\"specialjs signature\" data-maxargumentchars=\"10\" data-maxarguments=\"2\" style=\"height:22px; min-width:100%\"></div>\r\n      <div class=\"specialjs operationDetail\" style=\"margin:2px; padding:2px; order:2; border: 3px solid var(--color-f-2); border-top-color: transparent; margin-top:0;\">\r\n        <div style=\"display: flex; width: 100%;\">\r\n          <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" data-void=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:2; flex-shrink:2; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n          <input disabled type=\"text\" placeholder=\"Return Type\" value=\"Return type\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;\">\r\n        </div>\r\n        <div class=\"parameterList parameterContainer\" style=\"display: flex; width: 100%; flex-flow:column;\">\r\n          <button class=\"addParameterButton btn btn-sm\" style=\"width: 100%; height: 22px; padding:0; text-align: center; background-color: var(--color-f-2); color:var(--color-1);\">+</button>\r\n        </div>\r\n      </div>\r\n      <div hover-display=\"f1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"template Parameter\" tabindex=\"-1\" hover-base=\"p1\" style=\"position: relative; width: 100%; height: 22px; border-bottom:1px solid var(--color-f-3); display:flex;\">\r\n      <select data-primitive=\"true\" data-enum=\"true\" data-class=\"true\" style=\"background:transparent; border:none; display:flex; order:2; flex-grow:1; flex-shrink:1; flex-basis:3px; min-width:3px; text-align: right;\"></select>\r\n      <input type=\"text\" placeholder=\"Parameter Name\" pattern=\"[a-zA-Z_\\u0024]*[a-zA-Z\\d_\\u0024]+\" value=\"$##name$\" style=\"background:transparent; border:none; display: flex; order: 1; flex-basis:10px; flex-grow:1; flex-shrink:1; min-width:3px;\">\r\n      <!--button class=\"delete\" style=\"order: 3; padding:0 5px;\">X</button-->\r\n      <div hover-display=\"p1\" class=\"hover-unfade open-options\" tabindex=\"-1\"\r\n           style=\"right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;\">\r\n        <span>...</span>\r\n      </div>\r\n      <!-- correct validator pattern for variable names:  == ^[a-zA-Z_$][a-zA-Z\\d_$]+$   ==    [a-zA-Z_\\u0024][a-zA-Z\\d_\\u0024]*\r\n       PS: luckily pattern always implies ^ and $ for start and end delimiters. because \\u0024 might not work for end of line $ substitute -->\r\n  </div>\r\n</div>\r\n\r\n<div class=\"visContainer\" style=\"position:absolute; top:40px; display: none;\">\r\n  <div id=\"mm_visGraph\" style=\"position:absolute; left: 100px; width: 30vw; height: 100vh; background: wheat;\"></div>\r\n  <div id=\"mm_visOptions\" style=\"position:absolute; width: 100px; height: 100vh; background: white\"></div>\r\n</div>\r\n";
     /***/
   },
 
@@ -3335,6 +3335,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _common_Joiner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! ../common/Joiner */
     "./src/common/Joiner.ts");
+    /* harmony import */
+
+
+    var _common_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../common/util */
+    "./src/common/util.ts");
 
     var Model =
     /*#__PURE__*/
@@ -3502,6 +3508,67 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           m.copy(this);
           m.refreshGUI();
           return m;
+        }
+      }, {
+        key: "fixReferences",
+        value: function fixReferences() {
+          var refs = this.getAllReferences();
+          var _iteratorNormalCompletion2 = true;
+          var _didIteratorError2 = false;
+          var _iteratorError2 = undefined;
+
+          try {
+            for (var _iterator2 = refs[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+              var ref = _step2.value;
+              ref.fixReferences(this.classRoot);
+            }
+          } catch (err) {
+            _didIteratorError2 = true;
+            _iteratorError2 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+                _iterator2.return();
+              }
+            } finally {
+              if (_didIteratorError2) {
+                throw _iteratorError2;
+              }
+            }
+          }
+        }
+      }, {
+        key: "findContainmentLoop",
+        value: function findContainmentLoop() {
+          var allContainmentRefs = this.getAllReferences().filter(function (r) {
+            return r.isContainment();
+          }); // dag con nodi e archi oggetti grezzi general purpose, prendo nodi = classi e archi = (class1, class2) salvo tutto con un id eseguo il dag e rispondo riprendendo le logiche tramite id dopo aver beccato il loop
+
+          var nodesLogic = _toConsumableArray(new Set([].concat(_toConsumableArray(allContainmentRefs.flatMap(function (r) {
+            return r.mtarget;
+          })), _toConsumableArray(allContainmentRefs.map(function (r) {
+            return r.parent;
+          })))));
+
+          var vertexIDMap = {};
+          var rawVertex = nodesLogic.map(function (c) {
+            return vertexIDMap['' + c.id] = new _common_util__WEBPACK_IMPORTED_MODULE_2__["RawVertex"]('' + c.id, c);
+          });
+          var i = 0;
+          var rawEdges = allContainmentRefs.flatMap(function (r) {
+            var sourcev = vertexIDMap['' + r.parent.id];
+            return r.mtarget.map(function (target) {
+              var targetv = vertexIDMap['' + target.id];
+              return new _common_util__WEBPACK_IMPORTED_MODULE_2__["RawEdge"]('e' + i++, sourcev, targetv, r);
+            });
+          });
+          var out = {
+            elementsInLoop: []
+          };
+          new _common_util__WEBPACK_IMPORTED_MODULE_2__["RawGraph"](rawVertex, rawEdges).getDagOrder(true, out);
+          return out.elementsInLoop.map(function (e) {
+            return _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].getByID(+e.id);
+          });
         }
       }]);
 
@@ -3737,9 +3804,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             classes[i].references.forEach(function (elem) {
               arr.push(elem);
             });
-          }
+          } // console.log(arr, new Set(arr));
 
-          return arr;
+
+          return _toConsumableArray(new Set(arr));
         }
       }, {
         key: "getPackage",
@@ -4421,6 +4489,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function addEmptyClass(metaVersion) {
           var c = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"](this, null, metaVersion, false);
           if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic) c.generateVertex();
+          if (!this.parent.classRoot) c.setRoot(true);
           console.log('addEmptyClass(); package:', this, '; metaVersion: ', metaVersion, 'classe:', c);
           return c;
         }
@@ -5097,7 +5166,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!acceptNull && (!p || !(p instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"])), 'failed to get model root:', this, 'lastParent:', p, i);
 
-          return p;
+          return p instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IModel"] ? p : null;
         }
       }, {
         key: "gotDeleted",
@@ -5668,6 +5737,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (root && !fromParent) {
             var pbar = root.graph.propertyBar;
+            console.log({
+              thiss: this,
+              pbar: pbar,
+              root: root,
+              graph: root.graph,
+              pbsarr: root.graph.propertyBar
+            });
             var pbarselect = pbar.selectedModelPiece;
 
             if (pbarselect.gotDeleted()) {
@@ -7003,7 +7079,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "::ng-deep body {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainBorderWidth: 5px;\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n  --bluebordercolor: #0084ff;\r\n/*\r\n  --mainFontColor: transparent;\r\n  --mainBackgroundColor: transparent;\r\n  --mainBorderColor: transparent;\r\n  --secondaryBorderColor: transparent;\r\n  --popupBackgroundColor: transparent;\r\n  --altBackgroundColor: var(--mainBorderColor);\r\n  --altFontColor: transparent;*/\r\n\r\n  /* todo: questi colori vengono sempre rimpiazzati dinamicamente, esistono solo in fallback se l'utente elimina tutti i color-scheme*/\r\n  --color-1: #f5f5f5;\r\n  --color-2: #3c3c44;\r\n  --color-3: #2e2f34;\r\n  --color-4: #1E90FF;\r\n  --color-bg-1: #ffffff;\r\n  --color-bg-2: #f0f0f0;\r\n  --color-bg-3: #2e2f34;\r\n  --color-bg-30: transparent;\r\n\r\n  /*\r\n  --LightsecondaryBorderColor: var(--color-1); /*#c5c5c5;* /\r\n  --LightmainFontColor: var(--color-2);\r\n  --LightaltFontColor: var(--color-3);\r\n  --LightmainBackgroundColor: var(--color-bg-1);\r\n  --LightmainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;* /\r\n  --LightpopupBackgroundColor: var(--color-bg-3);\r\n  /* --LightaltBackgroundColor: var(--color-bg-30);* /\r\n\r\n  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;* /--color-1\r\n  --DarkmainFontColor: #b2b2ba; --color-2\r\n  --DarkaltFontColor: #f0f0f0;/* var(--LightmainBorderColor); * /--color-3\r\n  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;* /--color-bg-1\r\n  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;* /--color-bg-2\r\n  --DarkpopupBackgroundColor: #44444c;--color-bg-3\r\n  /*--DarkaltBackgroundColor: var(--mainBorderColor);*/\r\n\r\n  --mainFontColor: var(--color-2);\r\n  --mainBackgroundColor: var(--color-bg-1);\r\n  --mainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/\r\n  --secondaryBorderColor: var(--color-1); /*#c5c5c5;*/\r\n  --popupBackgroundColor: var(--color-bg-3);\r\n  /*--altBackgroundColor: var(--color-bg-30);*/\r\n  --altFontColor: var(--color-3);\r\n}\r\n.Vertex{\r\n  --color-1: #FFFFFF;\r\n  --color-2: #000000;\r\n  --color-3: #000000;\r\n  --color-4: #1E90FF;\r\n  --color-5: #FF0000;\r\n}\r\n.Feature{\r\n   --color-f-1: #ff8c00;\r\n   --color-f-2: #28a745;\r\n   --color-f-3: #d3d3d3;\r\n }\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0); /* unused? totally transparent*/\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n::ng-deep .graph *{\r\n  overflow: inherit;\r\n  text-overflow: ellipsis;\r\n}\r\n/*because color will be inherited, but background not (since input and selects cannot inherit and inherit behave like transparent.\r\n this is fine on the input itself but the optgroup cannot have transparent and will be always white.\r\n now, the problem is if you set a bacgkround-color: inherit / transparent select inside a black element with white text, the optgroup will be white with white text.\r\n */\r\n::ng-deep select{\r\n  text-overflow: clip;\r\n}\r\n::ng-deep optgroup{\r\n  color: black;\r\n  background-color: white;\r\n}\r\n::ng-deep [title] {\r\n  cursor: help;\r\n}\r\n/*::-webkit-scrollbar {\r\ndisplay: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCLGtCQUFrQjtFQUNoQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpRUFBaUU7RUFDakUsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWiwwQkFBMEI7QUFDNUI7Ozs7Ozs7K0JBTytCOztFQUU3QixvSUFBb0k7RUFDcEksa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLDBCQUEwQjs7RUFFMUI7Ozs7Ozs7Ozs7Ozs7OztzREFlb0Q7O0VBRXBELCtCQUErQjtFQUMvQix3Q0FBd0M7RUFDeEMsb0NBQW9DLEVBQUUsbURBQW1EO0VBQ3pGLHNDQUFzQyxFQUFFLFdBQVc7RUFDbkQseUNBQXlDO0VBQ3pDLDRDQUE0QztFQUM1Qyw4QkFBOEI7QUFDaEM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQTtHQUNHLG9CQUFvQjtHQUNwQixvQkFBb0I7R0FDcEIsb0JBQW9CO0NBQ3RCO0FBRUQ7RUFDRSxzQkFBc0I7RUFDdEIsaUNBQWlDO0VBQ2pDLG9DQUFvQztFQUNwQyw0Q0FBNEMsRUFBRSwrQkFBK0I7RUFDN0Usd0NBQXdDO0VBQ3hDLDJCQUEyQjtFQUMzQix5Q0FBeUM7RUFDekMsNkNBQTZDO0VBQzdDLHNDQUFzQztBQUN4QztBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLHVCQUF1QjtBQUN6QjtBQUNBOzs7RUFHRTtBQUNGO0VBQ0UsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFDQTs7RUFFRTtBQUNGLGFBQWEsOEJBQThCLEVBQUU7QUFDN0Msc0JBQXNCLG9DQUFvQyxFQUFFO0FBQzVELG1CQUFtQixpQ0FBaUMsRUFBRTtBQUN0RDtFQUNFLGFBQWE7RUFDYiwyQkFBMkIsRUFBRSxTQUFTO0FBQ3hDO0FBQ0E7RUFDRSxrQ0FBa0M7QUFDcEM7QUFDQSxPQUFPO0FBRVAseUNBQXlDO0FBQ3pDO0VBQ0Usc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDRDQUE0QztFQUM1Qyx5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsdUNBQXVDO0VBQ3ZDLHlIQUF5SDtFQUN6SCw0REFBNEQ7QUFDOUQ7QUFDQTtFQUNFLDZCQUE2QjtFQUM3QjtnQkFDYztBQUNoQjtBQUNBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isd0JBQXVCO1VBQXZCLHVCQUF1QjtBQUN6QjtBQUNBOzs7Ozs7Ozs7Ozs7Ozs7OztFQWlCRTtBQUVGO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFFQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixVQUFVO0FBQ1o7QUFHQSwwRkFBMEY7QUFDMUY7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztDQXFCQztBQUNEO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQW1CO0VBQW5CLDZCQUFtQjtVQUFuQixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHlCQUE4QjtVQUE5Qiw4QkFBOEI7RUFDOUIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBeUI7RUFDekIsWUFBWSxDQUFDO0FBR2Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osdUdBQXVHO0VBQ3ZHLHdEQUF3RDtFQUN4RCx5QkFBeUIsQ0FBQyx3QkFBd0I7QUFDcEQ7QUFDQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjtBQU1BO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgYm9keSB7LyogY3NzIHZhcmlhYmxlcyAqL1xyXG4gIC0tdG9wYmFySDogNDBweDtcclxuICAtLXNpZGViYXJXOiAyODNweDtcclxuICAtLW1haW5Cb3JkZXJXaWR0aDogNXB4O1xyXG4gIC0tbWFpbkJvcmRlcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKSBzb2xpZCB2YXIoLS1tYWluQm9yZGVyV2lkdGgpO1xyXG4gIC0tc2Nyb2xsYmFyVzogMHB4O1xyXG4gIC0tdGFiSDogMzBweDtcclxuICAtLWJsdWVib3JkZXJjb2xvcjogIzAwODRmZjtcclxuLypcclxuICAtLW1haW5Gb250Q29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tYWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tYWx0Rm9udENvbG9yOiB0cmFuc3BhcmVudDsqL1xyXG5cclxuICAvKiB0b2RvOiBxdWVzdGkgY29sb3JpIHZlbmdvbm8gc2VtcHJlIHJpbXBpYXp6YXRpIGRpbmFtaWNhbWVudGUsIGVzaXN0b25vIHNvbG8gaW4gZmFsbGJhY2sgc2UgbCd1dGVudGUgZWxpbWluYSB0dXR0aSBpIGNvbG9yLXNjaGVtZSovXHJcbiAgLS1jb2xvci0xOiAjZjVmNWY1O1xyXG4gIC0tY29sb3ItMjogIzNjM2M0NDtcclxuICAtLWNvbG9yLTM6ICMyZTJmMzQ7XHJcbiAgLS1jb2xvci00OiAjMUU5MEZGO1xyXG4gIC0tY29sb3ItYmctMTogI2ZmZmZmZjtcclxuICAtLWNvbG9yLWJnLTI6ICNmMGYwZjA7XHJcbiAgLS1jb2xvci1iZy0zOiAjMmUyZjM0O1xyXG4gIC0tY29sb3ItYmctMzA6IHRyYW5zcGFyZW50O1xyXG5cclxuICAvKlxyXG4gIC0tTGlnaHRzZWNvbmRhcnlCb3JkZXJDb2xvcjogdmFyKC0tY29sb3ItMSk7IC8qI2M1YzVjNTsqIC9cclxuICAtLUxpZ2h0bWFpbkZvbnRDb2xvcjogdmFyKC0tY29sb3ItMik7XHJcbiAgLS1MaWdodGFsdEZvbnRDb2xvcjogdmFyKC0tY29sb3ItMyk7XHJcbiAgLS1MaWdodG1haW5CYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTEpO1xyXG4gIC0tTGlnaHRtYWluQm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLWJnLTIpOyAvKiM5Y2E3Yjg7IG9uIGludGVsbGlKaWRlYSBkYXJrZXIgc2hhZGUgLyojZTVlNWU1OyogL1xyXG4gIC0tTGlnaHRwb3B1cEJhY2tncm91bmRDb2xvcjogdmFyKC0tY29sb3ItYmctMyk7XHJcbiAgLyogLS1MaWdodGFsdEJhY2tncm91bmRDb2xvcjogdmFyKC0tY29sb3ItYmctMzApOyogL1xyXG5cclxuICAtLURhcmtzZWNvbmRhcnlCb3JkZXJDb2xvcjogIzNjM2M0NDsvKiNjNWM1YzU7KiAvLS1jb2xvci0xXHJcbiAgLS1EYXJrbWFpbkZvbnRDb2xvcjogI2IyYjJiYTsgLS1jb2xvci0yXHJcbiAgLS1EYXJrYWx0Rm9udENvbG9yOiAjZjBmMGYwOy8qIHZhcigtLUxpZ2h0bWFpbkJvcmRlckNvbG9yKTsgKiAvLS1jb2xvci0zXHJcbiAgLS1EYXJrbWFpbkJhY2tncm91bmRDb2xvcjogIzFhMWExYzsvKndoaXRlU21va2U7KiAvLS1jb2xvci1iZy0xXHJcbiAgLS1EYXJrbWFpbkJvcmRlckNvbG9yOiAjMmUyZjM0Oy8qI2U1ZTVlNTsqIC8tLWNvbG9yLWJnLTJcclxuICAtLURhcmtwb3B1cEJhY2tncm91bmRDb2xvcjogIzQ0NDQ0YzstLWNvbG9yLWJnLTNcclxuICAvKi0tRGFya2FsdEJhY2tncm91bmRDb2xvcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKTsqL1xyXG5cclxuICAtLW1haW5Gb250Q29sb3I6IHZhcigtLWNvbG9yLTIpO1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdmFyKC0tY29sb3ItYmctMSk7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLWJnLTIpOyAvKiM5Y2E3Yjg7IG9uIGludGVsbGlKaWRlYSBkYXJrZXIgc2hhZGUgLyojZTVlNWU1OyovXHJcbiAgLS1zZWNvbmRhcnlCb3JkZXJDb2xvcjogdmFyKC0tY29sb3ItMSk7IC8qI2M1YzVjNTsqL1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMpO1xyXG4gIC8qLS1hbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMwKTsqL1xyXG4gIC0tYWx0Rm9udENvbG9yOiB2YXIoLS1jb2xvci0zKTtcclxufVxyXG4uVmVydGV4e1xyXG4gIC0tY29sb3ItMTogI0ZGRkZGRjtcclxuICAtLWNvbG9yLTI6ICMwMDAwMDA7XHJcbiAgLS1jb2xvci0zOiAjMDAwMDAwO1xyXG4gIC0tY29sb3ItNDogIzFFOTBGRjtcclxuICAtLWNvbG9yLTU6ICNGRjAwMDA7XHJcbn1cclxuLkZlYXR1cmV7XHJcbiAgIC0tY29sb3ItZi0xOiAjZmY4YzAwO1xyXG4gICAtLWNvbG9yLWYtMjogIzI4YTc0NTtcclxuICAgLS1jb2xvci1mLTM6ICNkM2QzZDM7XHJcbiB9XHJcblxyXG46Om5nLWRlZXAgKntcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIHNjcm9sbGJhci1iYXNlLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBzY3JvbGxiYXItM2RsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgc2Nyb2xsYmFyLWhpZ2hsaWdodC1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7IC8qIHVudXNlZD8gdG90YWxseSB0cmFuc3BhcmVudCovXHJcbiAgc2Nyb2xsYmFyLXRyYWNrLWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItYXJyb3ctY29sb3I6ICMwMDA7XHJcbiAgc2Nyb2xsYmFyLXNoYWRvdy1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgc2Nyb2xsYmFyLWRhcmtzaGFkb3ctY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIC8qIC1tb3otYXBwZWFyYW5jZTogbm9uZSAhaW1wb3J0YW50OyAqL1xyXG59XHJcbjo6bmctZGVlcCAuZ3JhcGggKntcclxuICBvdmVyZmxvdzogaW5oZXJpdDtcclxuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxufVxyXG4vKmJlY2F1c2UgY29sb3Igd2lsbCBiZSBpbmhlcml0ZWQsIGJ1dCBiYWNrZ3JvdW5kIG5vdCAoc2luY2UgaW5wdXQgYW5kIHNlbGVjdHMgY2Fubm90IGluaGVyaXQgYW5kIGluaGVyaXQgYmVoYXZlIGxpa2UgdHJhbnNwYXJlbnQuXHJcbiB0aGlzIGlzIGZpbmUgb24gdGhlIGlucHV0IGl0c2VsZiBidXQgdGhlIG9wdGdyb3VwIGNhbm5vdCBoYXZlIHRyYW5zcGFyZW50IGFuZCB3aWxsIGJlIGFsd2F5cyB3aGl0ZS5cclxuIG5vdywgdGhlIHByb2JsZW0gaXMgaWYgeW91IHNldCBhIGJhY2drcm91bmQtY29sb3I6IGluaGVyaXQgLyB0cmFuc3BhcmVudCBzZWxlY3QgaW5zaWRlIGEgYmxhY2sgZWxlbWVudCB3aXRoIHdoaXRlIHRleHQsIHRoZSBvcHRncm91cCB3aWxsIGJlIHdoaXRlIHdpdGggd2hpdGUgdGV4dC5cclxuICovXHJcbjo6bmctZGVlcCBzZWxlY3R7XHJcbiAgdGV4dC1vdmVyZmxvdzogY2xpcDtcclxufVxyXG46Om5nLWRlZXAgb3B0Z3JvdXB7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG59XHJcbjo6bmctZGVlcCBbdGl0bGVdIHtcclxuICBjdXJzb3I6IGhlbHA7XHJcbn1cclxuLyo6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuZGlzcGxheTogbm9uZTtcclxufSovXHJcbio6ZGlzYWJsZWQgeyBjdXJzb3I6IG5vdC1hbGxvd2VkICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1jaGVja2JveF17IC1tb3otYXBwZWFyYW5jZTogY2hlY2tib3ggIWltcG9ydGFudDsgfVxyXG5pbnB1dFt0eXBlPXJhZGlvXXsgLW1vei1hcHBlYXJhbmNlOiByYWRpbyAhaW1wb3J0YW50OyB9XHJcbmlucHV0OmRpc2FibGVke1xyXG4gIG9wYWNpdHkgOiAuNzU7XHJcbiAgZmlsdGVyICA6IGFscGhhKG9wYWNpdHk9NzUpOyAvKiBJRTw5ICovXHJcbn1cclxuOjpuZy1kZWVwIC5zdHlsZUVkaXRvclNlbGVjdGVke1xyXG4gIG91dGxpbmU6IDNweCBkYXNoZWQgcmVkICFpbXBvcnRhbnQ7XHJcbn1cclxuLypvbGRzKi9cclxuXHJcbi8qKioqKioqKioqKioqKioqKiogYXR0cmlidXRlRWRpdG9yLmNzcyAqL1xyXG4uYXR0cmlidXRlRWRpdG9yLCAuc3R5bGVFZGl0b3J7XHJcbiAgLypkaXNwbGF5OmlubGluZS1ib3g7Ki9cclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IC1tb3otZml0LWNvbnRlbnQ7XHJcbiAgcGFkZGluZzo4cHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbiAgYm9yZGVyOiB2YXIoLS1tYWluQm9yZGVyKTtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG1heC1oZWlnaHQ6MTAwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuLnN0eWxlRWRpdG9ye1xyXG4gIGxlZnQ6IHZhcigtLXNpZGViYXJXKTtcclxuICB0b3A6IGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSk7XHJcbiAgLyp2b2dsaW8gY2hlIHNpYSBkaXZlcnNhIHBlcmNow6ggZGkgc29saXRvIHBhcnRlIGNvbiBhbHRlenphIHBhcmkgYSB0b3BiYXIuaCBlIHZvZ2xpbyBjaGUgc2lhIHNjcm9sbGFiaWxlIHNlbnphIHNwb3N0YXJsYSovXHJcbiAgbWF4LWhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG59XHJcbmJ1dHRvbi5hdHRyaWJ1dGVFZGl0b3JDb25maXJtLCBidXR0b24uc3R5bGVFZGl0b3JDb25maXJte1xyXG4gIG1hcmdpbi1sZWZ0OiBjYWxjKDUwJSAtIDUwcHgpO1xyXG4gIC8qIHdpZHRoOjEwMHB4O1xyXG4gICBoZWlnaHQ6MzBweDsqL1xyXG59XHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIC5hdHRyaWJ1dGVFZGl0b3JGaWVsZE5hbWUsIHRhYmxlLnN0eWxlVGFibGUgLnN0eWxlRWRpdG9yRmllbGROYW1le1xyXG4gIG1heC13aWR0aDoxNTBweDtcclxuICBtYXgtaGVpZ2h0OjE1MHB4O1xyXG4gIG92ZXJmbG93OmF1dG87XHJcbn1cclxuLnN0eWxlVGFibGV7XHJcbiAgbWFyZ2luLXRvcDoxMHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uc3R5bGVUYWJsZSB0ZHtcclxuICBtYXgtd2lkdGg6IDMwMHB4O1xyXG59XHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSwgLnN0eWxlRWRpdG9yVGl0bGV7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5lZGdlUm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLmVkZ2VSb3c+KntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogMHB4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiA0cHg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcbi5pc0NvbXBvdW5kRWRnZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG4uc3R5bGVDb21wb3VuZFdyYXBwZXJ7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5jb21wb3VuZEVkZ2VTdGFydCwgLmNvbXBvdW5kRWRnZUVuZHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLlNpZGViYXJTdHlsZUh0bWwsIC5HcmFwaFN0eWxlSHRtbHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcbi8qXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHtcclxuICAgIGJvcmRlcjpub25lO1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjMDAwO1xyXG4gICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgIzAwMDtcclxufVxyXG5cclxudGFibGUuYXR0cmlidXRlVGFibGUgdGQ6Zmlyc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmxhc3QtY2hpbGQge1xyXG4gICAgYm9yZGVyLXJpZ2h0OiBub25lO1xyXG59Ki9cclxuXHJcbi5hdHRyaWJ1dGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0sIC5zdHlsZUVkaXRvclRpdGxlIGlucHV0W3R5cGU9XCJyYWRpb1wiXXtcclxuICBtYXJnaW46IDRweDtcclxufVxyXG4uUmVmZXJlbmNlU2VsZWN0b3J7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcblxyXG4ucm93TW9kZWxEZXRhaWwsIC52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBmbG9hdDogcmlnaHQ7XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIHdpZHRoOiAzM3B4O1xyXG4gIGhlaWdodDogMzNweDtcclxuICBwYWRkaW5nLXRvcDogMnB4O1xyXG59XHJcbi52ZXJ0ZXhNb2RlbERldGFpbHtcclxuICBtYXJnaW4tbGVmdDogMTBweDtcclxuICBmbG9hdDpub25lO1xyXG59XHJcblxyXG5cclxuLyovLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLyAgY3NzLmNzcyBub3RoaW5nIG9mIHRoaXMgc2hvdWxkIHdvcmsqL1xyXG4vKlxyXG4uc2lkZWJhclNoZWxsLCAuZWRpdG9yU2hlbGwsIC5wcm9wZXJ0eV9zaWRlYmFye1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jazsvKmZsZXg7KiAvXHJcbiAgLyogaGVpZ2h0OiBjYWxjKDEwMHZoIC0gKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTsqIC9cclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIGZsZXgtd3JhcDogd3JhcDt9XHJcbi5zaWRlYmFyU2hlbGx7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4jcHJvcGVydHlfc2lkZWJhcntcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1iYXNpczogY2FsYyh2YXIoLS1zaWRlYmFyVykpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG59XHJcbi5lZGl0b3JTaGVsbHtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIHdpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpKTtcclxufVxyXG4qL1xyXG4jbWV0YW1vZGVsX3RhYiwgI21vZGVsX3RhYntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcclxuICBhbGlnbi1jb250ZW50OiBmbGV4LXN0YXJ0O1xyXG4gIHdpZHRoOiAxMDB2dzt9XHJcblxyXG5cclxuI21ldGFtb2RlbF9lZGl0b3IsICNtb2RlbF9lZGl0b3J7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAwcHg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIC8qd2lkdGg6IGNhbGMoMTAwdncgLSB2YXIoLS1zaWRlYmFyVykgLSB2YXIoLS1zY3JvbGxiYXJXKSk7LypOQjogVE8gRE86IHF1YW5kbyBuYXNjb25kaSBsJ2hpZGRlbmlucHV0ICovXHJcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gY2FsYyh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ0NDQ0YzsvKmxpZ2h0Z29sZGVucm9keWVsbG93OyovXHJcbn1cclxuI2lucHV0e1xyXG4gIGRpc3BsYXk6bm9uZTtcclxuICB3aWR0aDogMTAwdnc7XHJcbiAgaGVpZ2h0OiAzMDBweDtcclxuICBvdmVyZmxvdy15OnNjcm9sbDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuXHJcbnRhYmxlLm5vQm9yZGVye1xyXG4gIGJvcmRlcjogbm9uZTtcclxufVxyXG4iXX0= */";
+    __webpack_exports__["default"] = "::ng-deep body {/* css variables */\r\n  --topbarH: 40px;\r\n  --sidebarW: 283px;\r\n  --mainBorderWidth: 5px;\r\n  --mainBorder: var(--mainBorderColor) solid var(--mainBorderWidth);\r\n  --scrollbarW: 0px;\r\n  --tabH: 30px;\r\n  --bluebordercolor: #0084ff;\r\n/*\r\n  --mainFontColor: transparent;\r\n  --mainBackgroundColor: transparent;\r\n  --mainBorderColor: transparent;\r\n  --secondaryBorderColor: transparent;\r\n  --popupBackgroundColor: transparent;\r\n  --altBackgroundColor: var(--mainBorderColor);\r\n  --altFontColor: transparent;*/\r\n\r\n  /* todo: questi colori vengono sempre rimpiazzati dinamicamente, esistono solo in fallback se l'utente elimina tutti i color-scheme*/\r\n  --color-1: #f5f5f5;\r\n  --color-2: #3c3c44;\r\n  --color-3: #2e2f34;\r\n  --color-4: #1E90FF;\r\n  --color-bg-1: #ffffff;\r\n  --color-bg-2: #f0f0f0;\r\n  --color-bg-3: #2e2f34;\r\n  --color-bg-30: transparent;\r\n\r\n  /*\r\n  --LightsecondaryBorderColor: var(--color-1); /*#c5c5c5;* /\r\n  --LightmainFontColor: var(--color-2);\r\n  --LightaltFontColor: var(--color-3);\r\n  --LightmainBackgroundColor: var(--color-bg-1);\r\n  --LightmainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;* /\r\n  --LightpopupBackgroundColor: var(--color-bg-3);\r\n  /* --LightaltBackgroundColor: var(--color-bg-30);* /\r\n\r\n  --DarksecondaryBorderColor: #3c3c44;/*#c5c5c5;* /--color-1\r\n  --DarkmainFontColor: #b2b2ba; --color-2\r\n  --DarkaltFontColor: #f0f0f0;/* var(--LightmainBorderColor); * /--color-3\r\n  --DarkmainBackgroundColor: #1a1a1c;/*whiteSmoke;* /--color-bg-1\r\n  --DarkmainBorderColor: #2e2f34;/*#e5e5e5;* /--color-bg-2\r\n  --DarkpopupBackgroundColor: #44444c;--color-bg-3\r\n  /*--DarkaltBackgroundColor: var(--mainBorderColor);*/\r\n\r\n  --mainFontColor: var(--color-2);\r\n  --mainBackgroundColor: var(--color-bg-1);\r\n  --mainBorderColor: var(--color-bg-2); /*#9ca7b8; on intelliJidea darker shade /*#e5e5e5;*/\r\n  --secondaryBorderColor: var(--color-1); /*#c5c5c5;*/\r\n  --popupBackgroundColor: var(--color-bg-3);\r\n  /*--altBackgroundColor: var(--color-bg-30);*/\r\n  --altFontColor: var(--color-3);\r\n}\r\n.Vertex{\r\n  --color-1: #FFFFFF;\r\n  --color-2: #000000;\r\n  --color-3: #000000;\r\n  --color-4: #1E90FF;\r\n  --color-5: #FF0000;\r\n}\r\n.Feature{\r\n   --color-f-1: #ff8c00;\r\n   --color-f-2: #28a745;\r\n   --color-f-3: #d3d3d3;\r\n }\r\n::ng-deep *{\r\n  box-sizing: border-box;\r\n  scrollbar-base-color: transparent;\r\n  scrollbar-3dlight-color: transparent;\r\n  scrollbar-highlight-color: rgba(93,95,104,0); /* unused? totally transparent*/\r\n  scrollbar-track-color: rgba(93,95,104,0);\r\n  scrollbar-arrow-color: #000;\r\n  scrollbar-shadow-color: rgba(93,95,104,0);\r\n  scrollbar-darkshadow-color: rgba(93,95,104,0);\r\n  /* -moz-appearance: none !important; */\r\n}\r\n::ng-deep .graph *{\r\n  overflow: inherit;\r\n  text-overflow: ellipsis;\r\n}\r\n/*because color will be inherited, but background not (since input and selects cannot inherit and inherit behave like transparent.\r\n this is fine on the input itself but the optgroup cannot have transparent and will be always white.\r\n now, the problem is if you set a bacgkround-color: inherit / transparent select inside a black element with white text, the optgroup will be white with white text.\r\n */\r\n::ng-deep select{\r\n  text-overflow: clip;\r\n}\r\n::ng-deep optgroup{\r\n  color: black;\r\n  background-color: white;\r\n}\r\n::ng-deep [title] {\r\n  cursor: help;\r\n}\r\n/*::-webkit-scrollbar {\r\ndisplay: none;\r\n}*/\r\n*:disabled { cursor: not-allowed !important; }\r\ninput[type=checkbox]{ -moz-appearance: checkbox !important; }\r\ninput[type=radio]{ -moz-appearance: radio !important; }\r\ninput:disabled{\r\n  opacity : .75;\r\n  filter  : alpha(opacity=75); /* IE<9 */\r\n}\r\n::ng-deep .styleEditorSelected{\r\n  outline: 3px dashed red !important;\r\n}\r\n/*olds*/\r\n/****************** attributeEditor.css */\r\n.attributeEditor, .styleEditor{\r\n  /*display:inline-box;*/\r\n  position: absolute;\r\n  width: -moz-fit-content;\r\n  padding:8px;\r\n  background-color: var(--mainBackgroundColor);\r\n  border: var(--mainBorder);\r\n  max-width: 100vw;\r\n  max-height:100vh;\r\n  overflow: auto;\r\n}\r\n.styleEditor{\r\n  left: var(--sidebarW);\r\n  top: calc(var(--topbarH) + var(--tabH));\r\n  /*voglio che sia diversa perchè di solito parte con altezza pari a topbar.h e voglio che sia scrollabile senza spostarla*/\r\n  max-height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n}\r\nbutton.attributeEditorConfirm, button.styleEditorConfirm{\r\n  margin-left: calc(50% - 50px);\r\n  /* width:100px;\r\n   height:30px;*/\r\n}\r\ntable.attributeTable .attributeEditorFieldName, table.styleTable .styleEditorFieldName{\r\n  max-width:150px;\r\n  max-height:150px;\r\n  overflow:auto;\r\n}\r\n.styleTable{\r\n  margin-top:10px;\r\n  text-align: center;\r\n}\r\n.styleTable td{\r\n  max-width: 300px;\r\n}\r\n.attributeEditorTitle, .styleEditorTitle{\r\n  text-align: center;\r\n}\r\n.edgeRow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.edgeRow>*{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: 0px;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  text-align: center;\r\n  padding: 4px;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  white-space: nowrap;\r\n}\r\n.isCompoundEdge{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n}\r\n.styleCompoundWrapper{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.compoundEdgeStart, .compoundEdgeEnd{\r\n  text-align: center;\r\n  width: 100%;\r\n}\r\n.SidebarStyleHtml, .GraphStyleHtml{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n          justify-content: center;\r\n}\r\n/*\r\ntable.attributeTable {\r\n    border:none;\r\n    border-collapse: collapse;\r\n}\r\n\r\ntable.attributeTable td {\r\n    border-left: 1px solid #000;\r\n    border-right: 1px solid #000;\r\n}\r\n\r\ntable.attributeTable td:first-child {\r\n    border-left: none;\r\n}\r\n\r\ntable.attributeTable td:last-child {\r\n    border-right: none;\r\n}*/\r\n.attributeEditorTitle input[type=\"checkbox\"], .styleEditorTitle input[type=\"radio\"]{\r\n  margin: 4px;\r\n}\r\n.ReferenceSelector{\r\n  float: right;\r\n}\r\n.rowModelDetail, .vertexModelDetail{\r\n  float: right;\r\n  border-radius: 50%;\r\n  width: 33px;\r\n  height: 33px;\r\n  padding-top: 2px;\r\n}\r\n.vertexModelDetail{\r\n  margin-left: 10px;\r\n  float:none;\r\n}\r\n/*//////////////////////////////////////////////////  css.css nothing of this should work*/\r\n/*\r\n.sidebarShell, .editorShell, .property_sidebar{\r\n  display: inline-block;/*flex;* /\r\n  /* height: calc(100vh - (var(--topbarH) + var(--tabH)));* /\r\n  overflow: hidden;\r\n  flex-wrap: wrap;}\r\n.sidebarShell{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n#property_sidebar{\r\n  flex-grow: 0;\r\n  flex-basis: calc(var(--sidebarW));\r\n  background-color: var(--mainBackgroundColor);\r\n}\r\n.editorShell{\r\n  flex-basis: 0px;\r\n  flex-grow: 1;\r\n  width: calc(100vw - var(--sidebarW));\r\n}\r\n*/\r\n#metamodel_tab, #model_tab{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-direction: row;\r\n  flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n          justify-content: space-between;\r\n  -webkit-box-align: start;\r\n          align-items: flex-start;\r\n  align-content: flex-start;\r\n  width: 100vw;}\r\n#metamodel_editor, #model_editor{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 0px;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  /*width: calc(100vw - var(--sidebarW) - var(--scrollbarW));/*NB: TO DO: quando nascondi l'hiddeninput */\r\n  height: calc(100vh - calc(var(--topbarH) + var(--tabH)));\r\n  background-color: #44444c;/*lightgoldenrodyellow;*/\r\n}\r\n#input{\r\n  display:none;\r\n  width: 100vw;\r\n  height: 300px;\r\n  overflow-y:scroll;\r\n}\r\ntable.noBorder{\r\n  border: none;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCLGtCQUFrQjtFQUNoQyxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpRUFBaUU7RUFDakUsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWiwwQkFBMEI7QUFDNUI7Ozs7Ozs7K0JBTytCOztFQUU3QixvSUFBb0k7RUFDcEksa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLDBCQUEwQjs7RUFFMUI7Ozs7Ozs7Ozs7Ozs7OztzREFlb0Q7O0VBRXBELCtCQUErQjtFQUMvQix3Q0FBd0M7RUFDeEMsb0NBQW9DLEVBQUUsbURBQW1EO0VBQ3pGLHNDQUFzQyxFQUFFLFdBQVc7RUFDbkQseUNBQXlDO0VBQ3pDLDRDQUE0QztFQUM1Qyw4QkFBOEI7QUFDaEM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFDQTtHQUNHLG9CQUFvQjtHQUNwQixvQkFBb0I7R0FDcEIsb0JBQW9CO0NBQ3RCO0FBRUQ7RUFDRSxzQkFBc0I7RUFDdEIsaUNBQWlDO0VBQ2pDLG9DQUFvQztFQUNwQyw0Q0FBNEMsRUFBRSwrQkFBK0I7RUFDN0Usd0NBQXdDO0VBQ3hDLDJCQUEyQjtFQUMzQix5Q0FBeUM7RUFDekMsNkNBQTZDO0VBQzdDLHNDQUFzQztBQUN4QztBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLHVCQUF1QjtBQUN6QjtBQUVBOzs7RUFHRTtBQUNGO0VBQ0UsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFDQTs7RUFFRTtBQUNGLGFBQWEsOEJBQThCLEVBQUU7QUFDN0Msc0JBQXNCLG9DQUFvQyxFQUFFO0FBQzVELG1CQUFtQixpQ0FBaUMsRUFBRTtBQUN0RDtFQUNFLGFBQWE7RUFDYiwyQkFBMkIsRUFBRSxTQUFTO0FBQ3hDO0FBQ0E7RUFDRSxrQ0FBa0M7QUFDcEM7QUFDQSxPQUFPO0FBRVAseUNBQXlDO0FBQ3pDO0VBQ0Usc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDRDQUE0QztFQUM1Qyx5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsdUNBQXVDO0VBQ3ZDLHlIQUF5SDtFQUN6SCw0REFBNEQ7QUFDOUQ7QUFDQTtFQUNFLDZCQUE2QjtFQUM3QjtnQkFDYztBQUNoQjtBQUNBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsV0FBVztFQUNYLDRCQUFpQjtFQUFqQiw2QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osZUFBZTtFQUNmLG1CQUFZO1VBQVosWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isd0JBQXVCO1VBQXZCLHVCQUF1QjtBQUN6QjtBQUNBOzs7Ozs7Ozs7Ozs7Ozs7OztFQWlCRTtBQUVGO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxZQUFZO0FBQ2Q7QUFFQTtFQUNFLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixVQUFVO0FBQ1o7QUFHQSwwRkFBMEY7QUFDMUY7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztDQXFCQztBQUNEO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQW1CO0VBQW5CLDZCQUFtQjtVQUFuQixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHlCQUE4QjtVQUE5Qiw4QkFBOEI7RUFDOUIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBeUI7RUFDekIsWUFBWSxDQUFDO0FBR2Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osdUdBQXVHO0VBQ3ZHLHdEQUF3RDtFQUN4RCx5QkFBeUIsQ0FBQyx3QkFBd0I7QUFDcEQ7QUFDQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjtBQU1BO0VBQ0UsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6Om5nLWRlZXAgYm9keSB7LyogY3NzIHZhcmlhYmxlcyAqL1xyXG4gIC0tdG9wYmFySDogNDBweDtcclxuICAtLXNpZGViYXJXOiAyODNweDtcclxuICAtLW1haW5Cb3JkZXJXaWR0aDogNXB4O1xyXG4gIC0tbWFpbkJvcmRlcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKSBzb2xpZCB2YXIoLS1tYWluQm9yZGVyV2lkdGgpO1xyXG4gIC0tc2Nyb2xsYmFyVzogMHB4O1xyXG4gIC0tdGFiSDogMzBweDtcclxuICAtLWJsdWVib3JkZXJjb2xvcjogIzAwODRmZjtcclxuLypcclxuICAtLW1haW5Gb250Q29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIC0tYWx0QmFja2dyb3VuZENvbG9yOiB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIC0tYWx0Rm9udENvbG9yOiB0cmFuc3BhcmVudDsqL1xyXG5cclxuICAvKiB0b2RvOiBxdWVzdGkgY29sb3JpIHZlbmdvbm8gc2VtcHJlIHJpbXBpYXp6YXRpIGRpbmFtaWNhbWVudGUsIGVzaXN0b25vIHNvbG8gaW4gZmFsbGJhY2sgc2UgbCd1dGVudGUgZWxpbWluYSB0dXR0aSBpIGNvbG9yLXNjaGVtZSovXHJcbiAgLS1jb2xvci0xOiAjZjVmNWY1O1xyXG4gIC0tY29sb3ItMjogIzNjM2M0NDtcclxuICAtLWNvbG9yLTM6ICMyZTJmMzQ7XHJcbiAgLS1jb2xvci00OiAjMUU5MEZGO1xyXG4gIC0tY29sb3ItYmctMTogI2ZmZmZmZjtcclxuICAtLWNvbG9yLWJnLTI6ICNmMGYwZjA7XHJcbiAgLS1jb2xvci1iZy0zOiAjMmUyZjM0O1xyXG4gIC0tY29sb3ItYmctMzA6IHRyYW5zcGFyZW50O1xyXG5cclxuICAvKlxyXG4gIC0tTGlnaHRzZWNvbmRhcnlCb3JkZXJDb2xvcjogdmFyKC0tY29sb3ItMSk7IC8qI2M1YzVjNTsqIC9cclxuICAtLUxpZ2h0bWFpbkZvbnRDb2xvcjogdmFyKC0tY29sb3ItMik7XHJcbiAgLS1MaWdodGFsdEZvbnRDb2xvcjogdmFyKC0tY29sb3ItMyk7XHJcbiAgLS1MaWdodG1haW5CYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTEpO1xyXG4gIC0tTGlnaHRtYWluQm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLWJnLTIpOyAvKiM5Y2E3Yjg7IG9uIGludGVsbGlKaWRlYSBkYXJrZXIgc2hhZGUgLyojZTVlNWU1OyogL1xyXG4gIC0tTGlnaHRwb3B1cEJhY2tncm91bmRDb2xvcjogdmFyKC0tY29sb3ItYmctMyk7XHJcbiAgLyogLS1MaWdodGFsdEJhY2tncm91bmRDb2xvcjogdmFyKC0tY29sb3ItYmctMzApOyogL1xyXG5cclxuICAtLURhcmtzZWNvbmRhcnlCb3JkZXJDb2xvcjogIzNjM2M0NDsvKiNjNWM1YzU7KiAvLS1jb2xvci0xXHJcbiAgLS1EYXJrbWFpbkZvbnRDb2xvcjogI2IyYjJiYTsgLS1jb2xvci0yXHJcbiAgLS1EYXJrYWx0Rm9udENvbG9yOiAjZjBmMGYwOy8qIHZhcigtLUxpZ2h0bWFpbkJvcmRlckNvbG9yKTsgKiAvLS1jb2xvci0zXHJcbiAgLS1EYXJrbWFpbkJhY2tncm91bmRDb2xvcjogIzFhMWExYzsvKndoaXRlU21va2U7KiAvLS1jb2xvci1iZy0xXHJcbiAgLS1EYXJrbWFpbkJvcmRlckNvbG9yOiAjMmUyZjM0Oy8qI2U1ZTVlNTsqIC8tLWNvbG9yLWJnLTJcclxuICAtLURhcmtwb3B1cEJhY2tncm91bmRDb2xvcjogIzQ0NDQ0YzstLWNvbG9yLWJnLTNcclxuICAvKi0tRGFya2FsdEJhY2tncm91bmRDb2xvcjogdmFyKC0tbWFpbkJvcmRlckNvbG9yKTsqL1xyXG5cclxuICAtLW1haW5Gb250Q29sb3I6IHZhcigtLWNvbG9yLTIpO1xyXG4gIC0tbWFpbkJhY2tncm91bmRDb2xvcjogdmFyKC0tY29sb3ItYmctMSk7XHJcbiAgLS1tYWluQm9yZGVyQ29sb3I6IHZhcigtLWNvbG9yLWJnLTIpOyAvKiM5Y2E3Yjg7IG9uIGludGVsbGlKaWRlYSBkYXJrZXIgc2hhZGUgLyojZTVlNWU1OyovXHJcbiAgLS1zZWNvbmRhcnlCb3JkZXJDb2xvcjogdmFyKC0tY29sb3ItMSk7IC8qI2M1YzVjNTsqL1xyXG4gIC0tcG9wdXBCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMpO1xyXG4gIC8qLS1hbHRCYWNrZ3JvdW5kQ29sb3I6IHZhcigtLWNvbG9yLWJnLTMwKTsqL1xyXG4gIC0tYWx0Rm9udENvbG9yOiB2YXIoLS1jb2xvci0zKTtcclxufVxyXG4uVmVydGV4e1xyXG4gIC0tY29sb3ItMTogI0ZGRkZGRjtcclxuICAtLWNvbG9yLTI6ICMwMDAwMDA7XHJcbiAgLS1jb2xvci0zOiAjMDAwMDAwO1xyXG4gIC0tY29sb3ItNDogIzFFOTBGRjtcclxuICAtLWNvbG9yLTU6ICNGRjAwMDA7XHJcbn1cclxuLkZlYXR1cmV7XHJcbiAgIC0tY29sb3ItZi0xOiAjZmY4YzAwO1xyXG4gICAtLWNvbG9yLWYtMjogIzI4YTc0NTtcclxuICAgLS1jb2xvci1mLTM6ICNkM2QzZDM7XHJcbiB9XHJcblxyXG46Om5nLWRlZXAgKntcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIHNjcm9sbGJhci1iYXNlLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBzY3JvbGxiYXItM2RsaWdodC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgc2Nyb2xsYmFyLWhpZ2hsaWdodC1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7IC8qIHVudXNlZD8gdG90YWxseSB0cmFuc3BhcmVudCovXHJcbiAgc2Nyb2xsYmFyLXRyYWNrLWNvbG9yOiByZ2JhKDkzLDk1LDEwNCwwKTtcclxuICBzY3JvbGxiYXItYXJyb3ctY29sb3I6ICMwMDA7XHJcbiAgc2Nyb2xsYmFyLXNoYWRvdy1jb2xvcjogcmdiYSg5Myw5NSwxMDQsMCk7XHJcbiAgc2Nyb2xsYmFyLWRhcmtzaGFkb3ctY29sb3I6IHJnYmEoOTMsOTUsMTA0LDApO1xyXG4gIC8qIC1tb3otYXBwZWFyYW5jZTogbm9uZSAhaW1wb3J0YW50OyAqL1xyXG59XHJcbjo6bmctZGVlcCAuZ3JhcGggKntcclxuICBvdmVyZmxvdzogaW5oZXJpdDtcclxuICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxufVxyXG5cclxuLypiZWNhdXNlIGNvbG9yIHdpbGwgYmUgaW5oZXJpdGVkLCBidXQgYmFja2dyb3VuZCBub3QgKHNpbmNlIGlucHV0IGFuZCBzZWxlY3RzIGNhbm5vdCBpbmhlcml0IGFuZCBpbmhlcml0IGJlaGF2ZSBsaWtlIHRyYW5zcGFyZW50LlxyXG4gdGhpcyBpcyBmaW5lIG9uIHRoZSBpbnB1dCBpdHNlbGYgYnV0IHRoZSBvcHRncm91cCBjYW5ub3QgaGF2ZSB0cmFuc3BhcmVudCBhbmQgd2lsbCBiZSBhbHdheXMgd2hpdGUuXHJcbiBub3csIHRoZSBwcm9ibGVtIGlzIGlmIHlvdSBzZXQgYSBiYWNna3JvdW5kLWNvbG9yOiBpbmhlcml0IC8gdHJhbnNwYXJlbnQgc2VsZWN0IGluc2lkZSBhIGJsYWNrIGVsZW1lbnQgd2l0aCB3aGl0ZSB0ZXh0LCB0aGUgb3B0Z3JvdXAgd2lsbCBiZSB3aGl0ZSB3aXRoIHdoaXRlIHRleHQuXHJcbiAqL1xyXG46Om5nLWRlZXAgc2VsZWN0e1xyXG4gIHRleHQtb3ZlcmZsb3c6IGNsaXA7XHJcbn1cclxuOjpuZy1kZWVwIG9wdGdyb3Vwe1xyXG4gIGNvbG9yOiBibGFjaztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxufVxyXG46Om5nLWRlZXAgW3RpdGxlXSB7XHJcbiAgY3Vyc29yOiBoZWxwO1xyXG59XHJcbi8qOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbmRpc3BsYXk6IG5vbmU7XHJcbn0qL1xyXG4qOmRpc2FibGVkIHsgY3Vyc29yOiBub3QtYWxsb3dlZCAhaW1wb3J0YW50OyB9XHJcbmlucHV0W3R5cGU9Y2hlY2tib3hdeyAtbW96LWFwcGVhcmFuY2U6IGNoZWNrYm94ICFpbXBvcnRhbnQ7IH1cclxuaW5wdXRbdHlwZT1yYWRpb117IC1tb3otYXBwZWFyYW5jZTogcmFkaW8gIWltcG9ydGFudDsgfVxyXG5pbnB1dDpkaXNhYmxlZHtcclxuICBvcGFjaXR5IDogLjc1O1xyXG4gIGZpbHRlciAgOiBhbHBoYShvcGFjaXR5PTc1KTsgLyogSUU8OSAqL1xyXG59XHJcbjo6bmctZGVlcCAuc3R5bGVFZGl0b3JTZWxlY3RlZHtcclxuICBvdXRsaW5lOiAzcHggZGFzaGVkIHJlZCAhaW1wb3J0YW50O1xyXG59XHJcbi8qb2xkcyovXHJcblxyXG4vKioqKioqKioqKioqKioqKioqIGF0dHJpYnV0ZUVkaXRvci5jc3MgKi9cclxuLmF0dHJpYnV0ZUVkaXRvciwgLnN0eWxlRWRpdG9ye1xyXG4gIC8qZGlzcGxheTppbmxpbmUtYm94OyovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAtbW96LWZpdC1jb250ZW50O1xyXG4gIHBhZGRpbmc6OHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIGJvcmRlcjogdmFyKC0tbWFpbkJvcmRlcik7XHJcbiAgbWF4LXdpZHRoOiAxMDB2dztcclxuICBtYXgtaGVpZ2h0OjEwMHZoO1xyXG4gIG92ZXJmbG93OiBhdXRvO1xyXG59XHJcbi5zdHlsZUVkaXRvcntcclxuICBsZWZ0OiB2YXIoLS1zaWRlYmFyVyk7XHJcbiAgdG9wOiBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpO1xyXG4gIC8qdm9nbGlvIGNoZSBzaWEgZGl2ZXJzYSBwZXJjaMOoIGRpIHNvbGl0byBwYXJ0ZSBjb24gYWx0ZXp6YSBwYXJpIGEgdG9wYmFyLmggZSB2b2dsaW8gY2hlIHNpYSBzY3JvbGxhYmlsZSBzZW56YSBzcG9zdGFybGEqL1xyXG4gIG1heC1oZWlnaHQ6IGNhbGMoMTAwdmggLSBjYWxjKHZhcigtLXRvcGJhckgpICsgdmFyKC0tdGFiSCkpKTtcclxufVxyXG5idXR0b24uYXR0cmlidXRlRWRpdG9yQ29uZmlybSwgYnV0dG9uLnN0eWxlRWRpdG9yQ29uZmlybXtcclxuICBtYXJnaW4tbGVmdDogY2FsYyg1MCUgLSA1MHB4KTtcclxuICAvKiB3aWR0aDoxMDBweDtcclxuICAgaGVpZ2h0OjMwcHg7Ki9cclxufVxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSAuYXR0cmlidXRlRWRpdG9yRmllbGROYW1lLCB0YWJsZS5zdHlsZVRhYmxlIC5zdHlsZUVkaXRvckZpZWxkTmFtZXtcclxuICBtYXgtd2lkdGg6MTUwcHg7XHJcbiAgbWF4LWhlaWdodDoxNTBweDtcclxuICBvdmVyZmxvdzphdXRvO1xyXG59XHJcbi5zdHlsZVRhYmxle1xyXG4gIG1hcmdpbi10b3A6MTBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLnN0eWxlVGFibGUgdGR7XHJcbiAgbWF4LXdpZHRoOiAzMDBweDtcclxufVxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUsIC5zdHlsZUVkaXRvclRpdGxle1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uZWRnZVJvd3tcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5lZGdlUm93Pip7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IDBweDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogNHB4O1xyXG4gIGZsZXgtYmFzaXM6IDBweDtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxufVxyXG4uaXNDb21wb3VuZEVkZ2V7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuLnN0eWxlQ29tcG91bmRXcmFwcGVye1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG4uY29tcG91bmRFZGdlU3RhcnQsIC5jb21wb3VuZEVkZ2VFbmR7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5TaWRlYmFyU3R5bGVIdG1sLCAuR3JhcGhTdHlsZUh0bWx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG4vKlxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB7XHJcbiAgICBib3JkZXI6bm9uZTtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkIHtcclxuICAgIGJvcmRlci1sZWZ0OiAxcHggc29saWQgIzAwMDtcclxuICAgIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICMwMDA7XHJcbn1cclxuXHJcbnRhYmxlLmF0dHJpYnV0ZVRhYmxlIHRkOmZpcnN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1sZWZ0OiBub25lO1xyXG59XHJcblxyXG50YWJsZS5hdHRyaWJ1dGVUYWJsZSB0ZDpsYXN0LWNoaWxkIHtcclxuICAgIGJvcmRlci1yaWdodDogbm9uZTtcclxufSovXHJcblxyXG4uYXR0cmlidXRlRWRpdG9yVGl0bGUgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLCAuc3R5bGVFZGl0b3JUaXRsZSBpbnB1dFt0eXBlPVwicmFkaW9cIl17XHJcbiAgbWFyZ2luOiA0cHg7XHJcbn1cclxuLlJlZmVyZW5jZVNlbGVjdG9ye1xyXG4gIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLnJvd01vZGVsRGV0YWlsLCAudmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICB3aWR0aDogMzNweDtcclxuICBoZWlnaHQ6IDMzcHg7XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxufVxyXG4udmVydGV4TW9kZWxEZXRhaWx7XHJcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XHJcbiAgZmxvYXQ6bm9uZTtcclxufVxyXG5cclxuXHJcbi8qLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8gIGNzcy5jc3Mgbm90aGluZyBvZiB0aGlzIHNob3VsZCB3b3JrKi9cclxuLypcclxuLnNpZGViYXJTaGVsbCwgLmVkaXRvclNoZWxsLCAucHJvcGVydHlfc2lkZWJhcntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7LypmbGV4OyogL1xyXG4gIC8qIGhlaWdodDogY2FsYygxMDB2aCAtICh2YXIoLS10b3BiYXJIKSArIHZhcigtLXRhYkgpKSk7KiAvXHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICBmbGV4LXdyYXA6IHdyYXA7fVxyXG4uc2lkZWJhclNoZWxse1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LWJhc2lzOiBjYWxjKHZhcigtLXNpZGViYXJXKSk7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbn1cclxuI3Byb3BlcnR5X3NpZGViYXJ7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtYmFzaXM6IGNhbGModmFyKC0tc2lkZWJhclcpKTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxufVxyXG4uZWRpdG9yU2hlbGx7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICB3aWR0aDogY2FsYygxMDB2dyAtIHZhcigtLXNpZGViYXJXKSk7XHJcbn1cclxuKi9cclxuI21ldGFtb2RlbF90YWIsICNtb2RlbF90YWJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbiAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XHJcbiAgYWxpZ24tY29udGVudDogZmxleC1zdGFydDtcclxuICB3aWR0aDogMTAwdnc7fVxyXG5cclxuXHJcbiNtZXRhbW9kZWxfZWRpdG9yLCAjbW9kZWxfZWRpdG9ye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1iYXNpczogMHB4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICAvKndpZHRoOiBjYWxjKDEwMHZ3IC0gdmFyKC0tc2lkZWJhclcpIC0gdmFyKC0tc2Nyb2xsYmFyVykpOy8qTkI6IFRPIERPOiBxdWFuZG8gbmFzY29uZGkgbCdoaWRkZW5pbnB1dCAqL1xyXG4gIGhlaWdodDogY2FsYygxMDB2aCAtIGNhbGModmFyKC0tdG9wYmFySCkgKyB2YXIoLS10YWJIKSkpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM0NDQ0NGM7LypsaWdodGdvbGRlbnJvZHllbGxvdzsqL1xyXG59XHJcbiNpbnB1dHtcclxuICBkaXNwbGF5Om5vbmU7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogMzAwcHg7XHJcbiAgb3ZlcmZsb3cteTpzY3JvbGw7XHJcbn1cclxuXHJcblxyXG5cclxuXHJcblxyXG50YWJsZS5ub0JvcmRlcntcclxuICBib3JkZXI6IG5vbmU7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -7491,6 +7567,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       window['DamContextMenu'] = _guiElements_dam_context_menu_dam_context_menu_component__WEBPACK_IMPORTED_MODULE_15__["DamContextMenu"];
       window['is'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["is"];
       window['Type'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Type"];
+      window['ISize'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ISize"];
+      window['Size'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Size"];
+      window['GraphSize'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["GraphSize"];
+      window['IPoint'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["IPoint"];
+      window['Point'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Point"];
+      window['GraphPoint'] = _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["GraphPoint"];
       window['' + 'help'] = ['setBackup (backup <= saveToDB)', 'backupSave (saveToDB <= backup)', 'destroy (the backup)', 'discardSave (stop autosave)'];
 
       window['' + 'destroy'] = function () {
@@ -7589,8 +7671,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].focusHistorySetup();
 
-      _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].tabSetup(); // U.resizableBorderSetup();
+      _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].tabSetup();
 
+      _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].resizableBorderSetup();
 
       var $resizableBorders = $('.resizableBorder.side, .resizableBorder.corner');
 
@@ -7668,6 +7751,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           model: savem2.model
         });
 
+        if (!Status.status.isProduction) throw e;
         _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Type"].all = []; // reset invalid old parsed types, enums... they are no longer defined in the empty metamodel
 
         Status.status.mm = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"](JSON.parse(_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["MetaModel"].emptyModel), Status.status.mmm);
@@ -7686,12 +7770,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       } catch (e) {
         _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["U"].pw(true, 'Failed to load the model. Does it conform to the metamodel?', e);
 
+        if (!Status.status.isProduction) throw e;
         Status.status.m = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Model"](JSON.parse(_common_Joiner__WEBPACK_IMPORTED_MODULE_12__["Model"].emptyModel), Status.status.mm);
       }
 
       window['' + 'm'] = Status.status.m; // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m);
       // Status.status.m.LinkToMetaParent(Status.status.mm);
-      // Status.status.m.fixReferences(); already linked at parse time.
+
+      Status.status.m.fixReferences(); // for non-containment references
 
       Status.status.loadedLogic = true;
       useless = new _common_Joiner__WEBPACK_IMPORTED_MODULE_12__["ISidebar"](Status.status.mmm, document.getElementById('metamodel_sidebar'));
@@ -7987,7 +8073,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var ret = [//   --color-1: '#f5f5f5', '#f0f0f0', '#3c3c44', '#2e2f34';
           //   --color-bg-1: '#ffffff', '#f0f0f0', '#2e2f34';
           new ColorScheme2('main theme Light', 'body', 'color-', true, ['#f5f5f5', '#3c3c44', '#2e2f34', '#1E90FF']), // background was: ['#ffffff', '#f0f0f0', '#2e2f34']
-          new ColorScheme2('main theme Light bg', 'body', 'color-bg-', true, ['#f4f4f4', '#e0e0e0', '#2e2f34']), new ColorScheme2('main theme Dark', 'body', 'color-', false, ['#3c3c44', '#b2b2ba', '#f0f0f0', '#1E90FF']), new ColorScheme2('main theme Dark bg', 'body', 'color-bg-', false, ['#1a1a1c', '#2e2f34', '#44444c']), new ColorScheme2('Vertex', 'g.VertexRoot', null, true, ['#ffffff', '#000000', '#000000', '#1E90FF', '#ff0000']), new ColorScheme2('Feature', '.graph .Feature', 'color-f-', true, ['#ff8c00', '#28a745', '#d3d3d3']), // examples
+          new ColorScheme2('main theme Light bg', 'body', 'color-bg-', true, ['#f4f4f4', '#e0e0e0', '#2e2f34']), new ColorScheme2('main theme Dark', 'body', 'color-', false, ['#3c3c44', '#b2b2ba', '#f0f0f0', '#1E90FF']), new ColorScheme2('main theme Dark bg', 'body', 'color-bg-', false, ['#1a1a1c', '#2e2f34', '#44444c']), new ColorScheme2('Vertex', 'g.VertexRoot', null, true, ['#ffffff', '#000000', '#000000', '#1E90FF']), new ColorScheme2('Feature', '.graph .Feature', 'color-f-', true, ['#ff8c00', '#28a745', '#d3d3d3']), // examples
           new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#364f6b', '#3fc1c9', '#f5f5f5', '#fc5185']), new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#f9a828', '#ececeb', '#07617d', '#2e383f']), new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#fa4659', '#effe40', '#a33e83', '#2eb872']), new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#BE64FA', '#8459DE', '#5975DE', '#64ACFA'])];
           return ret;
         }
@@ -8300,28 +8386,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllSelectors() {
           var excludeDisabled = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
           var ret = {};
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
+          var _iteratorNormalCompletion3 = true;
+          var _didIteratorError3 = false;
+          var _iteratorError3 = undefined;
 
           try {
-            for (var _iterator2 = ColorSchemeComponent_1.cs.colorSchemes[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-              var cs = _step2.value;
+            for (var _iterator3 = ColorSchemeComponent_1.cs.colorSchemes[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+              var cs = _step3.value;
               if (excludeDisabled && !cs.isActive) continue;
               var fullselector = cs.getFullSelector();
               if (!ret[fullselector]) ret[fullselector] = [cs];else ret[fullselector].push(cs);
             }
           } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
+            _didIteratorError3 = true;
+            _iteratorError3 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-                _iterator2.return();
+              if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
+                _iterator3.return();
               }
             } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
+              if (_didIteratorError3) {
+                throw _iteratorError3;
               }
             }
           }
@@ -13017,7 +13103,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/common/util.ts ***!
     \****************************/
 
-  /*! exports provided: Dictionary, myFileReader, FocusHistoryEntry, InputPopup, TagNames, CSSRuleSorted, CSSParser, ShortAttribETypes, EvalOutput, SelectorOutput, U, $s, Keystrokes, AutocompleteMatch, TSON_JSTypes, TSON_UnsupportedTypes, TSON, AttribETypes, ParseNumberOrBooleanOptions, Json, DetectZoom, ISize, Size, GraphSize, IPoint, GraphPoint, Point, FileReadTypeEnum */
+  /*! exports provided: Dictionary, RawVertex, RawEdge, RawGraph, myFileReader, FocusHistoryEntry, InputPopup, TagNames, CSSRuleSorted, CSSParser, ShortAttribETypes, EvalOutput, SelectorOutput, U, $s, Keystrokes, AutocompleteMatch, TSON_JSTypes, TSON_UnsupportedTypes, TSON, AttribETypes, ParseNumberOrBooleanOptions, Json, DetectZoom, ISize, Size, GraphSize, IPoint, GraphPoint, Point, FileReadTypeEnum */
 
   /***/
   function srcCommonUtilTs(module, __webpack_exports__, __webpack_require__) {
@@ -13029,6 +13115,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     __webpack_require__.d(__webpack_exports__, "Dictionary", function () {
       return Dictionary;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "RawVertex", function () {
+      return RawVertex;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "RawEdge", function () {
+      return RawEdge;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "RawGraph", function () {
+      return RawGraph;
     });
     /* harmony export (binding) */
 
@@ -13232,6 +13336,326 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }(_wrapNativeSuper(Object)); // https://github.com/tombigel/detect-zoom broken 2013? but works
 
 
+    var RawVertex = function RawVertex(id) {
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+      _classCallCheck(this, RawVertex);
+
+      this.id = id;
+      this.data = data;
+      this.edgesOut = [];
+      this.edgesIn = [];
+    };
+
+    var RawEdge = function RawEdge(id, source, target) {
+      var data = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+
+      _classCallCheck(this, RawEdge);
+
+      this.id = id;
+      this.source = source;
+      this.target = target;
+      this.data = data;
+      if (this.source) this.source.edgesOut.push(this);
+      if (this.target) this.target.edgesIn.push(this);
+    };
+
+    var RawGraph =
+    /*#__PURE__*/
+    function () {
+      function RawGraph(vertex, edges) {
+        _classCallCheck(this, RawGraph);
+
+        this.vertex = vertex;
+        this.edges = edges;
+        this.matrix = null;
+        this.idMapping = {};
+        var _iteratorNormalCompletion4 = true;
+        var _didIteratorError4 = false;
+        var _iteratorError4 = undefined;
+
+        try {
+          for (var _iterator4 = this.vertex[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+            var v = _step4.value;
+            this.idMapping[v.id] = v;
+          }
+        } catch (err) {
+          _didIteratorError4 = true;
+          _iteratorError4 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
+              _iterator4.return();
+            }
+          } finally {
+            if (_didIteratorError4) {
+              throw _iteratorError4;
+            }
+          }
+        }
+
+        var _iteratorNormalCompletion5 = true;
+        var _didIteratorError5 = false;
+        var _iteratorError5 = undefined;
+
+        try {
+          for (var _iterator5 = this.edges[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+            var e = _step5.value;
+            this.idMapping[e.id] = e;
+          }
+        } catch (err) {
+          _didIteratorError5 = true;
+          _iteratorError5 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
+              _iterator5.return();
+            }
+          } finally {
+            if (_didIteratorError5) {
+              throw _iteratorError5;
+            }
+          }
+        }
+      }
+
+      _createClass(RawGraph, [{
+        key: "isDag",
+        value: function isDag() {
+          var canDestryData = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          var out = {
+            elementsInLoop: []
+          };
+          this.getDagOrder(canDestryData, out);
+          return !!out.elementsInLoop.length;
+        }
+      }, {
+        key: "clone",
+        value: function clone() {
+          var vertex = [];
+          var edges = [];
+          var copiesMapID = {};
+          var _iteratorNormalCompletion6 = true;
+          var _didIteratorError6 = false;
+          var _iteratorError6 = undefined;
+
+          try {
+            for (var _iterator6 = this.vertex[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+              var v = _step6.value;
+              v = new RawVertex(v.id, v.data);
+              vertex.push(v);
+              copiesMapID[v.id] = v;
+            }
+          } catch (err) {
+            _didIteratorError6 = true;
+            _iteratorError6 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
+                _iterator6.return();
+              }
+            } finally {
+              if (_didIteratorError6) {
+                throw _iteratorError6;
+              }
+            }
+          }
+
+          var _iteratorNormalCompletion7 = true;
+          var _didIteratorError7 = false;
+          var _iteratorError7 = undefined;
+
+          try {
+            for (var _iterator7 = this.edges[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+              var e = _step7.value;
+              var source = e.source && copiesMapID[e.source.id];
+              var target = e.target && copiesMapID[e.target.id];
+              e = new RawEdge(e.id, source, target);
+              edges.push(e);
+            }
+          } catch (err) {
+            _didIteratorError7 = true;
+            _iteratorError7 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
+                _iterator7.return();
+              }
+            } finally {
+              if (_didIteratorError7) {
+                throw _iteratorError7;
+              }
+            }
+          }
+
+          return new RawGraph(vertex, edges);
+        }
+      }, {
+        key: "getDagOrder",
+        value: function getDagOrder() {
+          var _this18 = this;
+
+          var canDestroyData = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          var out = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+          if (!canDestroyData) {
+            var _ret = this.clone().getDagOrder(true, out).map(function (varr) {
+              return varr.map(function (v) {
+                return _this18.idMapping[v.id];
+              });
+            });
+
+            out.elementsInLoop = out.elementsInLoop.map(function (lv) {
+              return _this18.idMapping[lv.id];
+            });
+            return _ret;
+          }
+
+          out.elementsInLoop = _toConsumableArray(this.vertex);
+          var visitedThisIteration;
+          var ret = [];
+
+          while (true) {
+            visitedThisIteration = [];
+            ret.push(visitedThisIteration);
+
+            for (var i = 0; i < out.elementsInLoop.length; i++) {
+              var v = out.elementsInLoop[i];
+              if (!v || v.edgesOut) continue;
+              visitedThisIteration.push(v);
+              out.elementsInLoop[i] = null;
+              var _iteratorNormalCompletion8 = true;
+              var _didIteratorError8 = false;
+              var _iteratorError8 = undefined;
+
+              try {
+                for (var _iterator8 = v.edgesIn[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+                  var enteringedges = _step8.value;
+                  U.arrayRemoveAll(enteringedges.source.edgesOut, enteringedges);
+                }
+              } catch (err) {
+                _didIteratorError8 = true;
+                _iteratorError8 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion8 && _iterator8.return != null) {
+                    _iterator8.return();
+                  }
+                } finally {
+                  if (_didIteratorError8) {
+                    throw _iteratorError8;
+                  }
+                }
+              }
+            }
+
+            out.elementsInLoop = out.elementsInLoop.filter(function (v) {
+              return !!v;
+            });
+            if (!visitedThisIteration.length) break;
+            break;
+          }
+
+          return ret.reverse();
+        }
+      }, {
+        key: "getMatrix",
+        value: function getMatrix() {
+          return this.matrix || this.buildMatrix();
+        }
+      }, {
+        key: "buildMatrix",
+        value: function buildMatrix() {
+          var matrix = {};
+          var _iteratorNormalCompletion9 = true;
+          var _didIteratorError9 = false;
+          var _iteratorError9 = undefined;
+
+          try {
+            for (var _iterator9 = this.vertex[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+              var v1 = _step9.value;
+              matrix[v1.id] = {};
+              var _iteratorNormalCompletion10 = true;
+              var _didIteratorError10 = false;
+              var _iteratorError10 = undefined;
+
+              try {
+                for (var _iterator10 = this.vertex[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+                  var v2 = _step10.value;
+                  matrix[v1.id][v2.id] = U.arrayIntersection(v1.edgesOut, v2.edgesIn).length;
+                }
+              } catch (err) {
+                _didIteratorError10 = true;
+                _iteratorError10 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion10 && _iterator10.return != null) {
+                    _iterator10.return();
+                  }
+                } finally {
+                  if (_didIteratorError10) {
+                    throw _iteratorError10;
+                  }
+                }
+              }
+            }
+          } catch (err) {
+            _didIteratorError9 = true;
+            _iteratorError9 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion9 && _iterator9.return != null) {
+                _iterator9.return();
+              }
+            } finally {
+              if (_didIteratorError9) {
+                throw _iteratorError9;
+              }
+            }
+          }
+
+          return this.matrix = matrix;
+        }
+      }], [{
+        key: "fromMatrix",
+        value: function fromMatrix(matrix) {
+          var vertex = [];
+          var edges = [];
+          var vertexIDMapping = {};
+          var idMax = 0;
+
+          for (var _key4 in matrix) {
+            var v = new RawVertex(_key4, null);
+            vertex.push(v);
+            vertexIDMapping[_key4] = v;
+          }
+
+          var getEdgeID = function getEdgeID() {
+            while (matrix['' + idMax]) {
+              idMax++;
+            }
+
+            return '' + idMax;
+          };
+
+          for (var v1key in matrix) {
+            for (var v2key in matrix) {
+              var count = matrix[v1key][v2key];
+
+              while (count-- > 0) {
+                var e = new RawEdge(getEdgeID(), vertexIDMapping[v1key], vertexIDMapping[v2key]);
+                edges.push(e);
+              }
+            }
+          }
+
+          return new RawGraph(vertex, edges);
+        }
+      }]);
+
+      return RawGraph;
+    }();
+
     var myFileReader =
     /*#__PURE__*/
     function () {
@@ -13369,7 +13793,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(InputPopup, [{
         key: "addButtons",
         value: function addButtons(textornode, onclick) {
-          var _this18 = this;
+          var _this19 = this;
 
           var classes = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ['btn-primary'];
           var btn;
@@ -13391,7 +13815,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _loop3 = function _loop3() {
             var clickhandler = onclick[i];
             $(btn).on('click', function (e) {
-              clickhandler(e, U.getValue(_this18.input), _this18.input, btn);
+              clickhandler(e, U.getValue(_this19.input), _this19.input, btn);
             });
           };
 
@@ -13405,14 +13829,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addOkButton",
         value: function addOkButton() {
-          var _this19 = this;
+          var _this20 = this;
 
           var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Confirm';
           var onclick = arguments.length > 1 ? arguments[1] : undefined;
           onclick = onclick || [];
           text = text || 'Confirm';
           onclick.push(function (e, value, input, btn) {
-            _this19.destroy();
+            _this20.destroy();
           });
           U.remove(this.okButton);
           this.okButton = this.addButtons(text, onclick, ['btn-primary']);
@@ -13421,15 +13845,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onCloseButton",
         value: function onCloseButton(onclick) {
-          var _this20 = this;
+          var _this21 = this;
 
           var i;
 
           var _loop4 = function _loop4() {
             var func = onclick[i];
 
-            _this20.$xbutton.on('click.customhandler', function (e) {
-              func(e, U.getValue(_this20.input), _this20.input, _this20.xbutton);
+            _this21.$xbutton.on('click.customhandler', function (e) {
+              func(e, U.getValue(_this21.input), _this21.input, _this21.xbutton);
             });
           };
 
@@ -13479,7 +13903,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "setInputNode",
         value: function setInputNode() {
-          var _this21 = this;
+          var _this22 = this;
 
           var nodeOrTag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var inputSubType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
@@ -13534,7 +13958,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               errormsg: 'pattern violated.'
             });
             this.$input.off('keydown.defaultvalidate').on('keydown.defaultvalidate', function (e) {
-              _this21.defaultKeydownEvt(e);
+              _this22.defaultKeydownEvt(e);
             }); // $input.off('change.defaultvalidate').on('change.defaultvalidate', (e: BlurEvent) => {this.defaultChangeEvt(e)});
           }
         }
@@ -13642,14 +14066,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "destroy",
         value: function destroy() {
-          var _this22 = this;
+          var _this23 = this;
 
           this.container.style.display = 'block';
           $(this.container).slideUp(400, function () {
-            if (_this22.container && _this22.container.parentNode) {
-              _this22.container.parentNode.removeChild(_this22.container);
+            if (_this23.container && _this23.container.parentNode) {
+              _this23.container.parentNode.removeChild(_this23.container);
 
-              _this22.container = null;
+              _this23.container = null;
             }
           });
           return null;
@@ -13992,8 +14416,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (condition || U.oneTimeMap[key]) return null;
           U.oneTimeMap[key] = true;
 
-          for (var _len2 = arguments.length, restArgs = new Array(_len2 > 4 ? _len2 - 4 : 0), _key4 = 4; _key4 < _len2; _key4++) {
-            restArgs[_key4 - 4] = arguments[_key4];
+          for (var _len2 = arguments.length, restArgs = new Array(_len2 > 4 ? _len2 - 4 : 0), _key5 = 4; _key5 < _len2; _key5++) {
+            restArgs[_key5 - 4] = arguments[_key5];
           }
 
           return printFunction(condition, s, restArgs);
@@ -14001,8 +14425,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "petmp",
         value: function petmp(b, s) {
-          for (var _len3 = arguments.length, restArgs = new Array(_len3 > 2 ? _len3 - 2 : 0), _key5 = 2; _key5 < _len3; _key5++) {
-            restArgs[_key5 - 2] = arguments[_key5];
+          for (var _len3 = arguments.length, restArgs = new Array(_len3 > 2 ? _len3 - 2 : 0), _key6 = 2; _key6 < _len3; _key6++) {
+            restArgs[_key6 - 2] = arguments[_key6];
           }
 
           return U.pe(b, s, restArgs);
@@ -14010,8 +14434,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "pedev",
         value: function pedev(b, s) {
-          for (var _len4 = arguments.length, restArgs = new Array(_len4 > 2 ? _len4 - 2 : 0), _key6 = 2; _key6 < _len4; _key6++) {
-            restArgs[_key6 - 2] = arguments[_key6];
+          for (var _len4 = arguments.length, restArgs = new Array(_len4 > 2 ? _len4 - 2 : 0), _key7 = 2; _key7 < _len4; _key7++) {
+            restArgs[_key7 - 2] = arguments[_key7];
           }
 
           // todo: questi sono gli errori che dovrebbero verificarsi solo in caso di errori nel codice, mai in seguito ad azioni utente invalide.
@@ -14023,8 +14447,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function pe(b, s) {
           var _console;
 
-          for (var _len5 = arguments.length, restArgs = new Array(_len5 > 2 ? _len5 - 2 : 0), _key7 = 2; _key7 < _len5; _key7++) {
-            restArgs[_key7 - 2] = arguments[_key7];
+          for (var _len5 = arguments.length, restArgs = new Array(_len5 > 2 ? _len5 - 2 : 0), _key8 = 2; _key8 < _len5; _key8++) {
+            restArgs[_key8 - 2] = arguments[_key8];
           }
 
           if (!b) {
@@ -14052,8 +14476,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function pw(b, s) {
           var _console2;
 
-          for (var _len6 = arguments.length, restArgs = new Array(_len6 > 2 ? _len6 - 2 : 0), _key8 = 2; _key8 < _len6; _key8++) {
-            restArgs[_key8 - 2] = arguments[_key8];
+          for (var _len6 = arguments.length, restArgs = new Array(_len6 > 2 ? _len6 - 2 : 0), _key9 = 2; _key9 < _len6; _key9++) {
+            restArgs[_key9 - 2] = arguments[_key9];
           }
 
           if (!b) {
@@ -14082,8 +14506,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ps(b, s) {
           var _console3;
 
-          for (var _len7 = arguments.length, restArgs = new Array(_len7 > 2 ? _len7 - 2 : 0), _key9 = 2; _key9 < _len7; _key9++) {
-            restArgs[_key9 - 2] = arguments[_key9];
+          for (var _len7 = arguments.length, restArgs = new Array(_len7 > 2 ? _len7 - 2 : 0), _key10 = 2; _key10 < _len7; _key10++) {
+            restArgs[_key10 - 2] = arguments[_key10];
           }
 
           if (!b) {
@@ -14112,8 +14536,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return null;
           }
 
-          for (var _len8 = arguments.length, restArgs = new Array(_len8 > 2 ? _len8 - 2 : 0), _key10 = 2; _key10 < _len8; _key10++) {
-            restArgs[_key10 - 2] = arguments[_key10];
+          for (var _len8 = arguments.length, restArgs = new Array(_len8 > 2 ? _len8 - 2 : 0), _key11 = 2; _key11 < _len8; _key11++) {
+            restArgs[_key11 - 2] = arguments[_key11];
           }
 
           return U.p.apply(U, [s].concat(restArgs));
@@ -14123,8 +14547,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function p(s) {
           var _console4;
 
-          for (var _len9 = arguments.length, restArgs = new Array(_len9 > 1 ? _len9 - 1 : 0), _key11 = 1; _key11 < _len9; _key11++) {
-            restArgs[_key11 - 1] = arguments[_key11];
+          for (var _len9 = arguments.length, restArgs = new Array(_len9 > 1 ? _len9 - 1 : 0), _key12 = 1; _key12 < _len9; _key12++) {
+            restArgs[_key12 - 1] = arguments[_key12];
           }
 
           if (restArgs === null || restArgs === undefined) {
@@ -14578,10 +15002,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (requestedValue instanceof _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"]) {
               var info = requestedValue.getInfo(true);
 
-              var _key12 = token.toLowerCase();
+              var _key13 = token.toLowerCase();
 
-              if (_key12 in info) {
-                requestedValue = info[_key12];
+              if (_key13 in info) {
+                requestedValue = info[_key13];
               } else {
                 requestedValue = requestedValue[token];
               }
@@ -14637,10 +15061,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (requestedValue instanceof _Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"]) {
               var info = requestedValue.getInfo(true);
 
-              var _key13 = token.toLowerCase();
+              var _key14 = token.toLowerCase();
 
-              if (_key13 in info) {
-                requestedValue = info[_key13];
+              if (_key14 in info) {
+                requestedValue = info[_key14];
               } else {
                 requestedValue = requestedValue[token];
               }
@@ -16562,8 +16986,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function SetMerge() {
           var modifyFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
-          for (var _len10 = arguments.length, iterables = new Array(_len10 > 1 ? _len10 - 1 : 0), _key14 = 1; _key14 < _len10; _key14++) {
-            iterables[_key14 - 1] = arguments[_key14];
+          for (var _len10 = arguments.length, iterables = new Array(_len10 > 1 ? _len10 - 1 : 0), _key15 = 1; _key15 < _len10; _key15++) {
+            iterables[_key15 - 1] = arguments[_key15];
           }
 
           var set = modifyFirst ? iterables[0] : new Set();
@@ -16571,26 +16995,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           for (var _i5 = 0, _iterables = iterables; _i5 < _iterables.length; _i5++) {
             var iterable = _iterables[_i5];
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
+            var _iteratorNormalCompletion11 = true;
+            var _didIteratorError11 = false;
+            var _iteratorError11 = undefined;
 
             try {
-              for (var _iterator3 = iterable[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                var item = _step3.value;
+              for (var _iterator11 = iterable[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+                var item = _step11.value;
                 set.add(item);
               }
             } catch (err) {
-              _didIteratorError3 = true;
-              _iteratorError3 = err;
+              _didIteratorError11 = true;
+              _iteratorError11 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
-                  _iterator3.return();
+                if (!_iteratorNormalCompletion11 && _iterator11.return != null) {
+                  _iterator11.return();
                 }
               } finally {
-                if (_didIteratorError3) {
-                  throw _iteratorError3;
+                if (_didIteratorError11) {
+                  throw _iteratorError11;
                 }
               }
             }
@@ -16603,8 +17027,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function MapMerge() {
           var modifyFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
-          for (var _len11 = arguments.length, maps = new Array(_len11 > 1 ? _len11 - 1 : 0), _key15 = 1; _key15 < _len11; _key15++) {
-            maps[_key15 - 1] = arguments[_key15];
+          for (var _len11 = arguments.length, maps = new Array(_len11 > 1 ? _len11 - 1 : 0), _key16 = 1; _key16 < _len11; _key16++) {
+            maps[_key16 - 1] = arguments[_key16];
           }
 
           var ret = modifyFirst ? maps[0] : new Map();
@@ -16655,8 +17079,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function fieldCount(obj) {
           var counter = 1 - 1;
 
-          for (var _key16 in obj) {
-            if (!(_key16 in obj)) {
+          for (var _key17 in obj) {
+            if (!(_key17 in obj)) {
               continue;
             }
 
@@ -16784,9 +17208,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var ret;
 
           if (inplace) {
-            var _ret;
+            var _ret2;
 
-            (_ret = ret = a).push.apply(_ret, _toConsumableArray(b));
+            (_ret2 = ret = a).push.apply(_ret2, _toConsumableArray(b));
           } else {
             var _a;
 
@@ -16965,7 +17389,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           U.pe(childKey && childKey !== '' + childKey, 'U.followIndexesPath() childkey must be a string or a null:', childKey, 'root:', root);
 
           for (j = 0; j < indexedPath.length; j++) {
-            var _key17 = indexedPath[j];
+            var _key18 = indexedPath[j];
             var childArr = childKey ? ret[childKey] : ret;
             U.pif(debug, 'path ' + j + ') = elem.' + childKey + ' = ', childArr);
 
@@ -16974,15 +17398,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return oldret;
             }
 
-            ret = childArr[_key17];
+            ret = childArr[_key18];
 
-            if (_key17 >= childArr.length) {
-              _key17 = 'Key out of boundary: ' + _key17 + '/' + childArr.length + '.';
+            if (_key18 >= childArr.length) {
+              _key18 = 'Key out of boundary: ' + _key18 + '/' + childArr.length + '.';
             }
 
-            U.pif(debug, 'path ' + j + ') = elem.' + childKey + '[ ' + _key17 + '] = ', ret);
+            U.pif(debug, 'path ' + j + ') = elem.' + childKey + '[ ' + _key18 + '] = ', ret);
             if (outArr) outArr.debugArr.push({
-              index: _key17,
+              index: _key18,
               elem: ret
             });
 
@@ -16991,7 +17415,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return oldret;
             }
 
-            if (outArr) outArr.indexFollowed.push(_key17);
+            if (outArr) outArr.indexFollowed.push(_key18);
             oldret = ret;
           }
 
@@ -17495,8 +17919,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "varname2",
         value: function varname2(parentObject, variable) {
-          for (var _key18 in parentObject) {
-            if (parentObject[_key18] === variable) return _key18;
+          for (var _key19 in parentObject) {
+            if (parentObject[_key19] === variable) return _key19;
           }
 
           U.pe(true, 'not a valid parent:', parentObject, variable);
@@ -18069,9 +18493,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
 
             for (i = 0; i < autocomplete.length; i++) {
-              var _ret2 = _loop5();
+              var _ret3 = _loop5();
 
-              if (_ret2 === "continue") continue;
+              if (_ret3 === "continue") continue;
             }
 
             debug && console.log('valid suggestions:', validSuggestions);
@@ -18145,20 +18569,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var keys = U.getAllProperties(o);
 
           for (var index in keys) {
-            var _key19 = keys[index];
-            var val = o[_key19];
+            var _key20 = keys[index];
+            var val = o[_key20];
 
             if (val instanceof Function) {
-              ret[_key19] = allowFunctions ? val : null;
+              ret[_key20] = allowFunctions ? val : null;
               continue;
             }
 
             if (val instanceof Object) {
-              ret[_key19] = allowObject ? val : null;
+              ret[_key20] = allowObject ? val : null;
               continue;
             }
 
-            ret[_key19] = allowPrimitive ? val : null;
+            ret[_key20] = allowPrimitive ? val : null;
           }
 
           return ret;
@@ -18281,8 +18705,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getEnumValByVal",
         value: function getEnumValByVal(val, enumDeclaration) {
-          for (var _key20 in enumDeclaration) {
-            if (enumDeclaration[_key20] === val) return val;
+          for (var _key21 in enumDeclaration) {
+            if (enumDeclaration[_key21] === val) return val;
           }
 
           return null;
@@ -18296,8 +18720,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getEnumKeyByVal",
         value: function getEnumKeyByVal(val, enumDeclaration) {
-          for (var _key21 in enumDeclaration) {
-            if (enumDeclaration[_key21] === val) return _key21;
+          for (var _key22 in enumDeclaration) {
+            if (enumDeclaration[_key22] === val) return _key22;
           }
 
           return null;
@@ -18312,11 +18736,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           select.append(grp);
           grp.label = optgrplabel;
 
-          for (var _key22 in entries) {
+          for (var _key23 in entries) {
             var opt = document.createElement('option');
-            opt.setAttribute('value', _key22);
-            opt.innerText = entries[_key22];
-            if (entries[_key22] === selectedVal) opt.selected = true;
+            opt.setAttribute('value', _key23);
+            opt.innerText = entries[_key23];
+            if (entries[_key23] === selectedVal) opt.selected = true;
             grp.append(opt);
           }
         }
@@ -18467,8 +18891,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "cloneProperties",
         value: function cloneProperties(param, json) {
-          for (var _key23 in json) {
-            param[_key23] = json[_key23];
+          for (var _key24 in json) {
+            param[_key24] = json[_key24];
           }
         }
       }, {
@@ -18487,6 +18911,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function insertNodeAt(parent, child, index) {
           var futureNextSibling = index < 0 ? parent.firstElementChild : index > parent.children.length ? null : parent.children[index];
           parent.insertBefore(child, futureNextSibling);
+        }
+      }, {
+        key: "arrayIntersection",
+        value: function arrayIntersection(arr1, arr2) {
+          if (!arr1 || !arr2) return null;
+          return arr1.filter(function (e) {
+            return arr2.indexOf(e) >= 0;
+          });
         }
       }]);
 
@@ -18509,7 +18941,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     U.dblclickchecker = new Date().getTime(); // todo: move @ start
 
     U.dblclicktimerms = 300;
-    U.mouseLeftButton = 0;
+    U.mouseLeftButton = 0; // from e.button
+
     U.mouseWheelButton = 1;
     U.mouseRightButton = 2;
     U.mouseBackButton = 3;
@@ -19441,6 +19874,61 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function contains(pt) {
           return _get(_getPrototypeOf(GraphSize.prototype), "contains", this).call(this, pt);
         }
+      }, {
+        key: "isOverlapping",
+        value: function isOverlapping(size2) {
+          return !!this.intersection(size2);
+        }
+      }, {
+        key: "isOverlappingAnyOf",
+        value: function isOverlappingAnyOf(sizes) {
+          if (!sizes) return false;
+          var _iteratorNormalCompletion12 = true;
+          var _didIteratorError12 = false;
+          var _iteratorError12 = undefined;
+
+          try {
+            for (var _iterator12 = sizes[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
+              var size = _step12.value;
+              if (this.isOverlapping(size)) return true;
+            }
+          } catch (err) {
+            _didIteratorError12 = true;
+            _iteratorError12 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion12 && _iterator12.return != null) {
+                _iterator12.return();
+              }
+            } finally {
+              if (_didIteratorError12) {
+                throw _iteratorError12;
+              }
+            }
+          }
+
+          return false;
+        }
+      }, {
+        key: "multiplyPoint",
+        value: function multiplyPoint(other, newInstance) {
+          var ret = newInstance ? new GraphSize() : this;
+          ret.x *= other.x;
+          ret.w *= other.x;
+          ret.y *= other.y;
+          ret.h *= other.y;
+          return ret;
+        }
+      }, {
+        key: "dividePoint",
+        value: function dividePoint(other, newInstance) {
+          var ret = newInstance ? new GraphSize() : this;
+          ret.x /= other.x;
+          ret.w /= other.x;
+          ret.y /= other.y;
+          ret.h /= other.y;
+          return ret;
+        }
       }], [{
         key: "fromPoints",
         value: function fromPoints(firstPt, secondPt) {
@@ -20309,17 +20797,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(VersionUpload, _ChangelogEntry5);
 
       function VersionUpload(date, title, description) {
-        var _this23;
+        var _this24;
 
         var subPoints = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
 
         _classCallCheck(this, VersionUpload);
 
-        _this23 = _possibleConstructorReturn(this, _getPrototypeOf(VersionUpload).call(this, title, description, subPoints));
-        _this23.date = date;
+        _this24 = _possibleConstructorReturn(this, _getPrototypeOf(VersionUpload).call(this, title, description, subPoints));
+        _this24.date = date;
         ChangelogRoot.latestVersion = date.toString();
-        VersionUpload.all.push(_assertThisInitialized(_this23));
-        return _this23;
+        VersionUpload.all.push(_assertThisInitialized(_this24));
+        return _this24;
       }
 
       return VersionUpload;
@@ -20481,7 +20969,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           v.addbf('attribute upperbound', 'Attributes upperbound could not be changed.');
           v.addb('edges', 'Removing an edge not yet confirmed (preview while inserting) using DEL is causing invalid state, press ESC Instead for now.');
           v.addb('lowerbound', 'Currently ignored.');
-          var searchterm = 'clog addbf'; // todo: documenta api theia
+          var searchterm = 'clog addbf';
+          v = new VersionUpload(new Date('2021/05/20'), '', 'Mostly quality of life patch');
+          v.addf('Vertex insertion', 'Vertices were inserted always at mid of current visible portion of graph, regardless of possible overlapping. Now they will search the closest empty spot following a spiral pattern starting from the center of visible screen.');
+          v.addf('Graphical: Self reference edge', 'Looping edges without any customized middle point were not displayed. Now if there are customized middle point the behaviour is unchanged, but if there are not middle points, some middle points will be automatically inserted to make the loop visible.');
+          v.addbf('Graphical: containment edge', 'Unsetting the containment property for a reference was not causing the diamond tail to be graphically removed from the edge.');
+          ;
+          v.addbf('Graphical: M1 reference type', 'When changing the name of a M2-Classifier the type name displayed in M1-references was not updated.');
+          v.addf('containment semantic enforcements', '<ul>' + '<li>Models now cannot create a loop of containment where A contains B, B contains C, C contains A.</li>' + '<li>A modelling object cannot be contained in multiple containers.</li>' + '<li>The root object cannot be contained.</li>' + '</ul>Attempting to set an invalid relationship will emit an explaining popup', null, true);
+          v.addbf('looping models', 'Models with reference loops (non-containing ones) are now supported'); // todo: documenta api theia
           // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
           // v.addf('fakegfeat', 'kkk');
           // v = new VersionUpload('v3'...);
@@ -20630,7 +21126,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function MyConsole() {
-        var _this24 = this;
+        var _this25 = this;
 
         _classCallCheck(this, MyConsole);
 
@@ -20663,16 +21159,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.input = $consoleRoot.find('span.input')[0];
         this.suggestion = $consoleRoot.find('.suggestion')[0];
         $inputLine.off('keydown.input').on('keydown.input', function (e) {
-          _this24.onKeyDown(e);
+          _this25.onKeyDown(e);
         });
         $inputLine.off('keyup.input').on('keyup.input', function (e) {
-          _this24.onKeyUp(e);
+          _this25.onKeyUp(e);
         });
         $(this.suggestion).off('mousedown.focus').on('mousedown.focus', function (e) {
-          console.log(_this24.input, '.focus()');
+          console.log(_this25.input, '.focus()');
           e.preventDefault();
 
-          _this24.input.focus();
+          _this25.input.focus();
         });
       }
 
@@ -20880,25 +21376,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "help",
         value: function help() {
-          var _this25 = this;
+          var _this26 = this;
 
           var nl = this.newline;
           var tab = this.tab;
 
           var desc = function desc(s) {
-            return _this25.descriptionFormatting.call(_this25, s);
+            return _this26.descriptionFormatting.call(_this26, s);
           };
 
           var command = function command(s) {
-            return _this25.commandFormatting.call(_this25, s);
+            return _this26.commandFormatting.call(_this26, s);
           };
 
           var e = function e(s) {
-            return _this25.exampleFormatting.call(_this25, s);
+            return _this26.exampleFormatting.call(_this26, s);
           };
 
           var o = function o(s) {
-            return _this25.optionalFormatting.call(_this25, s);
+            return _this26.optionalFormatting.call(_this26, s);
           };
 
           return '' + 'Available Commands:' + this.newline + 'Normal text like this means literal constants.' + this.newline + e('Text like this') + ' are examples that should be replaced without brakets' + this.newline + o('Text like this') + ' are optional parameters' + this.newline + e('leftCommand') + '|' + e('rightCommand') + ' The vertical bar means "OR", you must choose to insert the left or the ' + 'right command piece or argument.' + this.newline + // 'Non-underlined text is just comments and explanations.' + this.newline +
@@ -20974,7 +21470,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "compoundCommand",
         value: function compoundCommand(str) {
-          var _this26 = this;
+          var _this27 = this;
 
           var debug = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
           var prefix = '$';
@@ -21000,11 +21496,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             subcommand = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].replaceAll(subcommand, '$$', '$');
             var debugtext = subcommand + '(' + match + ')';
 
-            var tmp = prefixError + '' + _this26.execCommand(subcommand);
+            var tmp = prefixError + '' + _this27.execCommand(subcommand);
 
-            _this26.appendInput(subcommand, true);
+            _this27.appendInput(subcommand, true);
 
-            _this26.appendOutput(tmp, true);
+            _this27.appendOutput(tmp, true);
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pif(debug, 'replaceSingleVar: ' + debugtext + ' --> ' + tmp);
 
@@ -21233,7 +21729,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "/*#damContextMenuTemplateContainer{\r\n  position: absolute;\r\n  /*right: 20000px;\r\n  width: 2000px;\r\n  height: 2000px;\r\n  z-index: 1000;\r\n}\r\n#damContextMenuTemplateContainer::before{\r\n  content:'';\r\n  position: absolute;\r\n  right: 0;\r\n  width: 20px;\r\n  height: 20px;\r\n  background: red;\r\n}*/\r\n.overflowFix{\r\n  position: absolute;\r\n  top: -10000px;\r\n  left: -10000px;\r\n  width: 20000px;\r\n  height: 20000px;\r\n/*  opacity: 0.5;\r\n  background: red;*/\r\n  z-index: 1000;\r\n  pointer-events: none;\r\n}\r\n.overflowFixContent{\r\n  top: 0;\r\n  left: 0;\r\n  min-width: -webkit-max-content;\r\n  min-width: -moz-max-content;\r\n  min-width: max-content;\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n  pointer-events: all;\r\n}\r\n.popupRight{ display: none; }\r\n.popupRightParent.active > .popupRight,\r\n.popupRightParent:hover > .popupRight,\r\n.popupRightParent:focus-within > .popupRight {\r\n  display: block;\r\n}\r\n.popupRight {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.popupRightParent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.popupRight {\r\n  display: none;\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n}\r\nul.contextMenu{\r\n  border: 1px solid black;\r\n  background-color: white;\r\n  padding: 10px;\r\n  padding-top: 6px;\r\n  padding-bottom: 8px;\r\n  padding-right: 0;\r\n}\r\nul.contextMenu li{\r\n  cursor: pointer;\r\n}\r\nul.contextMenu li.popupRightParent{\r\n  cursor: not-allowed;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nli.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nli{\r\n  display: block;\r\n  cursor: default;\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor);\r\n}\r\nli:not(.unclickable):focus-within,\r\nli:not(.unclickable).active,\r\nli:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: var(--color-4);\r\n}\r\nli:focus-within li,\r\nli.active li,\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*cursor: default;*/\r\n  font-size: 0.75rem;\r\n  padding-top: 2px;\r\n  padding-right: 10px;\r\n  color: var(--mainFontColor); }\r\nli:focus-within li:not(.unclickable):focus-within,\r\nli:focus-within li:not(.unclickable):hover,\r\nli:focus-within li:not(.unclickable).active,\r\nli.active li:not(.unclickable).active,\r\nli:hover li:not(.unclickable).active,\r\nli.active li:not(.unclickable):hover,\r\nli:hover li:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  color: var(--color-4);\r\n}\r\n.typeli.dynamic, .refli.dynamic{\r\n  cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7RUFjRTtBQUNGO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixjQUFjO0VBQ2QsY0FBYztFQUNkLGVBQWU7QUFDakI7bUJBQ21CO0VBQ2pCLGFBQWE7RUFDYixvQkFBb0I7QUFDdEI7QUFDQTtFQUNFLE1BQU07RUFDTixPQUFPO0VBQ1AsOEJBQXNCO0VBQXRCLDJCQUFzQjtFQUF0QixzQkFBc0I7RUFDdEIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7QUFFQSxhQUFhLGFBQWEsRUFBRTtBQUM1Qjs7O0VBR0UsY0FBYztBQUNoQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBbUIsRUFBRTtBQUV2QjtFQUNFLFdBQVc7QUFDYjtBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsTUFBTTtBQUNSO0FBQ0E7RUFDRSx1QkFBdUI7RUFDdkIsdUJBQXVCO0VBQ3ZCLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsbUJBQW1CO0FBQ3JCO0FBRUE7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsV0FBVztFQUNYLFVBQVU7RUFDVixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxtQkFBbUI7QUFDckI7QUFFQTtFQUNFLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsMkJBQTJCO0FBQzdCO0FBRUE7OztFQUdFLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIscUJBQXFCO0FBQ3ZCO0FBQ0E7OztFQUdFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQiwyQkFBMkIsRUFBRTtBQUUvQjs7Ozs7OztFQU9FLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIscUJBQXFCO0FBQ3ZCO0FBRUE7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qI2RhbUNvbnRleHRNZW51VGVtcGxhdGVDb250YWluZXJ7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIC8qcmlnaHQ6IDIwMDAwcHg7XHJcbiAgd2lkdGg6IDIwMDBweDtcclxuICBoZWlnaHQ6IDIwMDBweDtcclxuICB6LWluZGV4OiAxMDAwO1xyXG59XHJcbiNkYW1Db250ZXh0TWVudVRlbXBsYXRlQ29udGFpbmVyOjpiZWZvcmV7XHJcbiAgY29udGVudDonJztcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDA7XHJcbiAgd2lkdGg6IDIwcHg7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIGJhY2tncm91bmQ6IHJlZDtcclxufSovXHJcbi5vdmVyZmxvd0ZpeHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiAtMTAwMDBweDtcclxuICBsZWZ0OiAtMTAwMDBweDtcclxuICB3aWR0aDogMjAwMDBweDtcclxuICBoZWlnaHQ6IDIwMDAwcHg7XHJcbi8qICBvcGFjaXR5OiAwLjU7XHJcbiAgYmFja2dyb3VuZDogcmVkOyovXHJcbiAgei1pbmRleDogMTAwMDtcclxuICBwb2ludGVyLWV2ZW50czogbm9uZTtcclxufVxyXG4ub3ZlcmZsb3dGaXhDb250ZW50e1xyXG4gIHRvcDogMDtcclxuICBsZWZ0OiAwO1xyXG4gIG1pbi13aWR0aDogbWF4LWNvbnRlbnQ7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXgtaGVpZ2h0OiAxMDB2aDtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG92ZXJmbG93OiB2aXNpYmxlO1xyXG4gIHBvaW50ZXItZXZlbnRzOiBhbGw7XHJcbn1cclxuXHJcbi5wb3B1cFJpZ2h0eyBkaXNwbGF5OiBub25lOyB9XHJcbi5wb3B1cFJpZ2h0UGFyZW50LmFjdGl2ZSA+IC5wb3B1cFJpZ2h0LFxyXG4ucG9wdXBSaWdodFBhcmVudDpob3ZlciA+IC5wb3B1cFJpZ2h0LFxyXG4ucG9wdXBSaWdodFBhcmVudDpmb2N1cy13aXRoaW4gPiAucG9wdXBSaWdodCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbi5wb3B1cFJpZ2h0IHtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDsgfVxyXG5cclxuLnJlZmxpIC5maXJzdGVtcHR5e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4ucmVmbGkgYnV0dG9uLmJ5aW5kZXgge1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbn1cclxuLnBvcHVwUmlnaHRQYXJlbnR7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG59XHJcbi5yZWZsaSAuaW5kZXgge1xyXG4gIHBhZGRpbmctbGVmdDogM3B4O1xyXG4gIGNvbG9yOiBvcmFuZ2U7XHJcbn1cclxuLnJlZmxpIC50ZXh0e1xyXG4gIHBhZGRpbmctbGVmdDogNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDVweDtcclxufVxyXG5idXR0b24ucmVmbGkuZGVsZXRle1xyXG4gIHBhZGRpbmc6IDAgNHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLnBvcHVwUmlnaHQge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgbGVmdDogY2FsYygxMDAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgcGFkZGluZzogMnB4IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIHRvcDogMDtcclxufVxyXG51bC5jb250ZXh0TWVudXtcclxuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG4gIHBhZGRpbmctdG9wOiA2cHg7XHJcbiAgcGFkZGluZy1ib3R0b206IDhweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG59XHJcbnVsLmNvbnRleHRNZW51IGxpe1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG51bC5jb250ZXh0TWVudSBsaS5wb3B1cFJpZ2h0UGFyZW50e1xyXG4gIGN1cnNvcjogbm90LWFsbG93ZWQ7XHJcbn1cclxuXHJcbmxpOmZpcnN0LWNoaWxke1xyXG4gIHBhZGRpbmctdG9wOiAwO1xyXG59XHJcbmxpLnNlcGFyYXRvcntcclxuICBtYXJnaW4tdG9wOiAycHg7XHJcbiAgaGVpZ2h0OiAxcHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xyXG4gIG9wYWNpdHk6IDAuNDtcclxufVxyXG5saTpsYXN0LWNoaWxke1xyXG4gIGJvcmRlci1ib3R0b206IG5vbmU7XHJcbn1cclxuXHJcbmxpe1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIGN1cnNvcjogZGVmYXVsdDtcclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTtcclxufVxyXG5cclxubGk6bm90KC51bmNsaWNrYWJsZSk6Zm9jdXMtd2l0aGluLFxyXG5saTpub3QoLnVuY2xpY2thYmxlKS5hY3RpdmUsXHJcbmxpOm5vdCgudW5jbGlja2FibGUpOmhvdmVye1xyXG4gIHBhZGRpbmctbGVmdDogNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDVweDtcclxuICBjb2xvcjogdmFyKC0tY29sb3ItNCk7XHJcbn1cclxubGk6Zm9jdXMtd2l0aGluIGxpLFxyXG5saS5hY3RpdmUgbGksXHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLypjdXJzb3I6IGRlZmF1bHQ7Ki9cclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDJweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1tYWluRm9udENvbG9yKTsgfVxyXG5cclxubGk6Zm9jdXMtd2l0aGluIGxpOm5vdCgudW5jbGlja2FibGUpOmZvY3VzLXdpdGhpbixcclxubGk6Zm9jdXMtd2l0aGluIGxpOm5vdCgudW5jbGlja2FibGUpOmhvdmVyLFxyXG5saTpmb2N1cy13aXRoaW4gbGk6bm90KC51bmNsaWNrYWJsZSkuYWN0aXZlLFxyXG5saS5hY3RpdmUgbGk6bm90KC51bmNsaWNrYWJsZSkuYWN0aXZlLFxyXG5saTpob3ZlciBsaTpub3QoLnVuY2xpY2thYmxlKS5hY3RpdmUsXHJcbmxpLmFjdGl2ZSBsaTpub3QoLnVuY2xpY2thYmxlKTpob3ZlcixcclxubGk6aG92ZXIgbGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXJ7XHJcbiAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1jb2xvci00KTtcclxufVxyXG5cclxuLnR5cGVsaS5keW5hbWljLCAucmVmbGkuZHluYW1pY3tcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIl19 */";
+    __webpack_exports__["default"] = "/*#damContextMenuTemplateContainer{\r\n  position: absolute;\r\n  /*right: 20000px;\r\n  width: 2000px;\r\n  height: 2000px;\r\n  z-index: 1000;\r\n}\r\n#damContextMenuTemplateContainer::before{\r\n  content:'';\r\n  position: absolute;\r\n  right: 0;\r\n  width: 20px;\r\n  height: 20px;\r\n  background: red;\r\n}*/\r\n.overflowFix{\r\n  position: absolute;\r\n  top: -10000px;\r\n  left: -10000px;\r\n  width: 20000px;\r\n  height: 20000px;\r\n/*  opacity: 0.5;\r\n  background: red;*/\r\n  z-index: 1000;\r\n  pointer-events: none;\r\n}\r\n.overflowFixContent{\r\n  top: 0;\r\n  left: 0;\r\n  min-width: -webkit-max-content;\r\n  min-width: -moz-max-content;\r\n  min-width: max-content;\r\n  position: absolute;\r\n  display: inline-block;\r\n  max-height: 100vh;\r\n  max-width: 100vw;\r\n  overflow: visible;\r\n  pointer-events: all;\r\n}\r\n.popupRight{ display: none; }\r\n.popupRightParent.active > .popupRight,\r\n.popupRightParent:hover > .popupRight,\r\n.popupRightParent:focus-within > .popupRight {\r\n  display: block;\r\n}\r\n.popupRight {\r\n  white-space: nowrap;\r\n  flex-wrap: nowrap;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  padding-right: 10px; }\r\n.refli .firstempty{\r\n  width: 100%;\r\n}\r\n.refli button.byindex {\r\n  margin-left: 5px;\r\n}\r\n.popupRightParent{\r\n  position: relative;\r\n}\r\n.refli .index {\r\n  padding-left: 3px;\r\n  color: orange;\r\n}\r\n.refli .text{\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n}\r\nbutton.refli.delete{\r\n  padding: 0 4px;\r\n  margin-left: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.popupRight {\r\n  display: none;\r\n  left: calc(100%);\r\n  position: absolute;\r\n  background: white;\r\n  border: 1px solid black;\r\n  border-left: none;\r\n  padding: 2px 5px;\r\n  padding-right: 0;\r\n  top: 0;\r\n  border-bottom-right-radius: 7px;\r\n  border-top-right-radius: 7px;\r\n}\r\nul.contextMenu{\r\n  background-color: white;\r\n  border: 1px solid black;\r\n  border-radius: 7.5px;\r\n  padding: 10px 0;\r\n  /*padding: 10px 10px 10px 20px;*/\r\n}\r\nul.contextMenu li.popupRightParent{\r\n  cursor: not-allowed;\r\n}\r\nli:first-child{\r\n  padding-top: 0;\r\n}\r\nul.contextMenu li.separator{\r\n  margin-top: 2px;\r\n  height: 1px;\r\n  padding: 0;\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\nli:last-child{\r\n  border-bottom: none;\r\n}\r\nspan[tabindex], li{\r\n\r\n  display: -webkit-box;\r\n\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n          align-items: center;\r\n}\r\nli{\r\n  cursor: pointer;\r\n  padding: 5px 20px;\r\n  font-size: 0.75rem;\r\n  color: var(--mainFontColor);\r\n}\r\nli:not(.unclickable):focus-within,\r\nli:not(.unclickable).active,\r\nli:not(.unclickable):hover{\r\n  padding-left: 25px;\r\n  padding-right: 15px;\r\n  color: var(--color-4);\r\n}\r\nli:focus-within li,\r\nli.active li,\r\nli:hover li{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*cursor: default;*/\r\n  font-size: 0.75rem;\r\n  padding-top: 4px;\r\n  pading-bottom: 4px;\r\n  padding-right: 15px;\r\n  padding-left: 0;\r\n  color: var(--mainFontColor); }\r\nli:focus-within li:not(.unclickable):focus-within,\r\nli:focus-within li:not(.unclickable):hover,\r\nli:focus-within li:not(.unclickable).active,\r\nli.active li:not(.unclickable).active,\r\nli:hover li:not(.unclickable).active,\r\nli.active li:not(.unclickable):hover,\r\nli:hover li:not(.unclickable):hover{\r\n  padding-left: 5px;\r\n  padding-right: 10px;\r\n  color: var(--color-4);\r\n}\r\n.typeli.dynamic, .refli.dynamic{\r\n  cursor: pointer;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7RUFjRTtBQUNGO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixjQUFjO0VBQ2QsY0FBYztFQUNkLGVBQWU7QUFDakI7bUJBQ21CO0VBQ2pCLGFBQWE7RUFDYixvQkFBb0I7QUFDdEI7QUFDQTtFQUNFLE1BQU07RUFDTixPQUFPO0VBQ1AsOEJBQXNCO0VBQXRCLDJCQUFzQjtFQUF0QixzQkFBc0I7RUFDdEIsa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixtQkFBbUI7QUFDckI7QUFFQSxhQUFhLGFBQWEsRUFBRTtBQUM1Qjs7O0VBR0UsY0FBYztBQUNoQjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLGlCQUFpQjtFQUNqQixvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBbUIsRUFBRTtBQUV2QjtFQUNFLFdBQVc7QUFDYjtBQUVBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBQ0E7RUFDRSxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsTUFBTTtFQUNOLCtCQUErQjtFQUMvQiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLHVCQUF1QjtFQUN2Qix1QkFBdUI7RUFDdkIsb0JBQW9CO0VBQ3BCLGVBQWU7RUFDZixnQ0FBZ0M7QUFDbEM7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUVBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsZUFBZTtFQUNmLFdBQVc7RUFDWCxVQUFVO0VBQ1Ysc0JBQXNCO0VBQ3RCLFlBQVk7QUFDZDtBQUNBO0VBQ0UsbUJBQW1CO0FBQ3JCO0FBRUE7O0VBRUUsb0JBQWE7O0VBQWIsYUFBYTtFQUNiLHlCQUFtQjtVQUFuQixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLDJCQUEyQjtBQUM3QjtBQUVBOzs7RUFHRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLHFCQUFxQjtBQUN2QjtBQUNBOzs7RUFHRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLGVBQWU7RUFDZiwyQkFBMkIsRUFBRTtBQUUvQjs7Ozs7OztFQU9FLGlCQUFpQjtFQUNqQixtQkFBbUI7RUFDbkIscUJBQXFCO0FBQ3ZCO0FBRUE7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy9kYW0tY29udGV4dC1tZW51L2RhbS1jb250ZXh0LW1lbnUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qI2RhbUNvbnRleHRNZW51VGVtcGxhdGVDb250YWluZXJ7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIC8qcmlnaHQ6IDIwMDAwcHg7XHJcbiAgd2lkdGg6IDIwMDBweDtcclxuICBoZWlnaHQ6IDIwMDBweDtcclxuICB6LWluZGV4OiAxMDAwO1xyXG59XHJcbiNkYW1Db250ZXh0TWVudVRlbXBsYXRlQ29udGFpbmVyOjpiZWZvcmV7XHJcbiAgY29udGVudDonJztcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDA7XHJcbiAgd2lkdGg6IDIwcHg7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIGJhY2tncm91bmQ6IHJlZDtcclxufSovXHJcbi5vdmVyZmxvd0ZpeHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiAtMTAwMDBweDtcclxuICBsZWZ0OiAtMTAwMDBweDtcclxuICB3aWR0aDogMjAwMDBweDtcclxuICBoZWlnaHQ6IDIwMDAwcHg7XHJcbi8qICBvcGFjaXR5OiAwLjU7XHJcbiAgYmFja2dyb3VuZDogcmVkOyovXHJcbiAgei1pbmRleDogMTAwMDtcclxuICBwb2ludGVyLWV2ZW50czogbm9uZTtcclxufVxyXG4ub3ZlcmZsb3dGaXhDb250ZW50e1xyXG4gIHRvcDogMDtcclxuICBsZWZ0OiAwO1xyXG4gIG1pbi13aWR0aDogbWF4LWNvbnRlbnQ7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXgtaGVpZ2h0OiAxMDB2aDtcclxuICBtYXgtd2lkdGg6IDEwMHZ3O1xyXG4gIG92ZXJmbG93OiB2aXNpYmxlO1xyXG4gIHBvaW50ZXItZXZlbnRzOiBhbGw7XHJcbn1cclxuXHJcbi5wb3B1cFJpZ2h0eyBkaXNwbGF5OiBub25lOyB9XHJcbi5wb3B1cFJpZ2h0UGFyZW50LmFjdGl2ZSA+IC5wb3B1cFJpZ2h0LFxyXG4ucG9wdXBSaWdodFBhcmVudDpob3ZlciA+IC5wb3B1cFJpZ2h0LFxyXG4ucG9wdXBSaWdodFBhcmVudDpmb2N1cy13aXRoaW4gPiAucG9wdXBSaWdodCB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbi5wb3B1cFJpZ2h0IHtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDsgfVxyXG5cclxuLnJlZmxpIC5maXJzdGVtcHR5e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4ucmVmbGkgYnV0dG9uLmJ5aW5kZXgge1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbn1cclxuLnBvcHVwUmlnaHRQYXJlbnR7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG59XHJcbi5yZWZsaSAuaW5kZXgge1xyXG4gIHBhZGRpbmctbGVmdDogM3B4O1xyXG4gIGNvbG9yOiBvcmFuZ2U7XHJcbn1cclxuLnJlZmxpIC50ZXh0e1xyXG4gIHBhZGRpbmctbGVmdDogNXB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDVweDtcclxufVxyXG5idXR0b24ucmVmbGkuZGVsZXRle1xyXG4gIHBhZGRpbmc6IDAgNHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLnBvcHVwUmlnaHQge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgbGVmdDogY2FsYygxMDAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgcGFkZGluZzogMnB4IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIHRvcDogMDtcclxuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogN3B4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiA3cHg7XHJcbn1cclxudWwuY29udGV4dE1lbnV7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgYm9yZGVyLXJhZGl1czogNy41cHg7XHJcbiAgcGFkZGluZzogMTBweCAwO1xyXG4gIC8qcGFkZGluZzogMTBweCAxMHB4IDEwcHggMjBweDsqL1xyXG59XHJcbnVsLmNvbnRleHRNZW51IGxpLnBvcHVwUmlnaHRQYXJlbnR7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZDtcclxufVxyXG5cclxubGk6Zmlyc3QtY2hpbGR7XHJcbiAgcGFkZGluZy10b3A6IDA7XHJcbn1cclxudWwuY29udGV4dE1lbnUgbGkuc2VwYXJhdG9ye1xyXG4gIG1hcmdpbi10b3A6IDJweDtcclxuICBoZWlnaHQ6IDFweDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XHJcbiAgb3BhY2l0eTogMC40O1xyXG59XHJcbmxpOmxhc3QtY2hpbGR7XHJcbiAgYm9yZGVyLWJvdHRvbTogbm9uZTtcclxufVxyXG5cclxuc3Bhblt0YWJpbmRleF0sIGxpe1xyXG5cclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxubGl7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIHBhZGRpbmc6IDVweCAyMHB4O1xyXG4gIGZvbnQtc2l6ZTogMC43NXJlbTtcclxuICBjb2xvcjogdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbn1cclxuXHJcbmxpOm5vdCgudW5jbGlja2FibGUpOmZvY3VzLXdpdGhpbixcclxubGk6bm90KC51bmNsaWNrYWJsZSkuYWN0aXZlLFxyXG5saTpub3QoLnVuY2xpY2thYmxlKTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDI1cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTVweDtcclxuICBjb2xvcjogdmFyKC0tY29sb3ItNCk7XHJcbn1cclxubGk6Zm9jdXMtd2l0aGluIGxpLFxyXG5saS5hY3RpdmUgbGksXHJcbmxpOmhvdmVyIGxpe1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLypjdXJzb3I6IGRlZmF1bHQ7Ki9cclxuICBmb250LXNpemU6IDAuNzVyZW07XHJcbiAgcGFkZGluZy10b3A6IDRweDtcclxuICBwYWRpbmctYm90dG9tOiA0cHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTVweDtcclxuICBwYWRkaW5nLWxlZnQ6IDA7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpOyB9XHJcblxyXG5saTpmb2N1cy13aXRoaW4gbGk6bm90KC51bmNsaWNrYWJsZSk6Zm9jdXMtd2l0aGluLFxyXG5saTpmb2N1cy13aXRoaW4gbGk6bm90KC51bmNsaWNrYWJsZSk6aG92ZXIsXHJcbmxpOmZvY3VzLXdpdGhpbiBsaTpub3QoLnVuY2xpY2thYmxlKS5hY3RpdmUsXHJcbmxpLmFjdGl2ZSBsaTpub3QoLnVuY2xpY2thYmxlKS5hY3RpdmUsXHJcbmxpOmhvdmVyIGxpOm5vdCgudW5jbGlja2FibGUpLmFjdGl2ZSxcclxubGkuYWN0aXZlIGxpOm5vdCgudW5jbGlja2FibGUpOmhvdmVyLFxyXG5saTpob3ZlciBsaTpub3QoLnVuY2xpY2thYmxlKTpob3ZlcntcclxuICBwYWRkaW5nLWxlZnQ6IDVweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAxMHB4O1xyXG4gIGNvbG9yOiB2YXIoLS1jb2xvci00KTtcclxufVxyXG5cclxuLnR5cGVsaS5keW5hbWljLCAucmVmbGkuZHluYW1pY3tcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -21299,7 +21795,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function DamContextMenu() {
-        var _this27 = this;
+        var _this28 = this;
 
         _classCallCheck(this, DamContextMenu);
 
@@ -21311,7 +21807,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.defaultContainer = this.html.parentElement;
         $(document).off('mouseup.hideContextMenu').on('mouseup.hideContextMenu', function (e) {
-          return _this27.checkIfHide(e);
+          return _this28.checkIfHide(e);
         });
         this.$vertexcontext = this.$html.find('ul.vertex');
         this.$edgecontext = this.$html.find('ul.edge');
@@ -21370,7 +21866,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var mp = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ModelPiece"].get(evt);
 
-          if (!mp) return;
+          if (!mp || mp instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IModel"]) return;
           var isDragging = this.checkIfDraggingVertex(evt);
           if (isDragging || isInput) return;
           this.show(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Point"](evt.pageX, evt.pageY), evt.target);
@@ -21679,10 +22175,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var ret = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].computeConditionalHides(this.$html, dic);
 
-          console.log('rrer', ret);
           if (ret.show.length + ret.inaltered.length === 0) return;
-          this.addEventListeners(location, mp); // [??? what?] must be done here, per facilità di fare binding usando variabili esterne agli eventi.
-
+          this.addEventListeners(location, mp, vertex, edge, extedge);
           this.computePosition(location, appendTo); // computePosition() needs to be after deciding sub-elements visibility and before sliding down, because needs to compute
           // the final height with correct children display and without slideDown temporary height hard-limiter with inline css.
 
@@ -21773,8 +22267,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "addEventListeners",
-        value: function addEventListeners(location, m) {
-          var _this28 = this;
+        value: function addEventListeners(location, m, vertex, edge, extedge) {
+          var _this29 = this;
 
           var graphLocation = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.getActiveModel().graph.toGraphCoord(location);
 
@@ -21828,7 +22322,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!(newType instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["M2Class"]), "tryed to change type into non-class element.", newType, e);
 
-            console.log('typeli dynamic click, changing type of: ', m, ' into: ', newType, _this28);
+            console.log('typeli dynamic click, changing type of: ', m, ' into: ', newType, _this29);
             if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["M2Class"]) m.convertInstancesTo(newType);
             if (m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MClass"]) m.convertTo(newType);
           }); // U.pe(true, $html.find('li.refli.dynamic'), $html);
@@ -21871,7 +22365,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pw(true, 'deprecato');
             /*StyleEditor.editor.show(m);*/
 
-          });
+          }); //// feature options
+
           $html.find('.Feature.autofix').off('click.ctxMenu').on('click.ctxMenu', function (e) {
             alert('autofix conformity: todo.');
           });
@@ -21913,6 +22408,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           $html.find('.terminal.insert.annotation').off('click.ctxMenu').on('click.ctxMenu', function (e) {
             m.addAnnotation();
+          }); //// edge options
+
+          $html.find('.edge.delete').off('click.ctxMenu').on('click.ctxMenu', function (e) {
+            edge.remove();
           });
         }
       }, {
@@ -22463,6 +22962,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function () {
       function EdgePoint(e, pos) {
         var endPointOfVertex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+        var isPersistent = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
 
         _classCallCheck(this, EdgePoint);
 
@@ -22490,6 +22990,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.pos = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0);
         this.isSelected = false;
         this.isHighlighted = false;
+        this.isPersistent = isPersistent;
         this.refreshGUI();
         this.moveTo(pos, false);
         this.addEventListeners();
@@ -22511,13 +23012,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "unfollow",
         value: function unfollow() {
-          console.log('un-follow');
           CursorFollowerEP.activeEP = null;
         }
       }, {
         key: "addEventListeners",
         value: function addEventListeners() {
-          var _this29 = this;
+          var _this30 = this;
 
           var $html = $(this.html); // $html.off('click.ep').on('click.ep', (e: ClickEvent) => { EdgePoint.getFromHtml(e.currentTarget).onClick(e); });
 
@@ -22536,7 +23036,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }); // $html.off('mouseover.ep').on('mouseover.ep', (e: MouseLeaveEvent) => { EdgePoint.getFromHtml(e.currentTarget).onMouseOver(e); });
 
           $html.off('contextmenu.deleteEdgePoint').on('contextmenu.deleteEdgePoint', function (e) {
-            _this29.detach();
+            _this30.detach();
 
             return false;
           });
@@ -22662,6 +23162,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "show",
         value: function show() {
           var debug = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          if (!this.isPersistent) return;
           var oldParent = this.html.parentElement;
 
           if (oldParent) {
@@ -22760,18 +23261,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(CursorFollowerEP, _EdgePoint);
 
       function CursorFollowerEP() {
-        var _this30;
+        var _this31;
 
         _classCallCheck(this, CursorFollowerEP);
 
-        _this30 = _possibleConstructorReturn(this, _getPrototypeOf(CursorFollowerEP).call(this, null, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0)));
-        _this30.endPointOfVertex = undefined;
+        _this31 = _possibleConstructorReturn(this, _getPrototypeOf(CursorFollowerEP).call(this, null, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](0, 0)));
+        _this31.endPointOfVertex = undefined;
 
-        _this30.html.setAttributeNS(null, 'fill', 'purple');
+        _this31.html.setAttributeNS(null, 'fill', 'purple');
 
-        _this30.html.setAttributeNS(null, 'stroke', 'purple');
+        _this31.html.setAttributeNS(null, 'stroke', 'purple');
 
-        _this30.html.setAttributeNS(null, 'r', '5');
+        _this31.html.setAttributeNS(null, 'r', '5');
 
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].eventiDaAggiungereAlBody('cursor follower');
 
@@ -22797,9 +23298,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           f.detach();
         });
 
-        _this30.addEventListeners();
+        _this31.addEventListeners();
 
-        return _this30;
+        return _this31;
       }
 
       _createClass(CursorFollowerEP, [{
@@ -22961,17 +23462,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addEventListeners",
         value: function addEventListeners(foredge, forheadtail) {
-          var _this31 = this;
+          var _this32 = this;
 
           _get(_getPrototypeOf(ExtEdge.prototype), "addEventListeners", this).call(this, foredge, forheadtail);
 
           var $edgetail = forheadtail ? $(this.headShell).add(this.tailShell) : $();
           var $shell = foredge ? $(this.shell) : $();
           $edgetail.off('keydown.delete').on('keydown.delete', function (e) {
-            return _this31.keydown(e);
+            return _this32.keydown(e);
           });
           $shell.off('keydown.delete').on('keydown.delete', function (e) {
-            return _this31.keydown(e);
+            return _this32.keydown(e);
           });
         }
       }, {
@@ -23325,6 +23826,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.edgeTail = null;
         this.headShell = null;
         this.tailShell = null;
+        this.pathLetter = 'L';
         this.owner.edgeContainer.append(this.shell);
         this.shell.classList.add('EdgeShell');
         this.html.classList.add('Edge');
@@ -23440,13 +23942,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           debug = false;
           var debugi = window['' + 'debug'];
           if (debugi === 1) return; // || this.start.size.isinside(this.end.size) ||  this.end.size.isinside(this.start.size
-          // quando startpoint o endpoint sono dentro un vertice size
+          // quando startpoint o endpoint sono dentro un vertex size
 
-          if (!this.midNodes.length && this.start === this.end || this.start && !this.start.isAllowingEdge(this) || this.end && !this.end.isAllowingEdge(this)) {
+          if (this.start && !this.start.isAllowingEdge(this) || this.end && !this.end.isAllowingEdge(this)) {
             //this.start.size.intersection(this.end.size))) {
             $(this.shell).hide();
             return;
-          } else $(this.shell).show(); // if (this.tmpEnd && !this.end) { this.shell.focus(); }
+          } else $(this.shell).show(); // remove non-persistant edgepoints (feature da rimuovere quando faccio gli edgepoint con posizionamento relativo, questo è un fallback dove li rigenero.)
+
+
+          var midNodesTmp = _toConsumableArray(this.midNodes);
+
+          var _iteratorNormalCompletion13 = true;
+          var _didIteratorError13 = false;
+          var _iteratorError13 = undefined;
+
+          try {
+            for (var _iterator13 = midNodesTmp[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
+              var midnode = _step13.value;
+              if (!midnode.isPersistent) midnode.detach(false);
+            } // self loop
+
+          } catch (err) {
+            _didIteratorError13 = true;
+            _iteratorError13 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion13 && _iterator13.return != null) {
+                _iterator13.return();
+              }
+            } finally {
+              if (_didIteratorError13) {
+                throw _iteratorError13;
+              }
+            }
+          }
+
+          if (!this.midNodes.length && this.start && this.start === this.end) {
+            var vsize = this.start.getSize();
+            this.midNodes.push(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePoint"](this, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](vsize.x + vsize.w * 3 / 4, vsize.y), null, false));
+            this.midNodes.push(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePoint"](this, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](vsize.x + vsize.w * 3 / 4, vsize.y + vsize.h * -1 / 3), null, false));
+            this.midNodes.push(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePoint"](this, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](vsize.x + vsize.w * 5 / 4, vsize.y + vsize.h * -1 / 3), null, false));
+            this.midNodes.push(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePoint"](this, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](vsize.x + vsize.w * 5 / 4, vsize.y + vsize.h * +1 / 3), null, false));
+            this.midNodes.push(new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePoint"](this, new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](vsize.x + vsize.w, vsize.y + vsize.h * +1 / 3), null, false));
+            this.pathLetter = 'L'; // todo: path letter dovrebbe essere vincolato agli edgepoint, così posso avere una linea mista curva-dritta, ma con un valore didefault personalizzabile se non è stato specificato su ogni singolo edgepoint.
+          } else this.pathLetter = 'L'; // if (this.tmpEnd && !this.end) { this.shell.focus(); }
 
 
           this.isSelected = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].hasFocusWithin(this.shell);
@@ -23556,10 +24096,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'pathStr[' + i + '/' + allRealPt.length + ']: ' + oldpathStr + ' --> ' + pathStr);
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(pathStr.lastIndexOf('L') === -1, '0: the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(pathStr.lastIndexOf(this.pathLetter) === -1, '0: the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
           }
 
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(pathStr.lastIndexOf('L') === -1, 'the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(pathStr.lastIndexOf(this.pathLetter) === -1, 'the pathString have no L (but should have at least 2 points)', pathStr, allRealPt, this);
 
           if (debugi === 3) return;
           this.setPath(pathStr, debug);
@@ -23639,7 +24179,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addEventListeners",
         value: function addEventListeners(foredge, forheadtail) {
-          var _this32 = this;
+          var _this33 = this;
 
           var $edgetail = forheadtail ? $(this.headShell).add(this.tailShell) : $();
           var $shell = foredge ? $(this.shell) : $();
@@ -23679,13 +24219,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             IEdge.get(e).onMouseLeave(e);
           });
           $edgeparts.off('keydown.delete').on('keydown.delete', function (e) {
-            return _this32.keydown(e);
+            return _this33.keydown(e);
           });
           $shell.off('blur').on('blur', function (e) {
-            _this32.onBlur(e);
+            _this33.onBlur(e);
           });
           $shell.off('focus').on('focus', function (e) {
-            _this32.onFocus(e);
+            _this33.onFocus(e);
           });
         }
       }, {
@@ -23724,51 +24264,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               break;
 
             case 'delete':
-              var _iteratorNormalCompletion4 = true;
-              var _didIteratorError4 = false;
-              var _iteratorError4 = undefined;
+              var _iteratorNormalCompletion14 = true;
+              var _didIteratorError14 = false;
+              var _iteratorError14 = undefined;
 
               try {
-                for (var _iterator4 = edges[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-                  var _e2 = _step4.value;
+                for (var _iterator14 = edges[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
+                  var _e2 = _step14.value;
 
                   _e2.remove();
                 }
               } catch (err) {
-                _didIteratorError4 = true;
-                _iteratorError4 = err;
+                _didIteratorError14 = true;
+                _iteratorError14 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion4 && _iterator4.return != null) {
-                    _iterator4.return();
+                  if (!_iteratorNormalCompletion14 && _iterator14.return != null) {
+                    _iterator14.return();
                   }
                 } finally {
-                  if (_didIteratorError4) {
-                    throw _iteratorError4;
+                  if (_didIteratorError14) {
+                    throw _iteratorError14;
                   }
                 }
               }
 
-              var _iteratorNormalCompletion5 = true;
-              var _didIteratorError5 = false;
-              var _iteratorError5 = undefined;
+              var _iteratorNormalCompletion15 = true;
+              var _didIteratorError15 = false;
+              var _iteratorError15 = undefined;
 
               try {
-                for (var _iterator5 = ext[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-                  var extedge = _step5.value;
+                for (var _iterator15 = ext[Symbol.iterator](), _step15; !(_iteratorNormalCompletion15 = (_step15 = _iterator15.next()).done); _iteratorNormalCompletion15 = true) {
+                  var extedge = _step15.value;
                   extedge.remove();
                 }
               } catch (err) {
-                _didIteratorError5 = true;
-                _iteratorError5 = err;
+                _didIteratorError15 = true;
+                _iteratorError15 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion5 && _iterator5.return != null) {
-                    _iterator5.return();
+                  if (!_iteratorNormalCompletion15 && _iterator15.return != null) {
+                    _iterator15.return();
                   }
                 } finally {
-                  if (_didIteratorError5) {
-                    throw _iteratorError5;
+                  if (_didIteratorError15) {
+                    throw _iteratorError15;
                   }
                 }
               }
@@ -23813,8 +24353,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAllFakePoints() {
           var debug = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
           // if (!this.html) { return null; }
-          var d = this.html.getAttributeNS(null, 'd'); // .replace('M', 'L');
-          // let dArr: string[] = d.split('L'); /// consider instead: U.parseSvgPath(pathStr).pts;
+          var d = this.html.getAttributeNS(null, 'd'); // .replace('M', this.pathLetter);
+          // let dArr: string[] = d.split(this.pathLetter); /// consider instead: U.parseSvgPath(pathStr).pts;
           // if (dArr.length === 1) { dArr = [dArr[0], dArr[0]]; }
 
           var i;
@@ -24162,9 +24702,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var index = this.getIndex();
           this.getContainedArray()[index] = null;
           if (this.logic && this.logic.edges) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.logic.edges, this);
+          console.log('edge.remove()', {
+            thiss: this,
+            logic: this.logic,
+            index: index
+          });
 
           if (this.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"]) {
-            this.logic.mtarget[index] = null;
+            this.logic.setTarget(index, null);
           }
 
           if (this.logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Reference"]) {
@@ -24231,6 +24776,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getEdgeHeadTail",
         value: function getEdgeHeadTail(isHead) {
           var debug = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+          if (isHead) {
+            this.edgeHead && this.edgeHead.parentElement.removeChild(this.edgeHead);
+          } else {
+            this.edgeTail && this.edgeTail.parentElement.removeChild(this.edgeTail);
+          }
+
           var logic = this.logic;
           var logicref = logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IReference"] ? logic : null;
           var logicclass = logic instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["IClass"] ? logic : null;
@@ -24309,22 +24861,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (!tail) {
             endsub = pathStr.length;
-            startsub = pathStr.lastIndexOf('L');
+            startsub = pathStr.lastIndexOf(this.pathLetter);
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(startsub === -1, 'the pathString have no L (but should have at least 2 points)', pathStr);
 
-            startsub = pathStr.lastIndexOf('L', startsub - 1);
+            startsub = pathStr.lastIndexOf(this.pathLetter, startsub - 1);
 
             if (startsub === -1) {
               startsub = 0;
             }
           } else {
             startsub = 0;
-            endsub = pathStr.indexOf('L');
+            endsub = pathStr.indexOf(this.pathLetter);
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(endsub === -1, 'the pathString have no L (but should have at least 2 points)');
 
-            endsub = pathStr.indexOf('L', endsub + 1);
+            endsub = pathStr.indexOf(this.pathLetter, endsub + 1);
 
             if (endsub === -1) {
               endsub = pathStr.length;
@@ -24372,7 +24924,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (!shell) {
             shell = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].newSvg('g');
-            shell.appendChild(svg);
 
             if (tail) {
               this.tailShell = shell;
@@ -24387,7 +24938,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
 
             this.addEventListeners(false, true);
+          } else {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].clear(shell);
           }
+
+          shell.appendChild(svg);
 
           if (debug) {
             this.owner.markg(pt1, true, 'red');
@@ -24846,7 +25401,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function Layouting(graph) {
-        var _this33 = this;
+        var _this34 = this;
 
         _classCallCheck(this, Layouting);
 
@@ -24986,11 +25541,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var container = this.htmlg = $('#' + this.graph.model.getPrefix() + '_visGraph')[0];
         this.net = new vis_network__WEBPACK_IMPORTED_MODULE_1__["Network"](container, {}, {});
         this.net.on('stabilized', function () {
-          _this33.onLayoutEnd();
+          _this34.onLayoutEnd();
         }); // this.net.on('stabilizationIterationsDone', () => { this.onStabilizationStep(); } );
 
         this.net.on('stabilizationProgress', function () {
-          _this33.onStabilizationStep();
+          _this34.onStabilizationStep();
         });
         /*
         this.net.startSimulation();
@@ -25106,13 +25661,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "addToLayout",
         value: function addToLayout(vertexes, restart) {
           if (restart) return this.restart();
-          var _iteratorNormalCompletion6 = true;
-          var _didIteratorError6 = false;
-          var _iteratorError6 = undefined;
+          var _iteratorNormalCompletion16 = true;
+          var _didIteratorError16 = false;
+          var _iteratorError16 = undefined;
 
           try {
-            for (var _iterator6 = vertexes[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-              var v = _step6.value;
+            for (var _iterator16 = vertexes[Symbol.iterator](), _step16; !(_iteratorNormalCompletion16 = (_step16 = _iterator16.next()).done); _iteratorNormalCompletion16 = true) {
+              var v = _step16.value;
               if (!v.autoLayout) continue;
               var node = this.vertexToVis(v);
               if (node) return; // already exists
@@ -25138,16 +25693,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               this.data.nodes.push(node);
             }
           } catch (err) {
-            _didIteratorError6 = true;
-            _iteratorError6 = err;
+            _didIteratorError16 = true;
+            _iteratorError16 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion6 && _iterator6.return != null) {
-                _iterator6.return();
+              if (!_iteratorNormalCompletion16 && _iterator16.return != null) {
+                _iterator16.return();
               }
             } finally {
-              if (_didIteratorError6) {
-                throw _iteratorError6;
+              if (_didIteratorError16) {
+                throw _iteratorError16;
               }
             }
           }
@@ -25164,13 +25719,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "removeFromLayout",
         value: function removeFromLayout(vertexes, restart) {
           if (restart) return this.restart();
-          var _iteratorNormalCompletion7 = true;
-          var _didIteratorError7 = false;
-          var _iteratorError7 = undefined;
+          var _iteratorNormalCompletion17 = true;
+          var _didIteratorError17 = false;
+          var _iteratorError17 = undefined;
 
           try {
-            for (var _iterator7 = vertexes[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-              var v = _step7.value;
+            for (var _iterator17 = vertexes[Symbol.iterator](), _step17; !(_iteratorNormalCompletion17 = (_step17 = _iterator17.next()).done); _iteratorNormalCompletion17 = true) {
+              var v = _step17.value;
               if (v.autoLayout) continue;
               var node = this.vertexToVis(v);
 
@@ -25179,16 +25734,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               delete this.vertexMap[v.id];
             }
           } catch (err) {
-            _didIteratorError7 = true;
-            _iteratorError7 = err;
+            _didIteratorError17 = true;
+            _iteratorError17 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion7 && _iterator7.return != null) {
-                _iterator7.return();
+              if (!_iteratorNormalCompletion17 && _iterator17.return != null) {
+                _iterator17.return();
               }
             } finally {
-              if (_didIteratorError7) {
-                throw _iteratorError7;
+              if (_didIteratorError17) {
+                throw _iteratorError17;
               }
             }
           }
@@ -25211,13 +25766,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function applyScaleFactor(factor) {
           var clone = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           var data = clone ? _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].cloneObj(this.data) : this.data;
-          var _iteratorNormalCompletion8 = true;
-          var _didIteratorError8 = false;
-          var _iteratorError8 = undefined;
+          var _iteratorNormalCompletion18 = true;
+          var _didIteratorError18 = false;
+          var _iteratorError18 = undefined;
 
           try {
-            for (var _iterator8 = data.nodes[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-              var node = _step8.value;
+            for (var _iterator18 = data.nodes[Symbol.iterator](), _step18; !(_iteratorNormalCompletion18 = (_step18 = _iterator18.next()).done); _iteratorNormalCompletion18 = true) {
+              var node = _step18.value;
               console.log('vis node loop', node, data); // node.scaling ??
 
               node.x = node.x && node.x / factor;
@@ -25230,43 +25785,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             }
           } catch (err) {
-            _didIteratorError8 = true;
-            _iteratorError8 = err;
+            _didIteratorError18 = true;
+            _iteratorError18 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion8 && _iterator8.return != null) {
-                _iterator8.return();
+              if (!_iteratorNormalCompletion18 && _iterator18.return != null) {
+                _iterator18.return();
               }
             } finally {
-              if (_didIteratorError8) {
-                throw _iteratorError8;
+              if (_didIteratorError18) {
+                throw _iteratorError18;
               }
             }
           }
 
-          var _iteratorNormalCompletion9 = true;
-          var _didIteratorError9 = false;
-          var _iteratorError9 = undefined;
+          var _iteratorNormalCompletion19 = true;
+          var _didIteratorError19 = false;
+          var _iteratorError19 = undefined;
 
           try {
-            for (var _iterator9 = data.edges[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-              var edge = _step9.value;
+            for (var _iterator19 = data.edges[Symbol.iterator](), _step19; !(_iteratorNormalCompletion19 = (_step19 = _iterator19.next()).done); _iteratorNormalCompletion19 = true) {
+              var edge = _step19.value;
               edge.length = edge.length && edge.length / factor;
               edge.width = edge.width && edge.width / factor;
               edge.hoverWidth = edge.hoverWidth && edge.hoverWidth / factor;
               edge.selectionWidth = edge.selectionWidth && edge.selectionWidth / factor;
             }
           } catch (err) {
-            _didIteratorError9 = true;
-            _iteratorError9 = err;
+            _didIteratorError19 = true;
+            _iteratorError19 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion9 && _iterator9.return != null) {
-                _iterator9.return();
+              if (!_iteratorNormalCompletion19 && _iterator19.return != null) {
+                _iterator19.return();
               }
             } finally {
-              if (_didIteratorError9) {
-                throw _iteratorError9;
+              if (_didIteratorError19) {
+                throw _iteratorError19;
               }
             }
           }
@@ -25276,7 +25831,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "prepareEdgeData",
         value: function prepareEdgeData() {
-          var _this34 = this;
+          var _this35 = this;
 
           var visedges;
           var vertexes = this.getCurrentVertexes();
@@ -25292,7 +25847,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
           edgesArr = edgesArr.filter(function (e) {
-            return _this34.vertexMap[e.start.id] && _this34.vertexMap[e.end.id] && !(e.midNodes.length === 0 && e.start === e.end);
+            return _this35.vertexMap[e.start.id] && _this35.vertexMap[e.end.id] && !(e.midNodes.length === 0 && e.start === e.end);
           });
           visedges = edgesArr.map(function (e) {
             return {
@@ -25572,6 +26127,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.mp1 = mp;
         this.mp2 = paired;
         this.key = key || _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].genID();
+        if (!Mark.markingByKey[key]) Mark.markingByKey[key] = [];
+        Mark.markingByKey[key].push(this);
         this.style = new MarkStyle(color, radiusX, radiusY, width, backColor, extraOffset);
       }
 
@@ -25690,6 +26247,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.mp1 && this.mp1.getVertex(false)) this.setHtml(this.html1, this.mp1, this.css1, set);
           if (this.mp2 && this.mp2.getVertex(false)) this.setHtml(this.html2, this.mp2, this.css2, set);
         }
+      }], [{
+        key: "removeByKey",
+        value: function removeByKey(key) {
+          var mark;
+          var _iteratorNormalCompletion20 = true;
+          var _didIteratorError20 = false;
+          var _iteratorError20 = undefined;
+
+          try {
+            for (var _iterator20 = Mark.markingByKey[key][Symbol.iterator](), _step20; !(_iteratorNormalCompletion20 = (_step20 = _iterator20.next()).done); _iteratorNormalCompletion20 = true) {
+              mark = _step20.value;
+              mark.mark(false);
+            }
+          } catch (err) {
+            _didIteratorError20 = true;
+            _iteratorError20 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion20 && _iterator20.return != null) {
+                _iterator20.return();
+              }
+            } finally {
+              if (_didIteratorError20) {
+                throw _iteratorError20;
+              }
+            }
+          }
+
+          return Mark.markingByKey[key];
+        }
       }]);
 
       return Mark;
@@ -25697,6 +26284,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     Mark.colorCycle = null;
     Mark.maxID = 0;
+    Mark.markingByKey = {};
     /***/
   },
 
@@ -25770,7 +26358,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.autoLayout = true;
         if (!logical) return;
         this.id = IVertex.ID++;
-        IVertex.all[this.id] = this;
         var graph = logical.getModelRoot().graph;
         this.logic(logical);
 
@@ -25787,12 +26374,107 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.setGraph(logical.getModelRoot().graph);
 
         if (!size) {
-          size = IVertex.defaultSize;
-          var gsize = this.owner.getSize();
-          size.x = this.owner.scroll.x + (gsize.w - size.w) / 2;
-          size.y = this.owner.scroll.y + (gsize.h - size.h) / 2;
+          var gsize = this.owner.getVisibleGSize();
+          var centered = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](this.owner.scroll.x + (gsize.w - IVertex.defaultSize.w) / 2, this.owner.scroll.y + (gsize.h - IVertex.defaultSize.y) / 2, IVertex.defaultSize.w, IVertex.defaultSize.h); // console.log('centering vertex', {gsize, centered, scroll:this.owner.scroll, defSize: IVertex.defaultSize});
+
+          var allSizes = Object.values(IVertex.all).map(function (e) {
+            return e.size;
+          });
+          var offset = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphPoint"](Math.max(IVertex.defaultSize.w + 80, this.owner.grid.x * 2), Math.max(IVertex.defaultSize.h + 100, this.owner.grid.y * 2));
+          var distanceMagnitude = 1; // a distanza 0 è il centro, a distanza 1 sono le 8 "megacelle" adiacenti, a distanza 2 sono 3*4+4 = 16,
+          // a distanza i sono (i*2-1)*4+4, a distanza 10 sono 80 celle escluse le interne e (i*2-1)^2 = 361 includendole
+
+          var maxlooping = 10000;
+          var looping = 0;
+
+          if (!centered.isOverlappingAnyOf(allSizes)) {
+            size = centered;
+          } else {
+            size = centered.duplicate();
+
+            foundNonOverlapping: {
+              for (var _distanceMagnitude = 1; _distanceMagnitude <= 10; _distanceMagnitude++) {
+                var squareSide = 1 + _distanceMagnitude * 2;
+                var halfside = Math.floor(squareSide / 2);
+                var row = void 0,
+                    column = void 0; // check only top row entirely except for top-left corner
+
+                column = 0;
+                size.y = centered.y + (column - halfside) * offset.y;
+
+                for (row = 1; row < squareSide; row++) {
+                  size.x = centered.x + (row - halfside) * offset.x;
+
+                  if (looping++ > maxlooping) {
+                    console.error('maxloop', {
+                      column: column,
+                      row: row,
+                      squareSide: squareSide,
+                      distanceMagnitude: _distanceMagnitude
+                    });
+                    break foundNonOverlapping;
+                  }
+
+                  if (!size.isOverlappingAnyOf(allSizes)) {
+                    break foundNonOverlapping;
+                  }
+                } // console.error("looping:", distanceMagnitude, maxlooping);
+                // check rightmost column except for corners
+
+
+                row = squareSide - 1;
+                size.x = centered.x + (row - halfside) * offset.x;
+
+                for (column = 1; column < squareSide - 1; column++) {
+                  size.y = centered.y + (column - halfside) * offset.y;
+
+                  if (!size.isOverlappingAnyOf(allSizes)) {
+                    break foundNonOverlapping;
+                  }
+                } // check only bottom row in reverse
+
+
+                column = squareSide - 1;
+                size.y = centered.y + (column - halfside) * offset.y;
+
+                for (row = squareSide - 1; row >= 0; row--) {
+                  size.x = centered.x + (row - halfside) * offset.x;
+
+                  if (looping++ > maxlooping) {
+                    console.error('maxloop', {
+                      column: column,
+                      row: row,
+                      squareSide: squareSide,
+                      distanceMagnitude: _distanceMagnitude
+                    });
+                    break foundNonOverlapping;
+                  }
+
+                  if (!size.isOverlappingAnyOf(allSizes)) {
+                    break foundNonOverlapping;
+                  }
+                } // check leftmost column except for bottom-left corner in reverse
+
+
+                row = 0;
+                size.x = centered.x + (row - halfside) * offset.x;
+
+                for (column = squareSide - 2; column >= 0; column--) {
+                  size.y = centered.y + (column - halfside) * offset.y;
+
+                  if (!size.isOverlappingAnyOf(allSizes)) {
+                    break foundNonOverlapping;
+                  }
+                }
+              } // not found empty space in any cell, i'll just allow overlap
+
+
+              size = centered;
+            }
+          }
         }
 
+        IVertex.all[this.id] = this;
         this.size = size;
         this.refreshGUI(); // this.refreshGUI(); // need both refresh
       }
@@ -26489,7 +27171,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "drawO0",
         value: function drawO0(data) {
-          var _this35 = this;
+          var _this36 = this;
 
           var html = this.drawTerminal(data);
           var $html = $(html);
@@ -26525,7 +27207,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             data.detailIsOpened = !data.detailIsOpened;
             data.detailIsOpened ? $detailHtml.show() : $detailHtml.hide();
 
-            _this35.autosizeNew(false, true);
+            _this36.autosizeNew(false, true);
           });
           data.detailIsOpened ? $detailHtml.show() : $detailHtml.hide();
           $html.find('input.name').val(data.name);
@@ -26549,7 +27231,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $addParamButton.off('click.add').on('click.add', function (e) {
             data.addParameter();
 
-            _this35.refreshGUI();
+            _this36.refreshGUI();
           });
           return html;
         }
@@ -26595,26 +27277,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addRootEventListeners",
         value: function addRootEventListeners() {
-          var _this36 = this;
+          var _this37 = this;
 
           var $html = $(this.htmlg);
           $html.off('mousedown.vertex').on('mousedown.vertex', function (e) {
-            _this36.onMouseDown(e);
+            _this37.onMouseDown(e);
           });
           $html.off('mouseup.vertex').on('mouseup.vertex', function (e) {
-            _this36.onMouseUp(e);
+            _this37.onMouseUp(e);
           });
           $html.off('mousemove.vertex').on('mousemove.vertex', function (e) {
-            _this36.onMouseMove(e);
+            _this37.onMouseMove(e);
           });
           $html.off('mouseenter.vertex').on('mouseenter.vertex', function (e) {
-            _this36.onMouseEnter(e);
+            _this37.onMouseEnter(e);
           });
           $html.off('mouseleave.vertex').on('mouseleave.vertex', function (e) {
-            _this36.onMouseLeave(e);
+            _this37.onMouseLeave(e);
           });
           $html.off('click').on('click', function (e) {
-            _this36.onClick(e);
+            _this37.onClick(e);
           }); // $html.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return DamContextMenu.contextMenu.onContextMenu(e); });
           // const $addFieldButtonContainer: JQuery<HTMLElement> = $html.find('.addFieldButtonContainer') as any as JQuery<HTMLElement>;
           // this.setAddButtonContainer($addFieldButtonContainer[0]);
@@ -26622,7 +27304,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addEventListeners",
         value: function addEventListeners() {
-          var _this37 = this;
+          var _this38 = this;
 
           var i;
           var $html = $(this.htmlg); //    $html.find('.Attribute, .Reference, .ELiteral, .Operation, .Parameter').off('contextmenu').on('contextmenu',
@@ -26632,10 +27314,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ModelPiece"].get(e).delete(true);
           });
           $html.find('.addFieldButton').off('click.addField').on('click.addField', function (e) {
-            _this37.addFieldClick(e);
+            _this38.addFieldClick(e);
           });
           $html.find('.AddFieldSelect').off('change.addField').on('change.addField', function (e) {
-            _this37.addFieldClick(e);
+            _this38.addFieldClick(e);
           });
           $html.find('input, select, textarea').off('change.fieldchange').on('change.fieldchange', function (e) {
             return IVertex.FieldNameChanged(e);
@@ -26655,40 +27337,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           // defaultResizeConfig.create = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
 
           defaultResizeConfig.start = function (e, ui) {
-            return _this37.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onResizeStart);
+            return _this38.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onResizeStart);
           };
 
           defaultResizeConfig.resize = function (e, ui) {
-            return _this37.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileResizing);
+            return _this38.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileResizing);
           };
 
           defaultResizeConfig.stop = function (e, ui) {
-            return _this37.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onResizeEnd);
+            return _this38.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onResizeEnd);
           }; // defaultDragConfig.create = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
 
 
           defaultDragConfig.start = function (e, ui) {
-            return _this37.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragStart);
+            return _this38.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragStart);
           };
 
           defaultDragConfig.drag = function (e, ui) {
-            return _this37.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileDragging);
+            return _this38.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileDragging);
           };
 
           defaultDragConfig.stop = function (e, ui) {
-            return _this37.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
+            return _this38.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
           };
 
           defaultRotConfig.start = function (e, ui) {
-            return _this37.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationStart);
+            return _this38.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationStart);
           };
 
           defaultRotConfig.rotate = function (e, ui) {
-            return _this37.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileRotating);
+            return _this38.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].whileRotating);
           };
 
           defaultRotConfig.stop = function (e, ui) {
-            return _this37.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationEnd);
+            return _this38.measuringEventTrigger(ui, e, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onRotationEnd);
           };
 
           this.dragConfig = null; //     console.log('measurableElementSetup:', defaultResizeConfig, defaultDragConfig);
@@ -27131,12 +27813,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           html.parentNode.removeChild(html);
           delete IVertex.all[this.id];
 
-          for (var _key24 in this.Vmarks) {
-            if (this.Vmarks[_key24]) {
+          for (var _key25 in this.Vmarks) {
+            if (this.Vmarks[_key25]) {
               continue;
             }
 
-            var mark = this.Vmarks[_key24];
+            var mark = this.Vmarks[_key25];
 
             if (mark.parentNode) {
               mark.parentNode.removeChild(mark);
@@ -27229,7 +27911,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           g.x = 'prevent_doublemousedowncheck';
           g.y = 'prevent_doublemousedowncheck';
           IVertex.minSize = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](null, null, 0, 0);
-          IVertex.defaultSize = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](5, 5, 201, 41);
+          IVertex.defaultSize = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](0, 0, 201, 41);
           return IVertex.selectedGridWasOn = g;
         }
         /*
@@ -27259,6 +27941,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var edge = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
           var location = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
           var delayed = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+          console.log('linkVertexMousedown:', e);
+          if (e && e.button === _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].mouseRightButton) return;
 
           if (e) {
             e.stopPropagation();
@@ -27437,48 +28121,48 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           defaultValues.defaultValue = 1;
           defaultValues.trueValue = 1;
           defaultValues.falseValue = -1;
-          var _iteratorNormalCompletion10 = true;
-          var _didIteratorError10 = false;
-          var _iteratorError10 = undefined;
+          var _iteratorNormalCompletion21 = true;
+          var _didIteratorError21 = false;
+          var _iteratorError21 = undefined;
 
           try {
-            for (var _iterator10 = directions[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-              var direction = _step10.value;
-              var _iteratorNormalCompletion11 = true;
-              var _didIteratorError11 = false;
-              var _iteratorError11 = undefined;
+            for (var _iterator21 = directions[Symbol.iterator](), _step21; !(_iteratorNormalCompletion21 = (_step21 = _iterator21.next()).done); _iteratorNormalCompletion21 = true) {
+              var direction = _step21.value;
+              var _iteratorNormalCompletion22 = true;
+              var _didIteratorError22 = false;
+              var _iteratorError22 = undefined;
 
               try {
-                for (var _iterator11 = kinds[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-                  var kind = _step11.value;
+                for (var _iterator22 = kinds[Symbol.iterator](), _step22; !(_iteratorNormalCompletion22 = (_step22 = _iterator22.next()).done); _iteratorNormalCompletion22 = true) {
+                  var kind = _step22.value;
                   ret[direction][kind] = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].parseNumberOrBoolean(svgForeign.getAttribute('show-' + direction + '-' + kind + '-edges'), defaultValues);
                 }
               } catch (err) {
-                _didIteratorError11 = true;
-                _iteratorError11 = err;
+                _didIteratorError22 = true;
+                _iteratorError22 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion11 && _iterator11.return != null) {
-                    _iterator11.return();
+                  if (!_iteratorNormalCompletion22 && _iterator22.return != null) {
+                    _iterator22.return();
                   }
                 } finally {
-                  if (_didIteratorError11) {
-                    throw _iteratorError11;
+                  if (_didIteratorError22) {
+                    throw _iteratorError22;
                   }
                 }
               }
             }
           } catch (err) {
-            _didIteratorError10 = true;
-            _iteratorError10 = err;
+            _didIteratorError21 = true;
+            _iteratorError21 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion10 && _iterator10.return != null) {
-                _iterator10.return();
+              if (!_iteratorNormalCompletion21 && _iterator21.return != null) {
+                _iterator21.return();
               }
             } finally {
-              if (_didIteratorError10) {
-                throw _iteratorError10;
+              if (_didIteratorError21) {
+                throw _iteratorError21;
               }
             }
           }
@@ -27555,7 +28239,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function ViewPointShell(g) {
-        var _this38 = this;
+        var _this39 = this;
 
         _classCallCheck(this, ViewPointShell);
 
@@ -27576,10 +28260,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var i; // this.ignoreEvents = false;
 
         $defaultCheckbox.on('click', function (e) {
-          _this38.undoAll(true);
+          _this39.undoAll(true);
         });
         $checkboxlidefault.find('button.duplicate').on('click', function (e) {
-          return _this38.duplicateEvent(e, null, _this38.defaultCheckbox);
+          return _this39.duplicateEvent(e, null, _this39.defaultCheckbox);
         });
       }
       /*undoAllOld(model :IModel): void {
@@ -27646,7 +28330,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "refreshApplied",
         value: function refreshApplied() {
-          var _this39 = this;
+          var _this40 = this;
 
           // this.undoAll(false);
           var i;
@@ -27699,7 +28383,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.styleEditor.hide();
             }
 
-            _this39.graph.propertyBar.styleEditor.show();
+            _this40.graph.propertyBar.styleEditor.show();
 
             if (isM2) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.graph.propertyBar.styleEditor.show();
           }, 10);
@@ -27734,7 +28418,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "add",
         value: function add(v, allowApply) {
-          var _this40 = this;
+          var _this41 = this;
 
           var $li = this.$template.clone();
           var li = $li[0];
@@ -27748,14 +28432,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var $delete = $li.find('button.remove');
           var $rename = $li.find('button.edit');
           $duplicate.on('click', function (e) {
-            return _this40.duplicateEvent(e, v, checkbox);
+            return _this41.duplicateEvent(e, v, checkbox);
           });
           $delete.on('click', function (e) {
-            _this40.html.removeChild(li);
+            _this41.html.removeChild(li);
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(_this40.checkboxes, checkbox);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(_this41.checkboxes, checkbox);
 
-            delete _this40.getViewpointGUI[v.id];
+            delete _this41.getViewpointGUI[v.id];
             v.delete();
           });
           $rename.on('click', function (e) {
@@ -27807,13 +28491,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             vp.runtimeorder = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ViewPoint"].LAST_ORDER++;
             console.log('changed cbox:', checkbox);
 
-            if (_this40.ignoreEvents) {
+            if (_this41.ignoreEvents) {
               e.preventDefault();
               return false;
             }
 
             setTimeout(function () {
-              return _this40.refreshApplied();
+              return _this41.refreshApplied();
             }, 1); // devo dare tempo alla checkbox di settarsi
 
             return true;
@@ -28026,7 +28710,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addGraphEventListeners",
         value: function addGraphEventListeners() {
-          var _this41 = this;
+          var _this42 = this;
 
           var $graph = $(this.container);
           var thiss = this;
@@ -28034,15 +28718,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           // $graph.off('mouseup.graph').on('mouseup.graph', (evt: MouseUpEvent) => { thiss.onMouseUp(evt); });
 
           $graph.off('mousemove.graph').on('mousemove.graph', function (evt) {
-            _this41.onMouseMove(evt);
+            _this42.onMouseMove(evt);
           }); // $graph.off('keydown.graph').on('keydown.graph', (evt: KeyDownEvent) => { thiss.onKeyDown(evt); }); non triggerabile, non ha focus.
           // $graph.off('click.mark').on('click.mark', (e: ClickEvent) => { thiss.markClick(e, true); } );
 
           $graph.off('mousedown.move').on('mousedown.move', function (e) {
-            return _this41.onMouseDown(e, false);
+            return _this42.onMouseDown(e, false);
           });
           $graph.off('mouseup.move').on('mouseup.move', function (e) {
-            return _this41.onMouseUp(e);
+            return _this42.onMouseUp(e);
           }); // $graph.off('contextmenu').on('contextmenu', (e: ContextMenuEvent): boolean => { return this.graphContextMenu(e); });
           // @ts-ignore
 
@@ -28051,7 +28735,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (!window['' + 'resizeobservers']) window['' + 'resizeobservers'] = []; // @ts-ignore
 
             var tmp = new ResizeObserver(function (entryes, observer) {
-              _this41.onResize();
+              _this42.onResize();
             });
             window['' + 'resizeobservers'] = tmp;
             tmp.observe(this.container.parentElement);
@@ -28063,9 +28747,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             setInterval(function () {
               _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(true, 'setinterval graphsize checker');
 
-              var size = _this41.getSize();
+              var size = _this42.getSize();
 
-              if (!size.equals(oldSize)) _this41.onResize(size);
+              if (!size.equals(oldSize)) _this42.onResize(size);
             }, 100);
           } // altre opzioni:
           // 1) MutationObserver (detect dom changes (attributes like "style" too)),
@@ -28182,9 +28866,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (isMeasurable) {
             if (axis === undefined || axis !== null && axis.indexOf('x') === -1) currentGraphCoord.x = null;
             if (axis === undefined || axis !== null && axis.indexOf('y') === -1) currentGraphCoord.y = null;
-          }
+          } // console.log('onMouseMoveVertexMove:', v.logic().name, 'vertex:', v, 'coord:', currentGraphCoord, 'ismeasurable:', isMeasurable);
 
-          console.log('onMouseMoveVertexMove:', v.logic().name, 'vertex:', v, 'coord:', currentGraphCoord, 'ismeasurable:', isMeasurable);
+
           v.moveTo(currentGraphCoord);
         }
       }, {
@@ -28265,6 +28949,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getSize() {
           if (!this.size) this.computeSize();
           return this.size;
+        }
+      }, {
+        key: "getGSize",
+        value: function getGSize() {
+          throw new Error("getGSize() todo: should show the size of the whole graph visible and hidden that contain something (bounding rectangle of content)");
+        }
+      }, {
+        key: "getVisibleGSize",
+        value: function getVisibleGSize() {
+          var size = this.getSize(); // console.log('gsize', {size, ggsize: new GraphSize(size.x, size.y, size.w, size.h), zoom: this.zoom, ret: new GraphSize(size.x, size.y, size.w, size.h).multiplyPoint(this.zoom, false)});
+
+          return new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["GraphSize"](size.x, size.y, size.w, size.h).dividePoint(this.zoom, false);
         }
       }, {
         key: "toGraphCoord",
@@ -28548,12 +29244,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "fitVertexToGrid",
         value: function fitVertexToGrid() {
-          var _this42 = this;
+          var _this43 = this;
 
           var force = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
           var vertexes = this.getAllVertex();
           vertexes.forEach(function (v, i) {
-            v.setSize(_this42.fitToGridS(v.getSize()), false, true, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
+            v.setSize(_this43.fitToGridS(v.getSize()), false, true, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["measurableRules"].onDragEnd);
           });
         }
       }], [{
@@ -29081,7 +29777,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(PropertyBarr, [{
         key: "templateMinimizerClick",
         value: function templateMinimizerClick(e) {
-          var _this43 = this;
+          var _this44 = this;
 
           var minimizer = e.currentTarget;
           var templatee = minimizer;
@@ -29094,7 +29790,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $(templatee).off('click.maximizeTemplate').on('click.maximizeTemplate', function (ee) {
             PropertyBarr.templateMaximizerClick(ee);
           }).on('contextmenu', function (e) {
-            _this43.subTemplateShow(e);
+            _this44.subTemplateShow(e);
           });
           e.stopImmediatePropagation();
           e.stopPropagation();
@@ -29200,7 +29896,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "show",
         value: function show() {
-          var _this44 = this;
+          var _this45 = this;
 
           var o = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var clickedLevel = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
@@ -29270,7 +29966,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors($container);
 
           $container.find('.minimizer').off('click.minimizeTemplate').on('click.minimizeTemplate', function (e) {
-            _this44.templateMinimizerClick(e);
+            _this45.templateMinimizerClick(e);
           }); /// ottimizzazioni di stile.
 
           while ($container.find('.wastemplate:has(>.content:not(:has(*)))').remove().length) {} // remove empty minimizer-content.
@@ -29303,7 +29999,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
           $container.find('.minimizer.single').on('contextmenu', function (e) {
-            _this44.subTemplateShow(e);
+            _this45.subTemplateShow(e);
           });
           var contentRoot = $container.find('>.wastemplate>.content')[0];
 
@@ -29364,7 +30060,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "getC_I",
         value: function getC_I(o) {
-          var _this45 = this;
+          var _this46 = this;
 
           var $html = this.getTemplate(o);
           var model = o.getModelRoot();
@@ -29450,7 +30146,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             m1class.setRoot(input.checked);
             m1class.refreshGUI();
 
-            _this45.refreshGUI();
+            _this46.refreshGUI();
           });
           return $html[0];
         }
@@ -29523,7 +30219,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           $(htmlContainment).off('change.pbar').on('change.pbar', function (evt) {
             var target = evt.currentTarget;
-            ref.setContainment(target.checked);
+            ref.setContainment(target.checked, false);
             ref.refreshGUI();
           });
           return $html[0];
@@ -29675,12 +30371,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           selectHtml.appendChild(optgrp);
           var optionFound = false;
 
-          for (var _key25 in _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"]) {
-            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"][_key25]) {
+          for (var _key26 in _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"]) {
+            if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"][_key26]) {
               continue;
             }
 
-            var access = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"][_key25];
+            var access = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"][_key26];
             var opt = document.createElement('option');
             opt.value = access;
             opt.innerHTML = access;
@@ -29846,28 +30542,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             try {
               $results = $ancestorLine.filter(selector);
               if (!$results) continue;
-              var _iteratorNormalCompletion12 = true;
-              var _didIteratorError12 = false;
-              var _iteratorError12 = undefined;
+              var _iteratorNormalCompletion23 = true;
+              var _didIteratorError23 = false;
+              var _iteratorError23 = undefined;
 
               try {
-                for (var _iterator12 = $results[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
-                  var result = _step12.value;
+                for (var _iterator23 = $results[Symbol.iterator](), _step23; !(_iteratorNormalCompletion23 = (_step23 = _iterator23.next()).done); _iteratorNormalCompletion23 = true) {
+                  var result = _step23.value;
                   var oldArr = inheritingLine.get(result) || [];
                   oldArr.push.apply(oldArr, _toConsumableArray(allColorSchemeSelectors[selector]));
                   inheritingLine.set(result, oldArr);
                 }
               } catch (err) {
-                _didIteratorError12 = true;
-                _iteratorError12 = err;
+                _didIteratorError23 = true;
+                _iteratorError23 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion12 && _iterator12.return != null) {
-                    _iterator12.return();
+                  if (!_iteratorNormalCompletion23 && _iterator23.return != null) {
+                    _iterator23.return();
                   }
                 } finally {
-                  if (_didIteratorError12) {
-                    throw _iteratorError12;
+                  if (_didIteratorError23) {
+                    throw _iteratorError23;
                   }
                 }
               }
@@ -29880,26 +30576,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var i; // ritorna un singolo cs option template con lista colori
 
           var fillListWithCs = function fillListWithCs($element, arr) {
-            var _iteratorNormalCompletion13 = true;
-            var _didIteratorError13 = false;
-            var _iteratorError13 = undefined;
+            var _iteratorNormalCompletion24 = true;
+            var _didIteratorError24 = false;
+            var _iteratorError24 = undefined;
 
             try {
-              for (var _iterator13 = arr[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
-                var cs = _step13.value;
+              for (var _iterator24 = arr[Symbol.iterator](), _step24; !(_iteratorNormalCompletion24 = (_step24 = _iterator24.next()).done); _iteratorNormalCompletion24 = true) {
+                var cs = _step24.value;
                 $element.append(csTemplates.getCsOptionEntry(cs));
               }
             } catch (err) {
-              _didIteratorError13 = true;
-              _iteratorError13 = err;
+              _didIteratorError24 = true;
+              _iteratorError24 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion13 && _iterator13.return != null) {
-                  _iterator13.return();
+                if (!_iteratorNormalCompletion24 && _iterator24.return != null) {
+                  _iterator24.return();
                 }
               } finally {
-                if (_didIteratorError13) {
-                  throw _iteratorError13;
+                if (_didIteratorError24) {
+                  throw _iteratorError24;
                 }
               }
             }
@@ -29969,13 +30665,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             applyCsList(currentCSList);
           };
 
-          var _iteratorNormalCompletion14 = true;
-          var _didIteratorError14 = false;
-          var _iteratorError14 = undefined;
+          var _iteratorNormalCompletion25 = true;
+          var _didIteratorError25 = false;
+          var _iteratorError25 = undefined;
 
           try {
             var _loop6 = function _loop6() {
-              var cs = _step14.value;
+              var cs = _step25.value;
               var option = csTemplates.getCsOptionEntry(cs);
 
               if (currentCSList.indexOf(cs) >= 0) {
@@ -29988,20 +30684,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               container.append(option);
             };
 
-            for (var _iterator14 = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ColorScheme2"].getAll()[Symbol.iterator](), _step14; !(_iteratorNormalCompletion14 = (_step14 = _iterator14.next()).done); _iteratorNormalCompletion14 = true) {
+            for (var _iterator25 = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ColorScheme2"].getAll()[Symbol.iterator](), _step25; !(_iteratorNormalCompletion25 = (_step25 = _iterator25.next()).done); _iteratorNormalCompletion25 = true) {
               _loop6();
             }
           } catch (err) {
-            _didIteratorError14 = true;
-            _iteratorError14 = err;
+            _didIteratorError25 = true;
+            _iteratorError25 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion14 && _iterator14.return != null) {
-                _iterator14.return();
+              if (!_iteratorNormalCompletion25 && _iterator25.return != null) {
+                _iterator25.return();
               }
             } finally {
-              if (_didIteratorError14) {
-                throw _iteratorError14;
+              if (_didIteratorError25) {
+                throw _iteratorError25;
               }
             }
           }
@@ -30075,26 +30771,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var $template = $(template);
             $template.find('.name').text(cs.name);
             var $colorContainer = $template.find('.colors');
-            var _iteratorNormalCompletion15 = true;
-            var _didIteratorError15 = false;
-            var _iteratorError15 = undefined;
+            var _iteratorNormalCompletion26 = true;
+            var _didIteratorError26 = false;
+            var _iteratorError26 = undefined;
 
             try {
-              for (var _iterator15 = cs.foreColors[Symbol.iterator](), _step15; !(_iteratorNormalCompletion15 = (_step15 = _iterator15.next()).done); _iteratorNormalCompletion15 = true) {
-                var color = _step15.value;
+              for (var _iterator26 = cs.foreColors[Symbol.iterator](), _step26; !(_iteratorNormalCompletion26 = (_step26 = _iterator26.next()).done); _iteratorNormalCompletion26 = true) {
+                var color = _step26.value;
                 $colorContainer.append(CSSEditor.makeColorBlockReadonly(color));
               }
             } catch (err) {
-              _didIteratorError15 = true;
-              _iteratorError15 = err;
+              _didIteratorError26 = true;
+              _iteratorError26 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion15 && _iterator15.return != null) {
-                  _iterator15.return();
+                if (!_iteratorNormalCompletion26 && _iterator26.return != null) {
+                  _iterator26.return();
                 }
               } finally {
-                if (_didIteratorError15) {
-                  throw _iteratorError15;
+                if (_didIteratorError26) {
+                  throw _iteratorError26;
                 }
               }
             }
@@ -30197,26 +30893,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $option.find('[value1]')[0].innerHTML = colorscheme.name;
           var colorcontainer = $option.find('[value2]')[0];
           colorcontainer.dataset.colors = colorscheme.colors.join(', ');
-          var _iteratorNormalCompletion16 = true;
-          var _didIteratorError16 = false;
-          var _iteratorError16 = undefined;
+          var _iteratorNormalCompletion27 = true;
+          var _didIteratorError27 = false;
+          var _iteratorError27 = undefined;
 
           try {
-            for (var _iterator16 = colorscheme.colors[Symbol.iterator](), _step16; !(_iteratorNormalCompletion16 = (_step16 = _iterator16.next()).done); _iteratorNormalCompletion16 = true) {
-              var color = _step16.value;
+            for (var _iterator27 = colorscheme.colors[Symbol.iterator](), _step27; !(_iteratorNormalCompletion27 = (_step27 = _iterator27.next()).done); _iteratorNormalCompletion27 = true) {
+              var color = _step27.value;
               colorcontainer.appendChild(CSSEditor.makeColorBlockReadonly(color));
             }
           } catch (err) {
-            _didIteratorError16 = true;
-            _iteratorError16 = err;
+            _didIteratorError27 = true;
+            _iteratorError27 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion16 && _iterator16.return != null) {
-                _iterator16.return();
+              if (!_iteratorNormalCompletion27 && _iterator27.return != null) {
+                _iterator27.return();
               }
             } finally {
-              if (_didIteratorError16) {
-                throw _iteratorError16;
+              if (_didIteratorError27) {
+                throw _iteratorError27;
               }
             }
           }
@@ -30451,29 +31147,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             colors: []
           }; // prendo i colori in ordine alfabetico, non mi importa se non sono enumerate correttamente (--colorZ o buchi nei numeri)
 
-          var _iteratorNormalCompletion17 = true;
-          var _didIteratorError17 = false;
-          var _iteratorError17 = undefined;
+          var _iteratorNormalCompletion28 = true;
+          var _didIteratorError28 = false;
+          var _iteratorError28 = undefined;
 
           try {
-            for (var _iterator17 = ruleStartingWithColor[Symbol.iterator](), _step17; !(_iteratorNormalCompletion17 = (_step17 = _iterator17.next()).done); _iteratorNormalCompletion17 = true) {
-              var line = _step17.value;
+            for (var _iterator28 = ruleStartingWithColor[Symbol.iterator](), _step28; !(_iteratorNormalCompletion28 = (_step28 = _iterator28.next()).done); _iteratorNormalCompletion28 = true) {
+              var line = _step28.value;
               var splitpos = line.indexOf(':'); // const cssvarname: string = line.substring(0, splitpos).trim();
 
               var cssvarvalue = line.substring(splitpos + 1).trim();
               cs.colors.push(cssvarvalue);
             }
           } catch (err) {
-            _didIteratorError17 = true;
-            _iteratorError17 = err;
+            _didIteratorError28 = true;
+            _iteratorError28 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion17 && _iterator17.return != null) {
-                _iterator17.return();
+              if (!_iteratorNormalCompletion28 && _iterator28.return != null) {
+                _iterator28.return();
               }
             } finally {
-              if (_didIteratorError17) {
-                throw _iteratorError17;
+              if (_didIteratorError28) {
+                throw _iteratorError28;
               }
             }
           }
@@ -30533,26 +31229,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "mapColorSchemeToPredefined",
         value: function mapColorSchemeToPredefined(inputColorScheme) {
-          var _iteratorNormalCompletion18 = true;
-          var _didIteratorError18 = false;
-          var _iteratorError18 = undefined;
+          var _iteratorNormalCompletion29 = true;
+          var _didIteratorError29 = false;
+          var _iteratorError29 = undefined;
 
           try {
-            for (var _iterator18 = CSSEditor.defaultColorSchemes[Symbol.iterator](), _step18; !(_iteratorNormalCompletion18 = (_step18 = _iterator18.next()).done); _iteratorNormalCompletion18 = true) {
-              var cs = _step18.value;
+            for (var _iterator29 = CSSEditor.defaultColorSchemes[Symbol.iterator](), _step29; !(_iteratorNormalCompletion29 = (_step29 = _iterator29.next()).done); _iteratorNormalCompletion29 = true) {
+              var cs = _step29.value;
               if (CSSEditor.compareColorScheme(inputColorScheme, cs, true) === 0) return cs;
             }
           } catch (err) {
-            _didIteratorError18 = true;
-            _iteratorError18 = err;
+            _didIteratorError29 = true;
+            _iteratorError29 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion18 && _iterator18.return != null) {
-                _iterator18.return();
+              if (!_iteratorNormalCompletion29 && _iterator29.return != null) {
+                _iterator29.return();
               }
             } finally {
-              if (_didIteratorError18) {
-                throw _iteratorError18;
+              if (_didIteratorError29) {
+                throw _iteratorError29;
               }
             }
           }
@@ -30613,7 +31309,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".dropdown{\r\n  position: relative;\r\n  padding-left: 0;\r\n}\r\n.dropdown:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n}\r\n.dropdown:focus-within{\r\n  pointer-events: none;\r\n}\r\n.dropdown:focus-within>.dropdownmenu{\r\n  display: block;\r\n  z-index: 1000;\r\n}\r\n.dropdown.hover-display:hover>.dropdownmenu{\r\n  display: block;\r\n  z-index: 1001;\r\n}\r\n.dropdown:focus-within>.icon,\r\n.dropdown.hover-display:hover>.icon{\r\n  -webkit-transform: rotate(225deg);\r\n          transform: rotate(225deg);\r\n}\r\n.dropdown.hover-display.readonly .dropdownmenu{\r\n  pointer-events: none;\r\n}\r\n.dropdownmenu .dropdownitem{\r\n  border: 1px solid transparent; /* per evitare incrementi di dimensione*/\r\n}\r\n.dropdownmenu .dropdownitem.selected{\r\n  border: 1px solid var(--color-4);\r\n  /* outline: 2px solid var(--color-4); */\r\n  box-shadow: 0 0 3px 1px var(--color-4);\r\n  background: var(--color-bg-2);\r\n}\r\n/*.dropdown>.icon:hover, .dropdown:focus-within>.icon{\r\n  filter: brightness(0.9);\r\n}*/\r\n.dropdown>.dropdownmenu{\r\n  pointer-events: all;\r\n  position: absolute;\r\n  top: 100%;\r\n  left: 0;\r\n  display: none;\r\n  /*float: left;*/\r\n  padding: 0.5rem 0;\r\n  margin: 0;\r\n  font-size: 1rem;\r\n  /*color: #212529;*/\r\n  text-align: left;\r\n  list-style: none;\r\n  /*background-color: #fff;*/\r\n  background-clip: padding-box;\r\n  border: 1px solid rgba(0, 0, 0, 0.15);\r\n  border-radius: 0.25rem;\r\n  background: var(--color-bg-1);\r\n}\r\n.dropdownitem{\r\n  display: block;\r\n  width: 100%;\r\n  padding: 0.25rem 1.5rem;\r\n}\r\n.cslistreadonly.dropdownitem .inheritedFromText{\r\n  text-align:center;\r\n}\r\n.cslistreadonly.dropdownitem .inheritedFromText>*{\r\n  display: inline-block;\r\n}\r\n.dropdown>.icon{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  text-align: center;\r\n}\r\n.dropdown>.icon{\r\n  background: inherit;\r\n  margin: auto 10px;\r\n  border: solid;\r\n  border-width: 0 3px 3px 0;\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  -webkit-transform: rotate(45deg);\r\n          transform: rotate(45deg);\r\n  min-height: 20px;\r\n  min-width: 20px;\r\n}\r\n.dropdown .title{\r\n  margin: auto;\r\n}\r\n.colorblock{\r\n  margin-right: 2px;\r\n}\r\n.styleContainer{\r\n  /*position: relative;\r\n  height: 100%;\r\n  overflow-y: auto;\r\n  overflow-x: auto;\r\n  padding: 17px;\r\n  padding-right: calc(17px - 10px);*/\r\n}\r\n.template{\r\n  display: none;\r\n}\r\n.StyleEditorDisplay .template{\r\n  display: unset;\r\n}\r\n.preview{\r\n  position: relative;\r\n  display: block;\r\n  width: 100%;\r\n  min-height: 10px;\r\n  border: 1px solid red;\r\n  background-color: transparent;\r\n  margin-bottom: 10px;\r\n  margin-top: 10px;\r\n}\r\n.preview:blank{\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\n.separatorShell.top{\r\n  margin-top: 30px;\r\n}\r\ndiv[contenteditable=\"true\"]:focus {\r\n  max-height: unset;\r\n}\r\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\r\n  overflow: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  color: black;\r\n  border: 1px solid black;\r\n  min-height: 100px;\r\n  max-height: 200px;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n}\r\ndiv[contenteditable=\"true\"] {\r\n  background-color: white;\r\n  cursor: text;\r\n}\r\ndiv[contenteditable=\"false\"] {\r\n  background-color: gray;\r\n  cursor: no-drop;\r\n  opacity: 0.4;\r\n}\r\nlabel.allowEdit {\r\n  color: goldenrod;\r\n}\r\nbutton {\r\n  margin: 5px;\r\n}\r\n.style.own, .style.instances{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: wrap;\r\n}\r\n.detail{\r\n  border: 3px solid var(--bluebordercolor);\r\n  background: var(--);\r\n  color: var(--altFontColor);\r\n}\r\nbutton.detail {\r\n  margin: auto;\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  height: auto;\r\n  border-top-left-radius: 17px;\r\n  border-top-right-radius: 17px;\r\n  z-index: 1;\r\n }\r\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  margin-right: 0;\r\n  border-top-right-radius: 0;\r\n  border-bottom-right-radius: 0;\r\n}\r\nbutton.detail:last-child:not(:only-child){\r\n  margin-left: -3px;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\nbutton.detail:focus {\r\n  box-shadow: none !important;\r\n  outline: none !important;\r\n}\r\ndiv.detail{\r\n  padding: 5px;\r\n  margin-top: -3px;\r\n  width: calc(100%);\r\n}\r\n.saveasrow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n}\r\nbutton.delete{\r\n  margin: auto;\r\n  margin-bottom: 5px;\r\n}\r\nbutton.saveas{\r\n  margin: auto;\r\n  margin-bottom: 5px;\r\n}\r\ninput.saveas {\r\n  margin: auto;\r\n  margin-bottom: 5px;\r\n  flex-basis: 100px;\r\n  -webkit-box-flex: 0.6;\r\n          flex-grow: 0.6;\r\n  width: 0;\r\n}\r\n.compatibleRow > label > span{\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin-left: 0;\r\n}\r\n.saveasrow, .compatibleRow{\r\n  width: 100%;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: wrap;\r\n}\r\n.compatibleRow > label > input {\r\n  -webkit-box-ordinal-group: 2;\r\n          order: 1;\r\n  margin-left: 0;\r\n  margin-right: 5px;\r\n}\r\n.detail > label {\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  flex-wrap: nowrap;\r\n}\r\nbutton.detail > .opened, button.detail > .closed{\r\n  margin: auto;\r\n}\r\ntable {\r\n  width: 100%;\r\n}\r\ntd.title {\r\n  font-weight: bold;\r\n  padding-top: 10px;\r\n  text-align: center;\r\n}\r\nh1 {\r\n  text-align: center;\r\n}\r\nselect{\r\n  /* background: inherit;\r\n  border: none;\r\n  color: inherit;\r\n  font: inherit; */\r\n  /*flex-basis: 0;*/\r\n  flex-shrink: 1;\r\n  -webkit-box-flex: 0.9;\r\n          flex-grow: 0.9;\r\n  max-width: -webkit-max-content;\r\n  max-width: -moz-max-content;\r\n  max-width: max-content;\r\n  min-width: 0;\r\n}\r\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\r\nlabel > *:not(input), h6 > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /* flex-grow: 1;*/\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\nh6{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n\r\n}\r\n.separator > * {\r\n  text-align: center;\r\n}\r\n/*\r\nbutton {\r\n  background: #0084ff;\r\n  border: none;\r\n  border-radius: 5px;\r\n  padding: 8px 14px;\r\n  font-size: 15px;\r\n  color: #fff;\r\n}\r\n\r\nbutton:disabled{\r\n  background: gray;\r\n}*/\r\ninput[type=\"number\"] {\r\n  width: 40px;\r\n  margin-right: 5px;\r\n}\r\n.zoomX, .zoomY, .gridX, .gridY {\r\n  margin-left: 5px;\r\n  margin-right: 15px;}\r\nlabel>input[type=\"checkbox\"],\r\nlabel>input[type=\"color\"] {\r\n  margin-bottom: 3px;\r\n}\r\n#primary_color {\r\n  border-radius: 100%;\r\n  height: 60px;\r\n  width: 60px;\r\n  border: none;\r\n  outline: none;\r\n  -webkit-appearance: none;\r\n}\r\n[contenteditable=true]:empty:before {\r\n  content: attr(placeholder);\r\n  display: block;\r\n  /* For Firefox */\r\n  cursor: text;\r\n  vertical-align: middle;\r\n  color: darkgray;\r\n  text-align: center;\r\n  margin: auto;\r\n}\r\n.separatorShell {\r\n  min-height: 33px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n  margin: auto;\r\n  margin-top: 10px;\r\n  margin-bottom: 10px;\r\n  width: 100%;\r\n}\r\n.roww {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  width: 100%;\r\n}\r\n.separator {\r\n  margin: auto;\r\n  display: inline-block;\r\n}\r\n.stylelabel{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  margin-right: 5px;\r\n}\r\nselect.stylename{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n  margin-left: 0;\r\n}\r\n.HorizontalContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: wrap;\r\n  width: 100%;\r\n}\r\n.onlyVerticalContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: wrap;\r\n}\r\n.onlyVerticalContainer > * {\r\n  margin: auto 0;\r\n}\r\n.HorizontalChild{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n}\r\n.opened{\r\n  display: none;\r\n}\r\n.helpButton, .styledelete {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 35px;\r\n  height: 35px;\r\n  margin: auto;\r\n  margin-right: 0;\r\n}\r\n.styledelete {\r\n  margin-right: 5px;\r\n  margin-left: 5px;\r\n}\r\n.helpButton {\r\n  background: rgb(0, 62, 127);\r\n  border-color: rgb(0, 62, 127); }\r\n.htmlstyle > .top {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.expressionRoot {\r\n  flex-wrap: nowrap !important;\r\n  max-width: 100%;\r\n}\r\ninput.fill{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n  margin-left: 7px;\r\n}\r\n.leftside{\r\n  -webkit-box-flex: 3;\r\n          flex-grow: 3;\r\n  flex-basis: 0;\r\n  min-width: 0;\r\n  max-width: 150px;\r\n}\r\n.rightside{\r\n  -webkit-box-flex: 7;\r\n          flex-grow: 7;\r\n  flex-basis: 0;\r\n  min-width: 0;\r\n}\r\n.arrowContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 10px;\r\n}\r\nbutton.arrow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  line-height: unset;\r\n  padding: 0 6px;\r\n}\r\n.tsclass{\r\n  margin: auto;\r\n  display: inline;\r\n  text-align: center;\r\n}\r\n/* */\r\n/*\r\npre {\r\n  background:#EEE;\r\n  padding:5px;\r\n  width: 290px;\r\n}*/\r\n.addHeader{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.addHeader > button {\r\n  margin-left: 0;\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n}\r\nselect.attributetypeadd{\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  min-width: 0;\r\n  margin-right: 10px;\r\n}\r\n.previewselector{\r\n  height: 23px;\r\n  outline: none;\r\n  border: 2px dashed #666666;\r\n}\r\n.showAsEdge{\r\n  margin-right: 5px !important;\r\n}\r\nbutton.delete, button.saveas{\r\n  font-size: 0.8rem;\r\n}\r\nbutton.deleteRule{\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-basis: auto;\r\n  min-width: auto;\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  padding: 5px;\r\n}\r\n.nowrap{\r\n  flex-wrap: nowrap;\r\n}\r\n._root {\r\n  margin-bottom: 5px;\r\n}\r\ndiv.detail.measurable > div.template {\r\n  display: none;\r\n}\r\n.graphColor, .showGrid{\r\n  margin-left: 0;\r\n}\r\nselect.operator{\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  width: 25px;\r\n}\r\nspan.operatortext{\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n}\r\nselect.operator:disabled{\r\n  display: none;\r\n  /*\r\n  background: inherit;\r\n  border: none;\r\n  -moz-appearance: none;\r\n  -webkit-appearance: none;\r\n  margin: 0;*/\r\n}\r\nspan.nameprefix {\r\n  margin-left: 7px;\r\n  background: white;\r\n  border: 2px inset rgb(238, 238, 238);\r\n  height: 21px;\r\n  border-right: none;\r\n  color: black;\r\n  line-height: 16px;\r\n}\r\ninput.name {\r\n  margin-left: 0;\r\n  border-left: none;\r\n  padding-left: 0;\r\n}\r\nlabel:focus > input.name {\r\n  outline: none;\r\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\r\n}\r\ninput.name:focus {\r\n  outline: none;\r\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\r\n}\r\n.htmlstyle {\r\n  width: 100%;\r\n}\r\nlabel.allowEdit > span {\r\n  margin-left:0;\r\n}\r\nlabel > * {\r\n  margin-top: auto;\r\n  margin-bottom: auto;\r\n}\r\nlabel > input[type=\"checkbox\"] ~ * {\r\n  margin-left: 0;\r\n}\r\n.html[contenteditable] {\r\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\r\n  overflow-wrap: anywhere;\r\n  word-wrap: anywhere;\r\n  white-space: break-spaces;\r\n}\r\n.autosizecontainer{\r\n  display: inline-block;\r\n}\r\n.autosizecontainer > *{\r\n  display: inline-block;\r\n  margin-right: 5px;\r\n}\r\n.sizeContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap; }\r\n.sizeContainerHalf {\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.sizelabel {\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: reverse;\r\n          flex-flow: column-reverse;\r\n  margin-right: 10px;\r\n  margin-bottom: 10px;\r\n}\r\n@media screen and (max-width: 700px) {\r\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\r\n  .sizelabel{\r\n    display: inline-block;\r\n  }\r\n}\r\n.sizelabel > *{\r\n  display: inline;\r\n  margin: auto; }\r\n/* they fix outer css influence on measurable section. */\r\ninput[type=\"checkbox\"].arrow {\r\n  margin: 0; }\r\n.meas_acc0 button { margin: 0; }\r\n/***********              Measurable editor v2 start                 ********/\r\n.meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: dimgray;\r\n}\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n}\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  margin-top: 8px;\r\n}\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n  min-width: 0;\r\n}\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n.meas_acc0 .measurabledebug { display: none; }\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n.meas_acc0 .countershell { float: right; }\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n.meas_acc0 .directions > * { margin: auto; }\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n/***********              Measurable editor v2 end                   ********/\r\n.isinterface, .isabstract{\r\n  margin-right: 5px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsYUFBYTtBQUNmO0FBRUE7O0VBRUUsaUNBQXlCO1VBQXpCLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSw2QkFBNkIsRUFBRSx3Q0FBd0M7QUFDekU7QUFDQTtFQUNFLGdDQUFnQztFQUNoQyx1Q0FBdUM7RUFDdkMsc0NBQXNDO0VBQ3RDLDZCQUE2QjtBQUMvQjtBQUNBOztFQUVFO0FBQ0Y7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxPQUFPO0VBQ1AsYUFBYTtFQUNiLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsU0FBUztFQUNULGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQiwwQkFBMEI7RUFDMUIsNEJBQTRCO0VBQzVCLHFDQUFxQztFQUNyQyxzQkFBc0I7RUFDdEIsNkJBQTZCO0FBQy9CO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsV0FBVztFQUNYLHVCQUF1QjtBQUN6QjtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBRUE7RUFDRSxxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsbUJBQW1CO0VBQ25CLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IseUJBQXlCO0VBQ3pCLHFCQUFxQjtFQUNyQixzQkFBc0I7RUFDdEIsZ0NBQXdCO1VBQXhCLHdCQUF3QjtFQUN4QixnQkFBZ0I7RUFDaEIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFOzs7OztvQ0FLa0M7QUFDcEM7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGNBQWM7RUFDZCxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtFQUNyQiw2QkFBNkI7RUFDN0IsbUJBQW1CO0VBQ25CLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsdUJBQXVCO0VBQ3ZCLFlBQVk7QUFDZDtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsbUJBQW1CO0VBQ25CLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLDRCQUE0QjtFQUM1Qiw2QkFBNkI7RUFDN0IsVUFBVTtDQUNYO0FBQ0QsNENBQTRDLGlEQUFpRDtFQUMzRiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsMEJBQTBCO0VBQzFCLDZCQUE2QjtBQUMvQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLHlCQUF5QjtFQUN6Qiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLDJCQUEyQjtFQUMzQix3QkFBd0I7QUFDMUI7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixxQkFBYztVQUFkLGNBQWM7RUFDZCxRQUFRO0FBQ1Y7QUFDQTtFQUNFLDJCQUFtQjtFQUFuQix3QkFBbUI7RUFBbkIsbUJBQW1CO0VBQ25CLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7QUFDaEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSw0QkFBUTtVQUFSLFFBQVE7RUFDUixjQUFjO0VBQ2QsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRTs7O2tCQUdnQjtFQUNoQixpQkFBaUI7RUFDakIsY0FBYztFQUNkLHFCQUFjO1VBQWQsY0FBYztFQUNkLDhCQUFzQjtFQUF0QiwyQkFBc0I7RUFBdEIsc0JBQXNCO0VBQ3RCLFlBQVk7QUFDZDtBQUVBLE9BQU8sb0JBQWEsQ0FBYixhQUFhLEVBQUUsa0JBQVcsRUFBWCxXQUFXLENBQUM7QUFDbEM7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFFQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTs7QUFFZDtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7Ozs7Ozs7Ozs7OztFQVlFO0FBQ0Y7RUFDRSxXQUFXO0VBQ1gsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsa0JBQWtCLENBQUM7QUFHckI7O0VBRUUsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLFdBQVc7RUFDWCxZQUFZO0VBQ1osYUFBYTtFQUNiLHdCQUF3QjtBQUMxQjtBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLGNBQWM7RUFDZCxnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLFlBQVk7QUFDZDtBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFjO0VBQWQsNkJBQWM7VUFBZCxjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLFdBQVc7QUFDYjtBQUVBO0VBQ0UsWUFBWTtFQUNaLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0VBQ1osaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxlQUFlO0VBQ2YsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw4QkFBYztFQUFkLDZCQUFjO1VBQWQsY0FBYztFQUNkLGVBQWU7QUFDakI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFdBQVc7RUFDWCxZQUFZO0VBQ1osWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLDJCQUEyQjtFQUMzQiw2QkFBNkIsRUFBRTtBQUVqQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGFBQWE7RUFDYixZQUFZO0FBQ2Q7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLGNBQWM7QUFDaEI7QUFDQTtFQUNFLFlBQVk7RUFDWixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0EsSUFBSTtBQUVKOzs7OztFQUtFO0FBQ0Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsY0FBYztFQUNkLDRCQUFRO1VBQVIsUUFBUTtBQUNWO0FBQ0E7RUFDRSxhQUFhO0VBQ2IsbUJBQVk7VUFBWixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYiwwQkFBMEI7QUFDNUI7QUFFQTtFQUNFLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSw0QkFBdUI7T0FBdkIsdUJBQXVCO0VBQ3ZCLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsV0FBVztBQUNiO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxhQUFhO0VBQ2I7Ozs7O2FBS1c7QUFDYjtBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixvQ0FBb0M7RUFDcEMsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLGVBQWU7QUFDakI7QUFFQTtFQUNFLGFBQWE7RUFDYiwyQ0FBMkM7QUFDN0M7QUFFQTtFQUNFLGFBQWE7RUFDYixpRkFBaUY7QUFDbkY7QUFDQTtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvRUFBb0U7RUFDcEUsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQix5QkFBeUI7QUFDM0I7QUFFQTtFQUNFLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UscUJBQXFCO0VBQ3JCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZSxFQUFFO0FBQ25CO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsNEJBQXlCO0VBQXpCLDhCQUF5QjtVQUF6Qix5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsZ0xBQWdMO0VBQ2hMO0lBQ0UscUJBQXFCO0VBQ3ZCO0FBQ0Y7QUFDQTtFQUNFLGVBQWU7RUFDZixZQUFZLEVBQUU7QUFXZCx3REFBd0Q7QUFFMUQ7RUFDRSxTQUFTLEVBQUU7QUFFYixvQkFBb0IsU0FBUyxFQUFFO0FBSy9CLDZFQUE2RTtBQUM3RTtFQUNFLFdBQVc7RUFDWCxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtBQUNmO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDtBQUNBLG9CQUFvQixlQUFlLEVBQUU7QUFDckMsd0JBQXdCLGtCQUFrQixFQUFFO0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTtBQUNqQyx1QkFBdUIsY0FBYyxFQUFFLGtCQUFrQixFQUFFLG1CQUFtQixFQUFFO0FBQ2hGLG1CQUFtQixvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNsQyxnREFBZ0QsV0FBVyxFQUFFO0FBQzdELDZDQUE2QyxZQUFZLEVBQUUsd0JBQXdCLEVBQUU7QUFDckYscUJBQXFCLG9CQUFhLEVBQWIsYUFBYSxFQUFFLFdBQVcsRUFBRSxZQUFZLEVBQUU7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2pFLDZCQUE2QixZQUFZLEVBQUUsWUFBWSxFQUFFO0FBQ3pEO0VBQ0UseUJBQXlCO0FBQzNCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLGNBQWM7RUFDZCxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5QjtBQUNBLHNDQUFzQyxZQUFZLEVBQUU7QUFDcEQ7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDZCQUE2QjtBQUMvQjtBQUNBLGdEQUFnRCxnQkFBZ0IsRUFBRTtBQUNsRTtFQUNFLHFCQUFxQjtFQUNyQixnREFBZ0Q7QUFDbEQ7QUFFQSwwRUFBMEUsMkJBQTJCLEVBQUU7QUFDdkcseUNBQXlDO0FBQ3pDO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsZUFBZTtBQUNqQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQiw0QkFBdUI7T0FBdkIsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBLDRCQUE0QixtQkFBbUIsRUFBRTtBQUNqRCwrQkFBK0IsZ0JBQWdCLEVBQUU7QUFDakQsd0NBQXdDLGVBQWUsRUFBRTtBQUN6RDtFQUNFLDJCQUEyQixFQUFFLG9DQUFvQztFQUNqRSxZQUFZO0FBQ2Q7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCO0FBQ0Esa0NBQWtDLDJCQUEyQixFQUFFO0FBQy9ELDhCQUE4QiwwQkFBMEIsRUFBRTtBQUMxRDtFQUNFLDZCQUE2QjtFQUM3QiwwQkFBMEI7QUFDNUI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixvQkFBb0I7QUFDdEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7QUFDekI7QUFDQSwyQkFBMkIsa0JBQWtCLEVBQUU7QUFDL0MsOEJBQThCLGFBQWEsRUFBRTtBQUM3QyxrREFBa0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUsMkJBQTJCLFlBQVksRUFBRTtBQUN6QztFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSx3QkFBd0I7RUFDeEIsNEJBQTRCO0VBQzVCLGtDQUFrQztBQUNwQztBQUNBO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RDtBQUN6RDtBQUNBO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RCxFQUFFO0FBQzNEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxtQkFBbUI7RUFDbkIsZUFBZSxFQUFFO0FBQ25CO0VBQ0UsaUJBQWlCO0VBQ2pCLGlCQUFpQixFQUFFO0FBQ3JCO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQixFQUFFO0FBQ3BCO0VBQ0Usc0RBQXNELEVBQUU7QUFDMUQ7RUFDRSxzREFBc0QsRUFBRTtBQUUxRDtFQUNFLFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxZQUFZLEVBQUU7QUFDaEI7RUFDRSxZQUFZLEVBQUU7QUFDaEI7RUFDRSxZQUFZO0VBQ1osV0FBVyxFQUFFO0FBQ2Y7RUFDRSxZQUFZO0VBQ1osV0FBVyxFQUFFO0FBRWYsb0JBQW9CLDJCQUEyQixFQUFFO0FBRWpEO0VBQ0UsV0FBVztFQUNYLFlBQVksRUFBRTtBQUVoQix5QkFBeUIsYUFBYSxFQUFFO0FBQ3hDO0VBQ0UsNEZBQW9GO1VBQXBGLG9GQUFvRixFQUFFO0FBRXhGO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLFlBQVksRUFBRTtBQUVoQiw2QkFBNkIsWUFBWSxFQUFFO0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25CO0FBQ0Esa0NBQWtDLGFBQWEsRUFBRTtBQUNqRCx1QkFBdUIsb0NBQW9DLEVBQUU7QUFDN0QsNkVBQTZFO0FBQzdFO0VBQ0UsaUJBQWlCO0FBQ25CIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZHJvcGRvd257XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxufVxyXG4uZHJvcGRvd246Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lO1xyXG59XHJcbi5kcm9wZG93bjpmb2N1cy13aXRoaW57XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbn1cclxuLmRyb3Bkb3duOmZvY3VzLXdpdGhpbj4uZHJvcGRvd25tZW51e1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHotaW5kZXg6IDEwMDA7XHJcbn1cclxuLmRyb3Bkb3duLmhvdmVyLWRpc3BsYXk6aG92ZXI+LmRyb3Bkb3dubWVudXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB6LWluZGV4OiAxMDAxO1xyXG59XHJcblxyXG4uZHJvcGRvd246Zm9jdXMtd2l0aGluPi5pY29uLFxyXG4uZHJvcGRvd24uaG92ZXItZGlzcGxheTpob3Zlcj4uaWNvbntcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgyMjVkZWcpO1xyXG59XHJcbi5kcm9wZG93bi5ob3Zlci1kaXNwbGF5LnJlYWRvbmx5IC5kcm9wZG93bm1lbnV7XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbn1cclxuLmRyb3Bkb3dubWVudSAuZHJvcGRvd25pdGVte1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIHRyYW5zcGFyZW50OyAvKiBwZXIgZXZpdGFyZSBpbmNyZW1lbnRpIGRpIGRpbWVuc2lvbmUqL1xyXG59XHJcbi5kcm9wZG93bm1lbnUgLmRyb3Bkb3duaXRlbS5zZWxlY3RlZHtcclxuICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1jb2xvci00KTtcclxuICAvKiBvdXRsaW5lOiAycHggc29saWQgdmFyKC0tY29sb3ItNCk7ICovXHJcbiAgYm94LXNoYWRvdzogMCAwIDNweCAxcHggdmFyKC0tY29sb3ItNCk7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tY29sb3ItYmctMik7XHJcbn1cclxuLyouZHJvcGRvd24+Lmljb246aG92ZXIsIC5kcm9wZG93bjpmb2N1cy13aXRoaW4+Lmljb257XHJcbiAgZmlsdGVyOiBicmlnaHRuZXNzKDAuOSk7XHJcbn0qL1xyXG4uZHJvcGRvd24+LmRyb3Bkb3dubWVudXtcclxuICBwb2ludGVyLWV2ZW50czogYWxsO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB0b3A6IDEwMCU7XHJcbiAgbGVmdDogMDtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIC8qZmxvYXQ6IGxlZnQ7Ki9cclxuICBwYWRkaW5nOiAwLjVyZW0gMDtcclxuICBtYXJnaW46IDA7XHJcbiAgZm9udC1zaXplOiAxcmVtO1xyXG4gIC8qY29sb3I6ICMyMTI1Mjk7Ki9cclxuICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbiAgLypiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmOyovXHJcbiAgYmFja2dyb3VuZC1jbGlwOiBwYWRkaW5nLWJveDtcclxuICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xyXG4gIGJvcmRlci1yYWRpdXM6IDAuMjVyZW07XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tY29sb3ItYmctMSk7XHJcbn1cclxuLmRyb3Bkb3duaXRlbXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB3aWR0aDogMTAwJTtcclxuICBwYWRkaW5nOiAwLjI1cmVtIDEuNXJlbTtcclxufVxyXG4uY3NsaXN0cmVhZG9ubHkuZHJvcGRvd25pdGVtIC5pbmhlcml0ZWRGcm9tVGV4dHtcclxuICB0ZXh0LWFsaWduOmNlbnRlcjtcclxufVxyXG5cclxuLmNzbGlzdHJlYWRvbmx5LmRyb3Bkb3duaXRlbSAuaW5oZXJpdGVkRnJvbVRleHQ+KntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuLmRyb3Bkb3duPi5pY29ue1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5kcm9wZG93bj4uaWNvbntcclxuICBiYWNrZ3JvdW5kOiBpbmhlcml0O1xyXG4gIG1hcmdpbjogYXV0byAxMHB4O1xyXG4gIGJvcmRlcjogc29saWQ7XHJcbiAgYm9yZGVyLXdpZHRoOiAwIDNweCAzcHggMDtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSg0NWRlZyk7XHJcbiAgbWluLWhlaWdodDogMjBweDtcclxuICBtaW4td2lkdGg6IDIwcHg7XHJcbn1cclxuLmRyb3Bkb3duIC50aXRsZXtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuLmNvbG9yYmxvY2t7XHJcbiAgbWFyZ2luLXJpZ2h0OiAycHg7XHJcbn1cclxuLnN0eWxlQ29udGFpbmVye1xyXG4gIC8qcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGhlaWdodDogMTAwJTtcclxuICBvdmVyZmxvdy15OiBhdXRvO1xyXG4gIG92ZXJmbG93LXg6IGF1dG87XHJcbiAgcGFkZGluZzogMTdweDtcclxuICBwYWRkaW5nLXJpZ2h0OiBjYWxjKDE3cHggLSAxMHB4KTsqL1xyXG59XHJcbi50ZW1wbGF0ZXtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi5TdHlsZUVkaXRvckRpc3BsYXkgLnRlbXBsYXRle1xyXG4gIGRpc3BsYXk6IHVuc2V0O1xyXG59XHJcbi5wcmV2aWV3e1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB3aWR0aDogMTAwJTtcclxuICBtaW4taGVpZ2h0OiAxMHB4O1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIHJlZDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbn1cclxuLnByZXZpZXc6Ymxhbmt7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcclxuICBvcGFjaXR5OiAwLjQ7XHJcbn1cclxuLnNlcGFyYXRvclNoZWxsLnRvcHtcclxuICBtYXJnaW4tdG9wOiAzMHB4O1xyXG59XHJcblxyXG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXTpmb2N1cyB7XHJcbiAgbWF4LWhlaWdodDogdW5zZXQ7XHJcbn1cclxuZGl2W2NvbnRlbnRlZGl0YWJsZT1cInRydWVcIl0sIGRpdltjb250ZW50ZWRpdGFibGU9XCJmYWxzZVwiXSB7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBjb2xvcjogYmxhY2s7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgbWluLWhlaWdodDogMTAwcHg7XHJcbiAgbWF4LWhlaWdodDogMjAwcHg7XHJcbiAgbWFyZ2luLXRvcDogNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgY3Vyc29yOiB0ZXh0O1xyXG59XHJcbmRpdltjb250ZW50ZWRpdGFibGU9XCJmYWxzZVwiXSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JheTtcclxuICBjdXJzb3I6IG5vLWRyb3A7XHJcbiAgb3BhY2l0eTogMC40O1xyXG59XHJcbmxhYmVsLmFsbG93RWRpdCB7XHJcbiAgY29sb3I6IGdvbGRlbnJvZDtcclxufVxyXG5idXR0b24ge1xyXG4gIG1hcmdpbjogNXB4O1xyXG59XHJcbi5zdHlsZS5vd24sIC5zdHlsZS5pbnN0YW5jZXN7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHdyYXA7XHJcbn1cclxuLmRldGFpbHtcclxuICBib3JkZXI6IDNweCBzb2xpZCB2YXIoLS1ibHVlYm9yZGVyY29sb3IpO1xyXG4gIGJhY2tncm91bmQ6IHZhcigtLSk7XHJcbiAgY29sb3I6IHZhcigtLWFsdEZvbnRDb2xvcik7XHJcbn1cclxuYnV0dG9uLmRldGFpbCB7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDA7XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGhlaWdodDogYXV0bztcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAxN3B4O1xyXG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAxN3B4O1xyXG4gIHotaW5kZXg6IDE7XHJcbiB9XHJcbmJ1dHRvbi5kZXRhaWw6Zmlyc3QtY2hpbGQ6bm90KDpvbmx5LWNoaWxkKXsgLyogZmlyc3QgdmlzaWJsZSBjaGlsZCBub3QgcG9zc2libGUgaWMgcHVyZSBjc3MgKi9cclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxuICBtYXJnaW4tcmlnaHQ6IDA7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDA7XHJcbiAgYm9yZGVyLWJvdHRvbS1yaWdodC1yYWRpdXM6IDA7XHJcbn1cclxuYnV0dG9uLmRldGFpbDpsYXN0LWNoaWxkOm5vdCg6b25seS1jaGlsZCl7XHJcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xyXG59XHJcbmJ1dHRvbi5kZXRhaWw6Zm9jdXMge1xyXG4gIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcclxuICBvdXRsaW5lOiBub25lICFpbXBvcnRhbnQ7XHJcbn1cclxuZGl2LmRldGFpbHtcclxuICBwYWRkaW5nOiA1cHg7XHJcbiAgbWFyZ2luLXRvcDogLTNweDtcclxuICB3aWR0aDogY2FsYygxMDAlKTtcclxufVxyXG4uc2F2ZWFzcm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcbmJ1dHRvbi5kZWxldGV7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5idXR0b24uc2F2ZWFze1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuaW5wdXQuc2F2ZWFzIHtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIGZsZXgtYmFzaXM6IDEwMHB4O1xyXG4gIGZsZXgtZ3JvdzogMC42O1xyXG4gIHdpZHRoOiAwO1xyXG59XHJcbi5jb21wYXRpYmxlUm93ID4gbGFiZWwgPiBzcGFue1xyXG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG9yZGVyOiAyO1xyXG4gIG1hcmdpbi1sZWZ0OiAwO1xyXG59XHJcbi5zYXZlYXNyb3csIC5jb21wYXRpYmxlUm93e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiB3cmFwO1xyXG59XHJcbi5jb21wYXRpYmxlUm93ID4gbGFiZWwgPiBpbnB1dCB7XHJcbiAgb3JkZXI6IDE7XHJcbiAgbWFyZ2luLWxlZnQ6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbn1cclxuLmRldGFpbCA+IGxhYmVsIHtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuYnV0dG9uLmRldGFpbCA+IC5vcGVuZWQsIGJ1dHRvbi5kZXRhaWwgPiAuY2xvc2Vke1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG50YWJsZSB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbnRkLnRpdGxlIHtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBwYWRkaW5nLXRvcDogMTBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbmgxIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuc2VsZWN0e1xyXG4gIC8qIGJhY2tncm91bmQ6IGluaGVyaXQ7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiBpbmhlcml0O1xyXG4gIGZvbnQ6IGluaGVyaXQ7ICovXHJcbiAgLypmbGV4LWJhc2lzOiAwOyovXHJcbiAgZmxleC1zaHJpbms6IDE7XHJcbiAgZmxleC1ncm93OiAwLjk7XHJcbiAgbWF4LXdpZHRoOiBtYXgtY29udGVudDtcclxuICBtaW4td2lkdGg6IDA7XHJcbn1cclxuXHJcbmxhYmVsIHtkaXNwbGF5OiBmbGV4OyBmbGV4LWdyb3c6MTt9XHJcbmxhYmVsID4gKjpub3QoaW5wdXQpLCBoNiA+ICoge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgLyogZmxleC1ncm93OiAxOyovXHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG5cclxuaDZ7XHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG5cclxufVxyXG4uc2VwYXJhdG9yID4gKiB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi8qXHJcbmJ1dHRvbiB7XHJcbiAgYmFja2dyb3VuZDogIzAwODRmZjtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gIHBhZGRpbmc6IDhweCAxNHB4O1xyXG4gIGZvbnQtc2l6ZTogMTVweDtcclxuICBjb2xvcjogI2ZmZjtcclxufVxyXG5cclxuYnV0dG9uOmRpc2FibGVke1xyXG4gIGJhY2tncm91bmQ6IGdyYXk7XHJcbn0qL1xyXG5pbnB1dFt0eXBlPVwibnVtYmVyXCJdIHtcclxuICB3aWR0aDogNDBweDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxufVxyXG4uem9vbVgsIC56b29tWSwgLmdyaWRYLCAuZ3JpZFkge1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O31cclxuXHJcblxyXG5sYWJlbD5pbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0sXHJcbmxhYmVsPmlucHV0W3R5cGU9XCJjb2xvclwiXSB7XHJcbiAgbWFyZ2luLWJvdHRvbTogM3B4O1xyXG59XHJcblxyXG4jcHJpbWFyeV9jb2xvciB7XHJcbiAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICBoZWlnaHQ6IDYwcHg7XHJcbiAgd2lkdGg6IDYwcHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiBub25lO1xyXG59XHJcblxyXG5bY29udGVudGVkaXRhYmxlPXRydWVdOmVtcHR5OmJlZm9yZSB7XHJcbiAgY29udGVudDogYXR0cihwbGFjZWhvbGRlcik7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgLyogRm9yIEZpcmVmb3ggKi9cclxuICBjdXJzb3I6IHRleHQ7XHJcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICBjb2xvcjogZGFya2dyYXk7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG5cclxuLnNlcGFyYXRvclNoZWxsIHtcclxuICBtaW4taGVpZ2h0OiAzM3B4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiByb3c7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ucm93dyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5zZXBhcmF0b3Ige1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuLnN0eWxlbGFiZWx7XHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG59XHJcbnNlbGVjdC5zdHlsZW5hbWV7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWxlZnQ6IDA7XHJcbn1cclxuLkhvcml6b250YWxDb250YWluZXJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHJvdztcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuLm9ubHlWZXJ0aWNhbENvbnRhaW5lcntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG4ub25seVZlcnRpY2FsQ29udGFpbmVyID4gKiB7XHJcbiAgbWFyZ2luOiBhdXRvIDA7XHJcbn1cclxuLkhvcml6b250YWxDaGlsZHtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbn1cclxuLm9wZW5lZHtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcblxyXG4uaGVscEJ1dHRvbiwgLnN0eWxlZGVsZXRlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIHdpZHRoOiAzNXB4O1xyXG4gIGhlaWdodDogMzVweDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiAwO1xyXG59XHJcbi5zdHlsZWRlbGV0ZSB7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxufVxyXG4uaGVscEJ1dHRvbiB7XHJcbiAgYmFja2dyb3VuZDogcmdiKDAsIDYyLCAxMjcpO1xyXG4gIGJvcmRlci1jb2xvcjogcmdiKDAsIDYyLCAxMjcpOyB9XHJcblxyXG4uaHRtbHN0eWxlID4gLnRvcCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4uZXhwcmVzc2lvblJvb3Qge1xyXG4gIGZsZXgtd3JhcDogbm93cmFwICFpbXBvcnRhbnQ7XHJcbiAgbWF4LXdpZHRoOiAxMDAlO1xyXG59XHJcbmlucHV0LmZpbGx7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgbWFyZ2luLWxlZnQ6IDdweDtcclxufVxyXG4ubGVmdHNpZGV7XHJcbiAgZmxleC1ncm93OiAzO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgbWluLXdpZHRoOiAwO1xyXG4gIG1heC13aWR0aDogMTUwcHg7XHJcbn1cclxuLnJpZ2h0c2lkZXtcclxuICBmbGV4LWdyb3c6IDc7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBtaW4td2lkdGg6IDA7XHJcbn1cclxuLmFycm93Q29udGFpbmVye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxufVxyXG5idXR0b24uYXJyb3d7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBsaW5lLWhlaWdodDogdW5zZXQ7XHJcbiAgcGFkZGluZzogMCA2cHg7XHJcbn1cclxuLnRzY2xhc3N7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGRpc3BsYXk6IGlubGluZTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLyogKi9cclxuXHJcbi8qXHJcbnByZSB7XHJcbiAgYmFja2dyb3VuZDojRUVFO1xyXG4gIHBhZGRpbmc6NXB4O1xyXG4gIHdpZHRoOiAyOTBweDtcclxufSovXHJcbi5hZGRIZWFkZXJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4uYWRkSGVhZGVyID4gYnV0dG9uIHtcclxuICBtYXJnaW4tbGVmdDogMDtcclxuICBvcmRlcjogMjtcclxufVxyXG5zZWxlY3QuYXR0cmlidXRldHlwZWFkZHtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBtaW4td2lkdGg6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG59XHJcbi5wcmV2aWV3c2VsZWN0b3J7XHJcbiAgaGVpZ2h0OiAyM3B4O1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiAycHggZGFzaGVkICM2NjY2NjY7XHJcbn1cclxuXHJcbi5zaG93QXNFZGdle1xyXG4gIG1hcmdpbi1yaWdodDogNXB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuYnV0dG9uLmRlbGV0ZSwgYnV0dG9uLnNhdmVhc3tcclxuICBmb250LXNpemU6IDAuOHJlbTtcclxufVxyXG5idXR0b24uZGVsZXRlUnVsZXtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1iYXNpczogYXV0bztcclxuICBtaW4td2lkdGg6IGF1dG87XHJcbiAgbWFyZ2luLXRvcDogMDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIHBhZGRpbmc6IDVweDtcclxufVxyXG4ubm93cmFwe1xyXG4gIGZsZXgtd3JhcDogbm93cmFwO1xyXG59XHJcbi5fcm9vdCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbmRpdi5kZXRhaWwubWVhc3VyYWJsZSA+IGRpdi50ZW1wbGF0ZSB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uZ3JhcGhDb2xvciwgLnNob3dHcmlke1xyXG4gIG1hcmdpbi1sZWZ0OiAwO1xyXG59XHJcbnNlbGVjdC5vcGVyYXRvcntcclxuICB0ZXh0LWFsaWduLWxhc3Q6IGNlbnRlcjtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIHdpZHRoOiAyNXB4O1xyXG59XHJcbnNwYW4ub3BlcmF0b3J0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbn1cclxuc2VsZWN0Lm9wZXJhdG9yOmRpc2FibGVke1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgLypcclxuICBiYWNrZ3JvdW5kOiBpbmhlcml0O1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICAtbW96LWFwcGVhcmFuY2U6IG5vbmU7XHJcbiAgLXdlYmtpdC1hcHBlYXJhbmNlOiBub25lO1xyXG4gIG1hcmdpbjogMDsqL1xyXG59XHJcblxyXG5zcGFuLm5hbWVwcmVmaXgge1xyXG4gIG1hcmdpbi1sZWZ0OiA3cHg7XHJcbiAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgYm9yZGVyOiAycHggaW5zZXQgcmdiKDIzOCwgMjM4LCAyMzgpO1xyXG4gIGhlaWdodDogMjFweDtcclxuICBib3JkZXItcmlnaHQ6IG5vbmU7XHJcbiAgY29sb3I6IGJsYWNrO1xyXG4gIGxpbmUtaGVpZ2h0OiAxNnB4O1xyXG59XHJcbmlucHV0Lm5hbWUge1xyXG4gIG1hcmdpbi1sZWZ0OiAwO1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxufVxyXG5cclxubGFiZWw6Zm9jdXMgPiBpbnB1dC5uYW1lIHtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJveC1zaGFkb3c6IDAgMnB4IDJweCAycHggcmdiKDc3LCAxNDQsIDI1NCk7XHJcbn1cclxuXHJcbmlucHV0Lm5hbWU6Zm9jdXMge1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm94LXNoYWRvdzogMnB4IDJweCAwcHggMHB4IHJnYig3NywgMTQ0LCAyNTQpLCAycHggLTJweCAwcHggMHB4IHJnYig3NywgMTQ0LCAyNTQpO1xyXG59XHJcbi5odG1sc3R5bGUge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbmxhYmVsLmFsbG93RWRpdCA+IHNwYW4ge1xyXG4gIG1hcmdpbi1sZWZ0OjA7XHJcbn1cclxubGFiZWwgPiAqIHtcclxuICBtYXJnaW4tdG9wOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IGF1dG87XHJcbn1cclxubGFiZWwgPiBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0gfiAqIHtcclxuICBtYXJnaW4tbGVmdDogMDtcclxufVxyXG4uaHRtbFtjb250ZW50ZWRpdGFibGVdIHtcclxuICAvKklERSBnaXZlcyBlcnJvciBidXQgdGhleSBhbGwgYWN0dWFsbHkgZXhpc3QsIGF0IGxlYXN0IG9uIG1vemlsbGEuKi9cclxuICBvdmVyZmxvdy13cmFwOiBhbnl3aGVyZTtcclxuICB3b3JkLXdyYXA6IGFueXdoZXJlO1xyXG4gIHdoaXRlLXNwYWNlOiBicmVhay1zcGFjZXM7XHJcbn1cclxuXHJcbi5hdXRvc2l6ZWNvbnRhaW5lcntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuLmF1dG9zaXplY29udGFpbmVyID4gKntcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbn1cclxuLnNpemVDb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwOyB9XHJcbi5zaXplQ29udGFpbmVySGFsZiB7XHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG4uc2l6ZWxhYmVsIHtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBmbGV4LWZsb3c6IGNvbHVtbi1yZXZlcnNlO1xyXG4gIG1hcmdpbi1yaWdodDogMTBweDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDcwMHB4KSB7XHJcbiAgLyogc3Ugdmlld3BvcnQgdHJvcHBvIHBpY2NvbGkgY2FtYmlvIGxhIHZpc3VhbGl6emF6aW9uZSBkYSBsYWJlbCBzb3ByYSBpbCB0ZXN0byAoYnVvbm8gcGVyIGZhcmUgbW9uby1yb3cpIGEgbGFiZWwgYWZmaWFuY2F0YSBhbCB0ZXN0byAocGVyIGZhcmUgNCByb3cgZSBzY29ycmVyZSB2ZXJ0aWNhbG1lbnRlKSovXHJcbiAgLnNpemVsYWJlbHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB9XHJcbn1cclxuLnNpemVsYWJlbCA+ICp7XHJcbiAgZGlzcGxheTogaW5saW5lO1xyXG4gIG1hcmdpbjogYXV0bzsgfVxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuICAvKiB0aGV5IGZpeCBvdXRlciBjc3MgaW5mbHVlbmNlIG9uIG1lYXN1cmFibGUgc2VjdGlvbi4gKi9cclxuXHJcbmlucHV0W3R5cGU9XCJjaGVja2JveFwiXS5hcnJvdyB7XHJcbiAgbWFyZ2luOiAwOyB9XHJcblxyXG4ubWVhc19hY2MwIGJ1dHRvbiB7IG1hcmdpbjogMDsgfVxyXG5cclxuXHJcblxyXG5cclxuLyoqKioqKioqKioqICAgICAgICAgICAgICBNZWFzdXJhYmxlIGVkaXRvciB2MiBzdGFydCAgICAgICAgICAgICAgICAgKioqKioqKiovXHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVTZXR0aW5nUm9vdHtcclxuICB3aWR0aDogMTAwJTtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG4ubWVhc19hY2MwIC5ib3hlc3Jvb3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1vdmVtZW50Ym94cm9vdCwgLm1lYXNfYWNjMCAucmVzaXplYm94cm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbn1cclxuXHJcbi5tZWFzX2FjYzAgLmNvbHVtbiwgLm1lYXNfYWNjMCAucm93e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAucm93IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luLXJpZ2h0OiB1bnNldDtcclxuICBtYXJnaW4tbGVmdDogdW5zZXQ7IC8qIGR1bWIgX2dyaWQuc2NzcyBmaXhlciAqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmJyZWFrIHsgZmxleC13cmFwOiB3cmFwOyB9XHJcbi5tZWFzX2FjYzAgLmF1dG9icmVhayB7IGZsZXgtd3JhcDogaW5pdGlhbDsgfVxyXG4ubWVhc19hY2MwIC5maWxsIHsgZmxleC1ncm93OiAxOyB9XHJcbi5tZWFzX2FjYzAgLmJveHRpdGxlIHsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMTJweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlIHsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLmxlZnQsIC5tZWFzX2FjYzAgLnNpZGUucmlnaHQgeyB3aWR0aDogMTBweDsgfVxyXG4ubWVhc19hY2MwIC5zaWRlLnRvcCwgLm1lYXNfYWNjMCAuc2lkZS5ib3QgeyBoZWlnaHQ6IDEwcHg7IHdpZHRoOiBjYWxjKDEwMCUgLSAyMHB4KTsgfVxyXG4ubWVhc19hY2MwIC5jb3JuZXIgeyBkaXNwbGF5OiBmbGV4OyB3aWR0aDogMTBweDsgaGVpZ2h0OiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSB7IGJhY2tncm91bmQtY29sb3I6IGdvbGRlbnJvZDsgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5taWRkbGUgLm1pZGRsZSB7IHdpZHRoOiAxMjBweDsgaGVpZ2h0OiA5MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLnNpZGUsIC5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcuaW5uZXIgPiAucm93ID4gLmNvcm5lciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZGltZ3JheTtcclxufVxyXG4ubWVhc19hY2MwIC5ib3hyb290IHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZXtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCBidXR0b24ucnVsZWRlbGV0ZSB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHdpZHRoOiAzMHB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMjVweCAwIDAgMjVweDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4IHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgZmxleC1ncm93OiAwICFpbXBvcnRhbnQ7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgZmxleC1iYXNpczogYXV0byAhaW1wb3J0YW50O1xyXG4gIGZsZXgtc2hyaW5rOiAwICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+IGlucHV0LmF0dHJuYW1lIHtcclxuICBib3JkZXItbGVmdDogbm9uZTtcclxuICBwYWRkaW5nLWxlZnQ6IDA7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqIHsgYm9yZGVyOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiAqOmZpcnN0LWNoaWxkIHtcclxuICBtYXJnaW4tdG9wOiAxcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQ6Zm9jdXMgeyBib3gtc2hhZG93OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXg6Zm9jdXMtd2l0aGluIHtcclxuICBib3JkZXItY29sb3I6ICM4MGJkZmY7XHJcbiAgYm94LXNoYWRvdzogMCAwIDAgMC4ycmVtIHJnYmEoMCwgMTIzLCAyNTUsIDAuMjUpO1xyXG59XHJcblxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLnJpZ2h0eCwgLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciA+IC5sZWZ0eCB7IG1hcmdpbi1ib3R0b206IDAgIWltcG9ydGFudDsgfVxyXG4vKiAubWVhc19hY2MwIC5yaWdodHggeyBtaW4td2lkdGg6IDA7IH0gKi9cclxuLm1lYXNfYWNjMCAucmlnaHR4IHNwYW4ub3BlcmF0b3Ige1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gIG1hcmdpbi10b3A6IDhweDtcclxufVxyXG4ubWVhc19hY2MwIC5vcGVyYXRvcmNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuLm1lYXNfYWNjMCBzZWxlY3Qub3BlcmF0b3Ige1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIG1hcmdpbjogYXV0byA1cHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eCAuY29tcG91bmRJbnB1dHByZWZpeCwgLm1lYXNfYWNjMCAucmlnaHR4IGlucHV0LnJpZ2h0c2lkZSwgLm1lYXNfYWNjMCBpbnB1dC5sZWZ0c2lkZSwgLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gIG1pbi13aWR0aDogMTIwcHg7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lciB7IG1hcmdpbi1ib3R0b206IDFyZW07IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLnRhcmdldCB7IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4ID4gLm1lYXN1cmFibGVkZWJ1ZyB7IG1hcmdpbi10b3A6IDVweDsgfVxyXG4ubWVhc19hY2MwIC5hdHRybmFtZSB7XHJcbiAgbWF4LXdpZHRoOiAyMDBweCAhaW1wb3J0YW50OyAvKiB0b2RvOiByZW1vdmUgd2hlbiBpcyBhdXRvc2l6aW5nICovXHJcbiAgbWluLXdpZHRoOiAwO1xyXG59XHJcbi5tZWFzX2FjYzAgLmFkZHJ1bGUge1xyXG4gIGZsb2F0OiByaWdodDtcclxuICBtYXJnaW4tdG9wOiAtNHB4O1xyXG4gIHBhZGRpbmc6IDRweCAxMHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZSB7XHJcbiAgcGFkZGluZy1yaWdodDogNHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxldGl0bGUuY29sbGFwc2VkIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZTpob3ZlciB7IC13ZWJraXQtYXBwZWFyYW5jZTogYnV0dG9uOyB9XHJcbi5tZWFzX2FjYzAgLmZvcm0tY29udHJvbCA+IC5mb3JtLWNvbnRyb2w6bm90KDpmaXJzdC1jaGlsZCl7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogdW5zZXQ7XHJcbiAgLyogZGlzYWJsZSBib290c3RyYXAgcnVsZSovXHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZWVycm9ydGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1kYW5nZXIpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGV3YXJuaW5ndGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS13YXJuaW5nKTtcclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlb3V0cHV0dGV4dHtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG4gIGNvbG9yOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXJ7IG1hcmdpbi1ib3R0b206IDVweDsgfVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZGVidWcgeyBkaXNwbGF5OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLnJpZ2h0eDpmb2N1cy13aXRoaW4gLm1lYXN1cmFibGVkZWJ1Z3sgZGlzcGxheTogZmxleDsgfVxyXG4ubWVhc19hY2MwIC5jb3VudGVyc2hlbGwgeyBmbG9hdDogcmlnaHQ7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+ICoge1xyXG4gIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcclxuICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlciBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAqLCAubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93diB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5sZWZ0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL3RxeFhoazQvdGwucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pndnB5d3ovdGxsLnBuZyk7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAuc2lkZS50b3Age1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL005ZkM3RFAvdC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLnJpZ2h0IHtcclxuICAvKmJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1B6c21qeGYvdHIucG5nKTsqL1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1NOMlRITHQvdHJsLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vN2ptOUJCUS9sLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAucmlnaHQge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1JZWm5WTjUvci5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLmxlZnQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vcXJZV2RwSC9ibC5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vZ0RLRnJ5NS9ibGwucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5zaWRlLmJvdCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vY1hjMG5tUy9iLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAucmlnaHQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vSzBwVlZUNy9ici5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUXB3UlNzVC9icmwucG5nKTsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUudG9wIHtcclxuICBtYXJnaW4tYm90dG9tOiAzcHg7XHJcbiAgbWFyZ2luLXRvcDogLTNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUuYm90IHtcclxuICBtYXJnaW4tYm90dG9tOiAtM3B4O1xyXG4gIG1hcmdpbi10b3A6IDNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUubGVmdCB7XHJcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IC0zcHg7IH1cclxuLm1lYXNfYWNjMCBpbnB1dC5zaWRlLnJpZ2h0IHtcclxuICBtYXJnaW4tcmlnaHQ6IC0zcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDNweDsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd2gge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL1pkM2p0YmMvbHIucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvd3Yge1xyXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2kuaWJiLmNvL2pIVHRQRHgvdGIucG5nKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgbWluLXdpZHRoOiA1MHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gKiB7XHJcbiAgaGVpZ2h0OiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLmxlZnQge1xyXG4gIGhlaWdodDogYXV0bztcclxuICB3aWR0aDogNTBweDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA1MHB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdyB7IC13ZWJraXQtYXBwZWFyYW5jZTogaW5pdGlhbDsgfVxyXG5cclxuLm1lYXNfYWNjMCAuYXJyb3doLCAubWVhc19hY2MwIC5hcnJvd3Z7XHJcbiAgd2lkdGg6IDc1cHg7XHJcbiAgaGVpZ2h0OiA3NXB4OyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvdzpmb2N1c3sgb3V0bGluZTogbm9uZTsgfVxyXG4ubWVhc19hY2MwIC5hcnJvdzpjaGVja2Vke1xyXG4gIGZpbHRlcjogc2VwaWEoODIlKSBzYXR1cmF0ZSgzOTI1JSkgaHVlLXJvdGF0ZSg1NWRlZykgYnJpZ2h0bmVzcygxMjUlKSBjb250cmFzdCgxMjAlKTsgfVxyXG5cclxuLm1lYXNfYWNjMCAuZGlyZWN0aW9ucyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgbWFyZ2luOiBhdXRvOyB9XHJcblxyXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zID4gKiB7IG1hcmdpbjogYXV0bzsgfVxyXG4ubWVhc19hY2MwIC5kcmFnZ2FibGUuYm94cm9vdHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIC8qaGVpZ2h0OiAyMzdweDsqL1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbGxhcHNlOm5vdCguc2hvdykgeyBkaXNwbGF5OiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLnNlbGVjdGVkIHsgYmFja2dyb3VuZC1jb2xvcjogIzM3ZmY2NiAhaW1wb3J0YW50OyB9XHJcbi8qKioqKioqKioqKiAgICAgICAgICAgICAgTWVhc3VyYWJsZSBlZGl0b3IgdjIgZW5kICAgICAgICAgICAgICAgICAgICoqKioqKioqL1xyXG4uaXNpbnRlcmZhY2UsIC5pc2Fic3RyYWN0e1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG59XHJcblxyXG5cclxuXHJcblxyXG5cclxuIl19 */";
+    __webpack_exports__["default"] = ".dropdown{\r\n  position: relative;\r\n  padding-left: 0;\r\n}\r\n.dropdown:focus{\r\n  outline: none;\r\n  box-shadow: none;\r\n}\r\n.dropdown:focus-within{\r\n  pointer-events: none;\r\n}\r\n.dropdown:focus-within>.dropdownmenu{\r\n  display: block;\r\n}\r\n.dropdown.hover-display:hover>.dropdownmenu{\r\n  display: block;\r\n}\r\n.dropdownmenu{\r\n  z-index: 1001;\r\n  box-shadow: 0 0 5px grey;\r\n}\r\n.dropdown:focus-within>.icon,\r\n.dropdown.hover-display:hover>.icon{\r\n  -webkit-transform: rotate(225deg);\r\n          transform: rotate(225deg);\r\n}\r\n.dropdown.hover-display.readonly .dropdownmenu{\r\n  pointer-events: none;\r\n}\r\n.dropdownmenu .dropdownitem{\r\n  border: 1px solid transparent; /* per evitare incrementi di dimensione*/\r\n}\r\n.dropdownmenu .dropdownitem.selected{\r\n  border: 1px solid var(--color-4);\r\n  /* outline: 2px solid var(--color-4); */\r\n  box-shadow: 0 0 3px 1px var(--color-4);\r\n  background: var(--color-bg-2);\r\n}\r\n/*.dropdown>.icon:hover, .dropdown:focus-within>.icon{\r\n  filter: brightness(0.9);\r\n}*/\r\n.dropdown>.dropdownmenu{\r\n  pointer-events: all;\r\n  position: absolute;\r\n  top: 100%;\r\n  left: 0;\r\n  display: none;\r\n  /*float: left;*/\r\n  padding: 0.5rem 0;\r\n  margin: 0;\r\n  font-size: 1rem;\r\n  /*color: #212529;*/\r\n  text-align: left;\r\n  list-style: none;\r\n  /*background-color: #fff;*/\r\n  background-clip: padding-box;\r\n  border: 1px solid rgba(0, 0, 0, 0.15);\r\n  border-radius: 0.25rem;\r\n  background: var(--color-bg-1);\r\n}\r\n.dropdownitem{\r\n  display: block;\r\n  width: 100%;\r\n  padding: 0.25rem 1.5rem;\r\n}\r\n.cslistreadonly.dropdownitem .inheritedFromText{\r\n  text-align:center;\r\n}\r\n.cslistreadonly.dropdownitem .inheritedFromText>*{\r\n  display: inline-block;\r\n}\r\n.dropdown>.icon{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  text-align: center;\r\n}\r\n.dropdown>.icon{\r\n  background: inherit;\r\n  margin: auto 10px;\r\n  border: solid;\r\n  border-width: 0 3px 3px 0;\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  -webkit-transform: rotate(45deg);\r\n          transform: rotate(45deg);\r\n  min-height: 20px;\r\n  min-width: 20px;\r\n}\r\n.dropdown .title{\r\n  margin: auto;\r\n}\r\n.colorblock{\r\n  margin-right: 2px;\r\n}\r\n.styleContainer{\r\n  /*position: relative;\r\n  height: 100%;\r\n  overflow-y: auto;\r\n  overflow-x: auto;\r\n  padding: 17px;\r\n  padding-right: calc(17px - 10px);*/\r\n}\r\n.template{\r\n  display: none;\r\n}\r\n.StyleEditorDisplay .template{\r\n  display: unset;\r\n}\r\n.preview{\r\n  position: relative;\r\n  display: block;\r\n  width: 100%;\r\n  min-height: 10px;\r\n  border: 1px solid red;\r\n  background-color: transparent;\r\n  margin-bottom: 10px;\r\n  margin-top: 10px;\r\n}\r\n.preview:blank{\r\n  background-color: gray;\r\n  opacity: 0.4;\r\n}\r\n.separatorShell.top{\r\n  margin-top: 30px;\r\n}\r\ndiv[contenteditable=\"true\"]:focus {\r\n  max-height: unset;\r\n}\r\ndiv[contenteditable=\"true\"], div[contenteditable=\"false\"] {\r\n  overflow: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  color: black;\r\n  border: 1px solid black;\r\n  min-height: 100px;\r\n  max-height: 200px;\r\n  margin-top: 5px;\r\n  margin-bottom: 5px;\r\n}\r\ndiv[contenteditable=\"true\"] {\r\n  background-color: white;\r\n  cursor: text;\r\n}\r\ndiv[contenteditable=\"false\"] {\r\n  background-color: gray;\r\n  cursor: no-drop;\r\n  opacity: 0.4;\r\n}\r\nlabel.allowEdit {\r\n  color: goldenrod;\r\n}\r\nbutton {\r\n  margin: 5px;\r\n}\r\n.style.own, .style.instances{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: wrap;\r\n}\r\n.detail{\r\n  border: 3px solid var(--bluebordercolor);\r\n  background: var(--);\r\n  color: var(--altFontColor);\r\n}\r\nbutton.detail {\r\n  margin: auto;\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  height: auto;\r\n  border-top-left-radius: 17px;\r\n  border-top-right-radius: 17px;\r\n  z-index: 1;\r\n }\r\nbutton.detail:first-child:not(:only-child){ /* first visible child not possible ic pure css */\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  margin-right: 0;\r\n  border-top-right-radius: 0;\r\n  border-bottom-right-radius: 0;\r\n}\r\nbutton.detail:last-child:not(:only-child){\r\n  margin-left: -3px;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\nbutton.detail:focus {\r\n  box-shadow: none !important;\r\n  outline: none !important;\r\n}\r\ndiv.detail{\r\n  padding: 5px;\r\n  margin-top: -3px;\r\n  width: calc(100%);\r\n}\r\n.saveasrow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n}\r\nbutton.delete{\r\n  margin: auto;\r\n  margin-bottom: 5px;\r\n}\r\nbutton.saveas{\r\n  margin: auto;\r\n  margin-bottom: 5px;\r\n}\r\ninput.saveas {\r\n  margin: auto;\r\n  margin-bottom: 5px;\r\n  flex-basis: 100px;\r\n  -webkit-box-flex: 0.6;\r\n          flex-grow: 0.6;\r\n  width: 0;\r\n}\r\n.compatibleRow > label > span{\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n  margin-left: 0;\r\n}\r\n.saveasrow, .compatibleRow{\r\n  width: 100%;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-flow: wrap;\r\n}\r\n.compatibleRow > label > input {\r\n  -webkit-box-ordinal-group: 2;\r\n          order: 1;\r\n  margin-left: 0;\r\n  margin-right: 5px;\r\n}\r\n.detail > label {\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  flex-wrap: nowrap;\r\n}\r\nbutton.detail > .opened, button.detail > .closed{\r\n  margin: auto;\r\n}\r\ntable {\r\n  width: 100%;\r\n}\r\ntd.title {\r\n  font-weight: bold;\r\n  padding-top: 10px;\r\n  text-align: center;\r\n}\r\nh1 {\r\n  text-align: center;\r\n}\r\nselect{\r\n  /* background: inherit;\r\n  border: none;\r\n  color: inherit;\r\n  font: inherit; */\r\n  /*flex-basis: 0;*/\r\n  flex-shrink: 1;\r\n  -webkit-box-flex: 0.9;\r\n          flex-grow: 0.9;\r\n  max-width: -webkit-max-content;\r\n  max-width: -moz-max-content;\r\n  max-width: max-content;\r\n  min-width: 0;\r\n}\r\nlabel {display: -webkit-box;display: flex; -webkit-box-flex:1; flex-grow:1;}\r\nlabel > *:not(input), h6 > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /* flex-grow: 1;*/\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\nh6{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n\r\n}\r\n.separator > * {\r\n  text-align: center;\r\n}\r\n/*\r\nbutton {\r\n  background: #0084ff;\r\n  border: none;\r\n  border-radius: 5px;\r\n  padding: 8px 14px;\r\n  font-size: 15px;\r\n  color: #fff;\r\n}\r\n\r\nbutton:disabled{\r\n  background: gray;\r\n}*/\r\ninput[type=\"number\"] {\r\n  width: 40px;\r\n  margin-right: 5px;\r\n}\r\n.zoomX, .zoomY, .gridX, .gridY {\r\n  margin-left: 5px;\r\n  margin-right: 15px;}\r\nlabel>input[type=\"checkbox\"],\r\nlabel>input[type=\"color\"] {\r\n  margin-bottom: 3px;\r\n}\r\n#primary_color {\r\n  border-radius: 100%;\r\n  height: 60px;\r\n  width: 60px;\r\n  border: none;\r\n  outline: none;\r\n  -webkit-appearance: none;\r\n}\r\n[contenteditable=true]:empty:before {\r\n  content: attr(placeholder);\r\n  display: block;\r\n  /* For Firefox */\r\n  cursor: text;\r\n  vertical-align: middle;\r\n  color: darkgray;\r\n  text-align: center;\r\n  margin: auto;\r\n}\r\n.separatorShell {\r\n  min-height: 33px;\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: nowrap;\r\n  margin: auto;\r\n  margin-top: 10px;\r\n  margin-bottom: 10px;\r\n  width: 100%;\r\n}\r\n.roww {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  width: 100%;\r\n}\r\n.separator {\r\n  margin: auto;\r\n  display: inline-block;\r\n}\r\n.stylelabel{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n  margin-right: 5px;\r\n}\r\nselect.stylename{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin: auto;\r\n  margin-left: 0;\r\n}\r\n.HorizontalContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: wrap;\r\n  width: 100%;\r\n}\r\n.onlyVerticalContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: row;\r\n  flex-wrap: wrap;\r\n}\r\n.onlyVerticalContainer > * {\r\n  margin: auto 0;\r\n}\r\n.HorizontalChild{\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  margin: auto;\r\n}\r\n.opened{\r\n  display: none;\r\n}\r\n.helpButton, .styledelete {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  width: 35px;\r\n  height: 35px;\r\n  margin: auto;\r\n  margin-right: 0;\r\n}\r\n.styledelete {\r\n  margin-right: 5px;\r\n  margin-left: 5px;\r\n}\r\n.helpButton {\r\n  background: rgb(0, 62, 127);\r\n  border-color: rgb(0, 62, 127); }\r\n.htmlstyle > .top {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.expressionRoot {\r\n  flex-wrap: nowrap !important;\r\n  max-width: 100%;\r\n}\r\ninput.fill{\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n  margin-left: 7px;\r\n}\r\n.leftside{\r\n  -webkit-box-flex: 3;\r\n          flex-grow: 3;\r\n  flex-basis: 0;\r\n  min-width: 0;\r\n  max-width: 150px;\r\n}\r\n.rightside{\r\n  -webkit-box-flex: 7;\r\n          flex-grow: 7;\r\n  flex-basis: 0;\r\n  min-width: 0;\r\n}\r\n.arrowContainer{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 10px;\r\n}\r\nbutton.arrow{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  line-height: unset;\r\n  padding: 0 6px;\r\n}\r\n.tsclass{\r\n  margin: auto;\r\n  display: inline;\r\n  text-align: center;\r\n}\r\n/* */\r\n/*\r\npre {\r\n  background:#EEE;\r\n  padding:5px;\r\n  width: 290px;\r\n}*/\r\n.addHeader{\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n.addHeader > button {\r\n  margin-left: 0;\r\n  -webkit-box-ordinal-group: 3;\r\n          order: 2;\r\n}\r\nselect.attributetypeadd{\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  min-width: 0;\r\n  margin-right: 10px;\r\n}\r\n.previewselector{\r\n  height: 23px;\r\n  outline: none;\r\n  border: 2px dashed #666666;\r\n}\r\n.showAsEdge{\r\n  margin-right: 5px !important;\r\n}\r\nbutton.delete, button.saveas{\r\n  font-size: 0.8rem;\r\n}\r\nbutton.deleteRule{\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-basis: auto;\r\n  min-width: auto;\r\n  margin-top: 0;\r\n  margin-bottom: 0;\r\n  padding: 5px;\r\n}\r\n.nowrap{\r\n  flex-wrap: nowrap;\r\n}\r\n._root {\r\n  margin-bottom: 5px;\r\n}\r\ndiv.detail.measurable > div.template {\r\n  display: none;\r\n}\r\n.graphColor, .showGrid{\r\n  margin-left: 0;\r\n}\r\nselect.operator{\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  width: 25px;\r\n}\r\nspan.operatortext{\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n}\r\nselect.operator:disabled{\r\n  display: none;\r\n  /*\r\n  background: inherit;\r\n  border: none;\r\n  -moz-appearance: none;\r\n  -webkit-appearance: none;\r\n  margin: 0;*/\r\n}\r\nspan.nameprefix {\r\n  margin-left: 7px;\r\n  background: white;\r\n  border: 2px inset rgb(238, 238, 238);\r\n  height: 21px;\r\n  border-right: none;\r\n  color: black;\r\n  line-height: 16px;\r\n}\r\ninput.name {\r\n  margin-left: 0;\r\n  border-left: none;\r\n  padding-left: 0;\r\n}\r\nlabel:focus > input.name {\r\n  outline: none;\r\n  box-shadow: 0 2px 2px 2px rgb(77, 144, 254);\r\n}\r\ninput.name:focus {\r\n  outline: none;\r\n  box-shadow: 2px 2px 0px 0px rgb(77, 144, 254), 2px -2px 0px 0px rgb(77, 144, 254);\r\n}\r\n.htmlstyle {\r\n  width: 100%;\r\n}\r\nlabel.allowEdit > span {\r\n  margin-left:0;\r\n}\r\nlabel > * {\r\n  margin-top: auto;\r\n  margin-bottom: auto;\r\n}\r\nlabel > input[type=\"checkbox\"] ~ * {\r\n  margin-left: 0;\r\n}\r\n.html[contenteditable] {\r\n  /*IDE gives error but they all actually exist, at least on mozilla.*/\r\n  overflow-wrap: anywhere;\r\n  word-wrap: anywhere;\r\n  white-space: break-spaces;\r\n}\r\n.autosizecontainer{\r\n  display: inline-block;\r\n}\r\n.autosizecontainer > *{\r\n  display: inline-block;\r\n  margin-right: 5px;\r\n}\r\n.sizeContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap; }\r\n.sizeContainerHalf {\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.sizelabel {\r\n  display: -webkit-inline-box;\r\n  display: inline-flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: reverse;\r\n          flex-flow: column-reverse;\r\n  margin-right: 10px;\r\n  margin-bottom: 10px;\r\n}\r\n@media screen and (max-width: 700px) {\r\n  /* su viewport troppo piccoli cambio la visualizzazione da label sopra il testo (buono per fare mono-row) a label affiancata al testo (per fare 4 row e scorrere verticalmente)*/\r\n  .sizelabel{\r\n    display: inline-block;\r\n  }\r\n}\r\n.sizelabel > *{\r\n  display: inline;\r\n  margin: auto; }\r\n/* they fix outer css influence on measurable section. */\r\ninput[type=\"checkbox\"].arrow {\r\n  margin: 0; }\r\n.meas_acc0 button { margin: 0; }\r\n/***********              Measurable editor v2 start                 ********/\r\n.meas_acc0 .measurableSettingRoot{\r\n  width: 100%;\r\n  display: block;\r\n}\r\n.meas_acc0 .boxesroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  flex-basis: 0;\r\n}\r\n.meas_acc0 .movementboxroot, .meas_acc0 .resizeboxroot {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n}\r\n.meas_acc0 .column, .meas_acc0 .row{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: nowrap;\r\n}\r\n.meas_acc0 .row {\r\n  max-width: 100%;\r\n  margin-right: unset;\r\n  margin-left: unset; /* dumb _grid.scss fixer */\r\n}\r\n.meas_acc0 .break { flex-wrap: wrap; }\r\n.meas_acc0 .autobreak { flex-wrap: initial; }\r\n.meas_acc0 .fill { -webkit-box-flex: 1; flex-grow: 1; }\r\n.meas_acc0 .boxtitle { display: block; text-align: center; margin-bottom: 12px; }\r\n.meas_acc0 .side { display: -webkit-box; display: flex; }\r\n.meas_acc0 .side.left, .meas_acc0 .side.right { width: 10px; }\r\n.meas_acc0 .side.top, .meas_acc0 .side.bot { height: 10px; width: calc(100% - 20px); }\r\n.meas_acc0 .corner { display: -webkit-box; display: flex; width: 10px; height: 10px; }\r\n.meas_acc0 .middle { background-color: goldenrod; display: -webkit-box; display: flex; }\r\n.meas_acc0 .middle .middle { width: 120px; height: 90px; }\r\n.meas_acc0 .rectangledrawing.inner > .row > .side, .meas_acc0 .rectangledrawing.inner > .row > .corner {\r\n  background-color: dimgray;\r\n}\r\n.meas_acc0 .boxroot {\r\n  display: block;\r\n  margin: auto;\r\n  flex-wrap: wrap;\r\n}\r\n.meas_acc0 .ruletitle{\r\n  display: block;\r\n  text-align: center;\r\n}\r\n.meas_acc0 button.ruledelete {\r\n  height: 100%;\r\n  width: 30px;\r\n  padding: 0;\r\n  margin-right: 5px;\r\n  border-radius: 25px 0 0 25px;\r\n}\r\n.meas_acc0 .compoundInputprefix {\r\n  max-width: 100%;\r\n  height: -webkit-fit-content;\r\n  height: -moz-fit-content;\r\n  height: fit-content;\r\n  margin-bottom: 0;\r\n  padding: 0;\r\n  -webkit-box-flex: 0 !important;\r\n          flex-grow: 0 !important;\r\n  width: auto;\r\n  flex-basis: auto !important;\r\n  flex-shrink: 0 !important;\r\n}\r\n.meas_acc0 .compoundInputprefix > input.attrname {\r\n  border-left: none;\r\n  padding-left: 0;\r\n  border-top-left-radius: 0;\r\n  border-bottom-left-radius: 0;\r\n}\r\n.meas_acc0 .compoundInputprefix > * { border: none; }\r\n.meas_acc0 .compoundInputprefix > *:first-child {\r\n  margin-top: 1px;\r\n  padding-right: 0;\r\n  background-color: transparent;\r\n}\r\n.meas_acc0 .compoundInputprefix > input:focus { box-shadow: none; }\r\n.meas_acc0 .compoundInputprefix:focus-within {\r\n  border-color: #80bdff;\r\n  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);\r\n}\r\n.meas_acc0 .rulecontainer > .rightx, .meas_acc0 .rulecontainer > .leftx { margin-bottom: 0 !important; }\r\n/* .meas_acc0 .rightx { min-width: 0; } */\r\n.meas_acc0 .rightx span.operator {\r\n  margin: auto;\r\n  margin-left: 5px;\r\n  margin-right: 5px;\r\n  margin-top: 8px;\r\n}\r\n.meas_acc0 .operatorcontainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 select.operator {\r\n  width: 45px;\r\n  margin: auto 5px;\r\n  text-align: center;\r\n  -moz-text-align-last: center;\r\n       text-align-last: center;\r\n}\r\n.meas_acc0 .rightx .compoundInputprefix, .meas_acc0 .rightx input.rightside, .meas_acc0 input.leftside, .meas_acc0 .rightx > .target {\r\n  margin-bottom: 5px;\r\n  min-width: 120px;\r\n  flex-basis: 0;\r\n  -webkit-box-flex: 1;\r\n          flex-grow: 1;\r\n}\r\n.meas_acc0 .rulecontainer { margin-bottom: 1rem; }\r\n.meas_acc0 .rightx > .target { margin-bottom: 0; }\r\n.meas_acc0 .rightx > .measurabledebug { margin-top: 5px; }\r\n.meas_acc0 .attrname {\r\n  max-width: 200px !important; /* todo: remove when is autosizing */\r\n  min-width: 0;\r\n}\r\n.meas_acc0 .addrule {\r\n  float: right;\r\n  margin-top: -4px;\r\n  padding: 4px 10px;\r\n}\r\n.meas_acc0 .ruletitle {\r\n  padding-right: 4px;\r\n  margin-bottom: 5px;\r\n}\r\n.meas_acc0 .ruletitle.collapsed { -webkit-appearance: initial; }\r\n.meas_acc0 .ruletitle:hover { -webkit-appearance: button; }\r\n.meas_acc0 .form-control > .form-control:not(:first-child){\r\n  border-top-left-radius: unset;\r\n  /* disable bootstrap rule*/\r\n}\r\n.meas_acc0 .measurableerrortext{\r\n  margin-left: 5px;\r\n  color: var(--danger);\r\n}\r\n.meas_acc0 .measurablewarningtext{\r\n  margin-left: 5px;\r\n  color: var(--warning);\r\n}\r\n.meas_acc0 .measurableoutputtext{\r\n  margin-left: 5px;\r\n  color: var(--secondary);\r\n}\r\n.meas_acc0 .rulecontainer{ margin-bottom: 5px; }\r\n.meas_acc0 .measurabledebug { display: none; }\r\n.meas_acc0 .rightx:focus-within .measurabledebug{ display: -webkit-box; display: flex; }\r\n.meas_acc0 .countershell { float: right; }\r\n.meas_acc0 .rectangledrawing.outer > * {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .row > *, .meas_acc0 .arrowh, .meas_acc0 .arrowv {\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: center center;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .left {\r\n  /*background-image: url(https://i.ibb.co/tqxXhk4/tl.png);*/\r\n  background-image: url(https://i.ibb.co/Zgvpywz/tll.png);\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > .side.top {\r\n  background-image: url(https://i.ibb.co/M9fC7DP/t.png); }\r\n.meas_acc0 .rectangledrawing.outer > .top > .right {\r\n  /*background-image: url(https://i.ibb.co/Pzsmjxf/tr.png);*/\r\n  background-image: url(https://i.ibb.co/SN2THLt/trl.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  background-image: url(https://i.ibb.co/7jm9BBQ/l.png); }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  background-image: url(https://i.ibb.co/RYZnVN5/r.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .left {\r\n  /*background-image: url(https://i.ibb.co/qrYWdpH/bl.png);*/\r\n  background-image: url(https://i.ibb.co/gDKFry5/bll.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .side.bot {\r\n  background-image: url(https://i.ibb.co/cXc0nmS/b.png); }\r\n.meas_acc0 .rectangledrawing.outer > .bot > .right {\r\n  /*background-image: url(https://i.ibb.co/K0pVVT7/br.png);*/\r\n  background-image: url(https://i.ibb.co/QpwRSsT/brl.png); }\r\n.meas_acc0 input.side.top {\r\n  margin-bottom: 3px;\r\n  margin-top: -3px; }\r\n.meas_acc0 input.side.bot {\r\n  margin-bottom: -3px;\r\n  margin-top: 3px; }\r\n.meas_acc0 input.side.left {\r\n  margin-right: 3px;\r\n  margin-left: -3px; }\r\n.meas_acc0 input.side.right {\r\n  margin-right: -3px;\r\n  margin-left: 3px; }\r\n.meas_acc0 .arrowh {\r\n  background-image: url(https://i.ibb.co/Zd3jtbc/lr.png); }\r\n.meas_acc0 .arrowv {\r\n  background-image: url(https://i.ibb.co/jHTtPDx/tb.png); }\r\n.meas_acc0 .rectangledrawing.outer > .row > .corner {\r\n  height: 50px;\r\n  min-width: 50px;\r\n}\r\n.meas_acc0 .rectangledrawing.outer > .top > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .bot > * {\r\n  height: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .left {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .rectangledrawing.outer > .mid > .right {\r\n  height: auto;\r\n  width: 50px; }\r\n.meas_acc0 .arrow { -webkit-appearance: initial; }\r\n.meas_acc0 .arrowh, .meas_acc0 .arrowv{\r\n  width: 75px;\r\n  height: 75px; }\r\n.meas_acc0 .arrow:focus{ outline: none; }\r\n.meas_acc0 .arrow:checked{\r\n  -webkit-filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%);\r\n          filter: sepia(82%) saturate(3925%) hue-rotate(55deg) brightness(125%) contrast(120%); }\r\n.meas_acc0 .directions {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  margin: auto; }\r\n.meas_acc0 .directions > * { margin: auto; }\r\n.meas_acc0 .draggable.boxroot{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n          flex-flow: column;\r\n  /*height: 237px;*/\r\n}\r\n.meas_acc0 .collapse:not(.show) { display: none; }\r\n.meas_acc0 .selected { background-color: #37ff66 !important; }\r\n/***********              Measurable editor v2 end                   ********/\r\n.isinterface, .isabstract{\r\n  margin-right: 5px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBRUE7RUFDRSxhQUFhO0VBQ2Isd0JBQXdCO0FBQzFCO0FBRUE7O0VBRUUsaUNBQXlCO1VBQXpCLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0Usb0JBQW9CO0FBQ3RCO0FBQ0E7RUFDRSw2QkFBNkIsRUFBRSx3Q0FBd0M7QUFDekU7QUFDQTtFQUNFLGdDQUFnQztFQUNoQyx1Q0FBdUM7RUFDdkMsc0NBQXNDO0VBQ3RDLDZCQUE2QjtBQUMvQjtBQUNBOztFQUVFO0FBQ0Y7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxPQUFPO0VBQ1AsYUFBYTtFQUNiLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsU0FBUztFQUNULGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQiwwQkFBMEI7RUFDMUIsNEJBQTRCO0VBQzVCLHFDQUFxQztFQUNyQyxzQkFBc0I7RUFDdEIsNkJBQTZCO0FBQy9CO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsV0FBVztFQUNYLHVCQUF1QjtBQUN6QjtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBRUE7RUFDRSxxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsbUJBQW1CO0VBQ25CLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IseUJBQXlCO0VBQ3pCLHFCQUFxQjtFQUNyQixzQkFBc0I7RUFDdEIsZ0NBQXdCO1VBQXhCLHdCQUF3QjtFQUN4QixnQkFBZ0I7RUFDaEIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFOzs7OztvQ0FLa0M7QUFDcEM7QUFDQTtFQUNFLGFBQWE7QUFDZjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLGNBQWM7RUFDZCxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtFQUNyQiw2QkFBNkI7RUFDN0IsbUJBQW1CO0VBQ25CLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLFlBQVk7QUFDZDtBQUNBO0VBQ0UsZ0JBQWdCO0FBQ2xCO0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsdUJBQXVCO0VBQ3ZCLFlBQVk7QUFDZDtBQUNBO0VBQ0Usc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixZQUFZO0FBQ2Q7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSx3Q0FBd0M7RUFDeEMsbUJBQW1CO0VBQ25CLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsb0JBQWE7RUFBYixhQUFhO0VBQ2IsWUFBWTtFQUNaLDRCQUE0QjtFQUM1Qiw2QkFBNkI7RUFDN0IsVUFBVTtDQUNYO0FBQ0QsNENBQTRDLGlEQUFpRDtFQUMzRiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsMEJBQTBCO0VBQzFCLDZCQUE2QjtBQUMvQjtBQUNBO0VBQ0UsaUJBQWlCO0VBQ2pCLHlCQUF5QjtFQUN6Qiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLDJCQUEyQjtFQUMzQix3QkFBd0I7QUFDMUI7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixxQkFBYztVQUFkLGNBQWM7RUFDZCxRQUFRO0FBQ1Y7QUFDQTtFQUNFLDJCQUFtQjtFQUFuQix3QkFBbUI7RUFBbkIsbUJBQW1CO0VBQ25CLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLDRCQUFRO1VBQVIsUUFBUTtFQUNSLGNBQWM7QUFDaEI7QUFDQTtFQUNFLFdBQVc7RUFDWCxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSw0QkFBUTtVQUFSLFFBQVE7RUFDUixjQUFjO0VBQ2QsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjtBQUVBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRTs7O2tCQUdnQjtFQUNoQixpQkFBaUI7RUFDakIsY0FBYztFQUNkLHFCQUFjO1VBQWQsY0FBYztFQUNkLDhCQUFzQjtFQUF0QiwyQkFBc0I7RUFBdEIsc0JBQXNCO0VBQ3RCLFlBQVk7QUFDZDtBQUVBLE9BQU8sb0JBQWEsQ0FBYixhQUFhLEVBQUUsa0JBQVcsRUFBWCxXQUFXLENBQUM7QUFDbEM7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFFQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTs7QUFFZDtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7Ozs7Ozs7Ozs7OztFQVlFO0FBQ0Y7RUFDRSxXQUFXO0VBQ1gsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsa0JBQWtCLENBQUM7QUFHckI7O0VBRUUsa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLFdBQVc7RUFDWCxZQUFZO0VBQ1osYUFBYTtFQUNiLHdCQUF3QjtBQUMxQjtBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLGNBQWM7RUFDZCxnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLFlBQVk7QUFDZDtBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFhO0VBQWIsYUFBYTtFQUNiLDhCQUFjO0VBQWQsNkJBQWM7VUFBZCxjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLFdBQVc7QUFDYjtBQUVBO0VBQ0UsWUFBWTtFQUNaLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixZQUFZO0VBQ1osaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixZQUFZO0VBQ1osY0FBYztBQUNoQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsOEJBQWM7RUFBZCw2QkFBYztVQUFkLGNBQWM7RUFDZCxlQUFlO0VBQ2YsV0FBVztBQUNiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYiw4QkFBYztFQUFkLDZCQUFjO1VBQWQsY0FBYztFQUNkLGVBQWU7QUFDakI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLFdBQVc7RUFDWCxZQUFZO0VBQ1osWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLDJCQUEyQjtFQUMzQiw2QkFBNkIsRUFBRTtBQUVqQztFQUNFLG9CQUFhO0VBQWIsYUFBYTtBQUNmO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLG1CQUFZO1VBQVosWUFBWTtFQUNaLGFBQWE7RUFDYixZQUFZO0FBQ2Q7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLGNBQWM7QUFDaEI7QUFDQTtFQUNFLFlBQVk7RUFDWixlQUFlO0VBQ2Ysa0JBQWtCO0FBQ3BCO0FBQ0EsSUFBSTtBQUVKOzs7OztFQUtFO0FBQ0Y7RUFDRSxvQkFBYTtFQUFiLGFBQWE7QUFDZjtBQUNBO0VBQ0UsY0FBYztFQUNkLDRCQUFRO1VBQVIsUUFBUTtBQUNWO0FBQ0E7RUFDRSxhQUFhO0VBQ2IsbUJBQVk7VUFBWixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYiwwQkFBMEI7QUFDNUI7QUFFQTtFQUNFLDRCQUE0QjtBQUM5QjtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxtQkFBWTtVQUFaLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGFBQWE7RUFDYixnQkFBZ0I7RUFDaEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSw0QkFBdUI7T0FBdkIsdUJBQXVCO0VBQ3ZCLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsV0FBVztBQUNiO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxhQUFhO0VBQ2I7Ozs7O2FBS1c7QUFDYjtBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixvQ0FBb0M7RUFDcEMsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLGVBQWU7QUFDakI7QUFFQTtFQUNFLGFBQWE7RUFDYiwyQ0FBMkM7QUFDN0M7QUFFQTtFQUNFLGFBQWE7RUFDYixpRkFBaUY7QUFDbkY7QUFDQTtFQUNFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvRUFBb0U7RUFDcEUsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQix5QkFBeUI7QUFDM0I7QUFFQTtFQUNFLHFCQUFxQjtBQUN2QjtBQUNBO0VBQ0UscUJBQXFCO0VBQ3JCLGlCQUFpQjtBQUNuQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZSxFQUFFO0FBQ25CO0VBQ0UsMkJBQW9CO0VBQXBCLG9CQUFvQjtFQUNwQixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsNEJBQXlCO0VBQXpCLDhCQUF5QjtVQUF6Qix5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsZ0xBQWdMO0VBQ2hMO0lBQ0UscUJBQXFCO0VBQ3ZCO0FBQ0Y7QUFDQTtFQUNFLGVBQWU7RUFDZixZQUFZLEVBQUU7QUFXZCx3REFBd0Q7QUFFMUQ7RUFDRSxTQUFTLEVBQUU7QUFFYixvQkFBb0IsU0FBUyxFQUFFO0FBSy9CLDZFQUE2RTtBQUM3RTtFQUNFLFdBQVc7RUFDWCxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixlQUFlO0VBQ2YsbUJBQVk7VUFBWixZQUFZO0VBQ1osYUFBYTtBQUNmO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWiw0QkFBaUI7RUFBakIsNkJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjtBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsbUJBQW1CO0VBQ25CLGtCQUFrQixFQUFFLDBCQUEwQjtBQUNoRDtBQUNBLG9CQUFvQixlQUFlLEVBQUU7QUFDckMsd0JBQXdCLGtCQUFrQixFQUFFO0FBQzVDLG1CQUFtQixtQkFBWSxFQUFaLFlBQVksRUFBRTtBQUNqQyx1QkFBdUIsY0FBYyxFQUFFLGtCQUFrQixFQUFFLG1CQUFtQixFQUFFO0FBQ2hGLG1CQUFtQixvQkFBYSxFQUFiLGFBQWEsRUFBRTtBQUNsQyxnREFBZ0QsV0FBVyxFQUFFO0FBQzdELDZDQUE2QyxZQUFZLEVBQUUsd0JBQXdCLEVBQUU7QUFDckYscUJBQXFCLG9CQUFhLEVBQWIsYUFBYSxFQUFFLFdBQVcsRUFBRSxZQUFZLEVBQUU7QUFDL0QscUJBQXFCLDJCQUEyQixFQUFFLG9CQUFhLEVBQWIsYUFBYSxFQUFFO0FBQ2pFLDZCQUE2QixZQUFZLEVBQUUsWUFBWSxFQUFFO0FBQ3pEO0VBQ0UseUJBQXlCO0FBQzNCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLGNBQWM7RUFDZCxrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixXQUFXO0VBQ1gsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQiw0QkFBNEI7QUFDOUI7QUFDQTtFQUNFLGVBQWU7RUFDZiwyQkFBbUI7RUFBbkIsd0JBQW1CO0VBQW5CLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLDhCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIsV0FBVztFQUNYLDJCQUEyQjtFQUMzQix5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLDRCQUE0QjtBQUM5QjtBQUNBLHNDQUFzQyxZQUFZLEVBQUU7QUFDcEQ7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDZCQUE2QjtBQUMvQjtBQUNBLGdEQUFnRCxnQkFBZ0IsRUFBRTtBQUNsRTtFQUNFLHFCQUFxQjtFQUNyQixnREFBZ0Q7QUFDbEQ7QUFFQSwwRUFBMEUsMkJBQTJCLEVBQUU7QUFDdkcseUNBQXlDO0FBQ3pDO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsZUFBZTtBQUNqQjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQiw0QkFBdUI7T0FBdkIsdUJBQXVCO0FBQ3pCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7QUFDZDtBQUNBLDRCQUE0QixtQkFBbUIsRUFBRTtBQUNqRCwrQkFBK0IsZ0JBQWdCLEVBQUU7QUFDakQsd0NBQXdDLGVBQWUsRUFBRTtBQUN6RDtFQUNFLDJCQUEyQixFQUFFLG9DQUFvQztFQUNqRSxZQUFZO0FBQ2Q7QUFDQTtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0FBQ3BCO0FBQ0Esa0NBQWtDLDJCQUEyQixFQUFFO0FBQy9ELDhCQUE4QiwwQkFBMEIsRUFBRTtBQUMxRDtFQUNFLDZCQUE2QjtFQUM3QiwwQkFBMEI7QUFDNUI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixvQkFBb0I7QUFDdEI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQixxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGdCQUFnQjtFQUNoQix1QkFBdUI7QUFDekI7QUFDQSwyQkFBMkIsa0JBQWtCLEVBQUU7QUFDL0MsOEJBQThCLGFBQWEsRUFBRTtBQUM3QyxrREFBa0Qsb0JBQWEsRUFBYixhQUFhLEVBQUU7QUFDakUsMkJBQTJCLFlBQVksRUFBRTtBQUN6QztFQUNFLHdCQUF3QjtFQUN4Qiw0QkFBNEI7RUFDNUIsa0NBQWtDO0FBQ3BDO0FBQ0E7RUFDRSx3QkFBd0I7RUFDeEIsNEJBQTRCO0VBQzVCLGtDQUFrQztBQUNwQztBQUNBO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RDtBQUN6RDtBQUNBO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxxREFBcUQsRUFBRTtBQUN6RDtFQUNFLHFEQUFxRCxFQUFFO0FBQ3pEO0VBQ0UsMERBQTBEO0VBQzFELHVEQUF1RCxFQUFFO0FBQzNEO0VBQ0UscURBQXFELEVBQUU7QUFDekQ7RUFDRSwwREFBMEQ7RUFDMUQsdURBQXVELEVBQUU7QUFDM0Q7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCLEVBQUU7QUFDcEI7RUFDRSxtQkFBbUI7RUFDbkIsZUFBZSxFQUFFO0FBQ25CO0VBQ0UsaUJBQWlCO0VBQ2pCLGlCQUFpQixFQUFFO0FBQ3JCO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQixFQUFFO0FBQ3BCO0VBQ0Usc0RBQXNELEVBQUU7QUFDMUQ7RUFDRSxzREFBc0QsRUFBRTtBQUUxRDtFQUNFLFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxZQUFZLEVBQUU7QUFDaEI7RUFDRSxZQUFZLEVBQUU7QUFDaEI7RUFDRSxZQUFZO0VBQ1osV0FBVyxFQUFFO0FBQ2Y7RUFDRSxZQUFZO0VBQ1osV0FBVyxFQUFFO0FBRWYsb0JBQW9CLDJCQUEyQixFQUFFO0FBRWpEO0VBQ0UsV0FBVztFQUNYLFlBQVksRUFBRTtBQUVoQix5QkFBeUIsYUFBYSxFQUFFO0FBQ3hDO0VBQ0UsNEZBQW9GO1VBQXBGLG9GQUFvRixFQUFFO0FBRXhGO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsZUFBZTtFQUNmLFlBQVksRUFBRTtBQUVoQiw2QkFBNkIsWUFBWSxFQUFFO0FBQzNDO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQWlCO0VBQWpCLDZCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25CO0FBQ0Esa0NBQWtDLGFBQWEsRUFBRTtBQUNqRCx1QkFBdUIsb0NBQW9DLEVBQUU7QUFDN0QsNkVBQTZFO0FBQzdFO0VBQ0UsaUJBQWlCO0FBQ25CIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy9zdHlsZS1lZGl0b3Ivc3R5bGUtZWRpdG9yLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZHJvcGRvd257XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxufVxyXG4uZHJvcGRvd246Zm9jdXN7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiBub25lO1xyXG59XHJcbi5kcm9wZG93bjpmb2N1cy13aXRoaW57XHJcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XHJcbn1cclxuLmRyb3Bkb3duOmZvY3VzLXdpdGhpbj4uZHJvcGRvd25tZW51e1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5kcm9wZG93bi5ob3Zlci1kaXNwbGF5OmhvdmVyPi5kcm9wZG93bm1lbnV7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbi5kcm9wZG93bm1lbnV7XHJcbiAgei1pbmRleDogMTAwMTtcclxuICBib3gtc2hhZG93OiAwIDAgNXB4IGdyZXk7XHJcbn1cclxuXHJcbi5kcm9wZG93bjpmb2N1cy13aXRoaW4+Lmljb24sXHJcbi5kcm9wZG93bi5ob3Zlci1kaXNwbGF5OmhvdmVyPi5pY29ue1xyXG4gIHRyYW5zZm9ybTogcm90YXRlKDIyNWRlZyk7XHJcbn1cclxuLmRyb3Bkb3duLmhvdmVyLWRpc3BsYXkucmVhZG9ubHkgLmRyb3Bkb3dubWVudXtcclxuICBwb2ludGVyLWV2ZW50czogbm9uZTtcclxufVxyXG4uZHJvcGRvd25tZW51IC5kcm9wZG93bml0ZW17XHJcbiAgYm9yZGVyOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7IC8qIHBlciBldml0YXJlIGluY3JlbWVudGkgZGkgZGltZW5zaW9uZSovXHJcbn1cclxuLmRyb3Bkb3dubWVudSAuZHJvcGRvd25pdGVtLnNlbGVjdGVke1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWNvbG9yLTQpO1xyXG4gIC8qIG91dGxpbmU6IDJweCBzb2xpZCB2YXIoLS1jb2xvci00KTsgKi9cclxuICBib3gtc2hhZG93OiAwIDAgM3B4IDFweCB2YXIoLS1jb2xvci00KTtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1jb2xvci1iZy0yKTtcclxufVxyXG4vKi5kcm9wZG93bj4uaWNvbjpob3ZlciwgLmRyb3Bkb3duOmZvY3VzLXdpdGhpbj4uaWNvbntcclxuICBmaWx0ZXI6IGJyaWdodG5lc3MoMC45KTtcclxufSovXHJcbi5kcm9wZG93bj4uZHJvcGRvd25tZW51e1xyXG4gIHBvaW50ZXItZXZlbnRzOiBhbGw7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogMTAwJTtcclxuICBsZWZ0OiAwO1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbiAgLypmbG9hdDogbGVmdDsqL1xyXG4gIHBhZGRpbmc6IDAuNXJlbSAwO1xyXG4gIG1hcmdpbjogMDtcclxuICBmb250LXNpemU6IDFyZW07XHJcbiAgLypjb2xvcjogIzIxMjUyOTsqL1xyXG4gIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgbGlzdC1zdHlsZTogbm9uZTtcclxuICAvKmJhY2tncm91bmQtY29sb3I6ICNmZmY7Ki9cclxuICBiYWNrZ3JvdW5kLWNsaXA6IHBhZGRpbmctYm94O1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgMC4xNSk7XHJcbiAgYm9yZGVyLXJhZGl1czogMC4yNXJlbTtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1jb2xvci1iZy0xKTtcclxufVxyXG4uZHJvcGRvd25pdGVte1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIHBhZGRpbmc6IDAuMjVyZW0gMS41cmVtO1xyXG59XHJcbi5jc2xpc3RyZWFkb25seS5kcm9wZG93bml0ZW0gLmluaGVyaXRlZEZyb21UZXh0e1xyXG4gIHRleHQtYWxpZ246Y2VudGVyO1xyXG59XHJcblxyXG4uY3NsaXN0cmVhZG9ubHkuZHJvcGRvd25pdGVtIC5pbmhlcml0ZWRGcm9tVGV4dD4qe1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxufVxyXG4uZHJvcGRvd24+Lmljb257XHJcbiAgZGlzcGxheTogZmxleDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmRyb3Bkb3duPi5pY29ue1xyXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XHJcbiAgbWFyZ2luOiBhdXRvIDEwcHg7XHJcbiAgYm9yZGVyOiBzb2xpZDtcclxuICBib3JkZXItd2lkdGg6IDAgM3B4IDNweCAwO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG4gIHRyYW5zZm9ybTogcm90YXRlKDQ1ZGVnKTtcclxuICBtaW4taGVpZ2h0OiAyMHB4O1xyXG4gIG1pbi13aWR0aDogMjBweDtcclxufVxyXG4uZHJvcGRvd24gLnRpdGxle1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG4uY29sb3JibG9ja3tcclxuICBtYXJnaW4tcmlnaHQ6IDJweDtcclxufVxyXG4uc3R5bGVDb250YWluZXJ7XHJcbiAgLypwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIG92ZXJmbG93LXk6IGF1dG87XHJcbiAgb3ZlcmZsb3cteDogYXV0bztcclxuICBwYWRkaW5nOiAxN3B4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IGNhbGMoMTdweCAtIDEwcHgpOyovXHJcbn1cclxuLnRlbXBsYXRle1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuLlN0eWxlRWRpdG9yRGlzcGxheSAudGVtcGxhdGV7XHJcbiAgZGlzcGxheTogdW5zZXQ7XHJcbn1cclxuLnByZXZpZXd7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIG1pbi1oZWlnaHQ6IDEwcHg7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmVkO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxufVxyXG4ucHJldmlldzpibGFua3tcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xyXG4gIG9wYWNpdHk6IDAuNDtcclxufVxyXG4uc2VwYXJhdG9yU2hlbGwudG9we1xyXG4gIG1hcmdpbi10b3A6IDMwcHg7XHJcbn1cclxuXHJcbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdOmZvY3VzIHtcclxuICBtYXgtaGVpZ2h0OiB1bnNldDtcclxufVxyXG5kaXZbY29udGVudGVkaXRhYmxlPVwidHJ1ZVwiXSwgZGl2W2NvbnRlbnRlZGl0YWJsZT1cImZhbHNlXCJdIHtcclxuICBvdmVyZmxvdzogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGNvbG9yOiBibGFjaztcclxuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICBtaW4taGVpZ2h0OiAxMDBweDtcclxuICBtYXgtaGVpZ2h0OiAyMDBweDtcclxuICBtYXJnaW4tdG9wOiA1cHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbmRpdltjb250ZW50ZWRpdGFibGU9XCJ0cnVlXCJdIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICBjdXJzb3I6IHRleHQ7XHJcbn1cclxuZGl2W2NvbnRlbnRlZGl0YWJsZT1cImZhbHNlXCJdIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xyXG4gIGN1cnNvcjogbm8tZHJvcDtcclxuICBvcGFjaXR5OiAwLjQ7XHJcbn1cclxubGFiZWwuYWxsb3dFZGl0IHtcclxuICBjb2xvcjogZ29sZGVucm9kO1xyXG59XHJcbmJ1dHRvbiB7XHJcbiAgbWFyZ2luOiA1cHg7XHJcbn1cclxuLnN0eWxlLm93biwgLnN0eWxlLmluc3RhbmNlc3tcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogd3JhcDtcclxufVxyXG4uZGV0YWlse1xyXG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLWJsdWVib3JkZXJjb2xvcik7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tKTtcclxuICBjb2xvcjogdmFyKC0tYWx0Rm9udENvbG9yKTtcclxufVxyXG5idXR0b24uZGV0YWlsIHtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXRvcDogMDtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDE3cHg7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDE3cHg7XHJcbiAgei1pbmRleDogMTtcclxuIH1cclxuYnV0dG9uLmRldGFpbDpmaXJzdC1jaGlsZDpub3QoOm9ubHktY2hpbGQpeyAvKiBmaXJzdCB2aXNpYmxlIGNoaWxkIG5vdCBwb3NzaWJsZSBpYyBwdXJlIGNzcyAqL1xyXG4gIGZsZXgtZmxvdzogY29sdW1uO1xyXG4gIG1hcmdpbi1yaWdodDogMDtcclxuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMDtcclxuICBib3JkZXItYm90dG9tLXJpZ2h0LXJhZGl1czogMDtcclxufVxyXG5idXR0b24uZGV0YWlsOmxhc3QtY2hpbGQ6bm90KDpvbmx5LWNoaWxkKXtcclxuICBtYXJnaW4tbGVmdDogLTNweDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XHJcbn1cclxuYnV0dG9uLmRldGFpbDpmb2N1cyB7XHJcbiAgYm94LXNoYWRvdzogbm9uZSAhaW1wb3J0YW50O1xyXG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcclxufVxyXG5kaXYuZGV0YWlse1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICBtYXJnaW4tdG9wOiAtM3B4O1xyXG4gIHdpZHRoOiBjYWxjKDEwMCUpO1xyXG59XHJcbi5zYXZlYXNyb3d7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbn1cclxuYnV0dG9uLmRlbGV0ZXtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbmJ1dHRvbi5zYXZlYXN7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5pbnB1dC5zYXZlYXMge1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbiAgZmxleC1iYXNpczogMTAwcHg7XHJcbiAgZmxleC1ncm93OiAwLjY7XHJcbiAgd2lkdGg6IDA7XHJcbn1cclxuLmNvbXBhdGlibGVSb3cgPiBsYWJlbCA+IHNwYW57XHJcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgb3JkZXI6IDI7XHJcbiAgbWFyZ2luLWxlZnQ6IDA7XHJcbn1cclxuLnNhdmVhc3JvdywgLmNvbXBhdGlibGVSb3d7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHdyYXA7XHJcbn1cclxuLmNvbXBhdGlibGVSb3cgPiBsYWJlbCA+IGlucHV0IHtcclxuICBvcmRlcjogMTtcclxuICBtYXJnaW4tbGVmdDogMDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxufVxyXG4uZGV0YWlsID4gbGFiZWwge1xyXG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG5idXR0b24uZGV0YWlsID4gLm9wZW5lZCwgYnV0dG9uLmRldGFpbCA+IC5jbG9zZWR7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG59XHJcbnRhYmxlIHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxudGQudGl0bGUge1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIHBhZGRpbmctdG9wOiAxMHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuaDEge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5zZWxlY3R7XHJcbiAgLyogYmFja2dyb3VuZDogaW5oZXJpdDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgY29sb3I6IGluaGVyaXQ7XHJcbiAgZm9udDogaW5oZXJpdDsgKi9cclxuICAvKmZsZXgtYmFzaXM6IDA7Ki9cclxuICBmbGV4LXNocmluazogMTtcclxuICBmbGV4LWdyb3c6IDAuOTtcclxuICBtYXgtd2lkdGg6IG1heC1jb250ZW50O1xyXG4gIG1pbi13aWR0aDogMDtcclxufVxyXG5cclxubGFiZWwge2Rpc3BsYXk6IGZsZXg7IGZsZXgtZ3JvdzoxO31cclxubGFiZWwgPiAqOm5vdChpbnB1dCksIGg2ID4gKiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAvKiBmbGV4LWdyb3c6IDE7Ki9cclxuICBtYXJnaW46IGF1dG87XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcblxyXG5oNntcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcblxyXG59XHJcbi5zZXBhcmF0b3IgPiAqIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLypcclxuYnV0dG9uIHtcclxuICBiYWNrZ3JvdW5kOiAjMDA4NGZmO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgcGFkZGluZzogOHB4IDE0cHg7XHJcbiAgZm9udC1zaXplOiAxNXB4O1xyXG4gIGNvbG9yOiAjZmZmO1xyXG59XHJcblxyXG5idXR0b246ZGlzYWJsZWR7XHJcbiAgYmFja2dyb3VuZDogZ3JheTtcclxufSovXHJcbmlucHV0W3R5cGU9XCJudW1iZXJcIl0ge1xyXG4gIHdpZHRoOiA0MHB4O1xyXG4gIG1hcmdpbi1yaWdodDogNXB4O1xyXG59XHJcbi56b29tWCwgLnpvb21ZLCAuZ3JpZFgsIC5ncmlkWSB7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBtYXJnaW4tcmlnaHQ6IDE1cHg7fVxyXG5cclxuXHJcbmxhYmVsPmlucHV0W3R5cGU9XCJjaGVja2JveFwiXSxcclxubGFiZWw+aW5wdXRbdHlwZT1cImNvbG9yXCJdIHtcclxuICBtYXJnaW4tYm90dG9tOiAzcHg7XHJcbn1cclxuXHJcbiNwcmltYXJ5X2NvbG9yIHtcclxuICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gIGhlaWdodDogNjBweDtcclxuICB3aWR0aDogNjBweDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XHJcbn1cclxuXHJcbltjb250ZW50ZWRpdGFibGU9dHJ1ZV06ZW1wdHk6YmVmb3JlIHtcclxuICBjb250ZW50OiBhdHRyKHBsYWNlaG9sZGVyKTtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICAvKiBGb3IgRmlyZWZveCAqL1xyXG4gIGN1cnNvcjogdGV4dDtcclxuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG4gIGNvbG9yOiBkYXJrZ3JheTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG59XHJcblxyXG4uc2VwYXJhdG9yU2hlbGwge1xyXG4gIG1pbi1oZWlnaHQ6IDMzcHg7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHJvdztcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXRvcDogMTBweDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5yb3d3IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLnNlcGFyYXRvciB7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxufVxyXG4uc3R5bGVsYWJlbHtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBtYXJnaW46IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbn1cclxuc2VsZWN0LnN0eWxlbmFtZXtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tbGVmdDogMDtcclxufVxyXG4uSG9yaXpvbnRhbENvbnRhaW5lcntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZmxvdzogcm93O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ub25seVZlcnRpY2FsQ29udGFpbmVye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiByb3c7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG59XHJcbi5vbmx5VmVydGljYWxDb250YWluZXIgPiAqIHtcclxuICBtYXJnaW46IGF1dG8gMDtcclxufVxyXG4uSG9yaXpvbnRhbENoaWxke1xyXG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG4ub3BlbmVke1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuXHJcbi5oZWxwQnV0dG9uLCAuc3R5bGVkZWxldGUge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgd2lkdGg6IDM1cHg7XHJcbiAgaGVpZ2h0OiAzNXB4O1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBtYXJnaW4tcmlnaHQ6IDA7XHJcbn1cclxuLnN0eWxlZGVsZXRlIHtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxuICBtYXJnaW4tbGVmdDogNXB4O1xyXG59XHJcbi5oZWxwQnV0dG9uIHtcclxuICBiYWNrZ3JvdW5kOiByZ2IoMCwgNjIsIDEyNyk7XHJcbiAgYm9yZGVyLWNvbG9yOiByZ2IoMCwgNjIsIDEyNyk7IH1cclxuXHJcbi5odG1sc3R5bGUgPiAudG9wIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5leHByZXNzaW9uUm9vdCB7XHJcbiAgZmxleC13cmFwOiBub3dyYXAgIWltcG9ydGFudDtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbn1cclxuaW5wdXQuZmlsbHtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBtYXJnaW4tbGVmdDogN3B4O1xyXG59XHJcbi5sZWZ0c2lkZXtcclxuICBmbGV4LWdyb3c6IDM7XHJcbiAgZmxleC1iYXNpczogMDtcclxuICBtaW4td2lkdGg6IDA7XHJcbiAgbWF4LXdpZHRoOiAxNTBweDtcclxufVxyXG4ucmlnaHRzaWRle1xyXG4gIGZsZXgtZ3JvdzogNztcclxuICBmbGV4LWJhc2lzOiAwO1xyXG4gIG1pbi13aWR0aDogMDtcclxufVxyXG4uYXJyb3dDb250YWluZXJ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcbmJ1dHRvbi5hcnJvd3tcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGxpbmUtaGVpZ2h0OiB1bnNldDtcclxuICBwYWRkaW5nOiAwIDZweDtcclxufVxyXG4udHNjbGFzc3tcclxuICBtYXJnaW46IGF1dG87XHJcbiAgZGlzcGxheTogaW5saW5lO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4vKiAqL1xyXG5cclxuLypcclxucHJlIHtcclxuICBiYWNrZ3JvdW5kOiNFRUU7XHJcbiAgcGFkZGluZzo1cHg7XHJcbiAgd2lkdGg6IDI5MHB4O1xyXG59Ki9cclxuLmFkZEhlYWRlcntcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbi5hZGRIZWFkZXIgPiBidXR0b24ge1xyXG4gIG1hcmdpbi1sZWZ0OiAwO1xyXG4gIG9yZGVyOiAyO1xyXG59XHJcbnNlbGVjdC5hdHRyaWJ1dGV0eXBlYWRke1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIG1pbi13aWR0aDogMDtcclxuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbn1cclxuLnByZXZpZXdzZWxlY3RvcntcclxuICBoZWlnaHQ6IDIzcHg7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDJweCBkYXNoZWQgIzY2NjY2NjtcclxufVxyXG5cclxuLnNob3dBc0VkZ2V7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHggIWltcG9ydGFudDtcclxufVxyXG5idXR0b24uZGVsZXRlLCBidXR0b24uc2F2ZWFze1xyXG4gIGZvbnQtc2l6ZTogMC44cmVtO1xyXG59XHJcbmJ1dHRvbi5kZWxldGVSdWxle1xyXG4gIGZsZXgtZ3JvdzogMDtcclxuICBmbGV4LWJhc2lzOiBhdXRvO1xyXG4gIG1pbi13aWR0aDogYXV0bztcclxuICBtYXJnaW4tdG9wOiAwO1xyXG4gIG1hcmdpbi1ib3R0b206IDA7XHJcbiAgcGFkZGluZzogNXB4O1xyXG59XHJcbi5ub3dyYXB7XHJcbiAgZmxleC13cmFwOiBub3dyYXA7XHJcbn1cclxuLl9yb290IHtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuZGl2LmRldGFpbC5tZWFzdXJhYmxlID4gZGl2LnRlbXBsYXRlIHtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbi5ncmFwaENvbG9yLCAuc2hvd0dyaWR7XHJcbiAgbWFyZ2luLWxlZnQ6IDA7XHJcbn1cclxuc2VsZWN0Lm9wZXJhdG9ye1xyXG4gIHRleHQtYWxpZ24tbGFzdDogY2VudGVyO1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgd2lkdGg6IDI1cHg7XHJcbn1cclxuc3Bhbi5vcGVyYXRvcnRleHR7XHJcbiAgbWFyZ2luLWxlZnQ6IDVweDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxufVxyXG5zZWxlY3Qub3BlcmF0b3I6ZGlzYWJsZWR7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICAvKlxyXG4gIGJhY2tncm91bmQ6IGluaGVyaXQ7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIC1tb3otYXBwZWFyYW5jZTogbm9uZTtcclxuICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XHJcbiAgbWFyZ2luOiAwOyovXHJcbn1cclxuXHJcbnNwYW4ubmFtZXByZWZpeCB7XHJcbiAgbWFyZ2luLWxlZnQ6IDdweDtcclxuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICBib3JkZXI6IDJweCBpbnNldCByZ2IoMjM4LCAyMzgsIDIzOCk7XHJcbiAgaGVpZ2h0OiAyMXB4O1xyXG4gIGJvcmRlci1yaWdodDogbm9uZTtcclxuICBjb2xvcjogYmxhY2s7XHJcbiAgbGluZS1oZWlnaHQ6IDE2cHg7XHJcbn1cclxuaW5wdXQubmFtZSB7XHJcbiAgbWFyZ2luLWxlZnQ6IDA7XHJcbiAgYm9yZGVyLWxlZnQ6IG5vbmU7XHJcbiAgcGFkZGluZy1sZWZ0OiAwO1xyXG59XHJcblxyXG5sYWJlbDpmb2N1cyA+IGlucHV0Lm5hbWUge1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm94LXNoYWRvdzogMCAycHggMnB4IDJweCByZ2IoNzcsIDE0NCwgMjU0KTtcclxufVxyXG5cclxuaW5wdXQubmFtZTpmb2N1cyB7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3gtc2hhZG93OiAycHggMnB4IDBweCAwcHggcmdiKDc3LCAxNDQsIDI1NCksIDJweCAtMnB4IDBweCAwcHggcmdiKDc3LCAxNDQsIDI1NCk7XHJcbn1cclxuLmh0bWxzdHlsZSB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxubGFiZWwuYWxsb3dFZGl0ID4gc3BhbiB7XHJcbiAgbWFyZ2luLWxlZnQ6MDtcclxufVxyXG5sYWJlbCA+ICoge1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgbWFyZ2luLWJvdHRvbTogYXV0bztcclxufVxyXG5sYWJlbCA+IGlucHV0W3R5cGU9XCJjaGVja2JveFwiXSB+ICoge1xyXG4gIG1hcmdpbi1sZWZ0OiAwO1xyXG59XHJcbi5odG1sW2NvbnRlbnRlZGl0YWJsZV0ge1xyXG4gIC8qSURFIGdpdmVzIGVycm9yIGJ1dCB0aGV5IGFsbCBhY3R1YWxseSBleGlzdCwgYXQgbGVhc3Qgb24gbW96aWxsYS4qL1xyXG4gIG92ZXJmbG93LXdyYXA6IGFueXdoZXJlO1xyXG4gIHdvcmQtd3JhcDogYW55d2hlcmU7XHJcbiAgd2hpdGUtc3BhY2U6IGJyZWFrLXNwYWNlcztcclxufVxyXG5cclxuLmF1dG9zaXplY29udGFpbmVye1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxufVxyXG4uYXV0b3NpemVjb250YWluZXIgPiAqe1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxufVxyXG4uc2l6ZUNvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7IH1cclxuLnNpemVDb250YWluZXJIYWxmIHtcclxuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcbi5zaXplbGFiZWwge1xyXG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xyXG4gIGZsZXgtZmxvdzogY29sdW1uLXJldmVyc2U7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzAwcHgpIHtcclxuICAvKiBzdSB2aWV3cG9ydCB0cm9wcG8gcGljY29saSBjYW1iaW8gbGEgdmlzdWFsaXp6YXppb25lIGRhIGxhYmVsIHNvcHJhIGlsIHRlc3RvIChidW9ubyBwZXIgZmFyZSBtb25vLXJvdykgYSBsYWJlbCBhZmZpYW5jYXRhIGFsIHRlc3RvIChwZXIgZmFyZSA0IHJvdyBlIHNjb3JyZXJlIHZlcnRpY2FsbWVudGUpKi9cclxuICAuc2l6ZWxhYmVse1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIH1cclxufVxyXG4uc2l6ZWxhYmVsID4gKntcclxuICBkaXNwbGF5OiBpbmxpbmU7XHJcbiAgbWFyZ2luOiBhdXRvOyB9XHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG5cclxuXHJcblxyXG4gIC8qIHRoZXkgZml4IG91dGVyIGNzcyBpbmZsdWVuY2Ugb24gbWVhc3VyYWJsZSBzZWN0aW9uLiAqL1xyXG5cclxuaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLmFycm93IHtcclxuICBtYXJnaW46IDA7IH1cclxuXHJcbi5tZWFzX2FjYzAgYnV0dG9uIHsgbWFyZ2luOiAwOyB9XHJcblxyXG5cclxuXHJcblxyXG4vKioqKioqKioqKiogICAgICAgICAgICAgIE1lYXN1cmFibGUgZWRpdG9yIHYyIHN0YXJ0ICAgICAgICAgICAgICAgICAqKioqKioqKi9cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZVNldHRpbmdSb290e1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5tZWFzX2FjYzAgLmJveGVzcm9vdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtYmFzaXM6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAubW92ZW1lbnRib3hyb290LCAubWVhc19hY2MwIC5yZXNpemVib3hyb290IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBmbGV4LWZsb3c6IGNvbHVtbjtcclxufVxyXG5cclxuLm1lYXNfYWNjMCAuY29sdW1uLCAubWVhc19hY2MwIC5yb3d7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IG5vd3JhcDtcclxufVxyXG4ubWVhc19hY2MwIC5yb3cge1xyXG4gIG1heC13aWR0aDogMTAwJTtcclxuICBtYXJnaW4tcmlnaHQ6IHVuc2V0O1xyXG4gIG1hcmdpbi1sZWZ0OiB1bnNldDsgLyogZHVtYiBfZ3JpZC5zY3NzIGZpeGVyICovXHJcbn1cclxuLm1lYXNfYWNjMCAuYnJlYWsgeyBmbGV4LXdyYXA6IHdyYXA7IH1cclxuLm1lYXNfYWNjMCAuYXV0b2JyZWFrIHsgZmxleC13cmFwOiBpbml0aWFsOyB9XHJcbi5tZWFzX2FjYzAgLmZpbGwgeyBmbGV4LWdyb3c6IDE7IH1cclxuLm1lYXNfYWNjMCAuYm94dGl0bGUgeyBkaXNwbGF5OiBibG9jazsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW4tYm90dG9tOiAxMnB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUgeyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUubGVmdCwgLm1lYXNfYWNjMCAuc2lkZS5yaWdodCB7IHdpZHRoOiAxMHB4OyB9XHJcbi5tZWFzX2FjYzAgLnNpZGUudG9wLCAubWVhc19hY2MwIC5zaWRlLmJvdCB7IGhlaWdodDogMTBweDsgd2lkdGg6IGNhbGMoMTAwJSAtIDIwcHgpOyB9XHJcbi5tZWFzX2FjYzAgLmNvcm5lciB7IGRpc3BsYXk6IGZsZXg7IHdpZHRoOiAxMHB4OyBoZWlnaHQ6IDEwcHg7IH1cclxuLm1lYXNfYWNjMCAubWlkZGxlIHsgYmFja2dyb3VuZC1jb2xvcjogZ29sZGVucm9kOyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLm1pZGRsZSAubWlkZGxlIHsgd2lkdGg6IDEyMHB4OyBoZWlnaHQ6IDkwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuc2lkZSwgLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5pbm5lciA+IC5yb3cgPiAuY29ybmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBkaW1ncmF5O1xyXG59XHJcbi5tZWFzX2FjYzAgLmJveHJvb3Qge1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxle1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIGJ1dHRvbi5ydWxlZGVsZXRlIHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgd2lkdGg6IDMwcHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBtYXJnaW4tcmlnaHQ6IDVweDtcclxuICBib3JkZXItcmFkaXVzOiAyNXB4IDAgMCAyNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXgge1xyXG4gIG1heC13aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IGZpdC1jb250ZW50O1xyXG4gIG1hcmdpbi1ib3R0b206IDA7XHJcbiAgcGFkZGluZzogMDtcclxuICBmbGV4LWdyb3c6IDAgIWltcG9ydGFudDtcclxuICB3aWR0aDogYXV0bztcclxuICBmbGV4LWJhc2lzOiBhdXRvICFpbXBvcnRhbnQ7XHJcbiAgZmxleC1zaHJpbms6IDAgIWltcG9ydGFudDtcclxufVxyXG4ubWVhc19hY2MwIC5jb21wb3VuZElucHV0cHJlZml4ID4gaW5wdXQuYXR0cm5hbWUge1xyXG4gIGJvcmRlci1sZWZ0OiBub25lO1xyXG4gIHBhZGRpbmctbGVmdDogMDtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAwO1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICogeyBib3JkZXI6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeCA+ICo6Zmlyc3QtY2hpbGQge1xyXG4gIG1hcmdpbi10b3A6IDFweDtcclxuICBwYWRkaW5nLXJpZ2h0OiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xyXG59XHJcbi5tZWFzX2FjYzAgLmNvbXBvdW5kSW5wdXRwcmVmaXggPiBpbnB1dDpmb2N1cyB7IGJveC1zaGFkb3c6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuY29tcG91bmRJbnB1dHByZWZpeDpmb2N1cy13aXRoaW4ge1xyXG4gIGJvcmRlci1jb2xvcjogIzgwYmRmZjtcclxuICBib3gtc2hhZG93OiAwIDAgMCAwLjJyZW0gcmdiYSgwLCAxMjMsIDI1NSwgMC4yNSk7XHJcbn1cclxuXHJcbi5tZWFzX2FjYzAgLnJ1bGVjb250YWluZXIgPiAucmlnaHR4LCAubWVhc19hY2MwIC5ydWxlY29udGFpbmVyID4gLmxlZnR4IHsgbWFyZ2luLWJvdHRvbTogMCAhaW1wb3J0YW50OyB9XHJcbi8qIC5tZWFzX2FjYzAgLnJpZ2h0eCB7IG1pbi13aWR0aDogMDsgfSAqL1xyXG4ubWVhc19hY2MwIC5yaWdodHggc3Bhbi5vcGVyYXRvciB7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgbWFyZ2luLXRvcDogOHB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLm9wZXJhdG9yY29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG4ubWVhc19hY2MwIHNlbGVjdC5vcGVyYXRvciB7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgbWFyZ2luOiBhdXRvIDVweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgdGV4dC1hbGlnbi1sYXN0OiBjZW50ZXI7XHJcbn1cclxuLm1lYXNfYWNjMCAucmlnaHR4IC5jb21wb3VuZElucHV0cHJlZml4LCAubWVhc19hY2MwIC5yaWdodHggaW5wdXQucmlnaHRzaWRlLCAubWVhc19hY2MwIGlucHV0LmxlZnRzaWRlLCAubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbiAgbWluLXdpZHRoOiAxMjBweDtcclxuICBmbGV4LWJhc2lzOiAwO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG4ubWVhc19hY2MwIC5ydWxlY29udGFpbmVyIHsgbWFyZ2luLWJvdHRvbTogMXJlbTsgfVxyXG4ubWVhc19hY2MwIC5yaWdodHggPiAudGFyZ2V0IHsgbWFyZ2luLWJvdHRvbTogMDsgfVxyXG4ubWVhc19hY2MwIC5yaWdodHggPiAubWVhc3VyYWJsZWRlYnVnIHsgbWFyZ2luLXRvcDogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLmF0dHJuYW1lIHtcclxuICBtYXgtd2lkdGg6IDIwMHB4ICFpbXBvcnRhbnQ7IC8qIHRvZG86IHJlbW92ZSB3aGVuIGlzIGF1dG9zaXppbmcgKi9cclxuICBtaW4td2lkdGg6IDA7XHJcbn1cclxuLm1lYXNfYWNjMCAuYWRkcnVsZSB7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIG1hcmdpbi10b3A6IC00cHg7XHJcbiAgcGFkZGluZzogNHB4IDEwcHg7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlIHtcclxuICBwYWRkaW5nLXJpZ2h0OiA0cHg7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcbi5tZWFzX2FjYzAgLnJ1bGV0aXRsZS5jb2xsYXBzZWQgeyAtd2Via2l0LWFwcGVhcmFuY2U6IGluaXRpYWw7IH1cclxuLm1lYXNfYWNjMCAucnVsZXRpdGxlOmhvdmVyIHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBidXR0b247IH1cclxuLm1lYXNfYWNjMCAuZm9ybS1jb250cm9sID4gLmZvcm0tY29udHJvbDpub3QoOmZpcnN0LWNoaWxkKXtcclxuICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiB1bnNldDtcclxuICAvKiBkaXNhYmxlIGJvb3RzdHJhcCBydWxlKi9cclxufVxyXG4ubWVhc19hY2MwIC5tZWFzdXJhYmxlZXJyb3J0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLWRhbmdlcik7XHJcbn1cclxuLm1lYXNfYWNjMCAubWVhc3VyYWJsZXdhcm5pbmd0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXdhcm5pbmcpO1xyXG59XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVvdXRwdXR0ZXh0e1xyXG4gIG1hcmdpbi1sZWZ0OiA1cHg7XHJcbiAgY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XHJcbn1cclxuLm1lYXNfYWNjMCAucnVsZWNvbnRhaW5lcnsgbWFyZ2luLWJvdHRvbTogNXB4OyB9XHJcbi5tZWFzX2FjYzAgLm1lYXN1cmFibGVkZWJ1ZyB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAucmlnaHR4OmZvY3VzLXdpdGhpbiAubWVhc3VyYWJsZWRlYnVneyBkaXNwbGF5OiBmbGV4OyB9XHJcbi5tZWFzX2FjYzAgLmNvdW50ZXJzaGVsbCB7IGZsb2F0OiByaWdodDsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gKiB7XHJcbiAgYmFja2dyb3VuZC1zaXplOiBjb250YWluO1xyXG4gIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XHJcbiAgYmFja2dyb3VuZC1wb3NpdGlvbjogY2VudGVyIGNlbnRlcjtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+ICosIC5tZWFzX2FjYzAgLmFycm93aCwgLm1lYXNfYWNjMCAuYXJyb3d2IHtcclxuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgY2VudGVyO1xyXG59XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAudG9wID4gLmxlZnQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vdHF4WGhrNC90bC5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmd2cHl3ei90bGwucG5nKTtcclxufVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnRvcCA+IC5zaWRlLnRvcCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vTTlmQzdEUC90LnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAucmlnaHQge1xyXG4gIC8qYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUHpzbWp4Zi90ci5wbmcpOyovXHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vU04yVEhMdC90cmwucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5sZWZ0IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby83am05QkJRL2wucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLm1pZCA+IC5yaWdodCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vUllablZONS9yLnBuZyk7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAubGVmdCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9xcllXZHBIL2JsLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9nREtGcnk1L2JsbC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAuYm90ID4gLnNpZGUuYm90IHtcclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9jWGMwbm1TL2IucG5nKTsgfVxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLmJvdCA+IC5yaWdodCB7XHJcbiAgLypiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9LMHBWVlQ3L2JyLnBuZyk7Ki9cclxuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9pLmliYi5jby9RcHdSU3NUL2JybC5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS50b3Age1xyXG4gIG1hcmdpbi1ib3R0b206IDNweDtcclxuICBtYXJnaW4tdG9wOiAtM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5ib3Qge1xyXG4gIG1hcmdpbi1ib3R0b206IC0zcHg7XHJcbiAgbWFyZ2luLXRvcDogM3B4OyB9XHJcbi5tZWFzX2FjYzAgaW5wdXQuc2lkZS5sZWZ0IHtcclxuICBtYXJnaW4tcmlnaHQ6IDNweDtcclxuICBtYXJnaW4tbGVmdDogLTNweDsgfVxyXG4ubWVhc19hY2MwIGlucHV0LnNpZGUucmlnaHQge1xyXG4gIG1hcmdpbi1yaWdodDogLTNweDtcclxuICBtYXJnaW4tbGVmdDogM3B4OyB9XHJcbi5tZWFzX2FjYzAgLmFycm93aCB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vWmQzanRiYy9sci5wbmcpOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93diB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vaS5pYmIuY28vakhUdFBEeC90Yi5wbmcpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5yZWN0YW5nbGVkcmF3aW5nLm91dGVyID4gLnJvdyA+IC5jb3JuZXIge1xyXG4gIGhlaWdodDogNTBweDtcclxuICBtaW4td2lkdGg6IDUwcHg7XHJcbn1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC50b3AgPiAqIHtcclxuICBoZWlnaHQ6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5ib3QgPiAqIHtcclxuICBoZWlnaHQ6IDUwcHg7IH1cclxuLm1lYXNfYWNjMCAucmVjdGFuZ2xlZHJhd2luZy5vdXRlciA+IC5taWQgPiAubGVmdCB7XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHdpZHRoOiA1MHB4OyB9XHJcbi5tZWFzX2FjYzAgLnJlY3RhbmdsZWRyYXdpbmcub3V0ZXIgPiAubWlkID4gLnJpZ2h0IHtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgd2lkdGg6IDUwcHg7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmFycm93IHsgLXdlYmtpdC1hcHBlYXJhbmNlOiBpbml0aWFsOyB9XHJcblxyXG4ubWVhc19hY2MwIC5hcnJvd2gsIC5tZWFzX2FjYzAgLmFycm93dntcclxuICB3aWR0aDogNzVweDtcclxuICBoZWlnaHQ6IDc1cHg7IH1cclxuXHJcbi5tZWFzX2FjYzAgLmFycm93OmZvY3VzeyBvdXRsaW5lOiBub25lOyB9XHJcbi5tZWFzX2FjYzAgLmFycm93OmNoZWNrZWR7XHJcbiAgZmlsdGVyOiBzZXBpYSg4MiUpIHNhdHVyYXRlKDM5MjUlKSBodWUtcm90YXRlKDU1ZGVnKSBicmlnaHRuZXNzKDEyNSUpIGNvbnRyYXN0KDEyMCUpOyB9XHJcblxyXG4ubWVhc19hY2MwIC5kaXJlY3Rpb25zIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBtYXJnaW46IGF1dG87IH1cclxuXHJcbi5tZWFzX2FjYzAgLmRpcmVjdGlvbnMgPiAqIHsgbWFyZ2luOiBhdXRvOyB9XHJcbi5tZWFzX2FjYzAgLmRyYWdnYWJsZS5ib3hyb290e1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiBjb2x1bW47XHJcbiAgLypoZWlnaHQ6IDIzN3B4OyovXHJcbn1cclxuLm1lYXNfYWNjMCAuY29sbGFwc2U6bm90KC5zaG93KSB7IGRpc3BsYXk6IG5vbmU7IH1cclxuLm1lYXNfYWNjMCAuc2VsZWN0ZWQgeyBiYWNrZ3JvdW5kLWNvbG9yOiAjMzdmZjY2ICFpbXBvcnRhbnQ7IH1cclxuLyoqKioqKioqKioqICAgICAgICAgICAgICBNZWFzdXJhYmxlIGVkaXRvciB2MiBlbmQgICAgICAgICAgICAgICAgICAgKioqKioqKiovXHJcbi5pc2ludGVyZmFjZSwgLmlzYWJzdHJhY3R7XHJcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbn1cclxuXHJcblxyXG5cclxuXHJcblxyXG4iXX0= */";
     /***/
   },
 
@@ -30926,7 +31622,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "setStyleEditor",
         value: function setStyleEditor($styleown, model, mp, style, context) {
-          var _this46 = this;
+          var _this47 = this;
 
           var indexedPath = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
           var insideOwnSection = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : false;
@@ -31056,7 +31752,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               v.apply(mptarget);
 
-              _this46.showMP(mp); // todo: se stylecomplexEntry è null mostra un altro button.editAllowed per inserire lo stile ereditabile che generi htmli.
+              _this47.showMP(mp); // todo: se stylecomplexEntry è null mostra un altro button.editAllowed per inserire lo stile ereditabile che generi htmli.
 
             });
 
@@ -31121,9 +31817,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 context.templateLevel = inputHtml;
               } else {
                 context.templateLevel.parentElement.removeChild(context.templateLevel);
-                _this46.clickedLevel = context.graphLevel.parentElement;
+                _this47.clickedLevel = context.graphLevel.parentElement;
 
-                _this46.show(); // refresh
+                _this47.show(); // refresh
 
                 /*context.templateLevel = context.templateLevel.parentElement; a questo approccio manca aggiornare contatore deep-level e i measurable del nodo e altri imprevisti
                 obj.input.innerText = context.templateLevel.outerHTML;*/
@@ -31156,14 +31852,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               mp.metaParent.refreshInstancesGUI();
             }
 
-            if (!isInheritable && indexedPath) _this46.clickedLevel = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(mp.getHtmlOnGraph(), indexedPath, 'childNodes');
+            if (!isInheritable && indexedPath) _this47.clickedLevel = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(mp.getHtmlOnGraph(), indexedPath, 'childNodes');
             graphRoot = mp.getHtmlOnGraph();
 
             if (insideOwnSection) {
               context.graphRoot = graphRoot;
               context.graphLevel = graphRoot && _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].followIndexesPath(graphRoot, indexedPath, 'childNodes');
 
-              _this46.updateClickedGUIHighlight();
+              _this47.updateClickedGUIHighlight();
             } // obj.input.innerText = inputHtml.outerHTML;
             // DANGER: se lo fai con l'evento onchange() ti sposta il cursore all'inizio e finisci per scrivere rawtext prima dell'html invalidandolo.
             // tenendolo dovresti scrivere i caratteri uno alla volta riposizionando il cursore nel punto giusto ogni volta.
@@ -31175,14 +31871,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $(obj.input).off('paste.set').on('paste.set', function (e
           /*ClipboardEvent*/
           ) {
-            _this46.onPaste(e);
+            _this47.onPaste(e);
 
             onStyleChange();
           }) // .off('change.set').on('change.set', onStyleChange)
           // .off('input.set').on('input.set', onStyleChange)
           .off('blur.set').on('blur.set', onStyleChange).off('keydown.set').on('keydown.set', function (e) {
             if (e.key === 'Esc') {
-              _this46.propertyBar.refreshGUI();
+              _this47.propertyBar.refreshGUI();
             }
           }); // setup measurable options.
 
@@ -31227,7 +31923,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             style.view.delete();
             mp.refreshGUI();
 
-            _this46.show(mp, mp.getHtmlOnGraph());
+            _this47.show(mp, mp.getHtmlOnGraph());
           });
 
           var stopPropagation = function stopPropagation(e) {
@@ -31298,7 +31994,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "showMP",
         value: function showMP(m) {
-          var _this47 = this;
+          var _this48 = this;
 
           var clickedLevel = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
           var asMeasurable = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
@@ -31442,11 +32138,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             $autosizew.on('change', function () {
               setAutosize(autosizew.checked, null);
-              _this47.sizeInputw.disabled = autosizew.checked;
+              _this48.sizeInputw.disabled = autosizew.checked;
             });
             $autosizeh.on('change', function () {
               setAutosize(null, autosizeh.checked);
-              _this47.sizeInputh.disabled = autosizeh.checked;
+              _this48.sizeInputh.disabled = autosizeh.checked;
             });
             $autolayout.on('change', function () {
               v.setAutolayout(autolayout.checked);
@@ -31457,16 +32153,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.sizeInputw.value = '' + vSize.w;
             this.sizeInputh.value = '' + vSize.h;
             $(this.sizeInputx).on('change', function () {
-              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](+_this47.sizeInputx.value, null, null, null));
+              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](+_this48.sizeInputx.value, null, null, null));
             });
             $(this.sizeInputy).on('change', function () {
-              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, +_this47.sizeInputy.value, null, null));
+              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, +_this48.sizeInputy.value, null, null));
             });
             $(this.sizeInputw).on('change', function () {
-              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, +_this47.sizeInputw.value, null));
+              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, +_this48.sizeInputw.value, null));
             });
             $(this.sizeInputh).on('change', function () {
-              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, null, +_this47.sizeInputh.value));
+              v.setSize(new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["GraphSize"](null, null, null, +_this48.sizeInputh.value));
             });
           } else {
             $html.find('.sizeContainer').remove();
@@ -31482,10 +32178,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (!htmlPath) return;
           var $arrowupp = $html.find('button.arrow.upp').on('click', function (e) {
-            _this47.propertyBar.show(null, clickedRoot, null, false);
+            _this48.propertyBar.show(null, clickedRoot, null, false);
           });
           var $arrowup = $html.find('button.arrow.up').on('click', function (e) {
-            _this47.propertyBar.show(null, clickedLevel.parentElement, null, false);
+            _this48.propertyBar.show(null, clickedLevel.parentElement, null, false);
           });
           $arrowup[0].disabled = $arrowupp[0].disabled = htmlPath.length === 0 && m instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["IClass"]; // ($html.find('button.arrow.down') as JQuery<HTMLButtonElement>)[0].disabled = true;
 
@@ -31497,7 +32193,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             $(showAsEdge).off('change.set').on('change.set', function (e) {
               m.shouldBeDisplayedAsEdge(true);
 
-              _this47.showE(m, asEdge);
+              _this48.showE(m, asEdge);
             });
           }
         }
@@ -31686,7 +32382,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "makeMeasurableOptions",
         value: function makeMeasurableOptions(measurableShell, inputuseless, style, context, indexedPath) {
-          var _this48 = this;
+          var _this49 = this;
 
           var $measurableShell = $(measurableShell);
           var $meas_acc = $measurableShell.find('.meas_acc');
@@ -31843,7 +32539,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           $measurableShell.find('button.addrule').off('click.addrule').on('click.addrule', function (e) {
             e.stopPropagation();
 
-            _this48.addRule(e, context);
+            _this49.addRule(e, context);
           });
         }
       }, {
@@ -31858,7 +32554,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addRule",
         value: function addRule(e, context) {
-          var _this49 = this;
+          var _this50 = this;
 
           var ruleparts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
           var i;
@@ -32212,7 +32908,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var attr = context.graphLevel.attributes.getNamedItem(generateRuleName().toLowerCase());
             var parts = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](attr, null, false);
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!parts.prefix, 'unexpected rule: ' + parts, _this49, attr, generateRuleName());
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(!parts.prefix, 'unexpected rule: ' + parts, _this50, attr, generateRuleName());
 
             var output = new _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["MeasurableRuleParts"](null, null, true);
 
@@ -32338,15 +33034,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "layoutHtmlSetup",
         value: function layoutHtmlSetup(model) {
-          var _this50 = this;
+          var _this51 = this;
 
           var $layout = this.$root.find('.layoutingRoot');
           var $inputs = $layout.find('.lopt').add(this.$root.find('.lopt.stabilizeSteps'));
 
           var renew = function renew() {
-            _this50.computeLayoutUIFs(model, _this50.$root);
+            _this51.computeLayoutUIFs(model, _this51.$root);
 
-            _this50.fillLayoutHtmlValues(model, $inputs);
+            _this51.fillLayoutHtmlValues(model, $inputs);
           }; // timeout necessario, altrimenti onchange fà prima renew() ri-settando il valore logico dentro l'html, e poi esegue
           // l'uif con il vecchio valore logico, il nuovo valore cambiato dall'utente viene perso.
 
@@ -32384,7 +33080,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           layouting.setStyleEditorBackEvents(onRun, onStop);
           $inputs.on('change', function (e) {
-            _this50.setLayoutHtmlValue(layouting, e.currentTarget);
+            _this51.setLayoutHtmlValue(layouting, e.currentTarget);
           });
           var $colorSchemeOpener = this.$root.find('.colorschemeopener').on('click', function (e) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ColorSchemeComponent"].show();
@@ -32484,12 +33180,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           for (i = 0; i < $inputs.length; i++) {
             var input = $inputs[i];
-            var _key26 = input.dataset.key;
+            var _key27 = input.dataset.key;
 
-            if (_key26.indexOf('custom.') === 0) {
-              switch (_key26) {
+            if (_key27.indexOf('custom.') === 0) {
+              switch (_key27) {
                 default:
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, "unexpected custom uif key:", _key26);
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].pe(true, "unexpected custom uif key:", _key27);
 
                   break;
 
@@ -32503,8 +33199,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             } else {
               // normal keys
-              _key26 = _key26.replace(/\.bh\./, '.' + model.graph.layouting.optionsDefault.physics.solver + '.');
-              val = '' + model.graph.layouting.getOption(_key26);
+              _key27 = _key27.replace(/\.bh\./, '.' + model.graph.layouting.optionsDefault.physics.solver + '.');
+              val = '' + model.graph.layouting.getOption(_key27);
             }
 
             if (input instanceof HTMLSelectElement) _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["U"].selectHtml(input, val, false);else input.value = val; // console.log('newkeyy:', key, input, input.value);
@@ -32540,29 +33236,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           for (var _i10 = 0, _directions = directions; _i10 < _directions.length; _i10++) {
             var direction = _directions[_i10];
-            var _iteratorNormalCompletion19 = true;
-            var _didIteratorError19 = false;
-            var _iteratorError19 = undefined;
+            var _iteratorNormalCompletion30 = true;
+            var _didIteratorError30 = false;
+            var _iteratorError30 = undefined;
 
             try {
-              for (var _iterator19 = kinds[Symbol.iterator](), _step19; !(_iteratorNormalCompletion19 = (_step19 = _iterator19.next()).done); _iteratorNormalCompletion19 = true) {
-                var kind = _step19.value;
+              for (var _iterator30 = kinds[Symbol.iterator](), _step30; !(_iteratorNormalCompletion30 = (_step30 = _iterator30.next()).done); _iteratorNormalCompletion30 = true) {
+                var kind = _step30.value;
                 var attrstr = 'show-' + 'show-' + direction + '-' + kind + '-edges';
                 var $priobutton = $edgePriority.filter('[kind="' + direction + "-" + kind + '"]'); // console.log("setting visibility edge input:", $priobutton, $edgePriority, '[kind="' + direction + "-" + kind + '"]');
 
                 $priobutton[0].value = '' + results[direction][kind];
               }
             } catch (err) {
-              _didIteratorError19 = true;
-              _iteratorError19 = err;
+              _didIteratorError30 = true;
+              _iteratorError30 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion19 && _iterator19.return != null) {
-                  _iterator19.return();
+                if (!_iteratorNormalCompletion30 && _iterator30.return != null) {
+                  _iterator30.return();
                 }
               } finally {
-                if (_didIteratorError19) {
-                  throw _iteratorError19;
+                if (_didIteratorError30) {
+                  throw _iteratorError30;
                 }
               }
             }
@@ -32687,7 +33383,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  /*color: var(--color-2);*/\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n  max-height: 90vh;\r\n  overflow: auto;\r\n}\r\n::ng-deep .typeTable {\r\n  margin: auto;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  margin-bottom: 5px;\r\n}\r\n.typemaprow{\r\n  width: 450px;\r\n  margin-bottom: 15px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLHlCQUF5QjtFQUN6QixtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsY0FBYztBQUNoQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CLENBQUM7QUFDdEI7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7QUFDQTtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBSUEsdUhBQXVIO0FBRXZIO0VBQ0UseUJBQXlCLEVBQUUsOEJBQThCO0VBQ3pELFlBQVk7RUFDWixlQUFlO0VBQ2YsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLGVBQWU7RUFDZixXQUFXO0VBQ1gsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQiw0Q0FBNEM7RUFDNUMsZ0JBQWdCO0VBQ2hCLDRDQUE0QztFQUM1QyxVQUFVO0VBQ1YsNkNBQTZDO0VBQzdDLFVBQVU7RUFDVixTQUFTO0VBQ1QsU0FBUztBQUNYO0FBQ0E7RUFDRSxRQUFRO0VBQ1IsTUFBTTtFQUNOLFVBQVU7QUFDWjtBQUVBO0VBQ0UsVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixjQUFjO0FBQ2hCO0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBLGtEQUFrRCw0QkFBNEIsRUFBRTtBQUNoRiw2R0FBNkc7QUFDN0c7RUFDRSw2Q0FBNkM7RUFDN0Msc0JBQXNCO0VBQ3RCLGdDQUFnQztFQUNoQywrQkFBK0I7RUFDL0I7aUNBQytCO0FBQ2pDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsNkJBQTZCLENBQUM7QUFDaEM7RUFDRSw2Q0FBNkM7QUFDL0M7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZiw4QkFBOEI7RUFDOUIsaURBQWlELEVBQUUseUZBQXlGO0FBQzlJO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixjQUFjO0VBQ2QsWUFBWTtFQUNaLFlBQVksRUFBRTtBQUVoQjtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7QUFHQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsbUJBQVk7RUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLHdCQUF3QjtFQUN4QixZQUFZO0VBQ1osb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9DQUFvQztFQUNwQyw4QkFBOEI7QUFDaEM7QUFJQSx3Q0FBd0M7QUFDeEM7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4jdG9wYmFyU2hlbGx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAxMDB2dztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICAvKmJvcmRlci1ib3R0b206IHZhcigtLW1haW5Cb3JkZXIpOyovXHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbiAgbWF4LWhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbn1cclxuI3RvcGJhciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4jdG9wYmFyID4gKiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAvKm1hcmdpbjogYXV0byAwIGF1dG8gMTBweDsgLypUP1JCP0wqL1xyXG59LypcclxuI3RvcGJhciA+IGJ1dHRvbntcclxuICBoZWlnaHQ6IGNhbGModmFyKC0tdG9wYmFySCkgLSAxMHB4KTtcclxuICBmbGV4LWJhc2lzOiAxMDBweDtcclxuICBtaW4td2lkdGg6IDEwMHB4O1xyXG4gIG1heC13aWR0aDogMTAwcHg7XHJcbn0qL1xyXG4jdG9wYmFyIGJ1dHRvbi5kcm9wZG93blRpdGxlOmZvY3Vze1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbntcclxuICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAxMHB4O1xyXG4gIHRvcDogMTBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgd2lkdGg6IDQwcHg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKCAtLWFsdEJhY2tncm91bmRDb2xvcik7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpO1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxufVxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudCAuY2xvc2VCdXR0b246aG92ZXJ7XHJcbiAgcmlnaHQ6IDVweDtcclxuICB0b3A6IDVweDtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgd2lkdGg6IDUwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xyXG4gIC8qY29sb3I6IHZhcigtLWNvbG9yLTIpOyovXHJcbiAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAuc2NyZWVuV2lkZVNoYWRvd3tcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICB0b3A6IDA7XHJcbiAgei1pbmRleDogMjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNSk7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50e1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHBhZGRpbmc6IDMwcHggNjBweDtcclxuICBib3JkZXI6IDRweCBzb2xpZCB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1heC1oZWlnaHQ6IDkwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlVGFibGUge1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3cge1xyXG4gIGhlaWdodDogMjBweDtcclxuICBtYXJnaW4tYm90dG9tOiA1cHg7XHJcbn1cclxuXHJcbi50eXBlbWFwcm93e1xyXG4gIHdpZHRoOiA0NTBweDtcclxuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdz4qe1xyXG4gIG1hcmdpbi10b3A6IGF1dG87XHJcbiAgbWFyZ2luLWJvdHRvbTogYXV0bzt9XHJcbjo6bmctZGVlcCAuYWxpYXN7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG4gIHBhZGRpbmctcmlnaHQ6IDEwcHg7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93ID4gKntcclxufVxyXG46Om5nLWRlZXAgLnR5cGVOYW1le1xyXG4gIGNvbG9yOiBkYXJrb3JhbmdlO1xyXG59XHJcblxyXG5cclxuXHJcbi8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiogICAgIGRyb3Bkb3duIHN0eWxlICAgICAqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqL1xyXG5cclxuLmRyb3Bkb3duVGl0bGUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGluaGVyaXQ7IC8qdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7Ki9cclxuICBjb2xvcjogdW5zZXQ7XHJcbiAgZm9udC1zaXplOiAxNnB4O1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBwYWRkaW5nOiAxMnB4IDE2cHg7XHJcbiAgY3Vyc29yOiBpbmhlcml0O1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lciB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAvKmhlaWdodDogODAlOyovXHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lci5yaWdodCB7XHJcbiAgbWluLXdpZHRoOiAxMDAlO1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbWFpbkJhY2tncm91bmRDb2xvcik7XHJcbiAgbWluLXdpZHRoOiAxNjBweDtcclxuICBib3gtc2hhZG93OiAwcHggOHB4IDE2cHggMHB4IHJnYmEoMCwwLDAsMC4yKTtcclxuICB6LWluZGV4OiAxO1xyXG4gIGJvcmRlcjogM3B4IHNvbGlkIHZhcigtLXNlY29uZGFyeUJvcmRlckNvbG9yKTtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbjogMDtcclxuICB0b3A6IDEwMCU7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50LnJpZ2h0e1xyXG4gIG1hcmdpbjowO1xyXG4gIHRvcDogMDtcclxuICBsZWZ0OiAxMDAlO1xyXG59XHJcblxyXG5saS5kcm9wZG93bkNvbnRlbnQge1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcblxyXG51bC5kcm9wZG93bkNvbnRlbnQ6bm90KDplbXB0eSl7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMzNweDtcclxufVxyXG4uZHJvcGRvd25UaXRsZS5yaWdodCwgLmRyb3Bkb3ducGFkZGluZ3tcclxuICBmb250LXNpemU6IGluaGVyaXQ7XHJcbiAgcGFkZGluZzogMTJweCAxNnB4O1xyXG59XHJcblxyXG4uZHJvcGRvd25UaXRsZS5yaWdodDpob3ZlciwgLmRyb3Bkb3duQ29udGFpbmVyLnJpZ2h0OmhvdmVyLCAuZHJvcGRvd25wYWRkaW5nOmhvdmVye1xyXG4gIGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDIzcHg7XHJcbn1cclxuLmRyb3Bkb3duVGl0bGUucmlnaHQudG9kbywgLmRyb3Bkb3ducGFkZGluZy50b2RveyBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAwOyB9XHJcbi8qLmRyb3Bkb3duVGl0bGUucmlnaHQudG9kbzpsYXN0LWNoaWxkLCAuZHJvcGRvd25wYWRkaW5nLnRvZG86bGFzdC1jaGlsZHsgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMzNweDsgfSovXHJcbmxpLmRyb3Bkb3duQ29udGVudDpob3ZlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG4gIC8qcGFkZGluZy1sZWZ0OiAxMnB4OyovXHJcbiAgYm9yZGVyLWxlZnQ6IDhweCBzb2xpZCAjZmYwMDAwYTA7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMzBweDtcclxuICAvKm1hcmdpbi1sZWZ0OiAtMTJweDsgYm90dG9tLXJvdW5kIGJvcmRlciwgdHJvdWJsZSBjb24gc3RpbGkgc292cmFwcG9zdGkgY2hlIGxvIHJpLXNxdWFkcmFuby5cclxuICAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMjRweDsqL1xyXG59XHJcbiN0b3BiYXI+LmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPi5kcm9wZG93blRpdGxle1xyXG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDMwcHg7XHJcbiAgYm9yZGVyLXRvcC1yaWdodC1yYWRpdXM6IDMwcHg7fVxyXG4jdG9wYmFyPi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj4uZHJvcGRvd25UaXRsZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG59XHJcblxyXG4uYnV0dG9uR3JpZENvbnRhaW5lciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgLyogd2lkdGg6IGNhbGMoNDBweCAqIDUgLSAxKTsqL1xyXG4gIHdpZHRoOiBtaW4oMjV2dywgY2FsYyg0MHB4ICogNSArIDEwcHggKiA1IC0gMXB4KSk7IC8qIGJ1dHRvbiBzaXplICsgYnV0dG9uc2hlbGwgbWFyZ2luLCA0IHBlciByaWdhIGNvbiBtYXNzaW1vIHNwYXppbyBhdmFuemF0byBwcmltYSBkZWwgNcKwKi9cclxufVxyXG5cclxuLmJ1dHRvbkdyaWRNaW5NYXJnaW4ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OiAwO1xyXG4gIGZsZXgtc2hyaW5rOiAwO1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBwYWRkaW5nOiA1cHg7IH1cclxuXHJcbi5idXR0b25HcmlkIHtcclxuICB3aWR0aDogNDVweDtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbn1cclxuXHJcblxyXG51bC5kcm9wZG93bkNvbnRlbnR7XHJcbiAgbWluLWhlaWdodDogMTAwJTtcclxufVxyXG4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+dWwuZHJvcGRvd25Db250ZW50IHtcclxuICBkaXNwbGF5OiBibG9jaztcclxufVxyXG4uZHJvcGRvd25Db250YWluZXI6aG92ZXIgPiB1bC5kcm9wZG93bkNvbnRlbnQ6ZW1wdHl7XHJcbiAgZGlzcGxheTpmbGV4O1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudDplbXB0eTpiZWZvcmV7XHJcbiAgY29udGVudDogJy4uLiBFbXB0eSAuLi4nO1xyXG4gIG1hcmdpbjogYXV0bztcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcbnVsLmRyb3Bkb3duQ29udGVudDplbXB0eTpob3ZlcntcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBkYXJrcmVkICFpbXBvcnRhbnQ7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5cclxuXHJcbi8qKioqKioqKioqICAgICBjaGFuZ2Vsb2cgICAgICoqKioqKioqKiovXHJcbi5jaGFuZ2Vsb2dSb290e1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxufVxyXG4iXX0= */";
+    __webpack_exports__["default"] = "\r\n#topbarShell{\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-basis: 100vw;\r\n  background-color: var(--mainBackgroundColor);\r\n  /*border-bottom: var(--mainBorder);*/\r\n  width: 100vw;\r\n  height: var(--topbarH);\r\n  max-height: var(--topbarH);\r\n}\r\n#topbar {\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\n#topbar > * {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  /*margin: auto 0 auto 10px; /*T?RB?L*/\r\n}\r\n/*\r\n#topbar > button{\r\n  height: calc(var(--topbarH) - 10px);\r\n  flex-basis: 100px;\r\n  min-width: 100px;\r\n  max-width: 100px;\r\n}*/\r\n#topbar button.dropdownTitle:focus{\r\n  outline: none;\r\n}\r\n::ng-deep .popupContent .closeButton{\r\n  /* float: right; */\r\n  position: absolute;\r\n  right: 10px;\r\n  top: 10px;\r\n  height: 40px;\r\n  width: 40px;\r\n  border: 2px solid var(--mainFontColor);\r\n  background-color: var( --altBackgroundColor);\r\n  color: var(--mainFontColor);\r\n  font-size: 12px;\r\n}\r\n::ng-deep .popupContent .closeButton:hover{\r\n  right: 5px;\r\n  top: 5px;\r\n  height: 50px;\r\n  width: 50px;\r\n  background-color: red;\r\n  /*color: var(--color-2);*/\r\n  font-weight: bolder;\r\n  font-size: 15px;\r\n}\r\n::ng-deep .screenWideShadow{\r\n  position: absolute;\r\n  display: none;\r\n  top: 0;\r\n  z-index: 2;\r\n  background-color: rgba(0,0,0,0.5);\r\n  border: none;\r\n  height: 100vh;\r\n  width: 100vw;\r\n}\r\n::ng-deep .popupContent{\r\n  top: 50%;\r\n  left: 50%;\r\n  -webkit-transform: translate(-50%, -50%);\r\n          transform: translate(-50%, -50%);\r\n  position: absolute;\r\n  display: block;\r\n  width: auto;\r\n  height: auto;\r\n  padding: 30px 60px;\r\n  border: 4px solid var(--mainBorderColor);\r\n  background-color: var(--mainBackgroundColor);\r\n  max-height: 90vh;\r\n  overflow: auto;\r\n  border-radius: 10px;\r\n}\r\n::ng-deep .typeTable {\r\n  margin: auto;\r\n}\r\n::ng-deep .typeRow {\r\n  height: 20px;\r\n  margin-bottom: 5px;\r\n}\r\n.typemaprow{\r\n  width: 450px;\r\n  margin-bottom: 15px;\r\n}\r\n::ng-deep .typeRow>*{\r\n  margin-top: auto;\r\n  margin-bottom: auto;}\r\n::ng-deep .alias{\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n::ng-deep .typeRow > *{\r\n}\r\n::ng-deep .typeName{\r\n  color: darkorange;\r\n}\r\n/************************************************     dropdown style     **********************************************/\r\n.dropdownTitle {\r\n  background-color: inherit; /*var(--mainBackgroundColor);*/\r\n  color: unset;\r\n  font-size: 16px;\r\n  border: none;\r\n  padding: 12px 16px;\r\n  cursor: inherit;\r\n}\r\n.dropdownContainer {\r\n  position: relative;\r\n  display: inline-block;\r\n  /*height: 80%;*/\r\n  width: auto;\r\n  cursor: pointer;\r\n}\r\n.dropdownContainer.right {\r\n  min-width: 100%;\r\n}\r\nul.dropdownContent {\r\n  display: none;\r\n  position: absolute;\r\n  background-color: var(--mainBackgroundColor);\r\n  min-width: 160px;\r\n  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\r\n  z-index: 1;\r\n  border: 3px solid var(--secondaryBorderColor);\r\n  padding: 0;\r\n  margin: 0;\r\n  top: 100%;\r\n}\r\nul.dropdownContent.right{\r\n  margin:0;\r\n  top: 0;\r\n  left: 100%;\r\n}\r\nli.dropdownContent {\r\n  padding: 0;\r\n  text-decoration: none;\r\n  display: block;\r\n}\r\nul.dropdownContent:not(:empty){\r\n  border-bottom-left-radius: 33px;\r\n}\r\n.dropdownTitle.right, .dropdownpadding{\r\n  font-size: inherit;\r\n  padding: 12px 16px;\r\n}\r\n.dropdownTitle.right:hover, .dropdownContainer.right:hover, .dropdownpadding:hover{\r\n  border-bottom-left-radius: 23px;\r\n}\r\n.dropdownTitle.right.todo, .dropdownpadding.todo{ border-bottom-left-radius: 0; }\r\n/*.dropdownTitle.right.todo:last-child, .dropdownpadding.todo:last-child{ border-bottom-left-radius: 33px; }*/\r\nli.dropdownContent:hover {\r\n  background-color: var(--secondaryBorderColor);\r\n  /*padding-left: 12px;*/\r\n  border-left: 8px solid #ff0000a0;\r\n  border-bottom-left-radius: 30px;\r\n  /*margin-left: -12px; bottom-round border, trouble con stili sovrapposti che lo ri-squadrano.\r\n   border-top-left-radius: 24px;*/\r\n}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle{\r\n  border-top-left-radius: 30px;\r\n  border-top-right-radius: 30px;}\r\n#topbar>.dropdownContainer:hover>.dropdownTitle {\r\n  background-color: var(--secondaryBorderColor);\r\n}\r\n.buttonGridContainer {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  /* width: calc(40px * 5 - 1);*/\r\n  width: min(25vw, calc(40px * 5 + 10px * 5 - 1px)); /* button size + buttonshell margin, 4 per riga con massimo spazio avanzato prima del 5°*/\r\n}\r\n.buttonGridMinMargin {\r\n  display: -webkit-box;\r\n  display: flex;\r\n  -webkit-box-flex: 0;\r\n          flex-grow: 0;\r\n  flex-shrink: 0;\r\n  margin: auto;\r\n  padding: 5px; }\r\n.buttonGrid {\r\n  width: 45px;\r\n  height: 45px;\r\n}\r\nul.dropdownContent{\r\n  min-height: 100%;\r\n}\r\n.dropdownContainer:hover>ul.dropdownContent {\r\n  display: block;\r\n}\r\n.dropdownContainer:hover > ul.dropdownContent:empty{\r\n  display:-webkit-box;\r\n  display:flex;\r\n}\r\nul.dropdownContent:empty:before{\r\n  content: '... Empty ...';\r\n  margin: auto;\r\n  display: -webkit-box;\r\n  display: flex;\r\n}\r\nul.dropdownContent:empty:hover{\r\n  background-color: darkred !important;\r\n  cursor: not-allowed !important;\r\n}\r\n/**********     changelog     **********/\r\n.changelogRoot{\r\n  position: fixed;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsNENBQTRDO0VBQzVDLG9DQUFvQztFQUNwQyxZQUFZO0VBQ1osc0JBQXNCO0VBQ3RCLDBCQUEwQjtBQUM1QjtBQUNBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHFDQUFxQztBQUN2QztBQUFDOzs7Ozs7RUFNQztBQUNGO0VBQ0UsYUFBYTtBQUNmO0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxTQUFTO0VBQ1QsWUFBWTtFQUNaLFdBQVc7RUFDWCxzQ0FBc0M7RUFDdEMsNENBQTRDO0VBQzVDLDJCQUEyQjtFQUMzQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxVQUFVO0VBQ1YsUUFBUTtFQUNSLFlBQVk7RUFDWixXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLHlCQUF5QjtFQUN6QixtQkFBbUI7RUFDbkIsZUFBZTtBQUNqQjtBQUVBO0VBQ0Usa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixNQUFNO0VBQ04sVUFBVTtFQUNWLGlDQUFpQztFQUNqQyxZQUFZO0VBQ1osYUFBYTtFQUNiLFlBQVk7QUFDZDtBQUNBO0VBQ0UsUUFBUTtFQUNSLFNBQVM7RUFDVCx3Q0FBZ0M7VUFBaEMsZ0NBQWdDO0VBQ2hDLGtCQUFrQjtFQUNsQixjQUFjO0VBQ2QsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsd0NBQXdDO0VBQ3hDLDRDQUE0QztFQUM1QyxnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0UsWUFBWTtBQUNkO0FBQ0E7RUFDRSxZQUFZO0VBQ1osa0JBQWtCO0FBQ3BCO0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CLENBQUM7QUFDdEI7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0FBQ3JCO0FBQ0E7QUFDQTtBQUNBO0VBQ0UsaUJBQWlCO0FBQ25CO0FBSUEsdUhBQXVIO0FBRXZIO0VBQ0UseUJBQXlCLEVBQUUsOEJBQThCO0VBQ3pELFlBQVk7RUFDWixlQUFlO0VBQ2YsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLGVBQWU7RUFDZixXQUFXO0VBQ1gsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQiw0Q0FBNEM7RUFDNUMsZ0JBQWdCO0VBQ2hCLDRDQUE0QztFQUM1QyxVQUFVO0VBQ1YsNkNBQTZDO0VBQzdDLFVBQVU7RUFDVixTQUFTO0VBQ1QsU0FBUztBQUNYO0FBQ0E7RUFDRSxRQUFRO0VBQ1IsTUFBTTtFQUNOLFVBQVU7QUFDWjtBQUVBO0VBQ0UsVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixjQUFjO0FBQ2hCO0FBRUE7RUFDRSwrQkFBK0I7QUFDakM7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixrQkFBa0I7QUFDcEI7QUFFQTtFQUNFLCtCQUErQjtBQUNqQztBQUNBLGtEQUFrRCw0QkFBNEIsRUFBRTtBQUNoRiw2R0FBNkc7QUFDN0c7RUFDRSw2Q0FBNkM7RUFDN0Msc0JBQXNCO0VBQ3RCLGdDQUFnQztFQUNoQywrQkFBK0I7RUFDL0I7aUNBQytCO0FBQ2pDO0FBQ0E7RUFDRSw0QkFBNEI7RUFDNUIsNkJBQTZCLENBQUM7QUFDaEM7RUFDRSw2Q0FBNkM7QUFDL0M7QUFFQTtFQUNFLG9CQUFhO0VBQWIsYUFBYTtFQUNiLGVBQWU7RUFDZiw4QkFBOEI7RUFDOUIsaURBQWlELEVBQUUseUZBQXlGO0FBQzlJO0FBRUE7RUFDRSxvQkFBYTtFQUFiLGFBQWE7RUFDYixtQkFBWTtVQUFaLFlBQVk7RUFDWixjQUFjO0VBQ2QsWUFBWTtFQUNaLFlBQVksRUFBRTtBQUVoQjtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7QUFHQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsbUJBQVk7RUFBWixZQUFZO0FBQ2Q7QUFDQTtFQUNFLHdCQUF3QjtFQUN4QixZQUFZO0VBQ1osb0JBQWE7RUFBYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLG9DQUFvQztFQUNwQyw4QkFBOEI7QUFDaEM7QUFJQSx3Q0FBd0M7QUFDeEM7RUFDRSxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9ndWlFbGVtZW50cy90b3AtYmFyL3RvcC1iYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4jdG9wYmFyU2hlbGx7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWJhc2lzOiAxMDB2dztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICAvKmJvcmRlci1ib3R0b206IHZhcigtLW1haW5Cb3JkZXIpOyovXHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG4gIGhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbiAgbWF4LWhlaWdodDogdmFyKC0tdG9wYmFySCk7XHJcbn1cclxuI3RvcGJhciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxufVxyXG4jdG9wYmFyID4gKiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICAvKm1hcmdpbjogYXV0byAwIGF1dG8gMTBweDsgLypUP1JCP0wqL1xyXG59LypcclxuI3RvcGJhciA+IGJ1dHRvbntcclxuICBoZWlnaHQ6IGNhbGModmFyKC0tdG9wYmFySCkgLSAxMHB4KTtcclxuICBmbGV4LWJhc2lzOiAxMDBweDtcclxuICBtaW4td2lkdGg6IDEwMHB4O1xyXG4gIG1heC13aWR0aDogMTAwcHg7XHJcbn0qL1xyXG4jdG9wYmFyIGJ1dHRvbi5kcm9wZG93blRpdGxlOmZvY3Vze1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50IC5jbG9zZUJ1dHRvbntcclxuICAvKiBmbG9hdDogcmlnaHQ7ICovXHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHJpZ2h0OiAxMHB4O1xyXG4gIHRvcDogMTBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgd2lkdGg6IDQwcHg7XHJcbiAgYm9yZGVyOiAycHggc29saWQgdmFyKC0tbWFpbkZvbnRDb2xvcik7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKCAtLWFsdEJhY2tncm91bmRDb2xvcik7XHJcbiAgY29sb3I6IHZhcigtLW1haW5Gb250Q29sb3IpO1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxufVxyXG46Om5nLWRlZXAgLnBvcHVwQ29udGVudCAuY2xvc2VCdXR0b246aG92ZXJ7XHJcbiAgcmlnaHQ6IDVweDtcclxuICB0b3A6IDVweDtcclxuICBoZWlnaHQ6IDUwcHg7XHJcbiAgd2lkdGg6IDUwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xyXG4gIC8qY29sb3I6IHZhcigtLWNvbG9yLTIpOyovXHJcbiAgZm9udC13ZWlnaHQ6IGJvbGRlcjtcclxuICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAuc2NyZWVuV2lkZVNoYWRvd3tcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICB0b3A6IDA7XHJcbiAgei1pbmRleDogMjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuNSk7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgd2lkdGg6IDEwMHZ3O1xyXG59XHJcbjo6bmctZGVlcCAucG9wdXBDb250ZW50e1xyXG4gIHRvcDogNTAlO1xyXG4gIGxlZnQ6IDUwJTtcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgd2lkdGg6IGF1dG87XHJcbiAgaGVpZ2h0OiBhdXRvO1xyXG4gIHBhZGRpbmc6IDMwcHggNjBweDtcclxuICBib3JkZXI6IDRweCBzb2xpZCB2YXIoLS1tYWluQm9yZGVyQ29sb3IpO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLW1haW5CYWNrZ3JvdW5kQ29sb3IpO1xyXG4gIG1heC1oZWlnaHQ6IDkwdmg7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVUYWJsZSB7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG59XHJcbjo6bmctZGVlcCAudHlwZVJvdyB7XHJcbiAgaGVpZ2h0OiAyMHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG5cclxuLnR5cGVtYXByb3d7XHJcbiAgd2lkdGg6IDQ1MHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbn1cclxuOjpuZy1kZWVwIC50eXBlUm93Pip7XHJcbiAgbWFyZ2luLXRvcDogYXV0bztcclxuICBtYXJnaW4tYm90dG9tOiBhdXRvO31cclxuOjpuZy1kZWVwIC5hbGlhc3tcclxuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgcGFkZGluZy1yaWdodDogMTBweDtcclxufVxyXG46Om5nLWRlZXAgLnR5cGVSb3cgPiAqe1xyXG59XHJcbjo6bmctZGVlcCAudHlwZU5hbWV7XHJcbiAgY29sb3I6IGRhcmtvcmFuZ2U7XHJcbn1cclxuXHJcblxyXG5cclxuLyoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiAgICAgZHJvcGRvd24gc3R5bGUgICAgICoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovXHJcblxyXG4uZHJvcGRvd25UaXRsZSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogaW5oZXJpdDsgLyp2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTsqL1xyXG4gIGNvbG9yOiB1bnNldDtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIHBhZGRpbmc6IDEycHggMTZweDtcclxuICBjdXJzb3I6IGluaGVyaXQ7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyIHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIC8qaGVpZ2h0OiA4MCU7Ki9cclxuICB3aWR0aDogYXV0bztcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuLmRyb3Bkb3duQ29udGFpbmVyLnJpZ2h0IHtcclxuICBtaW4td2lkdGg6IDEwMCU7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50IHtcclxuICBkaXNwbGF5OiBub25lO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1tYWluQmFja2dyb3VuZENvbG9yKTtcclxuICBtaW4td2lkdGg6IDE2MHB4O1xyXG4gIGJveC1zaGFkb3c6IDBweCA4cHggMTZweCAwcHggcmdiYSgwLDAsMCwwLjIpO1xyXG4gIHotaW5kZXg6IDE7XHJcbiAgYm9yZGVyOiAzcHggc29saWQgdmFyKC0tc2Vjb25kYXJ5Qm9yZGVyQ29sb3IpO1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgbWFyZ2luOiAwO1xyXG4gIHRvcDogMTAwJTtcclxufVxyXG51bC5kcm9wZG93bkNvbnRlbnQucmlnaHR7XHJcbiAgbWFyZ2luOjA7XHJcbiAgdG9wOiAwO1xyXG4gIGxlZnQ6IDEwMCU7XHJcbn1cclxuXHJcbmxpLmRyb3Bkb3duQ29udGVudCB7XHJcbiAgcGFkZGluZzogMDtcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcbnVsLmRyb3Bkb3duQ29udGVudDpub3QoOmVtcHR5KXtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAzM3B4O1xyXG59XHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0LCAuZHJvcGRvd25wYWRkaW5ne1xyXG4gIGZvbnQtc2l6ZTogaW5oZXJpdDtcclxuICBwYWRkaW5nOiAxMnB4IDE2cHg7XHJcbn1cclxuXHJcbi5kcm9wZG93blRpdGxlLnJpZ2h0OmhvdmVyLCAuZHJvcGRvd25Db250YWluZXIucmlnaHQ6aG92ZXIsIC5kcm9wZG93bnBhZGRpbmc6aG92ZXJ7XHJcbiAgYm9yZGVyLWJvdHRvbS1sZWZ0LXJhZGl1czogMjNweDtcclxufVxyXG4uZHJvcGRvd25UaXRsZS5yaWdodC50b2RvLCAuZHJvcGRvd25wYWRkaW5nLnRvZG97IGJvcmRlci1ib3R0b20tbGVmdC1yYWRpdXM6IDA7IH1cclxuLyouZHJvcGRvd25UaXRsZS5yaWdodC50b2RvOmxhc3QtY2hpbGQsIC5kcm9wZG93bnBhZGRpbmcudG9kbzpsYXN0LWNoaWxkeyBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAzM3B4OyB9Ki9cclxubGkuZHJvcGRvd25Db250ZW50OmhvdmVyIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbiAgLypwYWRkaW5nLWxlZnQ6IDEycHg7Ki9cclxuICBib3JkZXItbGVmdDogOHB4IHNvbGlkICNmZjAwMDBhMDtcclxuICBib3JkZXItYm90dG9tLWxlZnQtcmFkaXVzOiAzMHB4O1xyXG4gIC8qbWFyZ2luLWxlZnQ6IC0xMnB4OyBib3R0b20tcm91bmQgYm9yZGVyLCB0cm91YmxlIGNvbiBzdGlsaSBzb3ZyYXBwb3N0aSBjaGUgbG8gcmktc3F1YWRyYW5vLlxyXG4gICBib3JkZXItdG9wLWxlZnQtcmFkaXVzOiAyNHB4OyovXHJcbn1cclxuI3RvcGJhcj4uZHJvcGRvd25Db250YWluZXI6aG92ZXI+LmRyb3Bkb3duVGl0bGV7XHJcbiAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMzBweDtcclxuICBib3JkZXItdG9wLXJpZ2h0LXJhZGl1czogMzBweDt9XHJcbiN0b3BiYXI+LmRyb3Bkb3duQ29udGFpbmVyOmhvdmVyPi5kcm9wZG93blRpdGxlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1zZWNvbmRhcnlCb3JkZXJDb2xvcik7XHJcbn1cclxuXHJcbi5idXR0b25HcmlkQ29udGFpbmVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICAvKiB3aWR0aDogY2FsYyg0MHB4ICogNSAtIDEpOyovXHJcbiAgd2lkdGg6IG1pbigyNXZ3LCBjYWxjKDQwcHggKiA1ICsgMTBweCAqIDUgLSAxcHgpKTsgLyogYnV0dG9uIHNpemUgKyBidXR0b25zaGVsbCBtYXJnaW4sIDQgcGVyIHJpZ2EgY29uIG1hc3NpbW8gc3BhemlvIGF2YW56YXRvIHByaW1hIGRlbCA1wrAqL1xyXG59XHJcblxyXG4uYnV0dG9uR3JpZE1pbk1hcmdpbiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDA7XHJcbiAgZmxleC1zaHJpbms6IDA7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIHBhZGRpbmc6IDVweDsgfVxyXG5cclxuLmJ1dHRvbkdyaWQge1xyXG4gIHdpZHRoOiA0NXB4O1xyXG4gIGhlaWdodDogNDVweDtcclxufVxyXG5cclxuXHJcbnVsLmRyb3Bkb3duQ29udGVudHtcclxuICBtaW4taGVpZ2h0OiAxMDAlO1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lcjpob3Zlcj51bC5kcm9wZG93bkNvbnRlbnQge1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG59XHJcbi5kcm9wZG93bkNvbnRhaW5lcjpob3ZlciA+IHVsLmRyb3Bkb3duQ29udGVudDplbXB0eXtcclxuICBkaXNwbGF5OmZsZXg7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50OmVtcHR5OmJlZm9yZXtcclxuICBjb250ZW50OiAnLi4uIEVtcHR5IC4uLic7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxudWwuZHJvcGRvd25Db250ZW50OmVtcHR5OmhvdmVye1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGRhcmtyZWQgIWltcG9ydGFudDtcclxuICBjdXJzb3I6IG5vdC1hbGxvd2VkICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcblxyXG5cclxuLyoqKioqKioqKiogICAgIGNoYW5nZWxvZyAgICAgKioqKioqKioqKi9cclxuLmNoYW5nZWxvZ1Jvb3R7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG59XHJcbiJdfQ== */";
     /***/
   },
 
@@ -32760,11 +33456,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(TopBarComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this51 = this;
+          var _this52 = this;
 
           setTimeout(function () {
-            _this51.status = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status;
-            _this51.topbar = TopBar.topbar;
+            _this52.status = _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status;
+            _this52.topbar = TopBar.topbar;
           }, 0);
         }
       }, {
@@ -32815,13 +33511,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           };
 
-          var _iteratorNormalCompletion20 = true;
-          var _didIteratorError20 = false;
-          var _iteratorError20 = undefined;
+          var _iteratorNormalCompletion31 = true;
+          var _didIteratorError31 = false;
+          var _iteratorError31 = undefined;
 
           try {
-            for (var _iterator20 = classes[Symbol.iterator](), _step20; !(_iteratorNormalCompletion20 = (_step20 = _iterator20.next()).done); _iteratorNormalCompletion20 = true) {
-              var classe = _step20.value;
+            for (var _iterator31 = classes[Symbol.iterator](), _step31; !(_iteratorNormalCompletion31 = (_step31 = _iterator31.next()).done); _iteratorNormalCompletion31 = true) {
+              var classe = _step31.value;
               var tableStr = 'CREATE TABLE ' + classe.name + ' {\n';
               var foreignkey = ''; // let pkFeatures: M2Feature[] = [];
 
@@ -32831,13 +33527,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               var indent = '    ';
               var hasIDField = false;
-              var _iteratorNormalCompletion21 = true;
-              var _didIteratorError21 = false;
-              var _iteratorError21 = undefined;
+              var _iteratorNormalCompletion32 = true;
+              var _didIteratorError32 = false;
+              var _iteratorError32 = undefined;
 
               try {
-                for (var _iterator21 = attributes[Symbol.iterator](), _step21; !(_iteratorNormalCompletion21 = (_step21 = _iterator21.next()).done); _iteratorNormalCompletion21 = true) {
-                  var attr = _step21.value;
+                for (var _iterator32 = attributes[Symbol.iterator](), _step32; !(_iteratorNormalCompletion32 = (_step32 = _iterator32.next()).done); _iteratorNormalCompletion32 = true) {
+                  var attr = _step32.value;
 
                   if (attr.name.toLowerCase() === 'id' && attr.type.primitiveType.short === _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["ShortAttribETypes"].EInt) {
                     hasIDField = true;
@@ -32848,27 +33544,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   tableStr += indent + attr.name + ' ' + getType(attr) + ',\n';
                 }
               } catch (err) {
-                _didIteratorError21 = true;
-                _iteratorError21 = err;
+                _didIteratorError32 = true;
+                _iteratorError32 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion21 && _iterator21.return != null) {
-                    _iterator21.return();
+                  if (!_iteratorNormalCompletion32 && _iterator32.return != null) {
+                    _iterator32.return();
                   }
                 } finally {
-                  if (_didIteratorError21) {
-                    throw _iteratorError21;
+                  if (_didIteratorError32) {
+                    throw _iteratorError32;
                   }
                 }
               }
 
-              var _iteratorNormalCompletion22 = true;
-              var _didIteratorError22 = false;
-              var _iteratorError22 = undefined;
+              var _iteratorNormalCompletion33 = true;
+              var _didIteratorError33 = false;
+              var _iteratorError33 = undefined;
 
               try {
-                for (var _iterator22 = references[Symbol.iterator](), _step22; !(_iteratorNormalCompletion22 = (_step22 = _iterator22.next()).done); _iteratorNormalCompletion22 = true) {
-                  var ref = _step22.value;
+                for (var _iterator33 = references[Symbol.iterator](), _step33; !(_iteratorNormalCompletion33 = (_step33 = _iterator33.next()).done); _iteratorNormalCompletion33 = true) {
+                  var ref = _step33.value;
 
                   if (ref.name.toLowerCase() === 'id') {
                     hasIDField = true;
@@ -32880,16 +33576,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   foreignKeys.push('ALTER TABLE ' + classe.name + '\n' + indent + 'ADD FOREIGN KEY (' + ref.name + ') REFERENCES ' + ref.getTarget().name + '(id);');
                 }
               } catch (err) {
-                _didIteratorError22 = true;
-                _iteratorError22 = err;
+                _didIteratorError33 = true;
+                _iteratorError33 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion22 && _iterator22.return != null) {
-                    _iterator22.return();
+                  if (!_iteratorNormalCompletion33 && _iterator33.return != null) {
+                    _iterator33.return();
                   }
                 } finally {
-                  if (_didIteratorError22) {
-                    throw _iteratorError22;
+                  if (_didIteratorError33) {
+                    throw _iteratorError33;
                   }
                 }
               }
@@ -32903,16 +33599,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               tables.push(tableStr);
             }
           } catch (err) {
-            _didIteratorError20 = true;
-            _iteratorError20 = err;
+            _didIteratorError31 = true;
+            _iteratorError31 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion20 && _iterator20.return != null) {
-                _iterator20.return();
+              if (!_iteratorNormalCompletion31 && _iterator31.return != null) {
+                _iterator31.return();
               }
             } finally {
-              if (_didIteratorError20) {
-                throw _iteratorError20;
+              if (_didIteratorError31) {
+                throw _iteratorError31;
               }
             }
           }
@@ -33010,7 +33706,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "createTypeMap",
         value: function createTypeMap(event) {
-          var _this52 = this;
+          var _this53 = this;
 
           var newkey;
 
@@ -33027,9 +33723,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _common_Joiner__WEBPACK_IMPORTED_MODULE_2__["Status"].status.typeAliasDictionary[newkey] = new Map();
           this.updateTypeMapList();
           setTimeout(function () {
-            console.log('tmkey:', newkey, 'select.val:', _this52.typemapSelect.value, 'mapselect', _this52.typemapSelect);
+            console.log('tmkey:', newkey, 'select.val:', _this53.typemapSelect.value, 'mapselect', _this53.typemapSelect);
 
-            _this52.changeTypeMap(newkey);
+            _this53.changeTypeMap(newkey);
           }, 0);
         }
       }, {
@@ -33091,7 +33787,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "updateRecents",
         value: function updateRecents() {
-          var _this53 = this;
+          var _this54 = this;
 
           var tmp;
           tmp = localStorage.getItem('MM_SaveList');
@@ -33138,10 +33834,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           $metamodelHtml.find('.recentsave').off('click.load').on('click.load', function (e) {
-            _this53.loadRecent(e.currentTarget.innerText, true);
+            _this54.loadRecent(e.currentTarget.innerText, true);
           });
           $modelHtml.find('.recentsave').off('click.load').on('click.load', function (e) {
-            _this53.loadRecent(e.currentTarget.innerText, false);
+            _this54.loadRecent(e.currentTarget.innerText, false);
           });
         }
       }, {
@@ -33504,19 +34200,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(EEnum, _common_Joiner__WEBPA12);
 
       function EEnum(parent, json) {
-        var _this54;
+        var _this55;
 
         _classCallCheck(this, EEnum);
 
-        _this54 = _possibleConstructorReturn(this, _getPrototypeOf(EEnum).call(this, parent, null));
+        _this55 = _possibleConstructorReturn(this, _getPrototypeOf(EEnum).call(this, parent, null));
 
-        if (_this54.parent) {
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(_this54.parent.enums, _assertThisInitialized(_this54));
+        if (_this55.parent) {
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(_this55.parent.enums, _assertThisInitialized(_this55));
         }
 
-        _this54.parse(json);
+        _this55.parse(json);
 
-        return _this54;
+        return _this55;
       }
 
       _createClass(EEnum, [{
@@ -33559,12 +34255,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var i;
           this.setName(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreEnum"].namee, 'Enum_1'), false);
 
-          for (var _key27 in json) {
-            var value = json[_key27];
+          for (var _key28 in json) {
+            var value = json[_key28];
 
-            switch (_key27) {
+            switch (_key28) {
               default:
-                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Enum.parse() unexpected key:', _key27, 'in json:', json);
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'Enum.parse() unexpected key:', _key28, 'in json:', json);
 
                 break;
 
@@ -33783,13 +34479,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(IClassifier, _common_Joiner__WEBPA13);
 
       function IClassifier() {
-        var _this55;
+        var _this56;
 
         _classCallCheck(this, IClassifier);
 
-        _this55 = _possibleConstructorReturn(this, _getPrototypeOf(IClassifier).apply(this, arguments));
-        _this55.vertex = null;
-        return _this55;
+        _this56 = _possibleConstructorReturn(this, _getPrototypeOf(IClassifier).apply(this, arguments));
+        _this56.vertex = null;
+        return _this56;
       }
 
       _createClass(IClassifier, [{
@@ -33818,7 +34514,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _get(_getPrototypeOf(IClassifier.prototype), "setName", this).call(this, value, refreshGUI, warnDuplicateFix);
 
-          if (refreshGUI) this.refreshInstancesGUI(); // for (i = 0; model && i < model.instances.length; i++) { model.instances[i].sidebar.fullnameChanged(oldName, this.name); }
+          if (refreshGUI) this.refreshInstancesGUI();
+
+          if (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic && this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) {
+            var type = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].getClassType(this);
+
+            if (type) type.printablename = this.name;
+          } // for (i = 0; model && i < model.instances.length; i++) { model.instances[i].sidebar.fullnameChanged(oldName, this.name); }
+
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].updateTypeSelectors(null, false, true, true);
 
@@ -33916,31 +34619,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       referencesIN: MReference[];
       */
       function MClass(pkg, json, metaVersion, autodetection) {
-        var _this56;
+        var _this57;
 
         _classCallCheck(this, MClass);
 
-        _this56 = _possibleConstructorReturn(this, _getPrototypeOf(MClass).call(this, pkg, metaVersion));
+        _this57 = _possibleConstructorReturn(this, _getPrototypeOf(MClass).call(this, pkg, metaVersion));
 
         if (!pkg && !json && !metaVersion) {
-          return _possibleConstructorReturn(_this56);
+          return _possibleConstructorReturn(_this57);
         } // empty constructor for .duplicate();
 
 
         _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!metaVersion, 'null metaparent?');
 
-        _this56.parse(json, true);
+        _this57.parse(json, true);
 
         if (autodetection) {
           // let possibleClasses: M2Class[] = newMetaParent.getAllSubClasses(true);
-          if (_this56.metaParent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(_this56.metaParent.instances, _assertThisInitialized(_this56));
+          if (_this57.metaParent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(_this57.metaParent.instances, _assertThisInitialized(_this57));
 
-          var scores = _this56.metaParent.getTypeConversionScores(false, true);
+          var scores = _this57.metaParent.getTypeConversionScores(false, true);
         }
 
-        _this56.changeMetaParent(metaVersion, false);
+        _this57.changeMetaParent(metaVersion, false);
 
-        return _this56;
+        return _this57;
       }
 
       _createClass(MClass, [{
@@ -34251,6 +34954,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               ]
             }
           */
+          if (!loopDetectionObj) loopDetectionObj = {};
+
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj, loopDetectionObj || {});
 
           var inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
@@ -34276,7 +34981,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 continue;
               }
 
-              var _key28 = (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isPrimitive(value) ? inlineMarker : '') + child.metaParent.name; // U.pe(json[key], 'overriding value inside MClass.generateModel()', ', key:', key, ', newVal:', value, ', json:', json, ', MClass:', this, ', feature:', child);
+              var _key29 = (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isPrimitive(value) ? inlineMarker : '') + child.metaParent.name; // U.pe(json[key], 'overriding value inside MClass.generateModel()', ', key:', key, ', newVal:', value, ', json:', json, ', MClass:', this, ', feature:', child);
 
               /*let wind = window as any;
               if (!wind.json) wind.json = {};
@@ -34284,7 +34989,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               wind.json[key].push({value: value, m1id: child.id, m2id: child.metaParent.id, index: i + '/' + arr[outi].length, m2name: child.metaParent.name, setter: child});*/
 
 
-              json[_key28] = value;
+              json[_key29] = value;
             }
           }
 
@@ -34317,15 +35022,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           for (var _i11 = 0, _allKeys = allKeys; _i11 < _allKeys.length; _i11++) {
-            var _key29 = _allKeys[_i11];
+            var _key30 = _allKeys[_i11];
 
-            if (!json.hasOwnProperty(_key29)) {
+            if (!json.hasOwnProperty(_key30)) {
               continue;
             }
 
-            var keyParts = _key29.split(':');
+            var keyParts = _key30.split(':');
 
-            var val = json[_key29];
+            var val = json[_key30];
 
             switch (keyParts[0]) {
               default:
@@ -34346,7 +35051,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   default:
                     // "-xmlns:org.eclipse.example.bowling": "https://org/eclipse/example/bowling",
-                    var value = json[_key29]; // todo: (set / handle) the (package / namespace)
+                    var value = json[_key30]; // todo: (set / handle) the (package / namespace)
 
                     break;
                 }
@@ -34383,88 +35088,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
 
-          for (var _key30 in json) {
-            if (!json.hasOwnProperty(_key30)) {
-              continue;
-            }
-
-            var value = json[_key30];
-
-            switch (_key30) {
-              case inlineMarker + 'xmlns:xmi': // case inlineMarker + 'xmlns:' + this.getModelRoot().namespace():
-
-              case inlineMarker + 'xmi:version':
-                this.setRoot(true);
-                break;
-
-              default:
-                // todo: usa il ns del modello per caricare il metamodello con quel namespace se quello attuale non è conforme?
-                if (_key30.indexOf(inlineMarker) === 0) {
-                  _key30 = _key30.substr(inlineMarker.length);
-                }
-
-                if (_key30.indexOf('xmlns:') === 0) {
-                  _key30 = _key30.substr('xmlns:'.length);
-                  this.getModelRoot().namespace(_key30);
-
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(false, 'setns?', _key30, this, this.metaParent);
-
-                  continue;
-                }
-
-                var metaAttr = this.metaParent.getAttribute(_key30);
-                var metaRef = this.metaParent.getReference(_key30);
-
-                if (metaAttr) {
-                  var cindex = this.getChildrenIndex_ByMetaParent(metaAttr);
-                  var aindex = this.getAttributeIndex_ByMetaParent(metaAttr);
-                  /*const newA: MAttribute = new MAttribute(this, value, metaAttr);
-                  this.childrens[cindex] = this.attributes[aindex] = newA;*/
-
-                  this.attributes[aindex].parse(value, true);
-                } else if (metaRef) {
-                  var _cindex = this.getChildrenIndex_ByMetaParent(metaRef);
-
-                  var rindex = this.getReferenceIndex_ByMetaParent(metaRef); // const newR: MReference = new MReference(this, value, metaRef);
-                  // this.childrens[cindex] = this.references[rindex] = newR;
-
-                  var j = void 0;
-                  var edges = this.references[rindex].getEdges();
-
-                  for (j = 0; j < edges.length; j++) {}
-
-                  this.references[rindex].parse(value, true);
-                } else {
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'm1 model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', _key30, ', Iclass:', this.metaParent);
-                }
-
-                break;
-            }
-          }
-        }
-      }, {
-        key: "modify_Old",
-        value: function modify_Old(json) {
-          var destructive = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
-          /*{                                                                                           <-- :classroot
-              "-xmlns:xmi": "http://www.omg.org/XMI",
-              "-xmlns:org.eclipse.example.bowling": "https://org/eclipse/example/bowling",
-              "-xmi:version": "2.0",
-              "Players": [
-                { "-name": "tizio" },          <-- class[0]
-                { "-name": "asd" }             <-- class[1]
-              ]
-            }*/
-          if (destructive) {
-            this.childrens = [];
-            this.references = [];
-            this.attributes = [];
-            this.referencesIN = [];
-          }
-
-          var inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
-
           for (var _key31 in json) {
             if (!json.hasOwnProperty(_key31)) {
               continue;
@@ -34496,6 +35119,88 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                 var metaAttr = this.metaParent.getAttribute(_key31);
                 var metaRef = this.metaParent.getReference(_key31);
+
+                if (metaAttr) {
+                  var cindex = this.getChildrenIndex_ByMetaParent(metaAttr);
+                  var aindex = this.getAttributeIndex_ByMetaParent(metaAttr);
+                  /*const newA: MAttribute = new MAttribute(this, value, metaAttr);
+                  this.childrens[cindex] = this.attributes[aindex] = newA;*/
+
+                  this.attributes[aindex].parse(value, true);
+                } else if (metaRef) {
+                  var _cindex = this.getChildrenIndex_ByMetaParent(metaRef);
+
+                  var rindex = this.getReferenceIndex_ByMetaParent(metaRef); // const newR: MReference = new MReference(this, value, metaRef);
+                  // this.childrens[cindex] = this.references[rindex] = newR;
+
+                  var j = void 0;
+                  var edges = this.references[rindex].getEdges();
+
+                  for (j = 0; j < edges.length; j++) {}
+
+                  this.references[rindex].parse(value, true);
+                } else {
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'm1 model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', _key31, ', Iclass:', this.metaParent);
+                }
+
+                break;
+            }
+          }
+        }
+      }, {
+        key: "modify_Old",
+        value: function modify_Old(json) {
+          var destructive = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+          /*{                                                                                           <-- :classroot
+              "-xmlns:xmi": "http://www.omg.org/XMI",
+              "-xmlns:org.eclipse.example.bowling": "https://org/eclipse/example/bowling",
+              "-xmi:version": "2.0",
+              "Players": [
+                { "-name": "tizio" },          <-- class[0]
+                { "-name": "asd" }             <-- class[1]
+              ]
+            }*/
+          if (destructive) {
+            this.childrens = [];
+            this.references = [];
+            this.attributes = [];
+            this.referencesIN = [];
+          }
+
+          var inlineMarker = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.XMLinlineMarker;
+
+          for (var _key32 in json) {
+            if (!json.hasOwnProperty(_key32)) {
+              continue;
+            }
+
+            var value = json[_key32];
+
+            switch (_key32) {
+              case inlineMarker + 'xmlns:xmi': // case inlineMarker + 'xmlns:' + this.getModelRoot().namespace():
+
+              case inlineMarker + 'xmi:version':
+                this.setRoot(true);
+                break;
+
+              default:
+                // todo: usa il ns del modello per caricare il metamodello con quel namespace se quello attuale non è conforme?
+                if (_key32.indexOf(inlineMarker) === 0) {
+                  _key32 = _key32.substr(inlineMarker.length);
+                }
+
+                if (_key32.indexOf('xmlns:') === 0) {
+                  _key32 = _key32.substr('xmlns:'.length);
+                  this.getModelRoot().namespace(_key32);
+
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(false, 'setns?', _key32, this, this.metaParent);
+
+                  continue;
+                }
+
+                var metaAttr = this.metaParent.getAttribute(_key32);
+                var metaRef = this.metaParent.getReference(_key32);
                 var newA = void 0;
                 var newR = void 0;
 
@@ -34512,7 +35217,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.references, newR);
                 } else {
-                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', _key31, ', Iclass:', this.metaParent);
+                  _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'model attribute-or-reference type not found. class:', this, ', json:', json, 'key/name:', _key32, ', Iclass:', this.metaParent);
                 }
 
                 break;
@@ -34558,6 +35263,165 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           this.changeMetaParent(classe, true, true);
         }
+        /*
+        canConvertTo(classe: M2Class): boolean{
+          if (!classe) return true;
+          if (classe.getInterface() || classe.getAbstract()) return false;
+          return this.metaParent.isExtending(classe) || classe.isExtending(this.metaParent);
+        }*/
+
+      }, {
+        key: "getContainer",
+        value: function getContainer() {
+          var _iteratorNormalCompletion34 = true;
+          var _didIteratorError34 = false;
+          var _iteratorError34 = undefined;
+
+          try {
+            for (var _iterator34 = this.referencesIN[Symbol.iterator](), _step34; !(_iteratorNormalCompletion34 = (_step34 = _iterator34.next()).done); _iteratorNormalCompletion34 = true) {
+              var ref = _step34.value;
+              if (ref.isContainment()) return ref;
+            }
+          } catch (err) {
+            _didIteratorError34 = true;
+            _iteratorError34 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion34 && _iterator34.return != null) {
+                _iterator34.return();
+              }
+            } finally {
+              if (_didIteratorError34) {
+                throw _iteratorError34;
+              }
+            }
+          }
+
+          return null;
+        }
+      }, {
+        key: "getM1Path",
+        value: function getM1Path() {
+          var includeSelf = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          var path = [];
+          if (includeSelf) path.push(this);
+          var currentNode = this;
+          var maxDepth = 1000;
+
+          while (true) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(! --maxDepth, 'cannot save m1: loop of containment');
+
+            if (currentNode.isRoot()) {
+              return path.reverse();
+            }
+
+            var container = currentNode.getContainer();
+            if (!container) return null;
+            currentNode = container.parent;
+            path.push(container);
+            path.push(currentNode);
+          }
+        }
+      }, {
+        key: "getM1PathStr",
+        value: function getM1PathStr() {
+          var canWarn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+          var path = this.getM1Path(true);
+          var ret = '/'; // let lastClass: MClass = this.getModelRoot().getClassRoot();
+
+          var lastRef = null;
+          var i = 0;
+
+          if (!path) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(canWarn, 'found disconnected data in M1', {
+              thiss: this,
+              path: path
+            });
+
+            return null;
+          }
+
+          var _iteratorNormalCompletion35 = true;
+          var _didIteratorError35 = false;
+          var _iteratorError35 = undefined;
+
+          try {
+            for (var _iterator35 = path[Symbol.iterator](), _step35; !(_iteratorNormalCompletion35 = (_step35 = _iterator35.next()).done); _iteratorNormalCompletion35 = true) {
+              var elem = _step35.value;
+
+              // console.log('following m1 path:', {path, i, elem, lastRef, ret});
+              if (elem instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"]) {
+                // alternare classi e reference, mai 2 classi o 2 reference consecutive, si parte da ref (root-class è sottinteso) e si termina con class.
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(i++ % 2 === 0, 'dev error r: m1 path should follow the schema [Class, Reference]*', path, this);
+
+                ret += '/@' + elem.metaParent.name;
+                lastRef = elem;
+              } else if (elem instanceof MClass) {
+                _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(i++ % 2 === 1, 'dev error c: m1 path should follow the schema [Class, Reference]*', path, this);
+
+                ret += !lastRef ? '' : '.' + lastRef.mtarget.indexOf(elem);
+              }
+            }
+          } catch (err) {
+            _didIteratorError35 = true;
+            _iteratorError35 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion35 && _iterator35.return != null) {
+                _iterator35.return();
+              }
+            } finally {
+              if (_didIteratorError35) {
+                throw _iteratorError35;
+              }
+            }
+          }
+
+          return ret;
+        }
+      }, {
+        key: "isConnectedToRoot",
+        value: function isConnectedToRoot() {
+          var currentClass = this;
+
+          while (!currentClass.isRoot()) {
+            var containerRef = currentClass.getContainer();
+            if (!containerRef) return false;
+            currentClass = containerRef.parent;
+          }
+
+          return true;
+        }
+      }, {
+        key: "isInvalidRoot",
+        value: function isInvalidRoot() {
+          return !this.isRoot() && !this.getContainer();
+        }
+      }, {
+        key: "getContainerChain",
+        value: function getContainerChain() {
+          var ret = [];
+          var currentClass = this;
+
+          while (true) {
+            var containerRef = currentClass.getContainer();
+            if (!containerRef) return ret;
+            currentClass = containerRef.parent;
+
+            if (ret.indexOf(currentClass) >= 0) {
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'model have a containment loop');
+
+              return ret;
+            }
+
+            ret.push(currentClass);
+          }
+        }
+      }, {
+        key: "isContainedIn",
+        value: function isContainedIn(container) {
+          return this.getContainerChain().indexOf(container) >= 0;
+        }
       }], [{
         key: "getArrayIndex_ByMetaParentID",
         value: function getArrayIndex_ByMetaParentID(id, array) {
@@ -34570,6 +35434,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           return -1;
+        }
+      }, {
+        key: "getByM1Path",
+        value: function getByM1Path(root, path) {
+          var refstrarr = path.split('/@');
+          var currentClass = root;
+          var currentRef = null;
+          var _iteratorNormalCompletion36 = true;
+          var _didIteratorError36 = false;
+          var _iteratorError36 = undefined;
+
+          try {
+            for (var _iterator36 = refstrarr[Symbol.iterator](), _step36; !(_iteratorNormalCompletion36 = (_step36 = _iterator36.next()).done); _iteratorNormalCompletion36 = true) {
+              var refstr = _step36.value;
+              if (refstr === '/') continue;
+              var lastindex = refstr.lastIndexOf('.');
+              var refname = refstr.substr(0, lastindex);
+              var targetindex = refstr.substr(lastindex + 1);
+
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].isNumerizable(targetindex), 'm1 parse error: index is not a number', {
+                refstr: refstr,
+                refstrarr: refstrarr,
+                path: path,
+                root: root
+              });
+
+              currentRef = currentClass.getReference(refname);
+              currentClass = currentRef.mtarget[+targetindex];
+            }
+          } catch (err) {
+            _didIteratorError36 = true;
+            _iteratorError36 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion36 && _iterator36.return != null) {
+                _iterator36.return();
+              }
+            } finally {
+              if (_didIteratorError36) {
+                throw _iteratorError36;
+              }
+            }
+          }
+
+          return currentClass;
         }
       }]);
 
@@ -34617,15 +35526,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(ELiteral, _common_Joiner__WEBPA15);
 
       function ELiteral(parent, json) {
-        var _this57;
+        var _this58;
 
         _classCallCheck(this, ELiteral);
 
-        _this57 = _possibleConstructorReturn(this, _getPrototypeOf(ELiteral).call(this, parent, null));
+        _this58 = _possibleConstructorReturn(this, _getPrototypeOf(ELiteral).call(this, parent, null));
 
-        _this57.parse(json);
+        _this58.parse(json);
 
-        return _this57;
+        return _this58;
       }
 
       _createClass(ELiteral, [{
@@ -34849,15 +35758,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }]);
 
       function MAttribute(parent, json, meta) {
-        var _this58;
+        var _this59;
 
         _classCallCheck(this, MAttribute);
 
-        _this58 = _possibleConstructorReturn(this, _getPrototypeOf(MAttribute).call(this, parent, meta));
+        _this59 = _possibleConstructorReturn(this, _getPrototypeOf(MAttribute).call(this, parent, meta));
 
-        _this58.parse(json, true);
+        _this59.parse(json, true);
 
-        return _this58;
+        return _this59;
       }
 
       _createClass(MAttribute, [{
@@ -35296,13 +36205,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(IAttribute, _common_Joiner__WEBPA17);
 
       function IAttribute(parent, metaParent) {
-        var _this59;
+        var _this60;
 
         _classCallCheck(this, IAttribute);
 
-        _this59 = _possibleConstructorReturn(this, _getPrototypeOf(IAttribute).call(this, parent, metaParent));
-        if (parent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(parent.attributes, _assertThisInitialized(_this59));
-        return _this59;
+        _this60 = _possibleConstructorReturn(this, _getPrototypeOf(IAttribute).call(this, parent, metaParent));
+        if (parent) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(parent.attributes, _assertThisInitialized(_this60));
+        return _this60;
       }
       /*static GetDefaultStyle(modelRoot: IModel, type: EType = null): HTMLElement | SVGElement {
         return ModelPiece.GetDefaultStyle(modelRoot, 'Attribute', type); }
@@ -35384,15 +36293,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(M3Attribute, _IAttribute);
 
       function M3Attribute(parent, meta) {
-        var _this60;
+        var _this61;
 
         _classCallCheck(this, M3Attribute);
 
-        _this60 = _possibleConstructorReturn(this, _getPrototypeOf(M3Attribute).call(this, parent, meta));
+        _this61 = _possibleConstructorReturn(this, _getPrototypeOf(M3Attribute).call(this, parent, meta));
 
-        _this60.parse(null, true);
+        _this61.parse(null, true);
 
-        return _this60;
+        return _this61;
       }
 
       _createClass(M3Attribute, [{
@@ -35472,20 +36381,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(M2Attribute, _common_Joiner__WEBPA18);
 
       function M2Attribute(classe, json) {
-        var _this61;
+        var _this62;
 
         _classCallCheck(this, M2Attribute);
 
-        _this61 = _possibleConstructorReturn(this, _getPrototypeOf(M2Attribute).call(this, classe, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getAttribute()));
+        _this62 = _possibleConstructorReturn(this, _getPrototypeOf(M2Attribute).call(this, classe, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getAttribute()));
 
         if (!classe && !json) {
-          return _possibleConstructorReturn(_this61);
+          return _possibleConstructorReturn(_this62);
         } // empty constructor for .duplicate();
 
 
-        _this61.parse(json, true);
+        _this62.parse(json, true);
 
-        return _this61;
+        return _this62;
       }
 
       _createClass(M2Attribute, [{
@@ -35593,21 +36502,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(M2Reference, _common_Joiner__WEBPA19);
 
       function M2Reference(classe, json) {
-        var _this62;
+        var _this63;
 
         _classCallCheck(this, M2Reference);
 
-        _this62 = _possibleConstructorReturn(this, _getPrototypeOf(M2Reference).call(this, classe, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getReference()));
-        _this62.containment = false;
+        _this63 = _possibleConstructorReturn(this, _getPrototypeOf(M2Reference).call(this, classe, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getReference()));
+        _this63.containment = false;
 
         if (!classe && !json) {
-          return _possibleConstructorReturn(_this62);
+          return _possibleConstructorReturn(_this63);
         } // empty constructor for .duplicate();
 
 
-        _this62.parse(json, true);
+        _this63.parse(json, true);
 
-        return _this62;
+        return _this63;
       }
 
       _createClass(M2Reference, [{
@@ -35626,7 +36535,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           // this.parsePrintableTypeName(eType);
           // this.linkClass();
 
-          this.containment = !!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].containment, false);
+          console.info('xxxxcontm2', {
+            thiss: this,
+            id: this.id,
+            json: json,
+            val: !!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].containment, false)
+          });
+          this.setContainment(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].fromBoolString(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].containment, false), false));
           this.setLowerbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].lowerbound, 0));
           this.setUpperbound(+_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Json"].read(json, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["ECoreReference"].upperbound, 1));
           var i;
@@ -35689,8 +36604,72 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "setContainment",
         value: function setContainment(b) {
-          this.containment = b;
+          var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+          if (!force && this.containment === b) return; // if (!Status.status.loadedLogic || !b) { return; }
+
+          /*const target: M2Class = this.getTarget();
+          if (b && this.parent === target) {
+            U.ps(true, 'a model entity cannot contain itself'); no, sto controllo non posso farlo in m2.
+            this.containment = false;
+            return; }*/
+
+          /*let oldContainer: M2Reference = target.getContainer();
+          if (oldContainer) oldContainer.setContainment(false, undefined);*/
+
+          if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic) {
+            this.containment = b;
+            return;
+          }
+
+          this.containment = b && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.findContainmentLoop().length === 0;
+          this.refreshGUI();
+          var _iteratorNormalCompletion37 = true;
+          var _didIteratorError37 = false;
+          var _iteratorError37 = undefined;
+
+          try {
+            for (var _iterator37 = this.edges[Symbol.iterator](), _step37; !(_iteratorNormalCompletion37 = (_step37 = _iterator37.next()).done); _iteratorNormalCompletion37 = true) {
+              var edge = _step37.value;
+              edge.refreshGui();
+            }
+          } catch (err) {
+            _didIteratorError37 = true;
+            _iteratorError37 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion37 && _iterator37.return != null) {
+                _iterator37.return();
+              }
+            } finally {
+              if (_didIteratorError37) {
+                throw _iteratorError37;
+              }
+            }
+          }
         }
+        /*
+          // changing a containment relationship might cause containment loops on m1 undetectable from M2.
+          canBeContainmentForInstances(canMark: boolean = true): boolean {
+            if (this.isContainment()) return true;
+            const target: M2Class = this.getTarget();
+            let oldContainer: M2Reference = target.getContainer();
+            const wasContainment = this.containment
+            if (oldContainer) oldContainer.containment = false;
+            this.containment = true;
+        
+            Mark.removeByKey('containment-loop');
+            const loop: MClass[] = this.findContainmentLoopOnInstances();
+            for (let lop of loop) new Mark(lop, null, 'containment-loop').mark(true);
+            this.containment = false;
+            if (oldContainer) oldContainer.containment = true;
+            return !!loop.length; }
+        
+          findContainmentLoopOnInstances(): MClass[] {
+            const models: Model[] = [...new Set(this.instances.map( mref => mref.getModelRoot() as Model))];
+            U.pe(models.length > 1, 'multiple M1 models are not supported yet.');
+            if (!models || !models.length) return [];
+            return models[0].findContainmentLoop(); }*/
+
       }, {
         key: "setUpperbound",
         value: function setUpperbound(n) {
@@ -35762,7 +36741,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.setLowerbound(r.lowerbound);
           this.setUpperbound(r.upperbound);
-          this.containment = r.containment;
+          this.setContainment(r.containment, false);
           this.type.changeType(r.type.toEcoreString());
           this.refreshGUI();
           return this;
@@ -35857,20 +36836,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       // targetStr: string;
       // constructor() {}
       function MReference(classe, json, metaParent) {
-        var _this63;
+        var _this64;
 
         _classCallCheck(this, MReference);
 
-        _this63 = _possibleConstructorReturn(this, _getPrototypeOf(MReference).call(this, classe, metaParent));
+        _this64 = _possibleConstructorReturn(this, _getPrototypeOf(MReference).call(this, classe, metaParent));
 
         if (!classe && !json && !metaParent) {
-          return _possibleConstructorReturn(_this63);
+          return _possibleConstructorReturn(_this64);
         } // empty constructor for .duplicate();
 
 
-        _this63.parse(json, true);
+        _this64.parse(json, true);
 
-        return _this63;
+        return _this64;
       }
       /*
         getStyle(): HTMLElement | SVGElement {
@@ -36005,10 +36984,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "canBeLinkedTo",
         value: function canBeLinkedTo(hoveringTarget) {
+          // todo: può essere linkato: se non-containment sempre, altrimenti se: target non è root, target non è già contenuto.
           var c1 = hoveringTarget.metaParent;
           var c2 = this.getType().classType;
           console.log('canbelinkedm1 ? ', c1, c2);
-          return c1.isExtending(c2, true);
+          if (!c1.isExtending(c2, true)) return false;
+          if (!this.isContainment()) return true; // solo per la stampa
+
+          if (hoveringTarget === this.parent) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(true, 'Objects cannot contain themselves.');
+
+            return false;
+          } // solo per la stampa
+          // if (hoveringTarget.isRoot() && this.parent.isConnectedToRoot()) { U.ps(true, 'This reference would cause a containment loop.'); return false; }
+
+
+          if (this.parent.isContainedIn(hoveringTarget)) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(true, 'This reference would cause a containment loop.');
+
+            return false;
+          } // solo per la stampa
+
+
+          if (hoveringTarget.isRoot()) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(true, 'Root object cannot be contained.');
+
+            return false;
+          } // controllo sufficiente da solo a ritornare il giusto valore, ma ne ho aggiunti di precedenti per stampe più chiare
+
+
+          if (hoveringTarget.getContainer()) {
+            // && hoveringTarget.isConnectedToRoot()) {
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(true, 'Target is already contained in a different object.');
+
+            return false;
+          }
+
+          return true;
         } // link(targetStr?: string, debug?: boolean): void { throw new Error('mreference.linkByStr() should never be called'); }
         // LinkToMetaParent(ref: MReference): void { super.LinkToMetaParent(ref); }
 
@@ -36033,18 +37045,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (!this.mtarget[i]) continue;
             var mclass = this.mtarget[i];
 
-            if (loopDetectionObj[mclass.id]) {
-              // todo: in caso di loop cosa ci devo mettere nel modello?
-              ret.push('LoopingReference');
-
-              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'looping reference in model');
-            } else {
+            if (false) {} else {
               loopDetectionObj[mclass.id] = mclass;
-              ret.push(mclass.generateModel(loopDetectionObj, false));
+
+              if (this.isContainment()) {
+                ret.push(mclass.generateModel(loopDetectionObj, false));
+              } else ret.push(mclass.getM1PathStr());
             }
           }
 
-          return ret;
+          if (ret.length === 1 && ret[0] === '' + ret[0]) return ret[0];else return ret;
         }
       }, {
         key: "generateEdges",
@@ -36106,8 +37116,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               continue;
             }
 
-            var t = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"](pkg, json[i], targetMM, true);
-            this.mtarget[i] = t;
+            var t = json[i] === '' + json[i] ? '' + json[i] : new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"](pkg, json[i], targetMM, true);
+            this.mtarget[i] = t; // this.setTarget(i, t as any); non usare setTarget qui, t è stringa e il setTarget viene fatto durante lo step fixReferences()
+
+            if (t && t instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"]) t.referencesIN.push(this);
           }
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(this.metaParent.upperbound !== -1 && this.mtarget.length !== +this.metaParent.upperbound, 'wrong mtarget length', this.mtarget, this.mtarget.length, this.metaParent.upperbound);
@@ -36168,21 +37180,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "setTarget",
         value: function setTarget(index, val) {
-          var edge = this.edges[index];
+          var edge = this.edges[index]; // clean up old pointed class & vertex referencesIn
 
-          if (val === null) {
-            if (!this.edges[index]) return;
-
+          if (this.mtarget[index]) {
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.mtarget[index].referencesIN, this);
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.mtarget[index].vertex.edgesEnd, edge);
+            if (this.mtarget[index].vertex) _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].arrayRemoveAll(this.mtarget[index].vertex.edgesEnd, edge);
+          }
 
-            this.edges[index].remove();
+          if (val === null) {
+            if (this.edges[index]) this.edges[index].remove();
             this.mtarget[index] = null;
 
-            if (this.metaParent.upperbound === -1 && index === this.mtarget.length - 1) {
-              delete this.edges[index];
-              delete this.mtarget[index];
+            if (index === this.mtarget.length - 1 && this.getUpperbound() === -1) {
+              while (this.mtarget.length > 0 && !this.mtarget[this.mtarget.length - 1]) {
+                this.mtarget.length--;
+                this.edges.length--;
+              }
             }
 
             return;
@@ -36197,9 +37211,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
           this.mtarget[index] = val;
+          console.info('mtarget[' + index + ']:', this.mtarget[index]);
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(this.mtarget[index].referencesIN, this);
 
+          if (!_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.loadedLogic) return;
           this.generateEdges();
           edge = this.edges[index];
 
@@ -36219,6 +37235,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (upperbound >= 0) {
             this.mtarget.length = upperbound;
             this.edges.length = upperbound;
+          }
+        }
+      }, {
+        key: "fixReferences",
+        value: function fixReferences(classRoot) {
+          for (var _i14 = 0; _i14 < this.mtarget.length; _i14++) {
+            var target = this.mtarget[_i14];
+            if (target !== '' + target) continue;
+            target = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MClass"].getByM1Path(classRoot, target);
+
+            if (!target) {
+              _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pw(true, 'invalid model save: failed to find m1 target:', target, this);
+
+              continue;
+            } // target.referencesIN.push(this);
+
+
+            this.setTarget(_i14, target);
           }
         }
       }]);
@@ -36279,16 +37313,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(IReference, _common_Joiner__WEBPA21);
 
       function IReference(parent, meta) {
-        var _this64;
+        var _this65;
 
         _classCallCheck(this, IReference);
 
-        _this64 = _possibleConstructorReturn(this, _getPrototypeOf(IReference).call(this, parent, meta));
-        _this64.edges = [];
-        if (parent) parent.references.push(_assertThisInitialized(_this64));
-        _this64.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
-        _this64.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
-        _this64.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', // #ffbb22
+        _this65 = _possibleConstructorReturn(this, _getPrototypeOf(IReference).call(this, parent, meta));
+        _this65.edges = [];
+        if (parent) parent.references.push(_assertThisInitialized(_this65));
+        _this65.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].angular23Auto, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
+        _this65.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].angular23Auto, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
+        _this65.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].angular23Auto, 4, '#ffffff', // #ffbb22
         new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_2__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
 
         var complementaHex = function complementaHex(hexstr) {
@@ -36307,7 +37341,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             break;
 
           case _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Light:
-            var edgeStyles = [_this64.edgeStyleCommon, _this64.edgeStyleHighlight, _this64.edgeStyleSelected];
+            var edgeStyles = [_this65.edgeStyleCommon, _this65.edgeStyleHighlight, _this65.edgeStyleSelected];
 
             for (i = 0; i < edgeStyles.length; i++) {
               var style = edgeStyles[i];
@@ -36321,7 +37355,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             break;
         }
 
-        return _this64;
+        return _this65;
       }
 
       _createClass(IReference, [{
@@ -36469,7 +37503,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"]) {
-            return this.metaParent.containment;
+            return this.metaParent && this.metaParent.containment;
           }
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unrecognized class.');
@@ -36487,7 +37521,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"]) {
-            return this.metaParent.upperbound;
+            return this.metaParent && this.metaParent.upperbound;
           }
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unrecognized class.');
@@ -36500,7 +37534,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (this instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MReference"]) {
-            return this.metaParent.lowerbound;
+            return this.metaParent && this.metaParent.lowerbound;
           }
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(true, 'unrecognized class.');
@@ -36525,17 +37559,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(M3Reference, _IReference);
 
       function M3Reference(parent) {
-        var _this65;
+        var _this66;
 
         var meta = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
         _classCallCheck(this, M3Reference);
 
-        _this65 = _possibleConstructorReturn(this, _getPrototypeOf(M3Reference).call(this, parent, meta));
+        _this66 = _possibleConstructorReturn(this, _getPrototypeOf(M3Reference).call(this, parent, meta));
 
-        _this65.parse(null);
+        _this66.parse(null);
 
-        return _this65;
+        return _this66;
       } // clearTargets(): void { }
 
 
@@ -36690,8 +37724,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var myIndex = childs.indexOf(this);
           var debug = false;
 
-          for (var _i14 = 0; _i14 < myIndex; _i14++) {
-            if (childs[_i14].name === this.name) {
+          for (var _i15 = 0; _i15 < myIndex; _i15++) {
+            if (childs[_i15].name === this.name) {
               debug && console.log(forClass.id + '_' + this.id + ' true 0isShadowed?', this.parent.name + '.' + this.name, myIndex, childs.map(function (e) {
                 return e.parent.name + '.' + e.name;
               }));
@@ -36797,21 +37831,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       // exceptions: IClass[];
       // todo: ha davvero senso processarli e creare anche IClass.Object etc? mi conviene tenerli a stringa.
       function EOperation(parent, json) {
-        var _this66;
+        var _this67;
 
         _classCallCheck(this, EOperation);
 
-        _this66 = _possibleConstructorReturn(this, _getPrototypeOf(EOperation).call(this, parent, null));
-        _this66.exceptionsStr = ''; // classlist to be later processed and linked.
+        _this67 = _possibleConstructorReturn(this, _getPrototypeOf(EOperation).call(this, parent, null));
+        _this67.exceptionsStr = ''; // classlist to be later processed and linked.
 
-        _this66.visibility = AccessModifier.private;
-        _this66.detailIsOpened = false && false;
-        _this66.markedCompatibility = [];
-        if (parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) parent.operations.push(_assertThisInitialized(_this66));
+        _this67.visibility = AccessModifier.private;
+        _this67.detailIsOpened = false && false;
+        _this67.markedCompatibility = [];
+        if (parent instanceof _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["M2Class"]) parent.operations.push(_assertThisInitialized(_this67));
 
-        _this66.parse(json);
+        _this67.parse(json);
 
-        return _this66;
+        return _this67;
       }
 
       _createClass(EOperation, [{
@@ -37201,20 +38235,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(EParameter, _common_Joiner__WEBPA24);
 
       function EParameter(parent, json) {
-        var _this67;
+        var _this68;
 
         _classCallCheck(this, EParameter);
 
-        _this67 = _possibleConstructorReturn(this, _getPrototypeOf(EParameter).call(this, parent, null));
+        _this68 = _possibleConstructorReturn(this, _getPrototypeOf(EParameter).call(this, parent, null));
 
         if (!parent) {
-          return _possibleConstructorReturn(_this67);
+          return _possibleConstructorReturn(_this68);
         } // fake constructor will allow to travel fake -> original. can't original -> fake.
 
 
-        _this67.parse(json);
+        _this68.parse(json);
 
-        return _this67;
+        return _this68;
       }
 
       _createClass(EParameter, [{
@@ -37512,9 +38546,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               this.owner.edges[0].refreshGui();
             }
 
-            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'ref target changed; type:' + this + 'inside:', this.owner);
+            _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'ref target changed; type:' + this + 'inside:', this.owner); // this.owner.refreshGUI();
+            // this.owner.setContainment(this.owner.containment, true);
 
-            this.owner.refreshGUI();
 
             _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pif(debug, 'exit2: m2reference');
 
@@ -37614,8 +38648,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           var $selects = $searchRoot.find(query).not(notquery);
 
-          for (var _i15 = 0; _i15 < $selects.length; _i15++) {
-            Type.updateTypeSelector($selects[_i15]);
+          for (var _i16 = 0; _i16 < $selects.length; _i16++) {
+            Type.updateTypeSelector($selects[_i16]);
           }
 
           if (classes && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m && _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.m.sidebar) {
@@ -37767,14 +38801,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "linkAll",
         value: function linkAll() {
-          for (var _i16 = 0; _i16 < Type.all.length; _i16++) {
-            Type.all[_i16].applyTypeStr();
+          for (var _i17 = 0; _i17 < Type.all.length; _i17++) {
+            Type.all[_i17].applyTypeStr();
           }
         }
       }, {
         key: "get",
         value: function get(id) {
           return Type.allByID[id];
+        }
+      }, {
+        key: "getClassType",
+        value: function getClassType(classe) {
+          var ret = Type.getAllWithClassType(classe).map(function (typedd) {
+            return typedd.type;
+          });
+
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(ret.length > 1, 'dev error: cannot have 2 types for a m2class', ret, classe);
+
+          return ret[0];
         }
       }]);
 
@@ -37785,6 +38830,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     Type.idMax = 0;
     Type.allByID = {};
     Type.classTypePrefix = '#//';
+    Type.instanceTypePrefix = '#//'; // per puntatori m1-reference basati su meta-tipo e
+
     Type.selectors = {
       all: [],
       primitives: [],
@@ -38024,21 +39071,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(Typedd, _common_Joiner__WEBPA25);
 
       function Typedd(parent, metaVersion) {
-        var _this68;
+        var _this69;
 
         _classCallCheck(this, Typedd);
 
-        _this68 = _possibleConstructorReturn(this, _getPrototypeOf(Typedd).call(this, parent, metaVersion)); // upperbound and lowerbound are defining how much values can be given to a single typed element. (nullable, single value, array)
+        _this69 = _possibleConstructorReturn(this, _getPrototypeOf(Typedd).call(this, parent, metaVersion)); // upperbound and lowerbound are defining how much values can be given to a single typed element. (nullable, single value, array)
 
-        _this68.upperbound = 1 || false; // to avoid stupid compiler warning on primitive types
+        _this69.upperbound = 1 || false; // to avoid stupid compiler warning on primitive types
 
-        _this68.lowerbound = false || 0; // tells if the values are ordered. useless if upperbound is <= 1
+        _this69.lowerbound = false || 0; // tells if the values are ordered. useless if upperbound is <= 1
 
-        _this68.ordered = false && false; // tells if the values are a set. useless if upperbound is <= 1
+        _this69.ordered = false && false; // tells if the values are a set. useless if upperbound is <= 1
 
-        _this68.unique = false && false;
-        _this68.type = _this68.getModelRoot().isM2() || _this68.getModelRoot().isM3() ? new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"](_assertThisInitialized(_this68)) : null;
-        return _this68;
+        _this69.unique = false && false;
+        _this69.type = _this69.getModelRoot().isM2() || _this69.getModelRoot().isM3() ? new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"](_assertThisInitialized(_this69)) : null;
+        return _this69;
       } // typeClassFullnameStr: string = null;
 
       /*
@@ -38337,20 +39384,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(IClass, _IClassifier__WEBPACK);
 
       function IClass(parent, meta) {
-        var _this69;
+        var _this70;
 
         _classCallCheck(this, IClass);
 
-        _this69 = _possibleConstructorReturn(this, _getPrototypeOf(IClass).call(this, parent, meta));
-        _this69.referencesIN = []; // external pointers to this class.
+        _this70 = _possibleConstructorReturn(this, _getPrototypeOf(IClass).call(this, parent, meta));
+        _this70.referencesIN = []; // external pointers to this class.
 
-        _this69.shouldBeDisplayedAsEdgeVar = false && false;
-        _this69.extends = [];
-        _this69.gotExtendedBy = [];
-        _this69.edges = [];
+        _this70.shouldBeDisplayedAsEdgeVar = false && false;
+        _this70.extends = [];
+        _this70.gotExtendedBy = [];
+        _this70.edges = [];
 
-        if (_this69.parent) {
-          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(_this69.parent.classes, _assertThisInitialized(_this69));
+        if (_this70.parent) {
+          _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ArrayAdd(_this70.parent.classes, _assertThisInitialized(_this70));
         } // let selectedcolor: string = 'var(--'; todo, ma crea problemi con l'input type color
 
 
@@ -38361,9 +39408,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         var i;
-        _this69.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
-        _this69.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
-        _this69.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
+        _this70.edgeStyleCommon = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#7f7f7f', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#000000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#7f7f7f', '#7f7f7f'));
+        _this70.edgeStyleHighlight = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 2, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#0077ff'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](20, 20, '#ffffff', '#ffffff'));
+        _this70.edgeStyleSelected = new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeStyle"](_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgeModes"].straight, 4, '#ffffff', new _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["EdgePointStyle"](5, 2, '#ffffff', '#ff0000'), new _guiElements_mGraph_Edge_edgeStyle__WEBPACK_IMPORTED_MODULE_3__["EdgeHeadStyle"](25, 25, '#ffffff', '#ffffff'));
 
         switch (_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].get()) {
           default:
@@ -38375,7 +39422,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             break;
 
           case _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["WebsiteTheme"].Light:
-            var edgeStyles = [_this69.edgeStyleCommon, _this69.edgeStyleHighlight, _this69.edgeStyleSelected];
+            var edgeStyles = [_this70.edgeStyleCommon, _this70.edgeStyleHighlight, _this70.edgeStyleSelected];
 
             for (i = 0; i < edgeStyles.length; i++) {
               var style = edgeStyles[i];
@@ -38389,7 +39436,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             break;
         }
 
-        return _this69;
+        return _this70;
       }
 
       _createClass(IClass, [{
@@ -38489,10 +39536,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             var edges = this.getEdges();
 
-            var _i17;
+            var _i18;
 
-            for (_i17 = 0; _i17 < edges.length; _i17++) {
-              edges[_i17].refreshGui(debug);
+            for (_i18 = 0; _i18 < edges.length; _i18++) {
+              edges[_i18].refreshGui(debug);
             }
 
             return;
@@ -38727,17 +39774,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(M3Class, _IClass);
 
       function M3Class(parent) {
-        var _this70;
+        var _this71;
 
         var json = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
         _classCallCheck(this, M3Class);
 
-        _this70 = _possibleConstructorReturn(this, _getPrototypeOf(M3Class).call(this, parent, null));
+        _this71 = _possibleConstructorReturn(this, _getPrototypeOf(M3Class).call(this, parent, null));
 
-        _this70.parse(json, true);
+        _this71.parse(json, true);
 
-        return _this70;
+        return _this71;
       }
 
       _createClass(M3Class, [{
@@ -38923,30 +39970,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       // isRoot(): boolean { U.pe(true, 'm2 class cannot be roots.'); return false; }
       // setRoot(value: boolean): void { U.pe(true, 'only usable in model version'); }
       function M2Class(pkg, json) {
-        var _this71;
+        var _this72;
 
         var allowWarning = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
         _classCallCheck(this, M2Class);
 
-        _this71 = _possibleConstructorReturn(this, _getPrototypeOf(M2Class).call(this, pkg, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getAllClasses()[0])); // features: M2Feature[]; // M2Feature[];
+        _this72 = _possibleConstructorReturn(this, _getPrototypeOf(M2Class).call(this, pkg, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Status"].status.mmm.getAllClasses()[0])); // features: M2Feature[]; // M2Feature[];
 
-        _this71.operations = [];
-        _this71.extends = [];
-        _this71.gotExtendedBy = [];
-        _this71.visibility = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"].package;
-        _this71.instances = [];
+        _this72.operations = [];
+        _this72.extends = [];
+        _this72.gotExtendedBy = [];
+        _this72.visibility = _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["AccessModifier"].package;
+        _this72.instances = [];
 
         if (!pkg && !json) {
-          return _possibleConstructorReturn(_this71);
+          return _possibleConstructorReturn(_this72);
         } // empty constructor for .duplicate();
 
 
-        _this71.parse(json, true, allowWarning);
+        _this72.parse(json, true, allowWarning);
 
-        _this71.setExtends(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject, true, false, false);
+        _this72.setExtends(_common_Joiner__WEBPACK_IMPORTED_MODULE_1__["MetaModel"].genericObject, true, false, false);
 
-        return _this71;
+        return _this72;
       }
 
       _createClass(M2Class, [{
@@ -39096,22 +40143,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
 
             for (j = 0; j < superchildrens.length; j++) {
-              var _ret4 = _loop8();
+              var _ret5 = _loop8();
 
-              switch (_ret4) {
+              switch (_ret5) {
                 case "continue":
                   continue;
 
                 default:
-                  if (typeof _ret4 === "object") return _ret4.v;
+                  if (typeof _ret5 === "object") return _ret5.v;
               }
             }
           };
 
           for (i = 0; i < childrens.length; i++) {
-            var _ret3 = _loop7();
+            var _ret4 = _loop7();
 
-            if (typeof _ret3 === "object") return _ret3.v;
+            if (typeof _ret4 === "object") return _ret4.v;
           }
 
           return true;
@@ -39160,26 +40207,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var instances = _toConsumableArray(this.instances);
 
           if (this instanceof M2Class) {
-            var _iteratorNormalCompletion23 = true;
-            var _didIteratorError23 = false;
-            var _iteratorError23 = undefined;
+            var _iteratorNormalCompletion38 = true;
+            var _didIteratorError38 = false;
+            var _iteratorError38 = undefined;
 
             try {
-              for (var _iterator23 = instances[Symbol.iterator](), _step23; !(_iteratorNormalCompletion23 = (_step23 = _iterator23.next()).done); _iteratorNormalCompletion23 = true) {
-                var instance = _step23.value;
+              for (var _iterator38 = instances[Symbol.iterator](), _step38; !(_iteratorNormalCompletion38 = (_step38 = _iterator38.next()).done); _iteratorNormalCompletion38 = true) {
+                var instance = _step38.value;
                 instance.convertTo(this);
               }
             } catch (err) {
-              _didIteratorError23 = true;
-              _iteratorError23 = err;
+              _didIteratorError38 = true;
+              _iteratorError38 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion23 && _iterator23.return != null) {
-                  _iterator23.return();
+                if (!_iteratorNormalCompletion38 && _iterator38.return != null) {
+                  _iterator38.return();
                 }
               } finally {
-                if (_didIteratorError23) {
-                  throw _iteratorError23;
+                if (_didIteratorError38) {
+                  throw _iteratorError38;
                 }
               }
             }
@@ -39316,8 +40363,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var myOperations = this.getAllChildrens(true, false, false, false);
           var myAnnotations = this.getAllChildrens(false, true, false, false);
 
-          for (var _i18 = 0; _i18 < candidateClasses.length; _i18++) {
-            var candidate = candidateClasses[_i18];
+          for (var _i19 = 0; _i19 < candidateClasses.length; _i19++) {
+            var candidate = candidateClasses[_i19];
             var featureAdd = candidate.getAllChildrens(false, false).length - myFeatures.length;
             var operationsAdd = candidate.getAllChildrens(true, false, false, false).length - myOperations.length;
             var annotationsAdd = candidate.getAllChildrens(false, true, false, false).length - myAnnotations.length;
@@ -39714,7 +40761,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "forceChangeType",
         value: function forceChangeType() {
-          var _this72 = this;
+          var _this73 = this;
 
           var newType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
           var i;
@@ -39735,7 +40782,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           console.log('wew', "failed to change all types:", typeds, this, _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all.map(function (t) {
             return t.printablename + '_' + (t.classType && t.classType.getEcoreTypeName());
           }), _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["Type"].all.filter(function (t) {
-            return t.classType && t.classType.getEcoreTypeName() === _this72.getEcoreTypeName();
+            return t.classType && t.classType.getEcoreTypeName() === _this73.getEcoreTypeName();
           }));
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(!!typeds.length, "failed to change all types:", typeds, this);
@@ -39969,34 +41016,63 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function convertInstancesTo(classe) {
           var instances = _toConsumableArray(this.instances);
 
-          var _iteratorNormalCompletion24 = true;
-          var _didIteratorError24 = false;
-          var _iteratorError24 = undefined;
+          var _iteratorNormalCompletion39 = true;
+          var _didIteratorError39 = false;
+          var _iteratorError39 = undefined;
 
           try {
-            for (var _iterator24 = instances[Symbol.iterator](), _step24; !(_iteratorNormalCompletion24 = (_step24 = _iterator24.next()).done); _iteratorNormalCompletion24 = true) {
-              var instance = _step24.value;
+            for (var _iterator39 = instances[Symbol.iterator](), _step39; !(_iteratorNormalCompletion39 = (_step39 = _iterator39.next()).done); _iteratorNormalCompletion39 = true) {
+              var instance = _step39.value;
 
               _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].pe(instance.metaParent !== this, "invalid state: mismatch on instances and metaParent:", instance, this);
 
               instance.convertTo(classe);
             }
           } catch (err) {
-            _didIteratorError24 = true;
-            _iteratorError24 = err;
+            _didIteratorError39 = true;
+            _iteratorError39 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion24 && _iterator24.return != null) {
-                _iterator24.return();
+              if (!_iteratorNormalCompletion39 && _iterator39.return != null) {
+                _iterator39.return();
               }
             } finally {
-              if (_didIteratorError24) {
-                throw _iteratorError24;
+              if (_didIteratorError39) {
+                throw _iteratorError39;
               }
             }
           }
 
           _common_Joiner__WEBPACK_IMPORTED_MODULE_1__["U"].ps(instances && !!instances.length, instances.length + " subclasses converted to " + classe.name);
+        }
+      }, {
+        key: "getContainer",
+        value: function getContainer() {
+          var _iteratorNormalCompletion40 = true;
+          var _didIteratorError40 = false;
+          var _iteratorError40 = undefined;
+
+          try {
+            for (var _iterator40 = this.referencesIN[Symbol.iterator](), _step40; !(_iteratorNormalCompletion40 = (_step40 = _iterator40.next()).done); _iteratorNormalCompletion40 = true) {
+              var ref = _step40.value;
+              if (ref.isContainment()) return ref;
+            }
+          } catch (err) {
+            _didIteratorError40 = true;
+            _iteratorError40 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion40 && _iterator40.return != null) {
+                _iterator40.return();
+              }
+            } finally {
+              if (_didIteratorError40) {
+                throw _iteratorError40;
+              }
+            }
+          }
+
+          return null;
         }
       }], [{
         key: "updateSuperClasses",

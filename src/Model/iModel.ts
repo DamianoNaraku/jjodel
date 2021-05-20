@@ -102,9 +102,10 @@ export abstract class IModel extends ModelPiece {
     const classes: IClass[] = this.getAllClasses();
     let i;
     for (i = 0; i < classes.length; i++) {
-      classes[i].references.forEach( (elem: IReference) => {arr.push(elem); } );
+      classes[i].references.forEach( (elem: IReference) => { arr.push(elem); } );
     }
-    return arr; }
+    // console.log(arr, new Set(arr));
+    return [...new Set(arr)]; }
 
   getPackage(fullname: string, caseSensitive: boolean = false, throwErr: boolean = true, debug: boolean = true): IPackage {
     if (fullname.indexOf('.') !== -1) { U.pe(throwErr, 'not a package name:', fullname); return null; }

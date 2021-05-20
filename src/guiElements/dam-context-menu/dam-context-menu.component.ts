@@ -111,7 +111,7 @@ export class DamContextMenu {
     if (evt.button !== U.mouseRightButton) return;
     const isInput = U.isInput(evt.target, true, false);
     const mp: ModelPiece = ModelPiece.get(evt);
-    if (!mp) return;
+    if (!mp || mp instanceof IModel) return;
     const isDragging: boolean = this.checkIfDraggingVertex(evt);
     if (isDragging || isInput) return;
     this.show(new Point(evt.pageX, evt.pageY), evt.target);
@@ -335,9 +335,8 @@ export class DamContextMenu {
     dic['extedge'] = !!extedge;
     dic['ongraph'] = !!U.isParentOf(model.graph.container, target);
     let ret = U.computeConditionalHides(this.$html, dic);
-    console.log('rrer', ret);
     if (ret.show.length + ret.inaltered.length === 0) return;
-    this.addEventListeners(location, mp); // [??? what?] must be done here, per facilità di fare binding usando variabili esterne agli eventi.
+    this.addEventListeners(location, mp, vertex, edge, extedge);
     this.computePosition(location, appendTo);
     // computePosition() needs to be after deciding sub-elements visibility and before sliding down, because needs to compute
     // the final height with correct children display and without slideDown temporary height hard-limiter with inline css.
@@ -416,7 +415,7 @@ export class DamContextMenu {
     }
   }
 
-  private addEventListeners(location: Point, m: ModelPiece) {
+  private addEventListeners(location: Point, m: ModelPiece, vertex: IVertex, edge: IEdge, extedge: ExtEdge): void {
     const graphLocation: GraphPoint = Status.status.getActiveModel().graph.toGraphCoord(location);
     const html = this.html;
     const $html = this.$html;
@@ -487,6 +486,7 @@ export class DamContextMenu {
     $html.find('.Vertex.editStyle').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { U.pw(true, 'deprecato'); /*StyleEditor.editor.show(m);*/ });
 
+    //// feature options
     $html.find('.Feature.autofix').off('click.ctxMenu').on('click.ctxMenu',
       (e: ClickEvent) => { alert('autofix conformity: todo.'); });
     $html.find('.Feature.autofixinstances').off('click.ctxMenu').on('click.ctxMenu',
@@ -507,6 +507,9 @@ export class DamContextMenu {
     $html.find('.terminal.insert.literal').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { (m as EEnum).addLiteral(); });
     $html.find('.terminal.insert.parameter').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { (m as EOperation).addParameter(); });
     $html.find('.terminal.insert.annotation').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { (m).addAnnotation(); });
+
+    //// edge options
+    $html.find('.edge.delete').off('click.ctxMenu').on('click.ctxMenu', (e: ClickEvent) => { edge.remove(); });
   }
 
   isOpened(): boolean { return this.html.style.display !== 'none'; }

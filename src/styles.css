@@ -30,7 +30,7 @@ body{
   -o-user-select: none; /*?*/
   user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
-input, textarea, *[contenteditable=""], *[contenteditable="true"]{
+input, textarea, [contenteditable]{
   -webkit-touch-callout:default;
   -webkit-user-select:text;
   -khtml-user-select:default;
@@ -40,7 +40,17 @@ input, textarea, *[contenteditable=""], *[contenteditable="true"]{
   -moz-user-select:text;
   -ms-user-select:text;
   user-select:text;
+  border-radius: 7.5px;
 }
+input, select{
+  border-radius: 4px;
+  color: inherit;
+}
+svg input, svg textarea, svg [contenteditable]{
+  /* potrebbe avere senso fare input con font diverso dal testo immutabile
+  font-family: Consolas, "Courier New", monospace; */
+}
+
 /* *::-moz-selection, *::-webkit-selection  to change selection color*/
 input::selection,
 textarea::selection,
@@ -137,6 +147,15 @@ input[type="number"][digit="5"]{
 }
 .resizableStrip.center{
   flex-grow: 1;
+}
+
+input:focus, [contenteditable]:focus, textarea:focus{
+  outline: none;
+  box-shadow: 0 0 3pt 0.5pt var(--color-3);
+}
+input[type="radio"]:focus {
+  /*impossibile fare bordi-outline-shadow arrotondate senza ricreare l'elemento da 0 con altro html, è gestito nativamente come le select*/
+  box-shadow: none;
 }
 
 
@@ -630,16 +649,19 @@ button {
 /* direct child or with someone in the middle that is not excluded */
 [hover-base="v1"] [hover-display="v1"],
 [hover-base="f1"] [hover-display="f1"],
-[hover-base="p1"] [hover-display="p1"]{
+[hover-base="p1"] [hover-display="p1"],
+[hover-base="l1"] [hover-display="l1"]{
   visibility: hidden;
 }
 [hover-base="v1"]:hover [hover-display="v1"],
 [hover-base="f1"]:hover [hover-display="f1"],
 [hover-base="p1"]:hover [hover-display="p1"],
+[hover-base="l1"]:hover [hover-display="l1"],
 
 [hover-base="v1"]:focus-within [hover-display="v1"],
 [hover-base="f1"]:focus-within [hover-display="f1"],
-[hover-base="p1"]:focus-within [hover-display="p1"]{
+[hover-base="p1"]:focus-within [hover-display="p1"],
+[hover-base="l1"]:focus-within [hover-display="l1"]{
   /* todo: proposta di cambiamento css perchè questa soluzione fa schifo, e non esistono soluzioni migliori nel css attuale.
   * 1) [hover-base=@someVariable@] [hover-display=@someVariable@], would be great. (@somevariable@) is never defined in css, it just check if the html attrib content. match with children attrib content.
   * 2) reference inside html, parent is pointing to children through id or selector (or same attrib value) and i do something like: parentSelector->childSelector, that is equal to: match parent, follow the reference (->) from that position in dom, match childSelector. benefits: similar to ">" operator but a child is logically defined instead of dom-position defined
@@ -648,6 +670,12 @@ button {
   visibility: visible;
 }
 
+.hideempty:empty{
+  display: none !important;
+}
+input, select, option, optgroup {
+  font-size: inherit;
+}
 .graph .no-ov, .graph select, .graph input,
 .no-ov, select, input{
   overflow: hidden;
@@ -655,4 +683,52 @@ button {
 .graph .ov,
 .ov{
   overflow: visible;
+}
+/*************************** icons **********************************/
+icon{
+  background-image: url(../img/icons/missing_image.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px;
+}
+icon[big]{
+  width: 100px;
+  height: 100px;
+}
+icon[empty]{
+  visibility: hidden;
+}
+icon[duplicate]{
+  background-image: url(../img/icons/google/2x/baseline_content_paste_black_24dp.png);
+}
+icon[extend]{
+  background-image: url(../img/icons/extend.png);
+  filter: brightness(0);
+}
+icon[trash]{
+  background-image: url(../img/icons/google/2x/outline_delete_black_24dp.png);
+}
+icon[add]{
+  background-image: url(../img/icons/google/2x/outline_add_black_24dp.png);
+}
+icon[magic]{
+  background-image: url(../img/icons/google/2x/outline_auto_awesome_black_24dp.png);
+}
+icon[edit]{
+  background-image: url(../img/icons/google/2x/outline_edit_black_24dp.png);
+}
+icon[up]{
+  background-image: url(../img/icons/google/2x/outline_arrow_upward_black_24dp.png);
+}
+icon[down]{
+  background-image: url(../img/icons/google/2x/outline_arrow_downward_black_24dp.png);
+}
+icon[left]{
+  background-image: url(../img/icons/google/2x/outline_arrow_back_black_24dp.png);
+}
+icon[right]{
+  background-image: url(../img/icons/google/2x/outline_arrow_forward_black_24dp.png);
 }

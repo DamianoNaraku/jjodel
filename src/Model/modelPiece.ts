@@ -241,7 +241,7 @@ export abstract class ModelPiece {
     let i = 0;
     while (p.parent && p !== p.parent && i++ < 6*10) { p = p.parent; }
     U.pe(!acceptNull && (!p  || !(p instanceof IModel)), 'failed to get model root:', this, 'lastParent:', p, i);
-    return p as any as IModel; }
+    return p instanceof IModel ? p : null; }
 
   gotDeleted(): boolean { return !!this.getModelRoot(true); }
 
@@ -370,7 +370,7 @@ export abstract class ModelPiece {
 
   abstract parse(json: Json, destructive?: boolean): void;
   abstract getVertex(canMakeIt?: boolean): IVertex;
-  abstract generateModel(loopDetectionObj: Dictionary<number /*MClass id*/, ModelPiece>): Json;
+  abstract generateModel(loopDetectionObj: Dictionary<number /*MClass id*/, ModelPiece>): Json | string;
   toJSON(loopDetectionObj: Dictionary<number /*MClass id*/, ModelPiece>): Json{
     let ret = {} as any;
     ret.id = this.id;
@@ -585,6 +585,7 @@ export abstract class ModelPiece {
     debug&&console.log("mp.delete() end, refresh gui", this, refreshgui);
     if (root && !fromParent) {
       const pbar = root.graph.propertyBar;
+      console.log ({thiss: this,  pbar, root, graph: root.graph, pbsarr: root.graph.propertyBar});
       const pbarselect: ModelPiece = pbar.selectedModelPiece;
       if (pbarselect.gotDeleted()) {
         debug&&console.log('pbar show, ', {param: oldParent || root, oldParent, root, thiss: this, thisss:this.toString()});

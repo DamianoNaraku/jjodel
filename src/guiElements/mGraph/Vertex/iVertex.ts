@@ -81,7 +81,7 @@ export class StartDragContext {
 }
 
 export class IVertex {
-  static all: Dictionary = {};
+  static all: Dictionary<number, IVertex> = {};
   static ID = 0;
   static selected: IVertex = null; // todo: da cancellare in favore di IVertex.startDragContext?
   static selectedGridWasOn: GraphPoint = null;
@@ -115,7 +115,7 @@ export class IVertex {
     g.x = 'prevent_doublemousedowncheck' as any;
     g.y = 'prevent_doublemousedowncheck' as any;
     IVertex.minSize = new GraphSize(null, null, 0, 0);
-    IVertex.defaultSize = new GraphSize(5, 5, 201, 41);
+    IVertex.defaultSize = new GraphSize(0, 0, 201, 41);
     return IVertex.selectedGridWasOn = g; }
   /*
     static linkVertexMouseDownButton(e: MouseDownEvent): void {
@@ -138,6 +138,8 @@ export class IVertex {
     }
   }
   static linkVertexMouseDown(e: MouseDownEvent | ClickEvent, edge: IEdge = null, location: GraphPoint = null, delayed: boolean = false): void {
+    console.log('linkVertexMousedown:', e);
+    if (e && e.button === U.mouseRightButton) return;
     if (e) { e.stopPropagation(); }
     if (IEdge.edgeChanging && e && e.target.classList.contains('LinkVertex')) {
       if (U.isParentOf(IEdge.edgeChanging.start.htmlg, e.target)) {
@@ -235,7 +237,6 @@ export class IVertex {
   constructor(logical: IClassifier, size: GraphSize = null) {
     if (!logical) return;
     this.id = IVertex.ID++;
-    IVertex.all[this.id] = this;
     const graph: IGraph = logical.getModelRoot().graph;
     this.logic(logical);
     if (graph) { graph.addVertex(this); }
@@ -247,11 +248,76 @@ export class IVertex {
     this.classe.vertex = this;
     this.setGraph(logical.getModelRoot().graph);
     if (!size) {
-      size = IVertex.defaultSize;
-      const gsize: Size = this.owner.getSize();
-      size.x = this.owner.scroll.x + (gsize.w - size.w) / 2;
-      size.y = this.owner.scroll.y + (gsize.h - size.h) / 2;
+      const gsize: GraphSize = this.owner.getVisibleGSize();
+      const centered: GraphSize = new GraphSize(this.owner.scroll.x + (gsize.w - IVertex.defaultSize.w) / 2, this.owner.scroll.y + (gsize.h - IVertex.defaultSize.y) / 2,  IVertex.defaultSize.w, IVertex.defaultSize.h);
+      // console.log('centering vertex', {gsize, centered, scroll:this.owner.scroll, defSize: IVertex.defaultSize});
+      const allSizes: GraphSize[] = Object.values(IVertex.all).map( (e: IVertex) => e.size);
+      let offset = new GraphPoint(Math.max(IVertex.defaultSize.w + 80, this.owner.grid.x * 2), Math.max(IVertex.defaultSize.h + 100, this.owner.grid.y * 2));
+      let distanceMagnitude: number = 1;
+      // a distanza 0 è il centro, a distanza 1 sono le 8 "megacelle" adiacenti, a distanza 2 sono 3*4+4 = 16,
+      // a distanza i sono (i*2-1)*4+4, a distanza 10 sono 80 celle escluse le interne e (i*2-1)^2 = 361 includendole
+      let maxlooping = 10000;
+      let looping = 0;
+      if (!centered.isOverlappingAnyOf(allSizes)){
+        size = centered;
+      }
+      else {
+        size = centered.duplicate();
+        foundNonOverlapping:
+        {
+          for (let distanceMagnitude: number = 1; distanceMagnitude <= 10; distanceMagnitude++){
+            const squareSide = 1 + distanceMagnitude * 2;
+            const halfside = Math.floor(squareSide/2);
+            let row: number, column: number;
+
+            // check only top row entirely except for top-left corner
+            column = 0;
+            size.y = centered.y + (column - halfside) * offset.y;
+            for (row = 1; row < squareSide; row++){
+              size.x = centered.x + (row - halfside) * offset.x;
+              if (looping++ > maxlooping) { console.error('maxloop', {column, row, squareSide, distanceMagnitude}); break foundNonOverlapping; }
+              if (!size.isOverlappingAnyOf(allSizes)){
+                break foundNonOverlapping;
+              }
+            }
+
+            // console.error("looping:", distanceMagnitude, maxlooping);
+            // check rightmost column except for corners
+            row = squareSide - 1;
+            size.x = centered.x + (row - halfside) * offset.x;
+            for (column = 1; column < squareSide - 1; column++){
+              size.y = centered.y + (column - halfside) * offset.y;
+              if (!size.isOverlappingAnyOf(allSizes)){
+                break foundNonOverlapping;
+              }
+            }
+
+            // check only bottom row in reverse
+            column = squareSide - 1;
+            size.y = centered.y + (column - halfside) * offset.y;
+            for (row = squareSide - 1; row >= 0; row--){
+              size.x = centered.x + (row - halfside) * offset.x;
+              if (looping++ > maxlooping) { console.error('maxloop', {column, row, squareSide, distanceMagnitude}); break foundNonOverlapping; }
+              if (!size.isOverlappingAnyOf(allSizes)){
+                break foundNonOverlapping;
+              }
+            }
+            // check leftmost column except for bottom-left corner in reverse
+            row = 0;
+            size.x = centered.x + (row - halfside) * offset.x;
+            for (column = squareSide - 2; column >= 0; column--){
+              size.y = centered.y + (column - halfside) * offset.y;
+              if (!size.isOverlappingAnyOf(allSizes)){
+                break foundNonOverlapping;
+              }
+            }
+          }
+          // not found empty space in any cell, i'll just allow overlap
+          size = centered;
+        }
+      }
     }
+    IVertex.all[this.id] = this;
     this.size = size;
     this.refreshGUI();
     // this.refreshGUI(); // need both refresh
@@ -437,7 +503,8 @@ export class IVertex {
         html.style.width = 'auto'; }
       if (admittedDisplays.indexOf(html.style.display) === -1) {
         U.oneTime('autosize2key' + this.id, U.pw, true, 'To use autosizeWidth the root node must have "display: ' + admittedDisplays.join('|') + ';", this has been automatically solved with "inline-block". was:' + html.style.display);
-        html.style.display = 'inline-block'; }
+        html.style.display = 'inline-block';
+      }
     }
     ret.atLeastOne = ret.x || ret.y;
     return ret; }

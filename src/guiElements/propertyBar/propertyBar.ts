@@ -359,7 +359,7 @@ export class PropertyBarr {
     $(htmlContainment).off('change.pbar').on('change.pbar',
       (evt: Event) => {
         const target: HTMLInputElement = evt.currentTarget as HTMLInputElement;
-        ref.setContainment(target.checked);
+        ref.setContainment(target.checked, false);
         ref.refreshGUI();
       });
     return $html[0]; }

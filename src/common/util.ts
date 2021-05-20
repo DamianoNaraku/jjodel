@@ -14,6 +14,108 @@ export class Dictionary<K = string, V = string> extends Object {}
 import * as detectzoooom            from 'detect-zoom'; // https://github.com/tombigel/detect-zoom broken 2013? but works
 export type GenericObject = { [key: string]: any };
 
+export class RawVertex{
+  public edgesOut: RawEdge[] = [];
+  public edgesIn: RawEdge[] = [];
+  constructor(public id: string, public data: any = null){}
+}
+export class RawEdge{
+  constructor(public id: string, public source: RawVertex, public target: RawVertex, public data: any = null){
+    if (this.source) this.source.edgesOut.push(this);
+    if (this.target) this.target.edgesIn.push(this);
+  }
+}
+
+export class RawGraph{
+  private matrix: Dictionary<string, Dictionary<string, boolean>> = null;
+  private idMapping: Dictionary<string, RawEdge | RawVertex> = {};
+  constructor(public vertex: RawVertex[], public edges: RawEdge[]){
+    for (let v of this.vertex) { this.idMapping[v.id] = v; }
+    for (let e of this.edges) { this.idMapping[e.id] = e; }
+  }
+
+  isDag(canDestryData: boolean = false): boolean {
+    let out = {elementsInLoop: []};
+    this.getDagOrder(canDestryData, out);
+    return !!out.elementsInLoop.length; }
+
+  clone(): RawGraph {
+    const vertex = [];
+    const edges = [];
+    const copiesMapID: Dictionary<string, RawEdge | RawVertex> = {};
+    for (let v of this.vertex) { v = new RawVertex(v.id, v.data); vertex.push(v); copiesMapID[v.id] = v; }
+    for (let e of this.edges) {
+      let source = e.source && copiesMapID[e.source.id];
+      let target = e.target && copiesMapID[e.target.id];
+      e = new RawEdge(e.id, source, target);
+      edges.push(e);
+    }
+    return new RawGraph(vertex, edges);
+  }
+
+  public getDagOrder(canDestroyData: boolean = false, out: {elementsInLoop: RawVertex[]} = {} as any): RawVertex[][] {
+    if (!canDestroyData) {
+      const ret: RawVertex[][] = this.clone().getDagOrder(true, out).map(varr => varr.map( v => this.idMapping[v.id]));
+      out.elementsInLoop = out.elementsInLoop.map( lv => this.idMapping[lv.id]);
+      return ret;
+    }
+    out.elementsInLoop = [... this.vertex];
+    let visitedThisIteration: RawVertex[];
+    const ret: RawVertex[][] = [];
+    while (true) {
+      visitedThisIteration = [];
+      ret.push(visitedThisIteration);
+      for (let i = 0; i < out.elementsInLoop.length; i++) {
+        let v: RawVertex = out.elementsInLoop[i];
+        if (!v || v.edgesOut) continue;
+        visitedThisIteration.push(v);
+        out.elementsInLoop[i] = null;
+        for (let enteringedges of v.edgesIn) { U.arrayRemoveAll(enteringedges.source.edgesOut, enteringedges); }
+      }
+      out.elementsInLoop = out.elementsInLoop.filter(v => !!v);
+      if (!visitedThisIteration.length) break;
+      break;
+    }
+    return ret.reverse();
+  }
+  getMatrix(): Dictionary<string, Dictionary<string, number>>{
+    return this.matrix || this.buildMatrix();
+  }
+  buildMatrix(): Dictionary<string, Dictionary<string, number>>{
+    const matrix: Dictionary<string, Dictionary<string, number>> = {};
+    for (let v1 of this.vertex) {
+      matrix[v1.id] = {};
+      for (let v2 of this.vertex) {
+        matrix[v1.id][v2.id] = U.arrayIntersection(v1.edgesOut, v2.edgesIn).length;
+      }
+    }
+    return this.matrix = matrix;
+  }
+
+  static fromMatrix(matrix: Dictionary<string, Dictionary<string, number>>): RawGraph {
+    const vertex: RawVertex[] = [];
+    const edges: RawEdge[] = [];
+    const vertexIDMapping: Dictionary<string, RawVertex> = {};
+    let idMax: number = 0;
+    for (let key in matrix) {
+      const v: RawVertex = new RawVertex(key, null);
+      vertex.push(v);
+      vertexIDMapping[key] = v;
+    }
+
+    const getEdgeID = () => { while (matrix['' + idMax]) idMax++; return '' + idMax; }
+    for (let v1key in matrix) {
+      for (let v2key in matrix) {
+        let count: number = matrix[v1key][v2key];
+        while (count-- > 0) {
+          const e = new RawEdge(getEdgeID(), vertexIDMapping[v1key], vertexIDMapping[v2key]);
+          edges.push(e);
+        }
+      }
+    }
+    return new RawGraph(vertex, edges);
+  }
+}
 import KeyDownEvent = JQuery.KeyDownEvent;
 import MouseEnterEvent = JQuery.MouseEnterEvent;
 import MouseLeaveEvent = JQuery.MouseLeaveEvent;
@@ -456,7 +558,7 @@ export class U {
   static varTextToSvg: SVGSVGElement = null;
   private static dblclickchecker: number = new Date().getTime();// todo: move @ start
   private static dblclicktimerms: number = 300;
-  static mouseLeftButton: number = 0;
+  static mouseLeftButton: number = 0; // from e.button
   static mouseWheelButton: number = 1;
   static mouseRightButton: number = 2;
   static mouseBackButton: number = 3;
@@ -3235,6 +3337,11 @@ export class U {
     let futureNextSibling: Element = index < 0 ? parent.firstElementChild : (index > parent.children.length ? null : parent.children[index]);
     parent.insertBefore(child, futureNextSibling);
   }
+
+  static arrayIntersection<T>(arr1: T[], arr2: T[]): T[]{
+    if (!arr1 || ! arr2) return null;
+    return arr1.filter( e => arr2.indexOf(e) >= 0);
+  }
 }
 const $smap = {};
 // selettore query "statico", per memorizzare in cache i nodi del DOM read-only per recuperarli più efficientemente. (es: nodi template)
@@ -3570,7 +3677,7 @@ export class Json {
 
   static read(json: Json, field: string, valueIfNotFound: any = 'read<T>()CanThrowError'): string {
     let ret: any = json ? json[field] : null;
-    if (ret !== null && ret !== undefined &&  field.indexOf(Status.status.XMLinlineMarker) !== -1) {
+    if (ret !== null && ret !== undefined && field.indexOf(Status.status.XMLinlineMarker) !== -1) {
       U.pe(U.isObject(ret, false, false, true), 'inline value |' + field + '| must be primitive.', ret);
       ret = U.multiReplaceAll('' + ret, ['&amp;', '&#38;', '&quot;'], ['&', '\'', '"']);
     }
@@ -3802,8 +3909,31 @@ export class GraphSize extends ISize {
     intersection.h = endy - starty;
     const doesintersect: boolean = intersection.w > 0 && intersection.h > 0;
     return (doesintersect) ? intersection: null; }
+
   contains(pt: IPoint): boolean { return super.contains(pt); }
 
+  isOverlapping(size2: GraphSize): boolean { return !!this.intersection(size2); }
+  isOverlappingAnyOf(sizes: GraphSize[]): boolean {
+    if (!sizes) return false;
+    for (let size of sizes) { if (this.isOverlapping(size)) return true; }
+    return false;
+  }
+
+  multiplyPoint(other: IPoint, newInstance: boolean): GraphSize {
+    const ret: GraphSize = newInstance ? new GraphSize() : this;
+    ret.x *= other.x;
+    ret.w *= other.x;
+    ret.y *= other.y;
+    ret.h *= other.y;
+    return ret; }
+
+  dividePoint(other: IPoint, newInstance: boolean): GraphSize {
+    const ret: GraphSize = newInstance ? new GraphSize() : this;
+    ret.x /= other.x;
+    ret.w /= other.x;
+    ret.y /= other.y;
+    ret.h /= other.y;
+    return ret; }
 }
 
 export abstract class IPoint {
@@ -3963,6 +4093,7 @@ export class Point extends IPoint{
   subtract(p2: Point, newInstance: boolean): Point { return super.subtract(p2, newInstance) as Point; }
   add(p2: Point, newInstance: boolean): Point { return super.add(p2, newInstance) as Point; }
   multiply(scalar: number, newInstance: boolean): Point { return super.multiply(scalar, newInstance) as Point; }
+
   divide(scalar: number, newInstance: boolean): Point { return super.divide(scalar, newInstance) as Point; }
   isInTheMiddleOf(firstPt: Point, secondPt: Point, tolleranza: number): boolean { return super.isInTheMiddleOf(firstPt, secondPt, tolleranza); }
   distanceFromLine(p1: Point, p2: Point): number { return super.distanceFromLine(p1, p2); }

@@ -111,7 +111,7 @@ export class MAttribute extends IAttribute {
     super.copy(other, nameAppend, newParent);
     this.setValueStr(other.getValueStr()); }
 
-  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json {
+  generateModel(loopDetectionObj: Dictionary<number /*MP id*/, ModelPiece> = null): Json | string {
     if (this.values.length === 0) { return null; }
     let values: Json[] = this.values;
     if (this.values[0] instanceof ELiteral) {

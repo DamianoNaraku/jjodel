@@ -123,10 +123,25 @@ export class MReference extends IReference {
   getType(): Type { return (this.metaParent ? this.metaParent.getType() : null); }
 
   canBeLinkedTo(hoveringTarget: MClass): boolean {
+    // todo: può essere linkato: se non-containment sempre, altrimenti se: target non è root, target non è già contenuto.
     const c1: M2Class = hoveringTarget.metaParent;
     const c2: M2Class = this.getType().classType;
     console.log('canbelinkedm1 ? ', c1, c2);
-    return c1.isExtending(c2, true); }
+    if (!c1.isExtending(c2, true)) return false;
+    if (!this.isContainment()) return true;
+
+    // solo per la stampa
+    if (hoveringTarget === this.parent) { U.ps(true, 'Objects cannot contain themselves.'); return false; }
+    // solo per la stampa
+    // if (hoveringTarget.isRoot() && this.parent.isConnectedToRoot()) { U.ps(true, 'This reference would cause a containment loop.'); return false; }
+    if (this.parent.isContainedIn(hoveringTarget)) { U.ps(true, 'This reference would cause a containment loop.'); return false; }
+    // solo per la stampa
+    if (hoveringTarget.isRoot()) { U.ps(true, 'Root object cannot be contained.'); return false; }
+    // controllo sufficiente da solo a ritornare il giusto valore, ma ne ho aggiunti di precedenti per stampe più chiare
+    if (hoveringTarget.getContainer()) {// && hoveringTarget.isConnectedToRoot()) {
+      U.ps(true, 'Target is already contained in a different object.');
+      return false; }
+    return true; }
 
   // link(targetStr?: string, debug?: boolean): void { throw new Error('mreference.linkByStr() should never be called'); }
 
@@ -144,16 +159,20 @@ export class MReference extends IReference {
     for (i = 0; i < this.mtarget.length; i++) {
       if (!this.mtarget[i]) continue;
       const mclass: MClass = this.mtarget[i];
-      if (loopDetectionObj[mclass.id]) {
+      if (false && loopDetectionObj[mclass.id]) {
+        // todo. il ontrollo è sbagliato.constructorè vero loop solo se la classe è già stata incontrata (come oggetto in containment) e sta ritornando un object invece che una stringa (doppio containment)
+        // ma è impossibile costruire un modello osì, e se lo leggo da xmi li interpreto come 2 classi diverse quindi disabilito il check.
         // todo: in caso di loop cosa ci devo mettere nel modello?
         ret.push('LoopingReference');
         U.pw(true, 'looping reference in model');
       } else {
         loopDetectionObj[mclass.id] = mclass;
-        ret.push(mclass.generateModel(loopDetectionObj, false));
+        if (this.isContainment()){ ret.push(mclass.generateModel(loopDetectionObj, false)); }
+        else ret.push(mclass.getM1PathStr());
       }
     }
-    return ret;
+    if (ret.length === 1 && ret[0] === '' + ret[0]) return ret[0];
+    else return ret;
   }
 
   generateEdges(): IEdge[] {
@@ -188,8 +207,9 @@ export class MReference extends IReference {
     for (i = 0; i < json.length; i++) {
       // console.log('mref.parse: ', json0, json, 'i:', json[i]);
       if ($.isEmptyObject(json[i])) { continue; }
-      const t: MClass = new MClass(pkg, json[i], targetMM, true);
-      this.mtarget[i] = t;
+      const t: MClass | string = json[i] === '' + json[i] ? '' + json[i] : new MClass(pkg, json[i], targetMM, true);
+      this.mtarget[i] = t as any; // this.setTarget(i, t as any); non usare setTarget qui, t è stringa e il setTarget viene fatto durante lo step fixReferences()
+      if (t && t instanceof MClass) t.referencesIN.push(this);
     }
     U.pe(this.metaParent.upperbound !== -1 && this.mtarget.length !== +this.metaParent.upperbound, 'wrong mtarget length', this.mtarget, this.mtarget.length, this.metaParent.upperbound);
   }
@@ -222,22 +242,26 @@ export class MReference extends IReference {
 
   setTarget(index: number, val: MClass): void {
     let edge: IEdge = this.edges[index];
-    if (val === null) {
-      if (!this.edges[index]) return;
+    // clean up old pointed class & vertex referencesIn
+    if (this.mtarget[index]) {
       U.arrayRemoveAll(this.mtarget[index].referencesIN, this);
-      U.arrayRemoveAll(this.mtarget[index].vertex.edgesEnd, edge);
-      this.edges[index].remove();
+      if (this.mtarget[index].vertex) U.arrayRemoveAll(this.mtarget[index].vertex.edgesEnd, edge);
+    }
+
+    if (val === null) {
+      if (this.edges[index]) this.edges[index].remove();
       this.mtarget[index] = null;
-      if (this.metaParent.upperbound === -1 && index === this.mtarget.length - 1) {
-        delete this.edges[index];
-        delete this.mtarget[index];}
+      if (index === this.mtarget.length -1 && this.getUpperbound() === -1) {
+        while (this.mtarget.length > 0 && !this.mtarget[this.mtarget.length - 1]) { this.mtarget.length--; this.edges.length--; } }
       return; }
     if (this.metaParent.unique && this.mtarget.indexOf(val) >= 0) {
       // basta evitare elementi identici o anche istanze diverse con stessi valori? o con altri concetti di "uguglianza" ?
       U.pif(true, 'This reference type is labeled as "unique" and is already linked to that element.'); return; }
     // if (this.mtarget[index]) { this.setTarget(index, null); }
     this.mtarget[index] = val;
+    console.info('mtarget[' + index + ']:', this.mtarget[index]);
     U.ArrayAdd(this.mtarget[index].referencesIN, this);
+    if (!Status.status.loadedLogic) return;
     this.generateEdges();
     edge = this.edges[index];
     U.ArrayAdd(this.mtarget[index].vertex.edgesEnd, edge); }
@@ -249,6 +273,17 @@ export class MReference extends IReference {
     if (upperbound >= 0) {
       this.mtarget.length = upperbound;
       this.edges.length = upperbound;
+    }
+  }
+
+  fixReferences(classRoot: MClass): void{
+    for (let i: number = 0; i < this.mtarget.length; i++) {
+      let target: string | MClass = this.mtarget[i] as any;
+      if (target !== '' + target) continue;
+      target = MClass.getByM1Path(classRoot, target);
+      if (!target) { U.pw(true, 'invalid model save: failed to find m1 target:', target, this); continue; }
+      // target.referencesIN.push(this);
+      this.setTarget(i, target);
     }
   }
 }

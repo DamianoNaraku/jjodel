@@ -68,6 +68,10 @@ export abstract class IClassifier extends ModelPiece{
   setName(value: string, refreshGUI: boolean = false, warnDuplicateFix: boolean = true): string {
     super.setName(value, refreshGUI, warnDuplicateFix);
     if (refreshGUI) this.refreshInstancesGUI();
+    if (Status.status.loadedLogic && this instanceof M2Class) {
+      const type: Type = Type.getClassType(this);
+      if (type) type.printablename = this.name;
+    }
     // for (i = 0; model && i < model.instances.length; i++) { model.instances[i].sidebar.fullnameChanged(oldName, this.name); }
     Type.updateTypeSelectors(null, false, true, true);
     return this.name; }

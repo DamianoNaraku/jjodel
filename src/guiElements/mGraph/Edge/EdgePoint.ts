@@ -68,8 +68,9 @@ export class EdgePoint implements IEdgePoint {
   endPointOfVertex: IVertex = null;
   isSelected: boolean = null;
   isHighlighted: boolean = null;
+  isPersistent: boolean; // todo: rimuovi quando fai edgepoint con posizionamento relativo, questo è un fallback per rigenerarli ogni volta che si spostano i vertici.
 
-  constructor(e: IEdge, pos: GraphPoint, endPointOfVertex: IVertex = null) {
+  constructor(e: IEdge, pos: GraphPoint, endPointOfVertex: IVertex = null, isPersistent: boolean = true) {
     this.edge = e;
     this.endPointOfVertex = endPointOfVertex;
     // edge = null is ok, è il cursorfollower statico.
@@ -82,6 +83,7 @@ export class EdgePoint implements IEdgePoint {
     this.pos = new GraphPoint(0, 0);
     this.isSelected = false;
     this.isHighlighted = false;
+    this.isPersistent = isPersistent;
     this.refreshGUI();
     this.moveTo(pos, false);
     this.addEventListeners(); }
@@ -99,7 +101,6 @@ export class EdgePoint implements IEdgePoint {
   }
 
   unfollow(): void {
-    console.log('un-follow');
     CursorFollowerEP.activeEP = null; }
 
   addEventListeners(): void {
@@ -179,6 +180,7 @@ export class EdgePoint implements IEdgePoint {
     if (refresh) { this.edge.refreshGui(); } }
 
   show(debug: boolean = false): void {
+    if (!this.isPersistent) return;
     const oldParent: Element = this.html.parentElement;
     if (oldParent) { oldParent.removeChild(this.html); }
     this.edge.shell.appendChild(this.html);

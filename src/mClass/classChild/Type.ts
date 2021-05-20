@@ -22,6 +22,7 @@ export class Type {
   private static idMax: number = 0;
   private static allByID: Dictionary<number, Type> = {};
   static classTypePrefix: string = '#//';
+  static instanceTypePrefix: string = '#//'; // per puntatori m1-reference basati su meta-tipo e
   private typestr: string;
   public primitiveType: EType = null;
   public classType: M2Class = null;
@@ -220,7 +221,8 @@ export class Type {
       this.classType.referencesIN.push(this.owner);
       if (this.owner.edges && this.owner.edges.length) { this.owner.edges[0].setTarget(this.classType.vertex); this.owner.edges[0].refreshGui(); }
       U.pif(debug, 'ref target changed; type:' + this + 'inside:', this.owner);
-      this.owner.refreshGUI();
+      // this.owner.refreshGUI();
+      // this.owner.setContainment(this.owner.containment, true);
       U.pif(debug, 'exit2: m2reference');
       return; }
 
@@ -259,6 +261,11 @@ export class Type {
     // per le classi
     if (other.classType === other.classType) return true;
     return this.classType.isExtending(other.classType); }
+
+  static getClassType(classe: M2Class): Type{
+    let ret: Type[] = Type.getAllWithClassType(classe).map( (typedd) => typedd.type);
+    U.pe(ret.length > 1, 'dev error: cannot have 2 types for a m2class', ret, classe);
+    return ret[0]; }
 }
 
   export class EType {

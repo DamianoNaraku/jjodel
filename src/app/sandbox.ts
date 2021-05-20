@@ -19,4 +19,7 @@ function sandbox(){
   let ruleList: CSSStyleRule[] = css.sheet['cssRules'] || css.sheet['rules']; // sono alias.
   const stylePropertyMap: any /*StylePropertyMap*/ = ruleList[0]['styleMap'];
   stylePropertyMap.forEach( (v: any/*CSSUnparsedValue*/, k: string) => { console.log(k, v[0][0]); } );
+
+
+
 }

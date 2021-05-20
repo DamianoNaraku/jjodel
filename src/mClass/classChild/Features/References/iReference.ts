@@ -29,13 +29,13 @@ export abstract class IReference extends IFeature {
   constructor(parent: IClass, meta: IReference) {
     super(parent, meta);
     if (parent) parent.references.push(this);
-    this.edgeStyleCommon = new EdgeStyle(EdgeModes.straight, 2, '#7f7f7f',
+    this.edgeStyleCommon = new EdgeStyle(EdgeModes.angular23Auto, 2, '#7f7f7f',
       new EdgePointStyle(5, 2, '#ffffff', '#000000'),
       new EdgeHeadStyle(20, 20, '#7f7f7f', '#7f7f7f'));
-    this.edgeStyleHighlight = new EdgeStyle(EdgeModes.straight, 2, '#ffffff',
+    this.edgeStyleHighlight = new EdgeStyle(EdgeModes.angular23Auto, 2, '#ffffff',
       new EdgePointStyle(5, 2, '#ffffff', '#0077ff'),
       new EdgeHeadStyle(20, 20, '#ffffff', '#ffffff'));
-    this.edgeStyleSelected = new EdgeStyle(EdgeModes.straight, 4, '#ffffff', // #ffbb22
+    this.edgeStyleSelected = new EdgeStyle(EdgeModes.angular23Auto, 4, '#ffffff', // #ffbb22
       new EdgePointStyle(5, 2, '#ffffff', '#ff0000'),
       new EdgeHeadStyle(25, 25, '#ffffff', '#ffffff'));
 
@@ -161,7 +161,7 @@ export abstract class IReference extends IFeature {
 
   isContainment(): boolean {
     if (this instanceof M2Reference) { return this.containment; }
-    if (this instanceof MReference) { return this.metaParent.containment; }
+    if (this instanceof MReference) { return this.metaParent && this.metaParent.containment; }
     U.pe(true, 'unrecognized class.'); }
   /*getM2Target(): M2Class {
     if (this instanceof M2Reference) { return this.classType; }
@@ -169,11 +169,11 @@ export abstract class IReference extends IFeature {
     U.pe(true, 'unrecognized class.'); }*/
   getUpperbound(): number {
     if (this instanceof M2Reference) { return this.upperbound; }
-    if (this instanceof MReference) { return this.metaParent.upperbound; }
+    if (this instanceof MReference) { return this.metaParent && this.metaParent.upperbound; }
     U.pe(true, 'unrecognized class.'); }
   getLowerbound(): number {
     if (this instanceof M2Reference) { return this.lowerbound; }
-    if (this instanceof MReference) { return this.metaParent.lowerbound; }
+    if (this instanceof MReference) { return this.metaParent && this.metaParent.lowerbound; }
     U.pe(true, 'unrecognized class.'); }
 
 

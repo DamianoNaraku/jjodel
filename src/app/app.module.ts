@@ -75,7 +75,7 @@ import {
   MeasurableOperators,
   VsCodeLayerIn,
   VsCodeLayerOut,
-  is,
+  is, Size, ISize, IPoint, Point,
 } from '../common/Joiner';
 
 import { PropertyBarrComponent }   from '../guiElements/property-barr/property-barr.component';
@@ -318,6 +318,12 @@ function globalevents(): void {
   window['DamContextMenu'] = DamContextMenu;
   window['is'] = is;
   window['Type'] = Type;
+  window['ISize'] = ISize;
+  window['Size'] = Size;
+  window['GraphSize'] = GraphSize;
+  window['IPoint'] = IPoint;
+  window['Point'] = Point;
+  window['GraphPoint'] = GraphPoint;
   window['' + 'help'] = [
     'setBackup (backup <= saveToDB)',
     'backupSave (saveToDB <= backup)',
@@ -378,7 +384,7 @@ function main() {
   setBootstrapOnLowestPriority();
   U.focusHistorySetup();
   U.tabSetup();
-  // U.resizableBorderSetup();
+  U.resizableBorderSetup();
 
   const $resizableBorders: JQuery<HTMLElement> = $('.resizableBorder.side, .resizableBorder.corner');
   for (i = 0; i < $resizableBorders.length; i++) { $resizableBorders[i].style.borderColor = 'var(--mainBorderColor)'; }
@@ -435,6 +441,7 @@ export function onModelsReceive(savem2: {model: string, vertexpos: string, view:
     Status.status.mm = new MetaModel(JSON.parse(savem2.model), Status.status.mmm);
   } catch(e) {
     U.pw(true, 'Failed to load the metamodel.', {e, model: savem2.model});
+    if (!Status.status.isProduction) throw e;
     Type.all = [];// reset invalid old parsed types, enums... they are no longer defined in the empty metamodel
     Status.status.mm = new MetaModel(JSON.parse(MetaModel.emptyModel), Status.status.mmm);
   }
@@ -448,13 +455,14 @@ export function onModelsReceive(savem2: {model: string, vertexpos: string, view:
     Status.status.m = new Model(JSON.parse(savem1.model), Status.status.mm);
   } catch(e) {
     U.pw(true, 'Failed to load the model. Does it conform to the metamodel?', e);
+    if (!Status.status.isProduction) throw e;
     Status.status.m = new Model(JSON.parse(Model.emptyModel), Status.status.mm);
   }
 
   window['' + 'm'] = Status.status.m;
   // console.log('m3:', Status.status.mmm, 'm2:', Status.status.mm, 'm1:', Status.status.m);
   // Status.status.m.LinkToMetaParent(Status.status.mm);
-  // Status.status.m.fixReferences(); already linked at parse time.
+  Status.status.m.fixReferences(); // for non-containment references
   Status.status.loadedLogic = true;
   useless = new ISidebar(Status.status.mmm, document.getElementById('metamodel_sidebar'));
   useless = new ISidebar(Status.status.mm, document.getElementById('model_sidebar'));

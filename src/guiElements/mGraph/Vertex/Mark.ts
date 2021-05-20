@@ -1,4 +1,4 @@
-import {GraphSize, ISize, ModelPiece, Size, U} from '../../../common/Joiner';
+import {Dictionary, GraphSize, ISize, ModelPiece, Size, U} from '../../../common/Joiner';
 export class MarkStyle {
   color: string = 'red';
   radiusX: number = 10;
@@ -53,6 +53,13 @@ export class Mark {
   private css1: HTMLStyleElement;
   private css2: HTMLStyleElement;
   private id: number;
+  private static markingByKey: Dictionary<string, Mark[]> = {};
+  public static removeByKey(key: string): Mark[] {
+    let mark: Mark;
+    for (mark of Mark.markingByKey[key]) mark.mark(false);
+    return Mark.markingByKey[key];
+  }
+
   staticinit(): void {
     Mark.colorCycle = new ColorCycle(['red', 'blue', 'gray', 'green', 'yellow', 'purple', 'orange', 'brown'])
   }
@@ -63,6 +70,8 @@ export class Mark {
     this.mp1 = mp;
     this.mp2 = paired;
     this.key = key || U.genID();
+    if (!Mark.markingByKey[key]) Mark.markingByKey[key] = [];
+    Mark.markingByKey[key].push(this);
     this.style = new MarkStyle(color, radiusX, radiusY, width, backColor, extraOffset);
   }
 

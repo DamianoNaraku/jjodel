@@ -505,7 +505,7 @@ export class IGraph {
     if (isMeasurable) {
       if (axis === undefined || axis !== null && axis.indexOf('x') === -1) currentGraphCoord.x = null;
       if (axis === undefined || axis !== null && axis.indexOf('y') === -1) currentGraphCoord.y = null; }
-    console.log('onMouseMoveVertexMove:', v.logic().name, 'vertex:', v, 'coord:', currentGraphCoord, 'ismeasurable:', isMeasurable);
+    // console.log('onMouseMoveVertexMove:', v.logic().name, 'vertex:', v, 'coord:', currentGraphCoord, 'ismeasurable:', isMeasurable);
     v.moveTo(currentGraphCoord); }
 
   onMouseMoveDrag(e: MouseMoveEvent): void {
@@ -560,7 +560,16 @@ export class IGraph {
     if (!this.size ) this.computeSize();
     return this.size; }
 
-  toGraphCoord(p: Point): GraphPoint {
+  public getGSize(): GraphSize{
+    throw new Error("getGSize() todo: should show the size of the whole graph visible and hidden that contain something (bounding rectangle of content)");
+  }
+  public getVisibleGSize(): GraphSize{
+    let size: Size = this.getSize();
+    // console.log('gsize', {size, ggsize: new GraphSize(size.x, size.y, size.w, size.h), zoom: this.zoom, ret: new GraphSize(size.x, size.y, size.w, size.h).multiplyPoint(this.zoom, false)});
+    return new GraphSize(size.x, size.y, size.w, size.h).dividePoint(this.zoom, false);
+  }
+
+  public toGraphCoord(p: Point): GraphPoint {
     const graphSize: Size = this.getSize();
     const ret: GraphPoint = new GraphPoint(p.x, p.y);
     const debug = true;
@@ -770,4 +779,5 @@ export class IGraph {
       v.setSize(this.fitToGridS(v.getSize()), false, true, measurableRules.onDragEnd);
     });
   }
+
 }

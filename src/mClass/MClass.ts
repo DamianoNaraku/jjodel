@@ -244,6 +244,7 @@ export class MClass extends IClass {
       }
     */
 
+    if (!loopDetectionObj) loopDetectionObj = {};
     U.pe(!U.isObject(loopDetectionObj), "loopdetection not object param:", loopDetectionObj, loopDetectionObj || {});
     const inlineMarker: string = Status.status.XMLinlineMarker;
     const json: Json = {};
@@ -450,4 +451,84 @@ export class MClass extends IClass {
     if (classe.getInterface() || classe.getAbstract()) return false;
     return this.metaParent.isExtending(classe) || classe.isExtending(this.metaParent);
   }*/
+  getContainer(): MReference {
+    for (let ref of this.referencesIN) if (ref.isContainment()) return ref;
+    return null; }
+
+  getM1Path(includeSelf: boolean = false): (MClass | MReference)[]{
+    const path: (MClass | MReference)[] = [];
+    if (includeSelf) path.push(this);
+    let currentNode: MClass = this;
+    let maxDepth = 1000;
+    while (true) {
+      U.pe(!--maxDepth, 'cannot save m1: loop of containment');
+      if (currentNode.isRoot()) { return path.reverse(); }
+      const container: MReference = currentNode.getContainer();
+      if (!container) return null;
+      currentNode = container.parent
+      path.push(container);
+      path.push(currentNode);
+    }
+  }
+  getM1PathStr(canWarn: boolean = false): string{
+    const path: (MClass | MReference)[] = this.getM1Path(true);
+    let ret: string = '/';
+    // let lastClass: MClass = this.getModelRoot().getClassRoot();
+    let lastRef: MReference = null;
+    let i: number = 0;
+    if (!path) { U.pw(canWarn, 'found disconnected data in M1', {thiss: this, path}); return null; }
+    for (let elem of path){
+      // console.log('following m1 path:', {path, i, elem, lastRef, ret});
+      if (elem instanceof MReference){
+        // alternare classi e reference, mai 2 classi o 2 reference consecutive, si parte da ref (root-class è sottinteso) e si termina con class.
+        U.pe(i++ % 2 === 0, 'dev error r: m1 path should follow the schema [Class, Reference]*', path, this);
+        ret += '/@' + elem.metaParent.name;
+        lastRef = elem;
+      }else if (elem instanceof MClass){
+        U.pe(i++ % 2 === 1, 'dev error c: m1 path should follow the schema [Class, Reference]*', path, this);
+        ret += !lastRef ? '' : '.' + lastRef.mtarget.indexOf(elem);
+      }
+    }
+    return ret;
+  }
+  static getByM1Path(root: MClass, path: string): MClass{
+    const refstrarr: string[] = path.split('/@');
+    let currentClass: MClass = root;
+    let currentRef: MReference = null;
+    for (let refstr of refstrarr) {
+      if (refstr === '/') continue;
+      const lastindex: number = refstr.lastIndexOf('.');
+      const refname: string = refstr.substr(0, lastindex);
+      const targetindex: string = refstr.substr(lastindex + 1);
+      U.pe(!U.isNumerizable(targetindex), 'm1 parse error: index is not a number', {refstr, refstrarr, path, root});
+      currentRef = currentClass.getReference(refname);
+      currentClass = currentRef.mtarget[+targetindex];
+    }
+    return currentClass;
+  }
+
+  isConnectedToRoot(): boolean{
+    let currentClass: MClass = this;
+    while (!currentClass.isRoot()) {
+      const containerRef: MReference = currentClass.getContainer();
+      if (!containerRef) return false;
+      currentClass = containerRef.parent
+    }
+    return true;
+  }
+
+  isInvalidRoot(): boolean { return !this.isRoot() && !this.getContainer(); }
+
+  getContainerChain(): MClass[] {
+    const ret: MClass[] = [];
+    let currentClass: MClass = this;
+    while (true) {
+      const containerRef: MReference = currentClass.getContainer();
+      if (!containerRef) return ret;
+      currentClass = containerRef.parent;
+      if (ret.indexOf(currentClass) >= 0) { U.pw(true, 'model have a containment loop'); return ret; }
+      ret.push(currentClass);
+    }
+  }
+  isContainedIn(container: MClass): boolean{ return this.getContainerChain().indexOf(container) >= 0; }
 }

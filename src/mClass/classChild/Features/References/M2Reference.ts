@@ -27,6 +27,7 @@ import {
   EdgeModes,
   EdgePointStyle, MetaModel, Info, IClass, Type, EEnum, Dictionary,
 } from '../../../../common/Joiner';
+import {Mark} from '../../../../guiElements/mGraph/Vertex/Mark';
 
 export class M2Reference extends IReference {
   static stylesDatalist: HTMLDataListElement;
@@ -50,7 +51,8 @@ export class M2Reference extends IReference {
     // this.type = AttribETypes.reference;
     // this.parsePrintableTypeName(eType);
     // this.linkClass();
-    this.containment = !!Json.read(json, ECoreReference.containment, false);
+    console.info('xxxxcontm2', {thiss: this, id:this.id, json, val:!!Json.read(json, ECoreReference.containment, false)});
+    this.setContainment(U.fromBoolString(Json.read(json, ECoreReference.containment, false), false));
     this.setLowerbound(+Json.read(json, ECoreReference.lowerbound, 0));
     this.setUpperbound(+Json.read(json, ECoreReference.upperbound, 1));
     let i: number;/*
@@ -92,7 +94,43 @@ export class M2Reference extends IReference {
     }
   }*/
 
-  setContainment(b: boolean): void { this.containment = b; }
+  setContainment(b: boolean, force: boolean = false): void {
+    if (!force && this.containment === b) return;
+    // if (!Status.status.loadedLogic || !b) { return; }
+    /*const target: M2Class = this.getTarget();
+    if (b && this.parent === target) {
+      U.ps(true, 'a model entity cannot contain itself'); no, sto controllo non posso farlo in m2.
+      this.containment = false;
+      return; }*/
+    /*let oldContainer: M2Reference = target.getContainer();
+    if (oldContainer) oldContainer.setContainment(false, undefined);*/
+    if (!Status.status.loadedLogic) { this.containment = b; return; }
+    this.containment = b && Status.status.m.findContainmentLoop().length === 0;
+    this.refreshGUI();
+    for (let edge of this.edges) edge.refreshGui();
+  }
+/*
+  // changing a containment relationship might cause containment loops on m1 undetectable from M2.
+  canBeContainmentForInstances(canMark: boolean = true): boolean {
+    if (this.isContainment()) return true;
+    const target: M2Class = this.getTarget();
+    let oldContainer: M2Reference = target.getContainer();
+    const wasContainment = this.containment
+    if (oldContainer) oldContainer.containment = false;
+    this.containment = true;
+
+    Mark.removeByKey('containment-loop');
+    const loop: MClass[] = this.findContainmentLoopOnInstances();
+    for (let lop of loop) new Mark(lop, null, 'containment-loop').mark(true);
+    this.containment = false;
+    if (oldContainer) oldContainer.containment = true;
+    return !!loop.length; }
+
+  findContainmentLoopOnInstances(): MClass[] {
+    const models: Model[] = [...new Set(this.instances.map( mref => mref.getModelRoot() as Model))];
+    U.pe(models.length > 1, 'multiple M1 models are not supported yet.');
+    if (!models || !models.length) return [];
+    return models[0].findContainmentLoop(); }*/
 
   setUpperbound(n: number): void {
     super.setUpperbound(n);
@@ -133,7 +171,7 @@ export class M2Reference extends IReference {
     super.copy(r, nameAppend, newParent);
     this.setLowerbound(r.lowerbound);
     this.setUpperbound(r.upperbound);
-    this.containment = r.containment;
+    this.setContainment(r.containment, false);
     this.type.changeType(r.type.toEcoreString());
     this.refreshGUI();
     return this; }

@@ -82,17 +82,15 @@ button.refli.delete{
   padding: 2px 5px;
   padding-right: 0;
   top: 0;
+  border-bottom-right-radius: 7px;
+  border-top-right-radius: 7px;
 }
 ul.contextMenu{
-  border: 1px solid black;
   background-color: white;
-  padding: 10px;
-  padding-top: 6px;
-  padding-bottom: 8px;
-  padding-right: 0;
-}
-ul.contextMenu li{
-  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 7.5px;
+  padding: 10px 0;
+  /*padding: 10px 10px 10px 20px;*/
 }
 ul.contextMenu li.popupRightParent{
   cursor: not-allowed;
@@ -101,7 +99,7 @@ ul.contextMenu li.popupRightParent{
 li:first-child{
   padding-top: 0;
 }
-li.separator{
+ul.contextMenu li.separator{
   margin-top: 2px;
   height: 1px;
   padding: 0;
@@ -112,20 +110,23 @@ li:last-child{
   border-bottom: none;
 }
 
+span[tabindex], li{
+
+  display: flex;
+  align-items: center;
+}
 li{
-  display: block;
-  cursor: default;
+  cursor: pointer;
+  padding: 5px 20px;
   font-size: 0.75rem;
-  padding-top: 2px;
-  padding-right: 10px;
   color: var(--mainFontColor);
 }
 
 li:not(.unclickable):focus-within,
 li:not(.unclickable).active,
 li:not(.unclickable):hover{
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 25px;
+  padding-right: 15px;
   color: var(--color-4);
 }
 li:focus-within li,
@@ -134,8 +135,10 @@ li:hover li{
   display: flex;
   /*cursor: default;*/
   font-size: 0.75rem;
-  padding-top: 2px;
-  padding-right: 10px;
+  padding-top: 4px;
+  pading-bottom: 4px;
+  padding-right: 15px;
+  padding-left: 0;
   color: var(--mainFontColor); }
 
 li:focus-within li:not(.unclickable):focus-within,
@@ -146,7 +149,7 @@ li:hover li:not(.unclickable).active,
 li.active li:not(.unclickable):hover,
 li:hover li:not(.unclickable):hover{
   padding-left: 5px;
-  padding-right: 5px;
+  padding-right: 10px;
   color: var(--color-4);
 }
 

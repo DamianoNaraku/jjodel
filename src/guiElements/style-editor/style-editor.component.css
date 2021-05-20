@@ -11,11 +11,14 @@
 }
 .dropdown:focus-within>.dropdownmenu{
   display: block;
-  z-index: 1000;
 }
 .dropdown.hover-display:hover>.dropdownmenu{
   display: block;
+}
+
+.dropdownmenu{
   z-index: 1001;
+  box-shadow: 0 0 5px grey;
 }
 
 .dropdown:focus-within>.icon,

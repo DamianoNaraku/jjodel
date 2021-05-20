@@ -320,7 +320,18 @@ export class ChangelogRoot extends ChangelogEntry {
     v.addb('edges', 'Removing an edge not yet confirmed (preview while inserting) using DEL is causing invalid state, press ESC Instead for now.');
     v.addb('lowerbound', 'Currently ignored.');
     let searchterm = 'clog addbf';
-
+    v = new VersionUpload(new Date('2021/05/20'), '', 'Mostly quality of life patch');
+    v.addf('Vertex insertion', 'Vertices were inserted always at mid of current visible portion of graph, regardless of possible overlapping. Now they will search the closest empty spot following a spiral pattern starting from the center of visible screen.')
+    v.addf('Graphical: Self reference edge', 'Looping edges without any customized middle point were not displayed. Now if there are customized middle point the behaviour is unchanged, but if there are not middle points, some middle points will be automatically inserted to make the loop visible.')
+    v.addbf('Graphical: containment edge', 'Unsetting the containment property for a reference was not causing the diamond tail to be graphically removed from the edge.');;
+    v.addbf('Graphical: M1 reference type', 'When changing the name of a M2-Classifier the type name displayed in M1-references was not updated.');
+    v.addf('containment semantic enforcements', '<ul>' +
+      '<li>Models now cannot create a loop of containment where A contains B, B contains C, C contains A.</li>' +
+      '<li>A modelling object cannot be contained in multiple containers.</li>' +
+      '<li>The root object cannot be contained.</li>' +
+      '</ul>Attempting to set an invalid relationship will emit an explaining popup', null, true);
+    v.addbf('looping models', 'Models with reference loops (non-containing ones) are now supported');
+    just push e ricontrolla se hai messo tutti i changelog piints
     // todo: documenta api theia
     // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
     // v.addf('fakegfeat', 'kkk');

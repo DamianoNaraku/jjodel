@@ -62,7 +62,7 @@ export class ColorScheme2{
       new ColorScheme2('main theme Light bg', 'body', 'color-bg-', true, ['#f4f4f4', '#e0e0e0', '#2e2f34']),
       new ColorScheme2('main theme Dark', 'body', 'color-', false,  [ '#3c3c44', '#b2b2ba', '#f0f0f0', '#1E90FF']),
       new ColorScheme2('main theme Dark bg', 'body', 'color-bg-', false, ['#1a1a1c', '#2e2f34', '#44444c']),
-      new ColorScheme2('Vertex', 'g.VertexRoot', null, true, ['#ffffff', '#000000', '#000000', '#1E90FF', '#ff0000']),
+      new ColorScheme2('Vertex', 'g.VertexRoot', null, true, ['#ffffff', '#000000', '#000000', '#1E90FF']),
       new ColorScheme2('Feature', '.graph .Feature', 'color-f-', true, ['#ff8c00', '#28a745', '#d3d3d3']),
       // examples
       new ColorScheme2('cs-' + i++, null, null, true, ['#ffffff', '#364f6b', '#3fc1c9', '#f5f5f5', '#fc5185']),

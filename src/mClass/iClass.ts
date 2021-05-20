@@ -77,13 +77,13 @@ export abstract class IClass extends IClassifier {
     let complementaHex = (hexstr: string): string => { return '#' + U.toHex(16777215 - (U.hexToNum(hexstr)), 6); }
     let i: number;
 
-    this.edgeStyleCommon = new EdgeStyle(EdgeModes.straight, 2, '#7f7f7f',
+    this.edgeStyleCommon = new EdgeStyle(EdgeModes.angular23Auto, 2, '#7f7f7f',
       new EdgePointStyle(5, 2, '#ffffff', '#000000'),
       new EdgeHeadStyle(20, 20, '#7f7f7f', '#7f7f7f'));
-    this.edgeStyleHighlight = new EdgeStyle(EdgeModes.straight, 2, '#ffffff',
+    this.edgeStyleHighlight = new EdgeStyle(EdgeModes.angular23Auto, 2, '#ffffff',
       new EdgePointStyle(5, 2, '#ffffff', '#0077ff'),
       new EdgeHeadStyle(20, 20, '#ffffff', '#ffffff'));
-    this.edgeStyleSelected = new EdgeStyle(EdgeModes.straight, 4, '#ffffff',
+    this.edgeStyleSelected = new EdgeStyle(EdgeModes.angular23Auto, 4, '#ffffff',
       new EdgePointStyle(5, 2, '#ffffff', '#ff0000'),
       new EdgeHeadStyle(25, 25, '#ffffff', '#ffffff'));
 

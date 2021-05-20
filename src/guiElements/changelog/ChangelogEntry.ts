@@ -331,7 +331,6 @@ export class ChangelogRoot extends ChangelogEntry {
       '<li>The root object cannot be contained.</li>' +
       '</ul>Attempting to set an invalid relationship will emit an explaining popup', null, true);
     v.addbf('looping models', 'Models with reference loops (non-containing ones) are now supported');
-    just push e ricontrolla se hai messo tutti i changelog piints
     // todo: documenta api theia
     // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
     // v.addf('fakegfeat', 'kkk');

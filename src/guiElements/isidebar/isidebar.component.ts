@@ -78,8 +78,9 @@ export class ISidebar {
   updateAll() {
     this.clear();
     let i;
-    const cla: IClassifier[] = this.model.getAllClasses();
-    const enu: IClassifier[] = this.model.isM2() ? [] : this.model.getAllEnums();
+    let cla: IClass[] = this.model.getAllClasses();
+    if (this.model.isM2()) { cla = (cla as M2Class[]).filter((c) => !c.getAbstract() && !c.getInterface()); }
+    const enu: EEnum[] = this.model.isM2() ? [] : this.model.getAllEnums();
     for (i = 0; i < cla.length; i++) { this.updateNode(cla[i], this.classContainer); }
     for (i = 0; i < enu.length; i++) { this.updateNode(enu[i], this.classContainer); }
   }

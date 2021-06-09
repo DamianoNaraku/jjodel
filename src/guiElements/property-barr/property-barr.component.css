@@ -103,6 +103,12 @@ label > input[type="checkbox"], label > select{
   width: inherit;
   min-width: 60px;
 }
+label > input[type="checkbox"]{
+  width: auto;
+  min-width: 21px; }
+label > input[type="checkbox"]{
+  box-shadow: none;
+}
 /*
 label > input[type="checkbox"]{
    display: flex;

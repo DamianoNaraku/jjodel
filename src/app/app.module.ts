@@ -384,7 +384,7 @@ function main() {
   setBootstrapOnLowestPriority();
   U.focusHistorySetup();
   U.tabSetup();
-  U.resizableBorderSetup();
+  //U.resizableBorderSetup();
 
   const $resizableBorders: JQuery<HTMLElement> = $('.resizableBorder.side, .resizableBorder.corner');
   for (i = 0; i < $resizableBorders.length; i++) { $resizableBorders[i].style.borderColor = 'var(--mainBorderColor)'; }

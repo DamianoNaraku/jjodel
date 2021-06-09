@@ -671,11 +671,13 @@ export class M2Class extends IClass {
       return; }
     if (value) { this.setInterfaceTrue(); }
     else { this.unsetInterface(); }
+    Status.status.m.sidebar.updateAll();
   }
 
   private setInterfaceTrue(): void {
     this.unsetAbstract();
-    this.isInterface = true; }
+    this.isInterface = true;
+  }
 
   private unsetInterface(): void { this.isInterface = false; }
 
@@ -741,13 +743,14 @@ export class M2Class extends IClass {
     */
     if (value) { this.setAbstractTrue(); }
     else { this.unsetAbstract(); }
+    Status.status.m.sidebar.updateAll();
   }
 
-  public setAbstractTrue(): boolean{
+  private setAbstractTrue(): boolean{
     this.unsetInterface();
     return this.isAbstract = true; }
 
-  public unsetAbstract(): boolean{
+  private unsetAbstract(): boolean{
     return this.isAbstract = false; }
 
 

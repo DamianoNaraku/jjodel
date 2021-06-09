@@ -1497,6 +1497,23 @@ export class U {
     U.pe(!isFound && !canFail, 'SelectOption not found. html:', htmlSelect, ', searchingFor: |' + optionValue + '| in options:', $options);
   }
 
+  static removeAllNgAttributes($root:JQuery<Element>): void {
+    let attrs: Attr[] = U.getAllAttributes($root, (a) => !!a.name.match('ng\-|_ng'));
+    for (let attr of attrs) {
+      if (!attr.ownerElement) continue;
+      attr.ownerElement.removeAttributeNode(attr);
+    }
+  }
+
+  static getAllAttributes($root: JQuery<Element> = null, matcher: (a: Attr) => boolean): Attr[] {
+    if (!$root) $root = $(document) as any;
+    const $elems = $root.find('*').addBack();
+    const ret: Attr[] = [];
+    for (let elem of $elems) {
+      if (elem.attributes) Array.prototype.push.apply(ret, Array.prototype.filter.call(elem.attributes, matcher));
+    }
+    return ret;
+  }
   static tabSetup(root: HTMLElement = document.body): void {
     $('.UtabHeader').off('click.tabchange').on('click.tabchange', U.tabClick);
     $('.UtabContent').hide();
@@ -2060,7 +2077,7 @@ export class U {
     if (v === null) { return returnIfNull; }
     if (v === undefined) { return returnIfUndefined; }
     if (Array.isArray(v)) { return retIfArray; }
-    // nb: mind that typeof [] === 'array'
+    // nb: mind that typeof [] === 'object'
     return typeof v === 'object'; }
 
   static isFunction(v: any): boolean { return (typeof v === 'function'); }

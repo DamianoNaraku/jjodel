@@ -484,8 +484,8 @@ export class IGraph {
     IVertex.selectedGridWasOn.y = 'prevent_doublemousedowncheck' as any;
     // const afterContextMenuTimeout = () => setTimeout(afterContextMenu, 0);
     // afterContextMenuTimeout(); // do it regardless of moved or not.
-    const gotMoved = !vcontext.size.tl().equals(v.size.tl(), 0);
-    if (!gotMoved) { return; }
+    // const gotMoved = !vcontext.size.tl().equals(v.size.tl(), 0);
+    // if (!gotMoved) { return; }
     v.owner.fitToGridS(v.size, false);
     v.setSize(v.size, false, true, measurableRules.onDragEnd);
     //NB: Ivertex.selected va cancellato per forza prima di gotMoved e setSize, perchè crea casini con dragEnd.

@@ -439,7 +439,7 @@ export class IVertex {
 
   setSize(size: GraphSize, refreshVertex: boolean = false, refreshEdge: boolean = true, trigger: string = null && measurableRules.onRotationEnd): void {
     const htmlForeign: SVGForeignObjectElement = this.getHtmlRawForeign();
-    if (!size || this.getSize().equals(size)) { U.setSvgSize(htmlForeign, this.size, IVertex.defaultSize); return; }
+    if (!trigger && (!size || this.getSize().equals(size))) { U.setSvgSize(htmlForeign, this.size, IVertex.defaultSize); return; }
     /*
     if(window['debug'] === 1) for (let key in IVertex.all) {
       let v2 = (IVertex.all[key] as IVertex);
@@ -1004,7 +1004,7 @@ export class IVertex {
     for (i = 0; i < html.attributes.length; i++) {
       const a: Attr = html.attributes[i];
       if (a.name.indexOf(prefix.toLowerCase()) !== 0) continue;
-      console.error('triggering rule:', a);
+      // console.error('triggering rule:', a);
       new MeasurableRuleParts(a, prefix).process(false, this, this.owner);
     }
   }

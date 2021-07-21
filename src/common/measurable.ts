@@ -400,7 +400,7 @@ export class MeasurableRuleParts {
     let out: MeasurableRuleParts;
     out = this.process0(validatefirst, vertex, graph);
     console.log('process rule:', this.prefix, this, 'out:', out);
-    console.error('triggering rule processed:', this);
+    // console.error('triggering rule processed:', this);
     return out; }
 
   process0(validatefirst: boolean = false, vertex: IVertex = null, graph: IGraph = null): MeasurableRuleParts {
@@ -693,7 +693,6 @@ export class MeasurableRuleParts {
       case measurableRules.constraint:
         ///// left validation
         this.left = this.left.trim();
-        console.error(this, 'constraintmap:', MeasurableTemplateGenerator.constraintMap, MeasurableTemplateGenerator.constraintMap && MeasurableTemplateGenerator.constraintMap[this.left]);
         if (!MeasurableTemplateGenerator.constraintMap[this.left]) {
           console.trace('icr ');
           console.error('irc: invalid constraint rule, found:', this.left, 'not in: ', MeasurableTemplateGenerator.constraintMap);//

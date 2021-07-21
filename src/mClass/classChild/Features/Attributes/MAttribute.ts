@@ -10,7 +10,7 @@ import {
   MClass,
   Model,
   ModelPiece,
-  ShortAttribETypes,
+  ShortAttribETypes, Status,
   Type,
   U,
 } from '../../../../common/Joiner';
@@ -231,6 +231,7 @@ export class MAttribute extends IAttribute {
     U.pif(debug, 'end value:', values);
     if (autofix) { this.valuesAutofix(debug); }
     U.pif(debug, 'end value post autofix:', this.values);
+    if (Status.status.loadedGUI) this.parent.getVertex().owner.propertyBar.refreshGUI();
   }
 
   valuesAutofix(debug: boolean = false): void {

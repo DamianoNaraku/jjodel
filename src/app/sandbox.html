@@ -1,0 +1,76 @@
+<foreignobject _ngcontent-mrc-c7="" aircraft_example="" class="Vertex Class onRefresh measurable" hover-base="v1"
+               style="cursor: pointer; color: var(--color-2); position: absolute;" tabindex="-1" width="300" x="50"
+               y="50" _jquidraaxis="x, y" jquidraaxis="" constraint1="" constraint2=""
+               _constraintheight="vertexSize.h≔=≔38+30*Math.log2(+this.unsafec.model.getAttribute('height').values[0])"
+               constraintheight=""
+               _constraintwidth="vertexSize.w≔=≔30*Math.log2(+this.unsafec.model.getAttribute('width').values[0])"
+               constraintwidth="" onrefresh1="" _onrefreshwidth="true≔-> _constraintwidth" onrefreshwidth=""
+               _onrefreshheight="true≔-> _constraintheight" onrefreshheight=""
+               _constrainty="vertexSize.y≔=≔-50*(Math.pow(+this.unsafec.model.getAttribute('maxAltitude').values[0], 0.3) - 16)"
+               constrainty="" _constraintx="vertexSize.x≔=≔2 * this.unsafec.model.getAttribute('seats').values[0]"
+               constraintx="" onrefresh2="" _onrefreshx="true≔-> _constraintx" onrefreshx=""
+               _onrefreshy="true≔-> _constrainty" onrefreshy="" ondragend1="" _ondragendx="true≔-> _varseats_x"
+               ondragendx="" _ondragendy="true≔-> _varaltitude_y" ondragendy="" var1=""
+               _varseats_x="≔this.unsafec.model.getAttribute('seats').setValues(this.vertexSize.x/2)" varseats_x=""
+               varyaltitude_y=""
+               _varaltitude_y="≔this.unsafec.model.getAttribute('maxAltitude').setValues((-this.vertexSize.y/50+16)**(10/3))"
+               varaltitude_y="" _jquireshandles="se" jquireshandles=""
+               _varw="≔this.unsafec.model.getAttribute('width').setValues(2**(this.vertexSize.w/30))" varw=""
+               _varh="≔this.unsafec.model.getAttribute('height').setValues(2**((this.vertexSize.h-38)/30))" varh=""
+               _constraintflight="vertexSize.y≔<=≔750" constraintflight="" whiledragging1="" whiledraggingmusthfly=""
+               _whiledragging1="true≔-> _constraintpassengers" _whiledraggingpassengers="true≔-> _constraintflight"
+               whiledraggingpassengers="" _constraintpassengers="vertexSize.x≔>=≔0" constraintpassengers=""><div _ngcontent-mrc-c7="" _ngcontent-fmh-c7="" class="Class" data-autosizex="false" data-autosizey="false"
+       type="$##attributes.3.values.0$"
+       style="height: 100%; width: 100%; display: inline-flex; flex-flow: column;">
+    <style>        [aircraft_example] .aircraft {
+      pointer-events:none;
+      display: none;
+      flex-basis: 0;
+      flex-grow: 1;
+      width: 100%;
+      border-radius: 7px;
+    }
+
+    [aircraft_example] [type*="boeing"] > .aircraft.boeing {
+      display: flex;
+    }
+
+    [aircraft_example] [type*="boeing"] > .aircraft.perlan {
+      display: none;
+    }
+
+    [aircraft_example] [type*="airbus"] > .aircraft.airbus {
+      display: flex;
+    }
+
+    [aircraft_example] [type*="airbus"] > .aircraft.perlan {
+      display: none;
+    }
+
+    [aircraft_example] .aircraft.perlan {
+      display: flex;
+    }      </style>
+    <div _ngcontent-mrc-c7="" _ngcontent-fmh-c7="" class="VertexHeader"
+         style="pointer-events:all; top: -35px; text-align: center; display: flex; padding: 8px 0px; width: min-content; min-width: 100%; font-size: 1rem;">
+      <input _ngcontent-mrc-c7="" _ngcontent-fmh-c7="" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*"
+             placeholder="Object name"
+             style="display:none; background:transparent; border:none; text-align:right; order:1; flex-basis: 50%; min-width:10px;"
+             value="$##name$">
+      <div _ngcontent-mrc-c7="" _ngcontent-fmh-c7="" class="no-ov"
+           style="text-align: center; order:2; flex-grow:1; color:var(--color-2); margin:auto;">
+        $##attributes.3.values.0$:&nbsp;
+      </div>
+      <div _ngcontent-mrc-c7="" _ngcontent-fmh-c7="" class="no-ov"
+           style="text-align: center; order:2; flex-grow:1; color:var(--color-4); margin:auto;">$##metaParent.name$
+      </div>
+      <div _ngcontent-mrc-c7="" _ngcontent-fmh-c7="" class="hover-unfade open-options" hover-display="v1"
+           style="top: 7px; right: 0; border-radius: 999px;" tabindex="-1"><span _ngcontent-mrc-c7=""
+                                                                                 _ngcontent-fmh-c7="">...</span></div>
+    </div>
+    <img _ngcontent-mrc-c7="" class="aircraft perlan"
+         src="https://raw.githubusercontent.com/DamianoNaraku/jodel-wiki/main/examples/glider%20small.png"> <img
+    _ngcontent-mrc-c7="" class="aircraft airbus"
+    src="https://raw.githubusercontent.com/DamianoNaraku/jodel-wiki/main/examples/airbus.png"> <img _ngcontent-mrc-c7=""
+                                                                                                    class="aircraft boeing"
+                                                                                                    src="https://raw.githubusercontent.com/DamianoNaraku/jodel-wiki/main/examples/boeing.png">
+  </div></foreignobject>

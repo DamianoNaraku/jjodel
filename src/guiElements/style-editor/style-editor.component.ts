@@ -399,7 +399,7 @@ export class StyleEditor {
     const onStyleChange = (): void => {
       console.log('onStyleChange', U.getCaller(), U.getStackTrace());
       console.log('99jj set html:', obj.input.innerText);
-      let inputHtml: Element = U.toHtml(obj.input.innerText)//U.toHtmlValidate(obj.input.innerText);
+      let inputHtml: Element = U.toHtml(obj.input.innerText.trim())//U.toHtmlValidate(obj.input.innerText);
       // non c'è bisogno di validare, perchè corregge automaticamente e se metti chiusure di tag di troppo le toglie da solo!
       // non può rompere oltre il nodo attuale
       // if (!inputHtml) return;
@@ -608,7 +608,7 @@ export class StyleEditor {
     const $autosizew = $html.find('input.autowidth') as JQuery<HTMLInputElement>;
     const $autosizeh = $html.find('input.autoheight') as JQuery<HTMLInputElement>;
     const $autolayout = $html.find('input.autolayout') as JQuery<HTMLInputElement>;
-    if (m instanceof IClassifier) this.setupEdgesVisibility(context, $html);
+    if (m instanceof IClassifier) this.setupEdgesVisibility(context, $html, style);
     const autosizew = $autosizew[0];
     const autosizeh = $autosizeh[0];
     const autolayout = $autolayout[0];
@@ -649,10 +649,22 @@ export class StyleEditor {
       this.sizeInputy.value = '' + (vSize.y);
       this.sizeInputw.value = '' + (vSize.w);
       this.sizeInputh.value = '' + (vSize.h);
-      $(this.sizeInputx).on('change', () => { v.setSize(new GraphSize(+this.sizeInputx.value, null, null, null)); });
-      $(this.sizeInputy).on('change', () => { v.setSize(new GraphSize(null, +this.sizeInputy.value, null, null)); });
-      $(this.sizeInputw).on('change', () => { v.setSize(new GraphSize(null, null, +this.sizeInputw.value,  null)); });
-      $(this.sizeInputh).on('change', () => { v.setSize(new GraphSize(null, null, null, +this.sizeInputh.value)); });
+      function changePosition(x: number | null, y: number | null) {
+        v.measuringEventTrigger(null, null, measurableRules.onDragStart, v.getMeasurableNode());
+        v.setSize(new GraphSize(x, y, null, null));
+        v.measuringEventTrigger(null, null, measurableRules.whileDragging, v.getMeasurableNode());
+        v.measuringEventTrigger(null, null, measurableRules.onDragEnd, v.getMeasurableNode());
+      }
+      function changeSize(w: number | null, h: number | null) {
+        v.measuringEventTrigger(null, null, measurableRules.onResizeStart, v.getMeasurableNode());
+        v.setSize(new GraphSize(null, null, w,  h));
+        v.measuringEventTrigger(null, null, measurableRules.whileResizing, v.getMeasurableNode());
+        v.measuringEventTrigger(null, null, measurableRules.onResizeEnd, v.getMeasurableNode());
+      }
+      $(this.sizeInputx).on('change', () => { changePosition(+this.sizeInputx.value, null); });
+      $(this.sizeInputy).on('change', () => { changePosition(null, +this.sizeInputy.value); });
+      $(this.sizeInputw).on('change', () => { changeSize(+this.sizeInputw.value, null); });
+      $(this.sizeInputh).on('change', () => { changeSize(null, +this.sizeInputh.value); });
     } else { $html.find('.sizeContainer').remove(); }
     autolayout.checked = v && v.autoLayout;
     //// end autosize
@@ -1459,23 +1471,17 @@ export class StyleEditor {
     return ret;
   }
 
-  private setupEdgesVisibility(context: EditorContext, $html: JQuery<HTMLElement>){
+  private setupEdgesVisibility(context: EditorContext, $html: JQuery<HTMLElement>, style: StyleComplexEntry){
+    U.pe(context.templateRoot.tagName !== TagNames.FOREIGNOBJECT, 'vertex root must be a SVGFOREIGNOBJECT', context.templateRoot);
     const $edgeVisibility = $html.find('input[type="checkbox"].edgeVisibility') as JQuery<HTMLInputElement>;
     const $edgePriority = $html.find('.edgePriority input[kind]') as JQuery<HTMLInputElement>;
-    $edgeVisibility.on('change', (e: ChangeEvent) => {
-        let input = e.currentTarget;
-        context.templateRoot.setAttribute('allow-edges',input.checked);
-        context.applyRootChangesToInput();
-      });
-    $edgePriority.on('change', (e: ChangeEvent) => {
-      let input = e.currentTarget;
-      let direction_and_kind = input.getAttribute('kind');
-      context.templateRoot.setAttribute('show-' + direction_and_kind + '-edges', input.value);
-      context.applyRootChangesToInput();
-    });
-    U.pe(context.templateRoot.tagName !== TagNames.FOREIGNOBJECT, 'vertex root must be a SVGFOREIGNOBJECT', context.templateRoot);
+    const edgeVisibility = $edgeVisibility[0];
     let keepEdges = U.fromBoolString(context.templateRoot.getAttribute('keep-edges'), this.propertyBar.selectedModelPiece !== MetaModel.genericObject);
     $edgeVisibility[0].checked = keepEdges;
+    if (style.isGlobalhtml) {
+      edgeVisibility.disabled = true;
+    }
+
     if (keepEdges) $edgePriority.show(); else $edgePriority.hide();
     const directions: ("in"|"out")[] = ["in", "out"], kinds: ("rel"|"ext"|"oth")[] = ["rel", "ext", "oth"];
 
@@ -1487,6 +1493,19 @@ export class StyleEditor {
         // console.log("setting visibility edge input:", $priobutton, $edgePriority, '[kind="' + direction + "-" + kind + '"]');
         $priobutton[0].value = '' + results[direction][kind];
       }
+    }
+    if (!style.isGlobalhtml){
+      $edgeVisibility.on('change', (e: ChangeEvent) => {
+        let input = e.currentTarget;
+        context.templateRoot.setAttribute('allow-edges',input.checked);
+        context.applyRootChangesToInput();
+      });
+      $edgePriority.on('change', (e: ChangeEvent) => {
+        let input = e.currentTarget;
+        let direction_and_kind = input.getAttribute('kind');
+        context.templateRoot.setAttribute('show-' + direction_and_kind + '-edges', input.value);
+        context.applyRootChangesToInput();
+      });
     }
   }
 }

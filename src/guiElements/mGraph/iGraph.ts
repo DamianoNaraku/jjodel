@@ -27,7 +27,7 @@ import {
   ExtEdge,
   measurableRules,
   DamContextMenu,
-  Model, IClassifier
+  Model, IClassifier, Measurable
 } from '../../common/Joiner';
 import MouseDownEvent = JQuery.MouseDownEvent;
 import MouseUpEvent = JQuery.MouseUpEvent;
@@ -169,6 +169,16 @@ export class ViewPointShell {
       this.graph.propertyBar.styleEditor.show();
       if (isM2) Status.status.m.graph.propertyBar.styleEditor.show();
     }, 10);
+    /*let v: IVertex = Object.values(IVertex.all)[0];
+    setTimeout(() => {
+      console.error('triggering refreshes');
+      const vertexes: IVertex[] = Object.values(IVertex.all);// + ReservedClasses.onRefresh);
+      for (i = 0; i < vertexes.length; i++) {
+        const elem: Element = vertexes[i].getMeasurableNode();
+        vertexes[i].measuringEventTrigger(null, null, measurableRules.onRefresh, elem);
+        vertexes[i].measuringEventTrigger(null, null, measurableRules.constraint, elem);
+      }
+    }, 3000);*/
   }
   duplicateEvent(e: ClickEvent, oldvp: ViewPoint, oldvpCheckbox: HTMLInputElement, debug: boolean = false): void {
     U.pif(debug, 'duplicate(' + (oldvp ? oldvp.name : null) + ') Start:', this.model.viewpoints);

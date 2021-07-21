@@ -51,8 +51,34 @@
   <div class="MDefaultStyles customized"></div>
   <div class="MDefaultStyles immutable">
 
-    <foreignobject class="template Vertex Class" tabindex="-1" hover-base="v1" x="50" y="50" width="300" style="cursor: pointer; position: relative; border-radius:7px; box-shadow: 0 0 3pt 0.5pt var(--color-3); background:var(--color-1); color:var(--color-2);">
-      <div class="Class" style="background:var(--color-1); height:auto; width:100%; border-radius:7px; display: inline-flex; flex-flow: column;" data-autosizey="1">
+    <foreignobject aircraft_example class="template Vertex Classnope" hover-base="v1"
+                   style="cursor: pointer; position: relative; color:var(--color-2);"
+                   tabindex="-1" width="300" x="50" y="50">
+      <div _ngcontent-fmh-c7="" class="Class" data-autosizey="1" data-autosizex="1"
+           style="height:auto; width:100%; display: inline-flex; flex-flow: column;">
+        <div _ngcontent-fmh-c7="" class="VertexHeader"
+             style="text-align:center; display:flex; padding: 8px 0; width:100%; font-size:1rem; border-bottom: 0.5px solid #77777777;">
+          <input _ngcontent-fmh-c7="" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*" placeholder="Object name"
+                 style="display:none; background:transparent; border:none; text-align:right; order:1; flex-basis: 50%; min-width:10px;"
+                 value="$##name$">
+          <div _ngcontent-fmh-c7="" class="no-ov"
+               style="text-align: center; order:2; flex-grow:1; color:var(--color-2); margin:auto;">$##attributes.3.values.0$:&nbsp;
+          </div>
+          <div _ngcontent-fmh-c7="" class="no-ov"
+               style="text-align: center; order:2; flex-grow:1; color:var(--color-4); margin:auto;">$##metaParent.name$
+          </div>
+          <div _ngcontent-fmh-c7="" class="hover-unfade open-options" hover-display="v1"
+               style="top: 7px; right: 0; border-radius: 999px;" tabindex="-1">
+            <span _ngcontent-fmh-c7="">...</span></div>
+        </div>
+        <img src="https://raw.githubusercontent.com/DamianoNaraku/jodel-wiki/main/examples/glider%20small.png"
+             style="pointer-events: none; background:var(--color-1); display: flex; height:70px; width:250px; flex-basis:0; box-shadow: 0 0 3pt 0.5pt var(--color-3);
+    border-radius: 7px;">
+      </div>
+    </foreignobject>
+
+    <foreignobject class="template Vertex Class" tabindex="-1" hover-base="v1" x="50" y="50" width="300" style="cursor: pointer; position: relative; border-radius:7px; background:var(--color-1); color:var(--color-2);">
+      <div class="Class" style="background:var(--color-1); box-shadow: 0 0 3pt 0.5pt var(--color-3); height:auto; width:100%; border-radius:7px; display: inline-flex; flex-flow: column;" data-autosizey="1">
         <div class="VertexHeader" style="text-align:center; display:flex; padding: 8px 0; width:100%; font-size:1rem; border-bottom: 0.5px solid #77777777;">
           <input value="$##name$" placeholder="Object name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*"
                  style="display:none; background:transparent; border:none; text-align:right; order:1; flex-basis: 50%; min-width:10px;">
@@ -95,10 +121,22 @@
       </div>
     </div>
 
-    <div class="template Feature Attribute" tabindex="-1" hover-base="f1" style="position: relative; width:100%; height:22px; padding-left:5px; display:flex;">
+    <datalist id="boolean-datalist">
+        <option value="true">true</option>
+        <option value="false">false</option>
+    </datalist>
+
+    <div class="template Feature Attribute" data-type="$##metaParent.type.primitiveType.short$" enum-type="$##metaParent.type.enumType.className$" tabindex="-1" hover-base="f1" style="position: relative; width:100%; height:22px; padding-left:5px; display:flex;">
       <span class="no-ov" style="order:0; flex-basis:10px; flex-grow:2; flex-shrink:2; min-width:3px; margin:auto; color:var(--color-f-1);">$##metaParent.type.printablename$</span>
       <span class="no-ov" style="order:1; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px; margin:auto;">$##metaParent.name$&nbsp;=&nbsp;</span>
       <input type="text" placeholder="empty string" value="$##valuesStr$" style="background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+      <input type="number" placeholder="0" value="$##valuesStr$" style="background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+      <input type="datetime-local" placeholder="now" value="$##valuesStr$" style="background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+      <select bool value="$##valuesStr$" style="background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;">
+        <option value="true">true</option>
+        <option value="false">false</option>
+      </select>
+      <select enum value="$##valuesStr$" style="background:transparent; border:none; order:2; flex-basis:10px; flex-grow:3; flex-shrink:3; min-width:3px;"></select>
       <div hover-display="f1" class="hover-unfade open-options" tabindex="-1"
            style="right: -25px; border-top-right-radius: 999px; border-bottom-right-radius: 999px;">
         <span>...</span>

@@ -302,8 +302,9 @@ export abstract class ModelPiece {
     }
   }
 
-  refreshInstancesGUI(): void {
+  refreshInstancesGUI(thisToo: boolean = false): void {
     let i = 0;
+    if (thisToo) this.refreshGUI_Alone();
     U.pe(!this.instances, '', this);
     while (i < this.instances.length) {
       try { this.instances[i++].refreshGUI_Alone(false); } catch (e) {} finally {}

@@ -86,19 +86,20 @@ export abstract class IClass extends IClassifier {
     this.edgeStyleSelected = new EdgeStyle(EdgeModes.angular23Auto, 4, '#ffffff',
       new EdgePointStyle(5, 2, '#ffffff', '#ff0000'),
       new EdgeHeadStyle(25, 25, '#ffffff', '#ffffff'));
-
     switch (WebsiteTheme.get()) {
       default: U.pe(true, 'unexpected website theme: |' + WebsiteTheme.get() + '|' + WebsiteTheme.Light + '|'); break;
       case WebsiteTheme.Dark: break;
       case WebsiteTheme.Light:
         let edgeStyles: EdgeStyle[] = [this.edgeStyleCommon, this.edgeStyleHighlight, this.edgeStyleSelected];
         for (i = 0; i < edgeStyles.length; i++) {
+          // todo: problema: on load è corretto, ma a runtime cambia il tema ma gli oggetti già creati hanno questo stile. andrebbe salvato null e calcolato a runtime sull'arco
           let style: EdgeStyle = edgeStyles[i];
           style.color = complementaHex(style.color);
           style.edgePointStyle.fillColor = complementaHex(style.edgePointStyle.fillColor);
           style.edgePointStyle.strokeColor = complementaHex(style.edgePointStyle.strokeColor);
-          style.edgeHeadStyle.fill = complementaHex(style.edgeHeadStyle.fill);
-          style.edgeHeadStyle.stroke = complementaHex(style.edgeHeadStyle.stroke); }
+          style.edgeHeadStyle.stroke = complementaHex(style.edgeHeadStyle.stroke);
+          style.edgeHeadStyle.fill = '#ffffff'; // complementaHex(style.edgeHeadStyle.fill); // nope, il centro è e deve essere sempre bianco
+        }
         break;
     }
   }

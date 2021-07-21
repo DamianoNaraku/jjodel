@@ -28,7 +28,7 @@ export class VsCodeLayerIn{
         console.log("1x jodel received got message:", JSON.stringify(msg));
         break;
       case "webpackWarnings":
-        U.enableConsole();
+        // U.enableConsole();
         break;
       case "init":
         console.log("1x jodel received got message init!!:", JSON.stringify(body));

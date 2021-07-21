@@ -118,7 +118,7 @@ export class PropertyBarr {
     html.classList.remove('template');
     html.classList.add('wastemplate');
     const $html = $(html);
-    $html.find('.replaceVarOn').each( (ii: number, elem: HTMLElement) => { U.replaceVars(o, elem, false); });
+    $html.find('.replaceVarOn').each( (ii: number, elem: HTMLElement) => { U.replaceVarsInnerOnly(o, elem, false); });
     let namestr: string;
     const model: IModel = o.getModelRoot();
     if (! (o instanceof IModel || model.isMM()) ) { namestr = o.metaParent.name; } else { namestr = o.name; }
@@ -129,7 +129,7 @@ export class PropertyBarr {
         console.log('value:', input.value, 'inputHtml:', input, 'evt:', evt);
         input.value = o.setName(input.value, true);
       });
-    $html.find('.replaceVarOn').each( (i: number, elem: HTMLElement) => { U.replaceVars(o, elem, false); });
+    $html.find('.replaceVarOn').each( (i: number, elem: HTMLElement) => { U.replaceVarsInnerOnly(o, elem, false); });
     // console.log('7x', $html, $html.find('.m1disable'), model.isM(), (model.isM() ? '.m1' : '.m2') + 'disable', $html.find((model.isM() ? '.m1' : '.m2') + 'disable'));
     $html.find((model.isM() ? '.m1' : '.m2') + 'disable').attr('disabled', 'true');
     $html.find((model.isM() ? '.m1' : '.m2') + 'hide').remove();

@@ -112,7 +112,7 @@ export class ISidebar {
     console.log('addSidebarNodeClick done'); }
 
   updateNode(piece: IClassifier, containerr: HTMLElement) {
-    const html: HTMLElement = U.replaceVars<HTMLElement>(piece, piece.getSidebarHtml(), true);
+    const html: HTMLElement = U.replaceVars<HTMLElement>(piece, piece.getSidebarHtml());
     piece.linkToLogic(html);
     this.addEventListeners(html);
     containerr.appendChild(html); }

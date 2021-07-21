@@ -207,7 +207,8 @@ export class MReference extends IReference {
     for (i = 0; i < json.length; i++) {
       // console.log('mref.parse: ', json0, json, 'i:', json[i]);
       if ($.isEmptyObject(json[i])) { continue; }
-      const t: MClass | string = json[i] === '' + json[i] ? '' + json[i] : new MClass(pkg, json[i], targetMM, true);
+      const targetMM_orSubclass: M2Class = MClass.findMetaSubClass(json[i], targetMM); // se ho una reference che punta ad una classe astratta con sottoclassi, i riferimenti potrebbero non essere del tipo della superclasse.
+      const t: MClass | string = json[i] === '' + json[i] ? '' + json[i] : new MClass(pkg, json[i], targetMM_orSubclass, true);
       this.mtarget[i] = t as any; // this.setTarget(i, t as any); non usare setTarget qui, t è stringa e il setTarget viene fatto durante lo step fixReferences()
       if (t && t instanceof MClass) t.referencesIN.push(this);
     }

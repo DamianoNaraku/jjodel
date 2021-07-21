@@ -331,6 +331,27 @@ export class ChangelogRoot extends ChangelogEntry {
       '<li>The root object cannot be contained.</li>' +
       '</ul>Attempting to set an invalid relationship will emit an explaining popup', null, true);
     v.addbf('looping models', 'Models with reference loops (non-containing ones) are now supported');
+
+    v.addbf('gui', '<ul>' +
+      '<li>fixed the color of inheritance arrow</li>' +
+      '<li>re-enabled the shadow on vertex default style</li>' +
+      '</ul>', null, true);
+
+    v.addbf('Style editor', 'template attributes of the root node weren\'t replaced as supposed', null, false);
+    v.addf('M1 attribute - default style improvement', '&nbsp;\n' +
+      'Now attributes will always show only a proper input type matching the correct type for that attribute, invalid input types will be hidden.\n' +
+      'All HTML inputs (input, select, textarea) will be shown only if one of those combination occurs:\n' +
+      '<table><tr><th>Attrib Type</th><th>&lt;input &gt;</th><th>&lt;select /&gt; or &lt;textarea /&gt; has attribute</th></tr>' +
+      '<tr><td>EBoolean</td><td>radio, checkbox</td><td>[bool]</td><tr>' +
+      '<tr><td>EDouble, EFloat, ELong, EInt, EShort, EByte</td><td>number, range</td><td>[number]</td><tr>' +
+      '<tr><td>EDate</td><td>date, time, datetime-local, month, week</td><td>[date]</td><tr>' +
+      '</table>\n' +
+      'If the attribute type is EString or EChar, all HTML inputs not matching any row combination above are displayed and is not eligible to show in enumerations.\n' +
+      'If the attribute have an enumeration type instead of a primitive, only HTML inputs with [enum] attributes are shown.\n' +
+      'NB: those changes are not involving any hard-code, so they can be edited or reverted by changing the default style.', null, true);
+    v.addf('Style editor - new reserved attribute', '<select> elements with [enum] attribute which are bound to an attribute with enumerative type will now automatically generate their <option>\'s content.', null, false);
+    v.addf('date inputs', 'EDate type will now correctly display in inputs with type = date, datetime-local, time, month. And will export in ISO format' +
+      '\n The week type have display issues but correctly accept inputs.', null, false);
     // todo: documenta api theia
     // v = new VersionUpload(new Date('2020/4/21'), 'faketitle', 'fakedescr.');
     // v.addf('fakegfeat', 'kkk');

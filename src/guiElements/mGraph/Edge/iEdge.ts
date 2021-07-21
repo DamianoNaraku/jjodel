@@ -205,10 +205,10 @@ export enum EdgeModes {
 
 
   generateAggregationHead(style: EdgeHeadStyle): SVGSVGElement { return null; }
-  generateContainmentHead(style: EdgeHeadStyle): SVGSVGElement { return this.generateAggregationHead(style); }
-  generateContainmentTail(style: EdgeHeadStyle): SVGSVGElement { return this.generateAggregationTail(style); }
+  generateCompositionHead(style: EdgeHeadStyle): SVGSVGElement { return this.generateAggregationHead(style); }
+  generateCompositionTail(style: EdgeHeadStyle): SVGSVGElement { return this.generateAggregationTail(style, style.stroke); }
 
-  generateAggregationTail(style: EdgeHeadStyle): SVGSVGElement { // https://jsfiddle.net/Naraku/3hngkrc1/
+  generateAggregationTail(style: EdgeHeadStyle, fill: string = '#ffffff'): SVGSVGElement { // https://jsfiddle.net/Naraku/3hngkrc1/
     let svg: SVGSVGElement;
     let path: SVGPathElement;
     const bugfigo = false;
@@ -227,7 +227,7 @@ export enum EdgeModes {
     svg.setAttributeNS(null, 'height', '' + style.width);
     svg.setAttributeNS(null, 'viewBox',
       (-style.width) + ' ' + (-style.width) + ' ' + (200 + style.width * 2) + ' ' +  (200 + style.width * 2));
-    path.setAttributeNS(null, 'fill', style.fill);
+    path.setAttributeNS(null, 'fill', fill); // style.fill);
     path.setAttributeNS(null, 'stroke', style.stroke);
     path.setAttributeNS(null, 'stroke-width', '' + style.width);
     return svg; }
@@ -244,7 +244,8 @@ export enum EdgeModes {
       svg = U.newSvg<SVGSVGElement>('svg');
       path = U.newSvg<SVGPathElement>('path');
       svg.appendChild(path);
-      path.setAttributeNS(null, 'd', 'M100 0 L200 200 L000 200 Z'); }
+      let heightForEquilateral = Math.sqrt(200*200 - 100*100); // 100^2+x^2=200^2   --->  x = sqrt( 200^2 - 100^2 )
+      path.setAttributeNS(null, 'd', 'M100 0 L200 ' + heightForEquilateral + ' L000 '+ heightForEquilateral +' Z'); }
     this.headtype = EdgeDecoratorType.generalization;
     svg.setAttributeNS(null, 'width', '' + style.width);
     svg.setAttributeNS(null, 'height', '' + style.width);
@@ -546,8 +547,8 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     this.html.setAttribute('stroke-width', '' + style.width);
     this.shadow.setAttribute('stroke-width', '' + (style.width + IEdge.shadowWidthIncrease));
     // U.clear(this.shell);
-    this.shell.appendChild(this.html);
-    this.shell.appendChild(this.shadow);
+    this.shell.insertBefore(this.html, this.shell.firstChild);
+    this.shell.insertBefore(this.shadow, this.shell.firstChild);
     U.pif(debug, 'edgeHead:', this.edgeHead, 'tail:', this.edgeTail);
     this.html.setAttributeNS(null, 'd', pathStr);
     this.shadow.setAttributeNS(null, 'd', pathStr);
@@ -904,10 +905,10 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
         debugi = window['' + 'debug'];
         if (debugi === 4.1) return  (edgeTailHeadSVG ? edgeTailHeadSVG : html) ; }
       if (isHead) {
-        if (logicref && logicref.isContainment()) { html = this.generateContainmentHead(this.getStyle().edgeHeadStyle); }
+        if (logicref && logicref.isContainment()) { html = this.generateAggregationHead(this.getStyle().edgeHeadStyle); }
         if (this instanceof ExtEdge) { html = this.generateGeneralizationHead(this.getStyle().edgeHeadStyle); }
       } else {
-        if (logicref && logicref.isContainment()) { html = this.generateContainmentTail(this.getStyle().edgeHeadStyle); }
+        if (logicref && logicref.isContainment()) { html = this.generateAggregationTail(this.getStyle().edgeHeadStyle); }
         if (this instanceof ExtEdge) { html = this.generateGeneralizationTail(this.getStyle().edgeHeadStyle); }
       }
       // U.pe(this instanceof ExtEdge && !html, 'cannot return null on extedge:', html, this);
@@ -976,7 +977,7 @@ U.pe(lastIsHorizontalSide === null, 'endpoint is not on the boundary of vertex.'
     if (!shell) {
       shell = U.newSvg('g');
       if (tail) { this.tailShell = shell; } else { this.headShell = shell; }
-      if (firstEdgePointHtml) {
+      if (false && firstEdgePointHtml) {
         this.shell.insertBefore(shell, firstEdgePointHtml); }
       else { this.shell.appendChild(shell); }
       this.addEventListeners(false, true);

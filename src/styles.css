@@ -112,6 +112,15 @@ input[type="number"][digit="5"]{
   min-width: 60px;
 }
 
+td, th{
+  padding: 5px;
+  border: 1px solid #aaaaaa;
+}
+th{
+  font-weight: 800;
+}
+
+
 /* Optional: show position indicator in red */
 /* resizable border */
 /* example-specific */

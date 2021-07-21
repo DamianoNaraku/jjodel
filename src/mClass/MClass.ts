@@ -130,8 +130,8 @@ export class MClass extends IClass {
     if (this.metaParent) U.arrayRemoveAll(this.metaParent.instances, this);
     this.metaParent = newMetaParent;
     this.metaParent.instances.push(this);
-    const newattributes: M2Attribute[] = [...newMetaParent.getAllAttributes()]; // need shallow copy
-    const newreferences: M2Reference[] = [...newMetaParent.getAllReferences()];
+    const newattributes: M2Attribute[] = [...newMetaParent.getAllAttributes()].reverse(); // need shallow copy
+    const newreferences: M2Reference[] = [...newMetaParent.getAllReferences()].reverse();
     let i: number;
 
     // remove features not present in new type
@@ -531,4 +531,64 @@ export class MClass extends IClass {
     }
   }
   isContainedIn(container: MClass): boolean{ return this.getContainerChain().indexOf(container) >= 0; }
+
+
+  // todo problema: se ci sono 2 sottoclassi con stessi nomi di feature ma diversi tipi... o addirittura diverso tipo di modelpiece
+  // (attribute vs operation) vengono considerati uguali perchè valuta solo i nomi delle feature e non la compatibilità del valore con il tipo
+  static findMetaSubClass(json1: Json, targetMM: M2Class, debug: boolean = true): M2Class{
+    U.pif(debug, 'findMetaSubclass to use', json1);
+    const subclasses: M2Class[] = targetMM.getAllSubClasses(true);
+    const requiredFeatures: Dictionary<string, boolean> = U.toDictionary(Object.keys(json1).map(f=>f.substr(Status.status.XMLinlineMarker.length).toLowerCase()), false);
+    const scores: MetaClassCompatibility[] = subclasses.map( c => new MetaClassCompatibility(requiredFeatures, c, targetMM))
+      .sort((mc1, mc2) => mc2.matchingScore - mc1.matchingScore);
+    const bestScorePareggi: MetaClassCompatibility[] = scores.filter(match => match.matchingScore == scores[0].matchingScore)
+      .sort((m1,m2) => m1.subclassingDepthLevel-m2.subclassingDepthLevel); // take only best scores
+    U.pif(debug, 'findMetaSubclass to use matched:', {match: bestScorePareggi[0].m2Class.name, subclasses, requiredFeatures, scores, scoresn: scores.map(s=>s.m2Class.name)});
+    return bestScorePareggi[0].m2Class;
+  }
+}
+
+
+class MetaClassCompatibility {
+  static missingScore: number = -100; // using this m2 will remove features
+  static surplusScore: number = -1; // using this m2 will add features
+  static matchingScore: number = 0;
+  static caseSensitiveness: number = 0.1; // 1 = 100% score penalty, 0 = totally case insensitive.
+  missing: Dictionary<string, number>; // key - matchingDegree
+  surplus: Dictionary<string, number>;
+  matching: Dictionary<string, number>;
+  allm1Features: Dictionary<string, boolean>;
+  m2Class: M2Class;
+  matchingScore: number;
+  subclassingDepthLevel: number;
+
+  constructor(m1Features: Dictionary<string, boolean>, m2Class: M2Class, rootClass: M2Class, caseSensitiveness?: number) {
+    //todo: per ora solo case insensitive, magari fallo con case sensitiveness opzionale.
+    if (undefined === caseSensitiveness) caseSensitiveness = MetaClassCompatibility.caseSensitiveness;
+    this.allm1Features = m1Features;
+    this.m2Class = m2Class;
+    this.matching = {};
+    this.missing = {};
+    this.surplus = {};
+    this.matchingScore = 0;
+    this.subclassingDepthLevel = rootClass.getSubclassDepthLevel(m2Class);
+    // const m2features: Dictionary<string, boolean> = U.toDictionary(m2Class.getAllChildrens().map(c => c.name), false);
+    const m2featuresLowercase: Dictionary<string, boolean> =  U.toDictionary(m2Class.getAllChildrens().map(c => c.name.toLowerCase()), false);
+    for (let key in this.allm1Features) {
+      if (m2featuresLowercase[key]) {
+        this.matching[key] = 1;
+      } else {
+        this.missing[key] = 1;
+        this.matchingScore += MetaClassCompatibility.missingScore;
+      }
+    }
+    for (let key in m2featuresLowercase) {
+      if (this.allm1Features[key]) {
+        // this.matching[key] = 1;
+      } else {
+        this.surplus[key] = 1;
+        this.matchingScore += MetaClassCompatibility.surplusScore;
+      }
+  }
+  }
 }

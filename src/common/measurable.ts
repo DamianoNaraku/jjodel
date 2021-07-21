@@ -339,6 +339,7 @@ export class MeasurableRuleParts {
     U.pe(!evalContext.model.unsafemp, 'unsafe is unset:', evalContext.model, mp, evalContext);
     delete evalContext.model.applyChanges;
     const isvroot: boolean = vertex.getMeasurableNode() === node;
+    // console.log('xxxx', 'perchè a volte qua mi misura foreignobject invece che prendere vertex.getsize?', {isvroot, vertex, node});
     const size: ISize = isvroot ? graph.toHtmlCoordS(vertex.getSize()) : U.sizeof(node);
     backupContext.width = evalContext.width = size.w;
     backupContext.height = evalContext.height = size.h;
@@ -399,9 +400,12 @@ export class MeasurableRuleParts {
     let out: MeasurableRuleParts;
     out = this.process0(validatefirst, vertex, graph);
     console.log('process rule:', this.prefix, this, 'out:', out);
+    console.error('triggering rule processed:', this);
     return out; }
 
   process0(validatefirst: boolean = false, vertex: IVertex = null, graph: IGraph = null): MeasurableRuleParts {
+
+    if (!MeasurableTemplateGenerator.constraintMap) MeasurableTemplateGenerator.generateMeasurableTemplate();
     let exception: MyException;
     const out: MeasurableRuleParts = new MeasurableRuleParts(null, null, true);
     let tmp: any;
@@ -689,6 +693,7 @@ export class MeasurableRuleParts {
       case measurableRules.constraint:
         ///// left validation
         this.left = this.left.trim();
+        console.error(this, 'constraintmap:', MeasurableTemplateGenerator.constraintMap, MeasurableTemplateGenerator.constraintMap && MeasurableTemplateGenerator.constraintMap[this.left]);
         if (!MeasurableTemplateGenerator.constraintMap[this.left]) {
           console.trace('icr ');
           console.error('irc: invalid constraint rule, found:', this.left, 'not in: ', MeasurableTemplateGenerator.constraintMap);//
@@ -1056,17 +1061,23 @@ export class Measurable {
     if (isvroot){
       isvroot.dragConfig = draConfig;
       const oldconfig: ResizableOptions = U.cloneObj(resConfig);
+      oldconfig.resize = resConfig.resize;
+      oldconfig.start = resConfig.start;
+      oldconfig.stop = resConfig.stop; // because they will not be copied by cloneobj, todo: check if other functions are missing
       resConfig.resize = (e, ui) => {
+        console.log('measurableevt on resizing', {e, ui, oldHandler: oldconfig.resize});
         isvroot.autosizeNew(true, true, measurableRules.whileResizing);
-        oldconfig.resize(e, ui);
+        if (oldconfig.resize) oldconfig.resize(e, ui);
       };
       resConfig.start = (e, ui) => {
         isvroot.autosizeNew(true, true, measurableRules.onResizeStart);
-        oldconfig.start(e, ui);
+        console.log('measurableevt on resizeStart', {e, ui, oldHandler: oldconfig.start});
+        if (oldconfig.start) oldconfig.start(e, ui);
       };
       resConfig.stop = (e, ui) => {
         isvroot.autosizeNew(true, true, measurableRules.onResizeEnd);
-        oldconfig.stop(e, ui);
+        console.log('measurableevt on resizeEnd', {e, ui, oldHandler: oldconfig.stop && oldconfig.stop.toString()});
+        if (oldconfig.stop) oldconfig.stop(e, ui);
       };
     }
 

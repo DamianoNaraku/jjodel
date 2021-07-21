@@ -475,7 +475,7 @@ export class CSSParser {
 }
 export enum ShortAttribETypes {
   void = 'void',
-  EChar  = 'Echar',
+  EChar  = 'EChar',
   EString  = 'EString',
   EDate  = 'EDate',
   EFloat  = 'EFloat',
@@ -681,7 +681,7 @@ export class U {
     console.error(s, ...restArgs);
     window['lastError'] = [restArgs];
     U.bootstrapPopup(str, 'danger', 5000);
-    return (((b as unknown) as any[])['@makeMeCrash'] as any[])['@makeMeCrash']; }
+    throw new Error(str); }
 
   static pw(b: boolean, s: any, ...restArgs: any[]): string {
     if (!b) { return null; }
@@ -862,7 +862,28 @@ export class U {
   static newSvg<T extends SVGElement>(type: string): T {
     return document.createElementNS('http://www.w3.org/2000/svg', type) as T; }
 
-  public static replaceVars<T extends Element>(obj: object, html0: T, cloneHtml = true, debug: boolean = false): T {
+  // can replace templates on the root node, canNOT avoid cloning parameter node
+  public static replaceVars<T extends Element>(obj: object, elem: T, debug: boolean = false): T {
+    /// see it in action & parse or debug at
+    // v1) perfetto ma non supportata in jscript https://regex101.com/r/Do2ndU/1
+    // v2) usata: aggiustabile con if...substring(1). https://regex101.com/r/Do2ndU/3
+    // get text between 2 single '$' excluding $$, so they can be used as escape character to display a single '$'
+    // console.log('html0:', html0, 'html:', html);
+    U.pe(!(elem instanceof Element), 'target must be a html node.', elem);
+    let container = elem.parentElement;
+    const wasDetached = !container;
+    if (wasDetached) {
+      container = document.createElement('div');
+      container.append(elem);
+      console.info (container, elem); }
+    container.innerHTML = U.replaceVarsString(obj, container.innerHTML, debug);
+    U.pif(debug, 'ReplaceVars() return = ', container.innerHTML);
+    elem = container.firstElementChild as T;
+    if (wasDetached) { container.removeChild(elem);}
+    return elem; }
+
+  // cannot replace templates on the root node, can avoid cloning parameter node.
+  public static replaceVarsInnerOnly<T extends Element>(obj: object, html0: T, cloneHtml = true, debug: boolean = false): T {
     const html: T = cloneHtml ? U.cloneHtml<T>(html0) : html0;
     /// see it in action & parse or debug at
     // v1) perfetto ma non supportata in jscript https://regex101.com/r/Do2ndU/1
@@ -2436,7 +2457,7 @@ export class U {
     for (i = 0; i < arr.length; i++) { if (arr[i] === searchElem) return true; }
     return false; }
 
-  static toBoolString(bool: boolean): string { return bool ? "true" : "false"; }
+  static toBoolString(bool: boolean, ifNotBoolean: boolean = false): string { return bool === true ? 'true' : (bool === false ? 'false' : '' + ifNotBoolean); }
   static fromBoolString<T>(str: string | boolean, defaultVal: boolean | T = false, allowNull: boolean = false, allowUndefined: boolean = false): boolean | T {
     str = ('' + str).toLowerCase();
     if (allowNull && (str === 'null')) return null;
@@ -2695,11 +2716,11 @@ export class U {
     U.pe(ist === orig, 'assertion failed (istrigger):', ist, orig);
     return ist; }
 
-  static ArrayToMap(arr: (string | number | boolean)[], useLastIndexAsValue: boolean = false): Dictionary<string, boolean | number> { return U.toMap(arr, useLastIndexAsValue); }
-  static toDictionary(arr: (string | number | boolean)[], useLastIndexAsValue: boolean = false): Dictionary<string, boolean | number> { return U.toMap(arr, useLastIndexAsValue); }
-  static toMap(arr: (string | number | boolean)[], useLastIndexAsValue: boolean = false): Dictionary<string, boolean | number> {
+  static ArrayToMap(arr: (string | number | boolean)[], useIndexesAsValues: boolean = false): Dictionary<string, boolean | number> { return U.toMap(arr, useIndexesAsValues); }
+  static toDictionary(arr: (string | number | boolean)[], useIndexesAsValues: boolean = false): Dictionary<string, boolean | number> { return U.toMap(arr, useIndexesAsValues); }
+  static toMap(arr: (string | number | boolean)[], useIndexesAsValues: boolean = false): Dictionary<string, boolean | number> {
     const ret: Dictionary<string, boolean | number> = {};
-    for (let i = 0; i < arr.length; i++) { ret['' + arr[i]] = useLastIndexAsValue ? i : true; }
+    for (let i = 0; i < arr.length; i++) { ret['' + arr[i]] = useIndexesAsValues ? i : true; }
     // arr.reduce((accumulator,curr)=> (accumulator[curr]='',accumulator), {}); // geniale da stackoverflow (accumulator was "acc")
     return ret; }
 
@@ -2718,7 +2739,17 @@ export class U {
     if (val === 0) return ifzero;
     U.pe(true, 'isUnset() should not reach here', val);
     return true; }
-
+  static findGetParameter(parameterName: string): string {
+    var result = null, tmp = [];
+    location.search
+    .substr(1)
+    .split("&")
+    .forEach(function (item) {
+      tmp = item.split("=");
+      if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    });
+    return result;
+  }
   // usage: flags should be used only if delimiters are not used.
   // delimiters can only be single characters
   static parseRegexString(s: string, onlyIfDelimitedByOneOf: string[] = ['\\', '/'], flags: string = null, canThrow: boolean = true): RegExp {
@@ -3359,7 +3390,42 @@ export class U {
     if (!arr1 || ! arr2) return null;
     return arr1.filter( e => arr2.indexOf(e) >= 0);
   }
-}
+
+  static getLocale(defaultLocale: string = "en-UK"): string{
+    if (!navigator) return defaultLocale;
+    return navigator.language || navigator.languages[0] || defaultLocale;
+  }
+
+  /* NB: if using for <input type="week"> example usage:<br>
+   * input.value = "2021-W" + (''+ U.getWeekNumber(d)).padStart(2, '0')
+   * */
+  static getWeekNumber(d: Date): number{
+    const year = d.getFullYear();
+    const month = d.getMonth();
+    const day = d.getDate();
+    function serial(days: number): number { return 86400000*days; }
+    function dateserial(year: number, month: number, day: number): number { return (new Date(year,month-1,day).valueOf()); }
+    function weekday(date: number) { return new Date(date).getDay()+1; }
+      function yearserial(date: number) { return (new Date(date)).getFullYear(); }
+      const date: number = dateserial(year,month,day),
+        date2: number = dateserial(yearserial(date - serial(weekday(date-serial(1))) + serial(4)),1,3);
+      // ~~ should be equal to for Math.trunc, it just truncate decimals. (not like Math.floor)
+      return ~~((date - date2 + serial(weekday(date2) + 5))/ serial(7));
+    }
+
+  static fromWeekNumber(y: number, w: number): Date {
+    var simple: Date = new Date(y, 0, 1 + (w - 1) * 7);
+    var dow: number = simple.getDay();
+    var ISOweekStart: Date = simple;
+    if (dow <= 4)
+      ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1);
+    else
+      ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
+    // ISOweekStart.setMonth(ISOweekStart.getMonth()+1); // myaddition
+    return ISOweekStart;
+  }
+
+} // end of class U
 const $smap = {};
 // selettore query "statico", per memorizzare in cache i nodi del DOM read-only per recuperarli più efficientemente. (es: nodi template)
 export function $s<T extends Element>(selector: string, clone: boolean = true): JQuery<T>{

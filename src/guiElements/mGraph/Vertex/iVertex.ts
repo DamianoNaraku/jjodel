@@ -466,7 +466,7 @@ export class IVertex {
     if (refreshEdge) { this.refreshEdgesGUI(); }
     if (trigger) {
       // todo: problema: un solo measurable node può eseguire gli eventi "on...." (il foreignObject)
-      let measnode = this.getMeasurableNode();
+      const measnode = this.getMeasurableNode();
       // todo: problema 2: i trigger possono eseguire solo comandi dello stesso nodo che contiene il trigger.
       // todo problema 3: se imposto on onmove -> move linked object(follow me) && onmove->constraint e sposto in modo da violare il constraint:
       //  siccome il constraint viene eseguito dopo, il linked object segue il mouse ma non l'oggetto che rimane fisso per il constraint.
@@ -536,9 +536,18 @@ export class IVertex {
       U.clearAttributes(idarr[i]);
       idarr[i].style.display = 'none';
     }*/
-    const scripts: JQuery<HTMLScriptElement> =  $htmlraw.find('script') as any;
+    // because input value cannot accept full iso string... anyone wants a different segment/format
+    // 'input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input[type="week"]') as any;
 
-    for(i = 0; i < scripts.length; i++) {
+    if (parenttmp) { if (next) parenttmp.insertBefore(htmlRaw, next); else parenttmp.appendChild(htmlRaw); }
+    if (this.isAutosize().atLeastOne) this.autosizeNew(false, false);
+    this.fixDateInputs(); // setTimeout(() => this.fixDateInputs(), 7000);
+    this.runUserScripts();
+  }
+
+  private runUserScripts(): void {
+    const scripts: JQuery<HTMLScriptElement> = $(this.getHtmlRawForeign()).find('script') as any;
+    for (let i = 0; i < scripts.length; i++) {
       // clone the script, empty it while keeping (to keep same indexedPath structure as the template), execute id
       // todo: problema: tutti i successivi elementi con id statici verranno rimossi e avranno struttura template != struttura ongraph
       //  e falliranno a mostrare il clicked fragment nello styleeditor.
@@ -558,8 +567,56 @@ export class IVertex {
       // console.log('eval:', cloned.innerHTML);
       try { eval(cloned.innerHTML); } catch(e) { U.pw(true, 'error in user script of "' + this.logic().printableName()+ '":', e, 'script:', cloned); }
     }
-    if (parenttmp) { if (next) parenttmp.insertBefore(htmlRaw, next); else parenttmp.appendChild(htmlRaw); }
-    if (this.isAutosize().atLeastOne) this.autosizeNew(false, false);
+  }
+  private fixDateInputs(): void {
+    const $dates: JQuery<HTMLInputElement> = $(this.getHtmlRawForeign()).find('input') as unknown as JQuery<HTMLInputElement>;
+    const debug: boolean = false;
+    $dates.each( (i, di) => {
+      let adddate: boolean = false;
+      let addtime: boolean = false;
+      let addmsec: boolean = false;
+      switch (di.type){
+        default: return;
+        case 'date': adddate = true; break;
+        case 'time': addtime = addmsec = true; break;
+        case 'datetime-local': adddate = addtime = addmsec = true; break;
+        case 'month': break;
+        case 'week': U.pw(true, '&lt;input&gt;\'s with [type="week"] are currently not supported'); // fa errore qui quando tento di aggiustare il formato che mando nell'attributo value
+        break; }
+      if (debug) console.trace('vdu', 'to replicate', i, window['tempv1'] = this);
+      const oldVal: string = di.getAttribute('value'); // nb: do no use .value because if it's invalid for the current input type it will emit "invalid date" and i cannot adjust the format.
+      if (!oldVal || U.isNumerizable(oldVal)) { U.pif(debug, 'vdu', 'wrong input val:', {oldVal, di, type: di.type, outerHTML: di.outerHTML}); return; }
+      let d: Date = new Date(oldVal); // add yyyy-mm-dd to parse from "time" format
+      if (isNaN(d as any) && oldVal.indexOf(':') > 0) d = new Date('1970-01-01 ' + oldVal)
+      if (isNaN(d as any)) { U.pif(debug, 'vdu', 'cannot parse date:',  {oldVal, di, type: di.type, outerHTML: di.outerHTML}); return; }
+      switch (di.type){
+        default:
+          let val: string = '';
+          if (adddate) {
+            val += ('' + d.getFullYear()).padStart(4, '0')
+              + '-' + ('' + (1+d.getMonth())).padStart(2, '0')
+              + '-' + ('' + d.getDate()).padStart(2, '0'); }
+          if (addtime) {
+            if (val) val += 'T';
+            val += ('' + d.getHours()).padStart(2, '0')
+              + ':' + ('' + d.getMinutes()).padStart(2, '0')
+              + ':' + ('' + d.getSeconds()).padStart(2, '0');
+            if (addmsec) val += '.' + ('' + d.getMilliseconds()).padStart(3, '0')
+          }
+          U.pif(debug, 'vdu', 'setting date:', {date:d, oldVal, type: di.type, val});
+          // di.setAttribute('value', val);
+          di.value = val;
+          return;
+        case 'month':
+          di.value = ('' + d.getFullYear()).padStart(4, '0') +
+            '-' + (''+ (1+d.getMonth())).padStart(2, '0');
+          return;
+        case 'week':
+          di.value = ('' + d.getFullYear()).padStart(4, '0') +
+            '-W' + (''+ U.getWeekNumber(d)).padStart(2, '0');
+          return;
+      }
+    });
   }
 
   public autosizeNew(refreshVertex: boolean = false, refreshEdge: boolean = true, trigger: string = null, autosizeobj: {x: boolean, y: boolean, atLeastOne: boolean} = null): IVertex {
@@ -753,7 +810,7 @@ export class IVertex {
     const $graphHtml: JQuery<Element> = $(graphHtml);
     // console.log('drawing Vertex[' + data.name + '] with style:', htmlRaw, 'logic:', data);
     // console.log('drawVertex: template:', htmlRaw);
-    const foreign: SVGForeignObjectElement = this.htmlForeign = U.textToSvg(U.replaceVars<SVGForeignObjectElement>(data, htmlRaw, true).outerHTML);
+    const foreign: SVGForeignObjectElement = this.htmlForeign = U.textToSvg(U.replaceVars<SVGForeignObjectElement>(data, htmlRaw).outerHTML);
     // this.htmlForeign.classList.add(ReservedClasses.vertexRoot);
     const $foreign = $(foreign);
     data.linkToLogic(foreign);
@@ -837,8 +894,14 @@ export class IVertex {
     const htmlRaw: Element = style.html;
     U.pe(!htmlRaw, 'failed to get attribute style:', data);
     // todo: sposta l'opearzione nei Graph.Field
-    const html: Element = U.replaceVars<Element>(data, htmlRaw, true);
+    const html: Element = U.replaceVars<Element>(data, htmlRaw);
     data.linkToLogic(html as any);
+    if (data.getType().enumType) $(html).find('select[enum]').append(
+      U.toHtml('<optgroup label="' + data.getType().printablename + '">'
+       + data.getType().enumType.childrens.map( (literal) => '<option value="' + literal.name + '"' + (literal.name === (data as MAttribute).valuesStr ? 'selected' : '') + '>' + literal.name + '</option>').join('')
+      + '</optgroup>')
+    );
+    // todo: devo fare selected pure per boolen perchè select[valkue]non và e poi css per nascondere gli input e select non conformi al tipo
     return html; }
 
   toEdge(start: IVertex, end: IVertex): IEdge {
@@ -883,9 +946,37 @@ export class IVertex {
     // NB: do not delete the apparantly useless dynamic functions.
     // jqueryui is binding this to e.currentTarget and e.currentTarget to document.body, the dynamic function makes this instanceof iVertex again.
     // defaultResizeConfig.create = (e: Event, ui: ResizableUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
-    defaultResizeConfig.start = (e: Event, ui: ResizableUIParams) => this.measuringEventTrigger(ui, e, measurableRules.onResizeStart);
-    defaultResizeConfig.resize = (e: Event, ui: ResizableUIParams) => this.measuringEventTrigger(ui, e, measurableRules.whileResizing);
-    defaultResizeConfig.stop = (e: Event, ui: ResizableUIParams) => this.measuringEventTrigger(ui, e, measurableRules.onResizeEnd);
+    defaultResizeConfig.start = (e: Event, ui: ResizableUIParams) => {
+      const target: Element = e.target as Element;
+      const v: IVertex = IVertex.getvertexByHtml(target);
+      if (v.getMeasurableNode() === target) {
+        // const gsize: GraphPoint = v.owner.toGraphCoord(new GraphPoint(Number.parseFloat(target.getAttribute('width')), Number.parseFloat(target.getAttribute('height'))));
+        // v.setSize(new GraphSize(null, null, gsize.x, gsize.y));
+      }
+      this.measuringEventTrigger(ui, e, measurableRules.onResizeStart);
+    }
+    defaultResizeConfig.resize = (e: Event, ui: ResizableUIParams) => {
+      this.measuringEventTrigger(ui, e, measurableRules.whileResizing);
+      const target: HTMLElement = e.target as HTMLElement;
+      const v: IVertex = IVertex.getvertexByHtml(target);
+      if (v.getMeasurableNode() === target) {
+        const gsize: GraphSize = new GraphSize(null, null, Number.parseFloat(target.style.width)/this.owner.zoom.x, Number.parseFloat(target.style.height)/this.owner.zoom.y);
+        v.setSize(gsize);
+      }
+    }
+    defaultResizeConfig.stop = (e: Event, ui: ResizableUIParams) => {
+      this.measuringEventTrigger(ui, e, measurableRules.onResizeEnd);
+      const target: HTMLElement = e.target as HTMLElement;
+      const v: IVertex = IVertex.getvertexByHtml(target);
+      if (v.getMeasurableNode() === target) {
+        console.log('mres', {
+          htmlcoord: new GraphPoint(Number.parseFloat(target.style.width)/this.owner.zoom.x, Number.parseFloat(target.style.height)/this.owner.zoom.y),
+          //gcoord: v.owner.toGraphCoord(new GraphPoint(Number.parseFloat(target.style.width), Number.parseFloat(target.style.height)))
+        });
+        const gsize: GraphSize = new GraphSize(null, null, Number.parseFloat(target.style.width)/this.owner.zoom.x, Number.parseFloat(target.style.height)/this.owner.zoom.y);
+        v.setSize(gsize);
+      }
+    }
     // defaultDragConfig.create = (e: Event, ui: DraggableEventUIParams) => this.measuringTrigger(ui, e, measurableRules.onRefresh);
     defaultDragConfig.start = (e: Event, ui: DraggableEventUIParams) => this.measuringEventTrigger(ui, e, measurableRules.onDragStart);
     defaultDragConfig.drag = (e: Event, ui: DraggableEventUIParams) => this.measuringEventTrigger(ui, e, measurableRules.whileDragging);
@@ -897,7 +988,7 @@ export class IVertex {
 //     console.log('measurableElementSetup:', defaultResizeConfig, defaultDragConfig);
     // todo: sta cosa potrei eliminarla se uso jqui.create oppure li cerco mentre creo il $(node).resizable(resConfig);
     Measurable.measurableElementSetup($html, defaultResizeConfig, defaultRotConfig, defaultDragConfig, this);
-    const $elementsWithRefreshTrigger = $html.find('.' + ReservedClasses.onRefresh);
+    const $elementsWithRefreshTrigger = $html.find('.measurable');// + ReservedClasses.onRefresh);
     for (i = 0; i < $elementsWithRefreshTrigger.length; i++) {
       const elem: Element = $elementsWithRefreshTrigger[i];
       this.measuringEventTrigger(null, null, measurableRules.onRefresh, elem);
@@ -906,12 +997,14 @@ export class IVertex {
 
   measuringEventTrigger(uiseless: ResizableUIParams | DraggableEventUIParams = null, e: Event = null, prefix: string, html: Element = null): void {
     if (!html) html = e.target as Element;
+    if (!html.classList.contains('measurable')) return;
     // console.log('measuringEventTrigger:', prefix); // , html, e);
     if (!html.attributes) return;
     let i: number;
     for (i = 0; i < html.attributes.length; i++) {
       const a: Attr = html.attributes[i];
       if (a.name.indexOf(prefix.toLowerCase()) !== 0) continue;
+      console.error('triggering rule:', a);
       new MeasurableRuleParts(a, prefix).process(false, this, this.owner);
     }
   }
@@ -1002,7 +1095,9 @@ export class IVertex {
     const parentLine: Element[] = U.getParentLine(target, this.getMeasurableNode(), true, false, true);
     const measurables: JQuery<Element> = $(parentLine).filter('.measurable');
     const clickedOnMeasurableChildren: boolean = !!measurables.length;
-    if (e.button !== U.mouseLeftButton && clickedOnMeasurableChildren) { e.stopPropagation(); }
+    console.log('resizingg', {e, target:e.target, condition:e.target.classList.contains('ui-resizable-handle')});
+    if (e.target.classList.contains('ui-resizable-handle')) return;
+    if (e.button !== U.mouseLeftButton && (clickedOnMeasurableChildren)) { e.stopPropagation(); }
     if (e.button === U.mouseLeftButton && (U.isInput(target, true) || clickedOnMeasurableChildren)) { return; }
     if (e.button === U.mouseWheelButton) { this.owner.onMouseDown(e, true); return; }
 

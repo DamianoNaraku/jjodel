@@ -29,6 +29,7 @@ import {
   EOperation, EParameter, Typedd, Type, Dictionary, ExtEdge, ShortAttribETypes, EAnnotation, AccessModifier,
 } from '../common/Joiner';
 import Swal from "sweetalert2";
+import {by} from 'protractor';
 
 
 export class M2Class extends IClass {
@@ -442,12 +443,12 @@ export class M2Class extends IClass {
 
     model[ECoreClass.xsitype] = 'ecore:EClass';
     model[ECoreClass.namee] = this.name;
-    model[ECoreClass.interface] = U.toBoolString(this.isInterface);
-    model[ECoreClass.abstract] = U.toBoolString(this.isAbstract);
-    model[ECoreClass.instanceTypeName] = this.instanceTypeName;
-    model[ECoreClass.eSuperTypes] = supertypesstr;
-    model[ECoreClass.eStructuralFeatures] = featurearr;
-    model[ECoreClass.eOperations] = operationsarr;
+    model[ECoreClass.interface] = U.toBoolString(this.isInterface, false);
+    model[ECoreClass.abstract] = U.toBoolString(this.isAbstract, false);
+    if (this.instanceTypeName) model[ECoreClass.instanceTypeName] = this.instanceTypeName;
+    if (supertypesstr) model[ECoreClass.eSuperTypes] = supertypesstr;
+    if (featurearr) model[ECoreClass.eStructuralFeatures] = featurearr;
+    if (operationsarr) model[ECoreClass.eOperations] = operationsarr;
     return model; }
 
 
@@ -777,5 +778,27 @@ export class M2Class extends IClass {
   getContainer(): M2Reference{
     for (let ref of this.referencesIN) if (ref.isContainment()) return ref;
     return null;
+  }
+
+  getUpperClassesByLevel(): Dictionary<number, M2Class[]> {
+    const byLevel: Map<number, M2Class[]> = new Map();
+    byLevel[0] = [this];
+    for (let level = 0; true; ) {
+      console.log('getUpperClassesByLevel, ', byLevel, '['+level+'] = ', byLevel[level])
+      const allForNextLevel: M2Class[] = byLevel[level].flatMap( (c: M2Class) => c.extends);
+      if (!allForNextLevel.length) break;
+      byLevel[++level] = allForNextLevel;
+    }
+    return byLevel;
+  }
+  getSubclassDepthLevel(subclass: M2Class): number{
+    if (this === subclass) return 0;
+    let superclasses: Dictionary<number, M2Class[]> = subclass.getUpperClassesByLevel();
+    const levels: number = Object.keys(superclasses).length;
+    for (let level = 0; level < levels; level++) {
+      if (superclasses[level].indexOf(this) >= 0) return level;
+    }
+    return -1; // not inheriting
+
   }
 }

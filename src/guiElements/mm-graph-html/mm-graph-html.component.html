@@ -108,8 +108,8 @@
       </div>
     </foreignobject>
 
-    <foreignobject class="template Vertex Class" tabindex="-1" hover-base="v1" x="50" y="50" width="300" style="cursor: pointer; position: relative; border-radius:7px; box-shadow: 0 0 3pt 0.5pt var(--color-3); background:var(--color-1); color:var(--color-2);">
-      <div class="Class" style="background:var(--color-1); height:auto; min-height: 75px; width:100%; border-radius:7px; display: inline-flex; flex-flow: column;" data-autosizey="1">
+    <foreignobject class="template Vertex Class" tabindex="-1" hover-base="v1" x="50" y="50" width="300" style="cursor: pointer; position: relative; border-radius:7px; background:var(--color-1); color:var(--color-2);">
+      <div class="Class" style="background:var(--color-1); box-shadow: 0 0 3pt 0.5pt var(--color-3); height:auto; min-height: 75px; width:100%; border-radius:7px; display: inline-flex; flex-flow: column;" data-autosizey="1">
         <div class="VertexHeader" style="text-align:center; display:flex; padding: 8px 0; width:100%; font-size:1rem; border-bottom: 0.5px solid #77777777;">
           <input value="$##name$" placeholder="Object name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*"
                  style="background:transparent; border:none; text-align:right; order:1; flex-basis: 50%; min-width:10px;">
@@ -155,6 +155,84 @@
               justify-content: center;
               align-items: center;
               opacity: 0.5; }
+            /* for M1 */
+            /*
+  EChar  = 'EChar',
+  EString  = 'EString',
+  EDate  = 'EDate',
+  EFloat  = 'EFloat',
+  EDouble  = 'EDouble',
+  EBoolean = 'EBoolean',
+  EByte  = 'EByte',
+  EShort  = 'EShort',
+  EInt  = 'EInt',
+  ELong  = 'ELong',*/
+            ::ng-deep .Vertex [data-type="EDouble"] input:not([type="number"]):not([type='range']),
+            ::ng-deep .Vertex [data-type="EFloat"] input:not([type="number"]):not([type='range']),
+            ::ng-deep .Vertex [data-type="ELong"] input:not([type="number"]):not([type='range']),
+            ::ng-deep .Vertex [data-type="EInt"] input:not([type="number"]):not([type='range']),
+            ::ng-deep .Vertex [data-type="EShort"] input:not([type="number"]):not([type='range']),
+            ::ng-deep .Vertex [data-type="EByte"] input:not([type="number"]):not([type='range']),
+            ::ng-deep .Vertex [data-type="EDouble"] textarea,
+            ::ng-deep .Vertex [data-type="EFloat"] textarea,
+            ::ng-deep .Vertex [data-type="ELong"] textarea,
+            ::ng-deep .Vertex [data-type="EInt"] textarea,
+            ::ng-deep .Vertex [data-type="EShort"] textarea,
+            ::ng-deep .Vertex [data-type="EByte"] textarea,
+            ::ng-deep .Vertex [data-type="EDouble"] select:not([number]),
+            ::ng-deep .Vertex [data-type="EFloat"] select:not([number]),
+            ::ng-deep .Vertex [data-type="ELong"] select:not([number]),
+            ::ng-deep .Vertex [data-type="EInt"] select:not([number]),
+            ::ng-deep .Vertex [data-type="EShort"] select:not([number]),
+            ::ng-deep .Vertex [data-type="EByte"] select:not([number]) { display: none; }
+
+            ::ng-deep .Vertex [data-type="EBoolean"] input:not([type="radio"]):not([type='checkbox']),
+            ::ng-deep .Vertex [data-type="EBoolean"] select:not([bool]),
+            ::ng-deep .Vertex [data-type="EBoolean"] textarea:not([bool]){ display: none; }
+            ::ng-deep .Vertex [data-type="EDate"] input:not([type='date']):not([type='time']):not([type='datetime-local']):not([type='month']):not([type='week']),
+            ::ng-deep .Vertex [data-type="EDate"] select:not([date]),
+            ::ng-deep .Vertex [data-type="EDate"] textarea:not([date]){ display: none; }
+
+            ::ng-deep .Vertex [data-type="EString"] input[type="number"],
+            ::ng-deep .Vertex [data-type="EString"] input[type="range"],
+            ::ng-deep .Vertex [data-type="EString"] input[type="radio"],
+            ::ng-deep .Vertex [data-type="EString"] input[type="checkbox"],
+            ::ng-deep .Vertex [data-type="EString"] input[type="date"],
+            ::ng-deep .Vertex [data-type="EString"] input[type="time"],
+            ::ng-deep .Vertex [data-type="EString"] input[type="datetime-local"],
+            ::ng-deep .Vertex [data-type="EString"] input[type="month"],
+            ::ng-deep .Vertex [data-type="EString"] input[type="week"],
+            ::ng-deep .Vertex [data-type="EString"] select[enum],
+            ::ng-deep .Vertex [data-type="EString"] select[date],
+            ::ng-deep .Vertex [data-type="EString"] select[bool],
+            ::ng-deep .Vertex [data-type="EString"] select[number],
+            ::ng-deep .Vertex [data-type="EString"] textarea[enum],
+            ::ng-deep .Vertex [data-type="EString"] textarea[date],
+            ::ng-deep .Vertex [data-type="EString"] textarea[bool],
+            ::ng-deep .Vertex [data-type="EString"] textarea[number],
+            ::ng-deep .Vertex [data-type="EChar"] input[type="number"],
+            ::ng-deep .Vertex [data-type="EChar"] input[type="range"],
+            ::ng-deep .Vertex [data-type="EChar"] input[type="radio"],
+            ::ng-deep .Vertex [data-type="EChar"] input[type="checkbox"],
+            ::ng-deep .Vertex [data-type="EChar"] input[type="date"],
+            ::ng-deep .Vertex [data-type="EChar"] input[type="time"],
+            ::ng-deep .Vertex [data-type="EChar"] input[type="datetime-local"],
+            ::ng-deep .Vertex [data-type="EChar"] input[type="month"],
+            ::ng-deep .Vertex [data-type="EChar"] input[type="week"],
+            ::ng-deep .Vertex [data-type="EChar"] select[enum],
+            ::ng-deep .Vertex [data-type="EChar"] select[date],
+            ::ng-deep .Vertex [data-type="EChar"] select[bool],
+            ::ng-deep .Vertex [data-type="EChar"] select[number],
+            ::ng-deep .Vertex [data-type="EChar"] textarea[enum],
+            ::ng-deep .Vertex [data-type="EChar"] textarea[date],
+            ::ng-deep .Vertex [data-type="EChar"] textarea[bool],
+            ::ng-deep .Vertex [data-type="EChar"] textarea[number] { display: none; }
+
+            ::ng-deep .Vertex [enum-type="EEnum"]/*in m1 style i set only 2 possible values, this or template error*/ select:not([enum]),
+            ::ng-deep .Vertex [enum-type="EEnum"] input:not([enum]),
+            ::ng-deep .Vertex [enum-type="EEnum"] textarea:not([enum]){ display: none; }
+
+
           </style>
           <select class="AddFieldSelect" style="background:transparent; display:flex; margin:auto;">
             <optgroup label="FeatureType">
@@ -169,8 +247,9 @@
       </div>
     </foreignobject>
 
-    <foreignobject class="template Vertex EEnum" tabindex="-1" hover-base="v1" x="50" y="50" width="300" style="cursor: pointer; position: relative; border-radius:7px; box-shadow: 0 0 3pt 0.5pt var(--color-3); background:var(--color-1); color:var(--color-2);">
-      <div class="Class" style="background:var(--color-1); height:auto; min-height: 75px; width:100%; border-radius:7px; display: inline-flex; flex-flow: column;" data-autosizey="1">
+    <foreignobject class="template Vertex EEnum" tabindex="-1" hover-base="v1" x="50" y="50" width="300" style="cursor: pointer; position: relative; border-radius:7px; background:var(--color-1); color:var(--color-2);">
+      <div class="Class" style="background:var(--color-1); box-shadow: 0 0 3pt 0.5pt var(--color-3); height:auto; min-height: 75px; width:100%; border-radius:7px; display: inline-flex; flex-flow: column;" data-autosizey="1">
+        <datalist id="enum-$##name$"></datalist>
         <div class="VertexHeader" style="text-align:center; display:flex; padding: 8px 0; width:100%; font-size:1rem; border-bottom: 0.5px solid #77777777;">
           <input value="$##name$" placeholder="Object name" pattern="[a-zA-Z_\u0024][a-zA-Z\d_\u0024]*"
                  style="background:transparent; border:none; text-align:right; order:1; flex-basis: 50%; min-width:10px;">

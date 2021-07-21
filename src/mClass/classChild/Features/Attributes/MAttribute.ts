@@ -1,16 +1,19 @@
 import {
   AttribETypes,
+  Dictionary,
+  EEnum,
+  ELiteral,
   IAttribute,
-  M2Class,
-  IFeature,
-  IReference,
+  Info,
   Json,
+  M2Attribute,
   MClass,
+  Model,
   ModelPiece,
-  ShortAttribETypes, M2Attribute,
-  U, M3Attribute, IVertex, IField, MetaModel, Model, Status, Info, Type, EEnum, ELiteral, Dictionary,
+  ShortAttribETypes,
+  Type,
+  U,
 } from '../../../../common/Joiner';
-import {del}   from 'selenium-webdriver/http';
 import {EType} from '../../Type';
 import ChangeEvent = JQuery.ChangeEvent;
 
@@ -27,22 +30,34 @@ export class MAttribute extends IAttribute {
     let i = -1;
     while (++i < arr.length) {
       if (Array.isArray(arr[i])) { MAttribute.typeChange(arr[i], newType); continue; }
-      let newVal: any;
+      let newVal: any = arr[i];
       switch (newType.short) {
         default: U.pe(true, 'unexpected type: ' + newType.short); break;
-        case ShortAttribETypes.EDate: newVal = null; break;
+        case ShortAttribETypes.EDate:
+          let valStr: string = newVal + '';
+          const weekRegExp = valStr.match(/^([0-9]{4})\-W([0-9]{2})$/);
+          if (weekRegExp) {
+            let year = weekRegExp[1];
+            let weeknum = weekRegExp[2];
+            U.pe(!U.isNumerizable(year) || !U.isNumerizable(weeknum), 'invalid week format date:', valStr);
+            newVal = U.fromWeekNumber(+year, +weeknum)
+          } else newVal = new Date(valStr);
+          if (isNaN(newVal as any) && (valStr as string).indexOf(':') > 0) newVal = new Date('1970-01-01 ' + valStr); // se è time-only fallisce il parsing.
+          if (isNaN(newVal as any)) newVal = new Date();
+          newVal = newVal.toISOString(); // iso should be supported by ecore. // .toLocaleString(U.getLocale());
+          break;
         case ShortAttribETypes.EFloat: case ShortAttribETypes.EDouble:
-          newVal = parseFloat('' + arr[i]);
+          newVal = parseFloat('' + newVal);
           if (newVal === null || newVal === undefined) { newVal = newType.defaultValue; }
           break;
-        case ShortAttribETypes.EBoolean: newVal = !!arr[i]; break;
+        case ShortAttribETypes.EBoolean: newVal = !!newVal; break;
         case ShortAttribETypes.EChar:
-          newVal = (arr[i] + '')[0];
+          newVal = (newVal + '')[0];
           if (newVal === undefined || newVal === null) { newVal = newType.defaultValue; }
           break;
-        case ShortAttribETypes.EString: newVal = (arr[i] === null || arr[i] === undefined ? null : '' + arr[i]); break;
+        case ShortAttribETypes.EString: newVal = (newVal === null || newVal === undefined ? null : '' + newVal); break;
         case ShortAttribETypes.EInt: case ShortAttribETypes.EByte: case ShortAttribETypes.EShort: case ShortAttribETypes.ELong:
-          let tentativo: number = parseInt('' + arr[i], 10);
+          let tentativo: number = parseInt('' + newVal, 10);
           tentativo = !isNaN(+tentativo) ? (+tentativo) : newType.defaultValue;
           tentativo = Math.min(newType.maxValue, Math.max(newType.minValue, tentativo));
           newVal = tentativo;
@@ -158,16 +173,28 @@ export class MAttribute extends IAttribute {
   }
 
   fieldChanged(e: ChangeEvent) {
-    console.log('fieldchanged m1 attr', e);
+    console.log('vdu fieldchanged m1 attr', e);
     const html: HTMLElement = e && e.currentTarget;
     if (e) switch (html.tagName.toLowerCase()) {
       default: U.pe(true, 'unexpected tag:', html.tagName, ' of:', html, 'in event:', e); break;
       case 'textarea':
       case 'input':
-        this.setValueStr((html as HTMLInputElement).value);
-        (html as HTMLInputElement).value = this.getValueStr();
+        const htmli: HTMLInputElement = (html as HTMLInputElement);
+        let val: string = htmli.value;
+        if (htmli.getAttribute('type') === 'date') {
+          // date should take the format YYYY-MM-DD
+          // const date = new Date(val);
+          // val = date.getDate()  + "-" + (date.getMonth()+1) + "-" + date.getFullYear() +
+        }
+        this.setValueStr(val);
+        htmli.value = this.getValueStr();
         break;
-      case 'select': U.pe(true, 'Unexpected non-disabled select field in a Vertex.MAttribute.'); break;
+      case 'select':
+        const htmls: HTMLSelectElement = (html as HTMLSelectElement);
+        const type = this.getType();
+        U.pe(!type.enumType && type.primitiveType !== EType.get(ShortAttribETypes.EBoolean),
+          'Unexpected non-disabled select field in a Vertex.MAttribute of type:' + this.getType().printablename);
+        this.setValueStr(htmls.value);
     }
     super.fieldChanged(e, true);
   }
@@ -189,7 +216,6 @@ export class MAttribute extends IAttribute {
   setValues(values: any[] | any = null, index: number = null, autofix: boolean = true, debug: boolean = false): void {
     if (index < 0) index = (this.getUpperbound() - index) % this.getUpperbound();
     if (index !== null && index !== undefined) { this.values[index] = values; }
-    debug = true;
     debug = true;
     const values0 = values;
     if (U.isEmptyObject(values, true, true)

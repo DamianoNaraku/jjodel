@@ -2804,14 +2804,20 @@ export class U {
       ret.attrselector = fullselector.substr(U.AttributeSelectorOperator.length).trim().toLowerCase();
       ret.attrRegex = U.parseRegexString(ret.attrselector, ['/', '\\'], null, false); }
 
-    U.pif(debug, 'part1:  index:', attributeSelectorIndex, ' data:', ret);
+    U.pif(debug, 'part1:  index:', attributeSelectorIndex, ' data:', {...ret});
     // is mono-left (only jqselector), becomes both.
     if (attributeSelectorIndex + U.AttributeSelectorOperator.length === fullselector.length) {
       ret.jqselector = fullselector.substr(0, attributeSelectorIndex).trim();
       ret.attrselector = defaultAttributeSelector ? defaultAttributeSelector : null;
       ret.attrRegex = null; }
 
-    U.pif(debug, 'part2:  index:', attributeSelectorIndex, ' data:', ret);
+    U.pif(debug, 'part2:  index:', attributeSelectorIndex, ' data:', {...ret});
+    if (!ret.jqselector && attributeSelectorIndex > 0 && ret.jqselector == null) {
+      ret.jqselector = fullselector.substr(0, attributeSelectorIndex);
+    }
+    if (!ret.attrselector && attributeSelectorIndex > 0 && attributeSelectorIndex < fullselector.length) {
+      ret.attrselector = fullselector.substr(attributeSelectorIndex);
+    }
     // check if ambiguous mono-part (left or right?), becomes both
     /*
     if (attributeSelectorIndex === -1) {
@@ -2832,7 +2838,7 @@ export class U {
     // search for external triggers
     try { ret.resultSetElem = ret.jqselector && ret.jqselector !== 'this' ? $searchRoots.find(ret.jqselector) : ($defaultNode instanceof $ ? $defaultNode : $([])); }
     catch (e) { ret.exception = e; return ret; }
-    U.pif(debug, 'part3:  index:', attributeSelectorIndex, ' data:', ret, '$serachRoots', $searchRoots, ' $defaultNode:', $defaultNode, 'jqinstance?' , $defaultNode instanceof jQuery);
+    U.pif(debug, 'part3:  index:', attributeSelectorIndex, ' data:', {...ret}, '$serachRoots', $searchRoots, ' $defaultNode:', $defaultNode, 'jqinstance?' , $defaultNode instanceof jQuery);
 
     let i: number;
     let j: number;
@@ -2846,7 +2852,7 @@ export class U {
         U.ArrayMerge(ret.resultSetAttr, getAttributes(ret.resultSetElem[i], attrname, null));
       }
     }
-    U.pif(debug, 'part4 ret:  index:', attributeSelectorIndex, ' data:', ret);
+    U.pif(debug, 'part4 ret:  index:', attributeSelectorIndex, ' data:', {...ret});
     return ret; }
 
   static deepCloneWithFunctions(obj: object): object {

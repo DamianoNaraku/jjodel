@@ -1094,7 +1094,7 @@ export class IVertex {
     // console.log(e.button, e.buttons, e);
     const parentLine: Element[] = U.getParentLine(target, this.getMeasurableNode(), true, false, true);
     const measurables: JQuery<Element> = $(parentLine).filter('.measurable');
-    const clickedOnMeasurableChildren: boolean = !!measurables.length;
+    const clickedOnMeasurableChildren: boolean = !!measurables.length && target !== this.getMeasurableNode();
     console.log('resizingg', {e, target:e.target, condition:e.target.classList.contains('ui-resizable-handle')});
     if (e.target.classList.contains('ui-resizable-handle')) return;
     if (e.button !== U.mouseLeftButton && (clickedOnMeasurableChildren)) { e.stopPropagation(); }
@@ -1202,7 +1202,15 @@ export class IVertex {
     U.pe(!graph, 'Vertex should only be created after Graph initialization.');
     this.owner = graph; }
 
-  refreshGUI(): void { this.draw(); this.refreshEdgesGUI(); }
+  refreshGUI(): void {
+    // this.shouldRefresh = true;
+    this.doRefreshGUI();
+    this.refreshEdgesGUI();
+  }
+
+  private doRefreshGUI(): void {
+    this.draw();
+  }
 
   refreshEdgesGUI(): void {
     const refEnd: IEdge[] = this.edgesEnd; // this.getReferencesEnd();

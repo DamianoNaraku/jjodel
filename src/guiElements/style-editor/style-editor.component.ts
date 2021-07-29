@@ -385,6 +385,8 @@ export class StyleEditor {
     let graphRoot: Element = mp.getHtmlOnGraph();
     context.graphRoot = insideOwnSection && graphRoot;
     context.graphLevel = graphRoot && insideOwnSection && U.followIndexesPath(graphRoot, indexedPath, 'childNodes');
+    this.clickedLevel = context.graphLevel;
+    this.updateClickedGUIHighlight();
     // just not displayed U.pe(!graphRoot, 'failed to get graphroot', graphRoot, indexedPath, mp);
     // U.pe(insideOwnSection && !context.graphLevel, 'failed to get graphlv', graphRoot, indexedPath, mp);
     context.applyNodeChangesToInput = (): void => {
@@ -440,6 +442,7 @@ export class StyleEditor {
       if (insideOwnSection) {
         context.graphRoot = graphRoot;
         context.graphLevel = graphRoot && U.followIndexesPath(graphRoot, indexedPath, 'childNodes');
+        this.clickedLevel = context.graphLevel;
         this.updateClickedGUIHighlight();
       }
       // obj.input.innerText = inputHtml.outerHTML;
@@ -560,6 +563,8 @@ export class StyleEditor {
     context.templateLevel = U.followIndexesPath(templateRoot, indexedPath, 'childNodes', realindexfollowed);
     // console.log('clickedRoot:',clickedRoot, 'clikedLevel:', clickedLevel, 'indexedPath:', indexedPath, 'followed:', realindexfollowed,
     // 'templateRoot:', templateRoot, 'templateLevel:', templateLevel);
+    // todo: c'è un problema con jquery resizable on leaf nodes, it add the resizer as a parent, so the indexPath is altered...
+    //  dovrei fare in modo che seguendo il path se incontra un ".jq-ui" prende automaticamente il first(andonly)child e poi prosegue a seguire il path
     if (realindexfollowed.indexFollowed.length !== indexedPath.length) {
       indexedPath = realindexfollowed.indexFollowed as number[];
       this.clickedLevel = clickedLevel = U.followIndexesPath(clickedRoot, indexedPath,  'childNodes'); }
@@ -1244,9 +1249,10 @@ export class StyleEditor {
     if (!isEventTriggerRule) { U.remove(debugtriggers.parentElement); debugtriggers = null; }
     let execute = () => {
       if (!context.graphLevel) { U.ps(true, 'Rules cannot be executed on elements not displayed on the graph.'); return; }
-      const attr: Attr = context.graphLevel.attributes.getNamedItem(generateRuleName().toLowerCase());
-      let parts: MeasurableRuleParts = new MeasurableRuleParts(attr, null, false);
-      U.pe(!parts.prefix, 'unexpected rule: ' + parts, this, attr, generateRuleName());
+      let attr: Attr = context.graphLevel.attributes.getNamedItem(generateRuleName().toLowerCase());
+      let parts: MeasurableRuleParts;
+      try { parts = new MeasurableRuleParts(attr, null, false); } catch {}
+      U.pe(!parts || !parts.prefix, 'unexpected rule: ', {ruletype, nameinputValue: nameinput.value, context, parts, thiss:this, attr, rulename:generateRuleName()});
       let output: MeasurableRuleParts = new MeasurableRuleParts(null, null, true);
       try { output = parts.process(false); }
       catch (exception) {

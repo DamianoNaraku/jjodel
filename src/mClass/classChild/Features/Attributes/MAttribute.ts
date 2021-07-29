@@ -221,11 +221,16 @@ export class MAttribute extends IAttribute {
     if (U.isEmptyObject(values, true, true)
      || (Array.isArray(values) && (values.length === 0 || (values.length === 1 && U.isEmptyObject(values[0])))))
        { values = this.getType().defaultValue(); } // redundancy, i'm double fixing it. should check if autofix fixes nulls.
-    if (!Array.isArray(values)) { values = [values]; }
+    if (U.isNumber(index)) {
+      this.values[index] = values;
+    }
+    else {
+      if (!Array.isArray(values)) { values = [values]; }
+      this.values = values;
+    }
     // U.pe(values0 === null && values.length === 1 && values[0] === [0], 'wtf?', values0, values, this);
     if (debug) console.trace();
     U.pif(debug, this.metaParent.fullname() +  '.setvalue: |', values0, '| --> ', values, {defaultv: this.getType().defaultValue(), type: this.getType(), upperbound: this.getUpperbound()});
-    this.values = values;
     if (this.getUpperbound() >= 0) { this.values.length = this.getUpperbound(); }
     U.pe('' + values === '' + undefined || '' + values === '' + null, 'undef:', values, this);
     U.pif(debug, 'end value:', values);

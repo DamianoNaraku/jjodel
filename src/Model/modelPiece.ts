@@ -1053,7 +1053,30 @@ export class ProtectedModelPiece {/* implements MReference {
     if (!(this.unsafemp instanceof IPackage)) throw new Error("called IPackage.getChildrenEnumSelector() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return this.unsafemp.getChildrenEnumSelector(index); }
 
-  getChildren(index: number): ProtectedModelPiece { return new ProtectedModelPiece(this.unsafemp.getChildren(index), this); }
+  //getChildren(name: string/*string*/): ProtectedModelPiece { return this.unsafemp.getch}
+  getValue(index: number = 0/*number = 0*/): any /* any*/ {
+    if (!(this.unsafemp instanceof MAttribute)) throw new Error("called IAttribute.getValue() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    index = +index;
+    let ub = this.unsafemp.getUpperbound();
+    if (ub < 0) ub = this.unsafemp.values.length;
+    if (ub === 0) return undefined;
+    if (index < 0) index = (ub-index) % ub;
+    if (index > ub) index = index % ub;
+    return this.unsafemp.values[index]; }
+  getValues(): any | any[]/* any | any[]*/ {
+    if (!(this.unsafemp instanceof MAttribute)) throw new Error("called IAttribute.getValue() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    let ret = (this.unsafemp as MAttribute).values;
+    if (this.unsafemp.getUpperbound() === 1) return ret[0];
+    else return ret;
+  }
+  setValues(values: any[] | any = null /*any[] | any = null*/, index: number = null /*number = null*/, autofix: boolean = true /*boolean = true*/): void/*void*/ {
+    if (!(this.unsafemp instanceof MAttribute)) throw new Error("called IAttribute.getValue() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
+    return (this.unsafemp as MAttribute).setValues(values, index, autofix); }
+  getChildren(name_or_index: number | string /*string | number*/, caseSensitive?: boolean /*boolean = false*/): ProtectedModelPiece {
+    if (U.isNumerizable(name_or_index)) return new ProtectedModelPiece(this.unsafemp.getChildren(+name_or_index), this);
+    return new ProtectedModelPiece(this.unsafemp.getChildrenByName(''+name_or_index, !!caseSensitive), this);
+
+  }
   getChildrenAttribute(index: number): ProtectedModelPiece {
     if (!(this.unsafemp instanceof IClass)) throw new Error("called IClass.getChildrenAttribute() on a ModelPiece with a wrong type(" + U.getTSClassName(this.unsafemp) + ") ");
     return new ProtectedModelPiece(this.unsafemp.getChildrenAttribute(index), this); }

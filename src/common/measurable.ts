@@ -68,7 +68,7 @@ export class UnsafeMeasurableEvalContext {
   modelRoot: /*Model*/IModel;
 }
 export class MeasurableEvalContext {
-  unsafec: UnsafeMeasurableEvalContext;
+  unsafe: UnsafeMeasurableEvalContext;
   graphSize: ISize;
   documentSize: ISize;
   graphScroll: IPoint;
@@ -90,10 +90,10 @@ export class MeasurableEvalContext {
   absoluteGPos: GraphPoint;
   absoluteDocPos: IPoint; // posizione dell'elemento rispetto al documento, es: impedisce che l'elemento scenda oltre metà schermata.
   constructor() {
-    this.unsafec = new UnsafeMeasurableEvalContext();
+    this.unsafe = new UnsafeMeasurableEvalContext();
   }
 
-  static isVertex(context: MeasurableEvalContext): boolean { return context.unsafec.vertex.getHtmlRawForeign() === context.unsafec.node; }
+  static isVertex(context: MeasurableEvalContext): boolean { return context.unsafe.vertex.getHtmlRawForeign() === context.unsafe.node; }
   setSize = (w: number = null/*number*/, h: number = null/*number*/): void => /*void*/{
     if (U.isNumerizable(w)) { this.width = +w; }
     if (U.isNumerizable(h)) { this.height = +h; }
@@ -182,24 +182,24 @@ export class MeasurableEvalContext {
     let thiss: MeasurableEvalContext = new MeasurableEvalContext();
     thiss.isFilled = false;
     thiss.width = thiss.height = 0;
-    thiss.unsafec = new UnsafeMeasurableEvalContext();
+    thiss.unsafe = new UnsafeMeasurableEvalContext();
     thiss.relativePos = thiss.relativeVPos = thiss.absoluteGPos = thiss.absoluteDocPos = new GraphPoint(0, 0);
     thiss.absoluteDocPos = new Point(0, 0);
     thiss.documentSize = new Size(0, 0);
     thiss.vertexSize = new GraphSize(0, 0, 0, 0);
     thiss.model = U.copyFirstLevelStructureWithoutValues(new ProtectedModelPiece(null, null)) as any;
-    // set unsafec
+    // set unsafe
     console.log(new IVertex(null, null), U.copyFirstLevelStructureWithoutValues(new IVertex(null, null)));
     // throw new Error();
-    thiss.unsafec.vertex = U.copyFirstLevelStructureWithoutValues(new IVertex(null, null)) as any;
-    thiss.unsafec.graph = U.copyFirstLevelStructureWithoutValues(Status.status.mm.graph) as any;
-    thiss.unsafec.modelRoot = U.copyFirstLevelStructureWithoutValues(Status.status.mm) as any;
-    thiss.unsafec.node = document.createElement('div');
+    thiss.unsafe.vertex = U.copyFirstLevelStructureWithoutValues(new IVertex(null, null)) as any;
+    thiss.unsafe.graph = U.copyFirstLevelStructureWithoutValues(Status.status.mm.graph) as any;
+    thiss.unsafe.modelRoot = U.copyFirstLevelStructureWithoutValues(Status.status.mm) as any;
+    thiss.unsafe.node = document.createElement('div');
 
     thiss.attributes = thiss.a = []; // not an array but i want [] suggestions. todo: se è oggetto suggerisci "." se è array suggerisci "["
     // approximation tricks
     if (filltarget) thiss.target = MeasurableEvalContext.fillFake(false);
-    thiss.model.unsafemp = thiss.unsafec.model = thiss.model as any as ModelPiece;
+    thiss.model.unsafemp = thiss.unsafe.model = thiss.model as any as ModelPiece;
     return thiss; }
 
 }
@@ -328,12 +328,12 @@ export class MeasurableRuleParts {
     backupContext.isFilled = true; // avoid dual fill, se ci sono due eval() questo rollbackerebbe alla scorsa esecuzione.
     evalContext.isFilled = true;
 
-    evalContext.unsafec.node = node;
-    backupContext.unsafec.node = node; // node.cloneNode(true) as Element;
-    backupContext.unsafec.graph = evalContext.unsafec.graph = graph;
-    backupContext.unsafec.vertex = evalContext.unsafec.vertex = vertex;
-    backupContext.unsafec.model = evalContext.unsafec.model = mp;
-    backupContext.unsafec.modelRoot = evalContext.unsafec.modelRoot = mp.getModelRoot();
+    evalContext.unsafe.node = node;
+    backupContext.unsafe.node = node; // node.cloneNode(true) as Element;
+    backupContext.unsafe.graph = evalContext.unsafe.graph = graph;
+    backupContext.unsafe.vertex = evalContext.unsafe.vertex = vertex;
+    backupContext.unsafe.model = evalContext.unsafe.model = mp;
+    backupContext.unsafe.modelRoot = evalContext.unsafe.modelRoot = mp.getModelRoot();
     backupContext.model = new ProtectedModelPiece(mp, null);
     evalContext.model = new ProtectedModelPiece(mp, null);
     U.pe(!evalContext.model.unsafemp, 'unsafe is unset:', evalContext.model, mp, evalContext);
@@ -358,7 +358,7 @@ export class MeasurableRuleParts {
     backupContext.documentSize = evalContext.documentSize.duplicate();
 
 
-    let attrs = evalContext.unsafec.node.attributes;
+    let attrs = evalContext.unsafe.node.attributes;
     evalContext.a = {};
     evalContext.attributes = evalContext.a;
     backupContext.attributes = null;
@@ -465,27 +465,27 @@ export class MeasurableRuleParts {
       let ermsg: string;
       let rollbackContext = 'donotuse';
       let evalContext = 'donotusetoo'
-      const vertex: IVertex = safeContextRollback.unsafec.vertex;
+      const vertex: IVertex = safeContextRollback.unsafe.vertex;
       const graph: IGraph = vertex.owner;
       graph.setZoom(outcontext.graphZoom.x, outcontext.graphZoom.y);
       // graph.setScroll(500, 500);//  error here??? questo mi cambia vpos.y
       graph.setScroll(outcontext.graphScroll.x, outcontext.graphScroll.y);//  error here??? questo mi cambia vpos.y
       // U.pe(true, 'meastest');
       // evalContext.graph.setGrid(outcontext.graphGrid.x, outcontext.graphGrid.y);
-      const isVertex = (vertex.getMeasurableNode() === safeContextRollback.unsafec.node);
+      const isVertex = (vertex.getMeasurableNode() === safeContextRollback.unsafe.node);
       vertex.setSize(outcontext.vertexSize, false, true);
       if (!outcontext.model && outcontext !== safeContextRollback) {
         out.right += 'invalid final value for this.model = ' + outcontext.model + ', please do not overwrite context variables.';
         doRollback(); return; }
       if (!isVertex){
-        const html: HTMLElement = safeContextRollback.unsafec.node instanceof HTMLElement || safeContextRollback.unsafec.node instanceof SVGSVGElement ? safeContextRollback.unsafec.node as any : null;
-        const svgSubElement: SVGElement = !html ? safeContextRollback.unsafec.node as any : null;
+        const html: HTMLElement = safeContextRollback.unsafe.node instanceof HTMLElement || safeContextRollback.unsafe.node instanceof SVGSVGElement ? safeContextRollback.unsafe.node as any : null;
+        const svgSubElement: SVGElement = !html ? safeContextRollback.unsafe.node as any : null;
         if (!outcontext.relativeVPos || !U.isNumerizable(safeContextRollback.relativeVPos.x) || !U.isNumerizable(outcontext.relativeVPos.y)) {
           out.right+= '\nAn error inside a measurable condition has happened, an invalid value has been wrote inside the variable "relativeVPos".';
           doRollback();  return; }
         if (!html) { out.right += 'inner svg\'s are currently not supported'; doRollback(); return; }
         if (html.style.position !== 'absolute') html.style.position = 'absolute';
-        let relativeParentNode: Element = U.getRelativeParentNode(safeContextRollback.unsafec.node);
+        let relativeParentNode: Element = U.getRelativeParentNode(safeContextRollback.unsafe.node);
         if (relativeParentNode === vertex.getHtmlRawForeign()) {
           html.style.top = (outcontext.relativeVPos.y * graph.zoom.y) + 'px';
           html.style.left = (outcontext.relativeVPos.x * graph.zoom.x) + 'px';
@@ -596,7 +596,7 @@ export class MeasurableRuleParts {
           out.left += '\ninvalid target selector: ' + exception.toString();
           out.right += '\ninvalid target selector: ' + exception.toString();
           return out; }
-          vertex = rollbackContext.unsafec.vertex;
+          vertex = rollbackContext.unsafe.vertex;
           U.pe (evalContext.target && (evalContext.relativePos.y !== evalContext.absoluteGPos.y - evalContext.target.absoluteGPos.y),
           'context:', evalContext, 'failed assertion, relativePos != this.absolGpos - target.absolGpos ', evalContext.relativePos, ' !== ', evalContext.absoluteGPos, ' - ', evalContext.target && evalContext.target.absoluteGPos)
 
@@ -646,7 +646,8 @@ export class MeasurableRuleParts {
         selectorout = U.processSelectorPlusPlus(this.left, false, $(vertex.owner.container), $(this.attr.ownerElement), null);
         if (selectorout.exception) { out.left += (out.left ? '\n' : '') + selectorout.exception.toString(); return out; }
         out.left = 'matched ' + selectorout.resultSetElem.length + ' elements and ' + selectorout.resultSetAttr.length + ' attributes. search "xprt" on console to see them';
-        console.info('xprt', 'Matched elements:', selectorout.resultSetElem, 'Matched attributes:', selectorout.resultSetAttr);
+        console.info('xprt',
+          'Matched elements:', selectorout.resultSetElem, 'Matched attributes:', selectorout.resultSetAttr, {selectorout, thiss: this, context: evalContext});
         if (selectorout.resultSetAttr.length + selectorout.resultSetElem.length === 0) { out.right += 'not executed.'; return out; }
         ////////// can proceed to execution.
         if (!executeRight()) return out;
@@ -657,7 +658,7 @@ export class MeasurableRuleParts {
         out.right += evalOutput.return;
         ////////// exporting resulting value
         for (i = 0; i < selectorout.resultSetAttr.length; i++) { selectorout.resultSetAttr[i].value = evalOutput.return; }
-        for (i = 0; i < selectorout.resultSetElem.length; i++) { selectorout.resultSetElem[i].innerHTML = evalOutput.return; }
+        if (!selectorout.resultSetAttr) for (i = 0; i < selectorout.resultSetElem.length; i++) { selectorout.resultSetElem[i].innerHTML = evalOutput.return; }
         return out;
 
       case measurableRules.dynamicClass:
@@ -699,7 +700,7 @@ export class MeasurableRuleParts {
           out.left += 'invalid.';
           out.right += 'not processed.';
           return out; }
-        console.trace('icr ');
+        console.trace('icr ', {evalContext, evalOutput});
         console.info('irc: valid constraint rule, found:', this.left, ' in: ', MeasurableTemplateGenerator.constraintMap);
         //console.log('preconstraint1');
 //        const preLeft: number = eval("evalContext." + this.left); // must be a simple eval, just because i evalContext[this.left] would become evalContext[vpos.x]

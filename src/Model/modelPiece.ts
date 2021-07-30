@@ -271,17 +271,31 @@ export abstract class ModelPiece {
     U.pe(true, 'unrecognized class:', this);
   }
 
+  private static thingsToRefresh: ModelPiece[] = [];
+
+  refreshGUI_Alone(debug?: boolean): void {
+    if (true) return this.refreshGUI();
+    // if (true) { ModelPiece.thingsToRefresh.push(this); }
+    if (!Status.status.loadedLogic) { return; }
+    let v: IVertex = this.getVertex();
+    v.refreshGUI();
+    // console.log('pbar selected:', v.owner.propertyBar.selectedModelPiece.name, 'me:', this.name);
+    if (this.isChildrenOf(v.owner.propertyBar.selectedModelPiece, true, true)) v.owner.propertyBar.refreshGUI(); }
+
   refreshGUI(debug: boolean = false): void {
     if (!Status.status.loadedLogic) { return; }
     let model: IModel = this.getModelRoot();
-    const thingsToRefresh: ModelPiece[] = [this];
+    console['l'] && console['l']('refreshgui 1', this, [...ModelPiece.thingsToRefresh]);
+
+    const thingsToRefresh: ModelPiece[] = ModelPiece.thingsToRefresh;
+    thingsToRefresh.push(this);
     let i: number;
 
     if (Status.status.refreshModeAll) {
       U.ArrayAdd(thingsToRefresh, Status.status.mmm);
       U.ArrayAdd(thingsToRefresh, Status.status.mm);
       U.ArrayAdd(thingsToRefresh, Status.status.m); }
-    if (Status.status.refreshModelAndInstances && model) {
+    /*if (Status.status.refreshModelAndInstances && model) {
       U.ArrayAdd(thingsToRefresh, model);
       for (i = 0; model.instances && i < model.instances.length; i++) { U.ArrayAdd(thingsToRefresh, model.instances[i]); }
       return; }
@@ -289,21 +303,45 @@ export abstract class ModelPiece {
       model = model.metaParent;
       U.ArrayAdd(thingsToRefresh, model);
       for (i = 0; model.instances && i < model.instances.length; i++) { U.ArrayAdd(thingsToRefresh, model.instances[i]); }
-      return; }
+      return; }*/
     if (Status.status.refreshInstancesToo) {
       for (i = 0; this.instances && i < this.instances.length; i++) { U.ArrayAdd(thingsToRefresh, this.instances[i]); } }
     if (Status.status.refreshModel && model) { U.ArrayAdd(thingsToRefresh, model); }
     if (Status.status.refreshMetaParentToo && this.metaParent) { U.ArrayAdd(thingsToRefresh, this.metaParent); }
     if (Status.status.refreshParentToo && this.parent) { U.ArrayAdd(thingsToRefresh, this.parent); }
-
+    /*
     for (i = 0; i < thingsToRefresh.length; i++) {
       const mp: ModelPiece = thingsToRefresh[i];
       if (mp) { mp.refreshGUI_Alone(debug); }
+    }*/
+
+    console['l'] && console['l']('refreshgui 2', this, [...ModelPiece.thingsToRefresh]);
+    setTimeout( () => ModelPiece.doTheRefresh(debug), 2);
+  }
+  static doTheRefresh(debug: boolean = false){
+    const thingsToRefresh = ModelPiece.thingsToRefresh;
+    if (!thingsToRefresh.length) return;
+    const subClassifiers: IClassifier[] = []; // if a model or package is refreshed, it does not have any vertex, so it will be replaced with child list.
+    function addClassifiers(p: IPackage) {}
+    for (let mp of ModelPiece.thingsToRefresh) {
+      if (mp instanceof IModel) subClassifiers.push(...mp.childrens['flatMap']((p: IPackage) => p.childrens));
+      if (mp instanceof IPackage) subClassifiers.push(...mp.childrens);
     }
+    ModelPiece.thingsToRefresh.push(...subClassifiers);
+    const toRefreshv: Set<IVertex> = new Set(ModelPiece.thingsToRefresh.map(mp => mp.getVertex(false)));
+    const toRefreshe: Set<IEdge> = new Set([...toRefreshv]['flatMap']((v) => v ? [...v.edgesEnd, ...v.edgesStart] : []));
+
+    toRefreshv.forEach( v => v && v.refreshGUI(false));
+    toRefreshe.forEach( e => e && e.refreshGui());
+    for (let pbar of [Status.status.mm.graph.propertyBar, Status.status.m.graph.propertyBar]) {
+      if (thingsToRefresh.indexOf(pbar.selectedModelPiece) >= 0) pbar.refreshGUI();
+    }
+    ModelPiece.thingsToRefresh = [];
   }
 
   refreshInstancesGUI(thisToo: boolean = false): void {
     let i = 0;
+    if (true)  { this.refreshGUI(); return; }
     if (thisToo) this.refreshGUI_Alone();
     U.pe(!this.instances, '', this);
     while (i < this.instances.length) {
@@ -339,13 +377,6 @@ export abstract class ModelPiece {
     const json: Json = this.generateModel({});
     // console.log('genmodelstring:', json, 'this:',  this);
     return JSON.stringify(json, null, 4); }
-
-  refreshGUI_Alone(debug?: boolean): void {
-    if (!Status.status.loadedLogic) { return; }
-    let v: IVertex = this.getVertex();
-    v.refreshGUI();
-    // console.log('pbar selected:', v.owner.propertyBar.selectedModelPiece.name, 'me:', this.name);
-    if (this.isChildrenOf(v.owner.propertyBar.selectedModelPiece, true, true)) v.owner.propertyBar.refreshGUI(); }
 
   isChildrenOf(parent: ModelPiece, includeEqual: boolean = false, includeGrandChildren: boolean = false): boolean {
     if (includeEqual && parent == this) return true;

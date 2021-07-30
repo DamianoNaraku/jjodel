@@ -144,6 +144,14 @@ export class ViewPointShell {
     this.updatelastvp();
     const isM2: boolean = true; // this.graph.model.isM2(); per qualche motivo è false se cambio una checkbox in m2, ha collegato modello sbagliato?
 
+    console.error('refresh vp applied:', {stylecustomized, isM2});
+    if (true) {
+      Status.status.mm.refreshGUI();
+      Status.status.m.refreshGUI();
+      Status.status.mm.graph.propertyBar.styleEditor.show();
+      Status.status.m.graph.propertyBar.styleEditor.show();
+    }
+    // old
     if (stylecustomized) {
       this.graph.model.refreshGUI();
       if (isM2) Status.status.m.refreshGUI();

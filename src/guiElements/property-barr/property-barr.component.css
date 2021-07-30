@@ -120,7 +120,3 @@ label > input[type="checkbox"]{
 label > input[type="number"] {
   min-width: 30px;
 }
-body td, body th {
-  padding: 0;
-  border: none;
-}

@@ -120,6 +120,14 @@ th{
   font-weight: 800;
 }
 
+.propertyBarContainer td, .propertyBarContainer th {
+  padding: 0;
+  border: none;
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast; /* chrome have an issues with asymmetrical resized images becoming blurry */
+}
 
 /* Optional: show position indicator in red */
 /* resizable border */

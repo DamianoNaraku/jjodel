@@ -215,7 +215,11 @@ export class IVertex {
     // const m: IModel = modelPiece.getModelRoot();
     const mm: IModel = Status.status.mm;
     const m: IModel = Status.status.m;
-    setTimeout( () => { mm.refreshGUI(); m.refreshGUI(); }, 1); }
+    setTimeout( () => {
+      modelPiece.refreshGUI();
+      // mm.refreshGUI();
+      // m.refreshGUI();
+      }, 1); }
 
   static ChangePropertyBarContentClick(e: ClickEvent | MouseDownEvent, isEdge: IEdge = null): ModelPiece {
     const html: Element = e.target; // todo: approfondisci i vari tipi di classType (current, orginal...)
@@ -477,6 +481,7 @@ export class IVertex {
   }
 
   private draw(): void {
+    console.trace('vdraw' + this.id);
     // return this.draw0();
     try { this.draw0(); }
     catch(e) {
@@ -1202,10 +1207,10 @@ export class IVertex {
     U.pe(!graph, 'Vertex should only be created after Graph initialization.');
     this.owner = graph; }
 
-  refreshGUI(): void {
+  refreshGUI(plusEdges: boolean = true): void {
     // this.shouldRefresh = true;
     this.doRefreshGUI();
-    this.refreshEdgesGUI();
+    if (plusEdges) this.refreshEdgesGUI();
   }
 
   private doRefreshGUI(): void {

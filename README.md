@@ -28,6 +28,11 @@ First install and serve will take a long time.
 
 [Dev guide](/wiki/Developer-guide-summary)
 
+
+Advanced example with measurable events.
+
+https://damianonaraku.github.io/jjodel/dist/jjodel/?example=aircraft2021
+
 # Feedback, contact me, ask me anything
 Mail me at [damiano.divincenzo@student.univaq.it](mailto:damiano.divincenzo@student.univaq.it?subject=Jodel%20-%20)
 

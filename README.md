@@ -1,3 +1,27 @@
+# 
+# This repository is outdated, please head to [https://github.com/MDEGroup/jjodel](https://github.com/MDEGroup/jjodel)
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+
+
+
+
+
+
+
+
+
 **Welcome to Jodel.**
 
 **For informations please read [the wiki section](https://github.com/DamianoNaraku/jjodel/wiki)**

@@ -27,7 +27,7 @@
     "@types/css": "0.0.31",
     "@types/is": "0.0.21",
     "@types/jqueryui": "^1.12.10",
-    "ansi_up": "^4.0.4",
+    "ansi_up": "^5.0.0",
     "bootstrap": "^4.4.1",
     "css": "^3.0.0",
     "cssjson": "^2.1.3",
